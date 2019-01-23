@@ -1,0 +1,1 @@
+if(top===self||top.location.hostname===self.location.hostname){document.write('<!--');}

@@ -38,17 +38,16 @@
             </div>
         </spring:bind>
 
-        <div class="form-inline">
-        <div class="form-group">
-        <label for="role" id="role"style="margin-right:30px;font-size:175%">Role :</label>
-            <select class="form-control">
-        <option  value="admin" name="roles" >Admin</option>
-        <option value="faculty" name="roles">Faculty</option>
-        <option value="hod"name="roles">HOD</option>
-        </select>
-        </div>
-        </div>
-        <br>
+        <spring:bind path="role">
+                    <div class="form-group ${status.error ? 'has-error' : ''}">
+                        <form:select class="form-control" path="role" >
+                            <option  value="admin" name="roles" >Admin</option>
+                            <option value="faculty" name="roles">Faculty</option>
+                            <option value="hod" name="roles">HOD</option>
+                        </form:select>
+                        <form:errors path="role"></form:errors>
+                    </div>
+         </spring:bind>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
     </form:form>

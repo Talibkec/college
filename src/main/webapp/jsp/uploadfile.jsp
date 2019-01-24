@@ -1,11 +1,12 @@
 <jsp:include page="header.jsp"/>
+
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 <div style="margin-left:50px" ><h3>Upload File</h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
 <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Notice/News</div>
 <div class="panel-body">
 
-<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+<form method="POST" enctype="multipart/form-data" id="fileUploadForm" action>
     <label for="headLine" class="control-label col-sm-4" >Head Line</label>
     <div class="col-sm-8">
         <input type="text" name="noticeHeader" id="noticeHeader"/><br/><br/>
@@ -36,3 +37,4 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
+<script src="http://localhost/js/fileupload.js"></script>

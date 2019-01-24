@@ -1,18 +1,33 @@
 package com.college.core.controller;
 
+import com.college.core.model.NoticeBoardDTO;
+import com.college.service.NoticeBoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+
 @Controller
 @RequestMapping(value="department/cse")
 
 public class CseController {
+
+    @Autowired
+    NoticeBoardService noticeBoardService;
     @RequestMapping(value="about")
-    public ModelAndView getAbout(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getAbout() {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("Role", ControllerUtility.getRole());
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCSENotices();
+        mv.addObject("noticeList", cseNotices);
         mv.setViewName("department/cse/about");
         return mv;
     }
+
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
         ModelAndView mv=new ModelAndView();
@@ -139,5 +154,7 @@ public class CseController {
         mv.setViewName("department/cse/shk");
         return mv;
     }
+
+
     
 }

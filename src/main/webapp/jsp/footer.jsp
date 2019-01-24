@@ -47,7 +47,7 @@ Ph.: 06452-239122</span></p>
 
 <script src="http://localhost/sites/all/themes/bootstrap/js/bootstrap.js"></script>
 <script src="http://localhost/sites/all/themes/bootstrap/js/powr.js"></script>
-<script src="wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="/js/protectcode.js"></script> <script src="wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="/js/protectcode.j"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
             $('#homePageSlider').on('slid.bs.carousel', function ( event ) {
                 var slide = event.relatedTarget;
                 var slideInfoAnimation = $(slide).find('.slideInfo').attr('data-animation');
@@ -86,7 +86,7 @@ Ph.: 06452-239122</span></p>
                     offset: '85%'
                 });
             });
-        });</script> <script src="wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.js"></script> <script>var brandTimer = null;
+        });</script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.js"></script> <script>var brandTimer = null;
         $(document).ready(function(){
             $('.list-brands1 > li, .list-brands2 > li').each(function(){
                 $(this).attr('data-width', $(this).width() + 30);
@@ -165,11 +165,11 @@ Ph.: 06452-239122</span></p>
         }
 </script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
- <script type='text/javascript' src='wp-includes/js/wp-embed.min.js?ver=4.9.8'></script>
-<script src="wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
- <script src="wp-content/themes/kec/assets/vendors/waypoints/lib/shortcuts/sticky.min.js">
+ <script type='text/javascript' src="wp-includes/js/wp-embed.min.js?ver=4.9.8"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/shortcuts/sticky.min.js">
 </script>
- <script src="wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
 <script>$(document).ready(function(){
         new Waypoint.Sticky({
             element: $('.navbar.navbar-default')[0]
@@ -202,5 +202,8 @@ Ph.: 06452-239122</span></p>
         return false;
     }
 </script>
+
+
+
 </body>
 </html>

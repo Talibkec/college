@@ -8,6 +8,7 @@ import java.util.List;
 @Service
 public interface NoticeBoardService {
     List<NoticeBoardDTO> getAllNotice();
+    List<NoticeBoardDTO> getCSENotices();
     void saveNoticeBoard(NoticeBoardDTO noticeBoardDTO);
     void deleteItem(Long id);
 }

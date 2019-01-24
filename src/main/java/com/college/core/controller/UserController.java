@@ -81,7 +81,7 @@ public class UserController {
         List<NoticeBoardDTO>  list = noticeBoardService.getAllNotice();
         modelAndView.addObject("noticeList",getNoticeList(list, false));
         modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
-        modelAndView.addObject("Role", getRole());
+        modelAndView.addObject("Role", ControllerUtility.getRole());
         modelAndView.setViewName("index");
         return modelAndView;
     }
@@ -117,19 +117,6 @@ public class UserController {
         file.delete();
     }
 
-    private String getRole() {
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String userRole = null;
-        if (principal instanceof UserDetails) {
-            UserDetails userDetails = ((UserDetails)principal);
-            for (GrantedAuthority authority : userDetails.getAuthorities()) {
-                userRole = authority.getAuthority();
-            }
-
-        }
-        return userRole;
-    }
-
     public int getDifferenceDays(Date d1, Date d2) {
         int daysdiff = 0;
         long diff = d2.getTime() - d1.getTime();
@@ -137,5 +124,6 @@ public class UserController {
         daysdiff = (int) diffDays;
         return daysdiff;
     }
+
 
 }

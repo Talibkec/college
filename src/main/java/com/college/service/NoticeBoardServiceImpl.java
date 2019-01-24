@@ -27,6 +27,15 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     }
 
     @Override
+    public List<NoticeBoardDTO> getCSENotices() {
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCSENotices();
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+        return modelMapper.map(noticeBoards, targetListType);
+    }
+
+
+
+    @Override
     public void saveNoticeBoard(NoticeBoardDTO noticeBoardDTO) {
         NoticeBoard noticeBoard = modelMapper.map(noticeBoardDTO, NoticeBoard.class);
         noticeBoardRepository.save(noticeBoard);

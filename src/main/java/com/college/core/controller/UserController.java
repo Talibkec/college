@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.core.entity.User;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
+import com.college.service.RoleService;
 import com.college.service.SecurityService;
 import com.college.service.UserService;
 import com.college.validator.UserValidator;
@@ -42,10 +43,13 @@ public class UserController {
     @Autowired
     NoticeBoardService noticeBoardService;
 
+    @Autowired
+    RoleService roleService;
+
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-
+        model.addAttribute("roles", roleService.getALLRoles());
         return "registration";
     }
 

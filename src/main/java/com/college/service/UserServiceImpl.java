@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
@@ -21,8 +22,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<>(roleRepository.findAll()));
-
+        Long roleId = Long.parseLong(user.getRole());
+        HashSet<Role> roles= new HashSet<>();
+        roles.add(roleRepository.findOne(roleId));
+        user.setRoles(roles);
         userRepository.save(user);
     }
 

@@ -41,9 +41,9 @@
         <spring:bind path="role">
                     <div class="form-group ${status.error ? 'has-error' : ''}">
                         <form:select class="form-control" path="role" >
-                            <option  value="admin" name="roles" >Admin</option>
-                            <option value="faculty" name="roles">Faculty</option>
-                            <option value="hod" name="roles">HOD</option>
+                             <c:forEach items="${roles}" var="role">
+                                    <option  value="${role.id}" >${role.name}</option>
+                             </c:forEach>
                         </form:select>
                         <form:errors path="role"></form:errors>
                     </div>

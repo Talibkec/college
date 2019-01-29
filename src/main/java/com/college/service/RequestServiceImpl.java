@@ -1,0 +1,29 @@
+package com.college.service;
+
+import com.college.core.entity.Department;
+import com.college.core.entity.Request;
+import com.college.core.model.DepartmentDTO;
+import com.college.core.model.RequestDTO;
+import com.college.repository.DepartmentRepository;
+import com.college.repository.RequestRepository;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.lang.reflect.Type;
+import java.util.List;
+
+@Service
+public class RequestServiceImpl implements RequestService{
+    ModelMapper modelMapper = new ModelMapper();
+    @Autowired
+    RequestRepository requestRepository;
+
+    @Override
+    public List<RequestDTO> getAllRequest() {
+        List<Request> requests = requestRepository.findAll();
+        Type targetListType = new TypeToken<List<RequestRepository>>() {}.getType();
+        return modelMapper.map(requests, targetListType);
+    }
+}

@@ -1,17 +1,12 @@
 <jsp:include page="header1.jsp"/>
 <body>
 
-<script>
-var today = new Date();
-document.getElementById('time').innerHTML=today;
-
-</script>
  <div style="margin-left:40%;margin-bottom:2%">
     <h2>Add Product</h2>
     </div>
 
 <div class="container">
-    <form method="POST" class="form-inline">
+    <form method="POST" class="form-inline" id = "addProductForm">
         <div class="form-group">
             <label for="product_id" style="margin-right:100px">PRODUCT ID </label>
             <input type="text" class="form-control" id="p_id" placeholder="Enter product id"
@@ -20,7 +15,7 @@ document.getElementById('time').innerHTML=today;
         </br></br>
         <div class="form-group">
             <label for="product_name" style="margin-right:70px">PRODUCT NAME: </label>
-            <input type="text" class="form-control" id="p_name" placeholder="Enter product name" name="Product Name">
+            <input type="text" class="form-control" id="p_name" placeholder="Enter product name" name="ProductName">
         </div>
         </br></br>
 
@@ -49,19 +44,21 @@ document.getElementById('time').innerHTML=today;
         <div class="form-group">
             <label for="Product_type" style="margin-right: 90px">Product_type:</label>
             <select name="product_type" id="p_type" class="form-control">
-                <option value="Consumable" name="Consumable" id="consumable" style="display:block">Consumable</option>
-                <option value="Non-Consumable" name="nonconsumable" id="nonconsumable" style="display:block">Non-Consumable</option>
+                <option value="Consumable" name="Consumable" id="consumable" value = "consumable" style="display:block">Consumable</option>
+                <option value="Non-Consumable" name="nonconsumable" id="nonconsumable" value = "nonconsumable" style="display:block">Non-Consumable</option>
             </select>
         </div>
         </br>
         </br>
 
         <div class="col-lg-4 text-center">
-            <button id="singlebutton" name="singlebutton" class="btn btn-success" style="margin-left:500px">Submit
+            <button id="addProduct" name="addProduct" class="btn btn-success" style="margin-left:500px" type= "submit">Submit
             </button>
         </div>
 
     </form>
 
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/store/addproduct.js"></script>
 </body>
 </html>

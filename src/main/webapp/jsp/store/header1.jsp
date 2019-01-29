@@ -82,6 +82,7 @@ Katihar Engineering College</title>
  <link href="../http://localhost/wp-content/themes/kec/assets/css/style.css" rel="stylesheet"/>
 
  <!--[if lt IE 9]>
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
  <![endif]-->
@@ -97,8 +98,7 @@ Katihar Engineering College</title>
 <link rel="alternate" type="text/xml+oembed" href="https://#/wp-json/oembed/1.0/embed?url=https%3A%2F%2F#%2F&#038;format=xml" />
 <link rel="stylesheet" href="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.css" />
 <link rel="stylesheet" href="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/themes/default/default.css" />
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js></script>
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></scripts>

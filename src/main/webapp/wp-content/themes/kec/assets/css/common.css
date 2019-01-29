@@ -1,0 +1,11 @@
+.faculty-title
+{
+	font-size:150%
+}
+.box-profile-info
+	{
+		line-height:175%
+	}
+		.box-profile-link>a{height:125px;width:100%}.box-profile-image>img{background-size:cover;background-repeat:no-repeat;width:125px;height:125px;background-position:center;border-radius:5px}
+		@media(max-width:760px)
+		{.box-profile-image>img,.box-profile-image>div{margin:auto}.box-profile-link>a{height:auto}}

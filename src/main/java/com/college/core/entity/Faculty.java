@@ -19,18 +19,16 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "facultyId")
     @SequenceGenerator(name = "facultyId", sequenceName = "facultyId")
-
+    @Column(name = "facultyId")
+    public Long getFacultyId() {
+        return facultyId;
+    }
 
 
 
     //Setter and getter for Faculty ID
     public void setFacultyId(Long facultyId) {
         this.facultyId = facultyId;
-    }
-
-    @Column(name = "facultyId")
-    public Long getFacultyId() {
-        return facultyId;
     }
 
     /*-------------------------------------------------------------*/

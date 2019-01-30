@@ -7,21 +7,10 @@
 
 <div class="container">
     <form method="POST" class="form-inline" id = "addProductForm">
-        <div class="form-group">
-            <label for="product_id" style="margin-right:100px">PRODUCT ID </label>
-            <input type="text" class="form-control" id="p_id" placeholder="Enter product id"
-                   name="Product Id">
-        </div>
-        </br></br>
+
         <div class="form-group">
             <label for="product_name" style="margin-right:70px">PRODUCT NAME: </label>
             <input type="text" class="form-control" id="p_name" placeholder="Enter product name" name="ProductName">
-        </div>
-        </br></br>
-
-        <div class="form-group">
-            <label for="available_quantity" style="margin-right: 60px">Available Quantity</label>
-            <input type="number" class="form-control" id="a_quantity" value="0">
         </div>
         </br></br>
         <div class="form-group">

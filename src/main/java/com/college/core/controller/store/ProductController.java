@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "store")
@@ -14,5 +15,6 @@ public class ProductController {
     @RequestMapping(value = "addProduct" , method = RequestMethod.POST)
     public void addProduct(){
         Logger.info("Method called correctly.");
+        //Logger.info(productDetails);
     }
 }

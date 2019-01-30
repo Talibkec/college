@@ -9,6 +9,7 @@ import java.util.Date;
 @Table(name="PURCHASE")
 
 public class Purchase {
+
     private Long purchaseId;
     private Integer quantity;
     private Date date;
@@ -22,6 +23,10 @@ public class Purchase {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "purchaseId")
     @SequenceGenerator(name = "purchaseId", sequenceName = "purchaseId")
+    @Column(name = "purchase_Id")
+    public Long getPurchaseId() {
+        return purchaseId;
+    }
 
 
 
@@ -29,11 +34,6 @@ public class Purchase {
     public void setPurchaseId(Long purchaseId) {
         this.purchaseId = purchaseId;
     }
-    @Column(name = "purchase_Id")
-    public Long getPurchaseId() {
-        return purchaseId;
-    }
-
     /*-------------------------------------------------------------*/
 
 

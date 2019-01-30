@@ -21,17 +21,16 @@ public class Request {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "requestId")
     @SequenceGenerator(name = "requestId", sequenceName = "requestId")
-
+    @Column(name = "request_Id")
+    public Long getRequestId() {
+        return requestId;
+    }
 
 
     //Setter and getter for Request ID
 
     public void setRequestId(Long requestId) {
         this.requestId = requestId;
-    }
-    @Column(name = "request_Id")
-    public Long getRequestId() {
-        return requestId;
     }
 
     /*-------------------------------------------------------------*/

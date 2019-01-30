@@ -14,28 +14,20 @@ public class Order {
     private Date requestDate;
     private String approval;
 
-
-
-
-
-
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "orderId")
     @SequenceGenerator(name = "orderId", sequenceName = "orderId")
-
-
+    @Column(name = "orderId")
+    public Long getOrderId() {
+        return orderId;
+    }
 
     //Setter and getter for Order Id
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
-    public Long getOrderId() {
-        return orderId;
-    }
 
     /*-------------------------------------------------------------*/
-
-
 
     //Setter and getter for Request Id
     public void setRequestId(Long requestId) {

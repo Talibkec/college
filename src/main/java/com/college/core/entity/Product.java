@@ -18,16 +18,16 @@ public class Product {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "productId")
     @SequenceGenerator(name = "productId", sequenceName = "productId")
-
+    @Column(name="P_ID")
+    public Long getProductId() {
+        return productId;
+    }
 
     //Setter and getter for Product Id
     public void setProductId(Long productId) {
         this.productId = productId;
     }
-    @Column(name="P_ID")
-    public Long getProductId() {
-        return productId;
-    }
+
 
     /*-------------------------------------------------------------*/
 

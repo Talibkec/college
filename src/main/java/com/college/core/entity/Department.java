@@ -13,16 +13,16 @@ public class Department {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "departmentId")
     @SequenceGenerator(name = "departmentId", sequenceName = "departmentId")
-
+    @Column(name ="dept_Id")
+    public Long getDepartmentId() {
+        return departmentId;
+    }
 
     //Setter and getter for Department ID
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
     }
-    @Column(name ="dept_Id")
-    public Long getDepartmentId() {
-        return departmentId;
-    }
+
     /*-------------------------------------------------------------*/
 
 

@@ -44,7 +44,7 @@
                             class="fa fa-angle-double-right"></i> Attendance Summary Sheet</a></li>
                 </ul>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><h3>
                         Introduction</h3>
@@ -67,9 +67,54 @@
                             enrich them with their priceless knowledge and experience</p></div>
                 </div>
             </div>
-        </div>
-    </div>
-    </div></div>
+
+
+        <div class="heroCol col-sm-4">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <strong>
+                                 <i class="fa fa-news"></i> Latest News / Updates</strong>
+                                 <c:if test = "${Role == 'HOD'}">
+                                     <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
+                                     <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
+                                 </c:if></div>
+                                <div class="panel-body" style="max-height: 500px;">
+                                 <ul class="listUpdates" id="noticeBoardItems">
+
+                                 <li style="display: block;">
+                                  	<div>
+                                  		<span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                 		<i class="fa fa-clock-o"></i> 2019-01-03 </span>&nbsp; <span class="label label-primary">News</span><a href="https://www.aicte-india.org/feedback/" target="_blank">Faculties and student may give feedback to A.I.C.T.E here</a>
+                                 		<span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                                     		<i class="fa fa-clock-o"></i> 2019-01-03 </span>&nbsp; <span class="label label-primary">News</span><a href="https://www.aicte-india.org/feedback/" target="_blank">Faculties and student may give feedback to A.I.C.T.E here</a>
+                                  	</div>
+                                  </li>
+
+                                 <c:forEach items="${noticeList}" var="notice">
+                                   <li>
+                                 	<div>
+                                 		<span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                 		<c:set var = "clazz"  value = "label label-warning"/>
+                                 		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
+                                 		 <c:if test = "${ notice.noticeType == 'News'}">
+                                                  <c:set var = "clazz"  value = "label label-primary"/>
+                                          </c:if>
+                                 		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                 		<c:if test = "${Role == 'Admin'}">
+                                 		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                                         </c:if>
+                                 		<a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                                 	</div>
+                                 </li>
+                                 </c:forEach>
+                                 </ul>
+                                 <a href="http://localhost/category/notices" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+   </div>
 
 
 <jsp:include page="/jsp/footer.jsp"/>

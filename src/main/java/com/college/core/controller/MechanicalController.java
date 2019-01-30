@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping(value="department/mechanical")
 public class MechanicalController {
-    @RequestMapping(value="about")
+    @RequestMapping(value="mech")
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("department/mechanical/mech");

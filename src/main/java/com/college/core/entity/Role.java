@@ -29,6 +29,7 @@ public class Role {
     }
 
     @ManyToMany(mappedBy = "roles")
+
     public Set<User> getUsers() {
         return users;
     }

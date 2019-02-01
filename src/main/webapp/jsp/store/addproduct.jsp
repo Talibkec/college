@@ -3,7 +3,7 @@
 
  <div style="margin-left:40%;margin-bottom:2%">
     <h2>Add Product</h2>
-    </div>
+ </div>
 
 <div class="container">
     <form method="POST" class="form-inline" id = "addProductForm">
@@ -47,7 +47,7 @@
 
     </form>
 
- <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://localhost/js/store/addproduct.js"></script>
 </body>
 </html>

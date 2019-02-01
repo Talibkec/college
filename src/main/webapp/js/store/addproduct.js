@@ -28,11 +28,8 @@ function fire_ajax_submit() {
         data: {
             productDetails:JSON.stringify(getProductDetails())
         },
-        //http://api.jquery.com/jQuery.ajax/
-        //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
-        processData: false, //prevent jQuery from automatically transforming the data into a query string
-        contentType: false,
-        cache: false,
+        //contentType: false,
+        //cache: false,
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 

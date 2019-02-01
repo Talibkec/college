@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.ProductTransformer;
 import com.college.core.entity.Department;
 import com.college.core.entity.Product;
 import com.college.core.model.DepartmentDTO;
@@ -24,5 +25,25 @@ public class ProductServiceImpl implements ProductService{
         List<Product> products = productRepository.findAll();
         Type targetListType = new TypeToken<List<ProductRepository>>() {}.getType();
         return modelMapper.map(products, targetListType);
+    }
+
+    @Override
+    public void save(ProductDTO product) {
+        Product prod = modelMapper.map(product, Product.class);
+        productRepository.save(prod);
+    }
+
+    @Override
+    public List<String> prodName(String prodName) {
+        List<Product> products = productRepository.getProductNames(prodName);
+        List<String> productNames = ProductTransformer.getProductName(products);
+        return productNames;
+    }
+
+    @Override
+    public List<String> vendorName(String vendorName) {
+        List<Product> products = productRepository.getvendorName(vendorName);
+        List<String> productNames = ProductTransformer.getvendorName(products);
+        return productNames;
     }
 }

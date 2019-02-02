@@ -15,8 +15,17 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     public List<Request> getAllProducts();
 
     @Query("select prod from Product prod where prod.productName like lower(CONCAT('%',:prodName,'%'))")
-    List<Product> getProductNames(@Param("prodName") String prodName);
+    List<Product> getProductNamesLike(@Param("prodName") String prodName);
 
     @Query("select prod from Product prod where prod.vendorName like lower(CONCAT('%',:vendorName,'%'))")
-    List<Product> getvendorName(@Param("vendorName") String vendorName);
+    List<Product> getvendorNameLike(@Param("vendorName") String vendorName);
+
+    @Query("select prod from Product prod where prod.vendorName = :vendorName and prod.productName = :prodName")
+    List<Product> products(@Param("prodName") String prodName, @Param("vendorName") String vendorName);
+
+    @Query("select prod from Product prod where prod.productName = :proName")
+    List<Product> getProductNames(@Param("proName") String proName);
+
+    @Query("select prod from Product prod where prod.vendorName = :vendorName")
+    List<Product> getvendorNames(@Param("vendorName") String vendorName);
 }

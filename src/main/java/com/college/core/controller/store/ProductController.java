@@ -49,4 +49,16 @@ public class ProductController {
         return productNames;
     }
 
+    @RequestMapping(value = "getProductDetails" , method = RequestMethod.GET)
+    public ModelAndView getVendorName(@RequestParam("prodName") String prodName, @RequestParam("vendorName") String vendorName,
+                                      @RequestParam("productId") String productId){
+        ModelAndView mv  = new ModelAndView();
+        List<ProductDTO> productNames = new ArrayList<>();
+        productNames = productService.getProductDetails(prodName, vendorName, productId);
+        mv.addObject("prodList", productNames);
+        mv.addObject("noOfItems", productNames.size());
+        mv.setViewName("/store/productdetails");
+        return mv;
+    }
+
 }

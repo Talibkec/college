@@ -1,6 +1,6 @@
 $(document).ready( function(){
     $("#searchProductForm").submit(function(){
-        alert("Hello");
+
         return true;
     });
 

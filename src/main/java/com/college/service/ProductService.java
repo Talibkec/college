@@ -9,4 +9,11 @@ import java.util.List;
 public interface ProductService {
     List<ProductDTO> getAllProduct();
 
+    void save(ProductDTO product);
+
+    List<String> prodName(String prodName);
+
+    List<String> vendorName(String vendorName);
+
+    List<ProductDTO> getProductDetails(String prodName, String vendorName, String productId);
 }

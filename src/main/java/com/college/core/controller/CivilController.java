@@ -1,17 +1,33 @@
 package com.college.core.controller;
 
+import com.college.core.entity.NoticeBoard;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.college.core.model.NoticeBoardDTO;
+import com.college.service.NoticeBoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
+
 @Controller
-@RequestMapping(value="department/civil")
+@RequestMapping(value = "department/civil")
+
+
 public class CivilController {
-    @RequestMapping(value="about")
+
+    @Autowired
+    public NoticeBoardService noticeBoardService;
+    @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/about");
-        return mv;
+        ModelAndView modalAndView=new ModelAndView();
+        modalAndView.addObject("Role", ControllerUtility.getRole());
+        List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices();
+        modalAndView.addObject("noticeList", civilNotices);
+        modalAndView.setViewName("department/civil/about");
+        return modalAndView;
     }
     @RequestMapping(value="vision")
     public ModelAndView getVision(){

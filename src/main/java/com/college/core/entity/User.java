@@ -11,6 +11,7 @@ public class User {
     private String password;
     private String passwordConfirm;
     private Set<Role> roles;
+    private String role;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,6 +37,16 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Transient
+    public String getRole()
+    {
+        return role;
+    }
+    public void setRole(String role)
+    {
+        this.role=role;
     }
 
     @Transient

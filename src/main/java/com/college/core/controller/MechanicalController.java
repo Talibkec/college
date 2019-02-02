@@ -1,15 +1,28 @@
 package com.college.core.controller;
 
+import com.college.core.model.NoticeBoardDTO;
+import com.college.service.NoticeBoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value="department/mechanical")
+
 public class MechanicalController {
-    @RequestMapping(value="mech")
+    @Autowired
+    public NoticeBoardService noticeBoardService;
+    @RequestMapping(value = {"mech"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
+        mv.addObject("Role",ControllerUtility.getRole());
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices();
+        mv.addObject("noticeList",mechNotices );
+
         mv.setViewName("department/mechanical/mech");
         return mv;
     }

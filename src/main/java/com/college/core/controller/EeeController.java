@@ -1,16 +1,29 @@
 package com.college.core.controller;
 
+import com.college.core.model.NoticeBoardDTO;
+import com.college.service.NoticeBoardService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value="department/eee")
 
 public class EeeController {
-    @RequestMapping(value="about")
+
+    @Autowired
+    NoticeBoardService noticeBoardService;
+    @RequestMapping(value = {"about"}, method = RequestMethod.GET)
+
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
+        mv.addObject("Role",ControllerUtility.getRole());
+        List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices();
+        mv.addObject("noticeList",eecNotices);
         mv.setViewName("department/eee/about");
         return mv;
     }

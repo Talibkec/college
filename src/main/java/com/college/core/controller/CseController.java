@@ -17,15 +17,15 @@ import java.util.List;
 public class CseController {
 
     @Autowired
-    NoticeBoardService noticeBoardService;
-    @RequestMapping(value="about")
+    public NoticeBoardService noticeBoardService;
+    @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("Role", ControllerUtility.getRole());
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCSENotices();
-        mv.addObject("noticeList", cseNotices);
-        mv.setViewName("department/cse/about");
-        return mv;
+        ModelAndView modalAndView = new ModelAndView();
+        modalAndView.addObject("Role", ControllerUtility.getRole());
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        modalAndView.addObject("noticeList", cseNotices);
+        modalAndView.setViewName("department/cse/about");
+        return modalAndView;
     }
 
     @RequestMapping(value="vision")

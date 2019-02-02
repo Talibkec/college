@@ -16,6 +16,11 @@
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="Notice">Notice</option>
                                                         <option value="News">News</option>
+                                                        <option value="CSENotice">Cse</option>
+                                                        <option value="CIVILNotice">Civil</option>
+                                                        <option value="MECHNotice">Mechanical</option>
+                                                        <option value="ELECNotice">Electronics</option>
+                                                        <option value="ASHNotice">Applied Science</option>
             </select><br/><br/>
     </div>
     <label for="headLine" class="control-label col-sm-4" >Scrollable</label>

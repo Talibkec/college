@@ -21,14 +21,55 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 
     @Override
     public List<NoticeBoardDTO> getAllNotice() {
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.findAll();
+        String news = "News";
+        String notice = "Notice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getHomePageNotices(notice, news);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
         return modelMapper.map(noticeBoards, targetListType);
     }
 
     @Override
-    public List<NoticeBoardDTO> getCSENotices() {
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCSENotices();
+    public List<NoticeBoardDTO> getCseNotices() {
+        String noticeType = "CSENotice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCseNotices(noticeType);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+
+            return modelMapper.map(noticeBoards, targetListType);
+
+    }
+
+    @Override
+    public List<NoticeBoardDTO> getMechNotices() {
+        String noticeType = "MECHNotice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getMechNotices(noticeType);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+
+        return modelMapper.map(noticeBoards, targetListType);
+
+    }
+
+    @Override
+    public List<NoticeBoardDTO> getEecNotices() {
+        String noticeType = "ELECNotice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getElecNotices(noticeType);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+        return modelMapper.map(noticeBoards, targetListType);
+    }
+
+    @Override
+    public List<NoticeBoardDTO> getApplidScienceNotices() {
+        String noticeType = "ASHNotice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getAshNotices(noticeType);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+
+        return modelMapper.map(noticeBoards, targetListType);
+
+    }
+
+    @Override
+    public List<NoticeBoardDTO> getCivilNotices() {
+        String noticeType = "CIVILNotice";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCivilNotices(noticeType);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
         return modelMapper.map(noticeBoards, targetListType);
     }

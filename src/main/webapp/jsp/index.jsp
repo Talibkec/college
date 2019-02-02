@@ -229,7 +229,6 @@
 
                                   	</div>
                                   </li>
-
                                  <c:forEach items="${noticeList}" var="notice">
                                    <li>
                                  	<div>

@@ -44,7 +44,12 @@ public class DashboardController {
 		model.setViewName("uploadfile");
 		return model;
 	}
-
+	@RequestMapping(value = "/auth/uploadfile/facultyfileupload", method = RequestMethod.GET)
+	public ModelAndView displayFacultyFileUploadpage() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("facultyfileupload");
+		return model;
+	}
 	@RequestMapping(value = "/wp-content/themes/kec/admin/homepage", method = RequestMethod.GET)
 	public ModelAndView adminHomePage() {
 		ModelAndView model = new ModelAndView();
@@ -92,7 +97,4 @@ public class DashboardController {
 	public void testException() throws ClientAbortException{
 		throw new ClientAbortException("Broken pipe has occured");
 	}
-
-
-
 }

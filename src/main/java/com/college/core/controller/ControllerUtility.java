@@ -18,4 +18,12 @@ public class ControllerUtility {
         return userRole;
     }
 
+    public static String getUserName() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String userName = null;
+        if (principal instanceof UserDetails) {
+            userName= ((UserDetails) principal).getUsername();
+        }
+        return userName;
+    }
 }

@@ -1,6 +1,8 @@
 package com.college.core.controller;
 
+import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.NoticeBoardDTO;
+import com.college.service.FacultyDocumentsService;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class CseController {
 
     @Autowired
     public NoticeBoardService noticeBoardService;
+    @Autowired
+    FacultyDocumentsService facultyDocumentsService;
+
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
         ModelAndView modalAndView = new ModelAndView();
@@ -126,6 +131,10 @@ public class CseController {
     @RequestMapping(value="mta")
     public ModelAndView getMta(){
         ModelAndView mv=new ModelAndView();
+        String userName = ControllerUtility.getUserName();
+        List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments("anshuman");
+        mv.addObject("facultyDocument", allFacultyDocuments );
+        mv.addObject("Role", ControllerUtility.getRole());
         mv.setViewName("department/cse/mta");
         return mv;
     }

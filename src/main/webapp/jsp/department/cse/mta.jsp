@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
@@ -38,6 +39,11 @@
                                                             class="fa fa-angle-double-right"></i> Sritosh Kumar </a></li>
                                 </ul>
             </div>
+            <div>
+            <c:if test = "${Role == 'Faculty'}">
+                                   <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/facultyfileupload">Upload Your Documents</a></strong>
+
+             </c:if></div>
             <div class="col-md-8">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
@@ -113,11 +119,27 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        </div></div>
+                        </div>
+                      </div>
                     <div role="tabpanel" class="tab-pane" id="downloads">
                         <div style="padding: 15px;">
-                            <div class="text-center"><span class="label label-warning">No Download(s) Available!</span>
+                            <div class="">
+                            <c:forEach items="${facultyDocument}" var="facultyDocument">
+                                <div>
+                                <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                    <c:set var = "clazz"  value = "label label-warning"/>
+                                     <c:set var = "filePath"  value = "http://localhost/wp-content/uploads/facultydocuments/"/>
+                                          <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                                          <c:if test = "${Role == 'Faculty'}">
+                                            <span class="label label-danger"><a href="${http://localhost/auth/${facultyDocument.uploadedfilename}/${facultyDocument.id}}/>">Delete</a></span>
+                                       </c:if>
+                                   <a href="${filePath}${facultyDocument.uploadfilename}" target="_blank">${facultyDocument.headLine}</a>
+                                  </div>
+
+                           </c:forEach>
+                           </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ public class User {
     private Set<Role> roles;
     private String role;
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -40,13 +41,12 @@ public class User {
     }
 
     @Transient
-    public String getRole()
-    {
+    public String getRole() {
         return role;
     }
-    public void setRole(String role)
-    {
-        this.role=role;
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Transient

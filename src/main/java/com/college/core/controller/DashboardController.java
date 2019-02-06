@@ -104,10 +104,4 @@ public class DashboardController {
 		throw new ClientAbortException("Broken pipe has occured");
 	}
 
-    @RequestMapping(value = "/image")
-    public @ResponseBody byte[] getImage(HttpServletResponse response) throws IOException {
-        File initialFile = new File("F:\\projects\\gitproject\\college\\src\\main\\webapp\\wp-content\\uploads\\notice\\abc.pdf");
-        InputStream in = new FileInputStream(initialFile);
-        return IOUtils.toByteArray(in);
-    }
 }

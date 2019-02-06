@@ -132,7 +132,7 @@ public class CseController {
     public ModelAndView getMta(){
         ModelAndView mv=new ModelAndView();
         String userName = ControllerUtility.getUserName();
-        List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments("anshuman");
+        List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments("Talib");
         mv.addObject("facultyDocument", allFacultyDocuments );
         mv.addObject("Role", ControllerUtility.getRole());
         mv.setViewName("department/cse/mta");

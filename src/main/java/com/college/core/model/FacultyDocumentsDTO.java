@@ -1,15 +1,23 @@
 package com.college.core.model;
 
-import java.sql.Blob;
 import java.util.Date;
 
 public class FacultyDocumentsDTO {
     private Long id;
     private String headLine;
     private String uploadedBy;
-    private String Uploadfilename;
+    private String uploadedFileName;
     private Date date;
     private byte[] document;
+    private String fileType;
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 
     public byte[] getDocument() {
         return document;
@@ -41,12 +49,12 @@ public class FacultyDocumentsDTO {
         this.uploadedBy = uploadedBy;
     }
 
-    public String getUploadfilename() {
-        return Uploadfilename;
+    public String getUploadedFileName() {
+        return uploadedFileName;
     }
 
-    public void setUploadfilename(String uploadfilename) {
-        Uploadfilename = uploadfilename;
+    public void setUploadedFileName(String uploadedFileName) {
+        this.uploadedFileName = uploadedFileName;
     }
 
     public Date getDate() {

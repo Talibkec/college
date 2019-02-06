@@ -124,19 +124,17 @@
                     <div role="tabpanel" class="tab-pane" id="downloads">
                         <div style="padding: 15px;">
                             <div class="">
-                            <c:forEach items="${facultyDocument}" var="facultyDocument">
-                                <div>
-                                <span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                    <c:set var = "clazz"  value = "label label-warning"/>
-                                     <c:set var = "filePath"  value = "http://localhost/wp-content/uploads/facultydocuments/"/>
-                                          <i class=""></i> ${facultyDocument.date} </span>&nbsp;
-                                          <c:if test = "${Role == 'Faculty'}">
-                                            <span class="label label-danger"><a href="${http://localhost/auth/${facultyDocument.uploadedfilename}/${facultyDocument.id}}/>">Delete</a></span>
-                                       </c:if>
-                                   <a href="${filePath}${facultyDocument.uploadfilename}" target="_blank">${facultyDocument.headLine}</a>
-                                  </div>
-
-                           </c:forEach>
+                                <c:forEach items="${facultyDocument}" var="facultyDocument">
+                                    <div>
+                                        <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                        <c:set var = "clazz"  value = "label label-warning"/>
+                                        <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                                        <c:if test = "${Role == 'Faculty'}">
+                                				<span class="label label-danger"><a href="http://localhost/auth/${facultyDocument.uploadedFileName}/${facultyDocument.id}/>">Delete</a></span>
+                                        </c:if>
+                                        <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                    </div>
+                                </c:forEach>
                            </div>
                             </div>
 

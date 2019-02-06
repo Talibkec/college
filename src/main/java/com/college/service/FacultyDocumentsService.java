@@ -9,5 +9,5 @@ import java.util.List;
 public interface FacultyDocumentsService {
     List<FacultyDocumentsDTO> getFacultyDocuments(String userName);
     void saveFacultydocumentsDetails(FacultyDocumentsDTO facultyDocumentsDTO);
-
+    FacultyDocumentsDTO getFacultyDocument(Long id);
 }

@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.UploadFileUtility;
 import com.college.core.entity.FacultyDocuments;
 import com.college.core.model.FacultyDocumentsDTO;
 import com.college.repository.FacultyDocumentsRepository;
@@ -20,12 +21,20 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     public List<FacultyDocumentsDTO> getFacultyDocuments(String userName) {
         List<FacultyDocuments> facultyDocuments = facultyDocumentsRepository.getFacultyDocuments(userName);
         Type targetListType = new TypeToken<List<FacultyDocumentsDTO>>() {}.getType();
-        return modelMapper.map(facultyDocuments, targetListType);
+        List<FacultyDocumentsDTO>  facultyDocumentsDTO = modelMapper.map(facultyDocuments, targetListType);
+        UploadFileUtility.setFileType(facultyDocumentsDTO);
+        return facultyDocumentsDTO;
     }
     @Override
     public void saveFacultydocumentsDetails(FacultyDocumentsDTO facultyDocumentsDTO){
         FacultyDocuments facultyDocuments =modelMapper.map(facultyDocumentsDTO, FacultyDocuments.class);
         facultyDocumentsRepository.save(facultyDocuments);
+    }
+
+    @Override
+    public FacultyDocumentsDTO getFacultyDocument(Long id) {
+        FacultyDocuments facultyDocuments = facultyDocumentsRepository.findOne(id);
+        return modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
     }
 
 }

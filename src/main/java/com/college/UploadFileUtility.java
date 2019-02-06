@@ -1,5 +1,6 @@
 package com.college;
 
+import com.college.core.model.FacultyDocumentsDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,5 +39,13 @@ public class UploadFileUtility {
         }
 
         return fileName;
+    }
+
+    public static void setFileType(List<FacultyDocumentsDTO> facultyDocuments) {
+        for(FacultyDocumentsDTO fd : facultyDocuments){
+            String fileName = fd.getUploadedFileName();
+            Integer index = fileName.lastIndexOf(".");
+            fd.setFileType(fileName.substring(index, fileName.length()));
+        }
     }
 }

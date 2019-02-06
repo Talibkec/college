@@ -1,7 +1,6 @@
 package com.college.core.entity;
 
 import javax.persistence.*;
-import java.sql.Blob;
 import java.util.Date;
 
 @Entity
@@ -10,17 +9,19 @@ public class FacultyDocuments {
     private Long id;
     private String headLine;
     private String uploadedBy;
-    private String Uploadfilename;
+    private String uploadedFileName;
     private Date date;
+
     @Lob
     private byte[] document;
-    @Column(name="F_DOCUMENT")
+    @Column(name="F_DOCUMENT", columnDefinition="mediumblob")
     public byte[] getDocument() {
         return document;
     }
     public void setDocument(byte[] document) {
         this.document = document;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -47,12 +48,12 @@ public class FacultyDocuments {
         this.uploadedBy = uploadedBy;
     }
     @Column(name="F_UPLOADFILENAME")
-    public String getUploadfilename() {
-        return Uploadfilename;
+    public String getUploadedFileName() {
+        return uploadedFileName;
     }
 
-    public void setUploadfilename(String uploadfilename) {
-        Uploadfilename = uploadfilename;
+    public void setUploadedFileName(String uploadedFileName) {
+        this.uploadedFileName = uploadedFileName;
     }
     @Temporal(TemporalType.DATE)
     @Column(name ="F_UPLOADDATE")

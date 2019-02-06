@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Mod10Check;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="PURCHASE")
@@ -16,18 +17,15 @@ public class Purchase {
     private String purchaseBy;
     private Long price;
     private Long invoice;
-
-
-
+    private Product product;
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO, generator = "purchaseId")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "purchaseId")
     @SequenceGenerator(name = "purchaseId", sequenceName = "purchaseId")
     @Column(name = "purchase_Id")
     public Long getPurchaseId() {
         return purchaseId;
     }
-
 
 
     //Setter and getter for Purchase ID
@@ -37,12 +35,12 @@ public class Purchase {
     /*-------------------------------------------------------------*/
 
 
-
     //Setter and getter for Quantity
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-    @Column(name="Quantity")
+
+    @Column(name = "Quantity")
     public Integer getQuantity() {
         return quantity;
     }
@@ -51,13 +49,13 @@ public class Purchase {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Date
+    @Temporal(TemporalType.DATE)
     public void setDate(Date date) {
         this.date = date;
     }
-    @Column(name="Date")
+
+    @Column(name = "Date")
     public Date getDate() {
         return date;
     }
@@ -66,13 +64,12 @@ public class Purchase {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Purchase By
     public void setPurchaseBy(String purchaseBy) {
         this.purchaseBy = purchaseBy;
     }
-    @Column(name="PurchaseBy")
+
+    @Column(name = "PurchaseBy")
     public String getPurchaseBy() {
         return purchaseBy;
     }
@@ -81,12 +78,12 @@ public class Purchase {
     /*-------------------------------------------------------------*/
 
 
-
     //Setter and getter for Price
     public void setPrice(Long price) {
         this.price = price;
     }
-    @Column(name="Price")
+
+    @Column(name = "Price")
     public Long getPrice() {
         return price;
     }
@@ -99,11 +96,26 @@ public class Purchase {
     public void setInvoice(Long invoice) {
         this.invoice = invoice;
     }
+
     @Column(name = "invoice")
     public Long getInvoice() {
         return invoice;
     }
 
-    /*-------------------------------------------------------------*/
+    @ManyToOne
+    @JoinColumn(name = "P_ID", referencedColumnName = "P_ID")
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
 }
+
+    /*-------------------------------------------------------------*/
+
+
 

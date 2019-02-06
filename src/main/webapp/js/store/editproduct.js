@@ -1,0 +1,52 @@
+$(document).ready(function () {
+$("#editProduct").click(function (event) {
+
+            //stop submit the form, we will post it manually.
+            event.preventDefault();
+
+            addProduct();
+
+        });
+});
+function addProduct() {
+
+    // Get form
+    var form = $('#addProductForm')[0];
+
+    var data = new FormData(form);
+
+    //data.append("CustomField", "This is some extra data, testing");
+
+    $("#addProduct").prop("disabled", true);
+
+    $.ajax({
+        type: "POST",
+        url: "/store/editProduct",
+        data: {
+            productDetails:JSON.stringify(getUpdatedProductDetails())
+        },
+        //contentType: false,
+        //cache: false,
+        timeout: 600000,
+        success: function (data, textStatus, xhr) {
+
+             $("#addProduct").prop("disabled", false);
+        },
+        error: function (e) {
+
+            $("#addProduct").prop("disabled", false);
+
+        }
+    });
+
+}
+function getUpdatedProductDetails(){
+    var productJsonObj = {};
+        productJsonObj.productId = $("#")
+        productJsonObj.productName = $("#p_name").val();
+        productJsonObj.productQuantity = $("#p_quantity").val();
+        productJsonObj.productDescription = $("#p_description").val();
+        productJsonObj.vendorName = $("#v_name").val();
+        productJsonObj.productType = $("#p_type").val();
+        return productJsonObj;
+}

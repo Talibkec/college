@@ -1,5 +1,8 @@
 package com.college.core.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+
 import java.util.Date;
 
 public class PurchaseDTO {
@@ -9,6 +12,8 @@ public class PurchaseDTO {
     private String purchaseBy;
     private Long price;
     private Long invoice;
+    private ProductDTO productDTO;
+
 
     public Long getPurchaseId() {
         return purchaseId;
@@ -57,4 +62,14 @@ public class PurchaseDTO {
     public void setInvoice(Long invoice) {
         this.invoice = invoice;
     }
+
+    public ProductDTO getProductDTO() {
+        return productDTO;
+    }
+
+    public void setProductDTO(ProductDTO productDTO) {
+        this.productDTO = productDTO;
+    }
+
+
 }

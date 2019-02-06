@@ -1,6 +1,7 @@
 package com.college.core.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -13,7 +14,6 @@ public class Product {
     private String productDescription;
     private String vendorName;
     private String productType;
-
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "productId")

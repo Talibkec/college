@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface PurchaseService {
     List<PurchaseDTO> getAllPurchase();
+    public void savePurchaseDetails(PurchaseDTO purchaseDTO);
 }

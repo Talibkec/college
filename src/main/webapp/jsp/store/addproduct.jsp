@@ -6,7 +6,7 @@
  </div>
 
 <div class="container">
-    <form method="POST" class="form-inline" id = "addProductForm">
+    <form method="POST" class="form-inline" id = "addProductForm" autocomplete="off">
 
         <div class="form-group">
             <label for="product_name" style="margin-right:70px">PRODUCT NAME: </label>

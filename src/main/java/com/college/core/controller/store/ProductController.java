@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -128,22 +131,23 @@ public class ProductController {
     }
 
     @RequestMapping(value = "addPurchase", method = RequestMethod.POST)
-    public void addPurchase(@RequestParam("purchaseDetails") String purchaseDetails, @RequestParam("purchaseDate") String purchaseDate){
-    PurchaseDTO purchaseDTO = gson.fromJson(purchaseDetails, PurchaseDTO.class);
-        Date date = new Date(purchaseDate);
-        try {
-            purchaseDate = DATE_TIME_FORMATTER.format(date);
-            date = DATE_TIME_FORMATTER.parse(purchaseDate);
+    public ModelAndView addPurchase(HttpServletRequest request, HttpServletResponse response, @RequestParam("purchaseDetails") String purchaseDetails) throws IOException {
 
-        } catch (ParseException e) {
-            logger.error("Could not parse the either to or from date, Please contact to administrator.");
-        }
-        purchaseDTO.setPurchaseDate(date);
+        ModelAndView mv = new ModelAndView();
+        PurchaseDTO purchaseDTO = gson.fromJson(purchaseDetails, PurchaseDTO.class);
         purchaseService.savePurchaseDetails(purchaseDTO);
         logger.info(purchaseDetails);
+        mv.addObject("","");
+        mv.setViewName("/store/storemanager");
+        return  mv;
+    }
 
-}
-
+    @RequestMapping(value = "smdashboard", method = RequestMethod.GET)
+    public ModelAndView smDashBoard(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/storemanager");
+        return mv;
+    }
 
 }
 

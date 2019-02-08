@@ -34,6 +34,7 @@ function fire_ajax_submit() {
         success: function (data, textStatus, xhr) {
 
              $("#addProduct").prop("disabled", false);
+              window.location.replace("/store/smdashboard");
         },
         error: function (e) {
 

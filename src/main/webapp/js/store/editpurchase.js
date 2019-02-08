@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 
     $( function() {
-                   $( "#purchaseDate" ).datepicker({dateFormat: 'dd/mm/yy'});
+                   $( "#purchaseDate" ).datepicker({dateFormat: 'dd/mm/yy', changeYear: true});
         } );
 
 });
@@ -38,7 +38,8 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 
-             $("#editPurchase").prop("disabled", false);
+              $("#editPurchase").prop("disabled", false);
+              window.location.replace("/store/smdashboard");
         },
         error: function (e) {
 

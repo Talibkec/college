@@ -9,7 +9,7 @@
 
 <div class="container">
 
-    <form method="POST" class="form-inline" id = "editPurchaseForm">
+    <form method="POST" class="form-inline" id = "editPurchaseForm" autocomplete="off">
         <div class="form-group">
             <label for="product_quantity" style="margin-right:65px">Product Quantity:</label>
             <input type="number" class="form-control" id="p_quantity" value="${purchase.quantity}">

@@ -11,7 +11,7 @@
  </div>
 
 <div class="container">
-    <form action="/store/purchasedetail" id = "requesPurchaseDetailForm" >
+    <form action="/store/purchasedetail" id = "requesPurchaseDetailForm" autocomplete="off">
             <div class="row text-center"><strong> Product Details</strong></div>
                     <div class="row" style="border:1px solid green;padding:10px">
                         <div class="col-md-2 text-center"><strong>Product Name</strong></div>

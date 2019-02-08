@@ -37,4 +37,9 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
         return modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
     }
 
+    @Override
+    public void deleteFacultyDoc(Long id) {
+        facultyDocumentsRepository.delete(id);
+    }
+
 }

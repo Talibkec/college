@@ -1,18 +1,16 @@
 package com.college.core.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 import java.util.Date;
 
 public class PurchaseDTO {
     private Long purchaseId;
     private Integer quantity;
-    private Date date;
+    private Date purchaseDate;
     private String purchaseBy;
     private Long price;
     private Long invoice;
-    private ProductDTO productDTO;
+    private ProductDTO product;
 
 
     public Long getPurchaseId() {
@@ -31,12 +29,12 @@ public class PurchaseDTO {
         this.quantity = quantity;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getPurchaseDate() {
+        return purchaseDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
     public String getPurchaseBy() {
@@ -63,12 +61,12 @@ public class PurchaseDTO {
         this.invoice = invoice;
     }
 
-    public ProductDTO getProductDTO() {
-        return productDTO;
+    public ProductDTO getProduct() {
+        return product;
     }
 
-    public void setProductDTO(ProductDTO productDTO) {
-        this.productDTO = productDTO;
+    public void setProduct(ProductDTO product) {
+        this.product = product;
     }
 
 

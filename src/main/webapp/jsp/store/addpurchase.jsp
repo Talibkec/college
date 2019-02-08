@@ -43,21 +43,21 @@
         </div>
                         </br></br>
         <div class="form-group">
-                            <input type="hidden" name = "productId" id="productId" value="${productId}">
-
-        </div>
-
+                                    <label for="purchaseDate" style="margin-right:150px">Purchase Date</label>
+                                    <input type="text" id="purchaseDate" name="purchaseDate" class="form-control" placeholder="Purchase Date">
+                </div>
+                                </br></br>
+        <input type="hidden" name = "productId" id="productId" value="${productId}">
 
 
         <div class="col-lg-4 text-center">
             <button id="addPurchase" name="addPurchase" class="btn btn-success" style="margin-left:500px" id="btnSubmit" type= "submit">Submit
             </button>
         </div>
-
-
-
     </form>
-    <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+        <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
     <script src="http://localhost/js/store/addpurchase.js"></script>
 </body>
 <html>

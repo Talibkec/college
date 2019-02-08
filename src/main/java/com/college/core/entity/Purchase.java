@@ -1,10 +1,7 @@
 package com.college.core.entity;
 
-import org.hibernate.validator.constraints.Mod10Check;
-
 import javax.persistence.*;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name="PURCHASE")
@@ -13,7 +10,7 @@ public class Purchase {
 
     private Long purchaseId;
     private Integer quantity;
-    private Date date;
+    private Date purchaseDate;
     private String purchaseBy;
     private Long price;
     private Long invoice;
@@ -51,13 +48,13 @@ public class Purchase {
 
     //Setter and getter for Date
     @Temporal(TemporalType.DATE)
-    public void setDate(Date date) {
-        this.date = date;
+    public void setPurchaseDate(Date purchaseDate) {
+        this.purchaseDate = purchaseDate;
     }
 
     @Column(name = "Date")
-    public Date getDate() {
-        return date;
+    public Date getPurchaseDate() {
+        return purchaseDate;
     }
 
 

@@ -53,9 +53,9 @@
                             class="fa fa-download"></i> Downloads</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
-                                                                                   src="mta.jpg"
-                                                                                   style="background-image: url(mta.jpg);"/>
+                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width= "250px" style="height: 200px"
+                                                                                   src="http://localhost/7/image.jpeg"
+                                                             Md Talib Ahmad                     "/>
                         <h2>Md Talib Ahmad</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering</p>
@@ -130,7 +130,7 @@
                                         <c:set var = "clazz"  value = "label label-warning"/>
                                         <i class=""></i> ${facultyDocument.date} </span>&nbsp;
                                         <c:if test = "${Role == 'Faculty'}">
-                                				<span class="label label-danger"><a href="http://localhost/auth/${facultyDocument.uploadedFileName}/${facultyDocument.id}/>">Delete</a></span>
+                                				<span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                                         </c:if>
                                         <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
                                     </div>

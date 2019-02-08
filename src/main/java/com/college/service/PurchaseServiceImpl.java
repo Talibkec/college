@@ -1,11 +1,8 @@
 package com.college.service;
 
-import com.college.core.entity.Department;
 import com.college.core.entity.Product;
 import com.college.core.entity.Purchase;
-import com.college.core.model.DepartmentDTO;
 import com.college.core.model.PurchaseDTO;
-import com.college.repository.DepartmentRepository;
 import com.college.repository.ProductRepository;
 import com.college.repository.PurchaseRepository;
 import org.modelmapper.ModelMapper;
@@ -14,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,8 +38,21 @@ public class PurchaseServiceImpl implements PurchaseService {
         purchaseRepository.save(purchase);
     }
 
+    @Override
+    public List<PurchaseDTO> getPurchaseByProductId(Long productId, Date fromDate, Date toDate) {
+        List<Purchase> purchases = purchaseRepository.getPurchaseByProductId(productId, fromDate, toDate);
+        Type targetListType = new TypeToken<List<PurchaseDTO>>() {}.getType();
+        return modelMapper.map(purchases, targetListType);
+    }
+
+    @Override
+    public PurchaseDTO getPurchase(Long purchaseId) {
+        Purchase purchase = purchaseRepository.findOne(purchaseId);
+        return  modelMapper.map(purchase, PurchaseDTO.class);
+    }
+
     private Product updateProduct(PurchaseDTO purchaseDTO){
-        Product product = productRepository.findOne(purchaseDTO.getProductDTO().getProductId());
+        Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
         if(product.getAvailableQuantity()!= null) {
             product.setAvailableQuantity(product.getAvailableQuantity() + purchaseDTO.getQuantity());
         }

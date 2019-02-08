@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#addPurchase").click(function (event) {
+    $("#editPurchase").click(function (event) {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
@@ -18,7 +18,7 @@ $(document).ready(function () {
 function fire_ajax_submit() {
 
     // Get form
-    var form = $('#addPurchaseForm')[0];
+    var form = $('#editPurchaseForm')[0];
 
     var data = new FormData(form);
 
@@ -38,11 +38,11 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 
-             $("#addPurchase").prop("disabled", false);
+             $("#editPurchase").prop("disabled", false);
         },
         error: function (e) {
 
-            $("#addPurchase").prop("disabled", false);
+            $("#editPurchase").prop("disabled", false);
 
         }
     });
@@ -51,6 +51,7 @@ function fire_ajax_submit() {
 
 function getPurchaseDetails(){
     var purchaseJsonObj = {};
+        purchaseJsonObj.purchaseId = $("#purchaseId").val();
         purchaseJsonObj.quantity = $("#p_quantity").val();
         purchaseJsonObj.purchaseBy = $("#purchasedBy").val();
         purchaseJsonObj.price = $("#price").val();

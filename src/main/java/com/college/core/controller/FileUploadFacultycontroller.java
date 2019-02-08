@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.slf4j.Logger;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Date;
@@ -35,6 +36,17 @@ public class FileUploadFacultycontroller {
         FacultyDocumentsDTO facultyDocumentsDTO = facultyDocumentsService.getFacultyDocument(id);
         InputStream in = new ByteArrayInputStream(facultyDocumentsDTO.getDocument());
         return IOUtils.toByteArray(in);
+    }
+
+    @RequestMapping(value = "auth/deleteFacultyDoc/{id}")
+    public  void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
+
+        facultyDocumentsService.deleteFacultyDoc(id);
+        String url = request.getHeader("Referer");
+        if(StringUtils.isEmpty(url)){
+            url = "/";
+        }
+        response.sendRedirect(url);
     }
 
     @ResponseBody

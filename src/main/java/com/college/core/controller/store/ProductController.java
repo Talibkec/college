@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -27,7 +30,7 @@ public class ProductController {
 
     private Logger logger = LoggerFactory.getLogger(ProductController.class);
     Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
-
+    private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
     @Autowired
     ProductService productService;
     @Autowired
@@ -82,9 +85,60 @@ public class ProductController {
         return mv;
     }
 
+    @RequestMapping(value = "purchasedetails")
+    public ModelAndView purchasedetails(@RequestParam("vendor") String vendorName,
+                                    @RequestParam("name") String prodName,
+                                    @RequestParam("productQuantity") String productQuantity,
+                                    @RequestParam("productId") Long productId) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("productName", prodName);
+        mv.addObject("vendorName", vendorName);
+        mv.addObject("productQuantity", productQuantity);
+        mv.addObject("productId",productId);
+        mv.setViewName("/store/searchpurchasedetails");
+        return mv;
+    }
+
+    @RequestMapping(value = "purchasedetail")
+    public ModelAndView purchasedetail(@RequestParam("toDatepicker") String toDate,
+                                        @RequestParam("fromDatepicker") String fromDate,
+                                        @RequestParam("productId") Long productId) {
+        ModelAndView mv = new ModelAndView();
+        Date to = new Date(), from = new Date();
+        try {
+            from = DATE_TIME_FORMATTER.parse(fromDate);
+            to = DATE_TIME_FORMATTER.parse(toDate);
+        } catch (ParseException e) {
+            logger.error("Could not parse the either to or from date, Please contact to administrator.");
+        }
+        List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseByProductId(productId, from, to);
+        mv.addObject("purchases", purchaseDetails);
+        mv.setViewName("/store/purchasedetails");
+        return mv;
+    }
+
+    @RequestMapping(value = "editPurchase")
+    public ModelAndView editPurchase(@RequestParam("purchaseId") Long purchaseId) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("purchaseId",purchaseId);
+        PurchaseDTO purchase =  purchaseService.getPurchase(purchaseId);
+        mv.addObject("purchase", purchase);
+        mv.setViewName("/store/editpurchase");
+        return mv;
+    }
+
     @RequestMapping(value = "addPurchase", method = RequestMethod.POST)
-    public void addPurchase(@RequestParam("purchaseDetails") String purchaseDetails){
+    public void addPurchase(@RequestParam("purchaseDetails") String purchaseDetails, @RequestParam("purchaseDate") String purchaseDate){
     PurchaseDTO purchaseDTO = gson.fromJson(purchaseDetails, PurchaseDTO.class);
+        Date date = new Date(purchaseDate);
+        try {
+            purchaseDate = DATE_TIME_FORMATTER.format(date);
+            date = DATE_TIME_FORMATTER.parse(purchaseDate);
+
+        } catch (ParseException e) {
+            logger.error("Could not parse the either to or from date, Please contact to administrator.");
+        }
+        purchaseDTO.setPurchaseDate(date);
         purchaseService.savePurchaseDetails(purchaseDTO);
         logger.info(purchaseDetails);
 

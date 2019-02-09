@@ -3,6 +3,8 @@ package com.college.core.entity;
 
 import javax.persistence.*;
 import java.sql.Blob;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -15,6 +17,7 @@ public class Faculty {
     private String facultyEmail;
     private Long facultyNumber;
     private Blob facultyPhoto;
+    private Set<Property> facultyProperties = new HashSet<>(0);
 
     @Column(name="F_EMAIL")
     public String getFacultyEmail() {return facultyEmail;}
@@ -32,12 +35,9 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "facultyId")
     @SequenceGenerator(name = "facultyId", sequenceName = "facultyId")
-    @ManyToMany
-    @JoinTable(name="faculty_property", joinColumns = @JoinColumn(name="faculty_Id"), inverseJoinColumns = @JoinColumn(name="property_Id"))
     public Long getFacultyId() {
         return facultyId;
     }
-
 
 
     //Setter and getter for Faculty ID
@@ -87,5 +87,15 @@ public class Faculty {
     }
 
     /*-------------------------------------------------------------*/
+
+    @ManyToMany
+    @JoinTable(name="faculty_property", joinColumns = @JoinColumn(name="faculty_Id"), inverseJoinColumns = @JoinColumn(name="property_Id"))
+    public Set<Property> getFacultyProperties() {
+        return facultyProperties;
+    }
+
+    public void setFacultyProperties(Set<Property> facultyProperties) {
+        this.facultyProperties = facultyProperties;
+    }
 
 }

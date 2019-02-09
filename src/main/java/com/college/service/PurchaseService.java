@@ -14,4 +14,6 @@ public interface PurchaseService {
     List<PurchaseDTO> getPurchaseByProductId(Long productId, Date fromDate, Date toDate);
 
     PurchaseDTO getPurchase(Long purchaseId);
+
+    void deletePurchase(Long purchaseId);
 }

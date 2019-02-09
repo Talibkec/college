@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -128,6 +129,18 @@ public class ProductController {
         mv.addObject("purchase", purchase);
         mv.setViewName("/store/editpurchase");
         return mv;
+    }
+
+    @RequestMapping(value = "deletePurchase")
+    public void deletePurchase(HttpServletRequest request, HttpServletResponse response, @RequestParam("purchaseId") Long purchaseId) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("purchaseId",purchaseId);
+        purchaseService.deletePurchase(purchaseId);
+        String url = request.getHeader("Referer");
+        if(StringUtils.isEmpty(url)){
+            url = "/";
+        }
+        response.sendRedirect(url);
     }
 
     @RequestMapping(value = "addPurchase", method = RequestMethod.POST)

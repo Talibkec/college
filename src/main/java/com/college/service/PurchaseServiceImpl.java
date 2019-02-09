@@ -51,6 +51,11 @@ public class PurchaseServiceImpl implements PurchaseService {
         return  modelMapper.map(purchase, PurchaseDTO.class);
     }
 
+    @Override
+    public void deletePurchase(Long purchaseId) {
+        purchaseRepository.delete(purchaseId);
+    }
+
     private Product updateProduct(PurchaseDTO purchaseDTO){
         Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
         if(product.getAvailableQuantity()!= null) {

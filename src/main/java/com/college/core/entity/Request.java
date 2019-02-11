@@ -90,6 +90,7 @@ public class Request {
         this.requestDate = requestDate;
     }
     @Column(name = "Request_Date")
+    @Temporal(TemporalType.DATE)
     public Date getRequestDate() {
         return requestDate;
     }
@@ -118,6 +119,7 @@ public class Request {
         this.approvalDate = approvalDate;
     }
     @Column(name = "Approval_Date")
+    @Temporal(TemporalType.DATE)
     public Date getApprovalDate() {
         return approvalDate;
     }
@@ -133,6 +135,7 @@ public class Request {
         this.deliverDate = deliverDate;
     }
     @Column(name = "Deliver_Date")
+    @Temporal(TemporalType.DATE)
     public Date getDeliverDate() {
         return deliverDate;
     }

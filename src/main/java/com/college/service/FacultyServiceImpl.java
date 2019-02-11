@@ -25,4 +25,10 @@ public class FacultyServiceImpl implements FacultyService {
         Type targetListType = new TypeToken<List<FacultyRepository>>() {}.getType();
         return modelMapper.map(faculties, targetListType);
     }
+
+    @Override
+    public FacultyDTO getFaculty(String userName) {
+        Faculty faculty = facultyRepository.findFacltyByUserName(userName);
+        return modelMapper.map(faculty, FacultyDTO.class);
+    }
 }

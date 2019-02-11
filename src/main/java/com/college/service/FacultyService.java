@@ -8,4 +8,6 @@ import java.util.List;
 @Service
 public interface FacultyService {
     List<FacultyDTO> getAllFaculty();
+
+    FacultyDTO getFaculty(String userName);
 }

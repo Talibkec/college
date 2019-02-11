@@ -12,25 +12,12 @@ import java.util.Set;
 public class Faculty {
     private Long facultyId;
     private String facultyName;
-    private String facultyDepartment;
     private Long departmentId;
     private String facultyEmail;
-    private Long facultyNumber;
+    private Long facultyMobNo;
     private Blob facultyPhoto;
+    private User user;
     private Set<Property> facultyProperties = new HashSet<>(0);
-
-    @Column(name="F_EMAIL")
-    public String getFacultyEmail() {return facultyEmail;}
-
-    public void setFacultyEmail(String facultyEmail) {this.facultyEmail = facultyEmail;}
-    @Column(name="F_NUMBER")
-    public Long getFacultyNumber() {return facultyNumber;}
-
-    public void setFacultyNumber(Long facultyNumber) {this.facultyNumber = facultyNumber; }
-    @Column(name="F_PHOTO")
-    public Blob getFacultyPhoto() {return facultyPhoto; }
-
-    public void setFacultyPhoto(Blob facultyPhoto) {this.facultyPhoto = facultyPhoto;}
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "facultyId")
@@ -39,16 +26,25 @@ public class Faculty {
         return facultyId;
     }
 
-
     //Setter and getter for Faculty ID
     public void setFacultyId(Long facultyId) {
         this.facultyId = facultyId;
     }
 
+    @Column(name="F_EMAIL")
+    public String getFacultyEmail() {return facultyEmail;}
+
+    public void setFacultyEmail(String facultyEmail) {this.facultyEmail = facultyEmail;}
+    @Column(name="F_MNUMBER")
+    public Long getFacultyMobNo() {return facultyMobNo;}
+
+    public void setFacultyMobNo(Long facultyMobNo) {this.facultyMobNo = facultyMobNo; }
+    @Column(name="F_PHOTO")
+    public Blob getFacultyPhoto() {return facultyPhoto; }
+
+    public void setFacultyPhoto(Blob facultyPhoto) {this.facultyPhoto = facultyPhoto;}
+
     /*-------------------------------------------------------------*/
-
-
-
 
     //Setter and getter for Faculty Name
     public void setFacultyName(String facultyName) {
@@ -60,21 +56,6 @@ public class Faculty {
     public String getFacultyName() {
         return facultyName;
     }
-
-
-    /*-------------------------------------------------------------*/
-
-    //Setter and getter for Faculty Department
-    public void setFacultyDepartment(String facultyDepartment) {
-        this.facultyDepartment = facultyDepartment;
-    }
-    @Column(name = "F_DEPARTMENT")
-
-
-    public String getFacultyDepartment () {
-        return facultyDepartment;
-    }
-
     /*-------------------------------------------------------------*/
 
     //Setter and getter for Department Id
@@ -96,6 +77,16 @@ public class Faculty {
 
     public void setFacultyProperties(Set<Property> facultyProperties) {
         this.facultyProperties = facultyProperties;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "username", referencedColumnName = "username")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

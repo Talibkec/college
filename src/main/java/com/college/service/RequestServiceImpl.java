@@ -1,10 +1,7 @@
 package com.college.service;
 
-import com.college.core.entity.Department;
 import com.college.core.entity.Request;
-import com.college.core.model.DepartmentDTO;
 import com.college.core.model.RequestDTO;
-import com.college.repository.DepartmentRepository;
 import com.college.repository.RequestRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -23,7 +20,21 @@ public class RequestServiceImpl implements RequestService{
     @Override
     public List<RequestDTO> getAllRequest() {
         List<Request> requests = requestRepository.findAll();
-        Type targetListType = new TypeToken<List<RequestRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<RequestDTO>>() {}.getType();
         return modelMapper.map(requests, targetListType);
+    }
+
+    @Override
+    public void saveRequest(RequestDTO requestDTO) {
+        Request request = modelMapper.map(requestDTO, Request.class);
+        requestRepository.save(request);
+    }
+
+    @Override
+    public List<RequestDTO> getFacultyRequest(Long facultyId) {
+        List<Request> request = requestRepository.getFacultyRequest(facultyId);
+        Type requestType = new TypeToken<List<RequestDTO>>(){}.getType();
+        return  modelMapper.map(request, requestType);
+
     }
 }

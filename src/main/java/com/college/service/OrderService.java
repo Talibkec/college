@@ -8,4 +8,6 @@ import java.util.List;
 @Service
 public interface OrderService {
     List<OrderDTO> getAllOrder();
+
+    List<OrderDTO> getFacultyOrders(Long userName);
 }

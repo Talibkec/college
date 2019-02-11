@@ -1,16 +1,14 @@
 package com.college.core.controller;
 
-import com.college.core.model.FacultyDocumentsDTO;
-import com.college.core.model.NoticeBoardDTO;
-import com.college.service.FacultyDocumentsService;
-import com.college.service.NoticeBoardService;
+import com.college.core.model.*;
+import com.college.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,6 +20,11 @@ public class CseController {
     public NoticeBoardService noticeBoardService;
     @Autowired
     FacultyDocumentsService facultyDocumentsService;
+
+    @Autowired
+    RequestService requestService;
+    @Autowired
+    FacultyService facultyService;
 
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
@@ -132,9 +135,16 @@ public class CseController {
     public ModelAndView getMta(){
         ModelAndView mv=new ModelAndView();
         String userName = ControllerUtility.getUserName();
+        String role = ControllerUtility.getRole();
         List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments("Talib");
+        List<RequestDTO> requests = new ArrayList<>();
+        if("Talib".equalsIgnoreCase(userName)) {
+            FacultyDTO facultyDTO = facultyService.getFaculty(userName);
+            requests = requestService.getFacultyRequest(facultyDTO.getFacultyId());
+        }
         mv.addObject("facultyDocument", allFacultyDocuments );
-        mv.addObject("Role", ControllerUtility.getRole());
+        mv.addObject("Role", role);
+        mv.addObject("requests", requests);
         mv.setViewName("department/cse/mta");
         return mv;
     }

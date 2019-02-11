@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
@@ -51,11 +52,12 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
+                    <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
+                                                class="fa fa-download"></i> Downloads</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width= "250px" style="height: 200px"
-                                                                                   src="http://localhost/7/image.jpeg"
-                                                             Md Talib Ahmad                     "/>
+                                                                                   src=""/>
                         <h2>Md Talib Ahmad</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering</p>
@@ -136,9 +138,29 @@
                                     </div>
                                 </c:forEach>
                            </div>
-                            </div>
+                         </div>
 
                         </div>
+                    <div role="tabpanel" class="tab-pane" id="order">
+                        <div style="padding: 15px;">
+                        		<a href="http://localhost/store/faculty/order" > Order Item </a>
+                        </div>
+                        <div style="padding: 15px;">
+                             <div class="">
+                                <c:forEach items="${requests}" var="request">
+                                                        <div class="row" style="border:1px solid green;padding:10px">
+                                                                   <div class="col-md-2 text-center">${request.productId}</div>
+                                                                   <div class="col-md-2 text-center" ><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
+                                                                   <div class="col-md-2 text-center">${request.productQuantity}</div>
+                                                                   <div class="col-md-2 text-center">${request.status}</div>
+                                                                   <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
+                                                                   <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
+                                                               </div>
+                                </c:forEach>
+                             </div>
+                        </div>
+
+                    </div>
                     </div>
                 </div>
             </div>

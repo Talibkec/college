@@ -19,10 +19,18 @@ public class OrderServiceImpl implements OrderService {
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     OrderRepository orderRepository;
+
     @Override
     public List<OrderDTO> getAllOrder() {
         List<Order> orders = orderRepository.findAll();
-        Type targetListType = new TypeToken<List<OrderRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        return modelMapper.map(orders, targetListType);
+    }
+
+    @Override
+    public List<OrderDTO> getFacultyOrders(Long facultyId) {
+        List<Order> orders = orderRepository.getFacultyOrder(facultyId);
+        Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
         return modelMapper.map(orders, targetListType);
     }
 }

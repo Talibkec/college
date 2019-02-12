@@ -68,7 +68,9 @@ public class StoreFacultyController {
     public void productRequest(@RequestParam("productName") String prodName, @RequestParam("vendorName") String vendorName,
                                @RequestParam("productId") Long productId, @RequestParam("requestedQty") Long requestedQty, HttpServletResponse response) throws ParseException, IOException {
         RequestDTO requestDTO = new RequestDTO();
-        requestDTO.setProductId(productId);
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setProductId(productId);
+        requestDTO.setProduct(productDTO);
         requestDTO.setProductQuantity(requestedQty);
         requestDTO.setRequestDate(new Date());
         String userName = ControllerUtility.getUserName();
@@ -83,7 +85,28 @@ public class StoreFacultyController {
 
     }
 
+    @RequestMapping(value = "editfacultyrequest", method = RequestMethod.GET)
+    public ModelAndView editFacultyRequest(@RequestParam("id") Long id){
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        mv.addObject("requestId", id);
+        mv.addObject("request", requestDTO);
+        mv.setViewName("/store/editrequest");
+        return mv;
+    }
 
-
-
+    @RequestMapping(value = "updateRequest", method = RequestMethod.POST)
+    public void updateRequest(@RequestParam("requestId") Long id, @RequestParam("requestedQty") Long requestedQty, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        String userName = ControllerUtility.getUserName();
+        FacultyDTO facultyDTO = facultyService.getFaculty(userName);
+        requestDTO.setProductQuantity(requestedQty);
+        requestService.saveRequest(requestDTO);
+        mv.setViewName("/store/editrequest");
+        String url = "http://localhost/department/" +
+                deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
+                userMap.get(facultyDTO.getUser().getUsername());
+        response.sendRedirect(url);
+    }
 }

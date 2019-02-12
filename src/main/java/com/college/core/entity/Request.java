@@ -8,14 +8,12 @@ import java.util.Date;
 public class Request {
     private Long requestId;
     private Long facultyId;
-    private Long productId;
+    private Product product;
     private Long productQuantity;
     private Date requestDate;
     private String status;
     private Date approvalDate;
     private Date deliverDate;
-
-
 
 
     @Id
@@ -54,15 +52,15 @@ public class Request {
 
 
     //Setter and getter for Product ID
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-    @Column(name = "P_Id")
-    public Long getProductId() {
-        return productId;
+    @ManyToOne
+    @JoinColumn(name = "P_ID")
+    public Product getProduct() {
+        return product;
     }
 
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     /*-------------------------------------------------------------*/
 

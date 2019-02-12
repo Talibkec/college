@@ -42,11 +42,18 @@ public class ProductController {
 
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
-    public void addProduct(@RequestParam("productDetails") String productDetails) {
+    public Boolean addProduct(@RequestParam("productDetails") String productDetails) {
         ProductDTO product = gson.fromJson(productDetails, ProductDTO.class);
         productService.save(product);
         logger.info(productDetails);
+        return true;
+    }
 
+    @RequestMapping(value = "addProduct", method = RequestMethod.GET)
+    public ModelAndView addProduct(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/addproduct");
+        return mv;
     }
 
     @ResponseBody
@@ -67,11 +74,22 @@ public class ProductController {
     public ModelAndView getVendorName(@RequestParam("prodName") String prodName, @RequestParam("vendorName") String vendorName,
                                       @RequestParam("productId") String productId) {
         ModelAndView mv = new ModelAndView();
-        List<ProductDTO> productNames = new ArrayList<>();
-        productNames = productService.getProductDetails(prodName, vendorName, productId);
-        mv.addObject("prodList", productNames);
-        mv.addObject("noOfItems", productNames.size());
-        mv.setViewName("/store/productdetails");
+        List<ProductDTO> products = new ArrayList<>();
+        products = productService.getProductDetails(prodName, vendorName, productId);
+        Integer productSize = 0;
+        if(products.size() != 0){
+            productSize = products.size();
+            mv.addObject("prodList", products);
+            mv.addObject("noOfItems", products.size());
+            mv.addObject("productSize", productSize);
+            mv.setViewName("/store/productdetails");
+        }
+        else{
+            mv.addObject("productFound", false);
+            mv.setViewName("/store/storemanager");
+
+        }
+
         return mv;
     }
 
@@ -158,6 +176,7 @@ public class ProductController {
     @RequestMapping(value = "smdashboard", method = RequestMethod.GET)
     public ModelAndView smDashBoard(){
         ModelAndView mv = new ModelAndView();
+        mv.addObject("productFound", true);
         mv.setViewName("/store/storemanager");
         return mv;
     }

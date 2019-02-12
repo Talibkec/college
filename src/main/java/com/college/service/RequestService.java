@@ -13,4 +13,6 @@ public interface RequestService {
     void saveRequest(RequestDTO requestDTO);
 
     List<RequestDTO> getFacultyRequest(Long facultyId);
+
+    RequestDTO getRequest(Long id);
 }

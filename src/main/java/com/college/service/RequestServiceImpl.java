@@ -1,7 +1,9 @@
 package com.college.service;
 
+import com.college.core.entity.Product;
 import com.college.core.entity.Request;
 import com.college.core.model.RequestDTO;
+import com.college.repository.ProductRepository;
 import com.college.repository.RequestRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -17,6 +19,9 @@ public class RequestServiceImpl implements RequestService{
     @Autowired
     RequestRepository requestRepository;
 
+    @Autowired
+    ProductRepository productRepository;
+
     @Override
     public List<RequestDTO> getAllRequest() {
         List<Request> requests = requestRepository.findAll();
@@ -26,7 +31,10 @@ public class RequestServiceImpl implements RequestService{
 
     @Override
     public void saveRequest(RequestDTO requestDTO) {
+
+        Product product = productRepository.findOne(requestDTO.getProduct().getProductId());
         Request request = modelMapper.map(requestDTO, Request.class);
+        request.setProduct(product);
         requestRepository.save(request);
     }
 
@@ -36,5 +44,11 @@ public class RequestServiceImpl implements RequestService{
         Type requestType = new TypeToken<List<RequestDTO>>(){}.getType();
         return  modelMapper.map(request, requestType);
 
+    }
+
+    @Override
+    public RequestDTO getRequest(Long id) {
+        Request request = requestRepository.findOne(id);
+        return modelMapper.map(request, RequestDTO.class);
     }
 }

@@ -146,15 +146,24 @@
                         		<a href="http://localhost/store/faculty/order" > Order Item </a>
                         </div>
                         <div style="padding: 15px;">
-                             <div class="">
+                             <div class="row" style="border:1px solid green;padding:10px">
+                                <div class="col-md-2 text-center"><strong>Product Name</strong></div>
+                                <div class="col-md-2 text-center"><strong>Qty</strong></div>
+                                <div class="col-md-2 text-center"><strong>Status</strong></div>
+                                <div class="col-md-2 text-center"><strong>Requested Date</strong></div>
+                                <div class="col-md-2 text-center"><strong>Approval Date</strong></div>
+                                <div class="col-md-2 text-center"><strong>Edit</strong></div>
+
+                                 </div>
+                             <div class="" style>
                                 <c:forEach items="${requests}" var="request">
                                                         <div class="row" style="border:1px solid green;padding:10px">
-                                                                   <div class="col-md-2 text-center">${request.productId}</div>
-                                                                   <div class="col-md-2 text-center" ><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
+                                                                   <div class="col-md-2 text-center">${request.product.productName}</div>
                                                                    <div class="col-md-2 text-center">${request.productQuantity}</div>
                                                                    <div class="col-md-2 text-center">${request.status}</div>
                                                                    <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
                                                                    <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
+                                                                   <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}">Edit</a></div>
                                                                </div>
                                 </c:forEach>
                              </div>

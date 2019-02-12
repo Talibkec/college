@@ -1,11 +1,13 @@
 package com.college.core.model;
 
+import com.college.core.entity.Product;
+
 import java.util.Date;
 
 public class RequestDTO {
     private Long requestId;
     private Long facultyId;
-    private Long productId;
+    private ProductDTO product;
     private Long productQuantity;
     private Date requestDate;
     private String status;
@@ -28,13 +30,15 @@ public class RequestDTO {
         this.facultyId = facultyId;
     }
 
-    public Long getProductId() {
-        return productId;
+    public ProductDTO getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(ProductDTO product) {
+        this.product = product;
     }
+
+
 
     public Long getProductQuantity() {
         return productQuantity;

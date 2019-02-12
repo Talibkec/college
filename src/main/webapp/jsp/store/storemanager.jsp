@@ -1,4 +1,5 @@
 <jsp:include page="header1.jsp"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 
 <form  action="/store/getProductDetails" autocomplete="on" id = "searchProductForm">
@@ -17,6 +18,11 @@
         </div>
 	</div>
 </form>
+<c:if test = "${productFound == false}">
+    <div class="row">
+        <div class="text-center"><a href="http://localhost/store/addProduct" class="btn btn-success">Add Product</a><div>
+    </div>
+</c:if>
 
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
  <script src="http://localhost/js/jquery-ui.js"></script>

@@ -31,4 +31,10 @@ public class FacultyServiceImpl implements FacultyService {
         Faculty faculty = facultyRepository.findFacltyByUserName(userName);
         return modelMapper.map(faculty, FacultyDTO.class);
     }
+
+    @Override
+    public void saveFaculty(FacultyDTO facultyDTO) {
+        Faculty faculty = modelMapper.map(facultyDTO, Faculty.class);
+        facultyRepository.save(faculty);
+    }
 }

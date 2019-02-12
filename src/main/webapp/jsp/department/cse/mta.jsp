@@ -42,7 +42,7 @@
             </div>
             <div>
             <c:if test = "${Role == 'Faculty'}">
-                                   <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/facultyfileupload">Upload Your Documents</a></strong>
+                                   <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/facultyfileupload?isProfilePic=No">Upload Your Documents</a></strong>
 
              </c:if></div>
             <div class="col-md-8">
@@ -57,13 +57,19 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width= "250px" style="height: 200px"
-                                                                                   src=""/>
+                                                                                   src="http://localhost/${facultyId}/image${fileExtension}"/>
                         <h2>Md Talib Ahmad</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering</p>
                         <p><i class="fa fa-phone"></i> 9108006551 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                 href="mailto:mdtalibahmad@gmail.com"> <span>mdtalibahmad@gmail.com</span>
-                        </a></p> <br/><br/><div class="panel panel-default facultyInfo">
+                        </a></p> <br/><br/>
+                        <div>
+                            <c:if test = "${ Role eq 'Faculty'}">
+                                <a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes">Update Profile Pic</a>
+                            </c:if>
+                        </div>
+                        <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>
                             <table class="table table-striped">
                                 <tbody>

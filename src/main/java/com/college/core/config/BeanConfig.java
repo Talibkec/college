@@ -1,5 +1,6 @@
 package com.college.core.config;
 
+import com.college.FacultyHelper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -23,6 +24,12 @@ public class BeanConfig {
         CommonsMultipartResolver multipartResolver
                 = new CommonsMultipartResolver();
         return multipartResolver;
+    }
+
+    @Bean(name = "facultyHelper")
+    public FacultyHelper facultyHelper(){
+        FacultyHelper facultyHelper = new FacultyHelper();
+        return facultyHelper;
     }
 
 }

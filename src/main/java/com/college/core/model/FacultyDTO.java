@@ -13,8 +13,10 @@ public class FacultyDTO {
     private Long departmentId;
     private String facultyEmail;
     private Long facultyMobNo;
-    private Blob facultyPhoto;
+
+    private byte[] facultyPhoto;
     private User user;
+    private String fileType;
     private Set<Property> facultyProperties = new HashSet<>(0);
 
     public Long getFacultyId() {
@@ -57,14 +59,6 @@ public class FacultyDTO {
         this.facultyMobNo = facultyMobNo;
     }
 
-    public Blob getFacultyPhoto() {
-        return facultyPhoto;
-    }
-
-    public void setFacultyPhoto(Blob facultyPhoto) {
-        this.facultyPhoto = facultyPhoto;
-    }
-
     public User getUser() {
         return user;
     }
@@ -80,5 +74,22 @@ public class FacultyDTO {
     public void setFacultyProperties(Set<Property> facultyProperties) {
         this.facultyProperties = facultyProperties;
     }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getFacultyPhoto() {
+        return facultyPhoto;
+    }
+
+    public void setFacultyPhoto(byte[] facultyPhoto) {
+        this.facultyPhoto = facultyPhoto;
+    }
+
 
 }

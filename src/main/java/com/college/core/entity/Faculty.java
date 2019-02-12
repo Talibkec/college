@@ -15,7 +15,9 @@ public class Faculty {
     private Long departmentId;
     private String facultyEmail;
     private Long facultyMobNo;
-    private Blob facultyPhoto;
+    @Lob
+    private byte[] facultyPhoto;
+    private String fileType;
     private User user;
     private Set<Property> facultyProperties = new HashSet<>(0);
 
@@ -40,9 +42,14 @@ public class Faculty {
 
     public void setFacultyMobNo(Long facultyMobNo) {this.facultyMobNo = facultyMobNo; }
     @Column(name="F_PHOTO")
-    public Blob getFacultyPhoto() {return facultyPhoto; }
+    public byte[] getFacultyPhoto() {
+        return facultyPhoto;
+    }
 
-    public void setFacultyPhoto(Blob facultyPhoto) {this.facultyPhoto = facultyPhoto;}
+    public void setFacultyPhoto(byte[] facultyPhoto) {
+        this.facultyPhoto = facultyPhoto;
+    }
+
 
     /*-------------------------------------------------------------*/
 
@@ -87,6 +94,15 @@ public class Faculty {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Column(name = "F_FILETYPE")
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 
 }

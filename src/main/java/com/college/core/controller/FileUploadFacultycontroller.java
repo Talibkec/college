@@ -1,7 +1,10 @@
 package com.college.core.controller;
 
+import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
 import com.college.service.FacultyDocumentsService;
+import com.college.service.FacultyService;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ import java.util.Date;
 public class FileUploadFacultycontroller {
     @Autowired
     FacultyDocumentsService facultyDocumentsService;
+
+    @Autowired
+    FacultyService facultyService;
     private final Logger logger = LoggerFactory.getLogger(FileUploadFacultycontroller.class);
    // private final String UPLOADED_FOLDER = getPath();
 
@@ -53,7 +59,8 @@ public class FileUploadFacultycontroller {
     @RequestMapping(value="auth/api/facultyfileUpload", method= RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
-            @RequestParam("facultydocumentsHeader") String facultydocumentsHeader) {
+            @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
+            @RequestParam("isProfilePic") String isProfilePic) {
         logger.debug("Single file Upload");
         String fileName = uploadfile.getOriginalFilename();
         if (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader)) {
@@ -67,17 +74,21 @@ public class FileUploadFacultycontroller {
             }
             return new ResponseEntity(msg,  new HttpHeaders(),HttpStatus.BAD_REQUEST);
         }
-        String userName = null;
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails) {
-            UserDetails userDetails = ((UserDetails)principal);
-            userName = userDetails.getUsername();
-        } else {
-            userName = principal.toString();
+        String userName = ControllerUtility.getUserName();
+        if("Yes".equalsIgnoreCase(isProfilePic)){
+            FacultyDTO facultyDTO = facultyService.getFaculty(userName);
+            facultyDTO.setFileType(fileName);
+            try {
+                facultyDTO.setFacultyPhoto(uploadfile.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
+            facultyService.saveFaculty(facultyDTO);
         }
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile);
+        else {
+            saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile);
+        }
 
         String notice = "http://localhost/wp-content/uploads/facultydocuments/" + fileName;
         notice = notice + "," + facultydocumentsHeader;

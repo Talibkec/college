@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.FacultyHelper;
 import com.college.core.model.*;
 import com.college.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,7 @@ public class CseController {
     @Autowired
     public NoticeBoardService noticeBoardService;
     @Autowired
-    FacultyDocumentsService facultyDocumentsService;
-
-    @Autowired
-    RequestService requestService;
-    @Autowired
-    FacultyService facultyService;
+    FacultyHelper facultyHelper;
 
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
@@ -133,18 +129,7 @@ public class CseController {
     }
     @RequestMapping(value="mta")
     public ModelAndView getMta(){
-        ModelAndView mv=new ModelAndView();
-        String userName = ControllerUtility.getUserName();
-        String role = ControllerUtility.getRole();
-        List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments("Talib");
-        List<RequestDTO> requests = new ArrayList<>();
-        if("Talib".equalsIgnoreCase(userName)) {
-            FacultyDTO facultyDTO = facultyService.getFaculty(userName);
-            requests = requestService.getFacultyRequest(facultyDTO.getFacultyId());
-        }
-        mv.addObject("facultyDocument", allFacultyDocuments );
-        mv.addObject("Role", role);
-        mv.addObject("requests", requests);
+        ModelAndView mv= facultyHelper.getFacultyDetails("Talib");
         mv.setViewName("department/cse/mta");
         return mv;
     }

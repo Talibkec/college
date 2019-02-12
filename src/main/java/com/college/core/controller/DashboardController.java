@@ -51,9 +51,10 @@ public class DashboardController {
 		return model;
 	}
 	@RequestMapping(value = "/auth/uploadfile/facultyfileupload", method = RequestMethod.GET)
-	public ModelAndView displayFacultyFileUploadpage() {
+	public ModelAndView displayFacultyFileUploadpage(@RequestParam("isProfilePic") String isProfilePic) {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("facultyfileupload");
+		model.addObject("isProfilePic", isProfilePic);
 		return model;
 	}
 	@RequestMapping(value = "/wp-content/themes/kec/admin/homepage", method = RequestMethod.GET)

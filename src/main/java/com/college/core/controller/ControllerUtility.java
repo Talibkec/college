@@ -5,6 +5,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class ControllerUtility {
+
     public static String getRole() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userRole = null;

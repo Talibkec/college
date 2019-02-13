@@ -15,4 +15,6 @@ public interface RequestService {
     List<RequestDTO> getFacultyRequest(Long facultyId);
 
     RequestDTO getRequest(Long id);
+
+    void deleteFacultyRequest(Long requestID);
 }

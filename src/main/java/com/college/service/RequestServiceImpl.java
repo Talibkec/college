@@ -51,4 +51,9 @@ public class RequestServiceImpl implements RequestService{
         Request request = requestRepository.findOne(id);
         return modelMapper.map(request, RequestDTO.class);
     }
+
+    @Override
+    public void deleteFacultyRequest(Long id) {
+        requestRepository.delete(id);
+    }
 }

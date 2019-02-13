@@ -12,11 +12,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
@@ -107,6 +109,17 @@ public class StoreFacultyController {
         String url = "http://localhost/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
+        response.sendRedirect(url);
+    }
+
+    @RequestMapping(value = "deletefacultyrequest", method = RequestMethod.GET)
+    public void deleteFacultyRequest(@RequestParam("requestId") Long requestId, HttpServletResponse response, HttpServletRequest request) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        requestService.deleteFacultyRequest(requestId);
+        String url = request.getHeader("Referer");
+        if(StringUtils.isEmpty(url)){
+            url = "/";
+        }
         response.sendRedirect(url);
     }
 }

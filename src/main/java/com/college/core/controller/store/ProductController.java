@@ -176,12 +176,32 @@ public class ProductController {
         mv.setViewName("/store/editpurchase");
         return mv;
     }
+    @RequestMapping(value = "editProduct")
+    public ModelAndView editProduct(@RequestParam("productId") Long productId) {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("productId",productId);
+        ProductDTO productDTO =  productService.getProduct(productId);
+        mv.addObject("product", productDTO);
+        mv.setViewName("/store/editproduct");
+        return mv;
+    }
 
     @RequestMapping(value = "deletePurchase")
     public void deletePurchase(HttpServletRequest request, HttpServletResponse response, @RequestParam("purchaseId") Long purchaseId) throws IOException {
         ModelAndView mv = new ModelAndView();
         mv.addObject("purchaseId",purchaseId);
         purchaseService.deletePurchase(purchaseId);
+        String url = request.getHeader("Referer");
+        if(StringUtils.isEmpty(url)){
+            url = "/";
+        }
+        response.sendRedirect(url);
+    }
+    @RequestMapping(value = "deleteProduct")
+    public void deleteProduct(HttpServletRequest request, HttpServletResponse response, @RequestParam("productId") Long productId) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("productId",productId);
+        productService.deleteProduct(productId);
         String url = request.getHeader("Referer");
         if(StringUtils.isEmpty(url)){
             url = "/";

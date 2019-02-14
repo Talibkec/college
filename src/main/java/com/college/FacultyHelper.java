@@ -34,10 +34,14 @@ public class FacultyHelper {
             requests = requestService.getFacultyRequest(facultyDTO.getFacultyId());
         }
         mv.addObject("facultyId", facultyDTO.getFacultyId());
+        mv.addObject("facultyEmail" ,facultyDTO.getFacultyEmail());
+        mv.addObject("facultyMobNo", facultyDTO.getFacultyMobNo());
+        mv.addObject("facultyName", facultyDTO.getFacultyName());
         if( facultyDTO.getFileType() != null)
             mv.addObject("fileExtension", "." + facultyDTO.getFileType());
         mv.addObject("facultyDocument", allFacultyDocuments );
         mv.addObject("Role", role);
+        mv.addObject("UserName", loggedInUser);
         mv.addObject("requests", requests);
         return  mv;
     }

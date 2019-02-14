@@ -73,4 +73,13 @@ public class ProductServiceImpl implements ProductService{
         Type targetListType = new TypeToken<List<ProductDTO>>() {}.getType();
         return modelMapper.map(prods, targetListType);
     }
+    @Override
+    public ProductDTO getProduct(Long productId) {
+        Product product = productRepository.findOne(productId);
+        return  modelMapper.map(product, ProductDTO.class);
+    }
+    @Override
+    public void deleteProduct(Long id) {
+        productRepository.delete(id);
+    }
 }

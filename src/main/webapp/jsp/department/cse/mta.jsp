@@ -4,7 +4,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Md Talib Ahmad(Faculty)</h3></div>
+                <div class="col-md-10 col-sm-8"><h3>${facultyName}</h3></div>
 
             </div>
         </div>
@@ -41,11 +41,12 @@
                                 </ul>
             </div>
             <div>
-            <c:if test = "${Role == 'Faculty'}">
-                                   <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/facultyfileupload?isProfilePic=No">Upload Your Documents</a></strong>
-
-             </c:if></div>
+             </div>
             <div class="col-md-8">
+            <c:if test = "${Role eq 'Faculty' and UserName eq 'Talib'}">
+                   <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                   <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
+            </c:if>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                                               data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
@@ -53,21 +54,20 @@
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
-                                                class="fa fa-download"></i> Downloads</a></li>
+                                                class="fa fa-angle-double-right"></i> Request</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width= "250px" style="height: 200px"
                                                                                    src="http://localhost/${facultyId}/image${fileExtension}"/>
-                        <h2>Md Talib Ahmad</h2>
+                        <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering</p>
-                        <p><i class="fa fa-phone"></i> 9108006551 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                                href="mailto:mdtalibahmad@gmail.com"> <span>mdtalibahmad@gmail.com</span>
+                        <p><i class="fa fa-phone"></i> ${facultyMobNo} &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
+                                href="mailto:mdtalibahmad@gmail.com"> <span>mdtalibahmad@gmail.com</span> &nbsp; | &nbsp;
+                                <i class="fa fa-envelope"> </i> <a href="mailto:${facultyEmail}"> <span>${facultyEmail}</span>
                         </a></p> <br/><br/>
                         <div>
-                            <c:if test = "${ Role eq 'Faculty'}">
-                                <a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes">Update Profile Pic</a>
-                            </c:if>
+
                         </div>
                         <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>

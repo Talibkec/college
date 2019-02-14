@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/jsp/header.jsp"/>
 
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
@@ -40,6 +42,7 @@
                 </ul>
             </div>
             <div class="col-md-8">
+
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                                               data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
@@ -48,15 +51,18 @@
                             class="fa fa-download"></i> Downloads</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
-                                                                                   src="dky.jpg"
-                                                                                   style="background-image: url(subodhkumar.png);"/>
+                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"  style="height: 200px;width:250px"
+                                                                                   src="http://localhost/${facultyId}/image${fileExtension}"/>
                         <h2>Dharmveer Kumar Yadav</h2>
                         <p style="font-size: 130%;">Assistant Professor<br/> Department of Computer Science and
                             Engineering</p>
                         <p><i class="fa fa-phone"></i> 8757760847 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                 href="/cdn-cgi/l/email-protection#14706667616671677c797d60547379757d783a777b79"> <span> kumar.dharmveer@gmail.com</span>
-                        </a></p> <br/><br/><div class="panel panel-default facultyInfo">
+                        </a></p> <br/><br/>
+                        <c:if test = "${ Role eq 'Faculty' and UserName eq 'kumar.dharmveer'}">
+                              <a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes">Update Profile Details</a>
+                          </c:if>
+                                      <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>
                             <table class="table table-striped">
                                 <tbody>

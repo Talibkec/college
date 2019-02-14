@@ -63,7 +63,10 @@ public class FileUploadFacultycontroller {
     public ResponseEntity<?> uploadFile(
             @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
             @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
-            @RequestParam("isProfilePic") String isProfilePic) {
+            @RequestParam("isProfilePic") String isProfilePic,
+            @RequestParam("facultyEmail") String facultyEmail,
+            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam("facultyName") String facultyName) {
         logger.debug("Single file Upload");
         String fileName = uploadfile.getOriginalFilename();
         if (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader)) {
@@ -74,7 +77,7 @@ public class FileUploadFacultycontroller {
             }
             else {
                 msg = "Please give notice heading";
-            }
+                }
             return new ResponseEntity(msg,  new HttpHeaders(),HttpStatus.BAD_REQUEST);
         }
         String userName = ControllerUtility.getUserName();
@@ -87,6 +90,9 @@ public class FileUploadFacultycontroller {
                 e.printStackTrace();
             }
             facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
+            facultyDTO.setFacultyEmail(facultyEmail);
+            facultyDTO.setFacultyMobNo(facultyMobNo);
+            facultyDTO.setFacultyName(facultyName);
             facultyService.saveFaculty(facultyDTO);
         }
         else {

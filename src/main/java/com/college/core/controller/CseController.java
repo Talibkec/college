@@ -105,7 +105,7 @@ public class CseController {
         return mv;
     }@RequestMapping(value="dky")
     public ModelAndView getDky(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("kumar.dharmveer");
         mv.setViewName("department/cse/dky");
         return mv;
     }
@@ -160,5 +160,5 @@ public class CseController {
     }
 
 
-    
+
 }

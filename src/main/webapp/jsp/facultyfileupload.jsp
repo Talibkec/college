@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-<div style="margin-left:50px" ><h3>Upload File</h3></div>
+<div style="margin-left:50px" ><h3><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
-<div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Notice/News</div>
+<div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></div>
 <div class="panel-body">
 
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
@@ -16,7 +16,15 @@
     </c:if>
     <c:if test = "${isProfilePic eq 'Yes'}" >
          <input type="hidden" name="facultydocumentsHeader" id="facultydocumentsHeader" value = "NotAvailable"/><br/><br/>
+         <label for ="facultyName">Enter Name</label>
+           <input type="text" id="facultyName" name="facultyName"></br></br>
+         <label for ="facultyEmail">Enter Email</label>
+             <input type="text" id="facultyEmail" name="facultyEmail"></br></br>
+             <label for ="facultyMobNo">Mobile No. </label>
+             <input type="text" id="facultyMobNo" name="facultyMobNo"></br>
+
     </c:if>
+
         <label for="file" class="control-label col-md-4" >Choose File</label>
         <div class=" btn-default  col-md-8" style="color:red">
         <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>

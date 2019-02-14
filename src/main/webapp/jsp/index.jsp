@@ -31,153 +31,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_1"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-2 views_slideshow_cycle_hidden views-row-even"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_1'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
 
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/img1.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Temporary Campus, Paloura @ IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_2"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-3 views_slideshow_cycle_hidden views-row-odd"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_2'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
-
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/img16.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Transit Campus, Jagti @ IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_3"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-4 views_slideshow_cycle_hidden views-row-even"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_3'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
-
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/slideimg-02.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Welcome to IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_4"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-5 views_slideshow_cycle_hidden views-row-odd"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_4'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
-
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/slideshow-img2.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Transit Campus Hostel, Jagti @ IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_5"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-6 views_slideshow_cycle_hidden views-row-even"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_5'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
-
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Welcome to IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_6"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-7 views_slideshow_cycle_hidden views-row-last views-row-odd"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_6'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
-
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/SPIC%20MACAY%20IIT%20Jammu_0.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">SPICMACAY J&amp;K Fall Retreat @ IIT Jammu</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="views-slideshow-controls-bottom clearfix">
-                            <div id="widget_pager_bottom_nodequeue_2-block_1"
-                                 class="views-slideshow-pager-fields widget_pager widget_pager_bottom views_slideshow_pager_field">
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_0"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd views-row-first"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_0">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-0'>IIT Students at Inter IIT sports meet 2017 @ IIT
-                                                Madras</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_1"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_1">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-1'>Temporary Campus, Paloura @ IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_2"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_2">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-2'>Transit Campus, Jagti @ IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_3"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_3">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-3'>Welcome to IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_4"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_4">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-4'>Transit Campus Hostel, Jagti @ IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_5"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_5">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-5'>Welcome to IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                                <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_6"
-                                     class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd views-row-last"
-                                     aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_6">
-                                    <div class="views-field-title">
-                                        <div class="views-content-title">
-                                            <a href='#slideshow-6'>SPICMACAY J&amp;K Fall Retreat @ IIT Jammu</a></div>
-                                    </div>
-                                </div>
-                            </div>
                             <div id="views_slideshow_controls_text_nodequeue_2-block_1"
                                  class="views-slideshow-controls-text views_slideshow_controls_text">
   <span id="views_slideshow_controls_text_previous_nodequeue_2-block_1"
@@ -205,22 +59,24 @@
 <div class="gt-newsblocksection">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <div class="region region-home-1">
                     <section id="block-block-18" class="block block-block clearfix">
 
                         <h2 class="block-title">Latest Notice</h2>
 <c:if test = "${Role == 'Admin'}">
-                                                                 <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-                                                                 <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
+<strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
+  <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
                                                              </c:if>
                         <div class="rwsvtickercontent">
                             <div class="rwsvticker1">
 
 
                                 <ul>
-                                    <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
-<div class="panel-body" style="max-height: 500px;">
+                                    <li>
+                                    <span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
+                                    <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
+                                        <div class="panel-body" style="max-height: 500px;">
                                  <ul class="listUpdates" id="noticeBoardItems">
 
                                  <li style="display: block;">
@@ -235,12 +91,12 @@
                                  		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                  		<c:set var = "clazz"  value = "label label-warning"/>
                                  		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
-                                 		 <c:if test = "${ notice.noticeType == 'News'}">
+                                 		 <c:if test = "${ notice.noticeType == 'News'}">m
                                                   <c:set var = "clazz"  value = "label label-primary"/>
                                           </c:if>
                                  		<i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                  		<c:if test = "${Role == 'Admin'}">
-                                 		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                                 		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                          </c:if>
                                  		<a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
                                  	</div>
@@ -251,67 +107,14 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div><div class="more-link">
+                              <a href="http://localhost/category/notices">View all Notices</a></div>
 
                     </section>
                 </div>
             </div>
-            <div class="col-sm-3">
-                <div class="region region-home-2">
-                    <section id="block-views-nodequeue-12-block" class="block block-views clearfix">
 
-                        <h2 class="block-title">Tenders</h2>
-
-                        <div class="view view-nodequeue-12 view-id-nodequeue_12 view-display-id-block view-dom-id-1584ef8e1537a413a20e095a49a0704e">
-
-
-                            <div class="view-content">
-                                <div class="item-list">
-                                    <ul>
-                                        <li class="views-row views-row-1 views-row-odd views-row-first">
-                                            <div class="views-field views-field-title"><span class="field-content"><a
-                                                    href="/tender-procurement-installation-pinball-disc-tribometer-system">No tenders.</a></span>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-
-
-                            <div class="more-link">
-                                <a href="http://localhost/category/notices">
-                                    View all Notices</a>
-                            </div>
-
-
-                        </div>
-                    </section>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="region region-home-3">
-                    <section id="block-block-11" class="block block-block clearfix">
-
-                        <h2 class="block-title">Academics</h2>
-
-                        <ul>
-                            <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="http://akubihar.ac.in/Academics/Docs/NEW_CURRICULUM_ENGINEERING_TECHNOLOGY.pdf"
-                                    target="_blank">New Course Curriculum for Engineering & Technology for 1st & 2nd Semester based on AICTE Model Cirriculum to be followed from Session 2018-19 onwards </a></span></li>
-                            <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="http://akubihar.ac.in/Academics/Docs/revised%20B%20tech%2019-02-11(revised).pdf"
-                                    target="_blank">Revised B.tech Syllabus</a></span></li>
-
-
-                            <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="academic-kec/calender.pdf">Holidays List</a></span></li>
-                        </ul>
-
-                    </section>
-                </div>
-            </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <div class="region region-home-4">
                     <section id="block-block-12" class="block block-block clearfix">
 
@@ -344,6 +147,32 @@
                     </section>
                 </div>
             </div>
+            <div class="col-sm-2">
+                            <div class="region region-home-2">
+                                <section id="block-views-nodequeue-12-block" class="block block-views clearfix">
+
+                                    <h2 class="block-title">Tenders</h2>
+
+                                    <div class="view view-nodequeue-12 view-id-nodequeue_12 view-display-id-block view-dom-id-1584ef8e1537a413a20e095a49a0704e">
+
+
+                                        <div class="view-content">
+                                            <div class="item-list">
+                                                <ul>
+                                                    <li class="views-row views-row-1 views-row-odd views-row-first">
+                                                        <div class="views-field views-field-title"><span class="field-content"><a
+                                                                href="/tender-procurement-installation-pinball-disc-tribometer-system">No tenders.</a></span>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+
         </div>
     </div>
 </div>

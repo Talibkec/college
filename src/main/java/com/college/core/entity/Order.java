@@ -1,23 +1,22 @@
 package com.college.core.entity;
-import javax.naming.Name;
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="ORDER")
+@Table(name="ORDER_COLLEGE")
 public class Order {
     private Long orderId;
     private Long requestId;
     private Long facultyId;
-    private Long productId;
+    private Product product;
     private Integer productQuantity;
     private Date requestDate;
-    private String approval;
+    private Date deliveryDate;
+    private  Date approvalDate;
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "orderId")
     @SequenceGenerator(name = "orderId", sequenceName = "orderId")
-    @Column(name = "orderId")
     public Long getOrderId() {
         return orderId;
     }
@@ -25,6 +24,25 @@ public class Order {
     //Setter and getter for Order Id
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
+    }
+
+    @ManyToOne
+    @JoinColumn
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    @Temporal(TemporalType.DATE)
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     /*-------------------------------------------------------------*/
@@ -55,19 +73,6 @@ public class Order {
 
 
 
-    //Setter and getter for Product Id
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-    @Column(name = "Prod_Id")
-    public Long getProductId() {
-        return productId;
-    }
-
-    /*-------------------------------------------------------------*/
-
-
-
     //Setter and getter for Product Quantity
     public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
@@ -85,23 +90,18 @@ public class Order {
     public void setRequestDate(Date requestDate) {
         this.requestDate = requestDate;
     }
+    @Temporal(TemporalType.DATE)
     @Column(name = "Req_Date")
     public Date getRequestDate() {
         return requestDate;
     }
 
-    /*-------------------------------------------------------------*/
-
-
-    //Setter and getter for Approval
-    public void setApproval(String approval) {
-        this.approval = approval;
-    }
-    @Column(name = "approval")
-    public String getApproval() {
-        return approval;
+    public Date getApprovalDate() {
+        return approvalDate;
     }
 
+    public void setApprovalDate(Date approvalDate) {
+        this.approvalDate = approvalDate;
+    }
 
-    /*-------------------------------------------------------------*/
 }

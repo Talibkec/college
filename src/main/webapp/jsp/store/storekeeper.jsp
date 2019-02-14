@@ -30,23 +30,21 @@
 <div style="padding: 15px;">
     <div class="row" style="border:1px solid green;padding:10px">
         <div class="col-md-2 text-center"><strong>Product Name</strong></div>
-        <div class="col-md-1 text-center"><strong>Qty</strong></div>
-        <div class="col-md-1 text-center"><strong>Status</strong></div>
+        <div class="col-md-2 text-center"><strong>Qty</strong></div>
+        <div class="col-md-2 text-center"><strong>Status</strong></div>
         <div class="col-md-2 text-center"><strong>Requested Date</strong></div>
         <div class="col-md-2 text-center"><strong>Approval / Cancellation Date</strong></div>
-        <div class="col-md-2 text-center"><strong>Approve</strong></div>
-        <div class="col-md-2 text-center"><strong>Cancel</strong></div>
+        <div class="col-md-2 text-center"><strong>Close</strong></div>
     </div>
 <div class="" style>
      <c:forEach items="${request}" var="req">
         <div class="row" style="border:1px solid green;padding:10px">
            <div class="col-md-2 text-center">${req.product.productName}</div>
-           <div class="col-md-1 text-center">${req.productQuantity}</div>
-           <div class="col-md-1 text-center">${req.status}</div>
+           <div class="col-md-2 text-center">${req.productQuantity}</div>
+           <div class="col-md-2 text-center">${req.status}</div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.requestDate}" pattern="dd/MM/yyyy"/></div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.approvalDate}" pattern="dd/MM/yyyy"/></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/approvefacultyrequest?requestId=${req.requestId}">Approve</a></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/rejectfacultyrequest?requestId=${req.requestId}">Cancel</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/closefacultyrequest?requestId=${req.requestId}">Close</a></div>
         </div>
      </c:forEach>
   </div>
@@ -56,6 +54,6 @@
 
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
  <script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/storemanager.js"></script>
+<script src="http://localhost/js/store/storkeeper.js"></script>
 </body>
 </html>

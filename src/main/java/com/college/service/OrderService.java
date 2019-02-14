@@ -10,4 +10,6 @@ public interface OrderService {
     List<OrderDTO> getAllOrder();
 
     List<OrderDTO> getFacultyOrders(Long userName);
+
+    void saveOrder(OrderDTO orderDTO);
 }

@@ -33,8 +33,12 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
 
     @Override
     public FacultyDocumentsDTO getFacultyDocument(Long id) {
+        FacultyDocumentsDTO facultyDocumentsDTO = null;
         FacultyDocuments facultyDocuments = facultyDocumentsRepository.findOne(id);
-        return modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
+        if(facultyDocuments != null){
+            facultyDocumentsDTO = modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
+        }
+        return facultyDocumentsDTO;
     }
 
     @Override

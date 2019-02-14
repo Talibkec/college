@@ -15,4 +15,8 @@ public interface RequestService {
     List<RequestDTO> getFacultyRequest(Long facultyId);
 
     RequestDTO getRequest(Long id);
+
+    List<RequestDTO> getNewRequest(String aNew);
+
+    void deleteFacultyRequest(Long requestId);
 }

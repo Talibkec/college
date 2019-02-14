@@ -15,8 +15,7 @@ public class Faculty {
     private Long departmentId;
     private String facultyEmail;
     private Long facultyMobNo;
-    @Lob
-    private byte[] facultyPhoto;
+
     private String fileType;
     private User user;
     private Set<Property> facultyProperties = new HashSet<>(0);
@@ -41,7 +40,10 @@ public class Faculty {
     public Long getFacultyMobNo() {return facultyMobNo;}
 
     public void setFacultyMobNo(Long facultyMobNo) {this.facultyMobNo = facultyMobNo; }
-    @Column(name="F_PHOTO")
+
+    @Lob
+    private byte[] facultyPhoto;
+    @Column(name="f_photo", columnDefinition="mediumblob")
     public byte[] getFacultyPhoto() {
         return facultyPhoto;
     }

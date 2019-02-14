@@ -16,4 +16,9 @@ public interface ProductService {
     List<String> vendorName(String vendorName);
 
     List<ProductDTO> getProductDetails(String prodName, String vendorName, String productId);
+
+    ProductDTO getProduct(Long productId);
+
+    void deleteProduct(Long productId);
+
 }

@@ -1,48 +1,56 @@
 $(document).ready(function () {
-$("#editProduct").click(function (event) {
 
-            //stop submit the form, we will post it manually.
-            event.preventDefault();
+    $("#editProduct").click(function (event) {
 
-            addProduct();
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
 
-        });
+        fire_ajax_submit();
+
+    });
+
+
+
 });
-function addProduct() {
+
+function fire_ajax_submit() {
 
     // Get form
-    var form = $('#addProductForm')[0];
+    var form = $('#editProductForm')[0];
 
     var data = new FormData(form);
 
-    //data.append("CustomField", "This is some extra data, testing");
+    //data.append("purchaseDate", $("#purchaseDate").val());
 
-    $("#addProduct").prop("disabled", true);
+    $("#addroduct").prop("disabled", true);
 
     $.ajax({
         type: "POST",
-        url: "/store/editProduct",
+        url: "/store/addProduct",
         data: {
-            productDetails:JSON.stringify(getUpdatedProductDetails())
+            productDetails:JSON.stringify(getProductDetails()),
+            //purchaseDate:$("#purchaseDate").val()
         },
         //contentType: false,
         //cache: false,
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 
-             $("#addProduct").prop("disabled", false);
+              $("#editProduct").prop("disabled", false);
+              window.location.replace("/store/smdashboard");
         },
         error: function (e) {
 
-            $("#addProduct").prop("disabled", false);
+            $("#editProduct").prop("disabled", false);
 
         }
     });
 
 }
-function getUpdatedProductDetails(){
+
+function getProductDetails(){
     var productJsonObj = {};
-        productJsonObj.productId = $("#")
+        productJsonObj.productId = $("#productId").val();
         productJsonObj.productName = $("#p_name").val();
         productJsonObj.productQuantity = $("#p_quantity").val();
         productJsonObj.productDescription = $("#p_description").val();

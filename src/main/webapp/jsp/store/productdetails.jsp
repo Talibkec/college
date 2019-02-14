@@ -8,19 +8,24 @@
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-2 text-center"><strong>Product Name</strong></div>
             <div class="col-md-2 text-center"><strong>Vendor Name</strong></div>
-            <div class="col-md-2 text-center"><strong>Available Quantity</strong></div>
-            <div class="col-md-2 text-center"><strong>Purchase Details</strong></div>
+            <div class="col-md-1 text-center"><strong>Available Quantity</strong></div>
+            <div class="col-md-1 text-center"><strong>Purchase Details</strong></div>
             <div class="col-md-2 text-center"><strong>Add Purchase</strong></div>
-            <div class="col-md-2 text-center"><strong>Edit Purchase</strong></div>
+            <div class="col-md-2 text-center"><strong>Edit Product</strong></div>
+            <div class="col-md-2 text-center"><strong>Delete Product</strong></div>
+
+
         </div>
          <c:forEach items="${prodList}" var="element">
             <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-2 text-center">${element.productName}</div>
             <div class="col-md-2 text-center" >${element.vendorName}</div>
-            <div class="col-md-2 text-center">${element.availableQuantity}</div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/purchasedetails?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Details</a></div>
+            <div class="col-md-1 text-center">${element.availableQuantity}</div>
+            <div class="col-md-1 text-center"><a href="http://localhost/store/purchasedetails?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Details</a></div>
             <div class="col-md-2 text-center"><a href="http://localhost/store/addPurchase?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Purchase</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/editPurchase?productId=${element.productId}">Edit Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="http://localhost/store/editProduct?productId=${element.productId}">Edit Product</a></div>
+            <div class="col-md-2 text-center"><a href="http://localhost/store/deleteProduct?productId=${element.productId}">Delete Product</a></div>
+
         </div>
         </c:forEach>
 	</div>

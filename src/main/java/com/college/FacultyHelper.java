@@ -29,14 +29,13 @@ public class FacultyHelper {
         String role = ControllerUtility.getRole();
         List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments(userName);
         List<RequestDTO> requests = new ArrayList<>();
-        FacultyDTO facultyDTO = facultyService.getFaculty("Talib");
+        FacultyDTO facultyDTO = facultyService.getFaculty(userName);
         if(userName.equalsIgnoreCase(loggedInUser)) {
             requests = requestService.getFacultyRequest(facultyDTO.getFacultyId());
         }
         mv.addObject("facultyId", facultyDTO.getFacultyId());
         if( facultyDTO.getFileType() != null)
             mv.addObject("fileExtension", "." + facultyDTO.getFileType());
-
         mv.addObject("facultyDocument", allFacultyDocuments );
         mv.addObject("Role", role);
         mv.addObject("requests", requests);

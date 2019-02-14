@@ -1,12 +1,8 @@
 package com.college.core.controller.store;
 
-import com.college.core.model.ProductDTO;
-import com.college.core.model.PurchaseDTO;
-import com.college.core.model.RequestDTO;
+import com.college.core.model.*;
 import com.college.repository.PurchaseRepository;
-import com.college.service.ProductService;
-import com.college.service.PurchaseService;
-import com.college.service.RequestService;
+import com.college.service.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
@@ -43,10 +39,15 @@ public class ProductController {
     PurchaseService purchaseService;
     @Autowired
     RequestService requestService;
+    @Autowired
+    FacultyService facultyService;
+    @Autowired
+    OrderService orderService;
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
     public Boolean addProduct(@RequestParam("productDetails") String productDetails) {
         ProductDTO product = gson.fromJson(productDetails, ProductDTO.class);
+        product.setAvailableQuantity(product.getProductQuantity());
         productService.save(product);
         logger.info(productDetails);
         return true;
@@ -64,6 +65,13 @@ public class ProductController {
     public List<String> getProductName(@RequestParam("prodName") String prodName) {
         List<String> productNames = productService.prodName(prodName);
         return productNames;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
+    public List<String> searchFacultyName(@RequestParam("facultyName") String facultyName) {
+        List<String> facultyNames = facultyService.searchFacultyName(facultyName);
+        return facultyNames;
     }
 
     @ResponseBody
@@ -142,6 +150,23 @@ public class ProductController {
         return mv;
     }
 
+    @RequestMapping(value = "getPurchaseBtweenDates")
+    public ModelAndView getPurchaseBtweenDates(@RequestParam("fromDate") String fromDate,
+                                       @RequestParam("toDate") String toDate) {
+        ModelAndView mv = new ModelAndView();
+        Date to = new Date(), from = new Date();
+        try {
+            from = DATE_TIME_FORMATTER.parse(fromDate);
+            to = DATE_TIME_FORMATTER.parse(toDate);
+        } catch (ParseException e) {
+            logger.error("Could not parse the either to or from date, Please contact to administrator.");
+        }
+        List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseBtweenDates( from, to);
+        mv.addObject("purchases", purchaseDetails);
+        mv.setViewName("/store/purchasedetails");
+        return mv;
+    }
+
     @RequestMapping(value = "editPurchase")
     public ModelAndView editPurchase(@RequestParam("purchaseId") Long purchaseId) {
         ModelAndView mv = new ModelAndView();
@@ -197,6 +222,45 @@ public class ProductController {
         return mv;
     }
 
+    @RequestMapping(value = "orderPage", method = RequestMethod.GET)
+    public ModelAndView showOrderPage(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/searchorder");
+        return mv;
+    }
+
+    @RequestMapping(value = "submitSearchOrder", method = RequestMethod.POST)
+    public ModelAndView submitSearchOrder(@RequestParam("prodName") String prodName, @RequestParam("facultyName") String facultyName
+            , @RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate){
+
+        List<OrderDTO> orders = new ArrayList<>();
+        Date to = new Date(), from = new Date();
+        try {
+            from = DATE_TIME_FORMATTER.parse(fromDate);
+            to = DATE_TIME_FORMATTER.parse(toDate);
+        } catch (ParseException e) {
+            logger.error("Could not parse the either to or from date, Please contact to administrator.");
+        }
+        if(StringUtils.isEmpty(prodName ) && !StringUtils.isEmpty(facultyName)){
+            List<FacultyDTO> facultyDTO = facultyService.getFacultyByName(facultyName);
+            for(FacultyDTO faculty : facultyDTO){
+                List<OrderDTO> orderDTOS = orderService.getOrderByFacultyName(faculty.getFacultyId(), from, to);
+                if(orderDTOS != null)
+                    orders.addAll(orderService.getOrderByFacultyName(faculty.getFacultyId(), from, to));
+            }
+
+        }
+        else if(StringUtils.isEmpty(facultyName) && !StringUtils.isEmpty(prodName ) ){
+            orders = orderService.getOrderByProductName(prodName, from, to);
+        }
+        else{
+            orders = orderService.getOrderBetweenDate(from, to);
+        }
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("orders", orders);
+        mv.setViewName("/store/orderdetails");
+        return mv;
+    }
 
 
 }

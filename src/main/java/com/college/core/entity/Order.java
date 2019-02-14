@@ -12,7 +12,8 @@ public class Order {
     private Integer productQuantity;
     private Date requestDate;
     private Date deliveryDate;
-    private  Date approvalDate;
+    private Date approvalDate;
+    private String facultyName;
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "orderId")
@@ -102,6 +103,14 @@ public class Order {
 
     public void setApprovalDate(Date approvalDate) {
         this.approvalDate = approvalDate;
+    }
+
+    public String getFacultyName() {
+        return facultyName;
+    }
+
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
     }
 
 }

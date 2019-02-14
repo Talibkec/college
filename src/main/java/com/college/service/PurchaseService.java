@@ -16,4 +16,6 @@ public interface PurchaseService {
     PurchaseDTO getPurchase(Long purchaseId);
 
     void deletePurchase(Long purchaseId);
+
+    List<PurchaseDTO> getPurchaseBtweenDates(Date from, Date to);
 }

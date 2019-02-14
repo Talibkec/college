@@ -56,6 +56,18 @@ public class PurchaseServiceImpl implements PurchaseService {
         purchaseRepository.delete(purchaseId);
     }
 
+    @Override
+    public List<PurchaseDTO> getPurchaseBtweenDates(Date from, Date to) {
+
+        List<PurchaseDTO> purchaseDTOS = null;
+        List<Purchase> purchases = purchaseRepository.getPurchaseBtweenDates(from, to);
+        Type targetListType = new TypeToken<List<PurchaseDTO>>() {}.getType();
+        if(purchases != null) {
+            purchaseDTOS = modelMapper.map(purchases, targetListType);
+        }
+        return  purchaseDTOS;
+    }
+
     private Product updateProduct(PurchaseDTO purchaseDTO){
         Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
         if(product.getAvailableQuantity()!= null) {

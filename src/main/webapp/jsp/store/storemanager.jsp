@@ -5,17 +5,20 @@
 
 <form  action="/store/getProductDetails" autocomplete="on" id = "searchProductForm">
 <div class="container" style="margin:50px">
-        <div class="row text-center"><strong> Search Product</strong></div>
+        <div class="row text-center"><h3> Search Product</h3></div>
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center"><strong>Search By ProductName</strong></div>
             <div class="col-md-3 text-center"><strong>Search By Vendor Name</strong></div>
-            <div class="col-md-3 text-center"><strong>Search By Product Id</strong></div>
+            <div class="col-md-2 text-center"><strong>Search By Product Id</strong></div>
+            <div class="col-md-2 text-center"></div>
+            <div class="col-md-2 text-center"></div>
         </div>
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center"><input type="text" name="prodName" id = "prodName" /></div>
             <div class="col-md-3 text-center" ><input type="text" name="vendorName" id = "vendorName" /></div>
-            <div class="col-md-3 text-center"><input type="text" name="productId" id = "productId"/></div>
-            <div class="col-md-3 text-center"><input type="submit" value="submit" id="getProductDetails"/></div>
+            <div class="col-md-2 text-center"><input type="text" name="productId" id = "productId"/></div>
+            <div class="col-md-2 text-center"><input type="submit" value="submit" id="getProductDetails"/></div>
+            <div class="col-md-2 text-center"><a href="http://localhost/store/orderPage">Search Order</a></div>
         </div>
 	</div>
 </form>
@@ -54,8 +57,25 @@
 </div>
 </c:if>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
- <script src="http://localhost/js/jquery-ui.js"></script>
+<form  action="/store/getPurchaseBtweenDates" autocomplete="on" id = "searchProductForm">
+<div class="container" style="margin:50px">
+        <div class="row text-center"><h3> Search Purchase</h3></div>
+        <div class="row" style="border:1px solid green;padding:10px">
+            <div class="col-md-4 text-center"><strong>From Date</strong></div>
+            <div class="col-md-4 text-center"><strong>To Date</strong></div>
+            <div class="col-md-4 text-center"><strong></strong></div>
+        </div>
+        <div class="row" style="border:1px solid green;padding:10px">
+            <div class="col-md-4 text-center"><input type="text" name="fromDate" id = "fromDate" /></div>
+            <div class="col-md-4 text-center" ><input type="text" name="toDate" id = "toDate" /></div>
+            <div class="col-md-4 text-center"><button value="submit" type="submit"> Search Purchase</button></div>
+        </div>
+	</div>
+</form>
+
+ <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+ <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
 <script src="http://localhost/js/store/storemanager.js"></script>
 </body>
 </html>

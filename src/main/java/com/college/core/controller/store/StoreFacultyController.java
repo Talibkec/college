@@ -9,12 +9,15 @@ import com.college.service.FacultyService;
 import com.college.service.OrderService;
 import com.college.service.ProductService;
 import com.college.service.RequestService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +53,7 @@ public class StoreFacultyController {
     @Value("#{${users}}") private Map<String,String> userMap;
     @Value("#{${dept}}") private Map<String,String> deptMap;
 
+    private Logger logger = LoggerFactory.getLogger(StoreFacultyController.class);
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 
     @RequestMapping(value = "order")
@@ -56,6 +61,34 @@ public class StoreFacultyController {
     {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/facultyproductsearch");
+        return mv;
+    }
+
+    @RequestMapping(value = "submitFacultySearchOrder", method = RequestMethod.POST)
+    public ModelAndView submitFacultySearchOrder(@RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate){
+
+        List<OrderDTO> orders;
+        Date to = new Date(), from = new Date();
+        try {
+            from = DATE_TIME_FORMATTER.parse(fromDate);
+            to = DATE_TIME_FORMATTER.parse(toDate);
+        } catch (ParseException e) {
+            logger.error("Could not parse the either to or from date, Please contact to administrator.");
+        }
+        FacultyDTO facultyDTO = facultyService.getFaculty(ControllerUtility.getUserName());
+        orders = orderService.getOrderByFacultyName(facultyDTO.getFacultyId(), from, to);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("orders", orders);
+        mv.setViewName("/store/orderdetails");
+        return mv;
+    }
+
+
+    @RequestMapping(value = "facultyOrderHistory")
+    public ModelAndView facultyOrderHistory()
+    {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/searchfacultyorder");
         return mv;
     }
 
@@ -142,17 +175,19 @@ public class StoreFacultyController {
     public void closefacultyRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
         RequestDTO requestDTO = requestService.getRequest(id);
+        FacultyDTO facultyDTO = facultyService.getFacultyById(requestDTO.getFacultyId());
         requestDTO.setStatus("Closed");
         requestDTO.setApprovalDate(new Date());
-        saveOrder(requestDTO);
+        saveOrder(requestDTO, facultyDTO.getFacultyName());
         mv.setViewName("/store/storemanager");
-        response.sendRedirect("http://localhost/store/smdashboard");
+        response.sendRedirect("http://localhost/store/storekeeper");
     }
 
     @Transactional
-    private void saveOrder(RequestDTO requestDTO){
+    private void saveOrder(RequestDTO requestDTO, String facultyName){
         requestService.deleteFacultyRequest(requestDTO.getRequestId());
         OrderDTO orderDTO = RequestOrderTransformer.convertToOrderDTO(requestDTO);
+        orderDTO.setFacultyName(facultyName);
         orderService.saveOrder(orderDTO);
     }
 

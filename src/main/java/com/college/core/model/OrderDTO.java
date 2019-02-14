@@ -12,6 +12,12 @@ public class OrderDTO {
     private Integer productQuantity;
     private Date requestDate;
 
+    public void setFacultyName(String facultyName) {
+        this.facultyName = facultyName;
+    }
+
+    private String facultyName;
+
     public void setApproval(Date approval) {
         this.approval = approval;
     }
@@ -75,6 +81,9 @@ public class OrderDTO {
         this.product = product;
     }
 
+    public String getFacultyName() {
+        return facultyName;
+    }
 
 
 }

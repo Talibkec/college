@@ -16,4 +16,7 @@ public interface PurchaseRepository extends JpaRepository<Purchase, Long> {
 
     @Query("select p from Purchase p where p.product.productId = :productId and p.purchaseDate between :fromDate and :toDate")
     List<Purchase> getPurchaseByProductId(@Param("productId") Long productId, @Param("fromDate") Date fromDate, @Param("toDate") Date toDate);
+
+    @Query("select p from Purchase p where p.purchaseDate between :from and :to")
+    List<Purchase> getPurchaseBtweenDates(@Param("from") Date from, @Param("to") Date to);
 }

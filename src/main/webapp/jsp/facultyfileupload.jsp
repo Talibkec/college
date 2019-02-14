@@ -11,13 +11,16 @@
     <c:if test = "${isProfilePic eq 'No'}">
         <label for="headLine" class="control-label col-sm-4" >Head Line</label>
         <div class="col-sm-8">
-            <input type="text" name="facultydocumentsHeader" id="facultydocumentsHeader"/><br/><br/>
+            <input type="text" name="facultydocumentsHeader" id="facultydocumentsHeader"/>
+            <input type="hidden" id="facultyName" name="facultyName" value="NotAvailable" />
+            <input type="hidden" id="facultyEmail" name="facultyEmail" value="NotAvailable" />
+            <input type="hidden" id="facultyMobNo" name="facultyMobNo" value="123"/>
         </div>
     </c:if>
     <c:if test = "${isProfilePic eq 'Yes'}" >
          <input type="hidden" name="facultydocumentsHeader" id="facultydocumentsHeader" value = "NotAvailable"/><br/><br/>
          <label for ="facultyName">Enter Name</label>
-           <input type="text" id="facultyName" name="facultyName"></br></br>
+          <input type="text" id="facultyName" name="facultyName"></br></br>
          <label for ="facultyEmail">Enter Email</label>
              <input type="text" id="facultyEmail" name="facultyEmail"></br></br>
              <label for ="facultyMobNo">Mobile No. </label>

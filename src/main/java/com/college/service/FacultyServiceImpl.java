@@ -37,4 +37,14 @@ public class FacultyServiceImpl implements FacultyService {
         Faculty faculty = modelMapper.map(facultyDTO, Faculty.class);
         facultyRepository.save(faculty);
     }
+
+    @Override
+    public FacultyDTO getFacultyById(Long id) {
+        FacultyDTO facultyDTO = null;
+        Faculty faculty = facultyRepository.findOne(id);
+        if(faculty != null){
+            facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
+        }
+        return facultyDTO;
+    }
 }

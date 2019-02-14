@@ -39,9 +39,12 @@ public class FileUploadFacultycontroller {
     @RequestMapping(value = "/{id}/image")
     public @ResponseBody byte[] getImage(@PathVariable("id") Long id) throws IOException {
 
-        FacultyDocumentsDTO facultyDocumentsDTO = facultyDocumentsService.getFacultyDocument(id);
-        InputStream in = new ByteArrayInputStream(facultyDocumentsDTO.getDocument());
-        return IOUtils.toByteArray(in);
+        FacultyDTO facultyDTO = facultyService.getFacultyById(id);
+        if(facultyDTO.getFacultyPhoto() != null) {
+            InputStream in = new ByteArrayInputStream(facultyDTO.getFacultyPhoto());
+            return IOUtils.toByteArray(in);
+        }
+        return null;
     }
 
     @RequestMapping(value = "auth/deleteFacultyDoc/{id}")

@@ -15,4 +15,7 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
 
     @Query("select r from Request r where r.facultyId = :facultyId")
     List<Request> getFacultyRequest(@Param("facultyId") Long facultyId);
+
+    @Query("select r from Request r where r.status = :aNew")
+    List<Request> getNewRequest(@Param("aNew") String aNew);
 }

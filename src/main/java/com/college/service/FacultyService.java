@@ -12,4 +12,6 @@ public interface FacultyService {
     FacultyDTO getFaculty(String userName);
 
     void saveFaculty(FacultyDTO facultyDTO);
+
+    FacultyDTO getFacultyById(Long id);
 }

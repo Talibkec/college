@@ -8,7 +8,7 @@ public class RequestDTO {
     private Long requestId;
     private Long facultyId;
     private ProductDTO product;
-    private Long productQuantity;
+    private Integer productQuantity;
     private Date requestDate;
     private String status;
     private Date approvalDate;
@@ -40,11 +40,11 @@ public class RequestDTO {
 
 
 
-    public Long getProductQuantity() {
+    public Integer getProductQuantity() {
         return productQuantity;
     }
 
-    public void setProductQuantity(Long productQuantity) {
+    public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
 

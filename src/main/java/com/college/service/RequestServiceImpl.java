@@ -53,7 +53,18 @@ public class RequestServiceImpl implements RequestService{
     }
 
     @Override
-    public void deleteFacultyRequest(Long id) {
-        requestRepository.delete(id);
+    public List<RequestDTO> getNewRequest(String aNew) {
+        List<RequestDTO> requestDTO = null;
+        List<Request> requests = requestRepository.getNewRequest(aNew);
+        if(requests != null){
+            Type requestType = new TypeToken<List<RequestDTO>>(){}.getType();
+            requestDTO = modelMapper.map(requests, requestType);
+        }
+        return  requestDTO;
+    }
+
+    @Override
+    public void deleteFacultyRequest(Long requestId) {
+        requestRepository.delete(requestId);
     }
 }

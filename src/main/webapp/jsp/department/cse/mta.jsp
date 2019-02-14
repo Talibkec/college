@@ -157,7 +157,7 @@
                                 <div class="col-md-1 text-center"><strong>Qty</strong></div>
                                 <div class="col-md-1 text-center"><strong>Status</strong></div>
                                 <div class="col-md-2 text-center"><strong>Requested Date</strong></div>
-                                <div class="col-md-2 text-center"><strong>Approval Date</strong></div>
+                                <div class="col-md-2 text-center"><strong>Approval/Rejection Date</strong></div>
                                 <div class="col-md-2 text-center"><strong>Edit</strong></div>
                                 <div class="col-md-2 text-center"><strong>Delete</strong></div>
 

@@ -16,5 +16,7 @@ public interface RequestService {
 
     RequestDTO getRequest(Long id);
 
-    void deleteFacultyRequest(Long requestID);
+    List<RequestDTO> getNewRequest(String aNew);
+
+    void deleteFacultyRequest(Long requestId);
 }

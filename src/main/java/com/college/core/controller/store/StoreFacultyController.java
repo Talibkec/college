@@ -2,9 +2,11 @@ package com.college.core.controller.store;
 
 import com.college.core.controller.ControllerUtility;
 import com.college.core.model.FacultyDTO;
+import com.college.core.model.OrderDTO;
 import com.college.core.model.ProductDTO;
 import com.college.core.model.RequestDTO;
 import com.college.service.FacultyService;
+import com.college.service.OrderService;
 import com.college.service.ProductService;
 import com.college.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +14,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
@@ -40,6 +41,9 @@ public class StoreFacultyController {
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    OrderService orderService;
 
 
     @Value("#{${users}}") private Map<String,String> userMap;
@@ -68,7 +72,7 @@ public class StoreFacultyController {
 
     @RequestMapping(value = "productrequest", method = RequestMethod.GET)
     public void productRequest(@RequestParam("productName") String prodName, @RequestParam("vendorName") String vendorName,
-                               @RequestParam("productId") Long productId, @RequestParam("requestedQty") Long requestedQty, HttpServletResponse response) throws ParseException, IOException {
+                               @RequestParam("productId") Long productId, @RequestParam("requestedQty") Integer requestedQty, HttpServletResponse response) throws ParseException, IOException {
         RequestDTO requestDTO = new RequestDTO();
         ProductDTO productDTO = new ProductDTO();
         productDTO.setProductId(productId);
@@ -98,7 +102,7 @@ public class StoreFacultyController {
     }
 
     @RequestMapping(value = "updateRequest", method = RequestMethod.POST)
-    public void updateRequest(@RequestParam("requestId") Long id, @RequestParam("requestedQty") Long requestedQty, HttpServletResponse response) throws IOException {
+    public void updateRequest(@RequestParam("requestId") Long id, @RequestParam("requestedQty") Integer requestedQty, HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
         RequestDTO requestDTO = requestService.getRequest(id);
         String userName = ControllerUtility.getUserName();
@@ -112,14 +116,45 @@ public class StoreFacultyController {
         response.sendRedirect(url);
     }
 
-    @RequestMapping(value = "deletefacultyrequest", method = RequestMethod.GET)
-    public void deleteFacultyRequest(@RequestParam("requestId") Long requestId, HttpServletResponse response, HttpServletRequest request) throws IOException {
+    @RequestMapping(value = "approvefacultyrequest", method = RequestMethod.GET)
+    public void updateRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
-        requestService.deleteFacultyRequest(requestId);
-        String url = request.getHeader("Referer");
-        if(StringUtils.isEmpty(url)){
-            url = "/";
-        }
-        response.sendRedirect(url);
+        RequestDTO requestDTO = requestService.getRequest(id);
+        requestDTO.setStatus("Approved");
+        requestDTO.setApprovalDate(new Date());
+        requestService.saveRequest(requestDTO);
+        mv.setViewName("/store/storemanager");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
+
+    @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
+    public void rejectRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        requestDTO.setStatus("Rejected");
+        requestDTO.setApprovalDate(new Date());
+        requestService.saveRequest(requestDTO);
+        mv.setViewName("/store/storemanager");
+        response.sendRedirect("http://localhost/store/smdashboard");
+    }
+
+    @RequestMapping(value = "closefacultyrequest", method = RequestMethod.GET)
+    public void closefacultyRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        requestDTO.setStatus("Closed");
+        requestDTO.setApprovalDate(new Date());
+        saveOrder(requestDTO);
+        mv.setViewName("/store/storemanager");
+        response.sendRedirect("http://localhost/store/smdashboard");
+    }
+
+    @Transactional
+    private void saveOrder(RequestDTO requestDTO){
+        requestService.deleteFacultyRequest(requestDTO.getRequestId());
+        OrderDTO orderDTO = RequestOrderTransformer.convertToOrderDTO(requestDTO);
+        orderService.saveOrder(orderDTO);
+    }
+
+
 }

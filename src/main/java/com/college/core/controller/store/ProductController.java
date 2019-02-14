@@ -2,9 +2,11 @@ package com.college.core.controller.store;
 
 import com.college.core.model.ProductDTO;
 import com.college.core.model.PurchaseDTO;
+import com.college.core.model.RequestDTO;
 import com.college.repository.PurchaseRepository;
 import com.college.service.ProductService;
 import com.college.service.PurchaseService;
+import com.college.service.RequestService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
@@ -39,7 +41,8 @@ public class ProductController {
     ProductService productService;
     @Autowired
     PurchaseService purchaseService;
-
+    @Autowired
+    RequestService requestService;
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
     public Boolean addProduct(@RequestParam("productDetails") String productDetails) {
@@ -196,10 +199,25 @@ public class ProductController {
     @RequestMapping(value = "smdashboard", method = RequestMethod.GET)
     public ModelAndView smDashBoard(){
         ModelAndView mv = new ModelAndView();
+        List<RequestDTO> requestDTOS = requestService.getNewRequest("New");
         mv.addObject("productFound", true);
+        mv.addObject("request", requestDTOS);
+        mv.addObject("requestSize", requestDTOS.size());
         mv.setViewName("/store/storemanager");
         return mv;
     }
+
+    @RequestMapping(value = "storekeeper", method = RequestMethod.GET)
+    public ModelAndView skDashboard(){
+        ModelAndView mv = new ModelAndView();
+        List<RequestDTO> requestDTOS = requestService.getNewRequest("Approved");
+        mv.addObject("request", requestDTOS);
+        mv.addObject("requestSize", requestDTOS.size());
+        mv.setViewName("/store/storekeeper");
+        return mv;
+    }
+
+
 
 }
 

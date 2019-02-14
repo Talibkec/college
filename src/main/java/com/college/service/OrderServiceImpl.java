@@ -33,4 +33,10 @@ public class OrderServiceImpl implements OrderService {
         Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
         return modelMapper.map(orders, targetListType);
     }
+
+    @Override
+    public void saveOrder(OrderDTO orderDTO) {
+        Order order = modelMapper.map(orderDTO, Order.class);
+        orderRepository.save(order);
+    }
 }

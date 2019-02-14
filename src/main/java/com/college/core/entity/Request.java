@@ -9,7 +9,7 @@ public class Request {
     private Long requestId;
     private Long facultyId;
     private Product product;
-    private Long productQuantity;
+    private Integer productQuantity;
     private Date requestDate;
     private String status;
     private Date approvalDate;
@@ -68,11 +68,11 @@ public class Request {
 
     //Setter and getter for Product Quantity
 
-    public void setProductQuantity(Long productQuantity) {
+    public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
     @Column(name = "Prod_Quantity")
-    public Long getProductQuantity() {
+    public Integer getProductQuantity() {
         return productQuantity;
     }
 

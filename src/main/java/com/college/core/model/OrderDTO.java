@@ -6,10 +6,16 @@ public class OrderDTO {
     private Long orderId;
     private Long requestId;
     private Long facultyId;
-    private Long productId;
+    private ProductDTO product;
+    private Date approval;
+    private Date deliveryDate;
     private Integer productQuantity;
     private Date requestDate;
-    private String approval;
+
+    public void setApproval(Date approval) {
+        this.approval = approval;
+    }
+
     public Long getOrderId() {
         return orderId;
     }
@@ -34,14 +40,6 @@ public class OrderDTO {
         this.facultyId = facultyId;
     }
 
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
     public Integer getProductQuantity() {
         return productQuantity;
     }
@@ -58,13 +56,25 @@ public class OrderDTO {
         this.requestDate = requestDate;
     }
 
-    public String getApproval() {
+    public Date getApproval() {
         return approval;
     }
 
-    public void setApproval(String approval) {
-        this.approval = approval;
+    public Date getDeliveryDate() {
+        return deliveryDate;
     }
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public ProductDTO getProduct() {
+        return product;
+    }
+
+    public void setProduct(ProductDTO product) {
+        this.product = product;
+    }
+
 
 
 }

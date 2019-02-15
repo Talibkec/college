@@ -11,6 +11,7 @@
         <div class="form-group">
             <label for="product_name" style="margin-right:70px">PRODUCT NAME: </label>
             <input type="text" class="form-control" id="p_name" placeholder="Enter product name" name="ProductName">
+            <h5 id="pnamecheck"></h5>
         </div>
         </br></br>
         <div class="form-group">
@@ -27,6 +28,7 @@
         <div class="form-group">
             <label for="vendor_name" style="margin-right:95px">Vendor name</label>
             <input type="text" id="v_name" name="vendor_name" class="form-control" placeholder="Vendor's Name">
+            <h5 id="vnamecheck"></h5>
         </div>
         </br></br>
 
@@ -41,13 +43,22 @@
         </br>
 
         <div class="col-lg-4 text-center">
-            <button id="addProduct" name="addProduct" class="btn btn-success" style="margin-left:500px" type= "submit">Submit
-            </button>
+            <input id="addProduct" name="addProduct" class="btn btn-success" style="margin-left:500px" type="submit" >
         </div>
 
     </form>
 
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://localhost/js/store/addproduct.js"></script>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 </body>
 </html>

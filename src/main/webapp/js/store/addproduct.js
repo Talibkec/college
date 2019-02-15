@@ -54,3 +54,109 @@ function getProductDetails(){
         productJsonObj.productType = $("#p_type").val();
         return productJsonObj;
 }
+
+// Form Validation
+    $(document).ready(function(){
+
+        $('#pnamecheck').hide();
+        $('#vnamecheck').hide();
+
+        var pname_err = true;
+        var vname_err = true;
+
+        //Productname validatin
+
+        $('#p_name').keyup(function(){
+
+            pname_check();
+        });
+
+        function pname_check()
+        {
+            var pname_val = $('#p_name').val();
+            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            if (regex.test(pname_val))
+            {
+                $('#pnamecheck').hide();
+            }
+            else
+            {
+                $('#pnamecheck').show();
+                $('#pnamecheck').html("**Please Enter the valid Product Name.");
+                $('#pnamecheck').focus();
+                $('#pnamecheck').css("color","red");
+                pname_err = false;
+                return false;
+            }
+
+            if ((pname_val.length < 3) || (pname_val.length > 10))
+            {
+                $('#pnamecheck').show();
+                $('#pnamecheck').html("**Enter the length of Name between 3 and 10.");
+                $('#pnamecheck').focus();
+                $('#pnamecheck').css("color","red");
+                pname_err = false;
+                return false;
+            }
+            else
+            {
+                $('#pnamecheck').hide();
+            }
+        }
+
+        //Vendor Name validation
+
+        $('#v_name').keyup(function(){
+
+            vname_check();
+        });
+
+        function vname_check()
+        {
+            var vname_val = $('#v_name').val();
+            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            if (regex.test(vname_val))
+            {
+               $('#vnamecheck').hide();
+            }
+            else
+            {
+                $('#vnamecheck').show();
+                $('#vnamecheck').html("**Please Enter the valid Vendor Name.");
+                $('#vnamecheck').focus();
+                $('#vnamecheck').css("color","red");
+                vname_err = false;
+                return false;
+            }
+
+            if ((pname_val.length < 3) || (pname_val.length > 10))
+                        {
+                            $('#pnamecheck').show();
+                            $('#pnamecheck').html("**Enter the length of Name between 3 and 10.");
+                            $('#pnamecheck').focus();
+                            $('#pnamecheck').css("color","red");
+                            pname_err = false;
+                            return false;
+                        }
+                        else
+                        {
+                            $('#pnamecheck').hide();
+                        }
+        }
+
+        $('#addProduct').click(function(){
+                var pname_err = true;
+                var vname_err = true;
+                pname_check();
+                vname_check();
+
+                if((pname_err == true) && (vname_err == true)){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+        });
+
+
+    });

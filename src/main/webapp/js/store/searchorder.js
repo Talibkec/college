@@ -55,3 +55,73 @@ $(document).ready( function(){
 
 
 });
+
+//code is related to form validation
+
+$(document).ready(function(){
+
+    var p_err = true;
+    var f_err = true;
+    $('#valid').hide();
+
+    $('#prodName').keyup(function(){
+        prodName();
+    });
+    function prodName(){
+        var prodName = $('#prodName').val();
+        var regex = new RegExp(/^[a-zA-Z\s]+$/);
+        if(regex.test(prodName))
+        {
+             $('#valid').hide();
+                        p_err = true;
+                        return true;
+
+        }
+        else
+        {
+            $('#valid').show();
+             $('#valid').html("**Please Enter the valid Quantity");
+             $('#valid').focus();
+             $('#valid').css("color","red");
+             p_err = false;
+             return false;
+        }
+    }
+
+     $('#facultyName').keyup(function(){
+            facultyName();
+        });
+        function facultyName(){
+            var facultyName = $('#facultyName').val();
+            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            if(regex.test(facultyName))
+            {
+                 $('#valid').hide();
+                            f_err = true;
+                            return true;
+            }
+            else
+            {
+                $('#valid').show();
+                 $('#valid').html("**Please Enter the valid Quantity");
+                 $('#valid').focus();
+                 $('#valid').css("color","red");
+                 f_err = false;
+                 return false;
+            }
+        }
+            $('#searchOrder').click(function(){
+                  p_err = true;
+                  f_err = true;
+                  prodName();
+                  facultyName();
+                  if(p_err == true || f_err == true)
+                  {
+                    return true;
+                  }
+                  else
+                  {
+                    return false;
+                  }
+            });
+});

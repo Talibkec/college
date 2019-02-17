@@ -14,9 +14,10 @@
             <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center">${request.product.productName}</div>
             <div class="col-md-3 text-center" >${request.product.vendorName}</div>
-            <div class="col-md-3 text-center"><input type = "number" name = "requestedQty" value="${request.productQuantity}"></input></div>
+            <div class="col-md-3 text-center"><input type = "text" name = "requestedQty" value="${request.productQuantity}" id="prodQuant" ></input></div>
             <input type="hidden" name = "requestId" value="${request.requestId}" />
-            <div class="col-md-3 text-center"><button type="submit" value="submit">Update</button></div>
+            <div class="col-md-3 text-center"><input type="submit" value="update" id="update" ></div>
+            <h5 id="prod"></h5>
         </div>
 	</div>
 </form>

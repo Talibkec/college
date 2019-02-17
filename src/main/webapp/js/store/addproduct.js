@@ -58,26 +58,28 @@ function getProductDetails(){
 // Form Validation
     $(document).ready(function(){
 
+         var p_err = true;
+                var v_err = true;
+                var q_err = true;
+
         $('#pnamecheck').hide();
         $('#vnamecheck').hide();
-
-        var pname_err = true;
-        var vname_err = true;
-
+        $('#pQantitycheck').hide();
         //Productname validatin
 
         $('#p_name').keyup(function(){
-
-            pname_check();
+            pName();
         });
 
-        function pname_check()
+        function pName()
         {
-            var pname_val = $('#p_name').val();
+            var pName = $('#p_name').val();
             var regex = new RegExp(/^[a-zA-Z\s]+$/);
-            if (regex.test(pname_val))
+            if (regex.test(pName))
             {
                 $('#pnamecheck').hide();
+                p_err = true;
+                return true;
             }
             else
             {
@@ -85,39 +87,52 @@ function getProductDetails(){
                 $('#pnamecheck').html("**Please Enter the valid Product Name.");
                 $('#pnamecheck').focus();
                 $('#pnamecheck').css("color","red");
-                pname_err = false;
+                p_err = false;
                 return false;
-            }
-
-            if ((pname_val.length < 3) || (pname_val.length > 10))
-            {
-                $('#pnamecheck').show();
-                $('#pnamecheck').html("**Enter the length of Name between 3 and 10.");
-                $('#pnamecheck').focus();
-                $('#pnamecheck').css("color","red");
-                pname_err = false;
-                return false;
-            }
-            else
-            {
-                $('#pnamecheck').hide();
             }
         }
+
+        $('#p_quantity').keyup(function(){
+                    pQuant();
+                });
+
+                function pQuant()
+                {
+                    var pQuant = $('#p_quantity').val();
+                    var regex = new RegExp(/[1-9]+$/);
+                    if (regex.test(pQuant))
+                    {
+                        $('#pQuantitycheck').hide();
+                        q_err = true;
+                        return true;
+                    }
+                    else
+                    {
+                        $('#pQuantitycheck').show();
+                        $('#pQuantitycheck').html("**Please Enter the valid Quantity.");
+                        $('#pQuantitycheck').focus();
+                        $('#pQuantitycheck').css("color","red");
+                        q_err = false;
+                        return false;
+                    }
+                }
 
         //Vendor Name validation
 
         $('#v_name').keyup(function(){
 
-            vname_check();
+            vName();
         });
 
-        function vname_check()
+        function vName()
         {
-            var vname_val = $('#v_name').val();
-            var regex = new RegExp(/^[a-zA-Z\s]+$/);
-            if (regex.test(vname_val))
+            var vName = $('#v_name').val();
+            var regex = new RegExp(/[a-zA-Z\s]+$/);
+            if (regex.test(vName))
             {
                $('#vnamecheck').hide();
+               v_err = true;
+               return true;
             }
             else
             {
@@ -125,32 +140,21 @@ function getProductDetails(){
                 $('#vnamecheck').html("**Please Enter the valid Vendor Name.");
                 $('#vnamecheck').focus();
                 $('#vnamecheck').css("color","red");
-                vname_err = false;
+                v_err = false;
                 return false;
             }
-
-            if ((pname_val.length < 3) || (pname_val.length > 10))
-                        {
-                            $('#pnamecheck').show();
-                            $('#pnamecheck').html("**Enter the length of Name between 3 and 10.");
-                            $('#pnamecheck').focus();
-                            $('#pnamecheck').css("color","red");
-                            pname_err = false;
-                            return false;
-                        }
-                        else
-                        {
-                            $('#pnamecheck').hide();
-                        }
         }
 
-        $('#addProduct').click(function(){
-                var pname_err = true;
-                var vname_err = true;
-                pname_check();
-                vname_check();
+        $('#submit').click(function(){
+                p_err = true;
+                v_err = true;
+                q_err = true;
 
-                if((pname_err == true) && (vname_err == true)){
+                pName();
+                vName();
+                pQuant();
+
+                if(p_err == true || v_err == true || q_err == true){
                     return true;
                 }
                 else{
@@ -159,4 +163,4 @@ function getProductDetails(){
         });
 
 
-    });
+});

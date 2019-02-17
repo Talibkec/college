@@ -16,7 +16,8 @@
         </br></br>
         <div class="form-group">
             <label for="product_quantity" style="margin-right:65px">Product Quantity:</label>
-            <input type="number" class="form-control" id="p_quantity" value="0">
+            <input type="text" class="form-control" id="p_quantity" value="0">
+            <h5 id="pQuantitycheck"></h5>
         </div>
         </br></br>
         <div class="form-group">
@@ -43,7 +44,7 @@
         </br>
 
         <div class="col-lg-4 text-center">
-            <input id="addProduct" name="addProduct" class="btn btn-success" style="margin-left:500px" type="submit" >
+            <input id="submit" name="addProduct" class="btn btn-success" style="margin-left:500px" type="submit" >
         </div>
 
     </form>

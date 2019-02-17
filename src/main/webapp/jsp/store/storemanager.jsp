@@ -20,6 +20,7 @@
             <div class="col-md-2 text-center"><input type="submit" value="submit" id="getProductDetails"/></div>
             <div class="col-md-2 text-center"><a href="http://localhost/store/orderPage">Search Order</a></div>
         </div>
+        <h5 id="valid"></h5>
 	</div>
 </form>
 <c:if test = "${productFound == false}">

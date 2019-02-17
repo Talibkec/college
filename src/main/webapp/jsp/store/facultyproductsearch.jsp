@@ -14,6 +14,7 @@
             <div class="col-md-3 text-center" ><input type="text" name="vendorName" id = "vendorName" /></div>
             <div class="col-md-3 text-center"><input type="text" name="productId" id = "productId"/></div>
             <div class="col-md-3 text-center"><input type="submit" value="submit" id="getProductDetails"/></div>
+            <h5 id="valid"></h5>
         </div>
 	</div>
 </form>

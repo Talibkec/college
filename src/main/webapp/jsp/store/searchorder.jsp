@@ -19,6 +19,7 @@
             <div class="col-md-2 text-center"><input type="text" name="toDate" id = "toDate"/></div>
             <div class="col-md-2 text-center"><input type="submit" value="submit" id="searchOrder"/></div>
         </div>
+        <h5 id="valid"></h5>
 	</div>
 </form>
 

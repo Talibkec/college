@@ -167,13 +167,13 @@
                                  </div>
                              <div class="" style>
                                 <c:forEach items="${requests}" var="request">
-                                                        <div class="row" style="border:1px solid green;padding:10px">
+                                                        <div class="row requests" style="border:1px solid green;padding:10px">
                                                                    <div class="col-md-2 text-center">${request.product.productName}</div>
                                                                    <div class="col-md-1 text-center">${request.productQuantity}</div>
-                                                                   <div class="col-md-1 text-center">${request.status}</div>
+                                                                   <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
                                                                    <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
                                                                    <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
-                                                                   <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}">Edit</a></div>
+                                                                   <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
                                                                    <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
                                                                </div>
                                 </c:forEach>
@@ -185,4 +185,8 @@
                 </div>
             </div>
         </div>
-    </div><jsp:include page="/jsp/footer.jsp"/>
+    </div>
+    <jsp:include page="/jsp/footer.jsp"/>
+    <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost/js/jquery-ui.js"></script>
+    <script src="http://localhost/js/facultyprofile.js"></script>

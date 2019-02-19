@@ -4,15 +4,18 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ControllerUtility {
 
-    public static String getRole() {
+    public static List<String> getRole() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String userRole = null;
+        List<String> userRole = new ArrayList<>();
         if (principal instanceof UserDetails) {
             UserDetails userDetails = ((UserDetails)principal);
             for (GrantedAuthority authority : userDetails.getAuthorities()) {
-                userRole = authority.getAuthority();
+                userRole.add(authority.getAuthority());
             }
 
         }

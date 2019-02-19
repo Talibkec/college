@@ -43,10 +43,13 @@
             <div>
              </div>
             <div class="col-md-8">
-            <c:if test = "${Role eq 'Faculty' and UserName eq 'Talib'}">
-                   <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
-                   <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
-            </c:if>
+            <c:forEach var="item" items="${Role}">
+
+                           <c:if test = "${'Faculty' eq item and UserName eq 'Talib'}">
+                                           <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                           <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
+                           </c:if>
+                        </c:forEach>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                                               data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
@@ -63,8 +66,8 @@
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering</p>
                         <p><i class="fa fa-phone"></i> ${facultyMobNo} &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                                href="mailto:mdtalibahmad@gmail.com"> <span>mdtalibahmad@gmail.com</span> &nbsp; | &nbsp;
-                                <i class="fa fa-envelope"> </i> <a href="mailto:${facultyEmail}"> <span>${facultyEmail}</span>
+                                href="mailto:${facultyOfficialEmail}"> <span>${facultyOfficialEmail}</span> &nbsp; | &nbsp;
+                                <i class="fa fa-envelope"> </i> <a href="mailto:${facultyPersonalEmail}"> <span>${facultyPersonalEmail}</span>
                         </a></p> <br/><br/>
                         <div>
 

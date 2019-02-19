@@ -13,9 +13,9 @@ public class Faculty {
     private Long facultyId;
     private String facultyName;
     private Long departmentId;
-    private String facultyEmail;
+    private String facultyOfficialEmail;
+    private String facultyPersonalEmail;
     private Long facultyMobNo;
-
     private String fileType;
     private User user;
     private Set<Property> facultyProperties = new HashSet<>(0);
@@ -32,10 +32,7 @@ public class Faculty {
         this.facultyId = facultyId;
     }
 
-    @Column(name="F_EMAIL")
-    public String getFacultyEmail() {return facultyEmail;}
 
-    public void setFacultyEmail(String facultyEmail) {this.facultyEmail = facultyEmail;}
     @Column(name="F_MNUMBER")
     public Long getFacultyMobNo() {return facultyMobNo;}
 
@@ -43,7 +40,7 @@ public class Faculty {
 
     @Lob
     private byte[] facultyPhoto;
-    @Column(name="f_photo", columnDefinition="mediumblob")
+    @Column(name="f_photo", columnDefinition="longblob")
     public byte[] getFacultyPhoto() {
         return facultyPhoto;
     }
@@ -77,7 +74,28 @@ public class Faculty {
     }
 
     /*-------------------------------------------------------------*/
+    /*-------------------------------------------------------------*/
+    //Setter and Getter for Faculty Official Email
+    @Column(name ="F_OFFICIALEMAIL")
 
+    public String getFacultyOfficialEmail() {
+        return facultyOfficialEmail;
+    }
+
+    public void setFacultyOfficialEmail(String facultyOfficialEmail) {
+        this.facultyOfficialEmail = facultyOfficialEmail;
+    }
+    /*--------------------------------------------------------------*/
+
+    /*-------------------------------------------------------------*/
+    //Setter and Getter for Faculty Personal Email
+    @Column(name="F_PERSONALEMAIL")
+    public String getFacultyPersonalEmail() {return facultyPersonalEmail; }
+
+    public void setFacultyPersonalEmail(String facultyPersonalEmail){this.facultyPersonalEmail = facultyPersonalEmail; }
+
+
+    /*-------------------------------------------------------------*/
     @ManyToMany
     @JoinTable(name="faculty_property", joinColumns = @JoinColumn(name="faculty_Id"), inverseJoinColumns = @JoinColumn(name="property_Id"))
     public Set<Property> getFacultyProperties() {

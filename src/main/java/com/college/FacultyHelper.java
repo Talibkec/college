@@ -10,6 +10,7 @@ import com.college.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class FacultyHelper {
     public  ModelAndView getFacultyDetails(String userName) {
         ModelAndView mv = new ModelAndView();
         String loggedInUser = ControllerUtility.getUserName();
-        String role = ControllerUtility.getRole();
+        List<String> role = ControllerUtility.getRole();
         List<FacultyDocumentsDTO> allFacultyDocuments  = facultyDocumentsService.getFacultyDocuments(userName);
         List<RequestDTO> requests = new ArrayList<>();
         FacultyDTO facultyDTO = facultyService.getFaculty(userName);
@@ -34,7 +35,8 @@ public class FacultyHelper {
             requests = requestService.getFacultyRequest(facultyDTO.getFacultyId());
         }
         mv.addObject("facultyId", facultyDTO.getFacultyId());
-        mv.addObject("facultyEmail" ,facultyDTO.getFacultyEmail());
+        mv.addObject("facultyOfficialEmail" ,facultyDTO.getFacultyOfficialEmail());
+        mv.addObject("facultyPersonalEmail", facultyDTO.getFacultyPersonalEmail());
         mv.addObject("facultyMobNo", facultyDTO.getFacultyMobNo());
         mv.addObject("facultyName", facultyDTO.getFacultyName());
         if( facultyDTO.getFileType() != null)

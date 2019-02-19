@@ -100,7 +100,7 @@ public class CseController {
     }
     @RequestMapping(value="subodh")
     public ModelAndView getSubodh(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("subodhkumar");
         mv.setViewName("department/cse/subodh");
         return mv;
     }@RequestMapping(value="dky")
@@ -111,19 +111,19 @@ public class CseController {
     }
     @RequestMapping(value="shweta")
     public ModelAndView getShweta(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("shwetakumari");
         mv.setViewName("department/cse/shweta");
         return mv;
     }
     @RequestMapping(value="snehakumari")
     public ModelAndView getSnehakumari(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("snehakumari");
         mv.setViewName("department/cse/snehakumari");
         return mv;
     }
     @RequestMapping(value="sjk")
     public ModelAndView getSjk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("sujeet.cse");
         mv.setViewName("department/cse/sjk");
         return mv;
     }
@@ -135,26 +135,26 @@ public class CseController {
     }
     @RequestMapping(value="pks")
     public ModelAndView getPks(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("pradeep");
         mv.setViewName("department/cse/pks");
         return mv;
     }
 
     @RequestMapping(value="cmm")
     public ModelAndView getCmm(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("chintamani");
         mv.setViewName("department/cse/cmm");
         return mv;
     }
     @RequestMapping(value="snjk")
     public ModelAndView getSnjk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("sinjan.kumar");
         mv.setViewName("department/cse/snjk");
         return mv;
     }
     @RequestMapping(value="shk")
     public ModelAndView getShk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("sritosh");
         mv.setViewName("department/cse/shk");
         return mv;
     }

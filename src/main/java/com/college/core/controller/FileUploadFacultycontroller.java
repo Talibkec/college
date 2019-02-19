@@ -46,6 +46,16 @@ public class FileUploadFacultycontroller {
         }
         return null;
     }
+    @RequestMapping(value ="/{id}/documents")
+    public @ResponseBody byte[] getdocuments( @PathVariable("id")Long id) throws IOException{
+        FacultyDocumentsDTO facultyDocumentsDTO =facultyDocumentsService.getFacultyDocument(id);
+        if(facultyDocumentsDTO.getDocument()!= null){
+            InputStream in = new ByteArrayInputStream(facultyDocumentsDTO.getDocument());
+            return  IOUtils.toByteArray(in);
+        }
+        return null;
+    }
+
 
     @RequestMapping(value = "auth/deleteFacultyDoc/{id}")
     public  void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
@@ -64,7 +74,8 @@ public class FileUploadFacultycontroller {
             @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
             @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
             @RequestParam("isProfilePic") String isProfilePic,
-            @RequestParam("facultyEmail") String facultyEmail,
+            @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
+            @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
             @RequestParam("facultyMobNo") Long facultyMobNo,
             @RequestParam("facultyName") String facultyName) {
         logger.debug("Single file Upload");
@@ -90,9 +101,31 @@ public class FileUploadFacultycontroller {
                 e.printStackTrace();
             }
             facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
-            facultyDTO.setFacultyEmail(facultyEmail);
-            facultyDTO.setFacultyMobNo(facultyMobNo);
-            facultyDTO.setFacultyName(facultyName);
+            if(StringUtils.isEmpty(facultyOfficialEmail)){
+                facultyDTO.setFacultyOfficialEmail(facultyDTO.getFacultyOfficialEmail());
+            }
+            else {
+                facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
+            }
+            if(StringUtils.isEmpty(facultyPersonalEmail)){
+                facultyDTO.setFacultyPersonalEmail(facultyDTO.getFacultyPersonalEmail());
+            }
+            else {
+                facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
+            }
+            if(StringUtils.isEmpty(facultyMobNo)){
+                facultyDTO.setFacultyMobNo(facultyDTO.getFacultyMobNo());
+            }
+            else {
+                facultyDTO.setFacultyMobNo(facultyMobNo);
+            }
+            if(StringUtils.isEmpty(facultyName)){
+                facultyDTO.setFacultyName(facultyDTO.getFacultyName());
+            }
+            else{
+                facultyDTO.setFacultyName(facultyName);
+            }
+
             facultyService.saveFaculty(facultyDTO);
         }
         else {

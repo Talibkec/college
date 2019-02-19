@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.FacultyHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.util.List;
 public class MechanicalController {
     @Autowired
     public NoticeBoardService noticeBoardService;
+    @Autowired
+    public FacultyHelper facultyHelper;
     @RequestMapping(value = {"mech"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
@@ -94,37 +97,37 @@ public class MechanicalController {
     }
     @RequestMapping(value="srk")
     public ModelAndView getSrk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("suryakumar");
         mv.setViewName("department/mechanical/srk");
         return mv;
     }
     @RequestMapping(value="jk")
     public ModelAndView getJk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("jayant906");
         mv.setViewName("department/mechanical/jk");
         return mv;
     }
     @RequestMapping(value="mk")
     public ModelAndView getMk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("mukeshme24");
         mv.setViewName("department/mechanical/mk");
         return mv;
     }
     @RequestMapping(value="ajk")
     public ModelAndView getAjk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("kumarajay");
         mv.setViewName("department/mechanical/ajk");
         return mv;
     }
     @RequestMapping(value="smnk")
     public ModelAndView getSmnk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("sumankumar");
         mv.setViewName("department/mechanical/smnk");
         return mv;
     }
     @RequestMapping(value="ap")
     public ModelAndView getAp(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("arbind");
         mv.setViewName("department/mechanical/ap");
         return mv;
     }
@@ -134,6 +137,6 @@ public class MechanicalController {
         mv.setViewName("department/mechanical/kks");
         return mv;
     }
-    
-    
+
+
 }

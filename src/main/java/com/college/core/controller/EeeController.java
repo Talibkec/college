@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.FacultyHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class EeeController {
 
     @Autowired
     NoticeBoardService noticeBoardService;
+    @Autowired
+    FacultyHelper facultyHelper;
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
 
     public ModelAndView getAbout(){
@@ -93,5 +96,5 @@ public class EeeController {
         mv.setViewName("department/eee/attendance");
         return mv;
     }
-    
+
 }

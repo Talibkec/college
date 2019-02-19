@@ -1,7 +1,38 @@
 <jsp:include page="header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header role="banner" id="page-header">
+<c:forEach var="item" items="${Role}">
+    ${item}
+    <c:if test = "${'Admin' eq item}">
+    <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
+    <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
+    </c:if>
+</c:forEach>
+    <marquee><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
+           <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li></marquee>
+    <c:forEach items="${scrollingNoticeList}" var="notice">
+        	<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
+        	<c:if test = "${notice.noticeAge < 2}">
+        	    <li>
+                    <i class="fa fa-asterisk"></i>
+                 	<img class="" src="NewFlashing.gif" alt=""Related image" width="44" height="40" />
+                    <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                    <c:if test = "${Role == 'Admin'}">
+                                 <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                             </c:if>
+                </li>
+             </c:if>
+             <c:if test = "${notice.noticeAge >= 45}">
+                 <li>
+                     <i class="fa fa-asterisk"></i>
+                     <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                     <c:if test = "${Role == 'Admin'}">
+                                  <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                              </c:if>
+                 </li>
+             </c:if>
 
+        </c:forEach>
     <div class="region region-header">
         <section id="block-views-nodequeue-2-block" class="block block-views clearfix">
 
@@ -59,15 +90,11 @@
 <div class="gt-newsblocksection">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <div class="region region-home-1">
                     <section id="block-block-18" class="block block-block clearfix">
 
                         <h2 class="block-title">Latest Notice</h2>
-<c:if test = "${Role == 'Admin'}">
-<strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-  <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
-                                                             </c:if>
                         <div class="rwsvtickercontent">
                             <div class="rwsvticker1">
 
@@ -114,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="region region-home-4">
                     <section id="block-block-12" class="block block-block clearfix">
 
@@ -147,7 +174,7 @@
                     </section>
                 </div>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                             <div class="region region-home-2">
                                 <section id="block-views-nodequeue-12-block" class="block block-views clearfix">
 
@@ -318,5 +345,4 @@
         </div>
     </div>
 </div>
-
 <jsp:include page="footer.jsp"/>

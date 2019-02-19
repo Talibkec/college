@@ -5,7 +5,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Dharmveer Kumar Yadav(Faculty)</h3></div>
+                <div class="col-md-10 col-sm-8"><h3>${facultyName}</h3></div>
 
             </div>
         </div>
@@ -42,8 +42,13 @@
                 </ul>
             </div>
             <div class="col-md-8">
-
-                <ul class="nav nav-tabs" role="tablist">
+            <c:forEach var="item" items="${Role}">
+                        <c:if test = "${'Faculty' eq item and UserName eq 'kumar.dharmveer'}">
+                            <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                            <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
+                     </c:if>
+              </c:forEach>
+               <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                                               data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
                     </li>
@@ -53,15 +58,15 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"  style="height: 200px;width:250px"
                                                                                    src="http://localhost/${facultyId}/image${fileExtension}"/>
-                        <h2>Dharmveer Kumar Yadav</h2>
+                        <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor<br/> Department of Computer Science and
                             Engineering</p>
-                        <p><i class="fa fa-phone"></i> 8757760847 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                                href="/cdn-cgi/l/email-protection#14706667616671677c797d60547379757d783a777b79"> <span> kumar.dharmveer@gmail.com</span>
-                        </a></p> <br/><br/>
-                        <c:if test = "${ Role eq 'Faculty' and UserName eq 'kumar.dharmveer'}">
-                              <a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes">Update Profile Details</a>
-                          </c:if>
+                        <p><i class="fa fa-phone"></i> ${facultyMobNo}&nbsp; | &nbsp; <i class="fa fa-envelope"></i>
+                         <a href="mailto:${facultyOfficialEmail}"> <span>${facultyOfficialEmail}</span>
+                        </a>
+                        <i class="fa fa-envelope"></i> <a href="mailto:${facultyPersonalEmail}"> <span>${facultyPersonalEmail}</span>
+                                                </a></p> <br/><br/>
+
                                       <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>
                             <table class="table table-striped">
@@ -123,8 +128,20 @@
                     </div></div>
                     <div role="tabpanel" class="tab-pane" id="downloads">
                         <div style="padding: 15px;">
-                            <div class="text-center"><span class="label label-warning">No Download(s) Available!</span>
-                            </div>
+
+                            <div class="">
+                               <c:forEach items="${facultyDocument}" var="facultyDocument">
+                               <div>
+                                <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                 <c:set var = "clazz"  value = "label label-warning"/>
+                                  <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                                  <c:if test = "${Role == 'Faculty'}">
+                                  <span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                  </c:if>
+                                  <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                  </div>
+                                  </c:forEach>
+                                 </div>
                         </div>
                     </div>
                 </div>

@@ -11,13 +11,22 @@ public class FacultyDTO {
     private Long facultyId;
     private String facultyName;
     private Long departmentId;
-    private String facultyEmail;
     private Long facultyMobNo;
+    private String facultyOfficialEmail;
+    private String facultyPersonalEmail;
 
     private byte[] facultyPhoto;
     private User user;
     private String fileType;
     private Set<Property> facultyProperties = new HashSet<>(0);
+
+    public String getFacultyOfficialEmail() {return facultyOfficialEmail;}
+
+    public void setFacultyOfficialEmail(String facultyOfficialEmail) {this.facultyOfficialEmail = facultyOfficialEmail;}
+
+    public String getFacultyPersonalEmail() {return facultyPersonalEmail; }
+
+    public void setFacultyPersonalEmail(String facultyPersonalEmail) {this.facultyPersonalEmail = facultyPersonalEmail; }
 
     public Long getFacultyId() {
         return facultyId;
@@ -43,13 +52,7 @@ public class FacultyDTO {
         this.departmentId = departmentId;
     }
 
-    public String getFacultyEmail() {
-        return facultyEmail;
-    }
 
-    public void setFacultyEmail(String facultyEmail) {
-        this.facultyEmail = facultyEmail;
-    }
 
     public Long getFacultyMobNo() {
         return facultyMobNo;

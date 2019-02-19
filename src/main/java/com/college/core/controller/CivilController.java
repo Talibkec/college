@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.FacultyHelper;
 import com.college.core.entity.NoticeBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
@@ -20,6 +21,8 @@ public class CivilController {
 
     @Autowired
     public NoticeBoardService noticeBoardService;
+    @Autowired
+    public FacultyHelper facultyHelper;
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
         ModelAndView modalAndView=new ModelAndView();
@@ -97,19 +100,19 @@ public class CivilController {
     }
     @RequestMapping(value="rm")
     public ModelAndView getRm(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv =facultyHelper.getFacultyDetails("talktorashid");
         mv.setViewName("department/civil/rm");
         return mv;
     }
     @RequestMapping(value="rps")
     public ModelAndView getRps(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("rpsingh");
         mv.setViewName("department/civil/rps");
         return mv;
     }
     @RequestMapping(value="akg")
     public ModelAndView getAkg(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("anilanu");
         mv.setViewName("department/civil/akg");
         return mv;
     }

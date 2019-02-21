@@ -96,5 +96,64 @@ public class EeeController {
         mv.setViewName("department/eee/attendance");
         return mv;
     }
-
+    @RequestMapping(value="principal")
+    public ModelAndView getprincipal(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("principal");
+        mv.setViewName("department/eee/principal");
+        return mv;
+    }
+    @RequestMapping(value="rk")
+    public ModelAndView getRK(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("ram.kumar");
+        mv.setViewName("department/eee/rk");
+        return mv;
+    }
+    @RequestMapping(value="aks")
+    public ModelAndView getAmitKumar(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("amit.kumar");
+        mv.setViewName("department/eee/aks");
+        return mv;
+    }
+    @RequestMapping(value="ak")
+    public ModelAndView getAK(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("abhijeet.kumar");
+        mv.setViewName("department/eee/ak");
+        return mv;
+    }
+    @RequestMapping(value="aa")
+    public ModelAndView getAA(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("alauddinansari0432");
+        mv.setViewName("department/eee/aa");
+        return mv;
+    }
+    @RequestMapping(value="sa")
+    public ModelAndView getSA(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("sajjad.ahmad");
+        mv.setViewName("department/eee/sa");
+        return mv;
+    }
+    @RequestMapping(value="ss")
+    public ModelAndView getSS(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("saket.saurabh");
+        mv.setViewName("department/eee/ss");
+        return mv;
+    }
+    @RequestMapping(value="tr")
+    public ModelAndView getTR(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("tarique");
+        mv.setViewName("department/eee/tr");
+        return mv;
+    }
+    @RequestMapping(value="rdr")
+    public ModelAndView getRDR(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("rajeev.dev.ranjan");
+        mv.setViewName("department/eee/rdr");
+        return mv;
+    }
+    @RequestMapping(value="nk")
+    public ModelAndView getNK(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("navin.kumar");
+        mv.setViewName("department/eee/nk");
+        return mv;
+    }
 }

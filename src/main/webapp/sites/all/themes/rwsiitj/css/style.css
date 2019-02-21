@@ -144,13 +144,13 @@ color:#00aae7;
 
 .gt-newsblocksection h2{ margin-top:0; text-align:center; text-transform:uppercase; font-size:24px; line-height:40px; padding:5px 0 60px 0; background: url(../images/home-c-bg-title.png) no-repeat top center; color:#FFF; font-weight:normal;}
 
-.gt-newsblocksection .region-home-2 ul, .gt-newsblocksection .region-home-3 ul, .gt-newsblocksection .region-home-4 ul, .rwsvtickercontent{margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;}
-
-.gt-newsblocksection .region-home-2 ul:before, .gt-newsblocksection .region-home-3 ul:before, .gt-newsblocksection .region-home-4 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg.png) no-repeat top center; }
+.gt-newsblocksection .region-home-2 ul, .gt-newsblocksection  .region-home-4 ul, .rwsvtickercontent{margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;}
+.gt-newsblocksection .region-home-2 ul:before, .gt-newsblocksection .region-home-5 ul:before, .gt-newsblocksection .region-home-4 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg1.png) no-repeat top center; }
+.gt-newsblocksection .region-home-5 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg.png) no-repeat top center; }
 
 
 .rwsvtickercontent ul{padding:0 !important;}
-.gt-newsblocksection .region-home-2 ul li, .gt-newsblocksection .region-home-3 ul li, .gt-newsblocksection .region-home-4 ul li, .rwsvtickercontent ul li{width:100%; clear:both; overflow:hidden;  background: url(../images/list-left-bg.gif) no-repeat left 7px; padding-left:14px; font-size:14px; line-height:1.8;  }
+.gt-newsblocksection .region-home-2 ul li, .gt-newsblocksection .region-home-5 ul li, .gt-newsblocksection .region-home-4 ul li, .rwsvtickercontent ul li{width:100%; clear:both; overflow:hidden;  background: url(../images/list-left-bg.gif) no-repeat left 7px; padding-left:14px; font-size:14px; line-height:1.8;  }
 .gt-newsblocksection ul li:last-child{ margin-bottom:0 !important; }
 .gt-newsblocksection ul li a{color:#333333; display:block; margin-bottom:14px;}
 .gt-newsblocksection ul li a:hover{color:#16acc1; text-decoration:none;}

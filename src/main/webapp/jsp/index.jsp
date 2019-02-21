@@ -90,58 +90,7 @@
 <div class="gt-newsblocksection">
     <div class="container">
         <div class="row">
-            <div class="col-sm-5">
-                <div class="region region-home-1">
-                    <section id="block-block-18" class="block block-block clearfix">
-
-                        <h2 class="block-title">Latest Notice</h2>
-                        <div class="rwsvtickercontent">
-                            <div class="rwsvticker1">
-
-
-                                <ul>
-                                    <li>
-                                    <span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
-                                    <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
-                                        <div class="panel-body" style="max-height: 500px;">
-                                 <ul class="listUpdates" id="noticeBoardItems">
-
-                                 <li style="display: block;">
-                                  	<div>
-
-
-                                  	</div>
-                                  </li>
-                                 <c:forEach items="${noticeList}" var="notice">
-                                   <li>
-                                 	<div>
-                                 		<span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                 		<c:set var = "clazz"  value = "label label-warning"/>
-                                 		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
-                                 		 <c:if test = "${ notice.noticeType == 'News'}">m
-                                                  <c:set var = "clazz"  value = "label label-primary"/>
-                                          </c:if>
-                                 		<i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                 		<c:if test = "${Role == 'Admin'}">
-                                 		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
-                                         </c:if>
-                                 		<a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
-                                 	</div>
-                                 </li>
-                                 </c:forEach>
-                                </ul>
-
-                                </div>
-
-                            </div>
-                        </div><div class="more-link">
-                              <a href="http://localhost/category/notices">View all Notices</a></div>
-
-                    </section>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
+                        <div class="col-sm-3">
                 <div class="region region-home-4">
                     <section id="block-block-12" class="block block-block clearfix">
 
@@ -156,17 +105,17 @@
                             <li><span style="font-family:arial,helvetica,sans-serif"><a href="http://www.educationbihar.gov.in/login.aspx?ReturnUrl=%2fDefault.aspx">Education Dept. Bihar</a></span>
                             </li>
                             <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="http://gov.bih.nic.in/">Govt. of Bihar</a></span>
+                                    href="http://gov.bih.nic.in/"target="_blank">Govt. of Bihar</a></span>
                             </li>
                             <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="http://bceceboard.bihar.gov.in/">BCECEB</a></span></li>
+                                    href="http://bceceboard.bihar.gov.in/"target="_blank">BCECEB</a></span></li>
                             <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="http://akubihar.ac.in/">AKU, Patna</a></span></li>
+                                    href="http://akubihar.ac.in/"target="_blank">AKU, Patna</a></span></li>
                             <li><span style="font-family:arial,helvetica,sans-serif"><a
                                     href="https://www.aicte-india.org/" target="_blank">AICTE</a></span>
                             </li>
                             <li><span style="font-family:arial,helvetica,sans-serif"><a
-                                    href="https://jeemain.nic.in/webinfo/Public/Home.aspx">Joint Entrance Examination</a></span>
+                                    href="https://jeemain.nic.in/webinfo/Public/Home.aspx"target="_blank">Joint Entrance Examination</a></span>
                             </li>
                             <!--	<li><a href="https://www.vidyalakshmi.co.in/Students/" target="_blank">Vidya Lakshmi Portal</a></li>-->
                         </ul>
@@ -174,6 +123,58 @@
                     </section>
                 </div>
             </div>
+    <div class="col-sm-5">
+                    <div class="region region-home-5">
+                        <section id="block-block-18" class="block block-block clearfix">
+
+                            <h2 class="block-title">Latest Notice</h2>
+                            <div class="rwsvtickercontent">
+                                <div class="rwsvticker1">
+
+
+                                    <ul>
+                                        <li>
+                                        <span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
+                                        <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
+                                            <div class="panel-body" style="max-height: 500px;">
+                                     <ul class="listUpdates" id="noticeBoardItems">
+
+                                     <li style="display: block;">
+                                      	<div>
+
+
+                                      	</div>
+                                      </li>
+                                     <c:forEach items="${noticeList}" var="notice">
+                                       <li>
+                                     	<div>
+                                     		<span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                     		<c:set var = "clazz"  value = "label label-warning"/>
+                                     		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
+                                     		 <c:if test = "${ notice.noticeType == 'News'}">m
+                                                      <c:set var = "clazz"  value = "label label-primary"/>
+                                              </c:if>
+                                     		<i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                     		<c:if test = "${Role == 'Admin'}">
+                                     		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
+                                             </c:if>
+                                     		<a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                                     	</div>
+                                     </li>
+                                     </c:forEach>
+                                    </ul>
+
+                                    </div>
+
+                                </div>
+                            </div><div class="more-link">
+                                  <a href="http://localhost/category/notices">View all Notices</a></div>
+
+                        </section>
+                    </div>
+                </div>
+
+
             <div class="col-sm-3">
                             <div class="region region-home-2">
                                 <section id="block-views-nodequeue-12-block" class="block block-views clearfix">

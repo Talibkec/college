@@ -63,7 +63,7 @@
                             Engineering
                         <p><i class="fa fa-phone">${facultyMobNo}</i> &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                 href="mailto:${facultyOfficialEmail}"> <spaan>${facultyOfficialEmail}</span>
-                              <i class="fa fa-envelope"></i> <a href="mailto:${facultyOfficialEmail}"> <spaan>${facultyOfficialEmail}</span>
+                              <i class="fa fa-envelope"></i> <a href="mailto:${facultyPersonalEmail}"> <spaan>${facultyPersonalEmail}</span>
                         </a></p> <br/><br/>
                         <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>

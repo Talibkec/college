@@ -13,34 +13,28 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
-                <ul class="list-group page-menu">
-                    <li class="list-group-item" style="background: #eee; font-size: 16px;">Department of Computer
-                        Science and Engineering
-                    </li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/subodh"
-                                                          style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Subodh Kumar</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/dky" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Dharmveer Kumar Yadav</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/shweta" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Shweta Kumari</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/snehakumari" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i>Sneha Kumari</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/sjk" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Sujeet Kumar</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/mta" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Md Talib Ahmad</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/pks" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Pradeep Kumar Sharma</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/cmm" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Dr. CM Mandal</a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/snjk" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Sinjan Kumar </a></li>
-                    <li class="list-group-item"><a href="http://localhost/department/cse/shk" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Sritosh Kumar </a></li>
-                </ul>
-            </div>
+            <aside class="col-sm-3" role="complementary">
+                                              <div class="region region-sidebar-second">
+                                    <section id="block-menu-block-3" class="block block-menu-block clearfix">
+
+                                            <h2 class="block-title">Faculty of CSE</h2>
+
+                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                                     <ul class="menu nav">
+                                    <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/cse/subodh" class="sf-depth-2 active">Subodh Kumar</a></li>
+                                    <li class="leaf menu-mlid-1121"><a href="http://localhost/department/cse/dky" class="sf-depth-2">Dharmveer Kumar Yadav</a></li>
+                                    <li class="leaf menu-mlid-1156"><a href="http://localhost/department/cse/shweta" class="sf-depth-2">Shweta Kumari</a></li>
+                                    <li class="leaf menu-mlid-1294"><a href="http://localhost/department/cse/snehakumari" class="sf-depth-2">Sneha Kumari</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/sjk" class="sf-depth-2">Sujeet Kumar</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/mta" class="sf-depth-2">Md Talib Ahmad</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/pks" class="sf-depth-2">Pradeep Kumar Sharma</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/cmm" class="sf-depth-2">Dr. C. M. Mandal</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/snjk" class="sf-depth-2">Sinjan Kumar</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/shk" class="sf-depth-2">Sritosh Kumar</a></li>
+                                       </ul></div>
+                                    </section>
+                                      </div>
+                            </aside>
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                         <c:if test = "${'Faculty' eq item and UserName eq 'pradeep'}">

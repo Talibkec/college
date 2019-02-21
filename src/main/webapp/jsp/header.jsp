@@ -204,24 +204,6 @@ Katihar Engineering College</title>
                                                     aria-hidden="true" class="fa fa-envelope"></i><br> </a></li>
 
                                         </ul>
-                                        <div class="input-group"><input title="Enter the terms you wish to search for."
-                                                                        placeholder="Search"
-                                                                        class="form-control form-text" type="text"
-                                                                        id="edit-search-block-form--2"
-                                                                        name="search_block_form" value="" size="15"
-                                                                        maxlength="128"/><span class="input-group-btn"><button
-                                                type="submit" class="btn btn-primary"><span
-                                                class="icon glyphicon glyphicon-search"
-                                                aria-hidden="true"></span></button></span></div>
-                                        <div class="form-actions form-wrapper form-group" id="edit-actions">
-                                            <button class="element-invisible btn btn-primary form-submit" type="submit"
-                                                    id="edit-submit" name="op" value="Search">Search
-                                            </button>
-                                        </div>
-                                        <input type="hidden" name="form_build_id"
-                                               value="form-AIYefss1BT1igtdNIh_DhSx0GASs9u4C3MoAEC0aKas"/>
-                                        <input type="hidden" name="form_id" value="search_block_form"/>
-                                    </div>
                                 </div>
                             </form>
                         </section>

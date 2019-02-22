@@ -1,8 +1,11 @@
 package com.college.service;
 
+import com.college.core.entity.FacultyDocuments;
 import com.college.core.entity.NoticeBoard;
+import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.repository.NoticeBoardRepository;
+import org.apache.commons.io.FilenameUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +28,17 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
         String notice = "Notice";
         List<NoticeBoard> noticeBoards = noticeBoardRepository.getHomePageNotices(notice, news);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+
         return modelMapper.map(noticeBoards, targetListType);
+    }
+    @Override
+    public NoticeBoardDTO getNoticeDocument(Long id) {
+        NoticeBoardDTO noticeBoardDTO = null;
+        NoticeBoard noticeBoard = noticeBoardRepository.findOne(id);
+        if(noticeBoard != null){
+            noticeBoardDTO = modelMapper.map(noticeBoard, NoticeBoardDTO.class);
+        }
+        return noticeBoardDTO;
     }
 
     @Override

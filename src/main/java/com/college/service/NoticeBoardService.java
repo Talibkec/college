@@ -12,6 +12,7 @@ import java.util.List;
 @Service
 public interface NoticeBoardService {
     List<NoticeBoardDTO> getAllNotice();
+    NoticeBoardDTO getNoticeDocument(Long id);
     List<NoticeBoardDTO> getCseNotices();
     List<NoticeBoardDTO> getCivilNotices();
     List<NoticeBoardDTO> getMechNotices();

@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLDecoder;
 import java.util.Date;
 
 
@@ -153,7 +154,7 @@ public class FileUploadFacultycontroller {
 
     }
 
-   /* public String getPath() {
+   /*public String getPath() {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String fullPath = null;
         try {
@@ -168,6 +169,6 @@ public class FileUploadFacultycontroller {
                 + "uploads" + File.separatorChar + "facultydocuments" + File.separatorChar;
         logger.info("Full path of the folder is " + reponsePath);
         return reponsePath;
-    }*/
+    */
 
 }

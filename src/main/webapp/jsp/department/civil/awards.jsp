@@ -22,37 +22,32 @@
             <li class="active">Awards and Recognition</li>
         </ul>
         <div class="row">
-            <div class="col-md-4">
-                <ul class="list-group page-menu">
-                                    <li class="list-group-item" style="background: #eee; font-size: 20px;">Department of Civil
-                                        Engineering
-                                    </li>
-                                    <li class="list-group-item active"><a href="http://localhost/department/civil/about">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> About Civil Engg.</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/vision">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Vision and Mission</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/faculty">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Faculty of Civil Engg.</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/students">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Student of Civil Engg.</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/notice">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i>Notice</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/labs">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Labs & Infrastructure</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/question">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Question Bank</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/awards">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Awards and Recognition</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/programs">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Program/Activities</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/weekly">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Weekly Test Result</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/course">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Course File</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/civil/attendance">&nbsp;&nbsp; <i
-                                            class="fa fa-angle-double-right"></i> Attendance</a></li>
-                                </ul>
-            </div>
+            <aside class="col-sm-3" role="complementary">
+                                              <div class="region region-sidebar-second">
+                                    <section id="block-menu-block-3" class="block block-menu-block clearfix">
+
+                                            <h2 class="block-title">In the Department of Ciivil Engg.</h2>
+
+                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                                     <ul class="menu nav">
+                                    <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/civil/about" class="sf-depth-2 active">About Civil Engg.</a></li>
+                                    <li class="leaf menu-mlid-1121"><a href="http://localhost/department/civil/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                    <li class="leaf menu-mlid-1156"><a href="http://localhost/department/civil/faculty" class="sf-depth-2">Faculty of Civil Engg.</a></li>
+                                    <li class="leaf menu-mlid-1294"><a href="http://localhost/department/civil/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/question" class="sf-depth-2">Question Bank</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/awards" class="sf-depth-2">awards & Recognition</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/programs" class="sf-depth-2">Program Activities</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/students" class="sf-depth-2">Student of Civil Engg.</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/notice" class="sf-depth-2">Notice</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/weekly" class="sf-depth-2">Weekly Test Result</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/programs" class="sf-depth-2">Course File</a></li>
+                                     <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/staff" class="sf-depth-2">Staff of Civil Engg.</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/attendance" class="sf-depth-2">Attendance Summary</a></li>
+                                       </ul></div>
+
+                                    </section>
+                                      </div>
+                                          </aside>
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <table width="100%">

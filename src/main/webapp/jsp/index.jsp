@@ -1,31 +1,40 @@
 <jsp:include page="header.jsp"/>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header role="banner" id="page-header">
 <c:forEach var="item" items="${Role}">
-    ${item}
     <c:if test = "${'Admin' eq item}">
     <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
     <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
     </c:if>
 </c:forEach>
-    <marquee><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
-           <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li></marquee>
-    <c:forEach items="${scrollingNoticeList}" var="notice">
-        	<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
-        	<c:if test = "${notice.noticeAge < 2}">
-        	    <li>
+<marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
+
+
+
+
+
+                     	<img class="" src="http://localhost/sites/NewFlashing.gif" alt="" related="" image"="" width="44" height="40">
+                        <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
+
+
+         <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
+
+        	<c:if test = "${scrollingNotice.noticeAge < 2}">
+
                     <i class="fa fa-asterisk"></i>
-                 	<img class="" src="NewFlashing.gif" alt=""Related image" width="44" height="40" />
-                    <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
-                    <c:if test = "${Role == 'Admin'}">
-                                 <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                 	<img class="" src="http://localhost/sites/NewFlashing.gif" alt=""Related image" width="44" height="40" />
+                    <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
+                    <c:forEach var="item" items="${Role}">
+                        <c:if test = "${'Admin' eq item}">
+                                 <span class="label label-danger"><a href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
                              </c:if>
-                </li>
+                     </c:forEach>
+
              </c:if>
              <c:if test = "${notice.noticeAge >= 45}">
                  <li>
                      <i class="fa fa-asterisk"></i>
-                     <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                     <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
                      <c:if test = "${Role == 'Admin'}">
                                   <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                               </c:if>
@@ -33,59 +42,132 @@
              </c:if>
 
         </c:forEach>
-    <div class="region region-header">
-        <section id="block-views-nodequeue-2-block" class="block block-views clearfix">
+    </ul>
+</marquee>
+
+<header role="banner" id="page-header">
+
+  <div class="region region-header">
+    <section id="block-views-nodequeue-2-block" class="block block-views clearfix">
 
 
-            <div class="view view-nodequeue-2 view-id-nodequeue_2 view-display-id-block view-dom-id-adc75da57891ed7e5b0d70e0b788ead9">
+  <div class="view view-nodequeue-2 view-id-nodequeue_2 view-display-id-block view-dom-id-567516c7928e5eb3a0d16a5d947ddcb7">
 
 
-                <div class="view-content">
 
-                    <div class="skin-default">
+      <div class="view-content">
 
-                        <div id="views_slideshow_cycle_main_nodequeue_2-block_1"
-                             class="views_slideshow_cycle_main views_slideshow_main">
-                            <div id="views_slideshow_cycle_teaser_section_nodequeue_2-block_1"
-                                 class="views-slideshow-cycle-main-frame views_slideshow_cycle_teaser_section">
-                                <div id="views_slideshow_cycle_div_nodequeue_2-block_1_0"
-                                     class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-1 views-row-first views-row-odd"
-                                     aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_0'>
-                                    <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd views-row-first">
+  <div class="skin-default">
 
-                                        <div class="views-field views-field-field-image">
-                                            <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://localhost/sites/default/files/img1.jpg"
-                                                                            width="2000" height="550" alt=""/></div>
-                                        </div>
-                                        <div class="views-field views-field-title"><span class="field-content">Library </span>
-                                        </div>
-                                    </div>
-                                </div>
+    <div id="views_slideshow_cycle_main_nodequeue_2-block_1" class="views_slideshow_cycle_main views_slideshow_main"><div id="views_slideshow_cycle_teaser_section_nodequeue_2-block_1" class="views-slideshow-cycle-main-frame views_slideshow_cycle_teaser_section">
+  <div id="views_slideshow_cycle_div_nodequeue_2-block_1_0" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-1 views-row-first views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_0'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd views-row-first">
 
-                            <div id="views_slideshow_controls_text_nodequeue_2-block_1"
-                                 class="views-slideshow-controls-text views_slideshow_controls_text">
-  <span id="views_slideshow_controls_text_previous_nodequeue_2-block_1"
-        class="views-slideshow-controls-text-previous views_slideshow_controls_text_previous">
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img1.jpg" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">Students @KEC Katihar</span>  </div></div>
+</div>
+<div id="views_slideshow_cycle_div_nodequeue_2-block_1_1" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-2 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_1'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img2.JPG" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">Library</span>  </div></div>
+</div>
+<div id="views_slideshow_cycle_div_nodequeue_2-block_1_2" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-3 views_slideshow_cycle_hidden views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_2'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img15.jpg" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">Fresher's Party @ Katihar</span>  </div></div>
+</div>
+<div id="views_slideshow_cycle_div_nodequeue_2-block_1_3" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-4 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_3'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img1.jpg" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">KEC Test3</span>  </div></div>
+</div>
+<div id="views_slideshow_cycle_div_nodequeue_2-block_1_4" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-5 views_slideshow_cycle_hidden views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_4'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img2.JPG" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">KEC Test4</span>  </div></div>
+</div>
+
+</div>
+</div>
+          <div class="views-slideshow-controls-bottom clearfix">
+        <div id="widget_pager_bottom_nodequeue_2-block_1" class="views-slideshow-pager-fields widget_pager widget_pager_bottom views_slideshow_pager_field">
+  <div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_0" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd views-row-first" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_0">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-0'>Students @KEC Katihar</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_1" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_1">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-1'>Library</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_2" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_2">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-2'>KEC Test</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_3" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_3">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-3'>KEC</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_4" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_4">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-4'>KEC</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_5" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_5">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-5'>KEC</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_6" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-odd" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_6">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-6'>KEC</a>  </div>
+</div>
+</div>
+<div id="views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_7" class="views-slideshow-pager-field-item views_slideshow_pager_field_item views-row-even views-row-last" aria-controls="views_slideshow_cycle_div_nodequeue_2-block_1_7">
+  <div class="views-field-title">
+    <div class="views-content-title">
+    <a href='#slideshow-7'>KEC</a>  </div>
+</div>
+</div>
+</div>
+<div id="views_slideshow_controls_text_nodequeue_2-block_1" class="views-slideshow-controls-text views_slideshow_controls_text">
+  <span id="views_slideshow_controls_text_previous_nodequeue_2-block_1" class="views-slideshow-controls-text-previous views_slideshow_controls_text_previous">
   <a href="#" rel="prev">Previous</a>
 </span>
-                                <span id="views_slideshow_controls_text_pause_nodequeue_2-block_1"
-                                      class="views-slideshow-controls-text-pause views_slideshow_controls_text_pause  views-slideshow-controls-text-status-play"><a
-                                        href="#">Pause</a></span>
-                                <span id="views_slideshow_controls_text_next_nodequeue_2-block_1"
-                                      class="views-slideshow-controls-text-next views_slideshow_controls_text_next">
+  <span id="views_slideshow_controls_text_pause_nodequeue_2-block_1" class="views-slideshow-controls-text-pause views_slideshow_controls_text_pause  views-slideshow-controls-text-status-play"><a href="#">Pause</a></span>
+  <span id="views_slideshow_controls_text_next_nodequeue_2-block_1" class="views-slideshow-controls-text-next views_slideshow_controls_text_next">
   <a href="#" rel="next">Next</a>
 </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
+</div>
+      </div>
+      </div>
     </div>
+
+
+
+
+
+
+</div>
+</section>
+  </div>
 </header> <!-- /#page-header -->
+
+
 
 <div class="gt-newsblocksection">
     <div class="container">
@@ -133,32 +215,23 @@
 
 
                                     <ul>
-                                        <li>
-                                        <span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif">
-                                        <a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
-                                            <div class="panel-body" style="max-height: 500px;">
-                                     <ul class="listUpdates" id="noticeBoardItems">
-
-                                     <li style="display: block;">
-                                      	<div>
-
-
-                                      	</div>
-                                      </li>
+                                        <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
                                      <c:forEach items="${noticeList}" var="notice">
                                        <li>
                                      	<div>
                                      		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                      		<c:set var = "clazz"  value = "label label-warning"/>
-                                     		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
-                                     		 <c:if test = "${ notice.noticeType == 'News'}">m
+
+                                     		 <c:if test = "${ notice.noticeType == 'News'}">
                                                       <c:set var = "clazz"  value = "label label-primary"/>
                                               </c:if>
                                      		<i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                     		<c:if test = "${Role == 'Admin'}">
+                                     		<c:forEach var="item" items="${Role}">
+                                                <c:if test = "${'Admin' eq item}">
                                      		    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                              </c:if>
-                                     		<a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                                            </c:forEach>
+                                     		<a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                      	</div>
                                      </li>
                                      </c:forEach>
@@ -172,7 +245,7 @@
 
                         </section>
                     </div>
-                </div>
+
 
 
             <div class="col-sm-3">

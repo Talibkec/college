@@ -28,7 +28,7 @@
             <input type="checkbox" name="isScrollable" id="isScrollable" style="width: 25px;height: 40px;" ></input><br><br>
         </div>
     <label for="file" class="control-label col-sm-4" >Choose File</label>
-    <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="textFile" id="textFile"/><br/></div></div>
+    <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="noticeFile" id="noticeFile"/><br/></div></div>
     <div id="msg" style="display: none; color: red;">*Please Select a file</div>
     <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" /><div class="col-sm-5"></div></div>
 </form>

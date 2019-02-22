@@ -10,6 +10,20 @@ public class NoticeBoardDTO {
     private String uploadedFileName;
     private Date date;
     private Integer isScrollable;
+    private String fileType;
+    private byte[] notice;
+
+    public String getFileType() {return fileType;}
+
+    public void setFileType(String fileType) { this.fileType = fileType; }
+
+
+
+    public byte[] getNotice() { return notice; }
+
+    public void setNotice(byte[] notice) { this.notice = notice; }
+
+
 
     private Integer noticeAge;
 

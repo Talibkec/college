@@ -14,6 +14,12 @@ public class NoticeBoard {
     private Date date;
 
     private Integer isScrollable;
+    @Lob
+    private byte[] notice;
+    @Column(name="NB_FILE", columnDefinition="longblob")
+    public byte[] getNotice() { return notice;}
+
+    public void setNotice(byte[] notice) { this.notice = notice; }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

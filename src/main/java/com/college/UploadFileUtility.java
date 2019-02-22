@@ -1,6 +1,7 @@
 package com.college;
 
 import com.college.core.model.FacultyDocumentsDTO;
+import com.college.core.model.NoticeBoardDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,4 +49,6 @@ public class UploadFileUtility {
             fd.setFileType(fileName.substring(index, fileName.length()));
         }
     }
+
+
 }

@@ -1,8 +1,7 @@
 package com.college.core.controller;
-
-import com.college.UploadFileUtility;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
+import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Arrays;
+import java.io.*;
 import java.util.Date;
 
 @Controller
@@ -32,15 +23,14 @@ public class FileUploadCintroller {
     @Autowired
     NoticeBoardService noticeBoardService;
     private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
-    private final String UPLOADED_FOLDER = getPath();
+    //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
     @RequestMapping(value = "/auth/api/upload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
-            @RequestParam("textFile") MultipartFile uploadfile, @RequestParam("noticeHeader") String noticeHeader,
+            @RequestParam("noticeFile") MultipartFile uploadfile, @RequestParam("noticeHeader") String noticeHeader,
             @RequestParam("noticeType") String noticeType, @RequestParam("isScrollable") Boolean isScrollable) {
-
         logger.debug("Single file upload!");
-        String fileName = null;
+        String fileName = uploadfile.getOriginalFilename();
 
         if (uploadfile.isEmpty() || StringUtils.isEmpty(noticeHeader)) {
             String msg = "";
@@ -64,8 +54,8 @@ public class FileUploadCintroller {
             } else {
                 userName = principal.toString();
             }
-            fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-            saveNoticeDetails(userName, noticeHeader, noticeType,fileName,isScrollable);
+            //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+            saveNoticeDetails(userName, noticeHeader, noticeType,fileName,isScrollable,uploadfile);
 
 
         String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
@@ -75,7 +65,7 @@ public class FileUploadCintroller {
 
     }
 
-    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable) {
+    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable,MultipartFile uploadfile) {
         NoticeBoardDTO noticeBoardDTO = new NoticeBoardDTO();
         noticeBoardDTO.setHeadLine(noticeHeader);
         noticeBoardDTO.setNoticeType(noticeType);
@@ -85,10 +75,16 @@ public class FileUploadCintroller {
         if(isScrollable) {
             noticeBoardDTO.setIsScrollable(1);
         }
+        try {
+            noticeBoardDTO.setNotice(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        noticeBoardDTO.setFileType(FilenameUtils.getExtension(fileName));
         noticeBoardService.saveNoticeBoard(noticeBoardDTO);
-    }
 
-    public String getPath() {
+    }
+    /*public String getPath() {
         String path = this.getClass().getClassLoader().getResource("").getPath();
         String fullPath = null;
         try {
@@ -104,5 +100,5 @@ public class FileUploadCintroller {
         logger.info("Full path of the folder is " + reponsePath);
         return reponsePath;
     }
-
+*/
 }

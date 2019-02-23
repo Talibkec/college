@@ -1,20 +1,11 @@
 <jsp:include page="/jsp/header.jsp" />
 
 
-    <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+    <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-8"><h3>Image Gallery</h3></div>
-                <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
-                        style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
-                        </i> </span> <a
-                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fimage-galleries%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i></a> <a
-                        href="https://twitter.com/home?status=Images+Galleries+-+https%3A%2F%2F#%2Fimage-galleries%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i> </a></div>
-            </div>
+                </div>
         </div>
     </div>
     <div class="container">

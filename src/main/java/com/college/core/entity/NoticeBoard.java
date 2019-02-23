@@ -16,7 +16,7 @@ public class NoticeBoard {
     private Integer isScrollable;
     @Lob
     private byte[] notice;
-    @Column(name="NB_FILE", columnDefinition="longblob")
+    @Column(name="NB_FILE", columnDefinition="mediumblob")
     public byte[] getNotice() { return notice;}
 
     public void setNotice(byte[] notice) { this.notice = notice; }

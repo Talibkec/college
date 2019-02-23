@@ -10,15 +10,20 @@
     </div>
     <div class="container">
         <div class="row">
-         <div class="col-md-4">
-                        <ul class="list-group page-menu">
-                            <li class="list-group-item" style="background: #eee; font-size: 20px;">Approval</li>
-                            <li class="list-group-item"><a href="http://localhost/approval/aicteapproval">&nbsp;&nbsp; <i
-                                    class="fa fa-angle-double-right"></i> AICTE Approval</a></li>
-                            <li class="list-group-item"><a href="http://localhost/approval/akuapproval">&nbsp;&nbsp; <i
-                                                        class="fa fa-angle-double-right"></i> AKU Approval</a></li>
-                        </ul>
-                    </div>
+            <aside class="col-sm-3" role="complementary">
+                 <div class="region region-sidebar-second">
+                   <section id="block-menu-block-3" class="block block-menu-block clearfix">
+                      <h2 class="block-title">Approval</h2>
+                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                         <ul class="menu nav">
+                             <li class="first leaf  menu-mlid-1154"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">AICTE Approval</a></li>
+                               <li class="leaf menu-mlid-1121"><a href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                          </ul>
+                     </div>
+                   </section>
+                   </div>
+                </aside>
+
             <div class="col-md-8 col-md-offset-2">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; margin-left:700 ">
                     <p>

@@ -104,13 +104,13 @@ public class EeeController {
     }
     @RequestMapping(value="rk")
     public ModelAndView getRK(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("ram.kumar");
+        ModelAndView mv = facultyHelper.getFacultyDetails("ram");
         mv.setViewName("department/eee/rk");
         return mv;
     }
     @RequestMapping(value="aks")
     public ModelAndView getAmitKumar(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("amit.kumar");
+        ModelAndView mv = facultyHelper.getFacultyDetails("amit");
         mv.setViewName("department/eee/aks");
         return mv;
     }
@@ -134,7 +134,7 @@ public class EeeController {
     }
     @RequestMapping(value="ss")
     public ModelAndView getSS(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("saket.saurabh");
+        ModelAndView mv = facultyHelper.getFacultyDetails("saketsaurabh");
         mv.setViewName("department/eee/ss");
         return mv;
     }
@@ -146,13 +146,13 @@ public class EeeController {
     }
     @RequestMapping(value="rdr")
     public ModelAndView getRDR(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("rajeev.dev.ranjan");
+        ModelAndView mv = facultyHelper.getFacultyDetails("rajeev");
         mv.setViewName("department/eee/rdr");
         return mv;
     }
     @RequestMapping(value="nk")
     public ModelAndView getNK(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("navin.kumar");
+        ModelAndView mv = facultyHelper.getFacultyDetails("navin");
         mv.setViewName("department/eee/nk");
         return mv;
     }

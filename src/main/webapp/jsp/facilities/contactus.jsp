@@ -5,16 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-8"><h3>Contact Us</h3></div>
-                <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
-                        style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
-                        </i> </span> <a
-                        href="https://www.#/sharer/sharer.php?u=https%3A%2F%2F#%2Fcontact%2F" target="_blank"
-                        style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i></a> <a
-                        href="https://#/home?status=Contact+Us+-+https%3A%2F%2F#%2Fcontact%2F" target="_blank"
-                        style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i> </a></div>
-            </div>
+
         </div>
     </div>
     <div class="container">

@@ -1,37 +1,30 @@
 <jsp:include page="/jsp/header.jsp" />
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-8"><h3>About Placement</h3></div>
-                <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
-                        <style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
-                        </i> </span> <a
-                        href="https://www.#/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-mechanical-engineering%2Fprogram-activities%2Fplacement%2Ftips-for-resume%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i></a> <a
-                        href="https://#/home?status=Tips+for+Resume+-+https%3A%2F%2F#%2Fdepartment-of-mechanical-engineering%2Fprogram-activities%2Fplacement%2Ftips-for-resume%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i> </a></div>
+
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <ul class="list-group page-menu">
-                    <li class="list-group-item" style="background: #eee; font-size: 20px;">Training & Placement Cell</li>
-					<li class="list-group-item"><a href="http://localhost/trainingplacement/aboutplacement">&nbsp;&nbsp; <i
-                            class="fa fa-angle-double-right"></i> About Placement</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/rulesoftrainingplacement">&nbsp;&nbsp; <i
-                            class="fa fa-angle-double-right"></i> Rules of Training & Placement</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/tipsforresume">&nbsp;&nbsp; <i
-                            class="fa fa-angle-double-right"></i> Tips for Resume</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/placementbrochure">&nbsp;&nbsp; <i
-                            class="fa fa-angle-double-right"></i> Placement Brochure</a></li>
-                </ul>
-            </div>
-
+<aside class="col-sm-3" role="complementary">
+                        <div class="region region-sidebar-second">
+                          <section id="block-menu-block-3" class="block block-menu-block clearfix">
+                             <h2 class="block-title">Training & Placement </h2>
+                            <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                                <ul class="menu nav">
+                                    <li class="first leaf  menu-mlid-1154"><a href="http://localhost/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
+                                      <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
+                                      <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
+                                       <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
+                                 </ul>
+                            </div>
+                          </section>
+                          </div>
+                       </aside>
                     <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p

@@ -40,7 +40,7 @@ public class Faculty {
 
     @Lob
     private byte[] facultyPhoto;
-    @Column(name="f_photo", columnDefinition="longblob")
+    @Column(name="f_photo", columnDefinition="mediumblob")
     public byte[] getFacultyPhoto() {
         return facultyPhoto;
     }

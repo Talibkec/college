@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.FacultyHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ public class AppliedController {
 
     @Autowired
     NoticeBoardService noticeBoardService;
+    @Autowired
+    FacultyHelper facultyHelper;
 
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
@@ -95,25 +98,25 @@ public class AppliedController {
     }
     @RequestMapping(value="pk")
     public ModelAndView getPk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("pramod");
         mv.setViewName("department/ash/pk");
         return mv;
     }
     @RequestMapping(value="vk")
     public ModelAndView getVk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("vipin");
         mv.setViewName("department/ash/vk");
         return mv;
     }
     @RequestMapping(value="bnm")
     public ModelAndView getBnm(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("bnmahto");
         mv.setViewName("department/ash/bnm");
         return mv;
     }
     @RequestMapping(value="snk")
     public ModelAndView getSnk(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv=facultyHelper.getFacultyDetails("sunil");
         mv.setViewName("department/ash/snk");
         return mv;
     }

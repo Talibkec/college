@@ -95,6 +95,12 @@ public class MechanicalController {
         mv.setViewName("department/mechanical/attendance");
         return mv;
     }
+    @RequestMapping(value="staff")
+    public ModelAndView getStaff(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("department/mechanical/staff");
+        return mv;
+    }
     @RequestMapping(value="srk")
     public ModelAndView getSrk(){
         ModelAndView mv = facultyHelper.getFacultyDetails("suryakumar");

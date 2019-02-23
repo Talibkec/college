@@ -2,7 +2,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Amit KumarSuman</h3></div>
+                <div class="col-md-10 col-sm-8"><h3>${facultyName}</h3></div>
 
             </div>
         </div>
@@ -10,35 +10,37 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
-                <ul class="list-group page-menu">
-                                    <li class="list-group-item" style="background: #eee; font-size: 16px;">Department of Electrical and
-                                        Electronics Engineering
-                                    </li>
-                					<li class="list-group-item active"><a href="http://localhost/department/eee/principal" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Prof Ranjana Kumari</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/rk" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Ram Kumar</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/aks" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Amit Kumar Suman</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/ak" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Abhijeet Kumar</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/aa" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i>Alauddin Ansari</a></li>
-                                    </li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/sa" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i>Sajjad Ahmad</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/ss" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Saket Saurabh</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/tr" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i> Tarique Rashid</a></li>
-                                    <li class="list-group-item "><a href="http://localhost/department/eee/rdr" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i>Rajeev Dev Ranjan</a></li>
-                                    <li class="list-group-item"><a href="http://localhost/department/eee/nk" style="font-size: 14px;">&nbsp;&nbsp;<i
-                                            class="fa fa-angle-double-right"></i>Naveen Kumar</a></li>
-                                </ul>
-            </div>
-            <div class="col-md-8">
+            <aside class="col-sm-3" role="complementary">
+                                                                                <div class="region region-sidebar-second">
+                                                                      <section id="block-menu-block-3" class="block block-menu-block clearfix">
+
+                                                                              <h2 class="block-title"> Faculty of Electrical & Electronics Engg.</h2>
+
+                                                                        <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                                                                       <ul class="menu nav">
+                                                                      <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/eee/principal" class="sf-depth-2 ">Prof. Ranjana Kumari</a></li>
+                                                                      <li class="leaf menu-mlid-1121"><a href="http://localhost/department/eee/rk" class="sf-depth-2">Dr. Ram Kumar</a></li>
+                                                                      <li class="leaf menu-mlid-1156"><a href="http://localhost/department/eee/aks" class="sf-depth-2">Amit Kumar Suman</a></li>
+                                                                      <li class="leaf menu-mlid-1294"><a href="http://localhost/department/eee/ak" class="sf-depth-2">Abhijeet Kumar</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/aa" class="sf-depth-2">Alauddin Ansari</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/sa" class="sf-depth-2">Sajjad Ahmad</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/ss" class="sf-depth-2">Saket Saurabh</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/tr" class="sf-depth-2">Tarique Rashid</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/rdr" class="sf-depth-2">Rajeev Dev Ranjan</a></li>
+                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/nk" class="sf-depth-2">Naveen Kumar</a></li>
+
+                                                                         </ul></div>
+
+                                                                      </section>
+                                                                        </div>
+                                                                            </aside>
+                       <div class="col-md-8">
+            <c:forEach var="item" items="${Role}">
+                                    <c:if test = "${'Faculty' eq item and UserName eq 'amit'}">
+                                        <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                        <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
+                                 </c:if>
+                          </c:forEach>
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                                               data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
@@ -48,12 +50,12 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
-                                                                                   src="aks.JPG"
-                                                                                   style="background-image: url(aks.JPG);"/>
-                        <h2>Amit Kumar Suman</h2>
+              style="height: 200px;width:250px" src="http://localhost/${facultyId}/image${fileExtension}"/>
+                        <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor and Head of the Department<br>Department of Electrical and Electronics Engineering</p>
-                        <p><i class="fa fa-phone"></i> 9835938174 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                                href="mailto: amit.suman2222@gmail.com"> <span> amit.suman2222@gmail.com</span>
+                        <p><i class="fa fa-phone"></i> ${facultyMobNo} &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
+                                href="mailto:${facultyOfficialEmail}"> <span> ${facultyOfficialEmail}</span>
+                    &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a href="mailto:${facultyPersonalEmail}"> <span> ${facultyPersonalEmail}</span>
                         </a></p> <br/><br/>
                         <div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>
@@ -96,7 +98,20 @@
                         </div></div>
                     <div role="tabpanel" class="tab-pane" id="downloads">
                         <div style="padding: 15px;">
-                            <div class="text-center"><span class="label label-warning">No Download(s) Available!</span>
+                            <div class="text-center">
+           <div class="">
+                                          <c:forEach items="${facultyDocument}" var="facultyDocument">
+                                          <div>
+                                           <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                            <c:set var = "clazz"  value = "label label-warning"/>
+                                             <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                                             <c:if test = "${Role == 'Faculty'}">
+                                             <span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                             </c:if>
+                                             <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                             </div>
+                                             </c:forEach>
+                                            </div>
                             </div>
                         </div>
                     </div>

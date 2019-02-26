@@ -172,7 +172,7 @@
 <div class="gt-newsblocksection">
     <div class="container">
         <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-3"style="margin-left:50px">
                 <div class="region region-home-4">
                     <section id="block-block-12" class="block block-block clearfix">
 
@@ -212,9 +212,7 @@
                             <h2 class="block-title">Latest Notice</h2>
                             <div class="rwsvtickercontent">
                                 <div class="rwsvticker1">
-
-
-                                    <ul>
+                                 <ul>
                                         <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
                                      <c:forEach items="${noticeList}" var="notice">
                                        <li>

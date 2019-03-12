@@ -49,8 +49,26 @@ public class FacultyServiceImpl implements FacultyService {
     }
 
     @Override
-    public List<String> searchFacultyName(String facultyName) {
-        return facultyRepository.searchFacultyName(facultyName);
+    public List<FacultyDTO> searchFacultyName(String facultyName) {
+        List<FacultyDTO> facultyDTO = null;
+        List<Faculty> faculty = facultyRepository.searchFacultyName(facultyName);
+        Type targetListType = new TypeToken<List<FacultyDTO>>() {}.getType();
+        if(faculty != null){
+            facultyDTO = modelMapper.map(faculty, targetListType);
+        }
+        return facultyDTO;
+
+    }
+
+    @Override
+    public FacultyDTO searchFaculty(String facultyName) {
+        FacultyDTO facultyDTO = null;
+        Faculty faculty = facultyRepository.searchFacultyByName(facultyName);
+        if(faculty != null){
+            facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
+        }
+        return facultyDTO;
+
     }
 
     @Override

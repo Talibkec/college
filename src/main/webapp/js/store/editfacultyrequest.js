@@ -2,7 +2,7 @@
 
 
         var quant_err = false;
-        $('#prod').hide();
+        $('#prod').css("display","none");
 
         $('#prodQuant').keyup(function(){
             prodQuant();
@@ -23,7 +23,7 @@
             }
             else
             {
-                $('#prod').hide();
+                $('#prod').css("display","none");
                 quant_err = true;
                 return true;
             }

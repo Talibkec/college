@@ -1,14 +1,12 @@
 package com.college.core.controller.store;
 
 import com.college.core.controller.ControllerUtility;
-import com.college.core.model.FacultyDTO;
-import com.college.core.model.OrderDTO;
-import com.college.core.model.ProductDTO;
-import com.college.core.model.RequestDTO;
-import com.college.service.FacultyService;
-import com.college.service.OrderService;
-import com.college.service.ProductService;
-import com.college.service.RequestService;
+import com.college.core.entity.Role;
+import com.college.core.model.*;
+import com.college.service.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +15,15 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -48,6 +44,18 @@ public class StoreFacultyController {
 
     @Autowired
     OrderService orderService;
+
+    @Autowired
+    RoleService roleService;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    SecurityService securityService;
+
+
+    Gson gson=new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
 
 
     @Value("#{${users}}") private Map<String,String> userMap;
@@ -123,6 +131,59 @@ public class StoreFacultyController {
         response.sendRedirect(url);
 
     }
+    @ResponseBody
+    @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
+    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model){
+       //ModelAndView mv = new ModelAndView();
+        List<FacultyDTO> faculties = facultyService.getFacultyByName(facultyNames);
+        List<Role> roles = roleService.getALLRoles();
+        //String smRole ="SM";
+        Integer FacultySize = 0;
+        /*if(faculty != null) {
+            mv.addObject("faculty", faculty);
+            mv.addObject("roles",roles);
+            mv.setViewName("/store/smincharge");
+        }
+        else{
+            mv.addObject("facultyFound", false);
+            mv.setViewName("/store/smincharge");
+        }*/
+        JsonObject obj = null;
+        if(faculties.size() > 0) {
+            obj = new JsonObject();
+            FacultyDTO facultyDTO = faculties.get(0);
+            obj.addProperty("name", facultyDTO.getFacultyName());
+            obj.addProperty("id", facultyDTO.getFacultyId());
+        }
+        if(obj == null){
+            return null;
+        }
+         return  obj.toString();
+    }
+
+    @RequestMapping(value = "saveRole", method = RequestMethod.POST)
+    public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv=new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        FacultyDTO facultyDTO = new FacultyDTO();
+
+        Role role = roleService.getRole("SM");
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        userRoleDTO.setRoleId(role.getId());
+        userService.saveUserRole(userRoleDTO);
+        mv.setViewName("/store/editrequest");
+    }
+
+    @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)
+    public void deleteUserRole(HttpServletRequest request, HttpServletResponse response,@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        Role role = roleService.getRole("SM");
+        userRoleDTO.setRoleId(role.getId());
+        userService.deleteUserRole(userRoleDTO);
+        mv.setViewName("/store/editrequest");
+    }
 
     @RequestMapping(value = "editfacultyrequest", method = RequestMethod.GET)
     public ModelAndView editFacultyRequest(@RequestParam("id") Long id){
@@ -133,6 +194,22 @@ public class StoreFacultyController {
         mv.setViewName("/store/editrequest");
         return mv;
     }
+
+    @RequestMapping(value = "deletefacultyrequest")
+    public void deletefacultyrequest(@RequestParam("requestId") Long requestId, HttpServletResponse response) throws IOException {
+        RequestDTO requestDTO = requestService.getRequest(requestId);
+        requestService.deleteFacultyRequest(requestDTO.getRequestId());
+        response.sendRedirect("/department/cse/mta");
+
+    }
+
+    @RequestMapping(value = "smincharge")
+    public ModelAndView smincharge(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/smincharge");
+        return mv;
+    }
+
 
     @RequestMapping(value = "updateRequest", method = RequestMethod.POST)
     public void updateRequest(@RequestParam("requestId") Long id, @RequestParam("requestedQty") Integer requestedQty, HttpServletResponse response) throws IOException {

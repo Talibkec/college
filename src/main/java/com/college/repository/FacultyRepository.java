@@ -17,8 +17,11 @@ public interface FacultyRepository extends JpaRepository<Faculty, Long> {
     @Query("select f from Faculty f where f.user.username = :userName")
     Faculty findFacltyByUserName(@Param("userName") String userName);
 
-    @Query("select f.facultyName from Faculty f where f.facultyName like lower(CONCAT('%',:facultyName,'%'))")
-    List<String> searchFacultyName(@Param("facultyName") String facultyName);
+    @Query("select f from Faculty f where f.facultyName like lower(CONCAT('%',:facultyName,'%'))")
+    List<Faculty> searchFacultyName(@Param("facultyName") String facultyName);
+
+    @Query("select f from Faculty f where f.facultyName like lower(CONCAT('%',:facultyName,'%'))")
+    Faculty searchFacultyByName(@Param("facultyName") String facultyName);
 
     @Query("select f from Faculty f where f.facultyName = :facultyName)")
     List<Faculty> getFacultyByName(@Param("facultyName") String facultyName);

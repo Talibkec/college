@@ -62,17 +62,17 @@ $(document).ready(function(){
 
     var p_err = true;
     var f_err = true;
-    $('#valid').hide();
+    $('#valid').css("display","none");
 
     $('#prodName').keyup(function(){
         prodName();
     });
     function prodName(){
         var prodName = $('#prodName').val();
-        var regex = new RegExp(/^[a-zA-Z\s]+$/);
+        var regex = new RegExp(/^[a-zA-Z0-9\s]+$/);
         if(regex.test(prodName))
         {
-             $('#valid').hide();
+             $('#valid').css("display","none");
                         p_err = true;
                         return true;
 
@@ -93,10 +93,10 @@ $(document).ready(function(){
         });
         function facultyName(){
             var facultyName = $('#facultyName').val();
-            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            var regex = new RegExp(/^[a-zA-Z0-9\s]+$/);
             if(regex.test(facultyName))
             {
-                 $('#valid').hide();
+                 $('#valid').css("display","none");
                             f_err = true;
                             return true;
             }
@@ -115,6 +115,7 @@ $(document).ready(function(){
                   f_err = true;
                   prodName();
                   facultyName();
+                  $('#valid').css("display","none");
                   if(p_err == true || f_err == true)
                   {
                     return true;

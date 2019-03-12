@@ -15,7 +15,9 @@ public interface FacultyService {
 
     FacultyDTO getFacultyById(Long id);
 
-    List<String> searchFacultyName(String facultyName);
+    List<FacultyDTO> searchFacultyName(String facultyName);
+
+    FacultyDTO searchFaculty(String facultyName);
 
     List<FacultyDTO> getFacultyByName(String facultyName);
 }

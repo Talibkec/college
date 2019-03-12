@@ -1,5 +1,6 @@
 package com.college.core.controller.store;
 
+import com.college.FacultyHelper;
 import com.college.core.model.*;
 import com.college.repository.PurchaseRepository;
 import com.college.service.*;
@@ -43,6 +44,8 @@ public class ProductController {
     FacultyService facultyService;
     @Autowired
     OrderService orderService;
+    @Autowired
+    FacultyHelper facultyHelper;
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
     public Boolean addProduct(@RequestParam("productDetails") String productDetails) {
@@ -69,9 +72,16 @@ public class ProductController {
 
     @ResponseBody
     @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
-    public List<String> searchFacultyName(@RequestParam("facultyName") String facultyName) {
-        List<String> facultyNames = facultyService.searchFacultyName(facultyName);
+    public List<FacultyDTO> searchFacultyName(@RequestParam("facultyName") String facultyName) {
+        List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
         return facultyNames;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "facultyNameAutocomplete", method = RequestMethod.GET)
+    public List<String> facultyNameAutocomplete(@RequestParam("facultyName") String facultyName) {
+        List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
+        return facultyHelper.facultyNames(facultyNames);
     }
 
     @ResponseBody
@@ -196,6 +206,7 @@ public class ProductController {
             url = "/";
         }
         response.sendRedirect(url);
+
     }
     @RequestMapping(value = "deleteProduct")
     public void deleteProduct(HttpServletRequest request, HttpServletResponse response, @RequestParam("productId") Long productId) throws IOException {

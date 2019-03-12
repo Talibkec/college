@@ -44,7 +44,7 @@
                         <div class="panel-heading faculty-title">Dr. Surya Kumar&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="srk.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/26/image${fileExtension}"
                                                                              style="background-image: url(srk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -66,7 +66,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             src="http://localhost/27/image${fileExtension}"
                                                                              style="background-image: url(jk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -87,7 +87,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             src="http://localhost/28/image${fileExtension}"
                                                                              style="background-image: url(mk.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -108,7 +108,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             src="http://localhost/29/image${fileExtension}"
                                                                              style="background-image: url(ajk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -130,7 +130,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                         src="http://localhost/30/image${fileExtension}"
                                                                          style="background-image: url(smnk.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -150,7 +150,7 @@
                     <div class="panel-heading faculty-title">Arbind Prasad</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="ap.png"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/37/image${fileExtension}"
                                                                          style="background-image: url(ap.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -170,7 +170,7 @@
                     <div class="panel-heading faculty-title">Kanchan Kumar Sinha</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="dummy.png"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/32/image${fileExtension}"
                                                                          style="background-image: url(dummy.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>

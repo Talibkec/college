@@ -44,7 +44,7 @@
                             of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/cse/subodh.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/3/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/subodh.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -65,7 +65,7 @@
                         <div class="panel-heading faculty-title">Dharmveer Kumar Yadav</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/cse/dky.jpg"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/2/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/dky.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -87,7 +87,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/Shwetakumari.JPG"
+                                                                             src="http://localhost/4/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/Shwetakumari.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -110,7 +110,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/snehakumari.jpg"
+                                                                             src="http://localhost/5/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/snehakumari.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/sjk.JPG"
+                                                                             src="http://localhost/6/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/sjk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -155,7 +155,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/mta.jpg"
+                                                                             src="http://localhost/1/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/mta.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -178,7 +178,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/pks.jpg"
+                                                                             src="http://localhost/7/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/pks.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -201,7 +201,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/cmm.JPG"
+                                                                             src="http://localhost/8/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/cmm.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -223,7 +223,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/sjn.jpg"
+                                                                             src="http://localhost/9/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/sjn.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -245,7 +245,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/department/cse/shk.jpg"
+                                                                             src="http://localhost/10/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/cse/shk.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>

@@ -41,7 +41,7 @@
                         <div class="panel-heading faculty-title"> Rashid Mustafa&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="rm.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/21/image${fileExtension}"
                                                                              style="background-image: url(#)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -50,7 +50,7 @@
                                         Address:</strong> <a href="mailto:rashidmustafa91@gmail.com" class="__cf_email__">rashidmustafa91@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="rm.html" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rm" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -60,7 +60,7 @@
                         <div class="panel-heading faculty-title"> Rana Pratap Singh</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="rps.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/22/image${fileExtension}"
                                                                              style="background-image: url(rps.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -69,7 +69,7 @@
                                         Address:</strong> <a href="mailto:rps.eng@gmail.com">rps.eng@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="rps.html"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rps"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -80,7 +80,7 @@
                         <div class="panel-heading faculty-title"> Anil Kumar Gupta</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="akg.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/23/image${fileExtension}"
                                                                              style="background-image: url(akg.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -90,7 +90,7 @@
                                             href="mailto:anilanusoe@gmail.com">anilanusoe@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="akg.html"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/akg"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -101,7 +101,7 @@
                         <div class="panel-heading faculty-title">Aamir Rahi</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="dummy.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/24/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -111,7 +111,7 @@
                                             href="mailto:aamirrahi4@gmail.com">aamirrahi4@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="ar.html"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/ar"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -122,7 +122,7 @@
                         <div class="panel-heading faculty-title">Abhishek Ranjan</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="dummy.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/25/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -132,7 +132,7 @@
                                             href="mailto:finestabhi@gmail.com">finestabhi@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="abhi.html"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/abhi"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>

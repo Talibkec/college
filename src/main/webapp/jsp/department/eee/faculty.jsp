@@ -44,7 +44,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/principal1.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/11/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/principal1.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -66,7 +66,7 @@
                         <div class="panel-heading faculty-title"> Ram Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/rk.jpg"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/12/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/rk.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/aks.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/13/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/aks.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -111,7 +111,7 @@
                         <div class="panel-heading faculty-title"> Abhijeet Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/ak.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/14/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/ak.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="panel-heading faculty-title"> Alauddin Ansari</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/aa.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/15/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/aa.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -153,7 +153,7 @@
                         <div class="panel-heading faculty-title"> Sajjad Ahmad</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/sa.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/16/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/sa.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -174,7 +174,7 @@
                         <div class="panel-heading faculty-title"> Saket Saurabh</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/ss.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/17/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/ss.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -195,7 +195,7 @@
                         <div class="panel-heading faculty-title"> Tarique Rashid</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/tr.JPG"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/18/image${fileExtension}"
                                                                              style="background-image: url(http://localhost/department/eee/tr.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -215,7 +215,7 @@
                             <div class="panel-heading faculty-title"> Rajeev Dev Ranjan</div>
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/dummy.png"
+                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/19/image${fileExtension}"
                                                                                  style="background-image: url(http://localhost/department/eee/dummy.png)"/>
                                         <div class="visible-xs"><br/></div>
                                     </div>
@@ -236,7 +236,7 @@
                                 <div class="panel-heading faculty-title">Naveen Kumar</div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/department/eee/dummy.png"
+                                        <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/20/image${fileExtension}"
                                                                                      style="background-image: url(http://localhost/department/eee/dummy.png)"/>
                                             <div class="visible-xs"><br/></div>
                                         </div>

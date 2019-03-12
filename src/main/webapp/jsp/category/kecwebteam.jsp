@@ -38,7 +38,7 @@
                         <div class="panel-heading faculty-title">Sinjan Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="sjn.jpg"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/sjn.jpg"
                                                                              style="background-image: url(sjn.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>

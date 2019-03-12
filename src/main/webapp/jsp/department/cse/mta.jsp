@@ -147,12 +147,11 @@
 
                         </div>
                     <div role="tabpanel" class="tab-pane" id="order">
-                        <div style="padding: 15px;">
-                        		<a href="http://localhost/store/faculty/order" > Order Item </a>
-                        </div>
-                         <div style="padding: 15px;">
-                                 <a href="http://localhost/store/faculty/facultyOrderHistory" > Order History </a>
-                         </div>
+                        <button type="submit" class="btn btn-info">
+                        <a href="http://localhost/store/faculty/order">Order Item</a> </button>
+                        <button class="btn btn-success" type="submit"style="margin-left:10%">
+                                                <a href="http://localhost/store/faculty/facultyOrderHistory"> Order History</a></button>
+
                         <div style="padding: 15px;">
                              <div class="row" style="border:1px solid green;padding:10px">
                                 <div class="col-md-2 text-center"><strong>Product Name</strong></div>

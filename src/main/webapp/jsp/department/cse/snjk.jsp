@@ -48,6 +48,8 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
+                    <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
+                                                                    class="fa fa-angle-double-right"></i> Request</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
@@ -133,26 +135,63 @@
                         </div>
                         </div>
                     <div role="tabpanel" class="tab-pane" id="downloads">
-                        <div style="padding: 15px;">
-                            <div class="text-center">
-                                        <div class="">
-                                                   <c:forEach items="${facultyDocument}" var="facultyDocument">
-                                                       <div>
-                                                           <span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                                           <c:set var = "clazz"  value = "label label-warning"/>
-                                                           <i class=""></i> ${facultyDocument.date} </span>&nbsp;
-                                                           <c:if test = "${Role == 'Faculty'}">
-                                                   				<span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
-                                                           </c:if>
-                                                           <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
-                                                       </div>
-                                                   </c:forEach>
-                                         </div>
+                                            <div style="padding: 15px;">
+                                                <div class="">
+                                                    <c:forEach items="${facultyDocument}" var="facultyDocument">
+                                                        <div>
+                                                            <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                                            <c:set var = "clazz"  value = "label label-warning"/>
+                                                            <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                                                            <c:if test = "${Role == 'Faculty'}">
+                                                    				<span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                                            </c:if>
+                                                            <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                                        </div>
+                                                    </c:forEach>
+                                               </div>
+                                             </div>
+
+                                            </div>
+                                        <div role="tabpanel" class="tab-pane" id="order">
+                                            <div style="padding: 15px;">
+                                            		<a href="http://localhost/store/faculty/order" > Order Item </a>
+                                            </div>
+                                             <div style="padding: 15px;">
+                                                     <a href="http://localhost/store/faculty/facultyOrderHistory" > Order History </a>
+                                             </div>
+                                            <div style="padding: 15px;">
+                                                 <div class="row" style="border:1px solid green;padding:10px">
+                                                    <div class="col-md-2 text-center"><strong>Product Name</strong></div>
+                                                    <div class="col-md-1 text-center"><strong>Qty</strong></div>
+                                                    <div class="col-md-1 text-center"><strong>Status</strong></div>
+                                                    <div class="col-md-2 text-center"><strong>Requested Date</strong></div>
+                                                    <div class="col-md-2 text-center"><strong>Approval/Rejection Date</strong></div>
+                                                    <div class="col-md-2 text-center"><strong>Edit</strong></div>
+                                                    <div class="col-md-2 text-center"><strong>Delete</strong></div>
+
+                                                     </div>
+                                                 <div class="" style>
+                                                    <c:forEach items="${requests}" var="request">
+                                                                            <div class="row requests" style="border:1px solid green;padding:10px">
+                                                                                       <div class="col-md-2 text-center">${request.product.productName}</div>
+                                                                                       <div class="col-md-1 text-center">${request.productQuantity}</div>
+                                                                                       <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
+                                                                                       <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
+                                                                                       <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
+                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
+                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
+                                                                                   </div>
+                                                    </c:forEach>
+                                                 </div>
+                                            </div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-<jsp:include page="/jsp/footer.jsp"/>
+                        <jsp:include page="/jsp/footer.jsp"/>
+                        <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+                        <script src="http://localhost/js/jquery-ui.js"></script>
+                        <script src="http://localhost/js/facultyprofile.js"></script>

@@ -64,17 +64,17 @@ $(document).ready(function(){
     var v_err = true;
     var pr_err = true;
 
-    $('#valid').hide();
+    $('#valid').css("display","none");
 
     $('#prodName').keyup(function(){
         prodName();
     });
     function prodName(){
         var prodName = $('#prodName').val();
-        var regex = new RegExp(/^[a-zA-Z\s]+$/);
+        var regex = new RegExp(/[a-zA-Z0-9\s]+$/);
         if(regex.test(prodName))
         {
-             $('#valid').hide();
+             $('#valid').css("display","none");
                         p_err = true;
                         return true;
 
@@ -95,10 +95,10 @@ $(document).ready(function(){
         });
         function vendorName(){
             var vendorName = $('#vendorName').val();
-            var regex = new RegExp(/^[a-zA-Z\s]+$/);
+            var regex = new RegExp(/[a-zA-Z0-9\s]+$/);
             if(regex.test(vendorName))
             {
-                 $('#valid').hide();
+                 $('#valid').css("display","none");
                             v_err = true;
                             return true;
             }
@@ -118,10 +118,10 @@ $(document).ready(function(){
             });
             function productId(){
                 var productId = $('#productId').val();
-                var regex = new RegExp(/^[0-9]+$/);
+                var regex = new RegExp(/[0-9]+$/);
                 if(regex.test(productId))
                 {
-                     $('#valid').hide();
+                     $('#valid').css("display","none");
                      pr_err = true;
                      return true;
                 }
@@ -144,7 +144,7 @@ $(document).ready(function(){
                   prodName();
                   vendorName();
                   productId();
-
+                  $('#valid').css("display","none");
                   if(p_err == true || v_err == true || pr_err == true)
                   {
                     return true;

@@ -56,111 +56,101 @@ function getProductDetails(){
 }
 
 // Form Validation
-    $(document).ready(function(){
+   $(document).ready(function(){
 
-         var p_err = true;
-                var v_err = true;
-                var q_err = true;
+       var p_err = true;
+       var v_err = true;
+       var q_err = true;
 
-        $('#pnamecheck').hide();
-        $('#vnamecheck').hide();
-        $('#pQantitycheck').hide();
-        //Productname validatin
+       $('#valid').css("display","none");
 
-        $('#p_name').keyup(function(){
-            pName();
-        });
+       $('#prodName').keyup(function(){
+           prodName();
+       });
+       function prodName(){
+           var prodName = $('#prodName').val();
+           var regex = new RegExp(/[a-zA-Z0-9\s]+$/);
+           if(regex.test(prodName))
+           {
+                 $('#valid').hide();
+                 p_err = true;
+                 return true;
 
-        function pName()
-        {
-            var pName = $('#p_name').val();
-            var regex = new RegExp(/^[a-zA-Z\s]+$/);
-            if (regex.test(pName))
-            {
-                $('#pnamecheck').hide();
-                p_err = true;
-                return true;
-            }
-            else
-            {
-                $('#pnamecheck').show();
-                $('#pnamecheck').html("**Please Enter the valid Product Name.");
-                $('#pnamecheck').focus();
-                $('#pnamecheck').css("color","red");
+           }
+           else
+           {
+               $('#valid').show();
+                $('#valid').html("**Please Enter the valid Quantity");
+                $('#valid').focus();
+                $('#valid').css("color","red");
                 p_err = false;
                 return false;
-            }
-        }
+           }
+       }
 
-        $('#p_quantity').keyup(function(){
-                    pQuant();
-                });
+        $('#vendorName').keyup(function(){
+               vendorName();
+           });
+           function vendorName(){
+               var vendorName = $('#vendorName').val();
+               var regex = new RegExp(/[a-zA-Z0-9\s]+$/);
+               if(regex.test(vendorName))
+               {
+                    $('#valid').css("display","none");
+                               v_err = true;
+                               return true;
+               }
+               else
+               {
+                   $('#valid').show();
+                    $('#valid').html("**Please Enter the valid Quantity");
+                    $('#valid').focus();
+                    $('#valid').css("color","red");
+                    v_err = false;
+                    return false;
+               }
+           }
 
-                function pQuant()
-                {
-                    var pQuant = $('#p_quantity').val();
-                    var regex = new RegExp(/[1-9]+$/);
-                    if (regex.test(pQuant))
-                    {
-                        $('#pQuantitycheck').hide();
+            $('#quantity').keyup(function(){
+                   quantity();
+               });
+               function quantity(){
+                   var quantity = $('#quantity').val();
+                   var regex = new RegExp(/[0-9]+$/);
+                   if(regex.test(quantity))
+                   {
+                        $('#valid').hide();
                         q_err = true;
                         return true;
-                    }
-                    else
-                    {
-                        $('#pQuantitycheck').show();
-                        $('#pQuantitycheck').html("**Please Enter the valid Quantity.");
-                        $('#pQuantitycheck').focus();
-                        $('#pQuantitycheck').css("color","red");
+                   }
+                   else
+                   {
+                       $('#valid').show();
+                        $('#valid').html("**Please Enter the valid Quantity");
+                        $('#valid').focus();
+                        $('#valid').css("color","red");
                         q_err = false;
                         return false;
-                    }
-                }
+                   }
+               }
 
-        //Vendor Name validation
+               $('#addProduct').click(function(){
+                     p_err = true;
+                     v_err = true;
+                     q_err = true;
 
-        $('#v_name').keyup(function(){
+                     prodName();
+                     vendorName();
+                     quantity();
+                     $('#valid').css("display","none");
+                     if(p_err == true || v_err == true || q_err == true)
+                     {
+                       return true;
+                     }
+                     else
+                     {
+                       return false;
+                     }
 
-            vName();
-        });
-
-        function vName()
-        {
-            var vName = $('#v_name').val();
-            var regex = new RegExp(/[a-zA-Z\s]+$/);
-            if (regex.test(vName))
-            {
-               $('#vnamecheck').hide();
-               v_err = true;
-               return true;
-            }
-            else
-            {
-                $('#vnamecheck').show();
-                $('#vnamecheck').html("**Please Enter the valid Vendor Name.");
-                $('#vnamecheck').focus();
-                $('#vnamecheck').css("color","red");
-                v_err = false;
-                return false;
-            }
-        }
-
-        $('#submit').click(function(){
-                p_err = true;
-                v_err = true;
-                q_err = true;
-
-                pName();
-                vName();
-                pQuant();
-
-                if(p_err == true || v_err == true || q_err == true){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-        });
-
-
-});
+               });
+   });

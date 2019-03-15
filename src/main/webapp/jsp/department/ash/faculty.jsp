@@ -42,7 +42,7 @@
                         <div class="panel-heading faculty-title"> Dr. Pramod Kumar&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department of Mathematics)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="dummy.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/33/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -62,7 +62,7 @@
                         <div class="panel-heading faculty-title">Dr Vipin Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="dummy.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/34/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -84,7 +84,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="dummy.png"
+                                                                             src="http://localhost/35/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -106,7 +106,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                 src="snk.jpg"
+                                                                                 src="http://localhost/36/image${fileExtension}"
                                                                                  style="background-image: url(snk.jpg)"/>
                                         <div class="visible-xs"><br/></div>
                                     </div>

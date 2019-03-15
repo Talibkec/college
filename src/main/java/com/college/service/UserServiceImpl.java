@@ -30,4 +30,35 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+    @Override
+    public void saveUserRole(UserRoleDTO userRoleDTO) {
+        Set<Role> roles= new HashSet<>();
+        User user = userRepository.findOne(userRoleDTO.getUserId());
+        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
+        Role newRole = new Role();
+        newRole.setId(userRoleDTO.getRoleId());
+        newRole.setName(role.getName());
+        roles = user.getRoles();
+        roles.add(newRole);
+        user.setRoles(roles);
+        userRepository.save(user);
+
+    }
+
+    @Override
+    public void deleteUserRole(UserRoleDTO userRoleDTO)
+    {
+        Long id = userRoleDTO.getRoleId();
+        User user = userRepository.findOne(userRoleDTO.getUserId());
+        Set<Role> roles = user.getRoles();
+        Iterator<Role> it = roles.iterator();
+        while(it.hasNext()) {
+            Role r =  it.next();
+            if (r.getId() == userRoleDTO.getRoleId()) {
+                it.remove();
+            }
+        }
+        userRepository.save(user);
+    }
 }

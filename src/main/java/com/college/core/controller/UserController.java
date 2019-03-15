@@ -110,14 +110,14 @@ public class UserController {
 
     private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
         List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-        Date today = new Date();
+
         for(NoticeBoardDTO dto : list){
             dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(getDifferenceDays(dto.getDate(), today));
+            dto.setDate(dto.getDate());
             if(scrollable){
                 if(dto.getIsScrollable() != null &&  dto.getIsScrollable() == 1)
                     dto.setFileType(("."+FilenameUtils.getExtension(dto.getUploadedFileName())));
-
+                dto.setDate(dto.getDate());
                     scrollingNotices.add(dto);
             }
             else if(!scrollable){
@@ -151,7 +151,7 @@ public class UserController {
         File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
         file.delete();
     }
-
+/*
 
     public int getDifferenceDays(Date d1, Date d2) {
         int daysdiff = 0;
@@ -159,7 +159,7 @@ public class UserController {
         long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
         daysdiff = (int) diffDays;
         return daysdiff;
-    }
+    }*/
 
 
 }

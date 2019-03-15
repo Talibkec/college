@@ -47,4 +47,12 @@ public class FacultyHelper {
         mv.addObject("requests", requests);
         return  mv;
     }
+
+    public List<String> facultyNames(List<FacultyDTO> faculties){
+        List<String> names = new ArrayList<>();
+        for(FacultyDTO facultyDTO : faculties){
+            names.add(facultyDTO.getFacultyName());
+        }
+        return names;
+    }
 }

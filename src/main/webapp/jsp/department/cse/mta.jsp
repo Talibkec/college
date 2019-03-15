@@ -50,8 +50,10 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
+                    <c:if test = "${UserName eq 'Talib'}">
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
-                                                class="fa fa-angle-double-right"></i> Request</a></li>
+                            class="fa fa-angle-double-right"></i> Request</a></li>
+                    </c:if>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width= "250px" style="height: 200px"
@@ -145,12 +147,11 @@
 
                         </div>
                     <div role="tabpanel" class="tab-pane" id="order">
-                        <div style="padding: 15px;">
-                        		<a href="http://localhost/store/faculty/order" > Order Item </a>
-                        </div>
-                         <div style="padding: 15px;">
-                                 <a href="http://localhost/store/faculty/facultyOrderHistory" > Order History </a>
-                         </div>
+                        <button type="submit" class="btn btn-info">
+                        <a href="http://localhost/store/faculty/order">Order Item</a> </button>
+                        <button class="btn btn-success" type="submit"style="margin-left:10%">
+                                                <a href="http://localhost/store/faculty/facultyOrderHistory"> Order History</a></button>
+
                         <div style="padding: 15px;">
                              <div class="row" style="border:1px solid green;padding:10px">
                                 <div class="col-md-2 text-center"><strong>Product Name</strong></div>
@@ -160,23 +161,21 @@
                                 <div class="col-md-2 text-center"><strong>Approval/Rejection Date</strong></div>
                                 <div class="col-md-2 text-center"><strong>Edit</strong></div>
                                 <div class="col-md-2 text-center"><strong>Delete</strong></div>
-
-                                 </div>
+                             </div>
                              <div class="" style>
                                 <c:forEach items="${requests}" var="request">
-                                                        <div class="row requests" style="border:1px solid green;padding:10px">
-                                                                   <div class="col-md-2 text-center">${request.product.productName}</div>
-                                                                   <div class="col-md-1 text-center">${request.productQuantity}</div>
-                                                                   <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
-                                                                   <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
-                                                                   <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
-                                                                   <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
-                                                                   <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
-                                                               </div>
-                                </c:forEach>
+                                 <div class="row requests" style="border:1px solid green;padding:10px">
+                                 <div class="col-md-2 text-center">${request.product.productName}</div>
+                                 <div class="col-md-1 text-center">${request.productQuantity}</div>
+                                 <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
+                                 <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
+                                 <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
+                                 <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
+                                 <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
                              </div>
+                             </c:forEach>
                         </div>
-
+                    </div>
                     </div>
                     </div>
                 </div>

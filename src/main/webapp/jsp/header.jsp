@@ -280,7 +280,7 @@ Katihar Engineering College</title>
                                             href="http://localhost/academic/antiragging"
                                             title="Hostels" class="sf-depth-2">Anti Ragging</a></li>
                                     <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://localhost/academic/antiragging/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
+                                            href="http://localhost/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
                                     <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                                             href="http://localhost/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
                                    | </ul>

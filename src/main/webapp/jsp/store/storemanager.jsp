@@ -17,8 +17,8 @@
             <div class="col-md-3 text-center"><input type="text" name="prodName" id = "prodName" /></div>
             <div class="col-md-3 text-center" ><input type="text" name="vendorName" id = "vendorName" /></div>
             <div class="col-md-2 text-center"><input type="text" name="productId" id = "productId"/></div>
-            <div class="col-md-2 text-center"><input type="submit" value="submit" id="getProductDetails"/></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/orderPage">Search Order</a></div>
+            <div class="col-md-2 text-center"><input type="submit" value="submit" id="getProductDetails" class="btn btn-success"/></div>
+            <div class="col-md-2 text-center"><a href="http://localhost/store/orderPage" class="btn btn-success">Search Order</a></div>
         </div>
         <h5 id="valid"></h5>
 	</div>
@@ -49,8 +49,8 @@
            <div class="col-md-1 text-center">${req.status}</div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.requestDate}" pattern="dd/MM/yyyy"/></div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.approvalDate}" pattern="dd/MM/yyyy"/></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/approvefacultyrequest?requestId=${req.requestId}">Approve</a></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/rejectfacultyrequest?requestId=${req.requestId}">Cancel</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/approvefacultyrequest?requestId=${req.requestId}" class="btn btn-success">Approve</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/rejectfacultyrequest?requestId=${req.requestId}" class="btn btn-success">Cancel</a></div>
         </div>
      </c:forEach>
   </div>
@@ -69,10 +69,19 @@
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-4 text-center"><input type="text" name="fromDate" id = "fromDate" /></div>
             <div class="col-md-4 text-center" ><input type="text" name="toDate" id = "toDate" /></div>
-            <div class="col-md-4 text-center"><button value="submit" type="submit"> Search Purchase</button></div>
+            <div class="col-md-4 text-center"><button value="submit" type="submit" class="btn btn-success"> Search Purchase</button></div>
         </div>
 	</div>
+</div>
 </form>
+<div class="container" style="margin:50px">
+    <div class="row text-center"><h3> Assign - Revoke SM Role </h3></div>
+    <div class="row" style="border:1px solid green;padding:10px">
+        <div class="col-md-4 text-center">
+        <a href="http://localhost/store/faculty/smincharge">
+            <input type="submit" name="smincharge" id = "smincharge" value="SM Incharge" class="btn btn-success" />
+        </a></div>
+    </div>
 
  <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
  <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>

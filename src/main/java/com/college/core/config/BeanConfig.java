@@ -14,7 +14,7 @@ public class BeanConfig {
     public InternalResourceViewResolver setupViewResolver()  {
         InternalResourceViewResolver resolver =  new InternalResourceViewResolver();
         resolver.setPrefix ("/jsp/");
-        resolver.setSuffix (".jsp");
+        //resolver.setSuffix (".jsp");
         resolver.setViewClass (JstlView.class);
         return resolver;
     }

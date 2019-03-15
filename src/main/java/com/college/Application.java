@@ -10,11 +10,13 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @ComponentScan({"com.college.*"})
 @Import({BeanConfig.class, WebConfig.class})
 //@EnableWebMvc
+@EnableScheduling
 @EnableAutoConfiguration(exclude={MultipartAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer{
 	

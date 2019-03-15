@@ -78,7 +78,7 @@ public class UserController {
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
 
-        return "login";
+        return "login.jsp";
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
@@ -88,9 +88,25 @@ public class UserController {
         modelAndView.addObject("noticeList",getNoticeList(list, false));
         modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("index.jsp");
         return modelAndView;
     }
+
+    @RequestMapping(value = "forgotPassword", method = RequestMethod.GET)
+    public ModelAndView forgotPassword() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("forgotPassword.html");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "thymeleaf", method = RequestMethod.GET)
+    public ModelAndView thymleaf(Model model, @RequestParam("name") String name) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("name", name);
+        modelAndView.setViewName("sample.html");
+        return modelAndView;
+    }
+
 
     private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
         List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();

@@ -2,10 +2,11 @@ package com.college.service;
 
 import com.college.core.entity.Department;
 import com.college.core.entity.Faculty;
-import com.college.core.model.DepartmentDTO;
+import com.college.core.entity.PasswordResetToken;
+import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
-import com.college.repository.DepartmentRepository;
 import com.college.repository.FacultyRepository;
+import com.college.repository.PasswordResetTokenRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class FacultyServiceImpl implements FacultyService {
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     FacultyRepository facultyRepository;
+
+    @Autowired
+    PasswordResetTokenRepository passwordTokenRepository;
     @Override
     public List<FacultyDTO> getAllFaculty() {
         List<Faculty> faculties = facultyRepository.findAll();
@@ -63,5 +67,23 @@ public class FacultyServiceImpl implements FacultyService {
         }
         return facultyDTO;
 
+    }
+
+    @Override
+    public FacultyDTO findUserByEmail(String userEmail) {
+        Faculty faculty = null;
+        faculty = facultyRepository.findUserByEmail(userEmail);
+        FacultyDTO facultyDTO = null;
+        if(faculty != null){
+            facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
+        }
+
+        return  facultyDTO;
+    }
+
+    @Override
+    public void createPasswordResetTokenForUser(User user, String token) {
+        PasswordResetToken myToken = new PasswordResetToken(token, user);
+        passwordTokenRepository.save(myToken);
     }
 }

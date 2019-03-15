@@ -31,6 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().authorizeRequests()
+                .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*")
+                .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
+                .antMatchers("/store/**").hasAnyRole("SM")
                 .antMatchers("/auth/**").authenticated()
                 //.antMatchers("/kec/admin/**").hasRole("Admin")
                 .and()

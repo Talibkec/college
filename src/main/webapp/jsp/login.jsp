@@ -12,6 +12,7 @@
             <div class="col-sm-offset-4 col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading"><i class="fa fa-sign-in"></i> Admin Login</div>
+                    <span>${param.message}</span>
                     <div class="panel-body">
                         <form method="post" class="form form-horizontal" action="${contextPath}/login" >
                          <div class="form-group ${error != null ? 'has-error' : ''}">
@@ -34,7 +35,7 @@
                                     </button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="#modalInfo" data-toggle="modal" class="btn btn-default"><i
+                                    <a href="${contextPath}/forgotPassword" data-toggle="modal" class="btn btn-default"><i
                                             class="fa fa-info-circle"></i> Forgot Password</a></div>
                             </div>
                             </div>

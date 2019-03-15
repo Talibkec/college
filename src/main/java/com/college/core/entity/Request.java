@@ -14,8 +14,11 @@ public class Request {
     private String status;
     private Date approvalDate;
     private Date deliverDate;
+    private String desc;
+    @Column(name = "DESCRIPTION")
+    public String getDesc() { return desc;}
 
-
+    public void setDesc(String desc) {this.desc = desc;}
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO, generator = "requestId")
     @SequenceGenerator(name = "requestId", sequenceName = "requestId")

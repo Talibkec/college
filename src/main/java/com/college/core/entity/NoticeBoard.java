@@ -11,7 +11,9 @@ public class NoticeBoard {
     private String headLine;
     private String noticeType;
     private String uploadedFileName;
-    private Date date;
+
+
+    private String date;
 
     private Integer isScrollable;
     @Lob
@@ -69,13 +71,14 @@ public class NoticeBoard {
     }
 
 
-    @Temporal(TemporalType.DATE)
+
     @Column(name = "NB_UPLOADDATE")
-    public Date getDate() {
+
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -8,7 +8,7 @@ public class NoticeBoardDTO {
     private String headLine;
     private String noticeType;
     private String uploadedFileName;
-    private Date date;
+    private String date;
     private Integer isScrollable;
     private String fileType;
     private byte[] notice;
@@ -66,13 +66,7 @@ public class NoticeBoardDTO {
     public void setUploadedFileName(String uploadedFileName) {
         this.uploadedFileName = uploadedFileName;
     }
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
     public Integer getIsScrollable() {
         return isScrollable;
     }
@@ -81,11 +75,13 @@ public class NoticeBoardDTO {
         this.isScrollable = isScrollable;
     }
 
-    public Integer getNoticeAge() {
-        return noticeAge;
+
+
+    public String getDate() {
+        return date;
     }
 
-    public void setNoticeAge(Integer noticeAge) {
-        this.noticeAge = noticeAge;
+    public void setDate(String date) {
+        this.date = date;
     }
 }

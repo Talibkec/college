@@ -15,7 +15,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
-import java.util.Date;
 
 @Controller
 public class FileUploadCintroller {
@@ -28,7 +27,7 @@ public class FileUploadCintroller {
     @RequestMapping(value = "/auth/api/upload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("noticeFile") MultipartFile uploadfile, @RequestParam("noticeHeader") String noticeHeader,
-            @RequestParam("noticeType") String noticeType, @RequestParam("isScrollable") Boolean isScrollable) {
+            @RequestParam("noticeType") String noticeType, @RequestParam("isScrollable") Boolean isScrollable,@RequestParam("date")String date) {
         logger.debug("Single file upload!");
         String fileName = uploadfile.getOriginalFilename();
 
@@ -55,7 +54,7 @@ public class FileUploadCintroller {
                 userName = principal.toString();
             }
             //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-            saveNoticeDetails(userName, noticeHeader, noticeType,fileName,isScrollable,uploadfile);
+            saveNoticeDetails(userName, noticeHeader, noticeType,fileName,isScrollable,uploadfile,date);
 
 
         String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
@@ -65,12 +64,12 @@ public class FileUploadCintroller {
 
     }
 
-    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable,MultipartFile uploadfile) {
+    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable, MultipartFile uploadfile, String date) {
         NoticeBoardDTO noticeBoardDTO = new NoticeBoardDTO();
         noticeBoardDTO.setHeadLine(noticeHeader);
         noticeBoardDTO.setNoticeType(noticeType);
         noticeBoardDTO.setUploadedBy(userName);
-        noticeBoardDTO.setDate(new Date());
+        noticeBoardDTO.setDate(date);
         noticeBoardDTO.setUploadedFileName(fileName);
         if(isScrollable) {
             noticeBoardDTO.setIsScrollable(1);

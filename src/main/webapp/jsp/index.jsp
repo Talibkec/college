@@ -19,7 +19,7 @@
 
          <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
 
-        	<c:if test = "${scrollingNotice.noticeAge < 2}">
+
 
                     <i class="fa fa-asterisk"></i>
                  	<img class="" src="http://localhost/sites/NewFlashing.gif" alt=""Related image" width="44" height="40" />
@@ -30,8 +30,8 @@
                              </c:if>
                      </c:forEach>
 
-             </c:if>
-             <c:if test = "${notice.noticeAge >= 45}">
+
+             
                  <li>
                      <i class="fa fa-asterisk"></i>
                      <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
@@ -39,7 +39,7 @@
                                   <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                               </c:if>
                  </li>
-             </c:if>
+
 
         </c:forEach>
     </ul>

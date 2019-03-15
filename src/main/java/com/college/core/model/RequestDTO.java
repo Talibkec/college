@@ -14,6 +14,12 @@ public class RequestDTO {
     private Date approvalDate;
     private Date deliverDate;
 
+    public String getDesc() { return desc; }
+
+    public void setDesc(String desc) { this.desc = desc; }
+
+    private  String desc;
+
     public Long getRequestId() {
         return requestId;
     }

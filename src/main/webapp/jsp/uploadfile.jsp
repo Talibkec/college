@@ -1,5 +1,4 @@
 <jsp:include page="header.jsp"/>
-
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 <div style="margin-left:50px" ><h3>Upload File</h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
@@ -13,6 +12,7 @@
     </div>
 
     <label for="noticeType" class="control-label col-sm-4" >Notice Type</label>
+
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="Notice">Notice</option>
                                                         <option value="News">News</option>
@@ -22,7 +22,9 @@
                                                         <option value="ELECNotice">Electronics</option>
                                                         <option value="ASHNotice">Applied Science</option>
             </select><br/><br/>
+           Date : <input type ="text"name ="date">
     </div>
+
     <label for="headLine" class="control-label col-sm-4" >Scrollable</label>
         <div class="col-sm-8">
             <input type="checkbox" name="isScrollable" id="isScrollable" style="width: 25px;height: 40px;" ></input><br><br>

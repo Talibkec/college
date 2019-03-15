@@ -2,6 +2,7 @@ package com.college.service;
 
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
+import com.college.core.model.UserRoleDTO;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 @Service

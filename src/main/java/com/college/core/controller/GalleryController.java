@@ -12,13 +12,13 @@ public class GalleryController {
     @RequestMapping(value = "photogallery")
     public ModelAndView getPhotoGallery(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/gallery/photogallery");
+        mv.setViewName("/gallery/photogallery.jsp");
         return mv;
     }
     @RequestMapping(value = "mediagallery")
     public ModelAndView getMediaGallery(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/gallery/mediagallery");
+        mv.setViewName("/gallery/mediagallery.jsp");
         return mv;
         }
 }

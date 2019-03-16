@@ -11,13 +11,13 @@ public class ApprovalController {
     @RequestMapping(value = "akuapproval")
     public ModelAndView getAkuApproval(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/approval/akuapproval");
+        mv.setViewName("/approval/akuapproval.jsp");
         return mv;
     }
     @RequestMapping(value = "aicteapproval")
     public ModelAndView getAicteApproval(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/approval/aicteapproval");
+        mv.setViewName("/approval/aicteapproval.jsp");
         return mv;
     }
 }

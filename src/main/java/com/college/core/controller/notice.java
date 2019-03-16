@@ -10,20 +10,20 @@ public class notice {
     @RequestMapping(value = "notices")
     public ModelAndView getNotices() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("category/notices");
+        mv.setViewName("category/notices.jsp");
         return mv;
     }
 
     @RequestMapping(value = "kecwebteam")
     public ModelAndView getKecwebteam() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("category/kecwebteam");
+        mv.setViewName("category/kecwebteam.jsp");
         return mv;
     }
     @RequestMapping(value = "department")
     public ModelAndView getDepartment() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("category/department");
+        mv.setViewName("category/department.jsp");
         return mv;
     }
 }

@@ -11,7 +11,7 @@ public class StoreController {
     @RequestMapping(value="addproduct")
     public ModelAndView getAddproduct(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("store/addproduct");
+        mv.setViewName("store/addproduct.jsp");
         return mv;
     }
 

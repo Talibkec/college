@@ -12,35 +12,35 @@ public class TrainingPlacementController {
     @RequestMapping(value = "placementbrochure")
     public ModelAndView getPlacementBrochure(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/trainingplacement/placementbrochure");
+        mv.setViewName("/trainingplacement/placementbrochure.jsp");
         return mv;
     }
 
     @RequestMapping(value = "rulesoftrainingplacement")
     public ModelAndView getRulesOfTrainingPlacement(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/trainingplacement/rulesoftrainingplacement");
+        mv.setViewName("/trainingplacement/rulesoftrainingplacement.jsp");
         return mv;
     }
 
     @RequestMapping(value = "studentplacementcoordinator")
     public ModelAndView getStudentPlacementCoordinator(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/trainingplacement/studentplacementcoordinator");
+        mv.setViewName("/trainingplacement/studentplacementcoordinator.jsp");
         return mv;
     }
 
     @RequestMapping(value = "tipsforresume")
     public ModelAndView getTipsForResume(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/trainingplacement/tipsforresume");
+        mv.setViewName("/trainingplacement/tipsforresume.jsp");
         return mv;
     }
 
     @RequestMapping(value = "aboutplacement")
     public ModelAndView getAboutPlacement(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("/trainingplacement/aboutplacement");
+        mv.setViewName("/trainingplacement/aboutplacement.jsp");
         return mv;
     }
 }

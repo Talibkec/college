@@ -15,7 +15,7 @@ public class AboutController {
     @RequestMapping(value = "history")
     public ModelAndView getHistory() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("about/history");
+        mv.setViewName("about/history.jsp");
         return mv;
 
     }
@@ -23,19 +23,19 @@ public class AboutController {
     @RequestMapping(value="vision")
     public ModelAndView getVision() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("about/vision");
+        mv.setViewName("about/vision.jsp");
         return mv;
     }
     @RequestMapping(value="principal")
     public ModelAndView getPrincipal() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("about/principal");
+        mv.setViewName("about/principal.jsp");
         return mv;
     }
     @RequestMapping(value="allotment")
     public ModelAndView getAllotment(){
         ModelAndView mv =new ModelAndView();
-        mv.setViewName("about/allotment");
+        mv.setViewName("about/allotment.jsp");
         return mv;
     }
 
@@ -43,7 +43,7 @@ public class AboutController {
         public ModelAndView getAffiliation()
     {
         ModelAndView mv =new ModelAndView();
-        mv.setViewName("about/affiliation");
+        mv.setViewName("about/affiliation.jsp");
         return mv;
 
     }
@@ -51,14 +51,14 @@ public class AboutController {
     public ModelAndView getAdministration()
   {
       ModelAndView mv = new ModelAndView();
-      mv.setViewName("about/administration");
+      mv.setViewName("about/administration.jsp");
       return mv;
   }
     @RequestMapping(value="staff")
     public ModelAndView getStaff()
     {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("about/staff");
+        mv.setViewName("about/staff.jsp");
         return mv;
     }
 

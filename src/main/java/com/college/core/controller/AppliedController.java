@@ -27,97 +27,97 @@ public class AppliedController {
         mv.addObject("Role", ControllerUtility.getRole());
         List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices();
         mv.addObject("noticeList",appliedScienceNotices);
-        mv.setViewName("department/ash/about");
+        mv.setViewName("department/ash/about.jsp");
         return mv;
     }
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/vision");
+        mv.setViewName("department/ash/vision.jsp");
         return mv;
     }
     @RequestMapping(value="faculty")
     public ModelAndView getFaculty(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/faculty");
+        mv.setViewName("department/ash/faculty.jsp");
         return mv;
     }
     @RequestMapping(value="students")
     public ModelAndView getStudents(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/students");
+        mv.setViewName("department/ash/students.jsp");
         return mv;
     }
     @RequestMapping(value="notice")
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/notice");
+        mv.setViewName("department/ash/notice.jsp");
         return mv;
     }
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/labs");
+        mv.setViewName("department/ash/labs.jsp");
         return mv;
     }
     @RequestMapping(value="question")
     public ModelAndView getQuestions(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/question");
+        mv.setViewName("department/ash/question.jsp");
         return mv;
     }
     @RequestMapping(value="awards")
     public ModelAndView getAwards(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/awards");
+        mv.setViewName("department/ash/awards.jsp");
         return mv;
     }
     @RequestMapping(value="programs")
     public ModelAndView getPrograms(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/programs");
+        mv.setViewName("department/ash/programs.jsp");
         return mv;
     }
     @RequestMapping(value="weekly")
     public ModelAndView getWeekly(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/weekly");
+        mv.setViewName("department/ash/weekly.jsp");
         return mv;
     }
     @RequestMapping(value="course")
     public ModelAndView getCourse(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/course");
+        mv.setViewName("department/ash/course.jsp");
         return mv;
     }
     @RequestMapping(value="attendance")
     public ModelAndView getAttendance(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/ash/attendance");
+        mv.setViewName("department/ash/attendance.jsp");
         return mv;
     }
     @RequestMapping(value="pk")
     public ModelAndView getPk(){
         ModelAndView mv=facultyHelper.getFacultyDetails("pramod");
-        mv.setViewName("department/ash/pk");
+        mv.setViewName("department/ash/pk.jsp");
         return mv;
     }
     @RequestMapping(value="vk")
     public ModelAndView getVk(){
         ModelAndView mv=facultyHelper.getFacultyDetails("vipin");
-        mv.setViewName("department/ash/vk");
+        mv.setViewName("department/ash/vk.jsp");
         return mv;
     }
     @RequestMapping(value="bnm")
     public ModelAndView getBnm(){
         ModelAndView mv=facultyHelper.getFacultyDetails("bnmahto");
-        mv.setViewName("department/ash/bnm");
+        mv.setViewName("department/ash/bnm.jsp");
         return mv;
     }
     @RequestMapping(value="snk")
     public ModelAndView getSnk(){
         ModelAndView mv=facultyHelper.getFacultyDetails("sunil");
-        mv.setViewName("department/ash/snk");
+        mv.setViewName("department/ash/snk.jsp");
         return mv;
     }
 }

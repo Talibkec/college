@@ -29,103 +29,103 @@ public class CivilController {
         modalAndView.addObject("Role", ControllerUtility.getRole());
         List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices();
         modalAndView.addObject("noticeList", civilNotices);
-        modalAndView.setViewName("department/civil/about");
+        modalAndView.setViewName("department/civil/about.jsp");
         return modalAndView;
     }
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/vision");
+        mv.setViewName("department/civil/vision.jsp");
         return mv;
     }
     @RequestMapping(value="faculty")
     public ModelAndView getFaculty(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/faculty");
+        mv.setViewName("department/civil/faculty.jsp");
         return mv;
     }
     @RequestMapping(value="students")
     public ModelAndView getStudents(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/students");
+        mv.setViewName("department/civil/students.jsp");
         return mv;
     }
     @RequestMapping(value="notice")
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/notice");
+        mv.setViewName("department/civil/notice.jsp");
         return mv;
     }
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/labs");
+        mv.setViewName("department/civil/labs.jsp");
         return mv;
     }
     @RequestMapping(value="question")
     public ModelAndView getQuestions(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/question");
+        mv.setViewName("department/civil/question.jsp");
         return mv;
     }
     @RequestMapping(value="awards")
     public ModelAndView getAwards(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/awards");
+        mv.setViewName("department/civil/awards.jsp");
         return mv;
     }
     @RequestMapping(value="programs")
     public ModelAndView getPrograms(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/programs");
+        mv.setViewName("department/civil/programs.jsp");
         return mv;
     }
     @RequestMapping(value="weekly")
     public ModelAndView getWeekly(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/weekly");
+        mv.setViewName("department/civil/weekly.jsp");
         return mv;
     }
     @RequestMapping(value="course")
     public ModelAndView getCourse(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/course");
+        mv.setViewName("department/civil/course.jsp");
         return mv;
     }
     @RequestMapping(value="attendance")
     public ModelAndView getAttendance(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/attendance");
+        mv.setViewName("department/civil/attendance.jsp");
         return mv;
     }
     @RequestMapping(value="rm")
     public ModelAndView getRm(){
         ModelAndView mv =facultyHelper.getFacultyDetails("talktorashid");
-        mv.setViewName("department/civil/rm");
+        mv.setViewName("department/civil/rm.jsp");
         return mv;
     }
     @RequestMapping(value="rps")
     public ModelAndView getRps(){
         ModelAndView mv = facultyHelper.getFacultyDetails("rpsingh");
-        mv.setViewName("department/civil/rps");
+        mv.setViewName("department/civil/rps.jsp");
         return mv;
     }
     @RequestMapping(value="akg")
     public ModelAndView getAkg(){
         ModelAndView mv = facultyHelper.getFacultyDetails("anilanu");
-        mv.setViewName("department/civil/akg");
+        mv.setViewName("department/civil/akg.jsp");
         return mv;
     }
     @RequestMapping(value="ar")
     public ModelAndView getAr(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/ar");
+        mv.setViewName("department/civil/ar.jsp");
         return mv;
     }
     @RequestMapping(value="abhi")
     public ModelAndView getbhi(){
         ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/civil/abhi");
+        mv.setViewName("department/civil/abhi.jsp");
         return mv;
     }
 

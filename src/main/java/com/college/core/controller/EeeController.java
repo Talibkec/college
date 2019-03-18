@@ -27,7 +27,7 @@ public class EeeController {
         mv.addObject("Role",ControllerUtility.getRole());
         List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices();
         mv.addObject("noticeList",eecNotices);
-        mv.setViewName("department/eee/about");
+        mv.setViewName("department/eee/about.jsp");
         return mv;
     }
     @RequestMapping(value="vision")

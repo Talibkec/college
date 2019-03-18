@@ -22,7 +22,11 @@
                                                         <option value="ELECNotice">Electronics</option>
                                                         <option value="ASHNotice">Applied Science</option>
             </select><br/><br/>
-           Date : <input type ="text"name ="date">
+    </div>
+    <label class="control-label col-sm-12" ></label>
+    <label for="noticeUploadDate" class="control-label col-sm-4" >Date</label>
+    <div class="col-sm-8">
+            <input type="text" name="date" id="noticeUploadDate"/>
     </div>
 
     <label for="headLine" class="control-label col-sm-4" >Scrollable</label>
@@ -44,4 +48,6 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
+<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
 <script src="http://localhost/js/fileupload.js"></script>

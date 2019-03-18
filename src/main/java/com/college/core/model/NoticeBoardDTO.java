@@ -8,7 +8,7 @@ public class NoticeBoardDTO {
     private String headLine;
     private String noticeType;
     private String uploadedFileName;
-    private String date;
+    private Date date;
     private Integer isScrollable;
     private String fileType;
     private byte[] notice;
@@ -77,11 +77,11 @@ public class NoticeBoardDTO {
 
 
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

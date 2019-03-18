@@ -15,6 +15,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @Controller
 public class FileUploadCintroller {
@@ -22,6 +26,7 @@ public class FileUploadCintroller {
     @Autowired
     NoticeBoardService noticeBoardService;
     private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
+    private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
     //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
     @RequestMapping(value = "/auth/api/upload", method = RequestMethod.POST)
@@ -69,7 +74,7 @@ public class FileUploadCintroller {
         noticeBoardDTO.setHeadLine(noticeHeader);
         noticeBoardDTO.setNoticeType(noticeType);
         noticeBoardDTO.setUploadedBy(userName);
-        noticeBoardDTO.setDate(date);
+        setNoticeUploadDate(noticeBoardDTO, date);
         noticeBoardDTO.setUploadedFileName(fileName);
         if(isScrollable) {
             noticeBoardDTO.setIsScrollable(1);
@@ -81,6 +86,20 @@ public class FileUploadCintroller {
         }
         noticeBoardDTO.setFileType(FilenameUtils.getExtension(fileName));
         noticeBoardService.saveNoticeBoard(noticeBoardDTO);
+
+    }
+
+    private void setNoticeUploadDate(NoticeBoardDTO noticeBoardDTO, String date) {
+
+            try {
+                if(StringUtils.isEmpty(date)){
+                    date = DATE_TIME_FORMATTER.format(new Date());
+                }
+                noticeBoardDTO.setDate(DATE_TIME_FORMATTER.parse(date));
+            } catch (ParseException e) {
+                logger.error("Could not parse the date, Please contact to admin");
+            }
+
 
     }
     /*public String getPath() {

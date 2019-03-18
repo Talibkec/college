@@ -47,13 +47,13 @@ public class DashboardController {
 	public ModelAndView displayUploadFilePage() {
 		ModelAndView model = new ModelAndView();
 		//model.addObject("users", getUsers());
-		model.setViewName("uploadfile");
+		model.setViewName("uploadfile.jsp");
 		return model;
 	}
 	@RequestMapping(value = "/auth/uploadfile/facultyfileupload", method = RequestMethod.GET)
 	public ModelAndView displayFacultyFileUploadpage(@RequestParam("isProfilePic") String isProfilePic) {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("facultyfileupload");
+		model.setViewName("facultyfileupload.jsp");
 		model.addObject("isProfilePic", isProfilePic);
 		return model;
 	}
@@ -75,14 +75,14 @@ public class DashboardController {
 			System.out.println("I am already authenticated.");
 		}
     	//model.addObject("users", getUsers());
-    	model.setViewName("dashboard");
+    	model.setViewName("dashboard.jsp");
     	return model;
     }
 
 	@RequestMapping(value = "/auth/sendMessage", method = RequestMethod.GET)
 	public ModelAndView sendMessageGET() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("sms");
+		model.setViewName("sms.jsp");
 		return model;
 	}
 
@@ -92,11 +92,11 @@ public class DashboardController {
 
 		ModelAndView model = new ModelAndView();
 		if(!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()){
-			model.setViewName("login");
+			model.setViewName("login.jsp");
 		}
 
 		messageSender.sendSMSGroup(smsGroup, message, numberInput);
-		model.setViewName("sms");
+		model.setViewName("sms.jsp");
 		return model;
 	}
 

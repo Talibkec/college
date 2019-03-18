@@ -9,6 +9,11 @@ $(document).ready(function () {
 
     });
 
+     $( function() {
+              $( "#noticeUploadDate").datepicker({dateFormat: 'dd/mm/yy'});
+     });
+
+
 });
 
 function fire_ajax_submit() {

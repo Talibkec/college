@@ -52,7 +52,7 @@ public class UserController {
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
         model.addAttribute("roles", roleService.getALLRoles());
-        return "registration";
+        return "registration.jsp";
     }
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.POST)

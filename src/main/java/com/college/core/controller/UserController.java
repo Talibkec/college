@@ -1,7 +1,7 @@
 package com.college.core.controller;
 
+import com.college.KECDateHelper;
 import com.college.core.entity.User;
-import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import com.college.service.RoleService;
@@ -11,9 +11,6 @@ import com.college.validator.UserValidator;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,9 +23,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -113,11 +108,9 @@ public class UserController {
 
         for(NoticeBoardDTO dto : list){
             dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setDate(dto.getDate());
+            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
             if(scrollable){
                 if(dto.getIsScrollable() != null &&  dto.getIsScrollable() == 1)
-                    dto.setFileType(("."+FilenameUtils.getExtension(dto.getUploadedFileName())));
-                dto.setDate(dto.getDate());
                     scrollingNotices.add(dto);
             }
             else if(!scrollable){
@@ -151,15 +144,5 @@ public class UserController {
         File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
         file.delete();
     }
-/*
-
-    public int getDifferenceDays(Date d1, Date d2) {
-        int daysdiff = 0;
-        long diff = d2.getTime() - d1.getTime();
-        long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
-        daysdiff = (int) diffDays;
-        return daysdiff;
-    }*/
-
 
 }

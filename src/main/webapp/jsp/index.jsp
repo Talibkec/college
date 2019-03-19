@@ -10,7 +10,7 @@
 <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
 <ul>
                         <li style="display: inline;float: left">
-                     	    <img class="" src="http://localhost/sites/NewFlashing.gif" alt="" related="" image"="" width="44" height="40">
+                     	    <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                             <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                         </li>
 
@@ -21,12 +21,14 @@
 
                     <li style= "display: inline;float: left">
                     <i class="fa fa-asterisk"></i>
-                 	<img class="" src="http://localhost/sites/NewFlashing.gif" alt=""Related image" width="44" height="40" />
+                    <c:if test = "${scrollingNotice.noticeAge <= 2}">
+                 	    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" />
+                    </c:if>
                     <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
                     <c:forEach var="item" items="${Role}">
                         <c:if test = "${'Admin' eq item}">
                                  <span class="label label-danger"><a href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
-                             </c:if>
+                        </c:if>
                      </c:forEach>
 
                     </li>

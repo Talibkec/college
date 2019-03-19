@@ -84,4 +84,12 @@ public class NoticeBoardDTO {
     public void setDate(Date date) {
         this.date = date;
     }
+
+    public Integer getNoticeAge() {
+        return noticeAge;
+    }
+
+    public void setNoticeAge(Integer noticeAge) {
+        this.noticeAge = noticeAge;
+    }
 }

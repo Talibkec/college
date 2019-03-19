@@ -13,7 +13,7 @@
             <div class="col-md-2 text-center"><strong>Request</strong></div>
         </div>
          <c:forEach items="${prodList}" var="element">
-            <form  action="/store/faculty/productrequest">
+            <form  action="/fstore/faculty/productrequest">
             <div class="row elements" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center">${element.productName}</div>
             <div class="col-md-3 text-center" >${element.vendorName}</div>

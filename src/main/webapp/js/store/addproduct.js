@@ -47,10 +47,10 @@ function fire_ajax_submit() {
 
 function getProductDetails(){
     var productJsonObj = {};
-        productJsonObj.productName = $("#p_name").val();
-        productJsonObj.productQuantity = $("#p_quantity").val();
+        productJsonObj.productName = $("#prodName").val();
+        productJsonObj.productQuantity = $("#quantity").val();
         productJsonObj.productDescription = $("#p_description").val();
-        productJsonObj.vendorName = $("#v_name").val();
+        productJsonObj.vendorName = $("#vendorName").val();
         productJsonObj.productType = $("#p_type").val();
         return productJsonObj;
 }

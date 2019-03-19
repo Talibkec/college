@@ -1,7 +1,7 @@
 <jsp:include page="header1.jsp"/>
 <body>
 
-<form  action="/store/faculty/getProductDetails" autocomplete="on" id = "searchProductForm">
+<form  action="/fstore/faculty/getProductDetails" autocomplete="on" id = "searchProductForm">
 <div class="container" style="margin:50px">
         <div class="row text-center"><strong> Search Product</strong></div>
         <div class="row" style="border:1px solid green;padding:10px">

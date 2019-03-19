@@ -148,9 +148,9 @@
                         </div>
                     <div role="tabpanel" class="tab-pane" id="order">
                         <button type="submit" class="btn btn-info">
-                        <a href="http://localhost/store/faculty/order">Order Item</a> </button>
+                        <a href="http://localhost/fstore/faculty/order">Order Item</a> </button>
                         <button class="btn btn-success" type="submit"style="margin-left:10%">
-                                                <a href="http://localhost/store/faculty/facultyOrderHistory"> Order History</a></button>
+                                                <a href="http://localhost/fstore/faculty/facultyOrderHistory"> Order History</a></button>
 
                         <div style="padding: 15px;">
                              <div class="row" style="border:1px solid green;padding:10px">
@@ -170,8 +170,8 @@
                                  <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
                                  <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
                                  <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
-                                 <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
-                                 <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
+                                 <div class="col-md-2 text-center"><a href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
+                                 <div class="col-md-2 text-center"><a href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
                              </div>
                              </c:forEach>
                         </div>

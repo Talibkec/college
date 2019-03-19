@@ -11,7 +11,7 @@ $(document).ready( function(){
     $( "#prodName" ).autocomplete({
        source: function( request, response ) {
        $.ajax({
-            url: "/store/getProductName",
+            url: "/common/store/getProductName",
             data: {
                 prodName: $('#prodName').val()
             },

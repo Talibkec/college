@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <body>
-<form  action="/store/faculty/submitFacultySearchOrder" autocomplete="off" id = "searchOrderForm" method = "POST">
+<form  action="/fstore/faculty/submitFacultySearchOrder" autocomplete="off" id = "searchOrderForm" method = "POST">
 <div class="container" style="margin:50px">
         <div class="row text-center"><h3> Search Product</h3></div>
         <div class="row" style="border:1px solid green;padding:10px">

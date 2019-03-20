@@ -1,5 +1,7 @@
 package com.college.core.controller;
 
+import com.college.core.model.NoticeBoardDTO;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,5 +31,12 @@ public class ControllerUtility {
             userName= ((UserDetails) principal).getUsername();
         }
         return userName;
+    }
+    public static List<NoticeBoardDTO> getNoticelist(List<NoticeBoardDTO> list){
+        List<NoticeBoardDTO> noticeList = new ArrayList<>();
+        for(NoticeBoardDTO dto : list){
+            dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
+        }
+         return noticeList;
     }
 }

@@ -22,11 +22,13 @@ public class CseController {
     @Autowired
     FacultyHelper facultyHelper;
 
+
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
         List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
         modalAndView.setViewName("department/cse/about.jsp");
         return modalAndView;

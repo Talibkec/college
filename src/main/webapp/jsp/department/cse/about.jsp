@@ -80,7 +80,7 @@
                                 <c:if test = "${Role == 'Admin'}">
                                     <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                                 </c:if>
-                                <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                                 <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                             </div>
                         </li>
                     </c:forEach>

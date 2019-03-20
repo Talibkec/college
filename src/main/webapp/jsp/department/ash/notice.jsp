@@ -1,5 +1,5 @@
 <jsp:include page="/jsp/header.jsp"/>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
@@ -37,44 +37,32 @@
                                                </section>
                                                  </div>
                                                      </aside>
-            <!--<div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <div id="pl-2165" class="panel-layout">
-                        <div id="pg-2165-0" class="panel-grid panel-no-style">
-                            <div id="pgc-2165-0-0" class="panel-grid-cell" data-weight="1">
-                                <div id="panel-2165-0-0-0"
-                                     class="so-panel widget widget_sow-editor panel-first-child panel-last-child"
-                                     data-index="0"
-                                     data-style="{&quot;background&quot;:&quot;#ade08f&quot;,&quot;background_image_attachment&quot;:false,&quot;background_display&quot;:&quot;tile&quot;,&quot;border_color&quot;:&quot;#000000&quot;}">
-                                    <div class="panel-widget-style panel-widget-style-for-2165-0-0-0">
-                                        <div class="so-widget-sow-editor so-widget-sow-editor-base">
-                                            <div class="siteorigin-widget-tinymce textwidget">
-                                                <table style="width: 100%;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <th>S.NO</th>
-                                                        <th>TITLE</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: center;"></td>
-                                                        <td>
-                                                           <a href=""></a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="text-align: center;"></td>
-                                                        <td>
-                                                            <a href=""></a></a></td>
-                                                    </tr>
-                                                    <p></tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>--><div><p><strong>Updated Soon&#8230</strong></p></div>
+
+              <div class="row">
+                                                             <div class="col-sm-8">
+                                                                 <c:forEach items="${noticeList}" var="notice">
+
+                                                                     <div class="post-entry panel panel-default">
+                                                                         <div class="panel-heading"></h4></div>
+                                                                         <div class="panel-body">
+                                                                             <div class="text-left" style="font-size: 120%; line-height: 150%;"> ${notice.headLine}</div>
+                                                                             <br/> <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank"
+                                                                                 class="btn btn-default pull-right">Download</a> <span class="label label-default"
+                                                                                                                                        style="font-size: 100%"><i
+                                                                                 class="fa fa-clock-o"></i>${notice.date} </span>
+                                                                             <div class="clearfix"></div>
+                                                                         </div>
+                                                                     </div>
+                                                                 </c:forEach>
+
+                                                                 <ul class="pager">
+                                                                     <li><a href=""><i class="fa fa-angle-double-left"></i> Previous</a></li>
+                                                                     <li><a href="">Next <i class="fa fa-angle-double-right"></i></a>
+                                                                     </li>
+                                                                 </ul>
+                                                             </div>
+                                                         </div>
+
             </div>
         </div>
     </div>

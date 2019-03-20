@@ -26,6 +26,7 @@ public class AppliedController {
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices();
+        ControllerUtility.getNoticelist(appliedScienceNotices);
         mv.addObject("noticeList",appliedScienceNotices);
         mv.setViewName("department/ash/about.jsp");
         return mv;
@@ -48,9 +49,12 @@ public class AppliedController {
         mv.setViewName("department/ash/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
+    @RequestMapping(value={"notice"}, method =  RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices();
+        ControllerUtility.getNoticelist(appliedScienceNotices);
+        mv.addObject("noticeList",appliedScienceNotices);
         mv.setViewName("department/ash/notice.jsp");
         return mv;
     }

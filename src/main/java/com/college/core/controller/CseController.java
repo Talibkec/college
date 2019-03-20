@@ -33,6 +33,15 @@ public class CseController {
         modalAndView.setViewName("department/cse/about.jsp");
         return modalAndView;
     }
+    @RequestMapping(value={"notice"}, method =RequestMethod.GET)
+    public ModelAndView getNotice(){
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        ControllerUtility.getNoticelist(cseNotices);
+        modalAndView.addObject("noticeList", cseNotices);
+        modalAndView.setViewName("department/cse/notice.jsp");
+        return modalAndView;
+    }
 
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
@@ -52,12 +61,7 @@ public class CseController {
         mv.setViewName("department/cse/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
-    public ModelAndView getNotice(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/cse/notice.jsp");
-        return mv;
-    }
+
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();
@@ -160,6 +164,8 @@ public class CseController {
         mv.setViewName("department/cse/shk.jsp");
         return mv;
     }
+
+
 
 
 

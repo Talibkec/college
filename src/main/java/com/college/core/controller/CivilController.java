@@ -29,6 +29,7 @@ public class CivilController {
         modalAndView.addObject("Role", ControllerUtility.getRole());
         List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices();
         modalAndView.addObject("noticeList", civilNotices);
+        ControllerUtility.getNoticelist(civilNotices);
         modalAndView.setViewName("department/civil/about.jsp");
         return modalAndView;
     }
@@ -50,9 +51,12 @@ public class CivilController {
         mv.setViewName("department/civil/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
+    @RequestMapping(value={"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices();
+        mv.addObject("noticeList", civilNotices);
+        ControllerUtility.getNoticelist(civilNotices);
         mv.setViewName("department/civil/notice.jsp");
         return mv;
     }

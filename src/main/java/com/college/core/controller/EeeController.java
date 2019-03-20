@@ -26,6 +26,7 @@ public class EeeController {
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role",ControllerUtility.getRole());
         List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices();
+        ControllerUtility.getNoticelist(eecNotices);
         mv.addObject("noticeList",eecNotices);
         mv.setViewName("department/eee/about.jsp");
         return mv;
@@ -48,9 +49,12 @@ public class EeeController {
         mv.setViewName("department/eee/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
+    @RequestMapping(value={"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices();
+        ControllerUtility.getNoticelist(eecNotices);
+        mv.addObject("noticeList", eecNotices);
         mv.setViewName("department/eee/notice.jsp");
         return mv;
     }

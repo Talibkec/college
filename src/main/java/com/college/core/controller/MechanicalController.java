@@ -24,9 +24,18 @@ public class MechanicalController {
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role",ControllerUtility.getRole());
         List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices();
+        ControllerUtility.getNoticelist(mechNotices);
         mv.addObject("noticeList",mechNotices );
-
         mv.setViewName("department/mechanical/mech.jsp");
+        return mv;
+    }
+    @RequestMapping(value={"notice"}, method = RequestMethod.GET)
+    public ModelAndView getNotice(){
+        ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices();
+        ControllerUtility.getNoticelist(mechNotices);
+        mv.addObject("noticeList",mechNotices );
+        mv.setViewName("department/mechanical/notice.jsp");
         return mv;
     }
     @RequestMapping(value="vision")
@@ -47,12 +56,7 @@ public class MechanicalController {
         mv.setViewName("department/mechanical/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
-    public ModelAndView getNotice(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/mechanical/notice.jsp");
-        return mv;
-    }
+
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();

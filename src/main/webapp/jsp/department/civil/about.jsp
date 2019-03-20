@@ -93,8 +93,7 @@
 
                                                                                         <li style="display: block;">
                                                                                             <div>
-                                                                                      		<span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                                                                     		<i class="fa fa-clock-o"></i> 2019-01-03 </span>&nbsp; <span class="label label-primary">News</span><a href="https://www.aicte-india.org/feedback/" target="_blank">Faculties and student may give feedback to A.I.C.T.E here</a>
+
 
                                                                                             </div>
                                                                                         </li>
@@ -104,20 +103,22 @@
                                                                                                 <div>
                                                                                      		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                                                                      		<c:set var = "clazz"  value = "label label-warning"/>
-                                                                                     		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
+
                                                                                      		 <c:if test = "${ notice.noticeType == 'News'}">
                                                                                                       <c:set var = "clazz"  value = "label label-primary"/>
                                                                                               </c:if>
                                                                                      		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                                                                                    <c:if test = "${Role == 'Admin'}">
+                                                                                                   <c:forEach var="item" items="${Role}">
+                                                                                                      <c:if test = "${'HOD' eq item}">
                                                                                                         <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                                                                                                     </c:if>
+                                                                                                    </c:forEach>
                                                                                                    <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                                                                                 </div>
                                                                                             </li>
                                                                                         </c:forEach>
                                                                                     </ul>
-                                                                                    <a href="http://localhost/category/notices" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                                                                                    <a href="http://localhost/department/civil/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
                                                                                 </div>
                                                                             </div>
 

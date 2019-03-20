@@ -67,7 +67,7 @@ public class KECUrlAuthenticationSuccessHandler
         if (isSM) {
             return "/store/smdashboard";
         } else if(isSK){
-            return "/store/storekeeper";
+            return "/sk/storekeeper";
         }
         else {
            return "/";

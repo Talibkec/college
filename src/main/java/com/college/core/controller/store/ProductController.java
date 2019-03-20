@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -59,16 +60,11 @@ public class ProductController {
     @RequestMapping(value = "addProduct", method = RequestMethod.GET)
     public ModelAndView addProduct(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/addproduct");
+        mv.setViewName("/store/addproduct.jsp");
         return mv;
     }
 
-    @ResponseBody
-    @RequestMapping(value = "getProductName", method = RequestMethod.GET)
-    public List<String> getProductName(@RequestParam("prodName") String prodName) {
-        List<String> productNames = productService.prodName(prodName);
-        return productNames;
-    }
+
 
     @ResponseBody
     @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
@@ -84,12 +80,6 @@ public class ProductController {
         return facultyHelper.facultyNames(facultyNames);
     }
 
-    @ResponseBody
-    @RequestMapping(value = "getVendorName", method = RequestMethod.GET)
-    public List<String> getVendorName(@RequestParam("vendorName") String vendorName) {
-        List<String> productNames = productService.vendorName(vendorName);
-        return productNames;
-    }
 
     @RequestMapping(value = "getProductDetails", method = RequestMethod.GET)
     public ModelAndView getVendorName(@RequestParam("prodName") String prodName, @RequestParam("vendorName") String vendorName,
@@ -103,11 +93,11 @@ public class ProductController {
             mv.addObject("prodList", products);
             mv.addObject("noOfItems", products.size());
             mv.addObject("productSize", productSize);
-            mv.setViewName("/store/productdetails");
+            mv.setViewName("/store/productdetails.jsp");
         }
         else{
             mv.addObject("productFound", false);
-            mv.setViewName("/store/storemanager");
+            mv.setViewName("/store/storemanager.jsp");
 
         }
 
@@ -124,7 +114,7 @@ public class ProductController {
         mv.addObject("vendorName", vendorName);
         mv.addObject("productQuantity", productQuantity);
         mv.addObject("productId",productId);
-        mv.setViewName("/store/addpurchase");
+        mv.setViewName("/store/addpurchase.jsp");
         return mv;
     }
 
@@ -138,7 +128,7 @@ public class ProductController {
         mv.addObject("vendorName", vendorName);
         mv.addObject("productQuantity", productQuantity);
         mv.addObject("productId",productId);
-        mv.setViewName("/store/searchpurchasedetails");
+        mv.setViewName("/store/searchpurchasedetails.jsp");
         return mv;
     }
 
@@ -156,7 +146,7 @@ public class ProductController {
         }
         List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseByProductId(productId, from, to);
         mv.addObject("purchases", purchaseDetails);
-        mv.setViewName("/store/purchasedetails");
+        mv.setViewName("/store/purchasedetails.jsp");
         return mv;
     }
 
@@ -173,7 +163,7 @@ public class ProductController {
         }
         List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseBtweenDates( from, to);
         mv.addObject("purchases", purchaseDetails);
-        mv.setViewName("/store/purchasedetails");
+        mv.setViewName("/store/purchasedetails.jsp");
         return mv;
     }
 
@@ -183,7 +173,7 @@ public class ProductController {
         mv.addObject("purchaseId",purchaseId);
         PurchaseDTO purchase =  purchaseService.getPurchase(purchaseId);
         mv.addObject("purchase", purchase);
-        mv.setViewName("/store/editpurchase");
+        mv.setViewName("/store/editpurchase.jsp");
         return mv;
     }
     @RequestMapping(value = "editProduct")
@@ -192,7 +182,7 @@ public class ProductController {
         mv.addObject("productId",productId);
         ProductDTO productDTO =  productService.getProduct(productId);
         mv.addObject("product", productDTO);
-        mv.setViewName("/store/editproduct");
+        mv.setViewName("/store/editproduct.jsp");
         return mv;
     }
 
@@ -228,7 +218,7 @@ public class ProductController {
         purchaseService.savePurchaseDetails(purchaseDTO);
         logger.info(purchaseDetails);
         mv.addObject("","");
-        mv.setViewName("/store/storemanager");
+        mv.setViewName("/store/storemanager.jsp");
         return  mv;
     }
 
@@ -239,24 +229,16 @@ public class ProductController {
         mv.addObject("productFound", true);
         mv.addObject("request", requestDTOS);
         mv.addObject("requestSize", requestDTOS.size());
-        mv.setViewName("/store/storemanager");
+        mv.setViewName("/store/storemanager.jsp");
         return mv;
     }
 
-    @RequestMapping(value = "storekeeper", method = RequestMethod.GET)
-    public ModelAndView skDashboard(){
-        ModelAndView mv = new ModelAndView();
-        List<RequestDTO> requestDTOS = requestService.getNewRequest("Approved");
-        mv.addObject("request", requestDTOS);
-        mv.addObject("requestSize", requestDTOS.size());
-        mv.setViewName("/store/storekeeper");
-        return mv;
-    }
+
 
     @RequestMapping(value = "orderPage", method = RequestMethod.GET)
     public ModelAndView showOrderPage(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/searchorder");
+        mv.setViewName("/store/searchorder.jsp");
         return mv;
     }
 
@@ -289,8 +271,30 @@ public class ProductController {
         }
         ModelAndView mv = new ModelAndView();
         mv.addObject("orders", orders);
-        mv.setViewName("/store/orderdetails");
+        mv.setViewName("/store/orderdetails.jsp");
         return mv;
+    }
+
+    @RequestMapping(value = "approvefacultyrequest", method = RequestMethod.GET)
+    public void updateRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        requestDTO.setStatus("Approved");
+        requestDTO.setApprovalDate(new Date());
+        requestService.saveRequest(requestDTO);
+        mv.setViewName("/store/storemanager.jsp");
+        response.sendRedirect("http://localhost/store/smdashboard");
+    }
+
+    @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
+    public void rejectRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        RequestDTO requestDTO = requestService.getRequest(id);
+        requestDTO.setStatus("Rejected");
+        requestDTO.setApprovalDate(new Date());
+        requestService.saveRequest(requestDTO);
+        mv.setViewName("/store/storemanager.jsp");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
 
 

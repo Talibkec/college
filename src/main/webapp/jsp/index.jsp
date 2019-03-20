@@ -21,7 +21,7 @@
 
                     <li style= "display: inline;float: left">
                     <i class="fa fa-asterisk"></i>
-                    <c:if test = "${scrollingNotice.noticeAge <= 2}">
+                    <c:if test = "${scrollingNotice.noticeAge <= 45}">
                  	    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" />
                     </c:if>
                     <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>

@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("store/faculty")
+@RequestMapping("fstore/faculty")
 @PropertySource("classpath:employee.properties")
 @ConfigurationProperties
 public class StoreFacultyController {
@@ -68,7 +68,7 @@ public class StoreFacultyController {
     public ModelAndView facultyOrderRequest()
     {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/facultyproductsearch");
+        mv.setViewName("/store/facultyproductsearch.jsp");
         return mv;
     }
 
@@ -87,7 +87,7 @@ public class StoreFacultyController {
         orders = orderService.getOrderByFacultyName(facultyDTO.getFacultyId(), from, to);
         ModelAndView mv = new ModelAndView();
         mv.addObject("orders", orders);
-        mv.setViewName("/store/orderdetails");
+        mv.setViewName("/store/orderdetails.jsp");
         return mv;
     }
 
@@ -96,7 +96,7 @@ public class StoreFacultyController {
     public ModelAndView facultyOrderHistory()
     {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/searchfacultyorder");
+        mv.setViewName("/store/searchfacultyorder.jsp");
         return mv;
     }
 
@@ -107,7 +107,7 @@ public class StoreFacultyController {
         List<ProductDTO> productNames = productService.getProductDetails(prodName, vendorName, productId);
         mv.addObject("prodList", productNames);
         mv.addObject("noOfItems", productNames.size());
-        mv.setViewName("/store/productrequest");
+        mv.setViewName("/store/productrequest.jsp");
         return mv;
     }
 
@@ -171,7 +171,7 @@ public class StoreFacultyController {
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
         userRoleDTO.setRoleId(role.getId());
         userService.saveUserRole(userRoleDTO);
-        mv.setViewName("/store/editrequest");
+        mv.setViewName("/store/editrequest.jsp");
     }
 
     @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)
@@ -182,7 +182,7 @@ public class StoreFacultyController {
         Role role = roleService.getRole("SM");
         userRoleDTO.setRoleId(role.getId());
         userService.deleteUserRole(userRoleDTO);
-        mv.setViewName("/store/editrequest");
+        mv.setViewName("/store/editrequest.jsp");
     }
 
     @RequestMapping(value = "editfacultyrequest", method = RequestMethod.GET)
@@ -191,7 +191,7 @@ public class StoreFacultyController {
         RequestDTO requestDTO = requestService.getRequest(id);
         mv.addObject("requestId", id);
         mv.addObject("request", requestDTO);
-        mv.setViewName("/store/editrequest");
+        mv.setViewName("/store/editrequest.jsp");
         return mv;
     }
 
@@ -206,7 +206,7 @@ public class StoreFacultyController {
     @RequestMapping(value = "smincharge")
     public ModelAndView smincharge(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/smincharge");
+        mv.setViewName("/store/smincharge.jsp");
         return mv;
     }
 
@@ -219,54 +219,11 @@ public class StoreFacultyController {
         FacultyDTO facultyDTO = facultyService.getFaculty(userName);
         requestDTO.setProductQuantity(requestedQty);
         requestService.saveRequest(requestDTO);
-        mv.setViewName("/store/editrequest");
+        mv.setViewName("/store/editrequest.jsp");
         String url = "http://localhost/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
         response.sendRedirect(url);
     }
-
-    @RequestMapping(value = "approvefacultyrequest", method = RequestMethod.GET)
-    public void updateRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
-        ModelAndView mv = new ModelAndView();
-        RequestDTO requestDTO = requestService.getRequest(id);
-        requestDTO.setStatus("Approved");
-        requestDTO.setApprovalDate(new Date());
-        requestService.saveRequest(requestDTO);
-        mv.setViewName("/store/storemanager");
-        response.sendRedirect("http://localhost/store/smdashboard");
-    }
-
-    @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
-    public void rejectRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
-        ModelAndView mv = new ModelAndView();
-        RequestDTO requestDTO = requestService.getRequest(id);
-        requestDTO.setStatus("Rejected");
-        requestDTO.setApprovalDate(new Date());
-        requestService.saveRequest(requestDTO);
-        mv.setViewName("/store/storemanager");
-        response.sendRedirect("http://localhost/store/smdashboard");
-    }
-
-    @RequestMapping(value = "closefacultyrequest", method = RequestMethod.GET)
-    public void closefacultyRequest(@RequestParam("requestId") Long id, HttpServletResponse response) throws IOException {
-        ModelAndView mv = new ModelAndView();
-        RequestDTO requestDTO = requestService.getRequest(id);
-        FacultyDTO facultyDTO = facultyService.getFacultyById(requestDTO.getFacultyId());
-        requestDTO.setStatus("Closed");
-        requestDTO.setApprovalDate(new Date());
-        saveOrder(requestDTO, facultyDTO.getFacultyName());
-        mv.setViewName("/store/storemanager");
-        response.sendRedirect("http://localhost/store/storekeeper");
-    }
-
-    @Transactional
-    private void saveOrder(RequestDTO requestDTO, String facultyName){
-        requestService.deleteFacultyRequest(requestDTO.getRequestId());
-        OrderDTO orderDTO = RequestOrderTransformer.convertToOrderDTO(requestDTO);
-        orderDTO.setFacultyName(facultyName);
-        orderService.saveOrder(orderDTO);
-    }
-
 
 }

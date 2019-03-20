@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 
-<form action="/store/faculty/updateRequest"  method="POST">
+<form action="/fstore/faculty/updateRequest"  method="POST">
 <div class="container" style="margin:50px">
         <div class="row text-center"><strong> Product Details</strong></div>
         <div class="row" style="border:1px solid green;padding:10px">

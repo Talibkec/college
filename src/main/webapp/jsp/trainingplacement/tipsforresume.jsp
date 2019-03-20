@@ -57,12 +57,17 @@
                                         </li>
                                     </ul><table border="1" width="500">
                                     <tr><td><p>For sample resume </p></td>
-                                    <td><button type="button" class="btn btn-default" data-dismiss="modal"style="margin-left"><i class="fa fa-download"></i>
-                                                                                                                   <a href="http://localhost/jsp/trainingplacement/sample.pdf">click here</a> </button></td>
+                                    <td><i class="fa fa-download"></i>
+                                        <a href="http://localhost/jsp/trainingplacement/sample.pdf">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal"style="margin-left" class="btn btn-success">click here
+                                        </button></a>
+                                    </td>
                                     </tr>
                                    <tr><td><p>For resume tips </p></td>
-                                   <td><button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-download"></i>
-                                                                             <a href="http://localhost/jsp/trainingplacement/tips.pdf">click here</a>  </button></td>
+                                   <td><i class="fa fa-download"></i>
+                                       <a href="http://localhost/jsp/trainingplacement/tips.pdf">
+                                       <button type="button" class="btn btn-success" data-dismiss="modal" class="btn btn-success">click here
+                                       </button></a></td>
                                     </table>
                                     <p>&nbsp;</p>
                                     <p>&nbsp;</p>

@@ -31,10 +31,9 @@
                            height="950px"></embed>
                 </p>
             </div>
-            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-download"></i>
-                  <a href="http://localhost/wp-content/uploads/2018/rti-act-2.pdf">Download the RTI Act 2005</a>
-                                                                        </button>
-
+            <i class="fa fa-download"></i>
+            <a href="http://localhost/wp-content/uploads/2018/rti-act-2.pdf">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Download the RTI Act 2005</button></a>
         </div>
     </div>
 </div>

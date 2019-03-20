@@ -31,11 +31,10 @@
                                height="850px"></embed>
                     </p>
                 </div>
-                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-download"></i>
-                      <a href="http://localhost/wp-content/uploads/2018/RTI-application-format.pdf">Download the Sample format of RTI
-                                         Application</a>
-                                                                            </button>
-
+                <i class="fa fa-download"></i>
+                      <a href="http://localhost/wp-content/uploads/2018/RTI-application-format.pdf">
+                      <button type="button" class="btn btn-success" data-dismiss="modal">Download the Sample format of RTI
+                      Application </button></a>
             </div>
         </div>
     </div>

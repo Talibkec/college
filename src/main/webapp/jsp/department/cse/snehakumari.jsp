@@ -88,7 +88,7 @@
                             </table>
                         </div>
                         <div class="panel panel-default facultyInfo">
-                            <div class="panel-heading"><Strong>Area of Research</Strong></div>
+                            <div class="panel-heading"><Strong>Administrative Responsibilities</Strong></div>
                             <table class="table table-striped">
                                 <tbody>
                                 <tr>

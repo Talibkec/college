@@ -41,9 +41,12 @@
                             Profile</a></li>
                         <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab"
                                                    data-toggle="tab"><i class="fa fa-download"></i> Downloads</a></li>
-
+ <c:forEach var="item" items="${Role}">
+                                        <c:if test = "${'Faculty' eq item and UserName eq 'suryakumar'}">
                           <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                        class="fa fa-angle-double-right"></i> Request</a></li>
+                    </c:if>
+                    </c:forEach>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"

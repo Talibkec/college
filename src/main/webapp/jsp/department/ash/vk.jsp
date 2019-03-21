@@ -27,7 +27,7 @@
                                                                  </aside>
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
-                                                <c:if test = "${'Faculty' eq item and UserName eq 'sunil'}">
+                                                <c:if test = "${'Faculty' eq item and UserName eq 'vipin'}">
                                                     <strong><a href="/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
                                                     <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                              </c:if>
@@ -38,9 +38,12 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
-                   
+                   <c:forEach var="item" items="${Role}">
+                                                                   <c:if test = "${'Faculty' eq item and UserName eq 'vipin'}">
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                      class="fa fa-angle-double-right"></i> Request</a></li>
+                       </c:if>
+                       </c:forEach>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"

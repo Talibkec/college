@@ -38,17 +38,22 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
-
+                    <c:forEach var="item" items="${Role}">
+                                                                    <c:if test = "${'Faculty' eq item and UserName eq 'pramod'}">
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                 class="fa fa-angle-double-right"></i> Request</a></li>
+                </c:if>
+                </c:forEach>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
                      style="height: 200px;width:250px"src="http://localhost/${facultyId}/image${fileExtension}"/>
-                        <h2>Dr. Promod Kumar</h2>
+                        <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Applied Science & Humanities</p>
-                        <p><i class="fa fa-phone"></i> 9108006551 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                                href="mailto:promodbhoola@gmail.com"> <span>promodbhoola@gmail.com</span>
+                        <p><i class="fa fa-phone"></i> ${facultyMobNo &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
+                                                                                                                      href="mailto:{facultyOfficialEmail}">${facultyOfficialEmail} <span></span>
+                                                                                                                      &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
+                                                                                                                                                      href="mailto:{facultyPersonalEmail}">${facultyPersonalEmail} <span></span>
                         </a></p> <br/><br/><div class="panel panel-default facultyInfo">
                             <div class="panel-heading"><Strong>Qualifications</Strong></div>
                             <table class="table table-striped">

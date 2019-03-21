@@ -47,11 +47,14 @@
                                                             </div>
                                                         </div>
                                                     </c:forEach>
+                                                       <c:if test="${empty pageSize}">
+                                                                                                <c:set var = "pageSize" value = "${0}"/>
+                                                                                            </c:if>
 
-                                                    <ul class="pager">
-                                                        <li><a href=""><i class="fa fa-angle-double-left"></i> Previous</a></li>
-                                                        <li><a href="">Next <i class="fa fa-angle-double-right"></i></a>
-                                                        </li>
+                                                   <ul class="pager">
+                                                    <li><a href="/pagination/prev/getNotices?deptno=civil&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
+                                                     <li><a href="/pagination/next/getNotices?deptno=civil&pageSize=${pageSize + 1}">Next <i class="fa fa-angle-double-right"></i></a>
+                                                     </li>
                                                     </ul>
                                                 </div>
                                             </div>

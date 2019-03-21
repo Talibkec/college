@@ -13,11 +13,7 @@
                      	    <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                             <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                         </li>
-
-
-
          <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
-
 
                     <li style= "display: inline;float: left">
                     <i class="fa fa-asterisk"></i>

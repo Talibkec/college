@@ -13,7 +13,11 @@
                      	    <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                             <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                         </li>
+
+
+
          <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
+
 
                     <li style= "display: inline;float: left">
                     <i class="fa fa-asterisk"></i>
@@ -202,8 +206,9 @@
                                 <div class="rwsvticker1">
                                  <ul>
                                         <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
+
                                      <c:forEach items="${noticeList}" var="notice">
-                                       <li>
+
                                      	<div>
                                      		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                      		<c:set var = "clazz"  value = "label label-warning"/>
@@ -219,7 +224,6 @@
                                             </c:forEach>
                                      		<a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                      	</div>
-                                     </li>
                                      </c:forEach>
                                     </ul>
 
@@ -259,6 +263,7 @@
                                 </section>
                             </div>
                         </div>
+
         </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import com.college.FacultyHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +26,7 @@ public class AppliedController {
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices();
+        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(new PageRequest(0, 10));
         ControllerUtility.getNoticelist(appliedScienceNotices);
         mv.addObject("noticeList",appliedScienceNotices);
         mv.setViewName("department/ash/about.jsp");
@@ -52,9 +53,10 @@ public class AppliedController {
     @RequestMapping(value={"notice"}, method =  RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
-        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices();
+        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(new PageRequest(0, 10));
         ControllerUtility.getNoticelist(appliedScienceNotices);
         mv.addObject("noticeList",appliedScienceNotices);
+        mv.addObject("pageSize",0);
         mv.setViewName("department/ash/notice.jsp");
         return mv;
     }

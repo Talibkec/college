@@ -1,6 +1,7 @@
 package com.college.core.config;
 
 import com.college.FacultyHelper;
+import com.college.NoticeBoardHelper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -30,6 +31,12 @@ public class BeanConfig {
     public FacultyHelper facultyHelper(){
         FacultyHelper facultyHelper = new FacultyHelper();
         return facultyHelper;
+    }
+
+    @Bean(name = "noticeBoardHelper")
+    public NoticeBoardHelper noticeBoardHelper(){
+        NoticeBoardHelper noticeBoardHelper = new NoticeBoardHelper();
+        return noticeBoardHelper;
     }
 
 }

@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,7 +18,7 @@ public class notice {
     @RequestMapping(value = "notices")
     public ModelAndView getNotices() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice();
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         ControllerUtility.getNoticelist(list);
         mv.addObject("noticeList",list);
         mv.setViewName("category/notices.jsp");

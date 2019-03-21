@@ -1,6 +1,7 @@
 package com.college.core.controller;
 
 import com.college.KECDateHelper;
+import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
@@ -10,7 +11,10 @@ import com.college.service.UserService;
 import com.college.validator.UserValidator;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,6 +46,11 @@ public class UserController {
 
     @Autowired
     RoleService roleService;
+
+    @Autowired
+    NoticeBoardHelper noticeBoardHelper;
+
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)
     public String registration(Model model) {
@@ -79,7 +88,7 @@ public class UserController {
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public ModelAndView welcome(Model model) {
         ModelAndView modelAndView = new ModelAndView();
-        List<NoticeBoardDTO>  list = noticeBoardService.getAllNotice();
+        List<NoticeBoardDTO>  list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         modelAndView.addObject("noticeList",getNoticeList(list, false));
         modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
@@ -143,6 +152,36 @@ public class UserController {
     private void deleteFileDromDisk(String fileName) {
         File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
         file.delete();
+    }
+
+    @RequestMapping(value = "/pagination/next/getNotices", method = RequestMethod.GET)
+    public ModelAndView getNextPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize){
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> notices = noticeBoardHelper.getNotices(deptno, pageSize);
+        if(notices != null && notices.size() < 10){
+            pageSize--;
+        }
+        ControllerUtility.getNoticelist(notices);
+        modalAndView.addObject("noticeList", notices);
+        modalAndView.addObject("pageSize", pageSize);
+        String viewName = noticeBoardHelper.getViewName(deptno);
+        modalAndView.setViewName(viewName);
+        return modalAndView;
+    }
+
+    @RequestMapping(value = "/pagination/prev/getNotices", method = RequestMethod.GET)
+    public ModelAndView getPreviousPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize){
+        if(pageSize < 0){
+            pageSize = 0;
+        }
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> cseNotices = noticeBoardHelper.getNotices(deptno, pageSize);
+        ControllerUtility.getNoticelist(cseNotices);
+        modalAndView.addObject("noticeList", cseNotices);
+        modalAndView.addObject("pageSize", pageSize);
+        String viewName = noticeBoardHelper.getViewName(deptno);
+        modalAndView.setViewName(viewName);
+        return modalAndView;
     }
 
 }

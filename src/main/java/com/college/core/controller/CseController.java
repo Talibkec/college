@@ -4,12 +4,12 @@ import com.college.FacultyHelper;
 import com.college.core.model.*;
 import com.college.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,7 +27,7 @@ public class CseController {
     public ModelAndView getAbout() {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
         modalAndView.setViewName("department/cse/about.jsp");
@@ -36,9 +36,10 @@ public class CseController {
     @RequestMapping(value={"notice"}, method =RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView modalAndView =new ModelAndView();
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
+        modalAndView.addObject("pageSize", "0");
         modalAndView.setViewName("department/cse/notice.jsp");
         return modalAndView;
     }

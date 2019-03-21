@@ -5,7 +5,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>$facultyName}</h3></div>
+                <div class="col-md-10 col-sm-8"><h3>${facultyName}</h3></div>
 
             </div>
         </div>
@@ -49,12 +49,18 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
+                     <c:forEach var="item" items="${Role}">
+                                             <c:if test = "${'Faculty' eq item and UserName eq 'shwetakumari'}">
                      <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                      class="fa fa-angle-double-right"></i> Request</a></li>
+                       </c:if>
+                       </c:forEach>
+
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"  width= "250px" style="height: 200px"
                                                                                                     src="http://localhost/${facultyId}/image${fileExtension}"/>
+
                         <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor<br/> Department of Computer Science and
                             Engineering</p>

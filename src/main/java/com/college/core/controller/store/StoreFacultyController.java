@@ -131,59 +131,7 @@ public class StoreFacultyController {
         response.sendRedirect(url);
 
     }
-    @ResponseBody
-    @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
-    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model){
-       //ModelAndView mv = new ModelAndView();
-        List<FacultyDTO> faculties = facultyService.getFacultyByName(facultyNames);
-        List<Role> roles = roleService.getALLRoles();
-        //String smRole ="SM";
-        Integer FacultySize = 0;
-        /*if(faculty != null) {
-            mv.addObject("faculty", faculty);
-            mv.addObject("roles",roles);
-            mv.setViewName("/store/smincharge");
-        }
-        else{
-            mv.addObject("facultyFound", false);
-            mv.setViewName("/store/smincharge");
-        }*/
-        JsonObject obj = null;
-        if(faculties.size() > 0) {
-            obj = new JsonObject();
-            FacultyDTO facultyDTO = faculties.get(0);
-            obj.addProperty("name", facultyDTO.getFacultyName());
-            obj.addProperty("id", facultyDTO.getFacultyId());
-        }
-        if(obj == null){
-            return null;
-        }
-         return  obj.toString();
-    }
 
-    @RequestMapping(value = "saveRole", method = RequestMethod.POST)
-    public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
-        ModelAndView mv=new ModelAndView();
-        UserRoleDTO userRoleDTO = new UserRoleDTO();
-        FacultyDTO facultyDTO = new FacultyDTO();
-
-        Role role = roleService.getRole("SM");
-        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
-        userRoleDTO.setRoleId(role.getId());
-        userService.saveUserRole(userRoleDTO);
-        mv.setViewName("/store/editrequest.jsp");
-    }
-
-    @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)
-    public void deleteUserRole(HttpServletRequest request, HttpServletResponse response,@RequestParam("facultyDetails") String facultyDetails) throws IOException {
-        ModelAndView mv = new ModelAndView();
-        UserRoleDTO userRoleDTO = new UserRoleDTO();
-        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
-        Role role = roleService.getRole("SM");
-        userRoleDTO.setRoleId(role.getId());
-        userService.deleteUserRole(userRoleDTO);
-        mv.setViewName("/store/editrequest.jsp");
-    }
 
     @RequestMapping(value = "editfacultyrequest", method = RequestMethod.GET)
     public ModelAndView editFacultyRequest(@RequestParam("id") Long id){
@@ -202,14 +150,6 @@ public class StoreFacultyController {
         response.sendRedirect("/department/cse/mta");
 
     }
-
-    @RequestMapping(value = "smincharge")
-    public ModelAndView smincharge(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/store/smincharge.jsp");
-        return mv;
-    }
-
 
     @RequestMapping(value = "updateRequest", method = RequestMethod.POST)
     public void updateRequest(@RequestParam("requestId") Long id, @RequestParam("requestedQty") Integer requestedQty, HttpServletResponse response) throws IOException {

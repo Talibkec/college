@@ -1,22 +1,19 @@
 package com.college.core.controller.store;
 
 import com.college.FacultyHelper;
+import com.college.core.entity.Role;
 import com.college.core.model.*;
-import com.college.repository.PurchaseRepository;
 import com.college.service.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,6 +44,10 @@ public class ProductController {
     OrderService orderService;
     @Autowired
     FacultyHelper facultyHelper;
+    @Autowired
+    UserService userService;
+    @Autowired
+    RoleService roleService;
 
     @RequestMapping(value = "addProduct", method = RequestMethod.POST)
     public Boolean addProduct(@RequestParam("productDetails") String productDetails) {
@@ -63,23 +64,6 @@ public class ProductController {
         mv.setViewName("/store/addproduct.jsp");
         return mv;
     }
-
-
-
-    @ResponseBody
-    @RequestMapping(value = "searchFacultyName", method = RequestMethod.GET)
-    public List<FacultyDTO> searchFacultyName(@RequestParam("facultyName") String facultyName) {
-        List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
-        return facultyNames;
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "facultyNameAutocomplete", method = RequestMethod.GET)
-    public List<String> facultyNameAutocomplete(@RequestParam("facultyName") String facultyName) {
-        List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
-        return facultyHelper.facultyNames(facultyNames);
-    }
-
 
     @RequestMapping(value = "getProductDetails", method = RequestMethod.GET)
     public ModelAndView getVendorName(@RequestParam("prodName") String prodName, @RequestParam("vendorName") String vendorName,
@@ -296,6 +280,38 @@ public class ProductController {
         mv.setViewName("/store/storemanager.jsp");
         response.sendRedirect("http://localhost/store/smdashboard");
     }
+
+    @RequestMapping(value = "smincharge")
+    public ModelAndView smincharge(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/store/smincharge.jsp");
+        return mv;
+    }
+
+    @RequestMapping(value = "saveRole", method = RequestMethod.POST)
+    public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv=new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        FacultyDTO facultyDTO = new FacultyDTO();
+
+        Role role = roleService.getRole("SM");
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        userRoleDTO.setRoleId(role.getId());
+        userService.saveUserRole(userRoleDTO);
+        mv.setViewName("/store/editrequest.jsp");
+    }
+
+    @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)
+    public void deleteUserRole(HttpServletRequest request, HttpServletResponse response,@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        Role role = roleService.getRole("SM");
+        userRoleDTO.setRoleId(role.getId());
+        userService.deleteUserRole(userRoleDTO);
+        mv.setViewName("/store/editrequest.jsp");
+    }
+
 
 
 }

@@ -40,7 +40,7 @@ function fire_ajax_submit() {
 
     $.ajax({
         type: "POST",
-        url: "/fstore/faculty/saveRole",
+        url: "/store/saveRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())
         },
@@ -66,7 +66,7 @@ function fire_ajax_delete() {
     $("#deleteUserRole").prop("disable", true);
 
     $.ajax({
-        url: "/fstore/faculty/deleteUserRole",
+        url: "/store/deleteUserRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())
         },
@@ -94,7 +94,7 @@ function fire_ajax_search() {
     $("#search").prop("disabled", true);
 
     $.ajax({
-        url: "/fstore/faculty/searchFacultyName",
+        url: "/common/store/sm/searchFacultyName",
         data: {
             facultyName:$("#facultyName").val()
         },
@@ -136,7 +136,7 @@ function getFacultyDetails(){
  $( "#facultyName" ).autocomplete({
        source: function( request, response ) {
        $.ajax({
-            url: "/fstore/facultyNameAutocomplete",
+            url: "/common/store/facultyNameAutocomplete",
             data: {
                 facultyName:$("#facultyName").val()
             },

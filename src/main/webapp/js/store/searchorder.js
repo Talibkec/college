@@ -33,7 +33,7 @@ $(document).ready( function(){
      $( "#facultyName" ).autocomplete({
            source: function( request, response ) {
            $.ajax({
-                url: "/store/searchFacultyName",
+                url: "/common/store/searchFacultyName",
                 data: {
                     facultyName: $('#facultyName').val()
                 },

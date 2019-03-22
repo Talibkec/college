@@ -78,7 +78,7 @@
     <div class="row text-center"><h3> Assign - Revoke SM Role </h3></div>
     <div class="row" style="border:1px solid green;padding:10px">
         <div class="col-md-4 text-center">
-        <a href="http://localhost/fstore/faculty/smincharge">
+        <a href="http://localhost/store/smincharge">
             <input type="submit" name="smincharge" id = "smincharge" value="SM Incharge" class="btn btn-success" />
         </a></div>
     </div>

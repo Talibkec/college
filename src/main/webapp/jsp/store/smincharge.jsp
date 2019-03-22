@@ -17,7 +17,7 @@
         </div>
 	</div>
 </form>
-<form action="/fstore/faculty/saveRole" id="saveRole" autocomplete="off" method="POST">
+<form action="/store/saveRole" id="saveRole" autocomplete="off" method="POST">
     <div id="assign" class="container" style="margin:50px;display:none;" >
     <div class="row" style="border:1px solid green;padding:10px">
          <div class="col-md-2 text-center"><strong>FacultyName</strong></div>

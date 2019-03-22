@@ -50,6 +50,15 @@ public class DashboardController {
 		model.setViewName("uploadfile.jsp");
 		return model;
 	}
+	@RequestMapping(value = "/hod/uploadfile/upload", method = RequestMethod.GET)
+	public ModelAndView displayUploadFilePageHOD() {
+		ModelAndView model = new ModelAndView();
+		model.addObject("Role",ControllerUtility.getRole());
+		model.addObject("UserName", ControllerUtility.getUserName());
+		//model.addObject("users", getUsers());
+		model.setViewName("HODFileUpload.jsp");
+		return model;
+	}
 	@RequestMapping(value = "/auth/uploadfile/facultyfileupload", method = RequestMethod.GET)
 	public ModelAndView displayFacultyFileUploadpage(@RequestParam("isProfilePic") String isProfilePic) {
 		ModelAndView model = new ModelAndView();

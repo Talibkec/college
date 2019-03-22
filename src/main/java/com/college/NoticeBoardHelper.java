@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public class NoticeBoardHelper {
-    
+
     private Integer pazeSize = 10;
     @Autowired
     NoticeBoardService noticeBoardService;

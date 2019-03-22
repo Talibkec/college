@@ -28,14 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+   protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*")
                 .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
                 .antMatchers("/fstore/**").hasAuthority("Faculty")
                 .antMatchers("/store/**").hasAuthority("SM")
-                .antMatchers("/auth/**").hasAuthority("Admin")
+                .antMatchers("/auth/**").hasAnyAuthority("Admin")
+                .antMatchers("/hod/**").hasAuthority("HOD")
                 .antMatchers("/sk/**").hasAnyAuthority("SK", "SM")
                 .antMatchers("/common/**").hasAnyAuthority("SM", "Faculty")
                 //.antMatchers("/kec/admin/**").hasRole("Admin")

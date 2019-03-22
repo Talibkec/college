@@ -334,27 +334,27 @@
                                     <ul>
                                         <li class="views-row views-row-1 views-row-odd views-row-first">
                                             <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/pitch-better-india"><img
+                                                <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg" target ="_blank"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://localhost/sites/default/files/img.jpeg"
+                                                        src="http://localhost/sites/default/files/sportkec.jpeg"
                                                         width="330" height="225" alt=""
                                                         title="Pitch for a Better India"/></a></div>
                                             </div>
                                         </li>
                                         <li class="views-row views-row-2 views-row-even">
                                             <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/ace-psychometric"><img
+                                                <div class="field-content"><a href="http://localhost/sites/default/files/sportkec1.jpeg"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://localhost/sites/default/files/img.jpeg"
+                                                        src="http://localhost/sites/default/files/sportkec1.jpeg"
                                                         width="330" height="225" alt=""
                                                         title="Ace the Psychometric"/></a></div>
                                             </div>
                                         </li>
                                         <li class="views-row views-row-3 views-row-odd views-row-last">
                                             <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/workshop"><img typeof="foaf:Image"
+                                                <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
                                                                                                     class="img-responsive"
-                                                                                                    src="http://localhost/sites/default/files/img.jpeg"
+                                                                                                    src="http://localhost/sites/default/files/sportkec.jpeg"
                                                                                                     width="330"
                                                                                                     height="225" alt=""
                                                                                                     title="Machine Assembly and Disassembly Workshop"/></a>

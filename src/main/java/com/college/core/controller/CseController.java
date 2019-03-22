@@ -27,6 +27,7 @@ public class CseController {
     public ModelAndView getAbout() {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
+        modalAndView.addObject("UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);

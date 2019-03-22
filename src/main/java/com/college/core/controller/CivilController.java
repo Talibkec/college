@@ -27,6 +27,7 @@ public class CivilController {
     public ModelAndView getAbout(){
         ModelAndView modalAndView=new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
+        modalAndView.addObject("UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices(new PageRequest(0, 10));
         modalAndView.addObject("noticeList", civilNotices);
         ControllerUtility.getNoticelist(civilNotices);

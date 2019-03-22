@@ -1,4 +1,5 @@
 package com.college.core.controller;
+
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.apache.commons.io.FilenameUtils;
@@ -10,19 +11,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import java.io.*;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
-@Controller
-public class FileUploadCintroller {
-
+public class HODFileUploadController {
     @Autowired
     NoticeBoardService noticeBoardService;
     private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
@@ -30,9 +31,7 @@ public class FileUploadCintroller {
 
     //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
-    @RequestMapping(value = "/auth/api/upload", method = RequestMethod.POST)
-
-
+    @RequestMapping(value = "/hod/api/upload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("noticeFile") MultipartFile uploadfile, @RequestParam("noticeHeader") String noticeHeader,
             @RequestParam("noticeType") String noticeType, @RequestParam("isScrollable") Boolean isScrollable, @RequestParam("date") String date) {
@@ -105,3 +104,5 @@ public class FileUploadCintroller {
 
     }
 }
+
+

@@ -24,6 +24,7 @@ public class MechanicalController {
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role",ControllerUtility.getRole());
+        mv.addObject(" UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(new PageRequest(0, 10));
         ControllerUtility.getNoticelist(mechNotices);
         mv.addObject("noticeList",mechNotices );

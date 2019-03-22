@@ -51,10 +51,12 @@
             <div class="panel-heading">
                 <strong>
                     <i class="fa fa-news"></i> Latest News / Updates</strong>
-                <c:if test = "${Role == 'HOD'}">
-                    <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-                    <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
-                </c:if></div>
+                <c:forEach var="item" items="${Role}">
+                    <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
+                    <strong><i class="fa fa-news"></i> <a href="/hod/uploadfile/upload">Upload Notice / News</a></strong>
+                </c:if>
+                </c:forEach>
+                </div>
             <div class="panel-body" style="max-height: 500px;">
                 <ul class="listUpdates" id="noticeBoardItems">
 
@@ -75,7 +77,7 @@
                           </c:if>
                  		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                 <c:forEach var="item" items="${Role}">
-                                  <c:if test = "${'HOD' eq item}">
+                                  <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
                                     <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                                 </c:if>
                                 </c:forEach>

@@ -26,6 +26,7 @@ public class EeeController {
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role",ControllerUtility.getRole());
+        mv.addObject("UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices(new PageRequest(0, 10));
         ControllerUtility.getNoticelist(eecNotices);
         mv.addObject("noticeList",eecNotices);

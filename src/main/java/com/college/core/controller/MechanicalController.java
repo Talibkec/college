@@ -4,6 +4,7 @@ import com.college.FacultyHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +24,20 @@ public class MechanicalController {
     public ModelAndView getAbout(){
         ModelAndView mv=new ModelAndView();
         mv.addObject("Role",ControllerUtility.getRole());
-        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices();
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(new PageRequest(0, 10));
+        ControllerUtility.getNoticelist(mechNotices);
         mv.addObject("noticeList",mechNotices );
-
         mv.setViewName("department/mechanical/mech.jsp");
+        return mv;
+    }
+    @RequestMapping(value={"notice"}, method = RequestMethod.GET)
+    public ModelAndView getNotice(){
+        ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(new PageRequest(0, 10));
+        ControllerUtility.getNoticelist(mechNotices);
+        mv.addObject("pageSize", 0);
+        mv.addObject("noticeList",mechNotices );
+        mv.setViewName("department/mechanical/notice.jsp");
         return mv;
     }
     @RequestMapping(value="vision")
@@ -47,12 +58,7 @@ public class MechanicalController {
         mv.setViewName("department/mechanical/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
-    public ModelAndView getNotice(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/mechanical/notice.jsp");
-        return mv;
-    }
+
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();

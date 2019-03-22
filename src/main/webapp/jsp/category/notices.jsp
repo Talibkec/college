@@ -16,14 +16,13 @@
         <div class="row">
             <div class="col-sm-8">
                 <c:forEach items="${noticeList}" var="notice">
-                    <c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
+
                     <div class="post-entry panel panel-default">
                         <div class="panel-heading"><a
                                 href="${filePath}${notice.uploadedFileName}">${notice.headLine}</a></h4></div>
                         <div class="panel-body">
                             <div class="text-left" style="font-size: 120%; line-height: 150%;"> ${notice.headLine}</div>
-                            <br/> <a
-                                href="${filePath}${notice.uploadedFileName}"
+                            <br/><a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank"
                                 class="btn btn-default pull-right">Read More</a> <span class="label label-default"
                                                                                        style="font-size: 100%"><i
                                 class="fa fa-clock-o"></i>${notice.date} </span>
@@ -31,10 +30,12 @@
                         </div>
                     </div>
                 </c:forEach>
-
+                <c:if test="${empty pageSize}">
+                     <c:set var = "pageSize" value = "${0}"/>
+                 </c:if>
                 <ul class="pager">
-                    <li><a href=""><i class="fa fa-angle-double-left"></i> Previous</a></li>
-                    <li><a href="">Next <i class="fa fa-angle-double-right"></i></a>
+                    <li><a href="/pagination/prev/getNotices?deptno=category&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
+                    <li><a href="/pagination/next/getNotices?deptno=category&pageSize=${pageSize + 1}">Next <i class="fa fa-angle-double-right"></i></a>
                     </li>
                 </ul>
             </div>

@@ -69,15 +69,17 @@
                                                                         <c:set var = "clazz"  value = "label label-primary"/>
                                                                 </c:if>
                                                        		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                                                      <c:if test = "${Role == 'Admin'}">
+                                                                     <c:forEach var="item" items="${Role}">
+                                                                     <c:if test = "${'HOD' eq item}">
                                                                           <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                                                                       </c:if>
-                                                                      <a href="${filePath}${notice.uploadedFileName}" target="_blank">${notice.headLine}</a>
+                                                                      </c:forEach>
+                                                                        <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                                                   </div>
                                                               </li>
                                                           </c:forEach>
                                                       </ul>
-                                                      <a href="http://localhost/category/notices" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                                                      <a href="http://localhost/department/ash/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
                                                   </div>
                                               </div>
 

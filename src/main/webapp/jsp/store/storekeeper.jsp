@@ -44,7 +44,7 @@
            <div class="col-md-2 text-center">${req.status}</div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.requestDate}" pattern="dd/MM/yyyy"/></div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.approvalDate}" pattern="dd/MM/yyyy"/></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/closefacultyrequest?requestId=${req.requestId}">Close</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/sk/closefacultyrequest?requestId=${req.requestId}">Close</a></div>
         </div>
      </c:forEach>
   </div>

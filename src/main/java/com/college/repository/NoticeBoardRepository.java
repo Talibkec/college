@@ -1,7 +1,7 @@
 package com.college.repository;
 
 import com.college.core.entity.NoticeBoard;
-import com.college.core.model.NoticeBoardDTO;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,20 +13,20 @@ import java.util.List;
 public interface NoticeBoardRepository extends JpaRepository<NoticeBoard, Long> {
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
-    public List<NoticeBoard> getCseNotices(@Param("noticeType") String noticeType);
+    public List<NoticeBoard> getCseNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
-    public List<NoticeBoard> getCivilNotices(@Param("noticeType") String noticeType);
+    public List<NoticeBoard> getCivilNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
-    public List<NoticeBoard> getMechNotices(@Param("noticeType") String noticeType);
+    public List<NoticeBoard> getMechNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
-    public List<NoticeBoard> getElecNotices(@Param("noticeType") String noticeType);
+    public List<NoticeBoard> getElecNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
-    public List<NoticeBoard> getAshNotices(@Param("noticeType") String noticeType);
+    public List<NoticeBoard> getAshNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :notice or nb.noticeType = :news order by nb.date DESC")
-    List<NoticeBoard> getHomePageNotices(@Param("notice") String notice, @Param("news") String news);
+    List<NoticeBoard> getHomePageNotices(@Param("notice") String notice, @Param("news") String news, Pageable pageable);
 }

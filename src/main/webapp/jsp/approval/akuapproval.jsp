@@ -6,8 +6,7 @@
                 <div class="col-md-10 col-sm-8"><h3>AKU Approval</h3></div>
 
             </div>
-        </div>
-    </div>
+
     <div class="container">
         <div class="row">
             <aside class="col-sm-3" role="complementary">
@@ -21,7 +20,7 @@
                           </ul>
                      </div>
                    </section>
-                   </div>
+                 </div>
                 </aside>
 
             <div class="col-md-8 col-md-offset-2">
@@ -30,12 +29,11 @@
                         <embed src="http://localhost/jsp/approval/aku.pdf" width="700px" height="700px"></embed>
                     </p>
                      <p><strong>AKU Regulation &#8212;-</strong></p>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-download"></i>
-                       <a href="http://localhost/jsp/approval/aku.pdf">Download</a>
-                                                                                </button>
-                    </div>
+                    <i class="fa fa-download"></i>
+                       <a href="http://localhost/jsp/approval/aku.pdf">
+                       <button type="button" class="btn btn-success" data-dismiss="modal">Download</button></a>
             </div>
         </div>
     </div>
-
+</div>
 <jsp:include page="/jsp/footer.jsp" />

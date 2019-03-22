@@ -7,7 +7,7 @@ $(document).ready( function(){
     $( "#prodName" ).autocomplete({
        source: function( request, response ) {
        $.ajax({
-            url: "/store/getProductName",
+            url: "/common/store/getProductName",
             data: {
                 prodName: $('#prodName').val()
             },
@@ -29,7 +29,7 @@ $(document).ready( function(){
      $( "#vendorName" ).autocomplete({
            source: function( request, response ) {
            $.ajax({
-                url: "/store/getVendorName",
+                url: "/common/store/getVendorName",
                 data: {
                     vendorName: $('#vendorName').val()
                 },

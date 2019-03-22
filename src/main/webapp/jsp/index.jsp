@@ -21,7 +21,7 @@
 
                     <li style= "display: inline;float: left">
                     <i class="fa fa-asterisk"></i>
-                    <c:if test = "${scrollingNotice.noticeAge <= 2}">
+                    <c:if test = "${scrollingNotice.noticeAge <= 45}">
                  	    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" />
                     </c:if>
                     <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
@@ -200,8 +200,9 @@
                                 <div class="rwsvticker1">
                                  <ul>
                                         <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
+
                                      <c:forEach items="${noticeList}" var="notice">
-                                       <li>
+
                                      	<div>
                                      		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                      		<c:set var = "clazz"  value = "label label-warning"/>
@@ -217,7 +218,6 @@
                                             </c:forEach>
                                      		<a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                      	</div>
-                                     </li>
                                      </c:forEach>
                                     </ul>
 

@@ -42,9 +42,11 @@
                                 <td width="40">1</td>
                                 <td width="134">2018</td>
                                 <td width="472" align="center">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-download"></i>
-                                                             <a href="http://localhost/jsp/approval/abc.pdf">Download</a>
-                                                            </button>
+                                    <i class="fa fa-download"></i>
+                                     <a href="http://localhost/jsp/approval/abc.pdf">
+                                       <button type="button" class="btn btn-success" data-dismiss="modal">Download
+                                          </button></a>
+
                                 </td>
                             </tr>
                             </tbody>

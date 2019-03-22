@@ -1,10 +1,10 @@
 package com.college.core.controller;
 
 import com.college.FacultyHelper;
-import com.college.core.entity.NoticeBoard;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +27,9 @@ public class CivilController {
     public ModelAndView getAbout(){
         ModelAndView modalAndView=new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
-        List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices();
+        List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices(new PageRequest(0, 10));
         modalAndView.addObject("noticeList", civilNotices);
+        ControllerUtility.getNoticelist(civilNotices);
         modalAndView.setViewName("department/civil/about.jsp");
         return modalAndView;
     }
@@ -50,9 +51,13 @@ public class CivilController {
         mv.setViewName("department/civil/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
+    @RequestMapping(value={"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice(){
         ModelAndView mv=new ModelAndView();
+        List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices(new PageRequest(0, 10));
+        mv.addObject("noticeList", civilNotices);
+        mv.addObject("pageSize", 0);
+        ControllerUtility.getNoticelist(civilNotices);
         mv.setViewName("department/civil/notice.jsp");
         return mv;
     }

@@ -4,12 +4,12 @@ import com.college.FacultyHelper;
 import com.college.core.model.*;
 import com.college.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,13 +22,25 @@ public class CseController {
     @Autowired
     FacultyHelper facultyHelper;
 
+
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices();
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
+        ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
         modalAndView.setViewName("department/cse/about.jsp");
+        return modalAndView;
+    }
+    @RequestMapping(value={"notice"}, method =RequestMethod.GET)
+    public ModelAndView getNotice(){
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
+        ControllerUtility.getNoticelist(cseNotices);
+        modalAndView.addObject("noticeList", cseNotices);
+        modalAndView.addObject("pageSize", "0");
+        modalAndView.setViewName("department/cse/notice.jsp");
         return modalAndView;
     }
 
@@ -50,12 +62,7 @@ public class CseController {
         mv.setViewName("department/cse/students.jsp");
         return mv;
     }
-    @RequestMapping(value="notice")
-    public ModelAndView getNotice(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("department/cse/notice.jsp");
-        return mv;
-    }
+
     @RequestMapping(value="labs")
     public ModelAndView getLabs(){
         ModelAndView mv=new ModelAndView();
@@ -158,6 +165,8 @@ public class CseController {
         mv.setViewName("department/cse/shk.jsp");
         return mv;
     }
+
+
 
 
 

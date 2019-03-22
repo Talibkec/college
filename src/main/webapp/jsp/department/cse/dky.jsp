@@ -48,9 +48,13 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
+                      <c:forEach var="item" items="${Role}">
+                                              <c:if test = "${'Faculty' eq item and UserName eq 'kumar.dharmveer'}">
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                     class="fa fa-angle-double-right"></i> Request</a></li>
-                </ul>
+                   </c:if>
+                    </c:forEach>
+                    </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"  style="height: 200px;width:250px"
                                                                                    src="http://localhost/${facultyId}/image${fileExtension}"/>
@@ -142,10 +146,10 @@
                                             </div>
                                         <div role="tabpanel" class="tab-pane" id="order">
                                             <div style="padding: 15px;">
-                                            		<a href="http://localhost/store/faculty/order" > Order Item </a>
+                                            		<a href="http://localhost/fstore/faculty/order" > Order Item </a>
                                             </div>
                                              <div style="padding: 15px;">
-                                                     <a href="http://localhost/store/faculty/facultyOrderHistory" > Order History </a>
+                                                     <a href="http://localhost/fstore/faculty/facultyOrderHistory" > Order History </a>
                                              </div>
                                             <div style="padding: 15px;">
                                                  <div class="row" style="border:1px solid green;padding:10px">
@@ -166,8 +170,8 @@
                                                                                        <div class="col-md-1 text-center" id ="statusId${request.requestId}" >${request.status}</div>
                                                                                        <div class="col-md-2 text-center"><fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/></div>
                                                                                        <div class="col-md-2 text-center"><fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/></div>
-                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
-                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/store/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
+                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}" id = "editId${request.requestId}">Edit</a></div>
+                                                                                       <div class="col-md-2 text-center"><a href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a></div>
                                                                                    </div>
                                                     </c:forEach>
                                                  </div>

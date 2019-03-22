@@ -43,7 +43,7 @@ div.desc {
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img2.JPG">
+  <a target="_blank" href="http://localhost/sites/default/files/img8.JPG">
     <img src="http://localhost/sites/default/files/img8.JPG" alt="KEC Web Team" width="600" height="400">
   </a>
   <div class="desc"></div>
@@ -57,7 +57,7 @@ div.desc {
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img4.JPG">
+  <a target="_blank" href="http://localhost/sites/default/files/sportkec.jpeg">
     <img src="http://localhost/sites/default/files/sportkec.jpeg" alt="SportKEC" width="600" height="400">
   </a>
   <div class="desc"></div>
@@ -83,7 +83,7 @@ div.desc {
   <div class="desc"></div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img8.JPG">
+  <a target="_blank" href="http://localhost/sites/default/files/sportkec1.jpeg">
     <img src="http://localhost/sites/default/files/sportkec1.jpeg" alt="SportKEC" width="600" height="400">
   </a>
   <div class="desc"></div>
@@ -103,7 +103,7 @@ div.desc {
   <div class="desc"></div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img11.JPG">
+  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img2.JPG">
     <img src="http://localhost/wp-content/uploads/2018/img2.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>

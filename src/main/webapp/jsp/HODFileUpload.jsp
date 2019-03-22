@@ -14,32 +14,30 @@
 
     <label for="noticeType" class="control-label col-sm-4" >Notice Type</label>
 <c:forEach var="item" items="${Role}">
-    <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="CSENotice">CSE</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+</c:forEach>
 <c:forEach var="item" items="${Role}">
-    <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="CivilNotice">Civil</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+            </c:forEach>
 <c:forEach var="item" items="${Role}">
-    <c:if test = "${'HOD' eq item and UserName eq 'hodmech'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="MechNotice">Mechanical Notice</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
     </div>
-    </c:if>
     </c:forEach>
 <c:forEach var="item" items="${Role}">
-    <c:if test = "${'HOD' eq item and UserName eq 'hodeee'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="ELECNotice">EEE Notice</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+            </c:forEach>
     <label class="control-label col-sm-12" ></label>
     <label for="noticeUploadDate" class="control-label col-sm-4" >Date</label>
     <div class="col-sm-8">

@@ -336,7 +336,7 @@
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/pitch-better-india"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Pitch%20for%20a%20Better%20India_1.jpg?itok=U6XG7P1q"
+                                                        src="http://localhost/sites/default/files/img.jpeg"
                                                         width="330" height="225" alt=""
                                                         title="Pitch for a Better India"/></a></div>
                                             </div>
@@ -345,7 +345,7 @@
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/ace-psychometric"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Ace%20the%20Psychometric_1.jpg?itok=4GiuxxhB"
+                                                        src="http://localhost/sites/default/files/img.jpeg"
                                                         width="330" height="225" alt=""
                                                         title="Ace the Psychometric"/></a></div>
                                             </div>
@@ -354,7 +354,7 @@
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/workshop"><img typeof="foaf:Image"
                                                                                                     class="img-responsive"
-                                                                                                    src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Disassembly%20Workshop_01.JPG?itok=29HGx6Gr"
+                                                                                                    src="http://localhost/sites/default/files/img.jpeg"
                                                                                                     width="330"
                                                                                                     height="225" alt=""
                                                                                                     title="Machine Assembly and Disassembly Workshop"/></a>

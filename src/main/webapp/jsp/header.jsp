@@ -379,12 +379,11 @@ Katihar Engineering College</title>
                             </li>
                             <li id="menu-1131-1"
                                                             class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                            <a href="http://localhost/gallery/photogallery" class="sf-depth-1 menuparent">Gallery</a>
+                                                            <a href="http://localhost/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
                                                             <ul>
                                                                 <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                        href="http://localhost/gallery/photogallery" class="sf-depth-2">Photo Gallery</a></li>
-                                                                <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
                                                                         href="http://localhost/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+
                                 </ul>
                             </li>
                             <li id="menu-1124-1"

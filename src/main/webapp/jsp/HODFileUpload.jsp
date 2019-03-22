@@ -7,47 +7,54 @@
 <div class="panel-body">
 
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm" action>
-    <label for="headLine" class="control-label col-sm-4" >Head Line</label>${Role}${UserName}
+    <label for="headLine" class="control-label col-sm-4" >Head Line</label>
     <div class="col-sm-8">
         <input type="text" name="noticeHeader" id="noticeHeader"/><br/><br/>
     </div>
-
-    <label for="noticeType" class="control-label col-sm-4" >Notice Type</label>
+   <label for="noticeType" class="control-label col-sm-4" >Notice Type</label>
 <c:forEach var="item" items="${Role}">
+<c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="CSENotice">CSE</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+            </div>
+            </c:if>
 </c:forEach>
 <c:forEach var="item" items="${Role}">
+<c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="CivilNotice">Civil</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+            </div>
+            </c:if>
             </c:forEach>
 <c:forEach var="item" items="${Role}">
+<c:if test = "${'HOD' eq item and UserName eq 'hodmech'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="MechNotice">Mechanical Notice</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
     </div>
+    </c:if>
     </c:forEach>
 <c:forEach var="item" items="${Role}">
+<c:if test = "${'HOD' eq item and UserName eq 'hodeee'}">
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="ELECNotice">EEE Notice</option>
                                                          <option value="News">News</option>
             </select><br/><br/>
+            </div>
+            </c:if>
             </c:forEach>
     <label class="control-label col-sm-12" ></label>
     <label for="noticeUploadDate" class="control-label col-sm-4" >Date</label>
     <div class="col-sm-8">
-            <input type="text" name="date" id="noticeUploadDate"/>
+            <input type="text" name="date" id="noticeUploadDate"/></br></br>
     </div>
 
-    <label for="headLine" class="control-label col-sm-4" >Scrollable</label>
-        <div class="col-sm-8">
-            <input type="checkbox" name="isScrollable" id="isScrollable" style="width: 25px;height: 40px;" ></input><br><br>
-        </div>
+
     <label for="file" class="control-label col-sm-4" >Choose File</label>
     <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="noticeFile" id="noticeFile"/><br/></div></div>
     <div id="msg" style="display: none; color: red;">*Please Select a file</div>

@@ -45,13 +45,13 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/3/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/subodh.JPG)"/>
+                                                                             style="background-image: url(http://localhost/3/image${fileExtension})"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
                                     Engineering<br/> <strong>Designation:</strong> Assistant Professor<br/> <strong>Phone
                                         Number:</strong>8171778441<br/> <strong>Email Address:</strong> <a
-                                            href="/cdn-cgi/l/email-protection">subodhkumar012@gmail.com</a>
+                                            href="mailto:subodhkumar012@gmail.com">subodhkumar012@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/subodh"
@@ -95,7 +95,7 @@
                                     Computer Science and Engineering<br/> <strong>Designation:</strong> Assistant
                                     Professor<br/> <strong>Phone Number:</strong>7549647373<br/> <strong>Email
                                         Address:</strong> <a
-                                            href="/cdn-cgi/l/email-protection">shwetaverma673@gmail.com</a>
+                                            href="mailto:shwetaverma673@gmail.com">shwetaverma673@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/shweta"

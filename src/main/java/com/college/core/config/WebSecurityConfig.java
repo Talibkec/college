@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/hod/**").hasAuthority("HOD")
                 .antMatchers("/sk/**").hasAnyAuthority("SK", "SM")
                 .antMatchers("/common/**").hasAnyAuthority("SM", "Faculty")
-                //.antMatchers("/kec/admin/**").hasRole("Admin")
+                .antMatchers("/uploadfile/**").hasAnyAuthority("Admin", "Faculty", "SM", "SK", "HOD")
                 .and()
                 .formLogin()
                 .loginPage("/login").successHandler(kecAuthenticationSuccessHandler())

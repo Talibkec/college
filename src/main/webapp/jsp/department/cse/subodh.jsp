@@ -66,8 +66,8 @@
             <c:forEach var="item" items="${Role}">
                 <c:if test = "${'Faculty' eq item and UserName eq 'subodhkumar'}">
 
-                     <strong><a href="http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
-                     <strong><a href= "http://localhost/auth/uploadfile/facultyfileupload?isProfilePic=Yes">Update Profile Details</a></strong>
+                     <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                     <strong><a href= "http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile Details</a></strong>
                         </c:if>
              </c:forEach>
                 <ul class="nav nav-tabs" role="tablist">

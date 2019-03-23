@@ -95,7 +95,7 @@
                                                            <c:if test = "${Role == 'Faculty'}">
                                                    				<span class="label label-danger"><a href="http://localhost/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                                                            </c:if>
-                                                           <a href="http://localhost/${facultyDocument.id}/image${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                                           <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
                                                        </div>
                                                    </c:forEach>
                                               </div>

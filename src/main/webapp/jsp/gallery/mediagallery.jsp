@@ -103,8 +103,29 @@ div.desc {
   <div class="desc"></div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img2.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img2.JPG"  width="600" height="400">
+  <a target="_blank" href="http://localhost/sites/default/files/DSC_0445.JPG">
+    <img src="http://localhost/sites/default/files/DSC_0445.JPG"  width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="http://localhost/sites/default/files/DSC_0448.JPG">
+    <img src="http://localhost/sites/default/files/DSC_0448.JPG"  width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="http://localhost/sites/default/files/img18.jpg">
+    <img src="http://localhost/sites/default/files/img18.jpg"  width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img12.JPG">
+    <img src="http://localhost/sites/default/files/IMG_2946.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>

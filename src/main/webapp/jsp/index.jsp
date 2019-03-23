@@ -80,7 +80,7 @@
   <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
 
   <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img1.jpg" width="2000" height="550" alt="" /></div>  </div>
-  <div class="views-field views-field-title">        <span class="field-content">Students @ Library</span>  </div></div>
+  <div class="views-field views-field-title">        <span class="field-content">Students @ KEC</span>  </div></div>
 </div>
 
 </div>

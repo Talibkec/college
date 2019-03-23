@@ -124,7 +124,7 @@ div.desc {
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img12.JPG">
+  <a target="_blank" href="http://localhost/sites/default/files/IMG_2946.JPG">
     <img src="http://localhost/sites/default/files/IMG_2946.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>

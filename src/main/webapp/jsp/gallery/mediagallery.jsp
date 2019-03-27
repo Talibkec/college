@@ -117,15 +117,15 @@ div.desc {
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/img18.jpg">
-    <img src="http://localhost/sites/default/files/img18.jpg"  width="600" height="400">
+  <a target="_blank" href="http://localhost/sites/default/files/img13.JPG">
+    <img src="http://localhost/sites/default/files/img13.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/IMG_2946.JPG">
-    <img src="http://localhost/sites/default/files/IMG_2946.JPG"  width="600" height="400">
+  <a target="_blank" href="http://localhost/sites/default/files/img11.JPG">
+    <img src="http://localhost/sites/default/files/img11.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>

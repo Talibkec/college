@@ -137,3 +137,4 @@ public class PasswordResetController {
                 messages.getMessage("message.resetPasswordSuc", null, locale));
     }
 }
+

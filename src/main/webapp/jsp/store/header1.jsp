@@ -82,7 +82,6 @@ Katihar Engineering College</title>
  <link href="../http://localhost/wp-content/themes/kec/assets/css/style.css" rel="stylesheet"/>
 
  <!--[if lt IE 9]>
- <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
  <![endif]-->
@@ -98,7 +97,8 @@ Katihar Engineering College</title>
 <link rel="alternate" type="text/xml+oembed" href="https://#/wp-json/oembed/1.0/embed?url=https%3A%2F%2F#%2F&#038;format=xml" />
 <link rel="stylesheet" href="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.css" />
 <link rel="stylesheet" href="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/themes/default/default.css" />
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></scripts>
@@ -204,24 +204,6 @@ Katihar Engineering College</title>
                                                     aria-hidden="true" class="fa fa-envelope"></i><br> </a></li>
 
                                         </ul>
-                                        <div class="input-group"><input title="Enter the terms you wish to search for."
-                                                                        placeholder="Search"
-                                                                        class="form-control form-text" type="text"
-                                                                        id="edit-search-block-form--2"
-                                                                        name="search_block_form" value="" size="15"
-                                                                        maxlength="128"/><span class="input-group-btn"><button
-                                                type="submit" class="btn btn-primary"><span
-                                                class="icon glyphicon glyphicon-search"
-                                                aria-hidden="true"></span></button></span></div>
-                                        <div class="form-actions form-wrapper form-group" id="edit-actions">
-                                            <button class="element-invisible btn btn-primary form-submit" type="submit"
-                                                    id="edit-submit" name="op" value="Search">Search
-                                            </button>
-                                        </div>
-                                        <input type="hidden" name="form_build_id"
-                                               value="form-AIYefss1BT1igtdNIh_DhSx0GASs9u4C3MoAEC0aKas"/>
-                                        <input type="hidden" name="form_id" value="search_block_form"/>
-                                    </div>
                                 </div>
                             </form>
                         </section>
@@ -247,7 +229,178 @@ Katihar Engineering College</title>
 
 
                 <div class="region region-rwsmainmenu">
+                    <section id="block-superfish-1" class="block block-superfish clearfix">
 
+
+                        <ul id="superfish-1"
+                            class="menu sf-menu sf-main-menu sf-horizontal sf-style-none sf-total-items-10 sf-parent-items-9 sf-single-items-1">
+                            <li id="menu-218-1" class="active-trail first odd sf-item-1 sf-depth-1 sf-no-children"><a
+                                    href="/" class="sf-depth-1 active">Home</a></li>
+                                    <li id="menu-1131-1"
+                                                                    class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                                    <a href="http://localhost/about/history" class="sf-depth-1 menuparent">About KEC</a>
+                                                                    <ul>
+                                                                        <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                                                        <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/administration" class="sf-depth-2">Administartion</a></li>
+                                                                        <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/principal" class="sf-depth-2">Principal's Message</a></li>
+                                                                        <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/vision" title="" class="sf-depth-2">Vision &amp; Mission</a></li>
+                                                                        <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                                                        <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/surrender" class="sf-depth-2">Allotment &amp; Surrender Report</a></li>
+                                                                        <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
+                                                                                href="http://localhost/about/contact" class="sf-depth-2">Contact Us</a></li>
+
+                                                                    </ul>
+                                                                </li>
+
+                             <li id="menu-1131-1"
+                                                                                                class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                                                                <a href="http://localhost/academic/admission" class="sf-depth-1 menuparent">Academic</a>
+                                                                                                <ul>
+                                                                                                    <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/admission" class="sf-depth-2">Admission</a></li>
+                                                                                                    <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/regulations" class="sf-depth-2">Academic Regulations</a></li>
+                                                                                                    <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/calender" class="sf-depth-2">Academic Calender</a></li>
+                                                                                                    <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/holidays" title="" class="sf-depth-2">List of Holidays</a></li>
+                                                                                                    <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/attendance" class="sf-depth-2">Attendance</a></li>
+                                                                                                    <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/syllabus" class="sf-depth-2">Syllabus</a></li>
+                                                                                                    <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
+                                                                                                            href="http://localhost/academic/rules" class="sf-depth-2">Disciplinary Rules</a></li>
+<li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/academic/antiragging"
+                                            title="Hostels" class="sf-depth-2">Anti Ragging</a></li>
+                                    <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
+                                    <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
+                                   | </ul>
+                                                                                            </li>
+
+                            <li id="menu-1131-1"
+                                                            class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                            <a href="http://localhost/category/department" class="sf-depth-1 menuparent">Departments</a>
+                                                            <ul>
+                                                                <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/department/civil/about" class="sf-depth-2">Civil Engineering</a></li>
+                                                                <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a></li>
+                                                                <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/department/cse/about" class="sf-depth-2">Computer Sc. & Engieering</a></li>
+                                                                <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics Engg.</a></li>
+                                                                <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-1131-1"
+                                class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                <a href="http://localhost/facilities/csecenter" class="sf-depth-1 menuparent">Facilities</a>
+                                <ul>
+                                    <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/bank" class="sf-depth-2">Bank</a></li>
+                                    <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/centrallibrary" class="sf-depth-2">Central Library</a></li>
+                                    <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/csecenter" class="sf-depth-2">Computer Centre</a></li>
+                                    <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/club" title="" class="sf-depth-2">Club</a></li>
+                                    <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/guesthouse" class="sf-depth-2">Guest House</a></li>
+                                    <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/gymnasium" class="sf-depth-2">Gymnasium</a></li>
+                                    <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/healthcenter" class="sf-depth-2">Health Centre</a></li>
+                                    <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/hostels"
+                                            title="Hostels" class="sf-depth-2">Hostels</a></li>
+                                    <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/medicalfacilities" class="sf-depth-2">Medical Facilities</a></li>
+                                    <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/placementbrouchure" class="sf-depth-2">Placement</a></li>
+                                    <li id="menu-1321-22" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/sportsfacilities" class="sf-depth-2">Sports Facilities</a></li>
+                                    <li id="menu-1321-23" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/startupcell" class="sf-depth-2">Startup cell</a></li>
+                                    <li id="menu-1321-24" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/usefulllink" class="sf-depth-2">Useful Link</a></li>
+                                    <li id="menu-1321-25" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                            href="http://localhost/facilities/wifi" class="sf-depth-2">Wi Fi</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-1131-1"
+                                                            class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                            <a href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-1 menuparent">Training & Placement</a>
+                                                            <ul>
+                                                                <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-2">About Placement</a></li>
+                                                                <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost//trainingplacement/placementbrochure" class="sf-depth-2">Placement Brouchure</a></li>
+                                                                <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost//trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of training & Placement</a></li>
+                                                                <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/trainingplacement/tipsforresume" title="" class="sf-depth-2">Tips for Resume</a></li>
+                                                                <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/trainingplacement/studentplacementcoordinator" class="sf-depth-2">Student Placement Coordinator</a></li>
+                                                                                              </ul>
+                            </li>
+                           <li id="menu-1131-1"
+                                                           class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                           <a href="http://localhost/approval/akuapproval" class="sf-depth-1 menuparent">Approval</a>
+                                                           <ul>
+                                                               <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                       href="http://localhost/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
+                                                               <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                       href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-1131-1"
+                                                            class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                            <a href="http://localhost/rti/rtiact" class="sf-depth-1 menuparent">RTI</a>
+                                                            <ul>
+                                                                <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/rti/rtiact" class="sf-depth-2">RTI Act 2005</a></li>
+                                                                <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/rti/rtiapplication" class="sf-depth-2">RTI Application Form</a></li>
+                                                                <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost//rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
+                                                                <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/rti/publicinformationcell" title="" class="sf-depth-2">Public Information Cell</a></li>
+                                </ul>
+                            </li>
+                            <li id="menu-1131-1"
+                                                            class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
+                                                            <a href="http://localhost/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
+                                                            <ul>
+                                                                <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                        href="http://localhost/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+
+                                </ul>
+                            </li>
+                            <li id="menu-1124-1"
+                                class="last even sf-item-10 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent">
+                                <a href="http://localhost/login" title="" class="sf-depth-1 menuparent">Login</a>
+                                <ul>
+                                    <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                            href="/login" class="sf-depth-2">Admin Login</a></li>
+                                    <li id="menu-1411-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                            href="https://keck.ac.in:2096/webmail" class="sf-depth-2">Mail Login</a></li>
+                                    <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                            href="/logout" title="" class="sf-depth-2">logout</a></li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
                 </div>
 
             </nav>

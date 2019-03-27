@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 
 @Controller
-//@RequestMapping(value = "/test")
 public class DashboardController {
 
 	@Autowired

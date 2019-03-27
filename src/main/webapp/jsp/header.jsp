@@ -392,8 +392,6 @@ Katihar Engineering College</title>
                                 <ul>
                                     <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
                                             href="/login" class="sf-depth-2">Admin Login</a></li>
-                                    <li id="menu-1411-1" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                            href="https://keck.ac.in:2096/webmail" class="sf-depth-2">Mail Login</a></li>
                                     <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
                                             href="/logout" title="" class="sf-depth-2">logout</a></li>
 

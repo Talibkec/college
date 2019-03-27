@@ -65,7 +65,7 @@ div.desc {
   <div class="desc"></div>
 </div>
 
-<div class="gallery">
+<div class="gallery">Northern Lights
   <a target="_blank" href="http://localhost/wp-content/uploads/2018/img4.JPG">
     <img src="http://localhost/wp-content/uploads/2018/img4.JPG" alt="Mountains" width="600" height="400">
   </a>

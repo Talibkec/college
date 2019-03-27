@@ -204,7 +204,6 @@ Katihar Engineering College</title>
 <ul class="dropdown-menu">
 
 <li><a href="/login">Admin</a></li>
-<li><a href="https://localhost:2096/webmail" target="_blank">Mail Login</a></li>
 <li><a href="/logout">Logout</a></li>
 
 </div>

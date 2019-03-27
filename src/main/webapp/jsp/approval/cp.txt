@@ -266,7 +266,7 @@ Katihar Engineering College</title>
 <a style="font-weight: 600;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="fa fa-angle-down"></span></a>
 <ul class="dropdown-menu">
 <li><a href="https://accounts.google.com?</li>
-<li><a href="/login">Admin</a></li> <li><a href="https://localhost:2096/webmail" target="_blank">Mail Login</a></li> <li><a href="/logout">Logout</a></li>
+<li><a href="/login">Admin</a></li> <li><a href="/logout">Logout</a></li>
 
 
 </ul>

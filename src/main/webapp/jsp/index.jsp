@@ -64,6 +64,12 @@
   <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img2.JPG" width="2000" height="550" alt="" /></div>  </div>
   <div class="views-field views-field-title">        <span class="field-content">Library</span>  </div></div>
 </div>
+<div id="views_slideshow_cycle_div_nodequeue_2-block_1_1" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-2 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_1'>
+  <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
+
+  <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img14.JPG" width="2000" height="550" alt="" /></div>  </div>
+  <div class="views-field views-field-title">        <span class="field-content">Inauguration of AAGAZ-18</span>  </div></div>
+</div>
 <div id="views_slideshow_cycle_div_nodequeue_2-block_1_2" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-3 views_slideshow_cycle_hidden views-row-odd" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_2'>
   <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
 
@@ -74,7 +80,7 @@
   <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">
 
   <div class="views-field views-field-field-image">        <div class="field-content"><img typeof="foaf:Image" class="img-responsive" src="http://localhost/sites/default/files/img9.JPG" width="2000" height="550" alt="" /></div>  </div>
-  <div class="views-field views-field-title">        <span class="field-content">Inauguration of Sportkec</span>  </div></div>
+  <div class="views-field views-field-title">        <span class="field-content">Inauguration of SPORTKEC-19</span>  </div></div>
 </div>
 <div id="views_slideshow_cycle_div_nodequeue_2-block_1_3" class="views-slideshow-cycle-main-frame-row views_slideshow_cycle_slide views_slideshow_slide views-row-4 views_slideshow_cycle_hidden views-row-even" aria-labelledby='views_slideshow_pager_field_item_bottom_nodequeue_2-block_1_3'>
   <div class="views-slideshow-cycle-main-frame-row-item views-row views-row-0 views-row-odd">

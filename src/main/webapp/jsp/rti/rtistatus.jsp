@@ -14,10 +14,10 @@
                                 <h2 class="block-title">Right To Information</h2>
                                <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                    <ul class="menu nav">
-                                       <li class="first leaf  menu-mlid-1154"><a href="http://localhost/rti/rtiapplication" class="sf-depth-2 active">RTI Application Form</a></li>
-                                         <li class="leaf menu-mlid-1121"><a href="http://localhost/rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
-                                         <li class="leaf menu-mlid-1121"><a href="http://localhost/rti/publicinformationcell" class="sf-depth-2">Public Information Cell</a></li>
-                                          <li class="leaf menu-mlid-1121"><a href="http://localhost/rti/rtiact" class="sf-depth-2">RTI Act</a></li>
+                                       <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/rti/rtiapplication" class="sf-depth-2 active">RTI Application Form</a></li>
+                                         <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
+                                         <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/rti/publicinformationcell" class="sf-depth-2">Public Information Cell</a></li>
+                                          <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/rti/rtiact" class="sf-depth-2">RTI Act</a></li>
                                     </ul>
                                </div>
                              </section>

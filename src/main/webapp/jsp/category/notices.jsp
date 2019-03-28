@@ -18,11 +18,10 @@
                 <c:forEach items="${noticeList}" var="notice">
 
                     <div class="post-entry panel panel-default">
-                        <div class="panel-heading"><a
-                                href="${filePath}${notice.uploadedFileName}">${notice.headLine}</a></h4></div>
+                        <div class="panel-heading"></a></h4></div>
                         <div class="panel-body">
                             <div class="text-left" style="font-size: 120%; line-height: 150%;"> ${notice.headLine}</div>
-                            <br/><a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank"
+                            <br/><a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank"
                                 class="btn btn-default pull-right">Read More</a> <span class="label label-default"
                                                                                        style="font-size: 100%"><i
                                 class="fa fa-clock-o"></i>${notice.date} </span>
@@ -31,7 +30,7 @@
                     </div>
                 </c:forEach>
                 <c:if test="${empty pageSize}">
-                     <c:set var = "pageSize" value = "${0}"/>
+                     <c:set var = "pageSize" value = "${10}"/>
                  </c:if>
                 <ul class="pager">
                     <li><a href="/pagination/prev/getNotices?deptno=category&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>

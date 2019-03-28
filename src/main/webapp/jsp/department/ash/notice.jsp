@@ -19,19 +19,19 @@
 
                                                  <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                                 <ul class="menu nav">
-                                               <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/ash/about" class="sf-depth-2 active">About Applied Sc. & Humanities</a></li>
-                                               <li class="leaf menu-mlid-1121"><a href="http://localhost/department/ash/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                               <li class="leaf menu-mlid-1156"><a href="http://localhost/department/ash/faculty" class="sf-depth-2">Faculty of Applied Sc. & Humanities</a></li>
-                                               <li class="leaf menu-mlid-1294"><a href="http://localhost/department/ash/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/question" class="sf-depth-2">Question Bank</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/awards" class="sf-depth-2">Awards & Recognition</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/programs" class="sf-depth-2">Program Activities</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/students" class="sf-depth-2">Student of Applied Sc. & Humanities</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/notice" class="sf-depth-2">Notice</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/programs" class="sf-depth-2">Course File</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/staff" class="sf-depth-2">Staff of Applied Sc. & Humanities</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/department/ash/attendance" class="sf-depth-2">Attendance Summary</a></li>
+                                               <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/department/ash/about" class="sf-depth-2 active">About Applied Sc. & Humanities</a></li>
+                                               <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/department/ash/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                               <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/department/ash/faculty" class="sf-depth-2">Faculty of Applied Sc. & Humanities</a></li>
+                                               <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/ash/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/question" class="sf-depth-2">Question Bank</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/awards" class="sf-depth-2">Awards & Recognition</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/programs" class="sf-depth-2">Program Activities</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/students" class="sf-depth-2">Student of Applied Sc. & Humanities</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/notice" class="sf-depth-2">Notice</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/weekly" class="sf-depth-2">Weekly Test Result</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/programs" class="sf-depth-2">Course File</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/staff" class="sf-depth-2">Staff of Applied Sc. & Humanities</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/ash/attendance" class="sf-depth-2">Attendance Summary</a></li>
                                                   </ul></div>
 
                                                </section>
@@ -46,7 +46,7 @@
                                                                          <div class="panel-heading"></h4></div>
                                                                          <div class="panel-body">
                                                                              <div class="text-left" style="font-size: 120%; line-height: 150%;"> ${notice.headLine}</div>
-                                                                             <br/> <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank"
+                                                                             <br/> <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank"
                                                                                  class="btn btn-default pull-right">Download</a> <span class="label label-default"
                                                                                                                                         style="font-size: 100%"><i
                                                                                  class="fa fa-clock-o"></i>${notice.date} </span>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><link rel="shortcut icon" href="http://localhost/favicon.png" />
+<meta charset="utf-8"><link rel="shortcut icon" href="http://keck.ac.in/favicon.png" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -159,10 +159,10 @@ Katihar Engineering College</title>
 <nav class="navbar navbar-default">
 <div class="container">
 <div class="navbar-header">
- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> 
-<span class="sr-only">Toggle navigation</span> 
+ <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
- <span class="icon-bar"></span> 
+ <span class="icon-bar"></span>
 <span class="icon-bar"></span>
  </button>
 </div>
@@ -173,7 +173,7 @@ Katihar Engineering College</title>
 </a>
 </li>
 <li><a style="font-weight: 600;" href="/">Home</a></li>
-<li class="dropdown"> 
+<li class="dropdown">
 <a style="font-weight: 600;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About KEC <span class="fa fa-angle-down"></span></a>
 <ul class="dropdown-menu">
 <li><a href="../about-kec/history.html">History</a></li>
@@ -245,7 +245,7 @@ Katihar Engineering College</title>
 <li><a href="../gallery-kec/photo-gallery.html">Video Gallery</a></li>
 </ul>
 </li>
-<li class="dropdown"> 
+<li class="dropdown">
 <a style="font-weight: 600;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Approval <span class="fa fa-angle-down"></span></a>
 <ul class="dropdown-menu">
 <li><a href="../approval-kec/aicte-approval.html">AICTE Approval</a></li>
@@ -262,7 +262,7 @@ Katihar Engineering College</title>
 <li><a href="../rti-kec/public-information-cell.html">Public Information Cell</a></li>
 </ul>
 </li>
-<li class="dropdown"> 
+<li class="dropdown">
 <a style="font-weight: 600;" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="fa fa-angle-down"></span></a>
 <ul class="dropdown-menu">
 <li><a href="https://accounts.google.com?</li>
@@ -278,27 +278,27 @@ Katihar Engineering College</title>
 </header>
 <div class="modal fade" id="modal-inquiry-form">
 <div class="modal-dialog">
-<form method="post" onsubmit="return doInquiry(this)"> 
+<form method="post" onsubmit="return doInquiry(this)">
 <input type="hidden" name="action" value="ajaxhandler" />
  <input type="hidden" name="xaction" value="postInquiry" />
 <div class="modal-content">
-<div class="modal-header"> 
+<div class="modal-header">
 <button class="close" type="button" data-dismiss="modal">&times;</button>
 <h4 class="modal-title">Inquiry Form</h4><p>If you have any questions, please do ask us by filling the form below.</p></div>
 <div class="modal-body">
-<div class="form-group"> 
+<div class="form-group">
 <label class="control-label">Your Name:</label> <input type="text" name="fullName" class="form-control" required /></div>
 <div class="form-group">
- <label class="control-label">Phone Number:</label> 
+ <label class="control-label">Phone Number:</label>
 <input type="tel" name="phoneNumber" class="form-control" required />
 </div>
-<div class="form-group"> 
-<label class="control-label">Email Address:</label> 
+<div class="form-group">
+<label class="control-label">Email Address:</label>
 <input type="email" name="emailAddress" class="form-control" /></div>
 <div class="form-group">
  <label class="control-label">Message:</label>
 <textarea name="message" class="form-control" style="height: 150px;" required placeholder="Please enter your query here..."></textarea>
 </div>
 </div>
-<div class="modal-footer"> 
+<div class="modal-footer">
 <button type="submit" data-loading-text="<i class='fa fa-cog fa-spin'></i> Please wait..." class="btn btn-success"><i class="fa fa-check"></i> Submit</button> <button type="button" data-dismiss="modal" class="btn btn-default"><i class="fa fa-times"></i> Cancel</button></div></div></form></div></div>

@@ -36,103 +36,103 @@ div.desc {
 
         <br/>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img1.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img1.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img1.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img1.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/img8.JPG">
-    <img src="http://localhost/sites/default/files/img8.JPG" alt="KEC Web Team" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/img8.JPG">
+    <img src="http://keck.ac.in/sites/default/files/img8.JPG" alt="KEC Web Team" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img3.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img3.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img3.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img3.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/sportkec.jpeg">
-    <img src="http://localhost/sites/default/files/sportkec.jpeg" alt="SportKEC" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/sportkec.jpeg">
+    <img src="http://keck.ac.in/sites/default/files/sportkec.jpeg" alt="SportKEC" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img5.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img5.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img6.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img6.JPG" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img5.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img5.JPG" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img7.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img7.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/sportkec1.jpeg">
-    <img src="http://localhost/sites/default/files/sportkec1.jpeg" alt="SportKEC" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img6.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img6.JPG" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img9.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img9.JPG" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img7.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img7.JPG" width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/sportkec1.jpeg">
+    <img src="http://keck.ac.in/sites/default/files/sportkec1.jpeg" alt="SportKEC" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img10.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img10.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/DSC_0445.JPG">
-    <img src="http://localhost/sites/default/files/DSC_0445.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img9.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img9.JPG" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/DSC_0448.JPG">
-    <img src="http://localhost/sites/default/files/DSC_0448.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img10.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img10.JPG" width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/DSC_0445.JPG">
+    <img src="http://keck.ac.in/sites/default/files/DSC_0445.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/img13.JPG">
-    <img src="http://localhost/sites/default/files/img13.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/DSC_0448.JPG">
+    <img src="http://keck.ac.in/sites/default/files/DSC_0448.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/sites/default/files/img11.JPG">
-    <img src="http://localhost/sites/default/files/img11.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/img13.JPG">
+    <img src="http://keck.ac.in/sites/default/files/img13.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img12.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img12.JPG"  width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/sites/default/files/img11.JPG">
+    <img src="http://keck.ac.in/sites/default/files/img11.JPG"  width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img12.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img12.JPG"  width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>

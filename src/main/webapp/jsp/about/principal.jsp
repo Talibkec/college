@@ -21,13 +21,13 @@
 
                                                 <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                                <ul class="menu nav">
-                                              <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                              <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                              <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                              <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                              <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                              <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                              <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                              <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/administration" class="sf-depth-2">Administration</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/history" class="sf-depth-2">History</a></li>
 
                                                  </ul></div>
 
@@ -40,7 +40,7 @@
                         style="text-align: center;"><strong>Principal&#8217;s Message</strong></p>
                     <div style="font-family: Georgia, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
                         <div style="float: left;"><img class=" wp-image-81 alignleft"
-                                                       style="border-radius: 50%; background-image: url('http://localhost/about-kec/principal1.JPG'); background-position: center center; background-size: cover; width: 202px; height: 202px;"
+                                                       style="border-radius: 50%; background-image: url('http://keck.ac.in/about-kec/principal1.JPG'); background-position: center center; background-size: cover; width: 202px; height: 202px;"
                                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                                                        alt=""/></div>
                         <div style="padding: 25px; margin-left: 10px;" data-animation="bounceInUp"

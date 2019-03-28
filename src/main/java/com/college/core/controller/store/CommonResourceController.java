@@ -148,7 +148,7 @@ public class CommonResourceController {
             saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile);
         }
 
-        String notice = "http://localhost/wp-content/uploads/facultydocuments/" + fileName;
+        String notice = "http://keck.ac.in/wp-content/uploads/facultydocuments/" + fileName;
         notice = notice + "," + facultydocumentsHeader;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
 

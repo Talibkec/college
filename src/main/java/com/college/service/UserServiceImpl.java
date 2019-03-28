@@ -8,6 +8,7 @@ import com.college.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -24,11 +25,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save(User user) {
-        Role role = roleRepository.findOne(Long.parseLong(user.getRole()));
+
+        if(!StringUtils.isEmpty(user.getRole())){
+            Role role  = roleRepository.findOne(Long.parseLong(user.getRole()));
+            user.getRoles().add(role);
+        }
         if(user.getRoles() == null){
             user.setRoles(new HashSet<>());
         }
-        user.getRoles().add(role);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
     }

@@ -1,5 +1,7 @@
 package com.college.core.controller;
 
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,5 +30,25 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler
             logger.error("Something went wrong", ex);
         }
     }
+
+    @ExceptionHandler(IOException.class)
+    public final void handleIOException(Exception ex, WebRequest request) {
+        List<String> details = new ArrayList<>();
+        details.add(ex.getLocalizedMessage());
+        if(ex.getMessage() != null && ex.getMessage().contains("Broken pipe")){
+            logger.error("Broken Pipe exception has occured");
+        }
+        else {
+            logger.error("Looks like pipe broken exception");
+        }
+    }
+
+    @ExceptionHandler(SocketTimeoutException.class)
+    public final void SocketTimeException(Exception ex, WebRequest request) {
+        List<String> details = new ArrayList<>();
+        details.add(ex.getLocalizedMessage());
+        logger.error("SocketTimeOutException has Occured");
+    }
+
 
 }

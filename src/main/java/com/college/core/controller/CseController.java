@@ -54,6 +54,7 @@ public class CseController {
     @RequestMapping(value="faculty")
     public ModelAndView getFaculty(){
         ModelAndView mv=new ModelAndView();
+        mv.addObject("faculties", facultyHelper.getFacultyByDeptNo(1l));
         mv.setViewName("department/cse/faculty.jsp");
         return mv;
     }

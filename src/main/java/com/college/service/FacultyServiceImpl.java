@@ -10,6 +10,7 @@ import com.college.repository.PasswordResetTokenRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -86,6 +87,19 @@ public class FacultyServiceImpl implements FacultyService {
         return facultyDTO;
 
     }
+
+    @Override
+    public List<FacultyDTO> getFacultyByDeptNo(Long  deptno) {
+        List<FacultyDTO> facultyDTO = null;
+        List<Faculty> faculty = facultyRepository.getFacultyByDeptNo(deptno);
+        Type targetListType = new TypeToken<List<FacultyDTO>>() {}.getType();
+        if(faculty != null){
+            facultyDTO = modelMapper.map(faculty, targetListType);
+        }
+        return facultyDTO;
+
+    }
+
 
     @Override
     public FacultyDTO findUserByEmail(String userEmail) {

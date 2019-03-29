@@ -22,6 +22,8 @@ public interface FacultyService {
 
     List<FacultyDTO> getFacultyByName(String facultyName);
 
+    public List<FacultyDTO> getFacultyByDeptNo(Long  deptno);
+
     FacultyDTO findUserByEmail(String userEmail);
 
     void createPasswordResetTokenForUser(User user, String token);

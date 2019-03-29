@@ -24,6 +24,10 @@ public class FacultyHelper {
     @Autowired
     RequestService requestService;
 
+    public List<FacultyDTO> getFacultyByDeptNo(Long  deptno){
+        return facultyService.getFacultyByDeptNo(deptno);
+    }
+
     public  ModelAndView getFacultyDetails(String userName) {
         ModelAndView mv = new ModelAndView();
         String loggedInUser = ControllerUtility.getUserName();

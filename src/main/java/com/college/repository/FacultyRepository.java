@@ -28,4 +28,8 @@ public interface FacultyRepository extends JpaRepository<Faculty, Long> {
 
     @Query("select f from Faculty f where f.facultyOfficialEmail = :userEmail")
     Faculty findUserByEmail(@Param("userEmail") String userEmail);
+
+    @Query("select f from Faculty f where f.departmentId = :deptno)")
+    List<Faculty> getFacultyByDeptNo(@Param("deptno") Long deptno);
+
 }

@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:include page ="/jsp/eader.jsp"/>
+<jsp:include page ="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 
     </div>
@@ -28,8 +28,8 @@
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                                                 <c:if test = "${'Faculty' eq item and UserName eq 'vipin'}">
-                                                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
-                                                    <strong><a href= "http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
+                                                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                                    <strong><a href= "http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile Details</a></strong>
                                              </c:if>
                                       </c:forEach>
                 <ul class="nav nav-tabs" role="tablist">

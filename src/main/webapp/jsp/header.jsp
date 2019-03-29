@@ -251,9 +251,8 @@ Katihar Engineering College</title>
                                                                         <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
                                                                                 href="http://keck.ac.in/about/affiliation" class="sf-depth-2">Affiliation</a></li>
                                                                         <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/surrender" class="sf-depth-2">Allotment &amp; Surrender Report</a></li>
-                                                                        <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/contact" class="sf-depth-2">Contact Us</a></li>
+                                                                                href="http://keck.ac.in/about/allotment" class="sf-depth-2">Allotment &amp; Surrender Report</a></li>
+
 
                                                                     </ul>
                                                                 </li>

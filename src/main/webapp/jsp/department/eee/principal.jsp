@@ -40,7 +40,7 @@
            <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                                     <c:if test = "${'Faculty' eq item and UserName eq 'principal'}">
-                                        <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                        <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
                                         <strong><a href= "http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                  </c:if>
                           </c:forEach>
@@ -50,14 +50,17 @@
                     </li>
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
-
+                    <c:forEach var="item" items="${Role}">
+                                                        <c:if test = "${'Faculty' eq item and UserName eq 'principal'}">
                     <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                      class="fa fa-angle-double-right"></i> Request</a></li>
+                                                                     </c:if>
+                                                                     </c:forEach>
                 </ul>
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" src="../about-kec/principal1.JPG"
-                                                                                   style="background-image: url(../about-kec/principal1.JPG);"/>
-                        <h2>Ms Ranjana Kumari</h2>
+                    <div role="tabpanel" class="tab-pane active" id="profile"><img alt=""  id="profileImage"width= "250px" style="height: 200px"
+                     src="http://keck.ac.in/${facultyId}/image${fileExtension}"/>
+                        <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Principal<br/> Department of Electrical and Electronics
                             Engineering<br></p>
                         <p><i class="fa fa-phone"></i>${facultyMobNo} &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a

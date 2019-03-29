@@ -28,7 +28,7 @@
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                                                 <c:if test = "${'Faculty' eq item and UserName eq 'pramod'}">
-                                                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
                                                     <strong><a href= "http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                              </c:if>
                                       </c:forEach>
@@ -50,7 +50,7 @@
                      style="height: 200px;width:250px"src="http://keck.ac.in/${facultyId}/image${fileExtension}"/>
                         <h2>${facultyName}</h2>
                         <p style="font-size: 130%;">Assistant Professor <br/> Department of Applied Science & Humanities</p>
-                        <p><i class="fa fa-phone"></i> ${facultyMobNo &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
+                        <p><i class="fa fa-phone"></i> ${facultyMobNo} &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                                                                                                       href="mailto:{facultyOfficialEmail}">${facultyOfficialEmail} <span></span>
                                                                                                                       &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                                                                                                                                       href="mailto:{facultyPersonalEmail}">${facultyPersonalEmail} <span></span>

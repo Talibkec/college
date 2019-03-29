@@ -146,7 +146,7 @@ public class MechanicalController {
     }
     @RequestMapping(value="kks")
     public ModelAndView getKks(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("kanchan");
         mv.setViewName("department/mechanical/kks.jsp");
         return mv;
     }

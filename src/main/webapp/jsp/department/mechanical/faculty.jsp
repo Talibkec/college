@@ -97,7 +97,7 @@
                                             href="mailto:mukeshme24@gmail.com">mukeshme24@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="keck.ac.in/department/mechanical/mk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/mk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -176,7 +176,7 @@
                             </div>
                             <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Mechanical
                                 Engineering<br/> <strong>Designation:</strong> Assistant Professor <br/> <strong>Phone
-                                    Number:</strong>9835623827<br/> <strong>Email Address:</strong> <a
+                                    Number:</strong>${facultyMobNo}<br/> <strong>Email Address:kanchansinha1@gmail.com</strong> <a
                                         href="mailto:kanchansinha1@gmail.com">kanchansinha1@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>

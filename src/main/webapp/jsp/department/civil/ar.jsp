@@ -27,8 +27,8 @@
                                                     </aside>
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
-                                    <c:if test = "${'Faculty' eq item and UserName eq 'aamir'}">
-                                        <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                                    <c:if test = "${'Faculty' eq item and UserName eq 'amir'}">
+                                        <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
                                         <strong><a href= "http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                  </c:if>
                           </c:forEach>
@@ -39,7 +39,7 @@
                     <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab"><i
                             class="fa fa-download"></i> Downloads</a></li>
 <c:forEach var="item" items="${Role}">
-                                    <c:if test = "${'Faculty' eq item and UserName eq 'aamir'}">
+                                    <c:if test = "${'Faculty' eq item and UserName eq 'amir'}">
                      <li role="presentation"><a href="#order" aria-controls="order" role="tab" data-toggle="tab"><i
                                                                      class="fa fa-angle-double-right"></i> Request</a></li>
                              </c:if>

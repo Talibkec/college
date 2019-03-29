@@ -229,15 +229,16 @@
                                              </c:if>
                                             </c:forEach>
                                      		<a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+
                                      	</div>
+
                                      </c:forEach>
                                     </ul>
-
+<div class="more-link"><a href="http://keck.ac.in/category/notices">View all Notices</a></div>
                                     </div>
 
                                 </div>
-                            </div><div class="more-link">
-                                  <a href="http://keck.ac.in/category/notices">View all Notices</a></div>
+                            </div>
 
                         </section>
                     </div>

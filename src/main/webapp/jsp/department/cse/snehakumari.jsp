@@ -40,7 +40,7 @@
             <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                 <c:if test = "${'Faculty' eq item and UserName eq 'snehakumari'}">
-                              <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
+                              <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
                               <strong><a href= "http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
              </c:if>
              </c:forEach>

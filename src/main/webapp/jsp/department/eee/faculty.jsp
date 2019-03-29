@@ -49,7 +49,7 @@
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
-                                    Electrical & Electronics Engg<br/> <strong>Designation:</strong> Professor
+                                    Electrical & Electronics Engg<br/> <strong>Designation:</strong>Associate Professor
                                     <br/> <strong>Phone Number:</strong>9576977097<br/> <strong>Email Address:</strong>
                                     <a href="mailto:principalranjanakri84@gmail.com" class="__cf_email__"
                                     principalranjanakri84@gmail.com</a>

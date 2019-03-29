@@ -59,7 +59,7 @@
                                                                                     width= "250px" style="height: 200px"
                                                                     src="http://keck.ac.in/${facultyId}/image${fileExtension}"/>
                         <h2>${facultyName}</h2>
-                        <p style="font-size: 130%;">Assistant Professor and Head of the Department <br/> Department of Computer Science and
+                        <p style="font-size: 130%;">Assistant Professor <br/> Department of Computer Science and
                             Engineering
                         <p><i class="fa fa-phone">${facultyMobNo}</i> &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                 href="mailto:${facultyOfficialEmail}"> <spaan>${facultyOfficialEmail}</span>

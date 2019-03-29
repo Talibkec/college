@@ -1,4 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/jsp/header.jsp"/>
+
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
@@ -159,7 +162,8 @@
                                 </div>
                             </div>
                         </div>
-                        <jsp:include page="/jsp/footer.jsp"/>
+
                         <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
                         <script src="http://keck.ac.in/js/jquery-ui.js"></script>
                         <script src="http://keck.ac.in/js/facultyprofile.js"></script>
+   <jsp:include page="/jsp/footer.jsp"/>

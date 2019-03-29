@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
@@ -37,11 +38,36 @@
                                                </section>
                                                  </div>
                                                      </aside>
+            <div class="col-md-6">
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
+                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><h3>
+                        Introduction</h3>
+                        <p>Electrical engineering is a professional engineering discipline that generally
+                            deals with the study and application of electricity, electronics, and
+                            electromagnetism. Electrical engineering has now subdivided into a wide range of
+                            subfields including electronics, digital computers, computer engineering, power
+                            engineering, telecommunications, control systems, radiofrequency engineering,
+                            signal processing, instrumentation, and microelectronics. Many of these
+                            subdisciplines overlap with other engineering branches, spanning a huge number
+                            of specializations such as hardware engineering, power electronics,
+                            electromagnetics & waves, microwave engineering, nanotechnology,
+                            electrochemistry, renewable energies, mechatronics, electrical materials science,
+                            and much more. Electrical engineering branch is basically pillar of all branch. It
+                            gives energy to drive all engineering equipment .
+                            The Department of Electronics and Electrical Engineering of Katihar
+                            College of Engineering, Katihar is ready to prepare well qualified, motivated,
+                            application oriented young and dynamic EEE graduates under the guidance of
+                            highly qualified faculties who inspire students, ignite students’ imagination and
+                            enrich them with their priceless knowledge and experience</p></div>
+                </div>
+            </div>
 
-                                                     <div class="col-sm-9" style="display:block;">
-                                                                                                <div class="panel panel-default" style="float:right; height:273px; margin:10px 20px; width:400px" >
-                                                                                                       <div class="panel-heading">
-                                                                                                           <strong>
+
+        <div class="heroCol col-sm-3">
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                <strong>
+
                                                                                                                <i class="fa fa-news"></i> Latest News / Updates</strong>
                                                                                                            <c:forEach var="item" items="${Role}">
                                                                                                                <c:if test = "${'HOD' eq item  and UserName eq 'hodeee'}">
@@ -77,31 +103,10 @@
                                                                                                                </c:forEach>
                                                                                                            </ul>
                                                                                                            <a href="http://keck.ac.in/department/eee/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
-                                                                                                       </div>
-                                                                                                   </div>
-
-            <span style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify; line-height: 175%; font-size: 125%; font-weight: 300;"><h3>
-                        Introduction</h3>
-                        <p>Electrical engineering is a professional engineering discipline that generally
-                            deals with the study and application of electricity, electronics, and
-                            electromagnetism. Electrical engineering has now subdivided into a wide range of
-                            subfields including electronics, digital computers, computer engineering, power
-                            engineering, telecommunications, control systems, radiofrequency engineering,
-                            signal processing, instrumentation, and microelectronics. Many of these
-                            subdisciplines overlap with other engineering branches, spanning a huge number
-                            of specializations such as hardware engineering, power electronics,
-                            electromagnetics & waves, microwave engineering, nanotechnology,
-                            electrochemistry, renewable energies, mechatronics, electrical materials science,
-                            and much more. Electrical engineering branch is basically pillar of all branch. It
-                            gives energy to drive all engineering equipment .
-                            The Department of Electronics and Electrical Engineering of Katihar
-                            College of Engineering, Katihar is ready to prepare well qualified, motivated,
-                            application oriented young and dynamic EEE graduates under the guidance of
-                            highly qualified faculties who inspire students, ignite students’ imagination and
-                            enrich them with their priceless knowledge and experience</p>
-
-
-
+                                </div>
+                                </div>
+                                </div>
+                                </div>
                             </div>
    </div>
 

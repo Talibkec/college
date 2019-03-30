@@ -105,7 +105,7 @@
                             </table>
                         </div>
 						<div class="panel panel-default facultyInfo">
-                            <div class="panel-heading"><Strong>Subjects Teached</Strong></div>
+                            <div class="panel-heading"><Strong>Subjects Taught</Strong></div>
                             <table class="table table-striped">
                                 <tbody>
                                 <tr>

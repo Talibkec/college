@@ -85,7 +85,7 @@
                               		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                              <c:forEach var="item" items="${Role}">
                                                <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
-                                                 <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                                                 <span class="label label-danger"><a href="<c:url value='/hod/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
                                              </c:if>
                                              </c:forEach>
                                               <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>

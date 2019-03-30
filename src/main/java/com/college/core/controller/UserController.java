@@ -140,7 +140,7 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "/auth/{fileName}/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/hod/{fileName}/{id}", method = RequestMethod.GET)
     public void deleteItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         noticeBoardService.deleteItem(id);

@@ -72,7 +72,7 @@
                                                                                                            <c:forEach var="item" items="${Role}">
                                                                                                                <c:if test = "${'HOD' eq item  and UserName eq 'hodeee'}">
 
-                                                                                                               <strong><i class="fa fa-news"></i> <a href="/hod/uploadfile/upload">Upload Notice / News</a></strong>
+                                                                                                               <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
 
                                                                                                            </c:if>
                                                                                                            </c:forEach></div>

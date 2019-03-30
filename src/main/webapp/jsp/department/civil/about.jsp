@@ -97,8 +97,8 @@
                                                                                                                                                                                                                             <c:if test = "${Role == 'HOD'}">
 <c:forEach var="item" items="${Role}">
                                                                                                                            <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
-                                                                                                                  <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-                                                                                                                  <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
+                                                                                                                  <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
+
                                                                                                               </c:if>
                                                                                                               </c:forEach></div>
                                                                                                           <div class="panel-body" style="max-height: 500px;">

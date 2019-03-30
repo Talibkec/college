@@ -124,13 +124,13 @@ public class CivilController {
     }
     @RequestMapping(value="ar")
     public ModelAndView getAr(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("amir");
         mv.setViewName("department/civil/ar.jsp");
         return mv;
     }
     @RequestMapping(value="abhi")
     public ModelAndView getbhi(){
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = facultyHelper.getFacultyDetails("abhishek");
         mv.setViewName("department/civil/abhi.jsp");
         return mv;
     }

@@ -1,5 +1,3 @@
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
@@ -55,8 +53,8 @@
             <i class="fa fa-news"></i> Latest News / Updates</strong>
                                                                                           <c:forEach var="item" items="${Role}">
                                                                                                                            <c:if test = "${'HOD' eq item and UserName eq 'hodmech'}">
-                                                                                              <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-                                                                                              <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
+                                                                                              <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
+
                                                                                           </c:if>
                                                                                           </c:forEach>
                                                                                           </div>

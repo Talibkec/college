@@ -94,8 +94,7 @@
                          <div class="panel-heading">
                          <strong>
                           <i class="fa fa-news"></i> Latest News / Updates</strong>
-                                                                                                                                                                                                                            <c:if test = "${Role == 'HOD'}">
-<c:forEach var="item" items="${Role}">
+                                                                                                    <c:forEach var="item" items="${Role}">
                                                                                                                            <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
                                                                                                                   <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
                                                                                                                   <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>

@@ -1,4 +1,6 @@
 <jsp:include page ="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
  <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 
     </div>

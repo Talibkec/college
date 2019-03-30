@@ -148,7 +148,7 @@
                                                             <i class=""></i> ${facultyDocument.date} </span>&nbsp;
                     <c:forEach var="item" items="${Role}">
                                                                                          <c:if test = "${'Faculty' eq item and UserName eq 'talktorashid' }">
-                                                                                         <span class="label label-danger"><a href="http://keck.ac.in/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                                                                         <span class="label label-danger"><a href="http://keck.ac.in/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                                                                                          </c:if>
                                                                                          </c:forEach>
 

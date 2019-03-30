@@ -47,7 +47,7 @@ Ph.: 06452-239122</span></p>
 
 <script src="http://keck.ac.in/sites/all/themes/bootstrap/js/bootstrap.js"></script>
 <script src="http://keck.ac.in/sites/all/themes/bootstrap/js/powr.js"></script>
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="http://keck.ac.in/js/protectcode.js"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="http://keck.ac.in/js/protectcode.s"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
             $('#homePageSlider').on('slid.bs.carousel', function ( event ) {
                 var slide = event.relatedTarget;
                 var slideInfoAnimation = $(slide).find('.slideInfo').attr('data-animation');

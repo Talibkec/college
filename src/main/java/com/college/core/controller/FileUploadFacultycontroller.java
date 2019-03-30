@@ -58,7 +58,7 @@ public class FileUploadFacultycontroller {
     }
 
 
-    @RequestMapping(value = "auth/deleteFacultyDoc/{id}")
+    @RequestMapping(value = "/common/deleteFacultyDoc/{id}")
     public  void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
 
         facultyDocumentsService.deleteFacultyDoc(id);

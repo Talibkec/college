@@ -106,9 +106,11 @@
                                                             <span class="label" style="border:  solid 1px #ccc; color: #000;">
                                                             <c:set var = "clazz"  value = "label label-warning"/>
                                                             <i class=""></i> ${facultyDocument.date} </span>&nbsp;
-                                                            <c:if test = "${Role == 'Faculty'}">
-                                                    				<span class="label label-danger"><a href="http://keck.ac.in/auth/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
-                                                            </c:if>
+                                                            <c:forEach var="item" items="${Role}">
+                                                                                                                                                                                                                                                                             <c:if test = "${'Faculty' eq item and UserName eq 'snehakumari' }">
+                                                                                                                                                                                                                                                                             <span class="label label-danger"><a href="http://keck.ac.in/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                                                                                                                                                                                                                                                             </c:if>
+                                                                                                                                                                                                                                                                             </c:forEach>
                                                             <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
                                                         </div>
                                                     </c:forEach>

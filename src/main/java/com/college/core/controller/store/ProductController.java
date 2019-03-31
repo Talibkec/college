@@ -267,7 +267,7 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://keck.ac.in/store/smdashboard");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
 
     @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
@@ -278,7 +278,7 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://keck.ac.in/store/smdashboard");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
 
     @RequestMapping(value = "smincharge")
@@ -298,7 +298,7 @@ public class ProductController {
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
         userRoleDTO.setRoleId(role.getId());
         userService.saveUserRole(userRoleDTO);
-        mv.setViewName("/store/editrequest.jsp");
+        mv.setViewName("/index.jsp");
     }
 
     @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)

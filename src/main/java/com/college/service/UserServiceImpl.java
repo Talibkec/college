@@ -28,10 +28,10 @@ public class UserServiceImpl implements UserService {
 
         if(!StringUtils.isEmpty(user.getRole())){
             Role role  = roleRepository.findOne(Long.parseLong(user.getRole()));
+            if(user.getRoles() == null){
+                user.setRoles(new HashSet<>());
+            }
             user.getRoles().add(role);
-        }
-        if(user.getRoles() == null){
-            user.setRoles(new HashSet<>());
         }
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);

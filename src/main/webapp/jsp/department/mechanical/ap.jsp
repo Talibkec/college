@@ -142,6 +142,9 @@
                                     <tr>
                                         <td>Institute National Board of Accreditation(NBA) Coordinator </td>
                                     </tr>
+                                     <tr>
+                                       <td>Coordinator Student Extracurricular Activities  Board (SEAB) </td>
+                                     </tr>
                                     </tbody>
                                 </table>
                             </div></div>

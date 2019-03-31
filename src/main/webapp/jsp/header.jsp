@@ -243,7 +243,7 @@ Katihar Engineering College</title>
                                                                         <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                                                                                 href="http://keck.ac.in/about/history" class="sf-depth-2">History</a></li>
                                                                         <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/administration" class="sf-depth-2">Administartion</a></li>
+                                                                                href="http://keck.ac.in/about/administration" class="sf-depth-2">Administration</a></li>
                                                                         <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                                                                                 href="http://keck.ac.in/about/principal" class="sf-depth-2">Principal's Message</a></li>
                                                                         <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
@@ -294,7 +294,7 @@ Katihar Engineering College</title>
                                                                 <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
                                                                         href="http://keck.ac.in/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a></li>
                                                                 <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/cse/about" class="sf-depth-2">Computer Sc. & Engieering</a></li>
+                                                                        href="http://keck.ac.in/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
                                                                 <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
                                                                         href="http://keck.ac.in/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics Engg.</a></li>
                                                                 <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a

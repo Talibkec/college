@@ -11,7 +11,7 @@
                                               <div class="region region-sidebar-second">
                                     <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
-                                            <h2 class="block-title">In the Department of Ciivil Engg.</h2>
+                                            <h2 class="block-title">In the Department of Civil Engg.</h2>
 
                                       <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                      <ul class="menu nav">

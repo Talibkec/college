@@ -408,7 +408,7 @@
                                     width="170"><p class="MsoNormal" style="margin-right: -6.4pt;">Asst Prof.(EEE)
                                 </p></td>
                                 <td style="width: 93.15pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="124"><p class="MsoNormal">Purchase prof.</p></td>
+                                    width="124"><p class="MsoNormal">Purchase Officer</p></td>
                                 <td style="width: 70.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="95"><p class="MsoNormal">8130952264</p></td>
                             </tr>

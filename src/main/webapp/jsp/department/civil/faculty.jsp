@@ -46,7 +46,7 @@
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Civil
-                                    Engineering<br/> <strong>Designation:</strong> Assistant Professor<br/> <strong>Phone Number:</strong>9643135684<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:9769656160<br/> <strong>Email
+                                    Engineering<br/> <strong>Designation:</strong> Assistant Professor<br/> <strong>Phone Number:</strong>9769656160<br/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<br/> <strong>Email
                                         Address:</strong> <a href="mailto:rashidmustafa91@gmail.com" class="__cf_email__">rashidmustafa91@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>

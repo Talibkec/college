@@ -28,7 +28,7 @@
                                    </aside>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;margin-left: 40%;">
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <table border="1">
                         <tbody>
                         <tr>

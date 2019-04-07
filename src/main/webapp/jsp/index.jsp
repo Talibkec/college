@@ -18,22 +18,22 @@
 
          <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
 
+         
+                             <li style= "display: inline;">
+                             <i class="fa fa-asterisk"></i>
+                             <c:if test = "${scrollingNotice.noticeAge <= 45}">
+                          	    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                             </c:if>
+                             <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                             <c:forEach var="item" items="${Role}">
+                                 <c:if test = "${'Admin' eq item}">
+                                          <span class="label label-danger"><a style="display: inline" href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
+                                 </c:if>
+                              </c:forEach>
 
-                    <li style= "display: inline;float: left">
-                    <i class="fa fa-asterisk"></i>
-                    <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                 	    <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt=""Related image" width="44" height="40" />
-                    </c:if>
-                    <a href="http://keck.ac.in/${scrollingNotice.id}/notice${scrollingNotice.fileType}" target="_blank">${scrollingNotice.headLine}</a>
-                    <c:forEach var="item" items="${Role}">
-                        <c:if test = "${'Admin' eq item}">
-                                 <span class="label label-danger"><a href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
-                        </c:if>
-                     </c:forEach>
+                             </li>
 
-                    </li>
-
-        </c:forEach>
+                 </c:forEach>
    </ul>
 </marquee>
 

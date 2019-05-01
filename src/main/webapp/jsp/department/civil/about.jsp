@@ -81,13 +81,68 @@
                            </div>
                                </aside>
 
-                         <div class="col-md-6">
+                         <div class="col-md-9">
                              <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                                 <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
-                                     <div id="ctl00_ContentPlaceHolder1_div_1"><p><strong>INTRODUCTION</strong></p><p>Katihar Engineering College,katihar was established in 2016 and the Civil Engineering Department is part of the institute since its inception. The Department has grown tremendously over the years and is now recognized as one of the major engineering departments in the state of Bihar. Department of civil Engineering offers Bachelors in Technology, have an annual intake 60. The Department of Civil Engineering with its multifaceted faculty from different field like Geotechnical, Environmental and structural engineering maintains high quality teaching and instruction at UG level.</span><br/>
+
+                             <div>
+
+                            <!-- ********************* New content ********************** -->
+                                                                                                                                               <div class="heroCol col-sm-5 wrapping-text-div">
+                                                                                                                                                                        <div class="panel panel-default">
+                                                                                                                                                                        <div class="panel-heading">
+                                                                                                                                                                        <strong>
+                                                                                                                                                                         <i class="fa fa-news"></i> Latest News / Updates</strong>
+                                                                                                                                                                                                                                                   <c:forEach var="item" items="${Role}">
+                                                                                                                                                                                                                                                                          <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
+                                                                                                                                                                                                                                                                 <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
+
+                                                                                                                                                                                                                                                             </c:if>
+                                                                                                                                                                                                                                                             </c:forEach></div>
+                                                                                                                                                                                                                                                         <div class="panel-body" style="max-height: 500px;font-family: georgia, sans-serif;font-size: 14px;text-align: justify;line-height: 1.3;">
+                                                                                                                                                                                                                                                             <ul class="listUpdates" id="noticeBoardItems">
+
+                                                                                                                                                                                                                                                                 <li style="display: block;">
+                                                                                                                                                                                                                                                                     <div>
+
+
+                                                                                                                                                                                                                                                                     </div>
+                                                                                                                                                                                                                                                                 </li>
+
+                                                                                                                                                                                                                                                                 <c:forEach items="${noticeList}" var="notice">
+                                                                                                                                                                                                                                                                     <li>
+                                                                                                                                                                                                                                                                         <div>
+                                                                                                                                                                                                                                                              		<span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                                                                                                                                                                                                                                              		<c:set var = "clazz"  value = "label label-warning"/>
+
+                                                                                                                                                                                                                                                              		 <c:if test = "${ notice.noticeType == 'News'}">
+                                                                                                                                                                                                                                                                               <c:set var = "clazz"  value = "label label-primary"/>
+                                                                                                                                                                                                                                                                       </c:if>
+                                                                                                                                                                                                                                                              		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                                                                                                                                                                                                                                                            <c:forEach var="item" items="${Role}">
+                                                                                                                                                                                                                                                                               <c:if test = "${'HOD' eq item}">
+                                                                                                                                                                                                                                                                                 <span class="label label-danger"><a href="<c:url value='/hod/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                                                                                                                                                                                                                                                                             </c:if>
+                                                                                                                                                                                                                                                                             </c:forEach>
+                                                                                                                                                                                                                                                                            <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                                                                                                                                                                                                                                         </div>
+                                                                                                                                                                                                                                                                     </li>
+                                                                                                                                                                                                                                                                 </c:forEach>
+                                                                                                                                                                                                                                                             </ul>
+                                                                                                                                                                                                                                                             <a href="http://keck.ac.in/department/civil/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>
+                                                                                                                                               <!-- ********************* New content ********************** -->
+                                <div id="ctl00_ContentPlaceHolder1_div_1 " style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;" ><p><strong>INTRODUCTION</strong></p><p>Katihar Engineering College,katihar was established in 2016 and the Civil Engineering Department is part of the institute since its inception. The Department has grown tremendously over the years and is now recognized as one of the major engineering departments in the state of Bihar. Department of civil Engineering offers Bachelors in Technology, have an annual intake 60. The Department of Civil Engineering with its multifaceted faculty from different field like Geotechnical, Environmental and structural engineering maintains high quality teaching and instruction at UG level.</span><br/>
                                                                                                                    Currently it comprises of various sub divisions like <br/>(1)Building Technology and Construction Management (BTCM)<br/> (2) Environmental and water resources engineering (EWRE)<br/>(3) Geotechnical engineering (GT)<br/>(4) Structural engineering (ST)<br/> (5) Transportation engineering (TR) .
-                             </p></div></div>
+                                        </p>
+                                </div>
+                             </div>
+
                          </div>
+
                          </div>
                          <div class="heroCol col-sm-3">
                          <div class="panel panel-default">

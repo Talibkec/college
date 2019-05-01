@@ -23,6 +23,11 @@ Ph.: 06452-239122</span></p>
             </section>
              <section id="block-block-4" class="block block-block clearfix">
 
+                            <div class="googlemap"><a href= "https://www.google.co.in/maps/place/KATIHAR+ENGINEERING+COLLEGE+(NEW+CAMPUS)/@25.5687892,87.5372664,17z/data=!3m1!4b1!4m5!3m4!1s0x39f0015cd2753a37:0x599f1653bdd10604!8m2!3d25.5687844!4d87.5394551?hl=en" target="_blank">
+                                <i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                <span></span>
+
+                            </div>
                             <h2 class="block-title">Visitor Counter</h2>
 
                             <p>Since January, 2019</p>

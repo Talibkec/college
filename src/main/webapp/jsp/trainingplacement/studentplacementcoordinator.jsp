@@ -28,7 +28,7 @@
                                    </aside>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;margin-left: 40%;">
                     <table border="1">
                         <tbody>
                         <tr>
@@ -42,7 +42,7 @@
                                                     <td width="42"><span style="color: #000000;">1</span></td>
                                                     <td width="168"><span style="color: #000000;">Abhishek Asit</span></td>
                                                     <td width="102"><span style="color: #000000;">ME</span></td>
-                                                    <td width="245"><span style="color: #000000;">abhishekmechtpocoord16@gmail.com</span></td>
+                                                    <td width="245"><span style="color: #000000;"></span></td>
                                                     <td width="245"><span style="color: #000000;">9631178799</span></td>
                                                 </tr>
                           <tr>
@@ -56,8 +56,8 @@
                                                       <td width="42"><span style="color: #000000;">3</span></td>
                                                       <td width="168"><span style="color: #000000;">Mustaqueem Diwan</span></td>
                                                       <td width="102"><span style="color: #000000;">CE</span></td>
-                                                      <td width="245"><span style="color: #000000;">123mdiwan@gmail.com</span></td>
-                                                      <td width="245"><span style="color: #000000;">7979762239</span></td>
+                                                      <td width="245"><span style="color: #000000;"></span></td>
+                                                      <td width="245"><span style="color: #000000;"></span></td>
                           </tr>
 
                         </tbody>

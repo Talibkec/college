@@ -144,9 +144,41 @@ color:#00aae7;
 
 .gt-newsblocksection h2{ margin-top:0; text-align:center; text-transform:uppercase; font-size:24px; line-height:40px; padding:5px 0 60px 0; background: url(../images/home-c-bg-title.png) no-repeat top center; color:#FFF; font-weight:normal;}
 
-.gt-newsblocksection .region-home-2 ul, .gt-newsblocksection  .region-home-4 ul, .rwsvtickercontent{margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;}
-.gt-newsblocksection .region-home-2 ul:before, .gt-newsblocksection .region-home-5 ul:before, .gt-newsblocksection .region-home-4 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg1.png) no-repeat top center; }
-.gt-newsblocksection .region-home-5 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg.png) no-repeat top center; }
+
+.gt-newsblocksection .region-home-2 ul,
+.gt-newsblocksection  .region-home-4 ul,
+.rwsvtickercontent{
+    margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;
+ }
+.gt-newsblocksection .region-home-2 ul:before,
+.gt-newsblocksection .region-home-5 ul:before,
+.gt-newsblocksection .region-home-4 ul:before, rwsvtickercontent:before{
+    width:100%; height:50px; position:absolute; content:""; top:-47px; left:0;
+ }
+ /* new changes*/
+ .gt-newsblocksection .region-home-2 ul:before,
+ .gt-newsblocksection .region-home-3 ul:before,
+ .gt-newsblocksection .region-home-4 ul:before
+ {
+     width: 100%;
+     height: 50px;
+     position: absolute;
+     content: "";
+     top: -25px;
+     left: 0;
+     background: url(../images/ul-top-bg.png) no-repeat top center;
+ }
+
+ .rwsvtickercontent:before {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      content: "";
+      top: -40px;
+      left: 0;
+      background: url(../images/ul-top-bg.png) no-repeat top center;
+  }
+/*.gt-newsblocksection .region-home-5 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg.png) no-repeat top center; }*/
 
 
 .rwsvtickercontent ul{padding:0 !important;}
@@ -176,7 +208,33 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 .region-home-event .more-link a { color: #333; padding: 6px 20px; float: left; background: none; border:1px solid #333; display:inline-block; float:right; font-size:14px; }
 .region-home-event .more-link a:hover{ background:#00aae7; border-color:#00aae7; color:#FFF;  }
 
-.more-link a{ color: #333; padding: 6px 20px; float: left; background: none; border:1px solid #333; display:inline-block; float:right; font-size:14px; }
+/**
+ *start KEC code changes
+*/
+.field.field-name-body.field-type-text-with-summary.field-label-hidden p{
+    text-align: justify;
+}
+.more-link a{
+        color: #333;
+        padding: 6px 20px;
+        background: none;
+        border:1px solid #333;
+        display:inline-block;
+        font-size:14px;
+        position: absolute;
+        margin-left: 30%;
+   }
+.rwsvtickercontent .more-link div{
+    position: relative;
+}
+
+.wrapping-text-div{
+    float: right;
+    overflow-y: scroll;
+}
+/**
+*End of KEC code change
+*/
 .more-link a:hover{ background:#00aae7; border-color:#00aae7; color:#FFF; text-decoration:none;  }
 
 .gt-newsblocksection  .morelink a{ font-size:16px; display:inline-block; line-height:22px; padding-right:16px; background: url(../images/icon-arrow-right-more.gif) no-repeat right 6px; margin-left:35px; color:#333333;  }
@@ -191,7 +249,21 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 .region-footer #block-block-3{width:26%; float:left; padding-right:20px; box-sizing:border-box; padding-top:32px;}
 .region-footer #block-menu-menu-footer{width:18%; float:left; padding-right:20px; box-sizing:border-box;}
 .region-footer #block-menu-menu-footer .nav > li > a{ padding:0 0 0 0 !important; line-height:32px; }
-.region-footer #block-block-4{width:24%; float:left; padding-right:50px; box-sizing:border-box; padding-top:59px;}
+
+.region-footer #block-block-4{width:24%; float:left; padding-right:50px; box-sizing:border-box; }
+
+/*KEC modification*/
+.region-footer #block-block-4 .googlemap{
+    text-align: left !important;
+}
+.region-footer #block-block-4 .googlemap span{
+    display: block;
+}
+.googlemap .fa.fa-google-plus{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
 .region-footer #block-block-2{width:32%; float:left; box-sizing:border-box; font-size:14px; line-height:1.4;}
 .footer h2{margin-top:0; font-weight:bold; font-size:16px; color:#263546;}
 
@@ -422,7 +494,30 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 
 @media (min-width:768px) and (max-width:999px){
 	.navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > nolink{font-size:13px; padding:15px 5px;}
-	.gt-newsblocksection ul:before{top:-29px !important;}
+	.gt-newsblocksection ul:before{top:-15px !important;}
+
+	/*KEC custom modification*/
+	 .rwsvtickercontent:before {
+	    top: -25px;
+	 }
+
+	.gt-newsblocksection h2 {
+	    font-size: 18px; !important;
+	}
+
+	.right-image-holder {
+        transform: translate(-25px, -50%) !important;
+    }
+
+    .gt-newsblocksection .region-home-2 ul li, .gt-newsblocksection .region-home-4 ul li{
+        margin-top: 7px !important;
+    }
+
+    .region-footer #block-block-4 .googlemap{
+        text-align: center !important;
+    }
+    #navbar-collapse{margin-bottom:10px !important;}
+
 }
 
 @media (max-width:767px){
@@ -457,4 +552,109 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 	.jcarousel-skin-default .jcarousel-container-horizontal{width:100% !important;}
 	.jcarousel-skin-default .jcarousel-clip-horizontal{width:100% !important;}
 
+	/*KEC custom modification*/
+	.scrollingnews{
+	    margin-top: 3%;
+	    padding-top: 3%;
+	}
+	.region-footer #block-block-4 .googlemap{
+        text-align: center !important;
+    }
+
+    .right-image-holder {
+          transform: translate(-45px, -50%) !important;
+    }
+     #navbar-collapse{margin-bottom:5px;}
+
+     .wrapping-text-div{
+         width: 100%;
+         padding: 0;
+         margin-top: 10px;
+          margin-bottom: 15px;
+          overflow-y: scroll;
+     }
+
 }
+
+/**
+*Content of KEC css
+*/
+.imageSlider{
+    height: 70vh;
+    position:relative;
+    width: 600vw;
+}
+
+.imageSlide{
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100%;
+    float:left;
+    display:inline-block;
+}
+
+.slide1{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/home-min.png);
+}
+
+.slide2{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/home2-min.png);
+}
+
+.slide3{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/img2-min.JPG);
+}
+.slide4{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/img15-min.jpg);
+}
+.slide5{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/img7-min.png);
+}
+.slide6{
+    background-image : url(http://keck.ac.in/sites/default/files/compressed/img1-min.jpg);
+}
+
+.slider-content {
+    width: 100%;
+    background: rgba(0,0,0,.3);
+    height: auto;
+    position: absolute;
+    bottom: 0%;
+
+}
+
+.slider-content span{
+    color: #fff;
+    display:inline-block;
+}
+
+.left-image-holder {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background: #fff;
+    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
+    background-repeat: no-repeat;
+    top: 50%;
+    background-position: center;
+    border-radius: 50%;
+    left: 2vw;
+    transform: translateY(-50%)
+}
+
+.right-image-holder {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    background: #fff;
+    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 91vw;
+    background-position: center;
+    border-radius: 50%;
+    transform: translateY(-50%)
+}
+
+

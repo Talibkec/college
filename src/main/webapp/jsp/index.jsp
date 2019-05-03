@@ -83,7 +83,7 @@
 
                             <h2 class="block-title">Important Links</h2>
 
-                            <ul>
+                            <ul class="borderneeded">
                                 <li><span style="font-family:arial,helvetica,sans-serif"><a href="http://socialwelfare.bih.nic.in/"
                                                                                             target="_blank">Social Welfare Dept. Bhar</a></span>
                                 </li>
@@ -163,7 +163,7 @@
 
                                             <div class="view-content">
                                                 <div class="item-list">
-                                                    <ul>
+                                                    <ul class="borderneeded">
                                                         <li class="views-row views-row-1 views-row-odd views-row-first">
                                                             <div class="views-field views-field-title"><span class="field-content"><a
                                                                     href="/tender-procurement-installation-pinball-disc-tribometer-system">No tenders.</a></span>

@@ -57,6 +57,10 @@ jQuery(document).ready(function($){
 		var rarrowvw = 92;
 		var callIntervalId = 0;
 		var slidingImages = $('.imageSlide');
+		var ar = 550 /2000;
+		var height =  $(window).width() *ar;
+		$('.imageSlider').css('height', height + 'px');
+
 
 		//rest the images
 
@@ -79,6 +83,10 @@ jQuery(document).ready(function($){
 		       vw = 0;
                larrowvw = 2;
                rarrowvw = 92;
+               $(".imageSlider").animate({"right": vw + 'vw'}, 10);
+               $('.right-image-holder').css("left", rarrowvw + 'vw');
+               $('.left-image-holder').css("left", larrowvw + 'vw');
+               return;
 		    }
 		    else{
 		        larrowvw = larrowvw + 100;
@@ -101,6 +109,10 @@ jQuery(document).ready(function($){
                 vw = 600 - 100;
                 larrowvw = larrowvw + vw;
                 rarrowvw = rarrowvw + vw;
+                 $(".imageSlider").animate({"right": vw + 'vw'}, 10);
+                 $('.left-image-holder').css("left", larrowvw + 'vw');
+                 $('.right-image-holder').css("left", rarrowvw + 'vw');
+                 return;
              }
              else{
                 larrowvw = larrowvw - 100;

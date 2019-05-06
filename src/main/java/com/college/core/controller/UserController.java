@@ -148,6 +148,14 @@ public class UserController {
         res.sendRedirect("/");
     }
 
+    @RequestMapping(value = "/auth/{fileName}/{id}", method = RequestMethod.GET)
+    public void deleteNoticeItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        noticeBoardService.deleteItem(id);
+        deleteFileDromDisk(fileName);
+        res.sendRedirect("/");
+    }
+
     private void deleteFileDromDisk(String fileName) {
         File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
         file.delete();

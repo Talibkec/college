@@ -83,7 +83,7 @@ jQuery(document).ready(function($){
 		       vw = 0;
                larrowvw = 2;
                rarrowvw = 92;
-               $(".imageSlider").animate({"right": vw + 'vw'}, 10);
+               $(".imageSlider").animate({"right": vw + 'vw'}, 150);
                $('.right-image-holder').css("left", rarrowvw + 'vw');
                $('.left-image-holder').css("left", larrowvw + 'vw');
                return;
@@ -109,7 +109,7 @@ jQuery(document).ready(function($){
                 vw = 600 - 100;
                 larrowvw = larrowvw + vw;
                 rarrowvw = rarrowvw + vw;
-                 $(".imageSlider").animate({"right": vw + 'vw'}, 10);
+                 $(".imageSlider").animate({"right": vw + 'vw'}, 150);
                  $('.left-image-holder').css("left", larrowvw + 'vw');
                  $('.right-image-holder').css("left", rarrowvw + 'vw');
                  return;

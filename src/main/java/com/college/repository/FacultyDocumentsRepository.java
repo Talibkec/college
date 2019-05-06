@@ -12,6 +12,6 @@ import java.util.List;
 public interface FacultyDocumentsRepository extends JpaRepository <FacultyDocuments, Long> {
 
 
-    @Query("select fd from FacultyDocuments fd where fd.uploadedBy = :userName")
+    @Query("select fd from FacultyDocuments fd where fd.uploadedBy = :userName order by fd.date desc")
     List<FacultyDocuments> getFacultyDocuments(@Param("userName") String userName);
 }

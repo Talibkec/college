@@ -23,37 +23,7 @@
              <li class="active">About Civil Engg.</li>
          </ul>
          <div class="row">
-            <!-- <div class="col-md-4">
-                 <ul class="list-group page-menu">
-                     <li class="list-group-item" style="background: #eee; font-size: 20px;">Department of Civil
-                         Engineering
-                     </li>
-                     <li class="list-group-item active"><a href="http://keck.ac.in/department/civil/about">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> About Civil Engg.</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/vision">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Vision and Mission</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/faculty">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Faculty of Civil Engg.</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/students">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Student of Civil Engg.</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/notice">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i>Notice</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/labs">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Labs & Infrastructure</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/question">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Question Bank</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/awards">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Awards and Recognition</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/programs">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Program/Activities</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/weekly">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Weekly Test Result</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/course">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Course File</a></li>
-                     <li class="list-group-item"><a href="http://keck.ac.in/department/civil/attendance">&nbsp;&nbsp; <i
-                             class="fa fa-angle-double-right"></i> Attendance</a></li>
-                 </ul>
-             </div>-->
+
              <aside class="col-sm-3" role="complementary">
                                    <div class="region region-sidebar-second">
                          <section id="block-menu-block-3" class="block block-menu-block clearfix">
@@ -144,53 +114,7 @@
                          </div>
 
                          </div>
-                         <div class="heroCol col-sm-3">
-                         <div class="panel panel-default">
-                         <div class="panel-heading">
-                         <strong>
-                          <i class="fa fa-news"></i> Latest News / Updates</strong>
-                                                                                                    <c:forEach var="item" items="${Role}">
-                                                                                                                           <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
-                                                                                                                  <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
 
-                                                                                                              </c:if>
-                                                                                                              </c:forEach></div>
-                                                                                                          <div class="panel-body" style="max-height: 500px;">
-                                                                                                              <ul class="listUpdates" id="noticeBoardItems">
-
-                                                                                                                  <li style="display: block;">
-                                                                                                                      <div>
-
-
-                                                                                                                      </div>
-                                                                                                                  </li>
-
-                                                                                                                  <c:forEach items="${noticeList}" var="notice">
-                                                                                                                      <li>
-                                                                                                                          <div>
-                                                                                                               		<span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                                                                                               		<c:set var = "clazz"  value = "label label-warning"/>
-
-                                                                                                               		 <c:if test = "${ notice.noticeType == 'News'}">
-                                                                                                                                <c:set var = "clazz"  value = "label label-primary"/>
-                                                                                                                        </c:if>
-                                                                                                               		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                                                                                                             <c:forEach var="item" items="${Role}">
-                                                                                                                                <c:if test = "${'HOD' eq item}">
-                                                                                                                                  <span class="label label-danger"><a href="<c:url value='/hod/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
-                                                                                                                              </c:if>
-                                                                                                                              </c:forEach>
-                                                                                                                             <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
-                                                                                                                          </div>
-                                                                                                                      </li>
-                                                                                                                  </c:forEach>
-                                                                                                              </ul>
-                                                                                                              <a href="http://keck.ac.in/department/civil/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
-                         </div>
-                         </div>
-                         </div>
-                         </div>
-                     </div>
                  </div>
              <jsp:include page="/jsp/footer.jsp"/>
 

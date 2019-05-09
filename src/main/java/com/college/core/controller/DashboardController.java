@@ -7,15 +7,16 @@ import com.google.gson.GsonBuilder;
 
 import org.apache.catalina.connector.ClientAbortException;
 import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -106,6 +107,17 @@ public class DashboardController {
 	@RequestMapping(value = "/exception", method = RequestMethod.GET)
 	public void testException() throws ClientAbortException{
 		throw new ClientAbortException("Broken pipe has occured");
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/homePageImage/{imageName}/{imageType}", method = RequestMethod.GET)
+	@Cacheable(cacheNames = "homepageimage" , key = "#name")
+	public byte[] image(@PathVariable("imageName") String name, @PathVariable("imageType") String type, HttpServletRequest request) throws IOException {
+
+        logger.info("Image is being served from disk");
+		String imagePath = "/sites/default/files/compressed/" + name + "." + type;
+        InputStream is = request.getSession().getServletContext().getResourceAsStream(imagePath);
+		return IOUtils.toByteArray(is);
 	}
 
 }

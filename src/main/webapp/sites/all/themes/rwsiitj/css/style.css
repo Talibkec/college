@@ -596,24 +596,24 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 }
 
 .slide1{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/home-min.png);
+    background-image : url(/homePageImage/home-min/png);
 }
 
 .slide2{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/home2-min.png);
+    background-image : url(/homePageImage/home2-min/png);
 }
 
 .slide3{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/img2-min.JPG);
+    background-image : url(/homePageImage/img2-min/JPG);
 }
 .slide4{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/img15-min.jpg);
+    background-image : url(/homePageImage/img15-min/jpg);
 }
 .slide5{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/img7-min.png);
+    background-image : url(/homePageImage/img7-min/png);
 }
 .slide6{
-    background-image : url(http://keck.ac.in/sites/default/files/compressed/img1-min.jpg);
+    background-image : url(/homePageImage/img1-min/jpg);
 }
 
 .slider-content {

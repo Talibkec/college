@@ -23,6 +23,7 @@ import java.text.SimpleDateFormat;
 @Controller
 public class DashboardController {
 
+	Logger logger = LoggerFactory.getLogger(DashboardController.class);
 	@Autowired
 	NoticeBoardService noticeBoardService;
 

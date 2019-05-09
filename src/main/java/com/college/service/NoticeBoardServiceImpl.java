@@ -1,30 +1,33 @@
 package com.college.service;
 
-import com.college.core.entity.FacultyDocuments;
 import com.college.core.entity.NoticeBoard;
-import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.repository.NoticeBoardRepository;
-import org.apache.commons.io.FilenameUtils;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class NoticeBoardServiceImpl implements NoticeBoardService{
 
+    Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     NoticeBoardRepository noticeBoardRepository;
 
     @Override
+    @Cacheable(value = "homepageNoticeCache")
     public List<NoticeBoardDTO> getAllNotice(Pageable pageable) {
+        logger.info("Query is bering served from database.");
         String news = "News";
         String notice = "Notice";
         List<NoticeBoard> noticeBoards = noticeBoardRepository.getHomePageNotices(notice, news, pageable);
@@ -91,12 +94,14 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 
 
     @Override
+    @CacheEvict(value = "homepageNoticeCache", allEntries = true)
     public void saveNoticeBoard(NoticeBoardDTO noticeBoardDTO) {
         NoticeBoard noticeBoard = modelMapper.map(noticeBoardDTO, NoticeBoard.class);
         noticeBoardRepository.save(noticeBoard);
     }
 
     @Override
+    @CacheEvict(value = "homepageNoticeCache", allEntries = true)
     public void deleteItem(Long id) {
         noticeBoardRepository.delete(id);
     }

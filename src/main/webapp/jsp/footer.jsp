@@ -12,7 +12,7 @@
 
             <section id="block-block-2" class="block block-block clearfix">
 
-                <h2 class="block-title">KEC Katiihar</h2>
+                <h2 class="block-title">KEC Katihar</h2>
 
                 <p><span style="font-family:arial,helvetica,sans-serif">Katihar Engineering College, Katihar<br/>
 Bheriya Rahika, PO - B.M.P - 07<br/>

@@ -30,7 +30,7 @@
                     </div>
                 </c:forEach>
                 <c:if test="${empty pageSize}">
-                     <c:set var = "pageSize" value = "${10}"/>
+                     <c:set var = "pageSize" value = "${0}"/>
                  </c:if>
                 <ul class="pager">
                     <li><a href="/pagination/prev/getNotices?deptno=category&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>

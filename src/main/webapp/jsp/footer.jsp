@@ -15,7 +15,7 @@
                 <h2 class="block-title">KEC Katihar</h2>
 
                 <p><span style="font-family:arial,helvetica,sans-serif">Katihar Engineering College, Katihar<br/>
-Hirday Gunj, Hardiya Gunj<br/>
+Hirday Gunj<br/>
 Hajipur 854109<br/>
 Bihar India<br/>
 Ph.: 06452-239122</span></p>

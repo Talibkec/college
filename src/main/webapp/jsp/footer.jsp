@@ -15,8 +15,8 @@
                 <h2 class="block-title">KEC Katihar</h2>
 
                 <p><span style="font-family:arial,helvetica,sans-serif">Katihar Engineering College, Katihar<br/>
-Bheriya Rahika, PO - B.M.P - 07<br/>
-Katihar 854106<br/>
+Hirday Gunj, Hardiya Gunj<br/>
+Hajipur 854109<br/>
 Bihar India<br/>
 Ph.: 06452-239122</span></p>
 

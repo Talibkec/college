@@ -12,7 +12,7 @@
 <script data-cfasync="false" id="ao_optimized_gfonts" type="text/javascript">WebFontConfig={google:{families:['Lato:300,400'] },classes:false, events:false, timeout:1500};(function() {var wf = document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf, s);})();
 
 
-//test if works
+
 
 </script>
 <link type="text/css" media="all" href="wp-content/cache/autoptimize/css/autoptimize_e5f671b1828a9e81941de090a06f0ed0.css" rel="stylesheet" />

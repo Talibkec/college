@@ -1,142 +1,46 @@
 <jsp:include page="/jsp/header.jsp" />
 
-<style>
-div.gallery {
-  margin: 15px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 300px;
-}
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
+<head>
+	<title>gallery demo</title>
 
-div.gallery img {
-  width: 150%;
-  height: 200px;
-}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.js"></script>
 
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-</style>
-    <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Gallery</h3></div>
-                </div>
-        </div>
-    </div>
-    <div class="container">
+</head>
+   <style>
+   	.gallery img{
+   		width: 260px;
+   		padding: 5px;
 
-           <a href="/"> <i class="fa fa-home"></i> Home</a>
+   	}
+
+   	   .gallery img:hover{
 
 
-        <br/>
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img1.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img1.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
+   		transform: scale(1.1);
+   		transition: 1s;
+   	}
+
+
+
+   </style>
+
+<body>
 
 <div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/img8.JPG">
-    <img src="http://keck.ac.in/sites/default/files/img8.JPG" alt="KEC Web Team" width="600" height="400">
-  </a>
-  <div class="desc"></div>
+	<center>
+		<p><h1>GALLERY</h1></p>
+	<a href="http://localhost/wp-content/uploads/2018/img1.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img1.JPG" style="max-width:50%;"></a>
+	<a href="http://localhost/sites/default/files/img8.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/img8.JPG" style="max-width:50%;"></a>
+	<a href="http://localhost/wp-content/uploads/2018/img3.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img3.JPG"  style="max-width:50%;"></a>
+	<a href="http://localhost/sites/default/files/sportkec.jpeg" data-lightbox="photo"><img src="http://localhost/sites/default/files/sportkec.jpeg"  style="max-width:50%;"></a>
+	<a href="http://localhost/wp-content/uploads/2018/img7.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img7.JPG"></a>
+    	<a href="http://localhost/sites/default/files/sportkec1.jpeg" data-lightbox="photo"><img src="http://localhost/sites/default/files/sportkec1.jpeg"></a>
+
+	</center>
 </div>
 
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img3.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img3.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/sportkec.jpeg">
-    <img src="http://keck.ac.in/sites/default/files/sportkec.jpeg" alt="SportKEC" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img5.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img5.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img6.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img6.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img7.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img7.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/sportkec1.jpeg">
-    <img src="http://keck.ac.in/sites/default/files/sportkec1.jpeg" alt="SportKEC" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img9.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img9.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img10.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img10.JPG" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/DSC_0445.JPG">
-    <img src="http://keck.ac.in/sites/default/files/DSC_0445.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/DSC_0448.JPG">
-    <img src="http://keck.ac.in/sites/default/files/DSC_0448.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/img13.JPG">
-    <img src="http://keck.ac.in/sites/default/files/img13.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/sites/default/files/img11.JPG">
-    <img src="http://keck.ac.in/sites/default/files/img11.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img12.JPG">
-    <img src="http://keck.ac.in/wp-content/uploads/2018/img12.JPG"  width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-    </div>
 
 <jsp:include page="/jsp/footer.jsp" />

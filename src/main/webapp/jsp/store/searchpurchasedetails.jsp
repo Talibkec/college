@@ -1,9 +1,9 @@
 <jsp:include page="header1.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
-    <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-    <script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
-    <script src="http://keck.ac.in/js/store/searchpurchase.js"></script>
+<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+    <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
+    <script src="http://localhost/js/store/searchpurchase.js"></script>
 <body>
 
  <div style="margin-left:40%;margin-bottom:2%">

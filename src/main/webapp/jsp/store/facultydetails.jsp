@@ -31,8 +31,8 @@ ${faculty.facultyName}
 <input type="hidden" id="facultyId" name="facultyId" value="NotAvailable" />
 
 </form:form>
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://keck.ac.in/js/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/store/storemanager.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
+<script src="http://localhost/js/store/storemanager.js"></script>
 </body>
 </html>

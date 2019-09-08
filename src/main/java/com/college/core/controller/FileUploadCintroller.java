@@ -63,7 +63,7 @@ public class FileUploadCintroller {
         saveNoticeDetails(userName, noticeHeader, noticeType, fileName, isScrollable, uploadfile, date);
 
 
-        String notice = "http://keck.ac.in/wp-content/uploads/notice/" + fileName;
+        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
         notice = notice + "," + noticeHeader;
         notice = notice + "," + noticeType;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);

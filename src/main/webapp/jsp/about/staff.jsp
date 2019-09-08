@@ -18,13 +18,13 @@
 
                                                 <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                                <ul class="menu nav">
-                                              <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                              <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                              <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                              <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/administration" class="sf-depth-2">Administration</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                              <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/history" class="sf-depth-2">History</a></li>
+                                              <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                              <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                              <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                              <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                              <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
 
                                                  </ul></div>
 
@@ -39,8 +39,8 @@
                         <div class="panel-heading faculty-title">Rahul Kumar </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/about-kec/rk.png"
-                                                                             style="background-image: url ('http://keck.ac.in/about-kec/rk.png')"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/about-kec/rk.png"
+                                                                             style="background-image: url ('http://localhost/about-kec/rk.png')"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Mechanical
@@ -58,8 +58,8 @@
                                             <div class="panel-heading faculty-title">Gaurav Kumar</div>
                                             <div class="panel-body">
                                                 <div class="row">
-                                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/about-kec/gk.jpg"
-                                                                                                 style="background-image: url(http://keck.ac.in/about-kec/bs.jpg)"/>
+                                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/about-kec/gk.jpg"
+                                                                                                 style="background-image: url(http://localhost/about-kec/bs.jpg)"/>
                                                         <div class="visible-xs"><br/></div>
                                                     </div>
                                                     <div class="col-sm-6 box-profile-info"> <strong>Designation:</strong>Office Assistant
@@ -77,8 +77,8 @@
                         <div class="panel-heading faculty-title">Bhumeshwar Singh</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/about-kec/bs.jpg"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/bs.jpg)"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/about-kec/bs.jpg"
+                                                                             style="background-image: url(http://localhost/about-kec/bs.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"> <strong>Designation:</strong>Data Entry Operator
@@ -97,8 +97,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/mta.jpg)"/>
+                                                                             src="http://localhost/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             style="background-image: url(http://localhost/about-kec/mta.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Designation:</strong>Data Entry Operator<br/> <strong>Phone Number:</strong>+91-7488686325<br/> <strong>Email
@@ -114,8 +114,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/about-kce/cmm.jpeg"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/mm.jpeg)"/>
+                                                                             src="http://localhost/about-kce/cmm.jpeg"
+                                                                             style="background-image: url(http://localhost/about-kec/mm.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -132,8 +132,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/rs.jpeg)"/>
+                                                                             src="http://localhost/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             style="background-image: url(http://localhost/about-kec/rs.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Designation:</strong>Office Attendant
@@ -149,8 +149,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/mani.jpeg)"/>
+                                                                             src="http://localhost/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             style="background-image: url(http://localhost/about-kec/mani.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"> <strong>Designation:</strong>Office Attendant <br/> <strong>Phone Number:</strong> 6207310940<br/>
@@ -164,8 +164,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                                             style="background-image: url(http://keck.ac.in/about-kec/dummy.png)"/>
+                                                                             src="http://localhost/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                                                                             style="background-image: url(http://localhost/about-kec/dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Designation:</strong>Clerk

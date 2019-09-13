@@ -16,8 +16,8 @@
                         <div class="panel-heading faculty-title">Md Talib Ahmad</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/category/mta.jpg"
-                                                                              style="background-image: url(http://keck.ac.in/jsp/category/mta.jpg)"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/mta.jpg"
+                                                                              style="background-image: url(http://localhost/jsp/category/mta.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
@@ -27,7 +27,7 @@
                                                              data-cfemail="98f9ebf0f1ebf0d8f5f1ecf5ede2f9fefef9eae8edeab6f7eaff">mdtalibahmad@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/mta"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -38,7 +38,7 @@
                         <div class="panel-heading faculty-title">Sinjan Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/category/sjn.jpg"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/sjn.jpg"
                                                                              style="background-image: url(sjn.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -49,7 +49,7 @@
                                                              data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">sinjan.dtu@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/snjk"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snjk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -62,8 +62,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/ad.jpg"
-                                                                             style="background-image: url(http://keck.ac.in/jsp/category/ad.jpg)"/>
+                                                                             src="http://localhost/jsp/category/ad.jpg"
+                                                                             style="background-image: url(http://localhost/jsp/category/ad.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -81,8 +81,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/apc.jpg"
-                                                                             style="background-image: url(http://keck.ac.in/jsp/category/apc.jpg)"/>
+                                                                             src="http://localhost/jsp/category/apc.jpg"
+                                                                             style="background-image: url(http://localhost/jsp/category/apc.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -100,8 +100,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/gaurav.jpg"
-                                                                             style="background-image: url(http://keck.ac.in/jsp/category/gaurav.jpg)"/>
+                                                                             src="http://localhost/jsp/category/gaurav.jpg"
+                                                                             style="background-image: url(http://localhost/jsp/category/gaurav.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -120,7 +120,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/suraj.jpg"
+                                                                             src="http://localhost/jsp/category/suraj.jpg"
                                                                              style="background-image: url(suraj.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -139,8 +139,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/akp.jpg"
-                                                                             style="background-image: url(http://keck.ac.in/jsp/category/akp.jpg)"/>
+                                                                             src="http://localhost/jsp/category/akp.jpg"
+                                                                             style="background-image: url(http://localhost/jsp/category/akp.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -158,7 +158,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/ns.jpeg"
+                                                                             src="http://localhost/jsp/category/ns.jpeg"
                                                                              style="background-image: url(ns.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -177,7 +177,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/jsp/category/sp.jpeg"
+                                                                             src="http://localhost/jsp/category/sp.jpeg"
                                                                              style="background-image: url(sp.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>

@@ -19,13 +19,13 @@
 
                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                     <ul class="menu nav">
-                                   <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                   <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                   <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                   <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/administration" class="sf-depth-2">Administration</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/about/history" class="sf-depth-2">History</a></li>
+                                   <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                   <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                   <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                   <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
 
                                       </ul></div>
 
@@ -351,7 +351,7 @@
                                                                     width="67"><p class="MsoNormal" style="text-align: center;" align="center">1</p>
                                                                 </td>
                                                                 <td style="width: 147.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                                                    width="196"><p class="MsoNormal">Arbind Prasad</p></td>
+                                                                    width="196"><p class="MsoNormal">Dr Arbind Prasad</p></td>
                                                                 <td style="width: 127.15pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                                                     width="170"><p class="MsoNormal">Asst. Prof. (ME)</p></td>
                                                                 <td style="width: 93.15pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
@@ -506,26 +506,13 @@
                                     width="66"><p class="MsoNormal" style="text-align: center;" align="center">1</p>
                                 </td>
                                 <td style="width: 148.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="198"><p class="MsoNormal">Arbind Prasad</p></td>
+                                    width="198"><p class="MsoNormal">Dr Arbind Prasad</p></td>
                                 <td style="width: 127.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="170"><p class="MsoNormal">Asst. Prof.(Mech.)</p></td>
                                 <td style="width: 92.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="124"><p class="MsoNormal">prof. In-Charge</p></td>
                                 <td style="width: 70.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="94"><p class="MsoNormal">9678437791</p></td>
-                            </tr>
-                            <tr style="mso-yfti-irow: 6; height: 17.0pt;">
-                                <td style="width: 49.55pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="66"><p class="MsoNormal" style="text-align: center;" align="center">2</p>
-                                </td>
-                                <td style="width: 148.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="198"><p class="MsoNormal">Dr. B. N. Mahto</p></td>
-                                <td style="width: 127.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="170"><p class="MsoNormal">Asst. Prof.(Physics)</p></td>
-                                <td style="width: 92.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="124"><p class="MsoNormal">prof. In-Charge</p></td>
-                                <td style="width: 70.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    width="94"><p class="MsoNormal">7643847295</p></td>
                             </tr>
 
                             <tr style="mso-yfti-irow: 18; height: 17.0pt;">
@@ -721,21 +708,69 @@
                                     colspan="9" valign="top" width="652"><p class="MsoNormal"
                                                                             style="text-align: center; line-height: 115%;"
                                                                             align="center"><b
-                                        style="mso-bidi-font-weight: normal;">NBA Co-ordinator</b></p></td>
+                                        style="mso-bidi-font-weight: normal;">Virtual Lab Coordinator</b></p></td>
                             </tr>
                             <tr style="mso-yfti-irow: 35; height: 17.0pt;">
                                 <td style="width: 49.55pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="66"><p class="MsoNormal" style="text-align: center;" align="center">1</p>
                                 </td>
                                 <td style="width: 148.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    colspan="3" width="198"><p class="MsoNormal">Arbind Prasad</p></td>
+                                    colspan="3" width="198"><p class="MsoNormal">Dr Arbind Prasad</p></td>
                                 <td style="width: 127.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     colspan="2" width="170"><p class="MsoNormal">Asst. Prof. (Mechanical)</p></td>
                                 <td style="width: 92.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
-                                    colspan="2" width="124"><p class="MsoNormal">prof. In-Charge</p></td>
+                                    colspan="2" width="124"><p class="MsoNormal">Institute coordinator</p></td>
                                 <td style="width: 70.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     width="94"><p class="MsoNormal">9678437791</p></td>
                             </tr>
+
+
+                                                        <tr style="mso-yfti-irow: 34; height: 17.0pt;">
+                                                            <td style="width: 489.1pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                colspan="9" valign="top" width="652"><p class="MsoNormal"
+                                                                                                        style="text-align: center; line-height: 115%;"
+                                                                                                        align="center"><b
+                                                                    style="mso-bidi-font-weight: normal;">NBA Co-ordinator</b></p></td>
+                                                        </tr>
+                                                        <tr style="mso-yfti-irow: 35; height: 17.0pt;">
+                                                            <td style="width: 49.55pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                width="66"><p class="MsoNormal" style="text-align: center;" align="center">1</p>
+                                                            </td>
+                                                            <td style="width: 148.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                colspan="3" width="198"><p class="MsoNormal">Dr Arbind Prasad</p></td>
+                                                            <td style="width: 127.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                colspan="2" width="170"><p class="MsoNormal">Asst. Prof. (Mechanical)</p></td>
+                                                            <td style="width: 92.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                colspan="2" width="124"><p class="MsoNormal">prof. In-Charge</p></td>
+                                                            <td style="width: 70.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                                width="94"><p class="MsoNormal">9678437791</p></td>
+                                                        </tr>
+
+
+                                            <tr style="mso-yfti-irow: 34; height: 17.0pt;">
+                                                      <td style="width: 489.1pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          colspan="9" valign="top" width="652"><p class="MsoNormal"
+                                                                                                  style="text-align: center; line-height: 115%;"
+                                                                                                  align="center"><b
+                                                              style="mso-bidi-font-weight: normal;">Purchase Section</b></p></td>
+                                                  </tr>
+                                                  <tr style="mso-yfti-irow: 35; height: 17.0pt;">
+                                                      <td style="width: 49.55pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          width="66"><p class="MsoNormal" style="text-align: center;" align="center">1</p>
+                                                      </td>
+                                                      <td style="width: 148.5pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          colspan="3" width="198"><p class="MsoNormal">Dr Arbind Prasad</p></td>
+                                                      <td style="width: 127.35pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          colspan="2" width="170"><p class="MsoNormal">Asst. Prof. (Mechanical)</p></td>
+                                                      <td style="width: 92.9pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          colspan="2" width="124"><p class="MsoNormal">Purchase officer (GeM)</p></td>
+                                                      <td style="width: 70.8pt; border-top: none; border-left: none; border-bottom: solid black 1.0pt; mso-border-bottom-themecolor: text1; border-right: solid black 1.0pt; mso-border-right-themecolor: text1; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-left-alt: solid black .5pt; mso-border-left-themecolor: text1; mso-border-alt: solid black .5pt; mso-border-themecolor: text1; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
+                                                          width="94"><p class="MsoNormal">9678437791</p></td>
+                                                  </tr>
+
+
+
+
 							<tr style="mso-yfti-irow: 34; height: 17.0pt;">
                                 <td style="width: 489.1pt; border: solid black 1.0pt; mso-border-themecolor: text1; border-top: none; mso-border-top-alt: solid black .5pt; mso-border-top-themecolor: text1; mso-border-alt: solid black .5pt; padding: 0in 5.4pt 0in 5.4pt; height: 17.0pt;"
                                     colspan="9" valign="top" width="652"><p class="MsoNormal"

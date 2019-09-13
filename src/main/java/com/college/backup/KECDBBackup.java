@@ -23,10 +23,10 @@ public class KECDBBackup {
         //properties relating to email config
         properties.setProperty(MysqlExportService.EMAIL_HOST, "smtp.gmail.com");
         properties.setProperty(MysqlExportService.EMAIL_PORT, "587");
-        properties.setProperty(MysqlExportService.EMAIL_USERNAME, "Test@keck.ac.in");
+        properties.setProperty(MysqlExportService.EMAIL_USERNAME, "Test@localhost");
         properties.setProperty(MysqlExportService.EMAIL_PASSWORD, "Test@123");
-        properties.setProperty(MysqlExportService.EMAIL_FROM, "Test@keck.ac.in");
-        properties.setProperty(MysqlExportService.EMAIL_TO, "Test@keck.ac.in");
+        properties.setProperty(MysqlExportService.EMAIL_FROM, "Test@localhost");
+        properties.setProperty(MysqlExportService.EMAIL_TO, "Test@localhost");
         properties.setProperty(MysqlExportService.DELETE_EXISTING_DATA, "true");
 
         //set the outputs temp dir

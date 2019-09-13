@@ -29,8 +29,8 @@
         </c:forEach>
 	</div>
 
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
 </body>
 </html>

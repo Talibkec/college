@@ -157,7 +157,7 @@ public class UserController {
     }
 
     private void deleteFileDromDisk(String fileName) {
-        File file = new File("http://localhost/wp-content/uploads/notice/" + fileName);
+        File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
         file.delete();
     }
 

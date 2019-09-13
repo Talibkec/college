@@ -50,7 +50,7 @@ function fire_ajax_submit() {
         success: function (data, textStatus, xhr) {
 
              $("#submit").prop("disabled", false);
-             window.location.href = "http://localhost/store/smdashboard";
+             window.location.href = "http://keck.ac.in/store/smdashboard";
         },
         error: function (e) {
 
@@ -74,7 +74,7 @@ function fire_ajax_delete() {
                 success: function (data, textStatus, xhr) {
 
                      $("#deleteUserRole").prop("disabled", false);
-                     window.location.href = "http://localhost/store/smdashboard";
+                     window.location.href = "http://keck.ac.in/store/smdashboard";
                 },
                 error: function (e) {
 

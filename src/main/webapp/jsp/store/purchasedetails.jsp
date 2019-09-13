@@ -21,15 +21,15 @@
             <div class="col-md-2 text-center">${element.purchaseBy}</div>
             <div class="col-md-2 text-center">${element.price}</div>
             <div class="col-md-1 text-center">${element.invoice}</div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/editPurchase?purchaseId=${element.purchaseId}">Edit Purchase</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/deletePurchase?purchaseId=${element.purchaseId}">Delete Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/editPurchase?purchaseId=${element.purchaseId}">Edit Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/deletePurchase?purchaseId=${element.purchaseId}">Delete Purchase</a></div>
         </div>
         </c:forEach>
 	</div>
 </form>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/editpurchase.js"></script>
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://keck.ac.in/js/jquery-ui.js"></script>
+<script src="http://keck.ac.in/js/store/editpurchase.js"></script>
 </body>
 </html>

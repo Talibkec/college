@@ -31,21 +31,8 @@
 
 <body>
 
-<div class="gallery" style="margin-bottom: 10px;">
+<div class="gallery">
 	<center>
-<<<<<<< Updated upstream
-		<p><h1>MEDIA GALLERY</h1></p>
-	<a href="http://localhost/wp-content/uploads/2018/img1.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img1.JPG" style="max-width:50%;"></a>
-	<a href="http://localhost/sites/default/files/img8.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/img8.JPG" style="max-width:50%;"></a>
-	<a href="http://localhost/wp-content/uploads/2018/img3.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img3.JPG"  style="max-width:50%;"></a>
-	<a href="http://localhost/sites/default/files/sportkec.jpeg" data-lightbox="photo"><img src="http://localhost/sites/default/files/sportkec.jpeg"  style="max-width:50%;"></a>
-	<a href="http://localhost/wp-content/uploads/2018/img7.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img7.JPG"></a>
-    <a href="http://localhost/sites/default/files/sportkec1.jpeg" data-lightbox="photo"><img src="http://localhost/sites/default/files/sportkec1.jpeg"></a>
-    <a href="http://localhost/sites/default/files/img13.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/img13.JPG"></a>
-    <a href="http://localhost/sites/default/files/img11.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/img11.JPG"></a>
-    <a href="http://localhost/wp-content/uploads/2018/img12.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img12.JPG"></a>
-     <a href="http://localhost/sites/default/files/DSC_0448.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/DSC_0448.JPG"></a>
-=======
 		<p><h1>GALLERY</h1></p>
 	<a href="http://keck.ac.in/wp-content/uploads/2018/img1.JPG" data-lightbox="photo"><img src="http://keck.ac.in/wp-content/uploads/2018/img1.JPG" style="max-width:50%;"></a>
 	<a href="http://keck.ac.in/sites/default/files/img8.JPG" data-lightbox="photo"><img src="http://keck.ac.in/sites/default/files/img8.JPG" style="max-width:50%;"></a>
@@ -54,7 +41,9 @@
 	<a href="http://keck.ac.in/wp-content/uploads/2018/img7.JPG" data-lightbox="photo"><img src="http://keck.ac.in/wp-content/uploads/2018/img7.JPG"></a>
     	<a href="http://keck.ac.in/sites/default/files/sportkec1.jpeg" data-lightbox="photo"><img src="http://keck.ac.in/sites/default/files/sportkec1.jpeg"></a>
 
->>>>>>> Stashed changes
+
+
+
 	</center>
 </div>
 

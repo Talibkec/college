@@ -635,7 +635,7 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
+    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     background-position: center;
@@ -649,7 +649,7 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
+    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     left: 91vw;

@@ -21,18 +21,18 @@
             <div class="col-md-2 text-center">${element.productName}</div>
             <div class="col-md-2 text-center" >${element.vendorName}</div>
             <div class="col-md-1 text-center">${element.availableQuantity}</div>
-            <div class="col-md-1 text-center"><a href="http://localhost/store/purchasedetails?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Details</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/addPurchase?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Purchase</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/editProduct?productId=${element.productId}">Edit Product</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/deleteProduct?productId=${element.productId}">Delete Product</a></div>
+            <div class="col-md-1 text-center"><a href="http://keck.ac.in/store/purchasedetails?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Details</a></div>
+            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/addPurchase?name=${element.productName}&vendor=${element.vendorName}&productQuantity=${element.productQuantity}&productId=${element.productId}">Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/editProduct?productId=${element.productId}">Edit Product</a></div>
+            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/deleteProduct?productId=${element.productId}">Delete Product</a></div>
 
         </div>
         </c:forEach>
 	</div>
 </form>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/storemanager.js"></script>
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://keck.ac.in/js/jquery-ui.js"></script>
+<script src="http://keck.ac.in/js/store/storemanager.js"></script>
 </body>
 </html>

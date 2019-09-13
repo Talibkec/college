@@ -37,7 +37,7 @@ public class StoreKeeperController {
         requestDTO.setApprovalDate(new Date());
         saveOrder(requestDTO, facultyDTO.getFacultyName());
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://localhost/sk/storekeeper");
+        response.sendRedirect("http://keck.ac.in/sk/storekeeper");
     }
 
     @RequestMapping(value = "storekeeper", method = RequestMethod.GET)

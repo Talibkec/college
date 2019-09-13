@@ -45,89 +45,89 @@ div.desc {
         </select></div>
         <br/>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img1.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img1.JPG" alt="Cinque Terre" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img1.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img1.JPG" alt="Cinque Terre" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img2.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img2.JPG" alt="Forest" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img2.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img2.JPG" alt="Forest" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img3.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img3.JPG" alt="Northern Lights" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img3.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img3.JPG" alt="Northern Lights" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">Northern Lights
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img4.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img4.JPG" alt="Mountains" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img4.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img4.JPG" alt="Mountains" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img5.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img5.JPG" alt="Cinque Terre" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img6.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img6.JPG" alt="Forest" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img5.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img5.JPG" alt="Cinque Terre" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img7.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img7.JPG" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img8.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img8.JPG" alt="Forest" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img6.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img6.JPG" alt="Forest" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img9.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img9.JPG" alt="Northern Lights" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img7.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img7.JPG" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img8.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img8.JPG" alt="Forest" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img10.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img10.JPG" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc"></div>
-</div>
-<div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img11.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img11.JPG" alt="Cinque Terre" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img9.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img9.JPG" alt="Northern Lights" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img12.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img12.JPG" alt="Forest" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img10.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img10.JPG" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img11.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img11.JPG" alt="Cinque Terre" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="http://localhost/wp-content/uploads/2018/img13.JPG">
-    <img src="http://localhost/wp-content/uploads/2018/img13.JPG" alt="Northern Lights" width="600" height="400">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img12.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img12.JPG" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc"></div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="http://keck.ac.in/wp-content/uploads/2018/img13.JPG">
+    <img src="http://keck.ac.in/wp-content/uploads/2018/img13.JPG" alt="Northern Lights" width="600" height="400">
   </a>
   <div class="desc"></div>
 </div>

@@ -48,6 +48,6 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://localhost/js/fileupload.js"></script>
+<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
+<script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="http://keck.ac.in/js/fileupload.js"></script>

@@ -35,7 +35,7 @@ public class DashboardController {
 
 
 
-	//http://localhost/wp-content/themes/kec/rti-kec/rti-act
+	//http://keck.ac.in/wp-content/themes/kec/rti-kec/rti-act
 	@RequestMapping(value = "/wp-content/themes/kec/rti-kec/rti-act", method = RequestMethod.GET)
 	public ModelAndView approvalkec() {
 		ModelAndView model = new ModelAndView();

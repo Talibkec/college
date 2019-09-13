@@ -21,7 +21,7 @@
 </form>
 <c:if test = "${productFound == false}">
     <div class="row">
-        <div class="text-center"><a href="http://localhost/store/addProduct" class="btn btn-success">Add Product</a><div>
+        <div class="text-center"><a href="http://keck.ac.in/store/addProduct" class="btn btn-success">Add Product</a><div>
     </div>
 </c:if>
 
@@ -44,7 +44,7 @@
            <div class="col-md-2 text-center">${req.status}</div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.requestDate}" pattern="dd/MM/yyyy"/></div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.approvalDate}" pattern="dd/MM/yyyy"/></div>
-           <div class="col-md-2 text-center"><a href="http://localhost/sk/closefacultyrequest?requestId=${req.requestId}">Close</a></div>
+           <div class="col-md-2 text-center"><a href="http://keck.ac.in/sk/closefacultyrequest?requestId=${req.requestId}">Close</a></div>
         </div>
      </c:forEach>
   </div>
@@ -52,8 +52,8 @@
 </div>
 </c:if>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
- <script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/storkeeper.js"></script>
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+ <script src="http://keck.ac.in/js/jquery-ui.js"></script>
+<script src="http://keck.ac.in/js/store/storkeeper.js"></script>
 </body>
 </html>

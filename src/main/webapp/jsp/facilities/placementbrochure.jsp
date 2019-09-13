@@ -15,20 +15,20 @@
                 <ul class="list-group page-menu">
                     <li class="list-group-item" style="background: #eee; font-size: 20px;">Training & Placement Cell
                     </li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/aboutplacement">&nbsp;&nbsp; <i
+                    <li class="list-group-item"><a href="http://keck.ac.in/trainingplacement/aboutplacement">&nbsp;&nbsp; <i
                             class="fa fa-angle-double-right"></i> About Placement</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/rulesoftrainingplacement">&nbsp;&nbsp; <i
+                    <li class="list-group-item"><a href="http://keck.ac.in/trainingplacement/rulesoftrainingplacement">&nbsp;&nbsp; <i
                             class="fa fa-angle-double-right"></i> Rules of Training & Placement</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/tipsforresume">&nbsp;&nbsp; <i
+                    <li class="list-group-item"><a href="http://keck.ac.in/trainingplacement/tipsforresume">&nbsp;&nbsp; <i
                             class="fa fa-angle-double-right"></i> Tips for Resume</a></li>
-                    <li class="list-group-item"><a href="http://localhost/trainingplacement/placementbrochure">&nbsp;&nbsp; <i
+                    <li class="list-group-item"><a href="http://keck.ac.in/trainingplacement/placementbrochure">&nbsp;&nbsp; <i
                             class="fa fa-angle-double-right"></i> Placement Brochure</a></li>
                 </ul>
             </div>
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <p>
-                        <embed src="http://localhost/trainingplacement/brochure.pdf" width="800px" height="950px"></embed>
+                        <embed src="http://keck.ac.in/trainingplacement/brochure.pdf" width="800px" height="950px"></embed>
                     </p>
                 </div>
             </div>

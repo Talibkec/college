@@ -125,7 +125,7 @@ public class StoreFacultyController {
         requestDTO.setFacultyId(facultyDTO.getFacultyId());
         requestDTO.setStatus("New");
         requestService.saveRequest(requestDTO);
-        String url = "http://localhost/department/" +
+        String url = "http://keck.ac.in/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
         response.sendRedirect(url);
@@ -160,7 +160,7 @@ public class StoreFacultyController {
         requestDTO.setProductQuantity(requestedQty);
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/editrequest.jsp");
-        String url = "http://localhost/department/" +
+        String url = "http://keck.ac.in/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
         response.sendRedirect(url);

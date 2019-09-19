@@ -22,25 +22,6 @@
     <meta name="dcterms.identifier" content="http://localhost"/>
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
 
-    <!-- Jquery -->
-    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script  src="http://localhost/misc/jquery.once.js?v=1.2"></script>
-    <script   src="http://localhost/misc/drupal.js"></script>
-    <script  src="http://localhost/sites/all/libraries/superfish/sftouchscreen.js"></script>
-     <script src="http://localhost/sites/all/libraries/superfish/sfsmallscreen.js"></script>
-     <script   src="http://localhost/sites/all/libraries/superfish/supposition.js"></script>
-
-     <script  src="http://localhost/sites/all/libraries/superfish/superfish.js"></script>
-     <script  src="http://localhost/sites/all/libraries/superfish/supersubs.js"></script>
-     <script  src="http://localhost/sites/all/modules/superfish/superfish.js"></script>
-     <script  src="http://localhost/sites/all/themes/rwsiitj/js/jquery-migrate-1.3.0.min.js"></script>
-     <script async src="http://localhost/sites/all/themes/rwsiitj/js/jquery.easy-ticker.js"></script>
-     <script async src="http://localhost/sites/all/themes/rwsiitj/js/jquery.marquee.min.js"></script>
-    <script   src="http://localhost/sites/all/themes/rwsiitj/js/rwscustom.js"></script>
-    <script src="http://localhost/sites/all/themes/rwsiitj/js/jqueryui/jquery-ui.min.js"></script>
-
-    <!--Jquery-->
-
 </head>
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
 

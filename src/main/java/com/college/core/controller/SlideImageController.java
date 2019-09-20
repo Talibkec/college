@@ -1,0 +1,92 @@
+package com.college.core.controller;
+
+import com.college.core.model.ImageSlideDTO;
+
+import com.college.service.ImageSlideService;
+import org.apache.commons.io.FilenameUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
+
+
+@Controller
+public class SlideImageController {
+    @Autowired
+    ImageSlideService imageSlideService;
+    private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
+
+
+    //private final String UPLOADED_FOLDER = getPath();
+    @ResponseBody
+    @RequestMapping(value = "/auth/api/uploadslideimage", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadFile(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
+        logger.debug("Single file upload!");
+        String fileName = uploadfile.getOriginalFilename();
+
+        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please give a proper caption";
+            }
+            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
+
+
+        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+        saveImageSlide(uploadfile,caption,fileName);
+
+
+        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
+        notice = notice + "," + caption;
+        notice = notice + "," + uploadfile;
+        return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
+
+    }
+    @RequestMapping(value = "/auth/uploadfile/uploadslideimage", method = RequestMethod.GET)
+    public ModelAndView displaySlideImage() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadslideimage.jsp");
+        return model;
+    }
+
+    private void saveImageSlide( MultipartFile uploadfile, String caption,String fileName) {
+        ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
+        imageSlideDTO.setCaption(caption);
+        imageSlideDTO.setFileName(fileName);
+
+        try {
+            imageSlideDTO.setImage(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        imageSlideDTO.setFileType(FilenameUtils.getExtension(fileName));
+        imageSlideService.saveImageSlide(imageSlideDTO);
+
+
+
+    }
+
+
+}
+
+

@@ -10,16 +10,16 @@
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul>
                <li style="display: inline;float: left">
-                  <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
+                  <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>
                  <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                    <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
                  </c:if>
-                 <a href="http://keck.ac.in/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                 <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
                  <c:forEach var="item" items="${Role}">
                      <c:if test = "${'Admin' eq item}">
                               <span class="label label-danger"><a style="display: inline" href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
@@ -33,6 +33,7 @@
     </div>
 
      <!-- Starting of image slider. -->
+     <!--
     <div class = "imageSlider">
 
         <div class = "left-image-holder"></div>
@@ -71,8 +72,131 @@
 
          <div class = "right-image-holder"></div>
     </div>
-
+-->
     <!-- end of image slider -->
+
+    <!-- Start of New Image Slider-->
+    <!-- SlideShow Container-->
+    <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="http://localhost/sites/default/files/img15.jpg" style="width:100%">
+      <div class="text">The Freshar</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="http://localhost/sites/default/files/logo.jpeg" style="width:100%">
+      <div class="text">Logo</div>
+    </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+<!--Start of CSS  -->
+<style>
+* {box-sizing: border-box;}
+    body {font-family: Verdana, sans-serif;}
+    .mySlides {display: none;}
+    img {vertical-align: middle;}
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 600vw;
+      max-height:500 vh;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {font-size: 11px}
+    }
+    </style>
+<!-- End of CSS  -->
+
+<!--Start of JavaScript  -->
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
+<!-- End of JavaScript  -->
+
+<!--End of New image Slider-->
 
     <div class="gt-newsblocksection">
         <div class="container">
@@ -135,13 +259,13 @@
                                                     <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
-                                                <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
 
                                             </div>
 
                                          </c:forEach>
                                         </ul>
-    <div class="more-link"><a href="http://keck.ac.in/category/notices">View all Notices</a></div>
+    <div class="more-link"><a href="http://localhost/category/notices">View all Notices</a></div>
                                         </div>
 
                                     </div>
@@ -200,7 +324,7 @@
                                 <div class="field field-name-body field-type-text-with-summary field-label-hidden">
                                     <div class="field-items">
                                         <div class="field-item even" property="content:encoded"><p><strong>Katihar Engineering College (KEC), Katihar </strong>with the advent of technology and the emergence of notable education in our society, had decided to adapt the prevailing need of light. In the mission to achieve the eminence in the field, the establishment of Katihar Engineering College was laid in the year 2016. The college is enriched with a pollyannaish environment, highly motivated and enthusiastic students guided by well qualified professional from different prestigious colleges of our country. The college was established with three branches- Civil Engineering, Mechanical Engineering and Computer Science and Engineering. Each branch has a number of renowned professors with high qualifications and experience in teaching or their respective industries. The college consists of a central library, Computer Labs, Training and Placement Cell, Programmer's Club etc, with the exceptional support staffs and infrastructure. All the labs and other infrastructure is in highly conditional states serving at their best to provide the best facilities to all the members of the college. Student of the college have exhibited their skill at different platform and gathered many awards from premium institutes. Presently the college functions in Government Polytechnic, Bheriya Rhekia, Katihar. It is situated 3 km from Katihar Railway Station and there is a good transportation facility available from there. Currently, the own campus for the college is under-construction in Hajipur, Katihar near NH 31. It is expected to complete soon.<a
-                                                    href="http://keck.ac.in/about/history">more</a>...</p>
+                                                    href="http://localhost/about/history">more</a>...</p>
                                         </div>
                                     </div>
                                 </div>
@@ -254,27 +378,27 @@
                                         <ul>
                                             <li class="views-row views-row-1 views-row-odd views-row-first">
                                                 <div class="views-field views-field-field-image">
-                                                    <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec.jpeg" target ="_blank"><img
+                                                    <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg" target ="_blank"><img
                                                             typeof="foaf:Image" class="img-responsive"
-                                                            src="http://keck.ac.in/sites/default/files/sportkec.jpeg"
+                                                            src="http://localhost/sites/default/files/sportkec.jpeg"
                                                             width="330" height="225" alt=""
                                                             title="Pitch for a Better India"/></a></div>
                                                 </div>
                                             </li>
                                             <li class="views-row views-row-2 views-row-even">
                                                 <div class="views-field views-field-field-image">
-                                                    <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec1.jpeg"><img
+                                                    <div class="field-content"><a href="http://localhost/sites/default/files/sportkec1.jpeg"><img
                                                             typeof="foaf:Image" class="img-responsive"
-                                                            src="http://keck.ac.in/sites/default/files/sportkec1.jpeg"
+                                                            src="http://localhost/sites/default/files/sportkec1.jpeg"
                                                             width="330" height="225" alt=""
                                                             title="Ace the Psychometric"/></a></div>
                                                 </div>
                                             </li>
                                             <li class="views-row views-row-3 views-row-odd views-row-last">
                                                 <div class="views-field views-field-field-image">
-                                                    <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
+                                                    <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
                                                                                                         class="img-responsive"
-                                                                                                        src="http://keck.ac.in/sites/default/files/sportkec.jpeg"
+                                                                                                        src="http://localhost/sites/default/files/sportkec.jpeg"
                                                                                                         width="330"
                                                                                                         height="225" alt=""
                                                                                                         title="Machine Assembly and Disassembly Workshop"/></a>
@@ -287,7 +411,7 @@
 
 
                                 <div class="more-link">
-                                    <a href="http://keck.ac.in/gallery/photogallery">
+                                    <a href="http://localhost/gallery/photogallery">
                                         View All </a>
                                 </div>
 
@@ -314,7 +438,7 @@
                                     </div>
                                 </li>
                             </ul>
-                            <div class="more-link"><a href="http://keck.ac.in/gallery/mediagallery">View All </a></div>
+                            <div class="more-link"><a href="http://localhost/gallery/mediagallery">View All </a></div>
 
                         </section>
                     </div>

@@ -3,11 +3,9 @@ package com.college.core.controller;
 import com.college.KECDateHelper;
 import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
+import com.college.core.model.ImageSlideDTO;
 import com.college.core.model.NoticeBoardDTO;
-import com.college.service.NoticeBoardService;
-import com.college.service.RoleService;
-import com.college.service.SecurityService;
-import com.college.service.UserService;
+import com.college.service.*;
 import com.college.validator.UserValidator;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -50,6 +48,9 @@ public class UserController {
     @Autowired
     NoticeBoardHelper noticeBoardHelper;
 
+    @Autowired
+    ImageSlideService imageSlideService;
+
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)
@@ -88,9 +89,17 @@ public class UserController {
     public ModelAndView welcome(Model model) {
         ModelAndView modelAndView = new ModelAndView();
         List<NoticeBoardDTO>  list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
+        modelAndView.addObject("imageList",getImageList(imageList));
+        ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
         modelAndView.addObject("noticeList",getNoticeList(list, false));
         modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
+        if( imageSlideDTO.getFileType() != null)
+            modelAndView.addObject("fileExtension", "." + imageSlideDTO.getFileType());
+        modelAndView.addObject("imageSlideId", imageSlideDTO.getImageSlideId());
+        modelAndView.addObject("caption",imageSlideDTO.getCaption());
+
         modelAndView.setViewName("index.jsp");
         return modelAndView;
     }
@@ -130,6 +139,18 @@ public class UserController {
 
         return  scrollingNotices;
     }
+
+    private List<ImageSlideDTO> getImageList(List<ImageSlideDTO> imageList) {
+        List<ImageSlideDTO> slidingImage = new ArrayList<>();
+
+        for (ImageSlideDTO dto : imageList) {
+            dto.setFileType(("." + FilenameUtils.getExtension(dto.getFileName())));
+            slidingImage.add(dto);
+
+        }
+        return slidingImage;
+    }
+
     @RequestMapping(value ="/{id}/notice")
     public @ResponseBody byte[] getdocuments(@PathVariable("id")Long id) throws IOException{
         NoticeBoardDTO noticeBoardDTO =noticeBoardService.getNoticeDocument(id);
@@ -139,7 +160,21 @@ public class UserController {
         }
         return null;
     }
-
+    @RequestMapping(value ="/{id}/slideImage")
+    public @ResponseBody byte[] getimages(@PathVariable("id")Long imageSlideId) throws IOException{
+        ImageSlideDTO imageSlideDTO =imageSlideService.getImages(imageSlideId);
+        if(imageSlideDTO.getImage()!= null){
+            InputStream in = new ByteArrayInputStream(imageSlideDTO.getImage());
+            return  IOUtils.toByteArray(in);
+        }
+        return null;
+    }
+    @RequestMapping(value = "/auth/deleteSlideImage/{id}", method = RequestMethod.GET)
+    public void deleteSlideImage( @PathVariable("id") Long imageSlideId, HttpServletResponse res) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        imageSlideService.deleteSlideImage(imageSlideId);
+        res.sendRedirect("/");
+    }
     @RequestMapping(value = "/hod/{fileName}/{id}", method = RequestMethod.GET)
     public void deleteItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
@@ -147,6 +182,7 @@ public class UserController {
         deleteFileDromDisk(fileName);
         res.sendRedirect("/");
     }
+
 
     @RequestMapping(value = "/auth/{fileName}/{id}", method = RequestMethod.GET)
     public void deleteNoticeItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {

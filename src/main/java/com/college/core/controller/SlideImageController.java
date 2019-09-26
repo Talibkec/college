@@ -4,6 +4,7 @@ import com.college.core.model.ImageSlideDTO;
 
 import com.college.service.ImageSlideService;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +15,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 
 @Controller
@@ -38,7 +38,7 @@ public class SlideImageController {
             @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
         logger.debug("Single file upload!");
         String fileName = uploadfile.getOriginalFilename();
-
+        String fileType = uploadfile.getContentType();
         if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
             String msg = "";
             if (uploadfile.isEmpty()) {
@@ -52,7 +52,7 @@ public class SlideImageController {
 
 
         //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveImageSlide(uploadfile,caption,fileName);
+        saveImageSlide(uploadfile,caption,fileName,fileType);
 
 
         String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
@@ -69,10 +69,11 @@ public class SlideImageController {
         return model;
     }
 
-    private void saveImageSlide( MultipartFile uploadfile, String caption,String fileName) {
+    private void saveImageSlide( MultipartFile uploadfile, String caption,String fileName,String fileType) {
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
         imageSlideDTO.setCaption(caption);
         imageSlideDTO.setFileName(fileName);
+        imageSlideDTO.setFileType(fileType);
 
         try {
             imageSlideDTO.setImage(uploadfile.getBytes());
@@ -85,6 +86,9 @@ public class SlideImageController {
 
 
     }
+
+
+
 
 
 }

@@ -3,12 +3,22 @@ package com.college.core.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ImageSlide")
+@Table(name="image_slide")
 public class ImageSlide {
     private Long imageSlideId;
     private String caption;
-    @Lob
     private byte[] image;
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    private  String fileType;
+    @Lob
+
 
     public String getFileName() {
         return fileName;
@@ -23,6 +33,7 @@ public class ImageSlide {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "imageSlideId", sequenceName = "imageSlideId")
     public Long getImageSlideId() {
         return imageSlideId;
     }

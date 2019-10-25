@@ -60,9 +60,22 @@
                                              </div>
                                                  </aside>
         <div class="col-md-8">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>Updated Soon&#8230;</p>
-            </div>
-        </div>
+                                                    <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; ">
+                                                        <p>
+                                                            <table border="1" width="500">
+                                                               <tr><td><p>For Detailed Instruction about payment </p></td>
+                                                               <td><i class="fa fa-download"></i>
+                                                                   <a href="http://keck.ac.in/jsp/facilities/payment.pdf">
+                                                                   <button type="button" class="btn btn-success" data-dismiss="modal"style="margin-left" class="btn btn-success">click here
+                                                                   </button></a>
+                                                               </td>
+                                                               </tr>
+                                                            </table>                                    
+                                                                                                
+                                                        </p>
+                                                    </div>
+                                                </div>
+                    </div>
     </div>
 </div>
 

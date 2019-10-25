@@ -11,8 +11,8 @@ import java.util.Set;
 @Table(name="FACULTY")
 public class Faculty {
     private Long facultyId;
-    private String facultyName;
     private Long departmentId;
+    private String facultyName;
     private String facultyOfficialEmail;
     private String facultyPersonalEmail;
     private Long facultyMobNo;

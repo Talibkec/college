@@ -43,7 +43,7 @@ Ph.: 06452-239122</span></p>
                             <h2 class="block-title">&copy 2018 KEC Katihar</h2>
 
                             <p >Designed & Developed by</p>
-                            <p><a href="http://localhost/category/kecwebteam" target="_blank">KEC Web Team</p></a>
+                            <p><a href="http://keck.ac.in/category/kecwebteam" target="_blank">KEC Web Team</p></a>
                         </section>
 
     </footer>
@@ -52,7 +52,7 @@ Ph.: 06452-239122</span></p>
 
 
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="http://localhost/j/protectcode.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="http://keck.ac.in/j/protectcode.js"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
             $('#homePageSlider').on('slid.bs.carousel', function ( event ) {
                 var slide = event.relatedTarget;
                 var slideInfoAnimation = $(slide).find('.slideInfo').attr('data-animation');
@@ -91,7 +91,7 @@ Ph.: 06452-239122</span></p>
                     offset: '85%'
                 });
             });
-        });</script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.js"></script> <script>var brandTimer = null;
+        });</script> <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/nivo-lightbox/dist/nivo-lightbox.min.js"></script> <script>var brandTimer = null;
         $(document).ready(function(){
             $('.list-brands1 > li, .list-brands2 > li').each(function(){
                 $(this).attr('data-width', $(this).width() + 30);
@@ -171,10 +171,10 @@ Ph.: 06452-239122</span></p>
 </script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
- <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/shortcuts/sticky.min.js">
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery.cookie/jquery.cookie.js"></script>
+ <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/waypoints/lib/shortcuts/sticky.min.js">
 </script>
- <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+ <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
 <script>$(document).ready(function(){
         new Waypoint.Sticky({
             element: $('.navbar.navbar-default')[0]
@@ -210,7 +210,7 @@ Ph.: 06452-239122</span></p>
 <style>
 
 
-@import url("http://localhost/sites/all/libraries/superfish/css/superfish.css");
+@import url("http://keck.ac.in/sites/all/libraries/superfish/css/superfish.css");
 
     </style>
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"
@@ -219,9 +219,9 @@ Ph.: 06452-239122</span></p>
 
 
 
-@import url("http://localhost/sites/all/themes/rwsiitj/css/style.css");
+@import url("http://keck.ac.in/sites/all/themes/rwsiitj/css/style.css");
 
-@import url("http://localhost/sites/all/themes/rwsiitj/font-awesome/css/font-awesome.min.css");
+@import url("http://keck.ac.in/sites/all/themes/rwsiitj/font-awesome/css/font-awesome.min.css");
 
 
     </style>
@@ -235,20 +235,20 @@ Ph.: 06452-239122</span></p>
 
 <!-- Jquery -->
         <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script  src="http://localhost/misc/jquery.once.js?v=1.2"></script>
-        <script   src="http://localhost/misc/drupal.js"></script>
-        <script  src="http://localhost/sites/all/libraries/superfish/sftouchscreen.js"></script>
-         <script src="http://localhost/sites/all/libraries/superfish/sfsmallscreen.js"></script>
-         <script   src="http://localhost/sites/all/libraries/superfish/supposition.js"></script>
+        <script  src="http://keck.ac.in/misc/jquery.once.js?v=1.2"></script>
+        <script   src="http://keck.ac.in/misc/drupal.js"></script>
+        <script  src="http://keck.ac.in/sites/all/libraries/superfish/sftouchscreen.js"></script>
+         <script src="http://keck.ac.in/sites/all/libraries/superfish/sfsmallscreen.js"></script>
+         <script   src="http://keck.ac.in/sites/all/libraries/superfish/supposition.js"></script>
 
-         <script  src="http://localhost/sites/all/libraries/superfish/superfish.js"></script>
-         <script  src="http://localhost/sites/all/libraries/superfish/supersubs.js"></script>
-         <script  src="http://localhost/sites/all/modules/superfish/superfish.js"></script>
-         <script  src="http://localhost/sites/all/themes/rwsiitj/js/jquery-migrate-1.3.0.min.js"></script>
-         <script async src="http://localhost/sites/all/themes/rwsiitj/js/jquery.easy-ticker.js"></script>
-         <script async src="http://localhost/sites/all/themes/rwsiitj/js/jquery.marquee.min.js"></script>
-        <script   src="http://localhost/sites/all/themes/rwsiitj/js/rwscustom.js"></script>
-        <script src="http://localhost/sites/all/themes/rwsiitj/js/jqueryui/jquery-ui.min.js"></script>
+         <script  src="http://keck.ac.in/sites/all/libraries/superfish/superfish.js"></script>
+         <script  src="http://keck.ac.in/sites/all/libraries/superfish/supersubs.js"></script>
+         <script  src="http://keck.ac.in/sites/all/modules/superfish/superfish.js"></script>
+         <script  src="http://keck.ac.in/sites/all/themes/rwsiitj/js/jquery-migrate-1.3.0.min.js"></script>
+         <script async src="http://keck.ac.in/sites/all/themes/rwsiitj/js/jquery.easy-ticker.js"></script>
+         <script async src="http://keck.ac.in/sites/all/themes/rwsiitj/js/jquery.marquee.min.js"></script>
+        <script   src="http://keck.ac.in/sites/all/themes/rwsiitj/js/rwscustom.js"></script>
+        <script src="http://keck.ac.in/sites/all/themes/rwsiitj/js/jqueryui/jquery-ui.min.js"></script>
 
         <!--Jquery-->
          <script>

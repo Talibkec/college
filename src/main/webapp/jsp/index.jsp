@@ -17,7 +17,7 @@
                      
                <li style="display:inline">
                                  <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
-                                 <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial   mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</a>
+                                 <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
                 </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">

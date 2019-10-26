@@ -64,8 +64,9 @@ jQuery(document).ready(function($){
 
 		//rest the images
 
+		resetSlidingImages();
 		function resetSlidingImages(){
-		    for(let i = 0; i < slidingImages.length; i++){
+		    for(let i = 1; i < slidingImages.length; i++){
 		        slidingImages[i].style.display = 'none';
 		    }
 
@@ -73,29 +74,20 @@ jQuery(document).ready(function($){
 
 		$('.right-image-holder').click(function(e){
 
-		   if (e.originalEvent !== undefined)
+		    if (e.originalEvent !== undefined)
             {
                   clearInterval(callIntervalId);
             }
+		   if( current < slidingImages.length)
+		        slidingImages[current].style.display = 'none';
+		   current = (current + 1) % 6;
+		   if( current >= slidingImages.length){
+		        current = 0;
+		   }
+		   if( current < slidingImages.length){
+		         slidingImages[current].style.display = 'block';
 
-		    vw = vw + 100;
-		    if( vw >= 600){
-		       vw = 0;
-               larrowvw = 2;
-               rarrowvw = 92;
-               $(".imageSlider").animate({"right": vw + 'vw'}, 150);
-               $('.right-image-holder').css("left", rarrowvw + 'vw');
-               $('.left-image-holder').css("left", larrowvw + 'vw');
-               return;
-		    }
-		    else{
-		        larrowvw = larrowvw + 100;
-		        rarrowvw = rarrowvw + 100;
-		    }
-		    /*$('.imageSlider').css("right", vw + 'vw' );*/
-		    $(".imageSlider").animate({"right": vw + 'vw'}, "slow");
-		    $('.right-image-holder').css("left", rarrowvw + 'vw');
-		    $('.left-image-holder').css("left", larrowvw + 'vw');
+            }
 
 		});
 		$('.left-image-holder').click(function(e){
@@ -104,24 +96,16 @@ jQuery(document).ready(function($){
                 clearInterval(callIntervalId);
              }
 
-             vw = vw - 100;
-             if(vw < 0){
-                vw = 600 - 100;
-                larrowvw = larrowvw + vw;
-                rarrowvw = rarrowvw + vw;
-                 $(".imageSlider").animate({"right": vw + 'vw'}, 150);
-                 $('.left-image-holder').css("left", larrowvw + 'vw');
-                 $('.right-image-holder').css("left", rarrowvw + 'vw');
-                 return;
+             if( current < slidingImages.length)
+             		slidingImages[current].style.display = 'none';
+             current = current -1;
+             if( current < 0 ){
+                current = slidingImages.length - 1;
              }
-             else{
-                larrowvw = larrowvw - 100;
-                rarrowvw = rarrowvw - 100;
+             if( current < slidingImages.length){
+             	    slidingImages[current].style.display = 'block';
              }
-           /* $('.imageSlider').css("right", vw + 'vw');*/
-            $(".imageSlider").animate({"right": vw + 'vw'}, "slow");
-            $('.left-image-holder').css("left", larrowvw + 'vw');
-            $('.right-image-holder').css("left", rarrowvw + 'vw');
+
         });
 
         callIntervalId = setInterval(function(){$( ".right-image-holder" ).trigger( "click" ); }, 5000);

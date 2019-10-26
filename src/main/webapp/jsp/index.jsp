@@ -10,15 +10,15 @@
     <div class="row scrollingnews">
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul>
-               <li style="display: inline;float: left">
+               <li style="display:inline;float:left">
                   <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                </li><span>&nbsp;</span>
                      
-               <li style="display: inline;float: left">
+               <li style="display:inline">
                                  <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
-                                 <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
-                 </li>
+                                 <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial   mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</a>
+                </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>

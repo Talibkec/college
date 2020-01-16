@@ -6,7 +6,7 @@
 
             </div>
         </div>
-    </div>
+   </div>
     <div class="container">
         <a href="administration.html"><i class="fa fa-home"></i> Home</a>
         </ul>
@@ -33,6 +33,936 @@
                                      </div>
                                          </aside>
 
+
+
+                                   <div class="col-md-8">
+                                                   <div class="page-content"><h2>Administrative Responsibilities</h2>
+                                                       <hr/>
+                                                       <div class="panel panel-default">
+                                                           <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Principal</strong>
+                                                           </div>
+                                                           <div class="panel-body">
+                                                               <div class="row">
+                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/rk.jpg"
+                                                                                                                style="background-image: url(http://keck.ac.in/department/eee/principal1.JPG);height:100px;width:200px"/>
+                                                                       <div class="visible-xs"><br/></div>
+                                                                   </div>
+                                                                   <div class="col-sm-6 box-profile-info"> <strong>Smt. Ranjana Kumari</strong><br/><strong>Duty assigned:</strong>
+                                                                       Principal<br/> <strong>Designation:</strong>Associate Professor
+                                                                       <br/> <strong>Phone Number:</strong>9576977097<br/>
+                                                                       <div class="visible-xs"><br/></div>
+                                                                   </div>
+                                                                   <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/principal"
+                                                                                                             class="btn btn-default btn-lg">
+                                                                       <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                       Profile Page </a></div>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+
+                                                         <div class="panel panel-default">
+                                                                               <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Vice Principal</strong></div>
+                                                                               <div class="panel-body">
+                                                                                   <div class="row">
+                                                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/ramk.jpg"
+                                                                                                                                    style="background-image: url(http://keck.ac.in/department/eee/rk.jpg);height:100px;width:200px"/>
+                                                                                           <div class="visible-xs"><br/></div>
+                                                                                       </div>
+                                                                                       <div class="col-sm-6 box-profile-info"><strong>Ram Kumar</strong>
+                                                                                          <br/><strong>Duty assigned:</strong>Vice Principal<br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                           <br/> <strong>Phone Number:</strong> 9508527210<br/>
+                                                                                           <div class="visible-xs"><br/></div>
+                                                                                       </div>
+                                                                                       <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/rk" class="btn btn-default btn-lg">
+                                                                                           <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                           Profile Page </a></div>
+                                                                                   </div>
+                                                                               </div>
+                                                                           </div>
+
+                                                                          <div class="panel panel-default">
+                                                                                                 <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Administrative Officer</strong></div>
+                                                                                                 <div class="panel-body">
+                                                                                                     <div class="row">
+                                                                                                         <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                      src="http://keck.ac.in/jsp/gallery/facultypic/mk.jpg"
+                                                                                                                                                      style="background-image: url(mk.jpeg);width:200px;height:100px"/>
+                                                                                                             <div class="visible-xs"><br/></div>
+                                                                                                         </div>
+                                                                                                         <div class="col-sm-6 box-profile-info"><strong>Mukesh Kumar</strong>
+                                                                                                             <br/> <strong>Duty Assigned:</strong>Administrative Officer<br/><strong>Designation:</strong> Assistant Professor(MECH.) <br/>
+                                                                                                             <strong>Phone Number:</strong>9074275324<br/>
+                                                                                                             <div class="visible-xs"><br/></div>
+                                                                                                         </div>
+                                                                                                         <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/mk" class="btn btn-default btn-lg">
+                                                                                                             <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                             Profile Page </a></div>
+                                                                                                     </div>
+                                                                                                 </div>
+                                                                                             </div>
+
+                                                                             <div class="panel panel-default">
+                                                                                                    <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Web-site Section</strong></div>
+                                                                                                    <div class="panel-body">
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                         src="http://keck.ac.in/jsp/gallery/facultypic/mta.jpg"
+                                                                                                                                                         style="background-image: url(http://keck.ac.in/department/cse/mta.jpg);height:100px;width:200px"/>
+                                                                                                                <div class="visible-xs"><br/></div>
+                                                                                                            </div>
+                                                                                                            <div class="col-sm-6 box-profile-info"><strong>Md Talib Ahmad</strong>
+                                                                                                                <br/> <strong>Duty Assigned:</strong>Prof. In-charge<br/><strong>Designation:</strong> Assistant
+                                                                                                                Professor(CSE)<br/> <strong>Phone Number:</strong>9108006551<br/>
+                                                                                                                <div class="visible-xs"><br/></div>
+                                                                                                            </div>
+                                                                                                            <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/mta"
+                                                                                                                                                      class="btn btn-default btn-lg"> <br
+                                                                                                                    class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                Profile Page </a></div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                    </div>
+
+
+
+                                                                                                 <div class="panel panel-default">
+
+                                                                                                      <div class="panel-body">
+                                                                                                          <div class="row">
+                                                                                                              <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                           src="http://keck.ac.in/jsp/gallery/facultypic/sik.jpg"
+                                                                                                                                                           style="background-image: url(http://keck.ac.in/department/cse/sjn.jpg);width:200px;height:100px"/>
+                                                                                                                  <div class="visible-xs"><br/></div>
+                                                                                                              </div>
+                                                                                                              <div class="col-sm-6 box-profile-info"><strong>Sinjan Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                  <br/> <strong>Designation:</strong> Assistant
+                                                                                                                  Professor(CSE)<br/> <strong>Phone Number:</strong>9871634888<br/>
+                                                                                                                  <div class="visible-xs"><br/></div>
+                                                                                                              </div>
+                                                                                                              <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/snjk"
+                                                                                                                                                        class="btn btn-default btn-lg"> <br
+                                                                                                                      class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                  Profile Page </a></div>
+                                                                                                          </div>
+                                                                                                      </div>
+                                                                                                  </div>
+
+
+
+                                                                                                  <div class="panel panel-default">
+                                                                                                                        <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Head of the Departments</strong></div>
+                                                                                                                        <div class="panel-body">
+                                                                                                                            <div class="row">
+                                                                                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/rm.jpg"
+                                                                                                                                                                             style="background-image: url(#);width:200px;height:100px"/>
+                                                                                                                                    <div class="visible-xs"><br/></div>
+                                                                                                                                </div>
+                                                                                                                                <div class="col-sm-6 box-profile-info"><strong>Rashid Mustafa</strong><br/><strong>Duty Assigned:</strong> HOD(CIVIL)
+                                                                                                                                    <br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong>8920012798<br/>
+                                                                                                                                    <div class="visible-xs"><br/></div>
+                                                                                                                                </div>
+                                                                                                                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/rm" class="btn btn-default btn-lg">
+                                                                                                                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                    Profile Page </a></div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        </div>
+
+
+
+
+                                                                                                                   <div class="panel panel-default">
+
+                                                                                                                                           <div class="panel-body">
+                                                                                                                                               <div class="row">
+                                                                                                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dsk.jpg"
+                                                                                                                                                                                                style="background-image: url(srk.JPG);width:200px;height:100px"/>
+                                                                                                                                                       <div class="visible-xs"><br/></div>
+                                                                                                                                                   </div>
+                                                                                                                                                   <div class="col-sm-6 box-profile-info"><strong>Dr. Surya Kumar</strong><br/><strong>Duty Assigned:</strong> HOD(MECH.)
+                                                                                                                                                       <br/> <strong>Designation:</strong> Assistant Professor(MECH.)<br/> <strong>Phone Number:</strong> 8650301056<br/>
+                                                                                                                                                       <div class="visible-xs"><br/></div>
+                                                                                                                                                   </div>
+                                                                                                                                                   <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/srk"
+                                                                                                                                                                                             class="btn btn-default btn-lg"> <br
+                                                                                                                                                           class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                                       Profile Page </a></div>
+                                                                                                                                               </div>
+                                                                                                                                               </div>
+
+                                                                                                                                       </div>
+
+                                                                                                   <div class="panel panel-default">
+
+                                                                                                                          <div class="panel-body">
+                                                                                                                              <div class="row">
+                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/sk.jpg"
+                                                                                                                                                                               style="background-image: url(http://keck.ac.in/3/image${fileExtension});height:100px;width:200px"/>
+                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                  </div>
+                                                                                                                                  <div class="col-sm-6 box-profile-info"><strong>Subodh Kumar</strong><br/><strong>Duty Assigned:</strong> HOD(CSE)
+                                                                                                                                      <br/> <strong>Designation:</strong> Assistant Professor(CSE)<br/> <strong>Phone
+                                                                                                                                          Number:</strong>8171778441<br/>
+                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                  </div>
+                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/subodh"
+                                                                                                                                                                            class="btn btn-default btn-lg"> <br
+                                                                                                                                          class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                      Profile Page </a></div>
+                                                                                                                              </div>
+                                                                                                                            </div>
+                                                                                                                            </div>
+
+
+
+                                                                               <div class="panel panel-default">
+                                                                                                       <div class="panel-body">
+                                                                                                         <div class="row">
+                                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/aks.jpg"
+                                                                                                                                                          style="background-image: url(http://keck.ac.in/department/eee/aks.JPG);width:200px;height:100px"/>
+                                                                                                                 <div class="visible-xs"><br/></div>
+                                                                                                             </div>
+                                                                                                             <div class="col-sm-6 box-profile-info"><strong>Amit Kumar Suman</strong><br/><strong>Duty Assigned:</strong> HOD(EEE)
+                                                                                                                 <br/> <strong>Designation:</strong> Assistant
+                                                                                                                 Professor(EEE) <br/> <strong>Phone Number:</strong>9835938174<br/>
+                                                                                                                 <div class="visible-xs"><br/></div>
+                                                                                                             </div>
+                                                                                                             <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/aks"
+                                                                                                                                                       class="btn btn-default btn-lg"> <br
+                                                                                                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                 Profile Page </a></div>
+                                                                                                         </div>
+                                                                                                     </div>
+                                                                                                     </div>
+
+
+
+
+                                                                                 <div class="panel panel-default">
+
+                                                                                                        <div class="panel-body">
+                                                                                                            <div class="row">
+                                                                                                                <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                             src="http://keck.ac.in/35/image${fileExtension}"
+                                                                                                                                                             style="background-image: url(dummy.png)"/>
+                                                                                                                    <div class="visible-xs"><br/></div>
+                                                                                                                </div>
+                                                                                                                <div class="col-sm-6 box-profile-info"><strong>Dr. B.N. Mahto</strong><br/><strong>Duty Assigned:</strong> HOD(PHYSICS)
+                                                                                                                    <br/> <strong>Designation:</strong> Assistant
+                                                                                                                    Professor(PHYSICS)<br/> <strong>Phone Number:</strong>9117430155<br/>
+
+
+                                                                                                                    <div class="visible-xs"><br/></div>
+                                                                                                                </div>
+                                                                                                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/ash/bnm"
+                                                                                                                                                          class="btn btn-default btn-lg"> <br
+                                                                                                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                    Profile Page </a></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                        </div>
+
+                                                          <div class="panel panel-default">
+
+                                                                                 <div class="panel-body">
+                                                                                     <div class="row">
+                                                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/aa.jpg"
+                                                                                                                                      style="background-image: url(http://keck.ac.in/department/eee/aa.JPG);width:200px;height:100px"/>
+                                                                                             <div class="visible-xs"><br/></div>
+                                                                                         </div>
+                                                                                         <div class="col-sm-6 box-profile-info"><strong>Alauddin Ansari</strong><br/><strong>Duty Assigned:</strong> HOD(CHEMISTRY)
+                                                                                             <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                             <br/> <strong>Phone Number:</strong>9027262492<br/>
+                                                                                             <div class="visible-xs"><br/></div>
+                                                                                         </div>
+                                                                                         <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/aa" class="btn btn-default btn-lg">
+                                                                                             <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                             Profile Page </a></div>
+                                                                                     </div>
+                                                                                 </div>
+                                                                             </div>
+
+
+
+
+                               <div class="panel panel-default">
+
+                                                      <div class="panel-body">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/33/image${fileExtension}"
+                                                                                                           style="background-image: url(dummy.png)"/>
+                                                                  <div class="visible-xs"><br/></div>
+                                                              </div>
+                                                              <div class="col-sm-6 box-profile-info"><strong>Pramod Kumar</strong><br/><strong>Duty Assigned:</strong> HOD(MATHS.)<br/> <strong>Designation:</strong> Assistant Professor(MATHS.)<br/> <strong>Phone
+                                                                      Number:</strong>9117430155<br/>
+                                                                  <div class="visible-xs"><br/></div>
+                                                              </div>
+                                                              <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/ash/pk"
+                                                                                                        class="btn btn-default btn-lg"> <br
+                                                                      class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                  Profile Page </a></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+
+<div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                             src="http://keck.ac.in/jsp/gallery/facultypic/ajk.jpg" style="width:200px;height:100px"
+                                                                             />
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-6 box-profile-info"><strong>Ajay Kumar</strong><br/><strong>Duty Assigned:</strong> HOD(HUMANITY)
+                                   <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/>
+                                    <strong>Phone Number:</strong>8802009023<br/>
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ajk" class="btn btn-default btn-lg">
+                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                    Profile Page </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="panel panel-default">
+                                    <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Academic Incharge</strong></div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                         src="http://keck.ac.in/jsp/gallery/facultypic/sumk.jpg"
+                                                                                         style="background-image: url(smnk.JPG);width:200px;height:100px"/>
+                                                <div class="visible-xs"><br/></div>
+                                            </div>
+                                            <div class="col-sm-6 box-profile-info"><strong>Suman Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                    Number:</strong> 9891024077<br/>
+                                                <div class="visible-xs"><br/></div>
+                                            </div>
+                                            <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/smnk" class="btn btn-default btn-lg">
+                                                <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                Page </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                                    <div class="panel panel-default">
+
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                             src="http://keck.ac.in/jsp/gallery/facultypic/jk.jpg"
+                                                                                                             style="background-image: url(jk.JPG);width:200px;height:100px"/>
+                                                                    <div class="visible-xs"><br/></div>
+                                                                </div>
+                                                                <div class="col-sm-6 box-profile-info"><strong>Jayant Kumar</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
+                                                                    <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/>
+                                                                    <strong>Phone Number:</strong>8755821987<br/>
+                                                                    <div class="visible-xs"><br/></div>
+                                                                </div>
+                                                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/jk" class="btn btn-default btn-lg">
+                                                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                    Profile Page </a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                                                                                                   <div class="panel panel-default">
+                                                                                                                                                          <div class="panel-heading faculty-title"> &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;<strong>Examination Section</strong></div>
+                                                                                                                                                          <div class="panel-body">
+                                                                                                                                                              <div class="row">
+                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/ramk.jpg"
+                                                                                                                                                                                                               style="background-image: url(http://keck.ac.in/department/eee/rk.jpg);height:100px;width:200px"/>
+                                                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                                                  </div>
+                                                                                                                                                                  <div class="col-sm-6 box-profile-info"><strong>Ram Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                                                                      <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                                                                                                      <br/> <strong>Phone Number:</strong> 9508527210<br/>
+                                                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                                                  </div>
+                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/rk" class="btn btn-default btn-lg">
+                                                                                                                                                                      <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                                                      Profile Page </a></div>
+                                                                                                                                                              </div>
+                                                                                                                                                          </div>
+                                                                                                                                                      </div>
+
+
+                                            <div class="panel panel-default">
+
+                                                                  <div class="panel-body">
+                                                                      <div class="row">
+                                                                          <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                       src="http://keck.ac.in/jsp/gallery/facultypic/suk.jpg"
+                                                                                                                       style="background-image: url(http://keck.ac.in/department/cse/sjk.JPG);width:200px;height:100px"/>
+                                                                              <div class="visible-xs"><br/></div>
+                                                                          </div>
+                                                                          <div class="col-sm-6 box-profile-info"><strong>Sujeet Kumar</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
+                                                                              <br/> <strong>Designation:</strong> Assistant
+                                                                              Professor(CSE)<br/> <strong>Phone Number:</strong>9572341301<br/>
+                                                                              <div class="visible-xs"><br/></div>
+                                                                          </div>
+                                                                          <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/sjk"
+                                                                                                                    class="btn btn-default btn-lg"> <br
+                                                                                  class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                              Profile Page </a></div>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+
+
+                                                                <div class="panel panel-default">
+                                                                                  <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Student Extra Curricular Activity Board</strong></div>
+                                                                                  <div class="panel-body">
+                                                                                      <div class="row">
+                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                       style="background-image: url(ap.png);width:200px;height:100px"/>
+                                                                                              <div class="visible-xs"><br/></div>
+                                                                                          </div>
+                                                                                          <div class="col-sm-6 box-profile-info"><strong>Dr Arbind Prasad</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                              <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                                                                  Number:</strong>9678437791<br/>
+                                                                                              <div class="visible-xs"><br/></div>
+                                                                                          </div>
+                                                                                          <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                  class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                                                              Page </a></div>
+                                                                                      </div>
+                                                                                  </div>
+                                                                              </div>
+
+                                                                                 <div class="panel panel-default">
+                                                                                                      <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Library</strong></div>
+                                                                                                      <div class="panel-body">
+                                                                                                          <div class="row">
+                                                                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/aa.jpg"
+                                                                                                                                                           style="background-image: url(http://keck.ac.in/department/eee/aa.JPG);width:200px;height:100px"/>
+                                                                                                                  <div class="visible-xs"><br/></div>
+                                                                                                              </div>
+                                                                                                              <div class="col-sm-6 box-profile-info"><strong>Alauddin Ansari</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                  <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                                                  <br/> <strong>Phone Number:</strong>9027262492<br/>
+                                                                                                                  <div class="visible-xs"><br/></div>
+                                                                                                              </div>
+                                                                                                              <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/aa" class="btn btn-default btn-lg">
+                                                                                                                  <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                  Profile Page </a></div>
+                                                                                                          </div>
+                                                                                                      </div>
+                                                                                                  </div>
+
+                                                                                               <div class="panel panel-default">
+
+                                                                                                                          <div class="panel-body">
+                                                                                                                              <div class="row">
+                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                                               src="http://keck.ac.in/jsp/gallery/facultypic/shk.jpg"
+                                                                                                                                                                               style="background-image: url(http://keck.ac.in/department/cse/Shwetakumari.JPG);width:200px;height:100px"/>
+                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                  </div>
+                                                                                                                                  <div class="col-sm-6 box-profile-info"><strong>Shweta kumari</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
+                                                                                                                                      <br/> <strong>Designation:</strong> Assistant
+                                                                                                                                      Professor(CSE)<br/> <strong>Phone Number:</strong>7549647373<br/>
+                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                  </div>
+                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/shweta"
+                                                                                                                                                                            class="btn btn-default btn-lg"> <br
+                                                                                                                                          class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                      Profile Page </a></div>
+                                                                                                                              </div>
+                                                                                                                          </div>
+                                                                                                                      </div>
+
+
+
+                                                              <div class="panel panel-default">
+                                                                                     <div class="panel-heading faculty-title">  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Purchase Section</strong></div>
+                                                                                     <div class="panel-body">
+                                                                                         <div class="row">
+                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/sa.jpg"
+                                                                                                                                          style="background-image: url(http://keck.ac.in/department/eee/sa.JPG);width:200px;height:100px"/>
+                                                                                                 <div class="visible-xs"><br/></div>
+                                                                                             </div>
+                                                                                             <div class="col-sm-6 box-profile-info"><strong>Sajjad Ahmad</strong><br/><strong>Duty Assigned:</strong> Purchase Officer
+
+                                                                                                 <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                                 <br/> <strong>Phone Number:</strong>8130952264<br/>
+                                                                                                 <div class="visible-xs"><br/></div>
+                                                                                             </div>
+                                                                                             <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/sa" class="btn btn-default btn-lg">
+                                                                                                 <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                 Profile Page </a></div>
+                                                                                         </div>
+                                                                                     </div>
+                                                                                 </div>
+
+
+
+
+                                                                                   <div class="panel panel-default">
+                                                                                       <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Governance, Water & Sanitation</strong></div>
+                                                                                       <div class="panel-body">
+                                                                                           <div class="row">
+                                                                                               <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                            src="http://keck.ac.in/jsp/gallery/facultypic/mk.jpg"
+                                                                                                                                            style="background-image: url(mk.jpeg);height:100px;width:200px"/>
+                                                                                                   <div class="visible-xs"><br/></div>
+                                                                                               </div>
+                                                                                               <div class="col-sm-6 box-profile-info"><strong>Mukesh Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                   <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/>
+                                                                                                   <strong>Phone Number:</strong>9074275324<br/>
+                                                                                                   <div class="visible-xs"><br/></div>
+                                                                                               </div>
+                                                                                               <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/mk" class="btn btn-default btn-lg">
+                                                                                                   <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                   Profile Page </a></div>
+                                                                                           </div>
+                                                                                       </div>
+                                                                                   </div>
+
+
+
+
+                                                                       <div class="panel panel-default">
+                                                                           <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Internet Section</strong></div>
+                                                                           <div class="panel-body">
+                                                                               <div class="row">
+                                                                                   <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                src="http://keck.ac.in/jsp/gallery/facultypic/pks.jpg"
+                                                                                                                                style="background-image: url(http://keck.ac.in/department/cse/pks.jpg);width:200px;height:100px"/>
+                                                                                       <div class="visible-xs"><br/></div>
+                                                                                   </div>
+                                                                                   <div class="col-sm-6 box-profile-info"><strong>Pradeep Kumar Sharma</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                       <br/> <strong>Designation:</strong> Assistant
+                                                                                       Professor(CSE)<br/> <strong>Phone Number:</strong>8876024875<br/>
+                                                                                       <div class="visible-xs"><br/></div>
+                                                                                   </div>
+                                                                                   <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/pks"
+                                                                                                                             class="btn btn-default btn-lg"> <br
+                                                                                           class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                       Profile Page </a></div>
+                                                                               </div>
+                                                                           </div>
+                                                                       </div>
+
+
+
+                                                                        <div class="panel panel-default">
+                                                                                               <div class="panel-body">
+                                                                                                   <div class="row">
+                                                                                                       <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                    src="http://keck.ac.in/jsp/gallery/facultypic/sik.jpg"
+                                                                                                                                                    style="background-image: url(http://keck.ac.in/department/cse/sjn.jpg);width:200px;height:100px"/>
+                                                                                                           <div class="visible-xs"><br/></div>
+                                                                                                       </div>
+                                                                                                       <div class="col-sm-6 box-profile-info"><strong>Sinjan Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                           <br/> <strong>Designation:</strong> Assistant
+                                                                                                           Professor(CSE)<br/> <strong>Phone Number:</strong>9871634888<br/>
+                                                                                                           <div class="visible-xs"><br/></div>
+                                                                                                       </div>
+                                                                                                       <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/snjk"
+                                                                                                                                                 class="btn btn-default btn-lg"> <br
+                                                                                                               class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                           Profile Page </a></div>
+                                                                                                   </div>
+                                                                                               </div>
+                                                                                           </div>
+
+
+
+
+
+                                                                                                                             <div class="panel panel-default">
+                                                                                                                                  <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Time Table </strong></div>
+                                                                                                                                  <div class="panel-body">
+                                                                                                                                      <div class="row">
+                                                                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                       style="background-image: url(ap.png);width:200px;height:100px"/>
+                                                                                                                                              <div class="visible-xs"><br/></div>
+                                                                                                                                          </div>
+                                                                                                                                          <div class="col-sm-6 box-profile-info"><strong>Dr Arbind Prasad</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                                              <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                                                                                                                  Number:</strong>9678437791<br/>
+                                                                                                                                              <div class="visible-xs"><br/></div>
+                                                                                                                                          </div>
+                                                                                                                                          <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                  class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                                                                                                              Page </a></div>
+                                                                                                                                      </div>
+                                                                                                                                  </div>
+                                                                                                                              </div>
+
+
+                                                                                                                                                                                                                                              <div class="panel panel-default">
+                                                                                                                                                                                                                                                <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Sports & Cultural Section</strong></div>
+                                                                                                                                                                                                                                                <div class="panel-body">
+                                                                                                                                                                                                                                                    <div class="row">
+                                                                                                                                                                                                                                                        <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                                                                                                                                                                                                     src="http://keck.ac.in/jsp/gallery/facultypic/mta.jpg"
+                                                                                                                                                                                                                                                                                                     style="background-image: url(http://keck.ac.in/department/cse/mta.jpg);width:200px;height:100px"/>
+                                                                                                                                                                                                                                                            <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                        <div class="col-sm-6 box-profile-info"><strong>Md Talib Ahmad</strong>
+                                                                                                                                                                                                                                                            <br/> <strong>Duty Assigned:</strong>Prof. In-charge<br/><strong>Designation:</strong> Assistant
+                                                                                                                                                                                                                                                            Professor(CSE)<br/> <strong>Phone Number:</strong>9108006551<br/>
+                                                                                                                                                                                                                                                            <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/mta"
+                                                                                                                                                                                                                                                                                                  class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                                                                class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                                                                                                                                            Profile Page </a></div>
+                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                </div>
+
+
+                                                     <div class="panel panel-default">
+
+                                                                            <div class="panel-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dky.jpg"
+                                                                                                                                 style="background-image: url(http://keck.ac.in/department/cse/dky.jpg);width:200px;height:100px"/>
+                                                                                        <div class="visible-xs"><br/></div>
+                                                                                    </div>
+                                                                                    <div class="col-sm-6 box-profile-info"><strong>Dharmveer Kumar Yadav</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                        <br/> <strong>Designation:</strong> Assistant
+                                                                                        Professor(CSE)<br/> <strong>Phone Number:</strong>8757760847<br/>
+                                                                                        <div class="visible-xs"><br/></div>
+                                                                                    </div>
+                                                                                    <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/dky"
+                                                                                                                              class="btn btn-default btn-lg"> <br
+                                                                                            class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                        Profile Page </a></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
+
+
+                                   <div class="panel panel-default">
+                                                        <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Training & Placement Section</strong> </div>
+                                                        <div class="panel-body">
+                                                            <div class="row">
+                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/rps.jpg"
+                                                                                                             style="background-image: url(rps.JPG);width:200px;height:100px"/>
+                                                                    <div class="visible-xs"><br/></div>
+                                                                </div>
+                                                                <div class="col-sm-6 box-profile-info"><strong>Rana Pratap Singh</strong><br/><strong>Duty Assigned:</strong> TPO
+                                                                   <br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong> 7500594761<br/>
+                                                                    <div class="visible-xs"><br/></div>
+                                                                </div>
+                                                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/rps"
+                                                                                                          class="btn btn-default btn-lg"> <br
+                                                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                    Profile Page </a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+                       <div class="panel panel-default">
+
+                                             <div class="panel-body">
+                                                 <div class="row">
+                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/abk.jpg"
+                                                                                                  style="background-image: url(http://keck.ac.in/department/eee/ak.JPG);width:200px;height:100px"/>
+                                                         <div class="visible-xs"><br/></div>
+                                                     </div>
+                                                     <div class="col-sm-6 box-profile-info"><strong>Abhijeet Kumar</strong><br/><strong>Duty Assigned:</strong> Joint TPO
+                                                         <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                         <br/> <strong>Phone Number:</strong>8802927260<br/>
+                                                         <div class="visible-xs"><br/></div>
+                                                     </div>
+                                                     <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/ak" class="btn btn-default btn-lg">
+                                                         <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                         Profile Page </a></div>
+                                                 </div>
+                                             </div>
+                                         </div>
+
+
+
+
+
+                                           <div class="panel panel-default">
+                                               <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Store Section</strong></div>
+                                               <div class="panel-body">
+                                                   <div class="row">
+                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/akg.jpg"
+                                                                                                    style="background-image: url(akg.JPG);width:200px;height:100px"/>
+                                                           <div class="visible-xs"><br/></div>
+                                                       </div>
+                                                       <div class="col-sm-6 box-profile-info"><strong>Anil Kumar Gupta</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                           <br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone
+                                                               Number:</strong>7728035877<br/>
+                                                           <div class="visible-xs"><br/></div>
+                                                       </div>
+                                                       <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/akg"
+                                                                                                 class="btn btn-default btn-lg"> <br
+                                                               class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                           Profile Page </a></div>
+                                                   </div>
+                                               </div>
+                                           </div>
+
+
+                                            <div class="panel panel-default">
+
+                                                                       <div class="panel-body">
+                                                                           <div class="row">
+                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/19/image${fileExtension}"
+                                                                                                                            style="background-image: url(http://keck.ac.in/department/eee/dummy.png)"/>
+                                                                                   <div class="visible-xs"><br/></div>
+                                                                               </div>
+                                                                               <div class="col-sm-6 box-profile-info"><strong>Rajeev Dev Ranjan</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
+                                                                                   <br/> <strong>Designation:</strong> Assistant
+                                                                                   Professor(EEE)<br/> <strong>Phone Number:</strong>9835051301<br/>
+                                                                                   <div class="visible-xs"><br/></div>
+                                                                               </div>
+                                                                               <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/rdr"
+                                                                                                                         class="btn btn-default btn-lg">
+                                                                                   <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                   Profile Page </a></div>
+                                                                           </div>
+                                                                       </div>
+                                                                       </div>
+
+                                          <div class="panel panel-default">
+                                                                 <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Girl's Hostels</strong></div>
+                                                                 <div class="panel-body">
+                                                                     <div class="row">
+                                                                         <div class="col-sm-3 box-profile-image"><img alt=""
+                                                                                                                      src="http://keck.ac.in/jsp/gallery/facultypic/snk.jpg"
+                                                                                                                      style="background-image: url(http://keck.ac.in/department/cse/snehakumari.jpg);width:200px;height:100px"/>
+                                                                             <div class="visible-xs"><br/></div>
+                                                                         </div>
+                                                                         <div class="col-sm-6 box-profile-info"><strong>Sneha Kumari</strong><br/><strong>Duty Assigned:</strong> Superintendent
+                                                                             <br/> <strong>Designation:</strong> Assistant
+                                                                             Professor(CSE)<br/> <strong>Phone Number:</strong>8405016439<br/>
+                                                                             <div class="visible-xs"><br/></div>
+                                                                         </div>
+                                                                         <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/snehakumari"
+                                                                                                                   class="btn btn-default btn-lg"> <br
+                                                                                 class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                             Profile Page </a></div>
+                                                                     </div>
+                                                                 </div>
+                                                             </div>
+
+
+                                                  <div class="panel panel-default">
+                                                      <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>TEQIP</strong></div>
+                                                      <div class="panel-body">
+                                                          <div class="row">
+                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/ss.jpg"
+                                                                                                           style="background-image: url(http://keck.ac.in/department/eee/ss.JPG);wiidth:200px;height:100px"/>
+                                                                  <div class="visible-xs"><br/></div>
+                                                              </div>
+                                                              <div class="col-sm-6 box-profile-info"><strong>Saket Saurabh</strong><br/><strong>Duty Assigned:</strong> TEQIP Coordinator
+                                                                  <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                  <br/> <strong>Phone Number:</strong>7004712309<br/>
+                                                                  <div class="visible-xs"><br/></div>
+                                                              </div>
+                                                              <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/ss" class="btn btn-default btn-lg">
+                                                                  <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                  Profile Page </a></div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+
+
+
+
+                                        <div class="panel panel-default">
+
+                                                                                                  <div class="row">
+
+                                                                                                  <div class="panel-body">
+                                                                                                      <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/rps.jpg"
+                                                                                                                                                   style="background-image: url(rps.JPG);width:200x;height:100px"/>
+                                                                                                          <div class="visible-xs"><br/></div>
+                                                                                                      </div>
+                                                                                                      <div class="col-sm-6 box-profile-info"><strong>Rana Pratap Singh</strong><br/><strong>Duty Assigned:</strong> TEQIP
+                                                                                                          Coordinator<br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong> 7500594761<br/>
+                                                                                                          <div class="visible-xs"><br/></div>
+                                                                                                      </div>
+                                                                                                      <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/rps"
+                                                                                                                                                class="btn btn-default btn-lg"> <br
+                                                                                                              class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                          Profile Page </a></div>
+                                                                                                  </div>
+                                                                                              </div>
+                                                                                          </div>
+
+
+                                                                <div class="panel panel-default">
+                                                                                                                                                                                                <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Virtual Lab Coordinator</strong></div>
+                                                                                                                                                                                                <div class="panel-body">
+                                                                                                                                                                                                    <div class="row">
+                                                                                                                                                                                                        <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                                                                     style="background-image: url(ap.png);width:200px;height:100px"/>
+                                                                                                                                                                                                            <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                        <div class="col-sm-6 box-profile-info"><strong>Dr Arbind Prasad</strong><br/><strong>Duty Assigned:</strong> Institute Coordinator
+                                                                                                                                                                                                            <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                                                                                                                                                                                Number:</strong>9678437791<br/>
+                                                                                                                                                                                                            <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                                                                                                                                                                            Page </a></div>
+                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </div>
+
+                                                                                                                          <div class="panel panel-default">
+                                                                                                                                                                                                                                                          <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>NBA Coordinator</strong></div>
+                                                                                                                                                                                                                                                          <div class="panel-body">
+                                                                                                                                                                                                                                                              <div class="row">
+                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                                                                                                                               style="background-image: url(ap.png);width:200px;height:100px"/>
+                                                                                                                                                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                  <div class="col-sm-6 box-profile-info"><strong>Dr Arbind Prasad</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                                                                                                                                                                      <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                                                                                                                                                                                                                                          Number:</strong>9678437791<br/>
+                                                                                                                                                                                                                                                                      <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                                  </div>
+                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                                                                          class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                                                                                                                                                                                                                                      Page </a></div>
+                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                          </div>
+                                                                                                                                                                                                                                                      </div>
+
+                                                                                                                                                                                                   <div class="panel panel-default">
+                                                                                                                                                                                                                                                                                                                                   <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Purchase Section </strong></div>
+                                                                                                                                                                                                                                                                                                                                   <div class="panel-body">
+                                                                                                                                                                                                                                                                                                                                       <div class="row">
+                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                                                                                                                                                                                                        style="background-image: url(ap.png);width:200px;height:100px"/>
+                                                                                                                                                                                                                                                                                                                                               <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                                                                                                           </div>
+                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-6 box-profile-info"><strong>Dr Arbind Prasad</strong><br/><strong>Duty Assigned:</strong> Purchase Officer(GeM)
+                                                                                                                                                                                                                                                                                                                                               <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                                                                                                                                                                                                                                                                                                                   Number:</strong>9678437791<br/>
+                                                                                                                                                                                                                                                                                                                                               <div class="visible-xs"><br/></div>
+                                                                                                                                                                                                                                                                                                                                           </div>
+                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                                                                                                                                                   class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                                                                                                                                                                                                                                                                                                               Page </a></div>
+                                                                                                                                                                                                                                                                                                                                       </div>
+                                                                                                                                                                                                                                                                                                                                   </div>
+                                                                                                                                                                                                                                                                                                                               </div>
+
+
+
+
+
+
+                                                                                                        <div class="panel panel-default">
+                                                                                                                                                             <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Student Attendance</strong></div>
+                                                                                                                                                             <div class="panel-body">
+                                                                                                                                                                 <div class="row">
+                                                                                                                                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/ss.jpg"
+                                                                                                                                                                                                                  style="background-image: url(http://keck.ac.in/department/eee/ss.JPG);width:200px;height:100px"/>
+                                                                                                                                                                         <div class="visible-xs"><br/></div>
+                                                                                                                                                                     </div>
+                                                                                                                                                                     <div class="col-sm-6 box-profile-info"><strong>Saket Saurabh</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                                                                                                                                         <br/> <strong>Designation:</strong> Assistant Professor(EEE)
+                                                                                                                                                                         <br/> <strong>Phone Number:</strong>7004712309<br/>
+                                                                                                                                                                         <div class="visible-xs"><br/></div>
+                                                                                                                                                                     </div>
+                                                                                                                                                                     <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/ss" class="btn btn-default btn-lg">
+                                                                                                                                                                         <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                                                         Profile Page </a></div>
+                                                                                                                                                                 </div>
+                                                                                                                                                             </div>
+                                                                                                                                                         </div>
+
+
+
+                           <div class="panel panel-default">
+                                                 <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Kushal Yuva Program & Bursar</strong></div>
+                                                 <div class="panel-body">
+                                                     <div class="row">
+                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/jsp/gallery/facultypic/tr.jpg"
+                                                                                                      style="background-image: url(http://keck.ac.in/department/eee/tr.JPG);width:200px;height:100px"/>
+                                                             <div class="visible-xs"><br/></div>
+                                                         </div>
+                                                         <div class="col-sm-6 box-profile-info"><strong>Tarique Rashid</strong><br/><strong>Duty Assigned:</strong> Nodal Prof.
+                                                             <br/> <strong>Designation:</strong> Assistant
+                                                             Professor NBA Coordinator(EEE)<br/> <strong>Phone Number:</strong>9135826736<br/>
+                                                             <div class="visible-xs"><br/></div>
+                                                         </div>
+                                                         <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/eee/tr" class="btn btn-default btn-lg">
+                                                             <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                             Profile Page </a></div>
+                                                     </div>
+                                                 </div>
+                                                 </div>
+
+
+                  <div class="panel panel-default">
+                                     <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Supervision of campus & classroom</strong></div>
+                                     <div class="panel-body">
+                                         <div class="row">
+                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/32/image${fileExtension}"
+                                                                                          style="background-image: url(dummy.png)"/>
+                                                 <div class="visible-xs"><br/></div>
+                                             </div>
+                                             <div class="col-sm-6 box-profile-info"><strong>Kanchan Kumar Sinha</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
+                                                 <br/> <strong>Designation:</strong> Assistant Professor(MECH.) <br/> <strong>Phone
+                                                     Number:</strong>9835623827<br/>
+                                                 <div class="visible-xs"><br/></div>
+                                             </div>
+                                             <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/kks" class="btn btn-default btn-lg"> <br
+                                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
+                                                 Page </a></div>
+                                         </div>
+                                     </div>
+                                 </div>
+
+
+
+                                   <div class="panel panel-default">
+
+                                                                                       <div class="panel-body">
+                                                                                           <div class="row">
+                                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/33/image${fileExtension}"
+                                                                                                                                            style="background-image: url(dummy.png)"/>
+                                                                                                   <div class="visible-xs"><br/></div>
+                                                                                               </div>
+                                                                                               <div class="col-sm-6 box-profile-info"><strong>Pramod Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge<br/> <strong>Designation:</strong> Assistant Professor(MATHS.)<br/> <strong>Phone
+                                                                                                       Number:</strong>9117430155<br/>
+                                                                                                   <div class="visible-xs"><br/></div>
+                                                                                               </div>
+                                                                                               <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/ash/pk"
+                                                                                                                                         class="btn btn-default btn-lg"> <br
+                                                                                                       class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                   Profile Page </a></div>
+                                                                                           </div>
+                                                                                       </div>
+                                                                                   </div>
+
+
+
+                                   </div>
+
+
+
+                                </div>
+                          </div>
+
+
+
+        <!--
            <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p
                         data-animation="bounce" data-animation-delay="0s"><strong>Administrative Responsibilities
@@ -850,9 +1780,12 @@
                             </tr>
                             </tbody>
                         </table>
+
+
                     </div>
                     <p>&nbsp;</p></div>
             </div>
+            -->
         </div>
     </div>
     <jsp:include page="/jsp/footer.jsp"/>

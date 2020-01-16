@@ -34,8 +34,8 @@
                                           </div>
                                               </aside>
 
-            <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p
+            <div class="col-md-6">
+                <div class="page-content" style="line-height: 180%; font-size: 150%; font-weight: 300;"><p
                         id="ctl00_ContentPlaceHolder1_h4_heading"><span style="font-family: Georgia, Palatino;"><strong>History</strong></span>
                 </p>
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
@@ -44,6 +44,49 @@
                         <span style="font-family: Georgia, Palatino;"><sup> </sup></div>
                 </div>
             </div>
+
+
+
+            <div class="col-sm-3" style="float:right">
+
+               <div class="card" style="box-shadow:12px 12px 12px rgba(0.5,0.5,0.2,0.4);border:0.1px solid #ccc;padding:10px;line-height:210%;background-color:#eef2f4">
+
+               <!--  <a class="logo navbar-btn pull-left" href="/" title="Home">-->
+                       <img src="http://keck.ac.in/sites/default/files/logo.png" alt="Home"/>
+
+
+
+                                <div class="scrollable" style="height:300px;overflow:auto">
+
+                             <table style="width:100%;margin-left:10px 0 10px 8px;line-height:130%;height:100px">
+                                   <h5 align="center"><strong> LIST OF PRINCIPAL</strong></h5>
+                                   <div style="border-bottom:1px solid #ccc;width:40%;margin-left:30%;margin-bottom:10px"></div>
+
+                                   <tr><td style="width:65%;margin-top:20px">01. <strong>Shri M.Fakhruddin Ansari</strong></td><td>2017 to 2018</td></tr>
+                                   <tr><td>02.<strong> Smt. Ranjana Kumari</strong></td><td>2018 to till now</td></tr></table>
+
+                                      <div style="border:.5px dashed grey"></div>
+
+
+
+                                  <table style="width:100%;margin-left:10px 0 10px 3px;margin-top:10px">
+
+                                  <tr> <td style="width:35%">  <strong>Motto</strong></td><td style="line-height:130%"><i>yogah karmasu kaushalam</i></td></tr>
+                                  <tr><td style="line-height:130%"><strong>Motto in English</td><td>Excellence in action</td></tr>
+                                  <tr>  <td> <strong>Students</strong></td><td>720</td></tr>
+                                  <tr> <td><strong>Established</strong></td><td>2016</td></tr>
+                                  <tr> <td><strong>Affiliations</strong></td><td>AKU,AICTE</td></tr>
+                                  <tr><td><strong>Website</strong></td><td><a href=http://www.keck.ac.in>keck.ac.in</td></tr>
+                                  <tr><td><strong>Location</strong></td><td>Hajipur Katihar</td></tr>
+                                  </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <jsp:include page="/jsp/footer.jsp"/>

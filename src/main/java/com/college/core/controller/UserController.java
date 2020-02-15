@@ -211,6 +211,20 @@ public class UserController {
         modalAndView.setViewName(viewName);
         return modalAndView;
     }
+    @RequestMapping(value = "/pagination/next/getTenders", method = RequestMethod.GET)
+    public ModelAndView getNextPageTender(@RequestParam("pageSize") Integer pageSize){
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> tenders = noticeBoardHelper.getTenders(pageSize);
+        if(tenders != null && tenders.size() < 10){
+            pageSize--;
+        }
+        ControllerUtility.getNoticelist(tenders);
+        modalAndView.addObject("noticeList", tenders);
+        modalAndView.addObject("pageSize", pageSize);
+        String viewName = noticeBoardHelper.getTenderViewName();
+        modalAndView.setViewName(viewName);
+        return modalAndView;
+    }
 
     @RequestMapping(value = "/pagination/prev/getNotices", method = RequestMethod.GET)
     public ModelAndView getPreviousPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize){
@@ -223,6 +237,20 @@ public class UserController {
         modalAndView.addObject("noticeList", cseNotices);
         modalAndView.addObject("pageSize", pageSize);
         String viewName = noticeBoardHelper.getViewName(deptno);
+        modalAndView.setViewName(viewName);
+        return modalAndView;
+    }
+    @RequestMapping(value = "/pagination/prev/getTenders", method = RequestMethod.GET)
+    public ModelAndView getPreviousPageNotice(@RequestParam("pageSize") Integer pageSize){
+        if(pageSize < 0){
+            pageSize = 0;
+        }
+        ModelAndView modalAndView =new ModelAndView();
+        List<NoticeBoardDTO> tenders = noticeBoardHelper.getTenders(pageSize);
+        ControllerUtility.getNoticelist(tenders);
+        modalAndView.addObject("noticeList", tenders);
+        modalAndView.addObject("pageSize", pageSize);
+        String viewName = noticeBoardHelper.getTenderViewName();
         modalAndView.setViewName(viewName);
         return modalAndView;
     }

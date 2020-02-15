@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <c:forEach items="${noticeList}" var="notice">
-                 <c:if test = "${ notice.noticeType == 'News' or notice.noticeType == 'Notice'}">
+                <c:if test = "${ notice.noticeType == 'Tendor'}">
                     <div class="post-entry panel panel-default">
                         <div class="panel-heading"></a></h4></div>
                         <div class="panel-body">
@@ -34,8 +34,8 @@
                      <c:set var = "pageSize" value = "${0}"/>
                  </c:if>
                 <ul class="pager">
-                    <li><a href="/pagination/prev/getNotices?deptno=category&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
-                    <li><a href="/pagination/next/getNotices?deptno=category&pageSize=${pageSize + 1}">Next <i class="fa fa-angle-double-right"></i></a>
+                    <li><a href="/pagination/prev/getTenders?pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
+                    <li><a href="/pagination/next/getTenders?pageSize=${pageSize + 1}">Next <i class="fa fa-angle-double-right"></i></a>
                     </li>
                 </ul>
             </div>

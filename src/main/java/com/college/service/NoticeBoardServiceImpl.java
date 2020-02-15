@@ -30,7 +30,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
         logger.info("Query is bering served from database.");
         String news = "News";
         String notice = "Notice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getHomePageNotices(notice, news, pageable);
+        String Tendor = "Tendor";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getHomePageNotices(notice, news,Tendor, pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
 
         return modelMapper.map(noticeBoards, targetListType);

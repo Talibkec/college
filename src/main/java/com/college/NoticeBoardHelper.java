@@ -39,6 +39,11 @@ public class NoticeBoardHelper {
 
         return noticeBoardService.getAllNotice(pageable);
     }
+    public List<NoticeBoardDTO> getTenders(Integer pageNo){
+        List<NoticeBoardDTO> noticeBoardDTOS = null;
+        Pageable pageable = new PageRequest(pageNo, pazeSize);
+        return noticeBoardService.getAllNotice(pageable);
+    }
 
     public String getViewName(String deptno) {
 
@@ -62,5 +67,10 @@ public class NoticeBoardHelper {
             viewName = "department/ash/notice.jsp";
         }
         return  viewName;
+    }
+    public String getTenderViewName(){
+        String viewName = "category/tenders.jsp";
+        return viewName;
+                
     }
 }

@@ -27,6 +27,6 @@ public interface NoticeBoardRepository extends JpaRepository<NoticeBoard, Long> 
     @Query("select nb from NoticeBoard nb where nb.noticeType = :noticeType order by nb.date DESC")
     public List<NoticeBoard> getAshNotices(@Param("noticeType") String noticeType, Pageable pageable);
 
-    @Query("select nb from NoticeBoard nb where nb.noticeType = :notice or nb.noticeType = :news order by nb.date DESC")
-    List<NoticeBoard> getHomePageNotices(@Param("notice") String notice, @Param("news") String news, Pageable pageable);
+    @Query("select nb from NoticeBoard nb where nb.noticeType = :notice or nb.noticeType = :news or nb.noticeType = :Tendor order by nb.date DESC")
+    List<NoticeBoard> getHomePageNotices(@Param("notice") String notice, @Param("news") String news, @Param("Tendor") String Tendor,Pageable pageable);
 }

@@ -247,14 +247,14 @@
                                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
 
                                          <c:forEach items="${noticeList}" var="notice">
-
+                                         <c:if test = "${ notice.noticeType == 'News' or notice.noticeType == 'Notice'}">
                                             <div>
                                                 <span class="label" style="border:  solid 1px #ccc; color: #000;">
                                                 <c:set var = "clazz"  value = "label label-warning"/>
 
                                                  <c:if test = "${ notice.noticeType == 'News'}">
                                                           <c:set var = "clazz"  value = "label label-primary"/>
-                                                  </c:if>
+                                                   </c:if>
                                                 <i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                                 <c:forEach var="item" items="${Role}">
                                                     <c:if test = "${'Admin' eq item}">
@@ -262,9 +262,9 @@
                                                  </c:if>
                                                 </c:forEach>
                                                 <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
-
+                                              
                                             </div>
-
+                                          </c:if>
                                          </c:forEach>
                                         </ul>
     <div class="more-link"><a href="http://keck.ac.in/category/notices">View all Notices</a></div>
@@ -278,31 +278,45 @@
 
 
 
-                <div class="col-sm-3">
-                                <div class="region region-home-2">
-                                    <section id="block-views-nodequeue-12-block" class="block block-views clearfix">
-
-                                        <h2 class="block-title">Tenders</h2>
-
-                                        <div class="view view-nodequeue-12 view-id-nodequeue_12 view-display-id-block view-dom-id-1584ef8e1537a413a20e095a49a0704e">
-
-
-                                            <div class="view-content">
-                                                <div class="item-list">
-                                                    <ul class="borderneeded">
-                                                        <li class="views-row views-row-1 views-row-odd views-row-first">
-                                                            <div class="views-field views-field-title"><span class="field-content"><a
-                                                                    href="/tender-procurement-installation-pinball-disc-tribometer-system">No tenders.</a></span>
-                                                            </div>
-                                                        </li>
-
-                                                    </ul>
+              <div class="col-sm-3">
+                                      <div class="region region-home-5">
+                                          <section id="block-block-18" class="block block-block clearfix">
+              
+                                              <h2 class="block-title">Latest Tenders</h2>
+                                              <div class="rwsvtickercontent">
+                                                  <div class="rwsvticker1">
+                                                   <ul>
+                                                          
+              
+                                                       <c:forEach items="${tenderList}" var="notice">
+                                                       <c:if test = "${notice.noticeType == 'Tendor'}">
+                                                          <div>
+                                                              <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                                              <c:set var = "clazz"  value = "label label-warning"/>
+              
+                                                               <c:if test = "${ notice.noticeType == 'Tender'}">
+                                                                        <c:set var = "clazz"  value = "label label-primary"/>
+                                                                 </c:if>
+                                                              <i class=""></i> ${tender.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                                              <c:forEach var="item" items="${Role}">
+                                                                  <c:if test = "${'Admin' eq item}">
+                                                                  <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
+                                                               </c:if>
+                                                              </c:forEach>
+                                                              <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                            
+                                                          </div>
+                                                         </c:if>
+                                                         </c:forEach>
+                                                        </ul>
+                    <div class="more-link"><a href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
+                                                        </div>
+                
+                                                    </div>
                                                 </div>
-                                            </div>
+                
+                                            </section>
                                         </div>
-                                    </section>
-                                </div>
-                            </div>
 
             </div>
         </div>

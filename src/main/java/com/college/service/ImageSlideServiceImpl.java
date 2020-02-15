@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -25,11 +26,12 @@ public class ImageSlideServiceImpl implements  ImageSlideService{
     ImageSlideRepository imageSlideRepository;
 
     @Override
-
+    @CacheEvict(value = "homepageSlideImageCache", allEntries = true)
     public void saveImageSlide(ImageSlideDTO imageSlideDTO) {
         ImageSlide imageSlide = modelMapper.map(imageSlideDTO, ImageSlide.class);
         imageSlideRepository.save(imageSlide);
     }
+
     @Override
     public ImageSlideDTO getImages(Long id)
     {
@@ -40,9 +42,11 @@ public class ImageSlideServiceImpl implements  ImageSlideService{
         }
         return imageSlideDTO;
     }
+
     @Override
+    @Cacheable(value = "homepageSlideImageCache")
     public List<ImageSlideDTO> getAllImages() {
-        logger.info("Query is being served from database.");
+        logger.info("Query is being served from database for image slide.");
 
         List<ImageSlide> imageSlides = imageSlideRepository.getAllImages();
         Type targetListType = new TypeToken<List<ImageSlideDTO>>() {}.getType();
@@ -51,6 +55,7 @@ public class ImageSlideServiceImpl implements  ImageSlideService{
     }
 
     @Override
+    @CacheEvict(value = "homepageSlideImageCache", allEntries = true)
     public void deleteSlideImage(Long id) {
         imageSlideRepository.delete(id);
     }

@@ -10,15 +10,15 @@
     <div class="row scrollingnews">
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul>
-               <li style="display: inline;float: left">
+               <li style="display:inline;float:left">
                   <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                </li><span>&nbsp;</span>
                      
-               <li style="display: inline;float: left">
+               <li style="display:inline">
                                  <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                                  <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
-                 </li>
+                </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>
@@ -235,13 +235,13 @@
                         </section>
                     </div>
                 </div>
-        <div class="col-sm-5">
+                    <div class="col-sm-5">
                         <div class="region region-home-5">
                             <section id="block-block-18" class="block block-block clearfix">
 
                                 <h2 class="block-title">Latest Notice</h2>
                                 <div class="rwsvtickercontent">
-                                    <div class="rwsvticker1">
+                                    <div class="rwsvticker1" style="height:260px">
                                      <ul>
                                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
                                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
@@ -267,14 +267,17 @@
                                           </c:if>
                                          </c:forEach>
                                         </ul>
-    <div class="more-link"><a href="http://keck.ac.in/category/notices">View all Notices</a></div>
-                                        </div>
+
 
                                     </div>
+                                     <div class="" style="margin-left:30%"><a class="box-link" href="http://keck.ac.in/category/notices">View all Notices</a></div>
+
                                 </div>
 
+
                             </section>
-                        </div>
+
+                        </div></div>
 
 
 
@@ -377,7 +380,7 @@
     </div>
 
 
-    <div class="gt-galleryvideosection">
+    <div class="gt-galleryvideosection" style="margin-top:10px;margin-bottom:10px">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8">
@@ -437,7 +440,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="region region-home-video">
+                    <div class="region region-home-video" style="">
                         <section id="block-block-20" class="block block-block clearfix">
 
                             <h2 class="block-title">Video Gallery</h2>
@@ -450,11 +453,18 @@
                                                     src="https://www.youtube.com/embed/DykZZgT9UHE" width="1050"></iframe>
                                         </div>
                                     </div>
-                                    <div class="views-field views-field-title">Fresher's Party Event
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="more-link"><a href="http://keck.ac.in/gallery/mediagallery">View All </a></div>
+                                    </li></ul>
+                                    <div class="views-field views-field-title" style="margin-left:32%">Fresher's Party Event<br/>
+
+
+
+
+
+
+                                                          <a class="box-link" href="http://keck.ac.in/gallery/mediagallery" style="margin-left:10%">View All </a></div>
+
+
+
 
                         </section>
                     </div>

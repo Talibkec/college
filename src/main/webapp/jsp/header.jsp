@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
 <head>
+   <link rel="stylesheet" href="http://keck.ac.in/modules/myfile/myfile.css"/>
     <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -30,9 +31,9 @@
 
         <div class="gt-topheader">
             <div class="row">
-                <div class="col-sm-4">
-                    <a class="logo navbar-btn pull-left" href="/" title="Home">
-                        <img src="http://keck.ac.in/sites/default/files/logo.png" alt="Home"/>
+                <div class="col-sm-4 loading">
+                    <a class="logo navbar-btn pull-left loading" href="/" title="Home" >
+                        <img src="http://keck.ac.in/sites/default/files/compressed/logo.png" alt="Home"/>
                     </a>
                 </div>
                 <div class="col-sm-8">
@@ -144,6 +145,9 @@
                                                                                                             href="http://keck.ac.in/academic/syllabus" class="sf-depth-2">Syllabus</a></li>
                                                                                                     <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
                                                                                                             href="http://keck.ac.in/academic/rules" class="sf-depth-2">Disciplinary Rules</a></li>
+                                                                                                    <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
+                                                                                                                   href="http://keck.ac.in/academic/paymenttutorial" class="sf-depth-2"> Online Fee Payment Tutorial</a></li>
+                                                                                                   <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
 <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
                                             href="http://keck.ac.in/academic/antiragging"
                                             title="Hostels" class="sf-depth-2">Anti Ragging</a></li>

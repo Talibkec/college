@@ -43,6 +43,12 @@ public class AcademicController {
         mv.setViewName("academic/notice.jsp");
         return mv;
     }
+    @RequestMapping(value="paymenttutorial")
+    public ModelAndView getPayment(){
+        ModelAndView mv=new ModelAndView();
+        mv.setViewName("academic/paymenttutorial.jsp");
+        return mv;
+    }
     @RequestMapping(value="rules")
     public ModelAndView getRules(){
         ModelAndView mv=new ModelAndView();

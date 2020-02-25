@@ -270,7 +270,7 @@
 
 
                                     </div>
-                                     <div class="" style="margin-left:30%"><a class="box-link" href="http://keck.ac.in/category/notices">View all Notices</a></div>
+                                     <div class="" style="margin-left:33%;margin-top:9%"><a class="box-link" href="http://keck.ac.in/category/notices">View all Notices</a></div>
 
                                 </div>
 
@@ -287,7 +287,7 @@
               
                                               <h2 class="block-title">Latest Tenders</h2>
                                               <div class="rwsvtickercontent">
-                                                  <div class="rwsvticker1">
+                                                  <div class="rwsvticker1" style="height:260px">
                                                    <ul>
                                                           
               
@@ -312,8 +312,9 @@
                                                          </c:if>
                                                          </c:forEach>
                                                         </ul>
-                    <div class="more-link"><a href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
                                                         </div>
+                                                                            <div style="margin-top:18%;margin-left:25%"><a class="box-link" href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
+
                 
                                                     </div>
                                                 </div>
@@ -454,14 +455,14 @@
                                         </div>
                                     </div>
                                     </li></ul>
-                                    <div class="views-field views-field-title" style="margin-left:32%">Fresher's Party Event<br/>
+                                    <div class="views-field views-field-title" style="margin-left:32%;">Fresher's Party Event<br/></div>
 
 
 
 
 
 
-                                                          <a class="box-link" href="http://keck.ac.in/gallery/mediagallery" style="margin-left:10%">View All </a></div>
+                                               <div style="margin-top:4%">           <a class="box-link" href="http://keck.ac.in/gallery/mediagallery" style="margin-left:39%;margin-top:10%">View All </a></div>
 
 
 

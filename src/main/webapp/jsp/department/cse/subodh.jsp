@@ -31,8 +31,6 @@
                             class="fa fa-angle-double-right"></i> Md Talib Ahmad</a></li>
                     <li class="list-group-item"><a href="http://keck.ac.in/department/cse/pks" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Pradeep Kumar Sharma</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/cmm" style="font-size: 14px;">&nbsp;&nbsp;<i
-                            class="fa fa-angle-double-right"></i> Dr. CM Mandal</a></li>
                     <li class="list-group-item"><a href="http://keck.ac.in/department/cse/snjk" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Sinjan Kumar </a></li>
                     <li class="list-group-item"><a href="http://keck.ac.in/department/cse/shk" style="font-size: 14px;">&nbsp;&nbsp;<i
@@ -54,7 +52,6 @@
                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/sjk" class="sf-depth-2">Sujeet Kumar</a></li>
                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/mta" class="sf-depth-2">Md Talib Ahmad</a></li>
                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/pks" class="sf-depth-2">Pradeep Kumar Sharma</a></li>
-                        <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/cmm" class="sf-depth-2">Dr. C. M. Mandal</a></li>
                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/snjk" class="sf-depth-2">Sinjan Kumar</a></li>
                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/shk" class="sf-depth-2">Sritosh Kumar</a></li>
                            </ul></div>

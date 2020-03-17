@@ -1,6 +1,8 @@
 package com.college.core.controller;
 
 import com.college.FacultyHelper;
+import com.college.KECDateHelper;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,11 +32,52 @@ public class CivilController {
         modalAndView.addObject("Role", ControllerUtility.getRole());
         modalAndView.addObject("UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> civilNotices= noticeBoardService.getCivilNotices(new PageRequest(0, 10));
+
+
+        List<NoticeBoardDTO> blinkingMessage= noticeBoardService.getBlinkingMessage(new PageRequest(0, 10));
+
+
+
         modalAndView.addObject("noticeList", civilNotices);
         ControllerUtility.getNoticelist(civilNotices);
+
+        modalAndView.addObject("noticeList", getNoticeList(civilNotices, false));
+        modalAndView.addObject("scrollingNoticeList", getNoticeList(civilNotices, true));
+
+        modalAndView.addObject("blinkMessage", blinkingMessage);
+
+
+
+
         modalAndView.setViewName("department/civil/about.jsp");
         return modalAndView;
     }
+
+
+
+    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
+        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
+
+        for(NoticeBoardDTO dto : list){
+            dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
+            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
+            if(scrollable){
+                if(dto.getIsScrollable() != null &&  dto.getIsScrollable() == 1)
+                    scrollingNotices.add(dto);
+            }
+            else if(!scrollable){
+                if(dto.getIsScrollable()== null )
+                    scrollingNotices.add(dto);
+
+            }
+        }
+
+        return  scrollingNotices;
+    }
+
+
+
+
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
         ModelAndView mv=new ModelAndView();

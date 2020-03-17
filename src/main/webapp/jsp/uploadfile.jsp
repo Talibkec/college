@@ -17,11 +17,14 @@
             <select name = "noticeType" id="noticeType"><option value="Notice">Notice</option>
                                                         <option value="News">News</option>
                                                         <option value="Tender">Tendor</option>
-                                                        <option value="CSENotice">Cse</option>
+                                                  <!--      <option value="CSENotice">Cse</option>
                                                         <option value="CIVILNotice">Civil</option>
                                                         <option value="MECHNotice">Mechanical</option>
                                                         <option value="ELECNotice">Electronics</option>
                                                         <option value="ASHNotice">Applied Science</option>
+                                                         <option value="BLINKINGMessage">Blink message</option>
+                                                  -->
+
             </select><br/><br/>
     </div>
     <label class="control-label col-sm-12" ></label>

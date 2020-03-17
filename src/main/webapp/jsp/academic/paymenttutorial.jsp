@@ -61,7 +61,7 @@
                                                  <br/>    <div id="ctl00_ContentPlaceHolder1_div_0"><strong>Step 10: </strong>Now a page with  several payment modes will be opened. Select the payment mode for which you are able and complete the payment.</div>
                                                  <br/>    <div id="ctl00_ContentPlaceHolder1_div_0"><strong>Step 11: </strong>When you are done with payment you can download the e-Receipt of payment.</div>
 <br/>
-                                                     <div id="ctl00_ContentPlaceHolder1_div_0"><strong>Or you can also download the the pdf which contains screenshots of the steps as mentioned bove for fee payment: </strong>
+                                                     <div id="ctl00_ContentPlaceHolder1_div_0"><strong>Or you can also download the the pdf which contains the screenshots of the steps as mentioned above for fee payment: </strong>
                                                                                                                                              <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here to download</a></div>
 
 

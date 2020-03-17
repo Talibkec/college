@@ -1,10 +1,71 @@
 
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:include page="/jsp/header.jsp"/>
+
+ <div class="row scrollingnews">
+         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
+             <ul>
+
+                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
+                  <li style= "display: inline;">
+                  <i class="fa fa-asterisk"></i>
+                  <c:if test = "${scrollingNotice.noticeAge <= 45}">
+                     <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                  </c:if>
+                  <a href="http://keck.ac.in/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                  <c:forEach var="item" items="${Role}">
+                                               <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
+                                                                      <span class="label label-danger"><a style="display: inline" href="<c:url value='/hod/deleteNotice/${scrollingNotice.id}' />">Delete</a></span>
+                      </c:if>
+                  </c:forEach>
+                  </li>
+
+                 </c:forEach>
+                </ul>
+             </marquee>
+     </div>
+
+
+
+
  <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
          <div class="container">
              <div class="row">
-                 <div class="col-md-10 col-sm-8"><h3>About Civil Engg.</h3></div>
+
+
+                                   <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">                 <ul>
+
+
+                                               <c:forEach items="${blinkMessage}" var="scrollingNotice">
+
+
+<span class="blinking aligning">
+                          <li style="display:inline;font-size:140%" >
+                                  <strong>      ${scrollingNotice.headLine}  </strong>
+                                                <c:forEach var="item" items="${Role}">
+                                               <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
+                                                 <span class="label label-danger"><a style="display: inline" href="<c:url value='/hod/deleteNotice/${scrollingNotice.id}' />">Delete</a></span>
+                                                    </c:if>
+                                                </c:forEach>
+</li>
+                                                                </span>
+                                               </c:forEach>
+
+
+
+
+
+
+                                              </ul>  </marquee>
+</div>
+                                   </div>
+
+
+
+
+
+
+
                  <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
                          style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
                      </i> </span> <a
@@ -18,11 +79,21 @@
          </div>
      </div>
      <div class="container">
+
+        <h3>About Civil Engg.</h3>
+
+
          <ul class="breadcrumb" style="background: none">
              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
              <li class="active">About Civil Engg.</li>
+
          </ul>
+
+
+
          <div class="row">
+
+
 
              <aside class="col-sm-3" role="complementary">
                                    <div class="region region-sidebar-second">
@@ -84,13 +155,13 @@
                                                                                                                                                                                                                                                               		<span class="label" style="border:  solid 1px #ccc; color: #000;">
                                                                                                                                                                                                                                                               		<c:set var = "clazz"  value = "label label-warning"/>
 
-                                                                                                                                                                                                                                                              		 <c:if test = "${ notice.noticeType == 'News'}">
+                                                                                                                                                                                                                                                              		 <c:if test = "${ notice.noticeType == 'CIVILNews'}">
                                                                                                                                                                                                                                                                                <c:set var = "clazz"  value = "label label-primary"/>
                                                                                                                                                                                                                                                                        </c:if>
                                                                                                                                                                                                                                                               		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                                                                                                                                                                                                                                                            <c:forEach var="item" items="${Role}">
-                                                                                                                                                                                                                                                                               <c:if test = "${'HOD' eq item}">
-                                                                                                                                                                                                                                                                                 <span class="label label-danger"><a href="<c:url value='/hod/${notice.uploadedFileName}/${notice.id}' />">Delete</a></span>
+                                                                                                                                                                                 <c:forEach var="item" items="${Role}">
+                                                                                                                                                                                                                                  <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
+                                                                                                                                                                                                                                   <span class="label label-danger"><a href="<c:url value='/hod/deleteNotice/${notice.id}' />">Delete</a></span>
                                                                                                                                                                                                                                                                              </c:if>
                                                                                                                                                                                                                                                                              </c:forEach>
                                                                                                                                                                                                                                                                             <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>

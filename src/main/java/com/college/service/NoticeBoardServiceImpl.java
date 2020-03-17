@@ -49,7 +49,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public List<NoticeBoardDTO> getCseNotices(Pageable pageable) {
         String noticeType = "CSENotice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCseNotices(noticeType,pageable);
+        String news="CSENews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCseNotices(noticeType,news,pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
 
             return modelMapper.map(noticeBoards, targetListType);
@@ -59,7 +60,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public List<NoticeBoardDTO> getMechNotices(Pageable pageable) {
         String noticeType = "MECHNotice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getMechNotices(noticeType,pageable);
+        String news="MECHNews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getMechNotices(noticeType,news,pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
 
         return modelMapper.map(noticeBoards, targetListType);
@@ -69,7 +71,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public List<NoticeBoardDTO> getEecNotices(Pageable pageable) {
         String noticeType = "ELECNotice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getElecNotices(noticeType,pageable);
+        String news="ELECNews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getElecNotices(noticeType,news,pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
         return modelMapper.map(noticeBoards, targetListType);
     }
@@ -77,7 +80,8 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public List<NoticeBoardDTO> getApplidScienceNotices(Pageable pageable) {
         String noticeType = "ASHNotice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getAshNotices(noticeType, pageable);
+        String news="ASHNews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getAshNotices(noticeType,news, pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
 
         return modelMapper.map(noticeBoards, targetListType);
@@ -87,10 +91,29 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public List<NoticeBoardDTO> getCivilNotices(Pageable pageable) {
         String noticeType = "CIVILNotice";
-        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCivilNotices(noticeType, pageable);
+        String news="CIVILNews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCivilNotices(noticeType,news, pageable);
         Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
         return modelMapper.map(noticeBoards, targetListType);
     }
+
+
+
+
+
+
+    @Override
+    public List<NoticeBoardDTO> getBlinkingMessage(Pageable pageable) {
+        String noticeType = "BLINKINGMessage";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getBlinkingMessage(noticeType, pageable);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+        return modelMapper.map(noticeBoards, targetListType);
+    }
+
+
+
+
+
 
 
 

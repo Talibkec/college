@@ -594,9 +594,32 @@ color:white;
 background-color:mediumseagreen;
 }
 
-/**
-*Content of KEC css
-*/
+/*blinking*/
+.blinking{
+animation:blinkingText 2s infinite;
+}
+
+@keyframes blinkingText{
+0%{color:yellow;
+}
+49%{
+color:green;
+}
+60%{
+color:red;}
+80%{
+color:transparent;
+}
+99%{
+color:transparent;}
+100%{
+color:yellow;}
+
+}
+
+.aligning{
+text-align:center;}
+
 .imageSlider{
     height: 90vh;
     position:relative;

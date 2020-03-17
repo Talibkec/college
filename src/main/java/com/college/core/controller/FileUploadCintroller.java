@@ -39,7 +39,7 @@ public class FileUploadCintroller {
         logger.debug("Single file upload!");
         String fileName = uploadfile.getOriginalFilename();
 
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(noticeHeader)) {
+      /*  if (uploadfile.isEmpty() || StringUtils.isEmpty(noticeHeader)) {
             String msg = "";
             if (uploadfile.isEmpty()) {
                 msg = "Please select a file.";
@@ -48,7 +48,7 @@ public class FileUploadCintroller {
             }
             return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
-
+*/
 
         String userName = null;
 

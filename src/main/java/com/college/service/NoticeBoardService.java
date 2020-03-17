@@ -10,7 +10,12 @@ public interface NoticeBoardService {
     List<NoticeBoardDTO> getAllNotice(Pageable pageable);
     NoticeBoardDTO getNoticeDocument(Long id);
     List<NoticeBoardDTO> getCseNotices(Pageable pageable);
+
     List<NoticeBoardDTO> getCivilNotices(Pageable pageable);
+
+    List<NoticeBoardDTO> getBlinkingMessage(Pageable pageable);
+
+
     List<NoticeBoardDTO> getMechNotices(Pageable pageable);
     List<NoticeBoardDTO> getEecNotices(Pageable pageable);
     List<NoticeBoardDTO> getApplidScienceNotices(Pageable pageable);

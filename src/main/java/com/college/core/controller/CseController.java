@@ -1,8 +1,10 @@
 package com.college.core.controller;
 
 import com.college.FacultyHelper;
+import com.college.KECDateHelper;
 import com.college.core.model.*;
 import com.college.service.*;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,7 +33,15 @@ public class CseController {
         modalAndView.addObject("UserName", ControllerUtility.getUserName());
         List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
         ControllerUtility.getNoticelist(cseNotices);
-        modalAndView.addObject("noticeList", cseNotices);
+
+
+         modalAndView.addObject("noticeList", cseNotices);
+
+        modalAndView.addObject("noticeList", getNoticeList(cseNotices, false));
+        modalAndView.addObject("scrollingNoticeList", getNoticeList(cseNotices, true));
+
+
+
         modalAndView.setViewName("department/cse/about.jsp");
         return modalAndView;
     }
@@ -40,10 +51,40 @@ public class CseController {
         List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0,10));
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
+
+
+
         modalAndView.addObject("pageSize", "0");
         modalAndView.setViewName("department/cse/notice.jsp");
         return modalAndView;
     }
+
+
+
+
+    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
+        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
+
+        for(NoticeBoardDTO dto : list){
+            dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
+            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
+            if(scrollable){
+                if(dto.getIsScrollable() != null &&  dto.getIsScrollable() == 1)
+                    scrollingNotices.add(dto);
+            }
+            else if(!scrollable){
+                if(dto.getIsScrollable()== null )
+                    scrollingNotices.add(dto);
+
+            }
+        }
+
+        return  scrollingNotices;
+    }
+
+
+
+
 
     @RequestMapping(value="vision")
     public ModelAndView getVision(){

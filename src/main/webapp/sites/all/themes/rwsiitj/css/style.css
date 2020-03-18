@@ -623,7 +623,7 @@ text-align:center;}
 .imageSlider{
     height: 90vh;
     position:relative;
-    width: 600vw;
+    width: 100vw;
 }
 
 .imageSlide{

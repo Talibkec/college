@@ -161,15 +161,9 @@ public class CivilController {
         return mv;
     }
     @RequestMapping(value="akg")
-    public ModelAndView getAkg(){
+    public ModelAndView getAkg() {
         ModelAndView mv = facultyHelper.getFacultyDetails("anilanu");
         mv.setViewName("department/civil/akg.jsp");
-        return mv;
-    }
-    @RequestMapping(value="ar")
-    public ModelAndView getAr(){
-        ModelAndView mv = facultyHelper.getFacultyDetails("amir");
-        mv.setViewName("department/civil/ar.jsp");
         return mv;
     }
     @RequestMapping(value="abhi")
@@ -178,5 +172,25 @@ public class CivilController {
         mv.setViewName("department/civil/abhi.jsp");
         return mv;
     }
+    @RequestMapping(value="sss")
+    public ModelAndView getsss(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("shashank");
+        mv.setViewName("department/civil/sss.jsp");
+        return mv;
+    }
+    @RequestMapping(value="ar")
+    public ModelAndView getar(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("aale");
+        mv.setViewName("department/civil/ar.jsp");
+        return mv;
+    }
+    @RequestMapping(value="kkk")
+    public ModelAndView getkkk(){
+        ModelAndView mv = facultyHelper.getFacultyDetails("krishna");
+        mv.setViewName("department/civil/kkk.jsp");
+        return mv;
+    }
+
+
 
 }

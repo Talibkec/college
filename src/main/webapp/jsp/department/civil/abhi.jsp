@@ -21,7 +21,9 @@
                                                 <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/civil/akg" class="sf-depth-2">Anil Kumar Gupta</a></li>
                                                 <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/rps" class="sf-depth-2">Rana Pratap Singh</a></li>
                                                 <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/abhi" class="sf-depth-2">Abhishek Ranjan</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/ar" class="sf-depth-2">Aamir Rahi</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/ar" class="sf-depth-2">Aale rasul</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/kkk" class="sf-depth-2">Krishna Kant Thakur</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/sss" class="sf-depth-2">Shashank shekhar sandilya</a></li>
                                                    </ul></div>
                                                 </section>
                                                   </div>

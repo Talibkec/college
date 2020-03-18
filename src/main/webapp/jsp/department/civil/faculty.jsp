@@ -98,27 +98,6 @@
                         </div>
                     </div>
 					<div class="panel panel-default">
-                        <div class="panel-heading faculty-title">Aamir Rahi</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/24/image${fileExtension}"
-                                                                             style="background-image: url(dummy.png)"/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Civil
-                                    Engineering<br/> <strong>Designation:</strong> Assistant Professor(Guest)<br/> <strong>Phone
-                                        Number:</strong>9661616023,6207522051<br/> <strong>Email Address:</strong> <a
-                                            href="mailto:aamirrahi4@gmail.com">aamirrahi4@gmail.com</a>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/ar"
-                                                                          class="btn btn-default btn-lg"> <br
-                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
-                                    Profile Page </a></div>
-                            </div>
-                        </div>
-                    </div>
-					<div class="panel panel-default">
                         <div class="panel-heading faculty-title">Abhishek Ranjan</div>
                         <div class="panel-body">
                             <div class="row">
@@ -139,9 +118,69 @@
                             </div>
                         </div>
                     </div>
-                </div>
-        </div>
-    </div>
+                <div class="panel panel-default">
+                                        <div class="panel-heading faculty-title">Aale Rasul</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/25/image${fileExtension}"
+                                                                                             style="background-image: url(dummy.png)"/>
+                                                    <div class="visible-xs"><br/></div>
+                                                </div>
+                                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Civil
+                                                    Engineering<br/> <strong>Designation:</strong> Assistant Professor(Guest)<br/> <strong>Phone
+                                                        Number:</strong>9507994379<br/> <strong>Email Address:</strong> <a
+                                                            href="aalerasulnitp@gmail.com">aalerasulnitp@gmail.com</a>
+                                                    <div class="visible-xs"><br/></div>
+                                                </div>
+                                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/ar"
+                                                                                          class="btn btn-default btn-lg"> <br
+                                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                    Profile Page </a></div>
+                                            </div>
+                                        </div>
+                                  </div>
+
+                                  <div class="panel panel-default">
+                                                                  <div class="panel-heading faculty-title">Shashank shekhar sandilya</div>
+                                                                  <div class="panel-body">
+                                                                      <div class="row">
+                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/25/image${fileExtension}"
+                                                                                                                       style="background-image: url(dummy.png)"/>
+                                                                              <div class="visible-xs"><br/></div>
+                                                                          </div>
+                                                                          <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Civil
+                                                                              Engineering<br/> <strong>Designation:</strong> Assistant Professor(Guest)<br/> <strong>Phone
+                                                                                  Number:</strong>8149241838<br/> <strong>Email Address:</strong> <a
+                                                                                      href="mailto:shashankshekhar@gmail.com">shashankshekhar55555@gmail.com</a>
+                                                                              <div class="visible-xs"><br/></div>
+                                                                          </div>
+                                                                          <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/sss"
+                                                                                                                    class="btn btn-default btn-lg"> <br
+                                                                                  class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                              Profile Page </a></div>
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                               <div class="panel panel-default">
+                                                                      <div class="panel-heading faculty-title">Krishna kant Thakur</div>
+                                                                             <div class="panel-body">                                                                                                               <div class="row">
+                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/25/image${fileExtension}"
+                                                                                                                                                                                     style="background-image: url(dummy.png)"/>
+                                                                                              <div class="visible-xs"><br/></div>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of Civil
+                                                                                                                                            Engineering<br/> <strong>Designation:</strong> Assistant Professor(Guest)<br/> <strong>Phone
+                                                                                                                                                Number:</strong>6202559358<br/> <strong>Email Address:</strong> <a
+                                                                                                                                                    href="mailto:kk350thakur@gmail.com">kk350thakur@gmail.com</a>
+                                                                                                                                            <div class="visible-xs"><br/></div>
+                                                                                                                                        </div>
+                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/civil/kkk"
+                                                                                                                                                                                  class="btn btn-default btn-lg"> <br
+                                                                                                                                                class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                                                                                                                            Profile Page </a></div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div
     </div>
     </div>
 <jsp:include page="/jsp/footer.jsp"/>

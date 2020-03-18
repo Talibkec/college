@@ -19,7 +19,9 @@
                                                             <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/civil/akg" class="sf-depth-2">Anil Kumar Gupta</a></li>
                                                             <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/rps" class="sf-depth-2">Rana Pratap Singh</a></li>
                                                             <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/abhi" class="sf-depth-2">Abhishek Ranjan</a></li>
-                                                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/ar" class="sf-depth-2">Aamir Rahi</a></li>
+                                                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/ar" class="sf-depth-2">Aale rasul</a></li>
+                                                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/kkk" class="sf-depth-2">Krishna kant Thakur</a></li>
+                                                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/sss" class="sf-depth-2">shashank shekhar sandliya</a></li>
                                                                </ul></div>
                                                             </section>
                                                               </div>
@@ -80,6 +82,8 @@
 								<tr><td>&nbsp&nbspNumerical Modeling of Retaining Wall</td></tr>
 								<td>&nbsp&nbspFinite Element Analysis in Geotechnical Engineering</td></tr>
 								<td>&nbsp&nbspNumerical Analysis of Geosynthetic Reinforced Soil Retaining wall</td></tr>
+								<tr>
+								<td>&nbsp&nbspReliability Analysis of Retraining wall</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -88,7 +92,7 @@
                             <table class="table table-striped">
                                 <tbody>
                                 <tr>
-                                    <td>&nbsp&nbsp2 years Teaching Experience</td>
+                                    <td>&nbsp&nbsp3 years Teaching Experience</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -108,11 +112,53 @@
                             <div class="panel-heading"><Strong>Subjects Taught</Strong></div>
                             <table class="table table-striped">
                                 <tbody>
-                                <tr>
-                                    <td>Soil Mechanics-I,Engineering Hydrology,Soil Mechanics Lab,Engineering Hydrology Lab,Hydraulics &
-										OpenChannel Flow,Field Measurement,Foundation Engineering,Hydraulic Machine,Highway Engineering,Survey Lab,Design of Concrete Structure -I,Soil and Rock Mechanics,Mechanics of solid -II.</td>
+                                              <tr>
+                                              <td> Soil Mechanics-I</td>
+                                              </tr>
+                                              <tr>
+                                              <td>Engineering Hydrology</td>
+                                              </tr>
+                                              <tr>
+                                              <td>Mechanics of solid -II.</td>
+                                              </tr>
+                                               <tr>
+                                                 <td>Hydraulics & OpenChannel Flow</td>
+                                              </tr>
 
-                                </tr>
+                                    <tr>
+                                            <td>Field Measurement</td>
+                                     </tr>
+                                     <tr>
+                                            <td>Foundation Engineering</td>
+                                      </tr>
+                                           <tr>
+                                           <td>Hydraulic Machine</td>
+                                           </tr>
+                                           <tr>
+                                           <td>Highway Engineering</td>
+                                           </tr>
+                                           <tr>
+                                           <td>Design of concrete structure-1</td>
+                                           </tr>
+                                           <tr>
+                                           <td>Soil and Rock Mechanics
+                                           </td>
+                                           </tr>
+                                           <tr>
+                                           <td>Introduction to Solid Mechanics</td>
+                                           </tr>
+                                              <tr>
+                                              <td><b><u>LAB Subjects</u> </b></td>
+                                              </tr>
+                                              <tr>
+                                             <td>Soil Mechanics Lab</td>
+                                              </tr>
+                                               <tr>
+                                              <td>Survey Lab</td>
+                                              </tr>
+                                              <tr>
+                                              <td>Engineering hygrology lab</td>
+                                              </tr>
                                 </tbody>
                             </table>
                         </div>

@@ -197,28 +197,6 @@
                         </div>
                     </div>
                     <div class="panel panel-default">
-                        <div class="panel-heading faculty-title">Dr CM Mandal</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/8/image${fileExtension}"
-                                                                             style="background-image: url(http://keck.ac.in/department/cse/cmm.JPG)"/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
-                                    Computer Science and Engineering<br/> <strong>Designation:</strong> Assistant
-                                    Professor<br/> <strong>Phone Number:</strong>9430694843<br/> <strong>Email
-                                        Address:</strong> <a href="/cdn-cgi/l/email-protection">chintamanimandal@gmail.com</a>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/cse/cmm"
-                                                                          class="btn btn-default btn-lg"> <br
-                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
-                                    Profile Page </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
                         <div class="panel-heading faculty-title">Sinjan Kumar</div>
                         <div class="panel-body">
                             <div class="row">

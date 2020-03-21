@@ -145,7 +145,8 @@
           background-color: #bbb;
           border-radius: 50%;
           display: inline-block;
-          transition: background-color 0.6s ease;
+          transition: background-co
+          lor 0.6s ease;
         }
         .active {
           background-color: #717171;
@@ -158,6 +159,7 @@
           animation-duration: 1.5s;
         }
         @-webkit-keyframes fade {
+
           from {opacity: .4}
           to {opacity: 1}
         }
@@ -202,7 +204,7 @@
     <div class="gt-newsblocksection">
         <div class="container">
             <div class="row">
-                            <div class="col-sm-3"style="margin-left:50px">
+                            <div class="col-sm-3">
                     <div class="region region-home-4">
                         <section id="block-block-12" class="block block-block clearfix">
 
@@ -282,15 +284,16 @@
 
 
               <div class="col-sm-3">
-                                      <div class="region region-home-5">
-                                          <section id="block-block-18" class="block block-block clearfix">
+
+                                  <div class="region region-home-5">
+                                          <section id="block-block-12" class="block block-block clearfix">
               
                                               <h2 class="block-title">Latest Tenders</h2>
-                                              <div class="rwsvtickercontent">
+                                              <div class="rwsvtickercontent1">
                                                   <div class="rwsvticker1" style="height:260px">
                                                    <ul>
-                                                          
-              
+
+
                                                        <c:forEach items="${tenderList}" var="notice">
                                                        <c:if test = "${notice.noticeType == 'Tendor'}">
                                                           <div>
@@ -307,18 +310,18 @@
                                                                </c:if>
                                                               </c:forEach>
                                                               <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
-                                                            
+
                                                           </div>
                                                          </c:if>
                                                          </c:forEach>
                                                         </ul>
                                                         </div>
-                                                                            <div style="margin-top:18%;margin-left:25%"><a class="box-link" href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
+                                                                            <div style="margin-top:18%;margin-left:28%"><a class="box-link" href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
 
-                
+
                                                     </div>
                                                 </div>
-                
+
                                             </section>
                                         </div>
 

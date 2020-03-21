@@ -150,11 +150,21 @@ color:#00aae7;
 .rwsvtickercontent{
     margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;
  }
+ .gt-newsblocksection .region-home-2 ul,
+ .gt-newsblocksection  .region-home-4 ul,
+ .rwsvtickercontent1{
+     margin:50px 0 10px 0; padding:20px 20px 20px 20px; list-style:none; border-bottom:2px solid #48bece;  border-left:2px solid #48bece;  border-right:2px solid #48bece; position:relative; min-height:375px; background:#fefefe;
+  }
 .gt-newsblocksection .region-home-2 ul:before,
 .gt-newsblocksection .region-home-5 ul:before,
 .gt-newsblocksection .region-home-4 ul:before, rwsvtickercontent:before{
     width:100%; height:50px; position:absolute; content:""; top:-47px; left:0;
  }
+ .gt-newsblocksection .region-home-2 ul:before,
+ .gt-newsblocksection .region-home-5 ul:before,
+ .gt-newsblocksection .region-home-4 ul:before, rwsvtickercontent:before{
+     width:100%; height:50px; position:absolute; content:""; top:-47px; left:0;
+  }
  /* new changes*/
  .gt-newsblocksection .region-home-2 ul:before,
  .gt-newsblocksection .region-home-3 ul:before,
@@ -178,11 +188,24 @@ color:#00aae7;
       left: 0;
       background: url(../images/ul-top-bg.png) no-repeat top center;
   }
+  .rwsvtickercontent1:before {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        content: "";
+        top: -25px;
+        left: 0;
+        background: url(../images/ul-top-bg.png) no-repeat top center;
+    }
 /*.gt-newsblocksection .region-home-5 ul:before, .rwsvtickercontent:before{width:100%; height:50px; position:absolute; content:""; top:-47px; left:0; background:url(../images/ul-top-bg.png) no-repeat top center; }*/
 
 
 .rwsvtickercontent ul{padding:0 !important;}
 .gt-newsblocksection .region-home-2 ul li, .gt-newsblocksection .region-home-5 ul li, .gt-newsblocksection .region-home-4 ul li, .rwsvtickercontent ul li{width:100%; clear:both; overflow:hidden;  background: url(../images/list-left-bg.gif) no-repeat left 7px; padding-left:14px; font-size:14px; line-height:1.8;  }
+.rwsvtickercontent1 ul{padding:0 !important;}
+.gt-newsblocksection .region-home-2 ul li, .gt-newsblocksection .region-home-5 ul li, .gt-newsblocksection .region-home-4 ul li, .rwsvtickercontent1 ul li{width:100%; clear:both; overflow:hidden;  background: url(../images/list-left-bg.gif) no-repeat left 7px; padding-left:14px; font-size:14px; line-height:1.8;  }
+
+
 .gt-newsblocksection ul li:last-child{ margin-bottom:0 !important; }
 .gt-newsblocksection ul li a{color:#333333; display:block; margin-bottom:14px;}
 .gt-newsblocksection ul li a:hover{color:#16acc1; text-decoration:none;}
@@ -500,6 +523,9 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 	 .rwsvtickercontent:before {
 	    top: -25px;
 	 }
+	  .rwsvtickercontent1:before {
+     	    top: -25px;
+     	 }
 
 	.gt-newsblocksection h2 {
 	    font-size: 18px; !important;
@@ -524,7 +550,9 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 	.region-home-faculty .jcarousel-skin-default .jcarousel-item{width:22%; max-width:230px; margin-bottom:20px !important;}
 	.page-events .region-content .view-content .views-row{width:100% !important;}
 	.gt-newsblocksection ul:before, .rwsvtickercontent:before{display:none;}
+	.gt-newsblocksection ul:before, .rwsvtickercontent1:before{display:none;}
 	.gt-newsblocksection ul.borderneeded, .rwsvtickercontent{border-top:2px solid #48bece; margin-top:15px;}
+	.gt-newsblocksection ul.borderneeded, .rwsvtickercontent1{border-top:2px solid #48bece; margin-top:15px;}
 	.views-slideshow-controls-bottom, .region-navigation, .aasdf, .aasdf, .aasdf, .aasdf{display:none !important;}
 	#navbar-collapse.navbar-collapse  {background:#d4eaf2;}
 	#navbar-collapse.navbar-collapse .navbar-nav{ margin:0 !important; }
@@ -623,7 +651,7 @@ text-align:center;}
 .imageSlider{
     height: 90vh;
     position:relative;
-    width: 600vw;
+    width: 100vw;
 }
 
 .imageSlide{
@@ -657,7 +685,7 @@ text-align:center;}
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
+    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     background-position: center;
@@ -671,7 +699,7 @@ text-align:center;}
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
+    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     left: 91vw;
@@ -679,5 +707,4 @@ text-align:center;}
     border-radius: 50%;
     transform: translateY(-50%)
 }
-
 

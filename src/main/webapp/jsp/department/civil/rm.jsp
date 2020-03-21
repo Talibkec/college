@@ -109,56 +109,83 @@
                             </table>
                         </div>
 						<div class="panel panel-default facultyInfo">
-                            <div class="panel-heading"><Strong>Subjects Taught</Strong></div>
+                            <div class="panel-heading"><Strong>Teaching Theory courses:</Strong></div>
                             <table class="table table-striped">
                                 <tbody>
                                               <tr>
-                                              <td> Soil Mechanics-I</td>
+                                              <td> Soil Mechanics-I (011509)</td>
                                               </tr>
                                               <tr>
-                                              <td>Engineering Hydrology</td>
+                                              <td>Engineering Hydrology (011512)</td>
                                               </tr>
                                               <tr>
-                                              <td>Mechanics of solid -II.</td>
+                                              <td>Mechanics of solid -II (011513)</td>
                                               </tr>
                                                <tr>
-                                                 <td>Hydraulics & OpenChannel Flow</td>
+                                                 <td>Hydraulics & Open Channel Flow (011410)</td>
                                               </tr>
 
                                     <tr>
-                                            <td>Field Measurement</td>
+                                            <td>Field Measurement (011404)</td>
                                      </tr>
+
                                      <tr>
-                                            <td>Foundation Engineering</td>
+                                            <td>Foundation Engineering (011722)</td>
                                       </tr>
+
+                                      <tr>
+                                      <td>Construction Planning and Design (011827)</td>
+                                      </tr>
+                                      <tr>
+                                            <td>Transportation Engineering (011619)</td>
+                                         </tr>
+
                                            <tr>
-                                           <td>Hydraulic Machine</td>
+                                           <td>Design of concrete structure-1 (011617)</td>
                                            </tr>
                                            <tr>
-                                           <td>Highway Engineering</td>
-                                           </tr>
-                                           <tr>
-                                           <td>Design of concrete structure-1</td>
-                                           </tr>
-                                           <tr>
-                                           <td>Soil and Rock Mechanics
+                                           <td>Soil and Rock Mechanics (011615)
                                            </td>
                                            </tr>
                                            <tr>
-                                           <td>Introduction to Solid Mechanics</td>
+                                           <td>Introduction to Solid Mechanics (CE205)</td>
                                            </tr>
+                                           <tr>
+                                           <td>Irrigation Engineering (011852)</td>
+                                           </tr>
+
+
+                    </tbody>
+                                             </table>
+                                         </div>
+
+
+                                              <div class="panel panel-default facultyInfo">
+                                                                          <div class="panel-heading"><Strong>Teaching laboratory courses:</Strong></div>
+                                                                          <table class="table table-striped">
+                                                                              <tbody>
+
                                               <tr>
-                                              <td><b><u>LAB Subjects</u> </b></td>
+                                             <td>Soil Mechanics Lab (011509p)</td>
                                               </tr>
                                               <tr>
-                                             <td>Soil Mechanics Lab</td>
+                                              <td>Engineering Hydrology lab (011512p)</td>
                                               </tr>
-                                               <tr>
-                                              <td>Survey Lab</td>
-                                              </tr>
-                                              <tr>
-                                              <td>Engineering hygrology lab</td>
-                                              </tr>
+                                                <tr>
+                                                <td>Design of concrete structure lab (011617p)</td>
+                                                </tr>
+
+                                                   <tr>
+                                                     <td>Soil and Rock Mechanics lab (011615p)</td>
+                                                             </tr>
+
+                                                             <tr>
+                                                            <td>Transportation Engineering lab (011619p)
+                                                           </td>
+                                                 </tr>
+                                                  <tr>
+                                                   <td>Surveying Lab (011404p)</td>
+                                                </tr>
                                 </tbody>
                             </table>
                         </div>

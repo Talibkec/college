@@ -11,6 +11,8 @@ public class FacultyDocuments {
     private String uploadedBy;
     private String uploadedFileName;
     private Date date;
+    private Boolean link;
+    private String linkAddress;
 
     @Lob
     private byte[] document;
@@ -64,4 +66,21 @@ public class FacultyDocuments {
     public void setDate(Date date) {
         this.date = date;
     }
+    @Column(name = "IS_LINK")
+    public Boolean getLink() {
+        return link;
+    }
+    public void setLink(Boolean link) {
+        this.link = link;
+    }
+
+    @Column(name = "LINK_ADDRESS")
+    public String getLinkAddress() {
+        return linkAddress;
+    }
+
+    public void setLinkAddress(String linkAddress) {
+        this.linkAddress = linkAddress;
+    }
+
 }

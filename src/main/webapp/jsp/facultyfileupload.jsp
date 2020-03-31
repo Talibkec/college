@@ -11,13 +11,21 @@
 
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
     <c:if test = "${isProfilePic eq 'No'}">
-        <label for="headLine" class="control-label col-sm-4 " >Head Line</label>
+        <label for="headLine" class="control-label col-sm-4 " style="text-align: right;" >Head Line</label>
         <div class="col-sm-8">
-            <input type="text" name="facultydocumentsHeader" id="facultydocumentsHeader"/></br></br>
+            <input type="text" name="facultydocumentsHeader" id="facultydocumentsHeader"/>
             <input type="hidden" id="facultyName" name="facultyName" value="NotAvailable" />
             <input type="hidden" id="facultyPersonalEmail" name="facultyPersonalEmail" value="NotAvailable" />
             <input type="hidden" id="facultyofficialEmail" name="facultyOfficialEmail" value="NotAvailable" />
             <input type="hidden" id="facultyMobNo" name="facultyMobNo" value="123"/>
+        </div>
+        <label for="headLine" class="control-label col-sm-4 " style="text-align: right;margin-top: 10px" >Is A Link? </label>
+        <div class="col-sm-8">
+             <input type="checkbox" name="isLink" id="isLink" style="width: 25px;height: 40px;" ></input>
+        </div>
+        <label for="headLine" class="control-label col-sm-4 " style="text-align: right;">Link Address. </label>
+        <div class="col-sm-8">
+                <input type="text" name="linkAddress" id="linkAddress"/><br><br>
         </div>
     </c:if>
     <c:if test = "${isProfilePic eq 'Yes'}" >
@@ -34,7 +42,7 @@
          <input type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
     </c:if>
 
-        <label for="file" class="control-label col-sm-4" ><c:if test = "${isProfilePic eq 'No'}" >Choose File</c:if><c:if test = "${isProfilePic eq 'Yes'}" >Choose Profile Pic</c:if></label>
+        <label for="file" class="control-label col-sm-4" style="text-align: right;" ><c:if test = "${isProfilePic eq 'No'}" >Choose File</c:if><c:if test = "${isProfilePic eq 'Yes'}" >Choose Profile Pic</c:if></label>
         <div class=" btn-default  col-sm-4" style="color:red">
         <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>
         <div id="msg" style="display: none; color: red;">*Please Select a file</div>

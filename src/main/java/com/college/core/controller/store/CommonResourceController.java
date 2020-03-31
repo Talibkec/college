@@ -94,9 +94,11 @@ public class CommonResourceController {
             @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
             @RequestParam("facultyMobNo") Long facultyMobNo,
-            @RequestParam("facultyName") String facultyName) {
+            @RequestParam("facultyName") String facultyName,
+            @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink ,
+            @RequestParam(name = "linkAddress", required = false) String linkAddress) {
         String fileName = uploadfile.getOriginalFilename();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader)) {
+        if (!isLink && (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
             String msg = "";
             if(uploadfile.isEmpty())
             {
@@ -145,7 +147,7 @@ public class CommonResourceController {
             facultyService.saveFaculty(facultyDTO);
         }
         else {
-            saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile);
+            saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile, isLink, linkAddress);
         }
 
         String notice = "http://keck.ac.in/wp-content/uploads/facultydocuments/" + fileName;
@@ -154,12 +156,15 @@ public class CommonResourceController {
 
     }
 
-    private void saveFacultydocumentsDetails(String username, String facultydocumentsHeader, String fileName, MultipartFile uploadFile){
+    private void saveFacultydocumentsDetails(String username, String facultydocumentsHeader, String fileName,
+                                             MultipartFile uploadFile, Boolean isLink, String linkAddress){
         FacultyDocumentsDTO facultyDocumentsDTO =new FacultyDocumentsDTO();
         facultyDocumentsDTO.setHeadLine(facultydocumentsHeader);
         facultyDocumentsDTO.setUploadedFileName(fileName);
         facultyDocumentsDTO.setUploadedBy(username);
         facultyDocumentsDTO.setDate(new Date());
+        facultyDocumentsDTO.setLink(isLink);
+        facultyDocumentsDTO.setLinkAddress(linkAddress);
         try {
             facultyDocumentsDTO.setDocument(uploadFile.getBytes());
         } catch (IOException e) {

@@ -10,6 +10,8 @@ public class FacultyDocumentsDTO {
     private Date date;
     private byte[] document;
     private String fileType;
+    private boolean link;
+    private String linkAddress;
 
     public String getFileType() {
         return fileType;
@@ -64,6 +66,21 @@ public class FacultyDocumentsDTO {
     public void setDate(Date date) {
         this.date = date;
     }
+    public boolean getLink() {
+        return link;
+    }
+    public void setLink(boolean link) {
+        this.link = link;
+    }
+
+    public String getLinkAddress() {
+        return linkAddress;
+    }
+
+    public void setLinkAddress(String linkAddress) {
+        this.linkAddress = linkAddress;
+    }
+
 
 
 }

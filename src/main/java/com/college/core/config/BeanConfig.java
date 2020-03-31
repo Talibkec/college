@@ -39,4 +39,10 @@ public class BeanConfig {
         return noticeBoardHelper;
     }
 
+    @Bean(name = "FirebaseAPI")
+    public  FirebaseSetup setupFireBase(){
+        FirebaseSetup firebaseSetup = new FirebaseSetup();
+        return firebaseSetup;
+    }
+
 }

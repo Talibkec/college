@@ -44,9 +44,16 @@ public class UploadFileUtility {
 
     public static void setFileType(List<FacultyDocumentsDTO> facultyDocuments) {
         for(FacultyDocumentsDTO fd : facultyDocuments){
-            String fileName = fd.getUploadedFileName();
-            Integer index = fileName.lastIndexOf(".");
-            fd.setFileType(fileName.substring(index, fileName.length()));
+            if(fd.getLink() == true){
+
+            }
+            else{
+                fd.setLink(false);
+                String fileName = fd.getUploadedFileName();
+                Integer index = fileName.lastIndexOf(".");
+                fd.setFileType(fileName.substring(index));
+            }
+
         }
     }
 

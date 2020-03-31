@@ -45,7 +45,7 @@ function fire_ajax_submit() {
                 $("#result").text(data);
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
-                $("#homePageForm").submit();
+                history.go(-1);
         },
         error: function (e) {
 

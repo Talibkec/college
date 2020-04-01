@@ -12,8 +12,15 @@ public class FirebaseSetup {
     @PostConstruct
     public void initialize() {
         try {
+
+            String accountInfoPath = "." + System.lineSeparator() +
+                    "src" + System.lineSeparator() +
+                    "main" + System.lineSeparator() +
+                    "resources" + System.lineSeparator() +
+                    "online-attendance-accountInfo.json";
+
             FileInputStream serviceAccount =
-                    new FileInputStream("./src/main/resources/online-attendance-accountInfo.json");
+                    new FileInputStream(accountInfoPath);
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

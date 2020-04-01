@@ -133,7 +133,7 @@
                                                     </c:forEach>
                                                     <c:choose>
                                                         <c:when test="${facultyDocument.link}">
-                                                            <a href="${facultyDocument.linkAddress}"
+                                                            <a href="http://${facultyDocument.linkAddress}"
                                                                 target="_blank">${facultyDocument.headLine}</a>
                                                         </c:when>
                                                         <c:otherwise>

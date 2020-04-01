@@ -99,7 +99,14 @@
                                                                      </c:if>
                                                                      </c:forEach>
 
-                                                           <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                                                     <c:choose>
+                                                                            <c:when test="${facultyDocument.link}">
+                                                                              <a href="http://${facultyDocument.linkAddress}" target="_blank">${facultyDocument.headLine}</a>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                               <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank">${facultyDocument.headLine}</a>
+                                                                            </c:otherwise>
+                                                                          </c:choose>
                                                        </div>
                                                    </c:forEach>
                                               </div>

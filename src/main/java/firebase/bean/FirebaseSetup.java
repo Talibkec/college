@@ -5,6 +5,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.FileInputStream;
 
 public class FirebaseSetup {
@@ -13,10 +14,10 @@ public class FirebaseSetup {
     public void initialize() {
         try {
 
-            String accountInfoPath = "." + System.lineSeparator() +
-                    "src" + System.lineSeparator() +
-                    "main" + System.lineSeparator() +
-                    "resources" + System.lineSeparator() +
+            String accountInfoPath = "." + File.separator +
+                    "src" + File.separator +
+                    "main" + File.separator +
+                    "resources" + File.separator +
                     "online-attendance-accountInfo.json";
 
             FileInputStream serviceAccount =

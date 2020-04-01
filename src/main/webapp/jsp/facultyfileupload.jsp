@@ -23,9 +23,11 @@
         <div class="col-sm-8">
              <input type="checkbox" name="isLink" id="isLink" style="width: 25px;height: 40px;" ></input>
         </div>
-        <label for="headLine" class="control-label col-sm-4 " style="text-align: right;">Link Address. </label>
-        <div class="col-sm-8">
-                <input type="text" name="linkAddress" id="linkAddress"/><br><br>
+        <div style = "display:none" id ="linkBox">
+            <label for="headLine" class="control-label col-sm-4 " style="text-align: right;">Link Address. </label>
+            <div class="col-sm-8">
+                <input type="text" name="linkAddress" id="linkAddress" /><br><br>
+            </div>
         </div>
     </c:if>
     <c:if test = "${isProfilePic eq 'Yes'}" >
@@ -42,11 +44,15 @@
          <input type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
     </c:if>
 
-        <label for="file" class="control-label col-sm-4" style="text-align: right;" ><c:if test = "${isProfilePic eq 'No'}" >Choose File</c:if><c:if test = "${isProfilePic eq 'Yes'}" >Choose Profile Pic</c:if></label>
-        <div class=" btn-default  col-sm-4" style="color:red">
-        <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>
-        <div id="msg" style="display: none; color: red;">*Please Select a file</div>
-        <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
+        <div id="chooseFileBox" style="display:block">
+            <label for="file" class="control-label col-sm-4" style="text-align: right;" >
+                     <c:if test = "${isProfilePic eq 'No'}" >Choose File</c:if>
+                     <c:if test = "${isProfilePic eq 'Yes'}" >Choose Profile Pic</c:if></label>
+            <div class=" btn-default  col-sm-4" style="color:red">
+            <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>
+            <div id="msg" style="display: none; color: red;">*Please Select a file</div>
+            <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
+        </div>
         <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" />
         <div class="col-sm-4"></div>
         </div>

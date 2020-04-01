@@ -9,6 +9,17 @@ $(document).ready(function () {
 
     });
 
+    $("#isLink").click( function( event ) {
+        if($("#isLink").is(':checked')){
+            $("#linkBox").css("display","block");
+            $("#chooseFileBox").css("display","none");
+        }
+        else{
+             $("#linkBox").css("display","none");
+             $("#chooseFileBox").css("display","block");
+        }
+    })
+
 });
 
 function fire_ajax_submit() {

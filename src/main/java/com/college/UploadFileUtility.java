@@ -51,7 +51,10 @@ public class UploadFileUtility {
                 fd.setLink(false);
                 String fileName = fd.getUploadedFileName();
                 Integer index = fileName.lastIndexOf(".");
-                fd.setFileType(fileName.substring(index));
+                if(index >=0){
+                    fd.setFileType(fileName.substring(index));
+                }
+
             }
 
         }

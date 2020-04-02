@@ -14,6 +14,18 @@ public class FacultyDocuments {
     private Boolean link;
     private String linkAddress;
 
+    public FacultyDocuments(){
+
+    }
+
+    public FacultyDocuments(Long id, String headLine, String uploadedFileName, Date date, Boolean link,String linkAddress){
+        this.id = id;
+        this.headLine = headLine;
+        this.uploadedFileName = uploadedFileName;
+        this.date = date;
+        this.link = link;
+        this.linkAddress = linkAddress;
+    }
     @Lob
     private byte[] document;
     @Column(name="F_DOCUMENT", columnDefinition="mediumblob")

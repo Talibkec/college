@@ -1,6 +1,7 @@
 package com.college.core.config;
 
 import com.college.FacultyHelper;
+import firebase.bean.FirebaseSetup;
 import com.college.NoticeBoardHelper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

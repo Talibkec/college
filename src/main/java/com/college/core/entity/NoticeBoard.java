@@ -11,11 +11,21 @@ public class NoticeBoard {
     private String headLine;
     private String noticeType;
     private String uploadedFileName;
-
-
     private Date date;
-
     private Integer isScrollable;
+    public NoticeBoard(){
+
+    }
+
+    public NoticeBoard(Long id, String headLine, String noticeType, String uploadedFileName, Date date, Integer isScrollable) {
+        this.id = id;
+        this.headLine = headLine;
+        this.noticeType = noticeType;
+        this.uploadedFileName = uploadedFileName;
+        this.date = date;
+        this.isScrollable = isScrollable;
+    }
+
     @Lob
     private byte[] notice;
     @Column(name="NB_FILE", columnDefinition="mediumblob")

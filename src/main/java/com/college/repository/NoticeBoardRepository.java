@@ -29,7 +29,7 @@ public interface NoticeBoardRepository extends JpaRepository<NoticeBoard, Long> 
     List<NoticeBoard> getAshNotices(@Param("noticeType") String notice, @Param("news") String news,Pageable pageable);
 
 
-    @Query("select new com.college.core.entity.NoticeBoard(nb.id,nb.headLine,nb.noticeType,nb.uploadedFileName, nb.date, nb.isScrollable) from NoticeBoard nb where nb.noticeType = :noticeType or noticeType = :news order by nb.date DESC")
+    @Query("select new com.college.core.entity.NoticeBoard(nb.id,nb.headLine,nb.noticeType,nb.uploadedFileName, nb.date, nb.isScrollable) from NoticeBoard nb where nb.noticeType = :notice order by nb.date DESC")
     List<NoticeBoard> getBlinkingMessage(@Param("noticeType") String notice,Pageable pageable);
 
 

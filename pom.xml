@@ -118,6 +118,16 @@
             <artifactId>firebase-admin</artifactId>
             <version>6.11.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>kernel</artifactId>
+            <version>7.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>layout</artifactId>
+            <version>7.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -138,6 +148,17 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+                <targetPath>${project.build.outputDirectory}</targetPath>
+                <includes>
+                    <include>application.properties</include>
+                    <include>employee.properties</include>
+                    <include>SMS.properties</include>
+                </includes>
+            </resource>
+        </resources>
 
     </build>
 

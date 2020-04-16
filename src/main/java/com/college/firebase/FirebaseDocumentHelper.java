@@ -1,21 +1,12 @@
 package com.college.firebase;
 
 import com.google.firebase.database.DataSnapshot;
-import com.itextpdf.kernel.color.Color;
-import com.itextpdf.layout.border.Border;
-import com.itextpdf.layout.border.DashedBorder;
-import com.itextpdf.*;
-
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.property.UnitValue;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.io.IOException;
+import java.util.*;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -29,7 +20,7 @@ public class FirebaseDocumentHelper {
 
     private Map<String, Boolean> hc;
 
-    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document) {
+    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath) {
 
         Map<String, Map<String, Boolean>> reportInfo = new HashMap<>();
         if (document != null) {
@@ -43,63 +34,54 @@ public class FirebaseDocumentHelper {
                 }
             }
         }
-        String dest = "C:/itextExamples/AttendanceReport.pdf";
+
         PdfWriter writer = null;
         try {
-            writer = new PdfWriter(dest);
+            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath() +  "/AttendanceReport.pdf");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document doc = new Document(pdfDoc);
-        Table table = new Table(UnitValue.createPointArray(new float[] {1,1,1,1,1,1,1,1,1,1}));
-        Table table1 = new Table(UnitValue.createPointArray(new float[] {1,1}));
-
-        Cell cell  = new Cell().add(new Paragraph("Date"));
+        Integer noOfDays = reportInfo.keySet().size();
+        Set days = reportInfo.keySet();
+        Iterator iterator = days.iterator();
+        Table table = new Table(noOfDays + 1);
+        Cell cell = new Cell();
+        cell.add("Date/Reg No.");
         table.addCell(cell);
-
-        Map.Entry<String,Map<String,Boolean>> key = reportInfo.entrySet().iterator().next();
-        Map<String, Boolean> attendanceList = key.getValue();
-
-
-        for (Map.Entry<String, Map<String, Boolean>> entry : reportInfo.entrySet()) {
-
-
-            Cell c1 = new Cell();
-            c1.add(entry.getKey());// Print Date
-            c1.setTextAlignment(TextAlignment.CENTER);
-            table.addCell(c1);
-
-
-
-                 for(Map.Entry<String,Boolean> mapEntry:attendanceList.entrySet()){
-
-                        Cell c2 = new Cell();
-                        c2.add((mapEntry.getKey()));// Print Registration Number
-                        c2.setWidth(25F);
-                        c2.setTextAlignment(TextAlignment.CENTER);
-
-                        table1.addCell(c2);
-
-                     if(mapEntry.getValue()==false){
-                         Cell c3 =new Cell();
-                         c3.add("Absent");// Print absent
-                         c3.setWidth(61F);
-                         c3.setTextAlignment(TextAlignment.CENTER);
-                         table1.addCell(c3);
-                     }
-                     else{
-                         Cell c3 =new Cell(1,78);
-                         c3.add("Present");//Print Present
-                         c3.setTextAlignment(TextAlignment.CENTER);
-                         table1.addCell(c3);
-                     }
-                 }
+        String  dateInfo = "";
+        while(iterator.hasNext()){
+            String date  = (String) iterator.next();
+            dateInfo = date;
+            cell = new Cell();
+            cell.add(date);
+            table.addCell(cell);
         }
-        doc.add(table);
-        doc.add(table1);
+        Set<String> regNos = reportInfo.get(dateInfo).keySet();
+        Iterator<String> regNoIterator = regNos.iterator();
+        while(regNoIterator.hasNext()){
+            String regNo = regNoIterator.next();
+            cell = new Cell();
+            cell.add(regNo);
+            table.addCell(cell);
+            Iterator<String> attendanceDateIt = reportInfo.keySet().iterator();
+            while(attendanceDateIt.hasNext()){
+                String date = attendanceDateIt.next();
+                cell = new Cell();
+                String status = reportInfo.get(date).get(regNo) ? "P" : "A";
+                cell.add(status.toString());
+                table.addCell(cell);
+            }
+        }
 
+        doc.add(table);
         doc.close();
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return reportInfo;
     }

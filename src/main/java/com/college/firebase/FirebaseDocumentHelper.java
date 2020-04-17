@@ -105,7 +105,7 @@ public class FirebaseDocumentHelper {
 
                 cell = new Cell();
                 String status = reportInfo.get(date).get(regNo) ? "P" : "A";
-                cell.add(status.toString());
+                cell.add(status.toString()).setTextAlignment(TextAlignment.CENTER);
                 table.addCell(cell);
             }
         }

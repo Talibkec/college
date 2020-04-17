@@ -28,11 +28,10 @@ public class FirebaseDocumentHelper {
 
     public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath) {
 
-        Map<String, Map<String, Boolean>> reportInfo = new HashMap<>();
+        Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
         String db_department = new String();
         String db_semester = new String();
         String db_subject = new String();
-
 
         if (document != null) {
             for (DataSnapshot child : document.getChildren()) {
@@ -43,10 +42,13 @@ public class FirebaseDocumentHelper {
                 String date = (String) child.child("date").getValue();
                 if (attendanceList != null) {
                     Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
-                    reportInfo.put(date, attendanceListVal);
+                    TreeMap<String, Boolean> treeMap = new TreeMap<>();
+                    treeMap.putAll(attendanceListVal);
+                    reportInfo.put(date, treeMap);
                 }
             }
         }
+        fillDummyDataForTesting(reportInfo);
         PdfWriter writer = null;
         try {
             writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath() + "/AttendanceReport.pdf");
@@ -81,7 +83,7 @@ public class FirebaseDocumentHelper {
         cell.add("Date/Reg No.");
         table.addCell(cell);
         String dateInfo = "";
-        Arrays.sort(new String[]{dateInfo});
+        //Arrays.sort(new String[]{dateInfo});
         while (iterator.hasNext()) {
             String date = (String) iterator.next();
             dateInfo = date;
@@ -94,13 +96,13 @@ public class FirebaseDocumentHelper {
         Iterator<String> regNoIterator = regNos.iterator();
         while (regNoIterator.hasNext()) {
             String regNo = regNoIterator.next();
-
             cell = new Cell();
             cell.add(regNo);
             table.addCell(cell);
             Iterator<String> attendanceDateIt = reportInfo.keySet().iterator();
-
+            int count = 0;
             while (attendanceDateIt.hasNext()) {
+                count ++;
                 String date = attendanceDateIt.next();
 
                 cell = new Cell();
@@ -142,5 +144,12 @@ public class FirebaseDocumentHelper {
 
 
         return reportInfo;
+    }
+
+    private void fillDummyDataForTesting(Map<String, Map<String, Boolean>> reportInfo) {
+        for(int i = 1; i <= 30; i++){
+            Map<String , Boolean> map = reportInfo.get("2020-04-02");
+            reportInfo.put("Date" + i, map);
+        }
     }
 }

@@ -41,8 +41,10 @@ public class FacultyGenerateReport {
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(/*@RequestParam("param") String params */ ) {
 
-
-
+        String dept = "Computer Sc. & Engineering";
+        String sub = "Major Projct";
+        String startDate = "2020-04-01";
+        String endDate = "2020-04-05";
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
@@ -53,7 +55,8 @@ public class FacultyGenerateReport {
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath());
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath);
-                String email = "apcbadal@gmail.com";
+
+                String email = "mdtalibahmad@gmail.com";
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 

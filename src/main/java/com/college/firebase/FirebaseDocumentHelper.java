@@ -51,7 +51,7 @@ public class FirebaseDocumentHelper {
         fillDummyDataForTesting(reportInfo);
         PdfWriter writer = null;
         try {
-            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath() + "/AttendanceReport.pdf");
+            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

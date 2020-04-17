@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.mail.Message;
@@ -39,8 +40,9 @@ public class FacultyGenerateReport {
 
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
-    public String FirebaseReportController(/*@RequestParam("param") String params */ ) {
+    public String FirebaseReportController(@RequestParam("params") String params ) {
 
+        System.out.println("I am being calledwith following parameters. " + params);
         String dept = "Computer Sc. & Engineering";
         String sub = "Major Projct";
         String startDate = "2020-04-01";
@@ -53,7 +55,7 @@ public class FacultyGenerateReport {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
-                File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath());
+                File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath);
 
                 String email = "mdtalibahmad@gmail.com";
@@ -78,7 +80,7 @@ public class FacultyGenerateReport {
                 mimeMessage.setText("Please find the attached attendance report.");
                 mimeMessage.addHeader("Content-Type", "application/pdf");
 
-                FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath() +  "/AttendanceReport.pdf"));
+                FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath()));
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
                 helper.setText("Please find the attached attendance report.", true);

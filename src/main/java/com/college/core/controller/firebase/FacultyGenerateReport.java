@@ -27,6 +27,10 @@ import java.util.Map;
 @Controller
 public class FacultyGenerateReport {
 
+    public String dept = "Computer Sc. & Engineering";
+    public String sub = "Major Projct";
+    public String startDate = "2020-04-01";
+    public String endDate = "2020-04-25";
     @Autowired
     FirebaseDocumentHelper firebaseDocumentHelper;
 
@@ -37,10 +41,8 @@ public class FacultyGenerateReport {
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(/*@RequestParam("param") String params */ ) {
 
-        String dept = "Computer Sc. & Engineering";
-        String sub = "Major Projct";
-        String startDate = "2020-04-01";
-        String endDate = "2020-04-05";
+
+
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
@@ -51,7 +53,7 @@ public class FacultyGenerateReport {
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath());
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath);
-                String email = "talib@keck.ac.in";
+                String email = "apcbadal@gmail.com";
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 
@@ -69,14 +71,14 @@ public class FacultyGenerateReport {
             {
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
-                mimeMessage.setSubject("KEC, attendance report.");
+                mimeMessage.setSubject("KEC, Attendance Report.");
                 mimeMessage.setText("Please find the attached attendance report.");
                 mimeMessage.addHeader("Content-Type", "application/pdf");
 
                 FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath() +  "/AttendanceReport.pdf"));
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
-                helper.setText("", true);
+                helper.setText("Please find the attached attendance report.", true);
                 //helper.addAttachment("AttendanceReport.pdf", file);
 
             }

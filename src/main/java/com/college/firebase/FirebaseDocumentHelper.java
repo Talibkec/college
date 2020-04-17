@@ -1,14 +1,19 @@
 package com.college.firebase;
 
+import com.college.core.controller.firebase.FacultyGenerateReport;
 import com.google.firebase.database.DataSnapshot;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.color.Color;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.TabAlignment;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.*;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -24,42 +29,50 @@ public class FirebaseDocumentHelper {
     public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath) {
 
         Map<String, Map<String, Boolean>> reportInfo = new HashMap<>();
-        String db_department= new String();
-        String db_semester =new String();
-        String db_subject =new String();
-        if (document != null) {
+        String db_department = new String();
+        String db_semester = new String();
+        String db_subject = new String();
 
+
+        if (document != null) {
             for (DataSnapshot child : document.getChildren()) {
                 DataSnapshot attendanceList = child.child("attendanceList");
-                db_department =(String) child.child("department").getValue();
-                db_semester =(String) child.child("semester").getValue();
-                db_subject =(String) child.child("subject").getValue();
+                db_department = (String) child.child("department").getValue();
+                db_semester = (String) child.child("semester").getValue();
+                db_subject = (String) child.child("subject").getValue();
                 String date = (String) child.child("date").getValue();
-
-                            if (attendanceList != null) {
-                                Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
-                                reportInfo.put(date, attendanceListVal);
-                            }
+                if (attendanceList != null) {
+                    Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
+                    reportInfo.put(date, attendanceListVal);
+                }
             }
         }
-
         PdfWriter writer = null;
         try {
-            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath() +  "/AttendanceReport.pdf");
+            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath() + "/AttendanceReport.pdf");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        FacultyGenerateReport facultyGenerateReport = new FacultyGenerateReport();
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document doc = new Document(pdfDoc);
-        String clgName ="Katihar Engineering College, Katihar - 854109";
-        String reportTitle ="Attendance Report ";
-        String deptTitle="Department - "+ db_department;;
-        String semTitle ="Semester - " +db_semester;
-        String subTitle ="Subject - " +db_subject;
-        String facultyName ="Faculty Name - Md Talib Ahmad";
-        String startDate ="From - 2020-04-02";
-        String endDate ="To - 2020-04-25";
-        String signature ="____________________"+"\n"+"Faculty's Signature";
+        ImageData data = null;
+        try {
+            data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Image image = new Image(data);
+        String clgName = "________________________________";
+        String reportTitle = "Attendance Report ";
+        String deptTitle = "Department - " + db_department;
+        String semTitle = "Semester - " + db_semester;
+        String subTitle = "Subject - " + db_subject;
+        String facultyName = "Faculty Name - Md Talib Ahmad";
+        String startDate = facultyGenerateReport.startDate;
+        String endDate = facultyGenerateReport.endDate;
+        String signature = "____________________" + "\n" + "Faculty's Signature";
         Integer noOfDays = reportInfo.keySet().size();
         Set days = reportInfo.keySet();
         Iterator iterator = days.iterator();
@@ -67,26 +80,27 @@ public class FirebaseDocumentHelper {
         Cell cell = new Cell();
         cell.add("Date/Reg No.");
         table.addCell(cell);
-        String  dateInfo = "";
-        while(iterator.hasNext()){
-            String date  = (String) iterator.next();
+        String dateInfo = "";
+        Arrays.sort(new String[]{dateInfo});
+        while (iterator.hasNext()) {
+            String date = (String) iterator.next();
             dateInfo = date;
             cell = new Cell();
             cell.add(date);
             table.addCell(cell);
         }
         Set<String> regNos = reportInfo.get(dateInfo).keySet();
-        Arrays.sort(new Set[]{regNos});
+
         Iterator<String> regNoIterator = regNos.iterator();
-        while(regNoIterator.hasNext()){
+        while (regNoIterator.hasNext()) {
             String regNo = regNoIterator.next();
-           // Arrays.sort(new String[]{regNo});
+
             cell = new Cell();
             cell.add(regNo);
             table.addCell(cell);
             Iterator<String> attendanceDateIt = reportInfo.keySet().iterator();
 
-            while(attendanceDateIt.hasNext()){
+            while (attendanceDateIt.hasNext()) {
                 String date = attendanceDateIt.next();
 
                 cell = new Cell();
@@ -95,22 +109,24 @@ public class FirebaseDocumentHelper {
                 table.addCell(cell);
             }
         }
-        Paragraph clgNamePara =new Paragraph(clgName).setTextAlignment(TextAlignment.CENTER).setFontSize(25F);
-        Paragraph reportPara =new Paragraph(reportTitle).setTextAlignment(TextAlignment.CENTER).setFontSize(20F);
-        Paragraph deptPara =new Paragraph(deptTitle);
+        Paragraph clgNamePara = new Paragraph(clgName).setTextAlignment(TextAlignment.CENTER).setFontSize(25F);
+        Paragraph reportPara = new Paragraph(reportTitle).setTextAlignment(TextAlignment.CENTER).setFontSize(20F);
+        Paragraph deptPara = new Paragraph(deptTitle);
         deptPara.add(new Tab());
-        deptPara.addTabStops(new TabStop(1000,TabAlignment.RIGHT));
+        deptPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
         deptPara.add(facultyName);
-        Paragraph semPara =new Paragraph(semTitle);
+        Paragraph semPara = new Paragraph(semTitle);
         semPara.add(new Tab());
         semPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
         semPara.add(startDate);
-        Paragraph subPara =new Paragraph(subTitle);
+        Paragraph subPara = new Paragraph(subTitle);
         subPara.add(new Tab());
         subPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
         subPara.add(endDate);
-        Paragraph signPara =new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+        doc.add(image);
         doc.add(clgNamePara);
+
         doc.add(reportPara);
         doc.add(deptPara);
         doc.add(semPara);
@@ -123,6 +139,7 @@ public class FirebaseDocumentHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         return reportInfo;
     }

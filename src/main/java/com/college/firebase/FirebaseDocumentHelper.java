@@ -1,5 +1,6 @@
 package com.college.firebase;
 
+import com.college.core.controller.firebase.DocUtils;
 import com.college.core.controller.firebase.FacultyGenerateReport;
 import com.google.firebase.database.DataSnapshot;
 import com.itextpdf.io.image.ImageData;
@@ -55,24 +56,9 @@ public class FirebaseDocumentHelper {
         }
 
         FacultyGenerateReport facultyGenerateReport = new FacultyGenerateReport();
-
+        DocUtils docUtils =new DocUtils();
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document doc = new Document(pdfDoc);
-        ImageData data = null;
-        try {
-            data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        Image image = new Image(data);
-        String clgName = "________________________________";
-        String reportTitle = "Attendance Report ";
-        String deptTitle = "Department - " + db_department;
-        String semTitle = "Semester - " + db_semester;
-        String subTitle = "Subject - " + db_subject;
-        String facultyName = "Faculty Name - "+facultyGenerateReport.facultyName;
-        String startDate = facultyGenerateReport.startDate;
-        String endDate = facultyGenerateReport.endDate;
         String signature = "____________________" + "\n" + "Faculty's Signature";
         Integer noOfDays = reportInfo.keySet().size();
         Set days = reportInfo.keySet();
@@ -110,28 +96,13 @@ public class FirebaseDocumentHelper {
                 table.addCell(cell);
             }
         }
-        Paragraph clgNamePara = new Paragraph(clgName).setTextAlignment(TextAlignment.CENTER).setFontSize(25F);
-        Paragraph reportPara = new Paragraph(reportTitle).setTextAlignment(TextAlignment.CENTER).setFontSize(20F);
-        Paragraph deptPara = new Paragraph(deptTitle);
-        deptPara.add(new Tab());
-        deptPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        deptPara.add(facultyName);
-        Paragraph semPara = new Paragraph(semTitle);
-        semPara.add(new Tab());
-        semPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        semPara.add(startDate);
-        Paragraph subPara = new Paragraph(subTitle);
-        subPara.add(new Tab());
-        subPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        subPara.add(endDate);
         Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
-        doc.add(image);
-        doc.add(clgNamePara);
-
-        doc.add(reportPara);
-        doc.add(deptPara);
-        doc.add(semPara);
-        doc.add(subPara);
+        doc.add(docUtils.kecLogo());
+        doc.add(docUtils.dashedLine());
+        doc.add(docUtils.attendanceTitle());
+        doc.add(docUtils.deptTitle());
+        doc.add(docUtils.semTitle());
+        doc.add(docUtils.subTitle());
         doc.add(table);
         doc.add(signPara);
         doc.close();

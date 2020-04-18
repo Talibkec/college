@@ -65,7 +65,7 @@ public class FacultyGenerateReport {
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
-                String email ="apcbadal@gmail.com";
+                String email =facultyReportDetail.getFacultyEmail();
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 

@@ -3,26 +3,27 @@ package firebase.bean;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class FirebaseSetup {
+
+
+    @Autowired
+    ResourceLoader resourceLoader;
 
     @PostConstruct
     public void initialize() {
         try {
 
-            String accountInfoPath = "." + File.separator +
-                    "src" + File.separator +
-                    "main" + File.separator +
-                    "resources" + File.separator +
-                    "online-attendance-accountInfo.json";
-
-            FileInputStream serviceAccount =
-                    new FileInputStream(accountInfoPath);
-
+            Resource resource = resourceLoader.getResource("classpath:online-attendance-accountInfo.json");
+            InputStream serviceAccount = resource.getInputStream();
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl("https://online-attendance-7e3c3.firebaseio.com")

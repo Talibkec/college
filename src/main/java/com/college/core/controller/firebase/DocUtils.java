@@ -3,6 +3,7 @@ package com.college.core.controller.firebase;
 import com.college.firebase.FirebaseDocumentHelper;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
@@ -15,12 +16,21 @@ import java.net.MalformedURLException;
 
 public class DocUtils {
 
-    @Autowired
-    FacultyGenerateReport facultyGenerateReport;
 
+    public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail){
+        String signature = "____________________" + "\n" + "Faculty's Signature";
+        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+        doc.add(kecLogo());
+        doc.add(dashedLine());
+        doc.add(attendanceTitle());
+        doc.add(deptTitle(facultyReportDetail));
+        doc.add(semTitle(facultyReportDetail));
+        doc.add(subTitle(facultyReportDetail));
+        doc.add(signPara);
+    }
 
     //KEC Logo
-    public Image kecLogo (){
+    public static Image kecLogo(){
         ImageData data=null;
         try {
             data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
@@ -33,7 +43,7 @@ public class DocUtils {
 
 
     // A line after KEC Logo
-    public Paragraph dashedLine(){
+    public static Paragraph dashedLine(){
         String line = "________________________________";
         Paragraph clgNamePara = new Paragraph(line).setTextAlignment(TextAlignment.CENTER).setFontSize(25F);
         return  clgNamePara;
@@ -41,7 +51,7 @@ public class DocUtils {
 
 
     // Title of PDF Report file
-    public Paragraph attendanceTitle(){
+    public static Paragraph attendanceTitle(){
         String attendanceTitle = "Attendance Report ";
         Paragraph attndancePara = new Paragraph(attendanceTitle).setTextAlignment(TextAlignment.CENTER).setFontSize(20F);
         return  attndancePara;
@@ -49,9 +59,9 @@ public class DocUtils {
 
 
     //Name of Department and Faculty Name
-    public Paragraph deptTitle(){
-        String deptTitle ="Department - " +facultyGenerateReport.dept;//Get Department Name
-        String facultyName = "Faculty Name - "+facultyGenerateReport.facultyName;//Get Faculty Name
+    public static Paragraph deptTitle( FacultyReportDetail facultyReportDetail){
+        String deptTitle ="Department - " + facultyReportDetail;//.dept;//Get Department Name
+        String facultyName = "Faculty Name - "+ facultyReportDetail.getFacultyName();//Get Faculty Name
         Paragraph deptPara = new Paragraph(deptTitle);//Print Department Name
         deptPara.add(new Tab());//Tab Alignment
         deptPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
@@ -60,9 +70,9 @@ public class DocUtils {
     }
 
     //Semester and Start Date
-    public Paragraph semTitle(){
-        String semTitle = "Semester - " +facultyGenerateReport.semester;
-        String startDate = "Start Date - "+facultyGenerateReport.startDate;
+    public static Paragraph semTitle( FacultyReportDetail facultyReportDetail){
+        String semTitle = "Semester - " + facultyReportDetail.getSemester();
+        String startDate = "Start Date - "+ facultyReportDetail.getStartDate();
         Paragraph semPara = new Paragraph(semTitle);
         semPara.add(new Tab());
         semPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
@@ -71,9 +81,9 @@ public class DocUtils {
     }
 
     //Subject and End Date
-    public  Paragraph subTitle(){
-        String subTitle = "Subject - " + facultyGenerateReport.sub;
-        String endDate = "End Date - "+facultyGenerateReport.endDate;
+    public static Paragraph subTitle(FacultyReportDetail facultyReportDetail){
+        String subTitle = "Subject - " + facultyReportDetail.getSubject();
+        String endDate = "End Date - "+ facultyReportDetail.getEndDate();
         Paragraph subPara = new Paragraph(subTitle);
         subPara.add(new Tab());
         subPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));

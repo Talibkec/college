@@ -2,6 +2,7 @@ package com.college.firebase;
 
 import com.college.core.controller.firebase.DocUtils;
 import com.college.core.controller.firebase.FacultyGenerateReport;
+import com.college.core.controller.firebase.FacultyReportDetail;
 import com.google.firebase.database.DataSnapshot;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -25,7 +26,7 @@ public class FirebaseDocumentHelper {
 
     private Map<String, Boolean> hc;
 
-    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath) {
+    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) {
 
         Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
         String db_department = new String();
@@ -55,30 +56,29 @@ public class FirebaseDocumentHelper {
             e.printStackTrace();
         }
 
-        FacultyGenerateReport facultyGenerateReport = new FacultyGenerateReport();
-        DocUtils docUtils =new DocUtils();
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document doc = new Document(pdfDoc);
-        String signature = "____________________" + "\n" + "Faculty's Signature";
+        DocUtils.setDocumentHeader(doc, facultyReportDetail);
         Integer noOfDays = reportInfo.keySet().size();
         Set days = reportInfo.keySet();
         Iterator iterator = days.iterator();
         Table table = new Table(noOfDays + 1);
-        Cell cell = new Cell();
-        cell.add("Date/Reg No.");
-        table.addCell(cell);
-        String dateInfo = "";
-        //Arrays.sort(new String[]{dateInfo});
-        while (iterator.hasNext()) {
-            String date = (String) iterator.next();
-            dateInfo = date;
-            cell = new Cell();
-            cell.add(date);
-            table.addCell(cell);
-        }
-        Set<String> regNos = reportInfo.get(dateInfo).keySet();
-
+        setRowHeader(iterator, table);
+        Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
         Iterator<String> regNoIterator = regNos.iterator();
+        printAttendanceList(table, regNoIterator, reportInfo);
+        doc.add(table);
+        doc.close();
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return reportInfo;
+    }
+
+    private void printAttendanceList(Table table, Iterator<String> regNoIterator, Map<String, Map<String, Boolean>> reportInfo) {
+        Cell cell = null;
         while (regNoIterator.hasNext()) {
             String regNo = regNoIterator.next();
             cell = new Cell();
@@ -89,31 +89,24 @@ public class FirebaseDocumentHelper {
             while (attendanceDateIt.hasNext()) {
                 count ++;
                 String date = attendanceDateIt.next();
-
                 cell = new Cell();
                 String status = reportInfo.get(date).get(regNo) ? "P" : "A";
-                cell.add(status.toString()).setTextAlignment(TextAlignment.CENTER);
+                cell.add(status).setTextAlignment(TextAlignment.CENTER);
                 table.addCell(cell);
             }
         }
-        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
-        doc.add(docUtils.kecLogo());
-        doc.add(docUtils.dashedLine());
-        doc.add(docUtils.attendanceTitle());
-        doc.add(docUtils.deptTitle());
-        doc.add(docUtils.semTitle());
-        doc.add(docUtils.subTitle());
-        doc.add(table);
-        doc.add(signPara);
-        doc.close();
-        try {
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    }
+
+    private void setRowHeader(Iterator iterator, Table table) {
+        Cell cell = new Cell();
+        cell.add("Date/Reg No.");
+        table.addCell(cell);
+        while (iterator.hasNext()) {
+            String date = (String) iterator.next();
+            cell = new Cell();
+            cell.add(date);
+            table.addCell(cell);
         }
-
-
-        return reportInfo;
     }
 
     private void fillDummyDataForTesting(Map<String, Map<String, Boolean>> reportInfo) {

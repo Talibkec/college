@@ -6,7 +6,7 @@ public class FacultyReportDetail {
     private  String startDate;
     private  String endDate;
     private  String facultyName;
-   // private  String dept;
+    private  String dept;
     private  String facultyEmail;
     private  String subject;
 
@@ -58,13 +58,13 @@ public class FacultyReportDetail {
         this.facultyName = facultyName;
     }
 
-   /* public String getDept() {
+    public String getDept() {
         return dept;
     }
 
     public void setDept(String dept) {
         this.dept = dept;
-    }*/
+    }
 
 
 }

@@ -18,15 +18,14 @@ public class DocUtils {
 
 
     public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail){
-        String signature = "____________________" + "\n" + "Faculty's Signature";
-        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+
         doc.add(kecLogo());
         doc.add(dashedLine());
         doc.add(attendanceTitle());
         doc.add(deptTitle(facultyReportDetail));
         doc.add(semTitle(facultyReportDetail));
         doc.add(subTitle(facultyReportDetail));
-        doc.add(signPara);
+
     }
 
     //KEC Logo
@@ -60,7 +59,7 @@ public class DocUtils {
 
     //Name of Department and Faculty Name
     public static Paragraph deptTitle( FacultyReportDetail facultyReportDetail){
-        String deptTitle ="Department - " + facultyReportDetail;//.dept;//Get Department Name
+        String deptTitle ="Department - " + facultyReportDetail.getDept();//.dept;//Get Department Name
         String facultyName = "Faculty Name - "+ facultyReportDetail.getFacultyName();//Get Faculty Name
         Paragraph deptPara = new Paragraph(deptTitle);//Print Department Name
         deptPara.add(new Tab());//Tab Alignment
@@ -89,6 +88,13 @@ public class DocUtils {
         subPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
         subPara.add(endDate);
         return  subPara;
+    }
+
+    //Signature
+    public static  Paragraph sign(){
+        String signature = "____________________" + "\n" + "Faculty's Signature";
+        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+        return signPara;
     }
 
 }

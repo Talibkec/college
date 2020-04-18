@@ -68,6 +68,7 @@ public class FirebaseDocumentHelper {
         Iterator<String> regNoIterator = regNos.iterator();
         printAttendanceList(table, regNoIterator, reportInfo);
         doc.add(table);
+        doc.add(DocUtils.sign());
         doc.close();
         try {
             writer.close();

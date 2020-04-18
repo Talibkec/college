@@ -30,12 +30,11 @@ import java.util.Map;
 @Controller
 public class FacultyGenerateReport {
 
-   // public String dept = "";
+   public String dept = "";
     public String sub = "";
     public String startDate = "";
     public String semester ="";
     public String endDate = "";
-    public String email ="";
     public  String facultyName="";
     @Autowired
     FirebaseDocumentHelper firebaseDocumentHelper;
@@ -53,7 +52,7 @@ public class FacultyGenerateReport {
         startDate =facultyReportDetail.getStartDate();
         endDate=facultyReportDetail.getEndDate();
         facultyName = facultyReportDetail.getFacultyName();
-       // dept = facultyReportDetail.getDept();
+       dept = facultyReportDetail.getDept();
         System.out.println("I am being calledwith following parameters. " + params );
 
 
@@ -66,7 +65,7 @@ public class FacultyGenerateReport {
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
-                String email =facultyReportDetail.getFacultyEmail();
+                String email ="apcbadal@gmail.com";
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 

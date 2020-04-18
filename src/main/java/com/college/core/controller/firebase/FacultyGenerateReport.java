@@ -2,6 +2,7 @@ package com.college.core.controller.firebase;
 
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
+import com.google.gson.Gson;
 import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +30,13 @@ import java.util.Map;
 @Controller
 public class FacultyGenerateReport {
 
-    public String dept = "Computer Sc. & Engineering";
-    public String sub = "Major Projct";
-    public String startDate = "2020-04-01";
-    public String endDate = "2020-04-25";
+   // public String dept = "";
+    public String sub = "";
+    public String startDate = "";
+    public String semester ="";
+    public String endDate = "";
+    public String email ="";
+    public  String facultyName="";
     @Autowired
     FirebaseDocumentHelper firebaseDocumentHelper;
 
@@ -41,12 +46,16 @@ public class FacultyGenerateReport {
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(@RequestParam("params") String params ) {
+        Gson gson =new Gson();
+        FacultyReportDetail facultyReportDetail = gson.fromJson(params,FacultyReportDetail.class);
+        sub = facultyReportDetail.getSubject();
+        semester = facultyReportDetail.getSemester();
+        startDate =facultyReportDetail.getStartDate();
+        endDate=facultyReportDetail.getEndDate();
+        facultyName = facultyReportDetail.getFacultyName();
+       // dept = facultyReportDetail.getDept();
+        System.out.println("I am being calledwith following parameters. " + params );
 
-        System.out.println("I am being calledwith following parameters. " + params);
-        String dept = "Computer Sc. & Engineering";
-        String sub = "Major Projct";
-        String startDate = "2020-04-01";
-        String endDate = "2020-04-05";
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
@@ -58,7 +67,7 @@ public class FacultyGenerateReport {
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath);
 
-                String email = "mdtalibahmad@gmail.com";
+                String email =facultyReportDetail.getFacultyEmail();
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 

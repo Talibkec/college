@@ -4,10 +4,8 @@ import com.college.core.controller.firebase.FacultyGenerateReport;
 import com.google.firebase.database.DataSnapshot;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.color.Color;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.property.TabAlignment;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.File;
@@ -57,6 +55,7 @@ public class FirebaseDocumentHelper {
         }
 
         FacultyGenerateReport facultyGenerateReport = new FacultyGenerateReport();
+
         PdfDocument pdfDoc = new PdfDocument(writer);
         Document doc = new Document(pdfDoc);
         ImageData data = null;
@@ -71,7 +70,7 @@ public class FirebaseDocumentHelper {
         String deptTitle = "Department - " + db_department;
         String semTitle = "Semester - " + db_semester;
         String subTitle = "Subject - " + db_subject;
-        String facultyName = "Faculty Name - Md Talib Ahmad";
+        String facultyName = "Faculty Name - "+facultyGenerateReport.facultyName;
         String startDate = facultyGenerateReport.startDate;
         String endDate = facultyGenerateReport.endDate;
         String signature = "____________________" + "\n" + "Faculty's Signature";

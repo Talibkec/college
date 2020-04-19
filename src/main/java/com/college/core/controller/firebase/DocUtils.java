@@ -32,7 +32,7 @@ public class DocUtils {
     public static Image kecLogo(){
         ImageData data=null;
         try {
-            data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
+            data = ImageDataFactory.create("http://keck.ac.in/sites/default/files/logo.jpeg");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

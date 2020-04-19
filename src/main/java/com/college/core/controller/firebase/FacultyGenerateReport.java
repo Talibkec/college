@@ -3,7 +3,6 @@ package com.college.core.controller.firebase;
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
 import com.google.gson.Gson;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 
 import java.io.File;
 import java.util.Map;

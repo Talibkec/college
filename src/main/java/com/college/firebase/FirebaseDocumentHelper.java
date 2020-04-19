@@ -29,6 +29,7 @@ public class FirebaseDocumentHelper {
     public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) {
 
         Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
+        System.out.println("Report Info mapped to TreeMap");
         String db_department = new String();
         String db_semester = new String();
         String db_subject = new String();
@@ -69,7 +70,9 @@ public class FirebaseDocumentHelper {
         printAttendanceList(table, regNoIterator, reportInfo);
         doc.add(table);
         doc.add(DocUtils.sign());
+        System.out.println("PDF Generated");
         doc.close();
+        System.out.println("Document Closed");
         try {
             writer.close();
         } catch (IOException e) {

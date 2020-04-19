@@ -58,7 +58,7 @@ public class FacultyGenerateReport {
 
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
-
+            System.out.println("Queried Attendance table using Start date and End date");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -81,8 +81,9 @@ public class FacultyGenerateReport {
         {
             public void prepare(MimeMessage mimeMessage) throws Exception
             {
+                System.out.println("sendMalwithAttchment method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-                mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
+                mimeMessage.setFrom(new InternetAddress("test@lkeck.ac.in"));
                 mimeMessage.setSubject("KEC, Attendance Report.");
                 mimeMessage.setText("Please find the attached attendance report.");
                 mimeMessage.addHeader("Content-Type", "application/pdf");

@@ -3,8 +3,6 @@ package com.college.firebase;
 import com.college.core.controller.firebase.DocUtils;
 import com.college.core.controller.firebase.FacultyReportDetail;
 import com.google.firebase.database.DataSnapshot;
-import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.Cell;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -50,45 +48,57 @@ public class FirebaseDocumentHelper {
         //fillDummyDataForTesting(reportInfo);
         Document doc = new Document();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PdfPTable table = getPdfPTable(facultyReportDetail, reportInfo, doc);
         PdfWriter.getInstance(doc, out);
-        if(table.getRows().size() <= 0) {
-            doc.open();
-            doc.add(table.addCell(new PdfPCell(new Phrase("No. record found for this details"))));
+        Integer noOfDays = reportInfo.keySet().size();
+        Integer columnPerPage = 10;
+        Integer pageSize = noOfDays / columnPerPage;
+        doc.open();
+        getPdfPTable(facultyReportDetail, reportInfo, doc, columnPerPage, pageSize );
+
+       if(reportInfo.size() <= 0) {
+            doc.add(new Paragraph(new Phrase("No. record found for this details")));
             doc.close();
         }
-        else{
-            doc.open();
-            doc.add(table);
-            doc.close();
-        }
+
+       if(doc.isOpen()){
+           doc.close();
+       }
         OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsolutePath());
         out.writeTo(os);
         os.close();
+        out.close();
         return reportInfo;
     }
 
-    private PdfPTable getPdfPTable(FacultyReportDetail facultyReportDetail, Map<String, Map<String, Boolean>> reportInfo, Document doc) {
+    private void getPdfPTable(FacultyReportDetail facultyReportDetail, Map<String, Map<String, Boolean>> reportInfo,
+                              Document doc, Integer columnPerPage, Integer pageSize) throws DocumentException {
         DocUtils.setDocumentHeader(doc, facultyReportDetail);
         Integer noOfDays = reportInfo.keySet().size();
         Set<String> days = reportInfo.keySet();
-        Iterator<String> daysIterator = days.iterator();
-        PdfPTable table = new PdfPTable(11);
-        Integer totalColumn = noOfDays;
-        Integer columnPerPage = 10;
         Integer offset = 0;
         Integer pageNo = 0;
         List<String> arrayOfdates = days.stream().collect(Collectors.toList());
 
-        while( pageNo < (noOfDays / columnPerPage)){
+        while( pageNo < pageSize){
+            PdfPTable table = new PdfPTable(columnPerPage + 1);
             setRowHeader(arrayOfdates, table, offset, columnPerPage);
             Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
             Iterator<String> regNoIterator = regNos.iterator();
             printAttendanceList(table, regNoIterator, reportInfo, offset, columnPerPage, arrayOfdates);
+            doc.add(table);
             offset += columnPerPage;
             pageNo++;
         }
-        return table;
+        if(noOfDays % columnPerPage != 0){
+            columnPerPage = noOfDays %columnPerPage;
+            PdfPTable table = new PdfPTable(columnPerPage + 1);
+            setRowHeader(arrayOfdates, table, offset, columnPerPage);
+            Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
+            Iterator<String> regNoIterator = regNos.iterator();
+            printAttendanceList(table, regNoIterator, reportInfo, offset, columnPerPage, arrayOfdates);
+            doc.add(table);
+        }
+        return ;
     }
 
     private void printAttendanceList(PdfPTable table, Iterator<String> regNoIterator, Map<String, Map<String, Boolean>> reportInfo,

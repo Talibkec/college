@@ -56,16 +56,13 @@ public class FacultyGenerateReport {
         endDate=facultyReportDetail.getEndDate();
         facultyName = facultyReportDetail.getFacultyName();
        dept = facultyReportDetail.getDept();
-        System.out.println("I am being calledwith following parameters. " + params );
-
-
+        System.out.println("Report Generation is being called with following parameters. " + params );
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
-            System.out.println("Queried Attendance table using Start date and End date");
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println("Data received : " + dataSnapshot.getChildren());
+                System.out.println("Firebase Data received : " + dataSnapshot.getChildren());
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 try {
@@ -105,7 +102,6 @@ public class FacultyGenerateReport {
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
                 helper.setText("Please find the attached attendance report.", true);
-                //helper.addAttachment("AttendanceReport.pdf", file);
 
             }
         };

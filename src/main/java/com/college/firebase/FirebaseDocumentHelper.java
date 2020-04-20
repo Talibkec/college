@@ -1,45 +1,35 @@
 package com.college.firebase;
 
 import com.college.core.controller.firebase.DocUtils;
-import com.college.core.controller.firebase.FacultyGenerateReport;
 import com.college.core.controller.firebase.FacultyReportDetail;
 import com.google.firebase.database.DataSnapshot;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.property.TabAlignment;
+import com.itextpdf.layout.element.AreaBreak;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.context.annotation.Configuration;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.MalformedURLException;
+import java.io.*;
 import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.layout.Document;
 
 @Configuration
 public class FirebaseDocumentHelper {
 
     private Map<String, Boolean> hc;
 
-    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) {
-
+    public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) throws DocumentException, IOException {
         Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
-        System.out.println("Report Info mapped to TreeMap");
-        String db_department = new String();
-        String db_semester = new String();
-        String db_subject = new String();
-
         if (document != null) {
             for (DataSnapshot child : document.getChildren()) {
                 DataSnapshot attendanceList = child.child("attendanceList");
-                db_department = (String) child.child("department").getValue();
-                db_semester = (String) child.child("semester").getValue();
-                db_subject = (String) child.child("subject").getValue();
+                String db_department = (String) child.child("department").getValue();
+                String db_semester = (String) child.child("semester").getValue();
+                String db_subject = (String) child.child("subject").getValue();
                 String date = (String) child.child("date").getValue();
                 if (attendanceList != null) {
                     Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
@@ -50,67 +40,69 @@ public class FirebaseDocumentHelper {
             }
         }
         fillDummyDataForTesting(reportInfo);
-        PdfWriter writer = null;
-        try {
-            writer = new PdfWriter(fileWithAbsolutePath.getAbsolutePath());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        PdfDocument pdfDoc = new PdfDocument(writer);
-        Document doc = new Document(pdfDoc);
-        DocUtils.setDocumentHeader(doc, facultyReportDetail);
-        Integer noOfDays = reportInfo.keySet().size();
-        Set days = reportInfo.keySet();
-        Iterator iterator = days.iterator();
-        Table table = new Table(noOfDays + 1);
-        setRowHeader(iterator, table);
-        Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
-        Iterator<String> regNoIterator = regNos.iterator();
-        printAttendanceList(table, regNoIterator, reportInfo);
+        Document doc = new Document();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PdfPTable table = getPdfPTable(facultyReportDetail, reportInfo, doc);
+        PdfWriter.getInstance(doc, out);
+        doc.open();
         doc.add(table);
-        doc.add(DocUtils.sign());
-        System.out.println("PDF Generated");
         doc.close();
-        System.out.println("Document Closed");
-        try {
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsolutePath());
+        out.writeTo(os);
+        os.close();
         return reportInfo;
     }
 
-    private void printAttendanceList(Table table, Iterator<String> regNoIterator, Map<String, Map<String, Boolean>> reportInfo) {
-        Cell cell = null;
+    private PdfPTable getPdfPTable(FacultyReportDetail facultyReportDetail, Map<String, Map<String, Boolean>> reportInfo, Document doc) {
+        DocUtils.setDocumentHeader(doc, facultyReportDetail);
+        Integer noOfDays = reportInfo.keySet().size();
+        Set<String> days = reportInfo.keySet();
+        Iterator<String> daysIterator = days.iterator();
+        PdfPTable table = new PdfPTable(11);
+        Integer totalColumn = noOfDays;
+        Integer columnPerPage = 10;
+        Integer offset = 0;
+        Integer pageNo = 0;
+        List<String> arrayOfdates = days.stream().collect(Collectors.toList());
+
+        while( pageNo < (noOfDays / columnPerPage)){
+            setRowHeader(arrayOfdates, table, offset, columnPerPage);
+            Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
+            Iterator<String> regNoIterator = regNos.iterator();
+            printAttendanceList(table, regNoIterator, reportInfo, offset, columnPerPage, arrayOfdates);
+            offset += columnPerPage;
+            pageNo++;
+        }
+        return table;
+    }
+
+    private void printAttendanceList(PdfPTable table, Iterator<String> regNoIterator, Map<String, Map<String, Boolean>> reportInfo,
+                                     Integer offset, Integer colPPage, List<String> arrayOfDates) {
         while (regNoIterator.hasNext()) {
+            Integer colNum = offset;
             String regNo = regNoIterator.next();
-            cell = new Cell();
-            cell.add(regNo);
+            PdfPCell cell = new PdfPCell(new Phrase(regNo));
             table.addCell(cell);
-            Iterator<String> attendanceDateIt = reportInfo.keySet().iterator();
-            int count = 0;
-            while (attendanceDateIt.hasNext()) {
-                count ++;
-                String date = attendanceDateIt.next();
-                cell = new Cell();
+            while (colNum < offset + colPPage) {
+                String date = arrayOfDates.get(colNum++);
                 String status = reportInfo.get(date).get(regNo) ? "P" : "A";
-                cell.add(status).setTextAlignment(TextAlignment.CENTER);
+                cell = new PdfPCell(new Phrase(status));
                 table.addCell(cell);
             }
         }
     }
 
-    private void setRowHeader(Iterator iterator, Table table) {
-        Cell cell = new Cell();
-        cell.add("Date/Reg No.");
+    private void setRowHeader(List<String> arraysOdDates, PdfPTable table, Integer offset, Integer columnPPage) {
+        Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+        Integer colCount = offset;
+        PdfPCell cell = new PdfPCell( new Phrase("Date/Reg No.", headFont));
         table.addCell(cell);
-        while (iterator.hasNext()) {
-            String date = (String) iterator.next();
-            cell = new Cell();
-            cell.add(date);
+        while (colCount < offset + columnPPage) {
+            String date = arraysOdDates.get(colCount++);
+            cell = new PdfPCell(new Phrase(date, headFont));
             table.addCell(cell);
         }
+        return ;
     }
 
     private void fillDummyDataForTesting(Map<String, Map<String, Boolean>> reportInfo) {

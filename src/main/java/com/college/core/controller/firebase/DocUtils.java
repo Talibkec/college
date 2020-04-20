@@ -3,13 +3,13 @@ package com.college.core.controller.firebase;
 import com.college.firebase.FirebaseDocumentHelper;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.property.TabAlignment;
 import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.text.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.net.MalformedURLException;
@@ -19,12 +19,12 @@ public class DocUtils {
 
     public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail){
 
-        doc.add(kecLogo());
-        doc.add(dashedLine());
-        doc.add(attendanceTitle());
-        doc.add(deptTitle(facultyReportDetail));
-        doc.add(semTitle(facultyReportDetail));
-        doc.add(subTitle(facultyReportDetail));
+        //doc.add(kecLogo());
+        //doc.add.add(dashedLine());
+        //doc.add(attendanceTitle());
+        //doc.add(deptTitle(facultyReportDetail));
+        //doc.add(semTitle(facultyReportDetail));
+        //doc.add(subTitle(facultyReportDetail));
 
     }
 
@@ -32,7 +32,7 @@ public class DocUtils {
     public static Image kecLogo(){
         ImageData data=null;
         try {
-            data = ImageDataFactory.create("http://keck.ac.in/sites/default/files/logo.jpeg");
+            data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

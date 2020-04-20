@@ -3,6 +3,7 @@ package com.college.core.controller.firebase;
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
 import com.google.gson.Gson;
+import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -25,6 +26,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 @Controller
@@ -45,6 +47,7 @@ public class FacultyGenerateReport {
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(@RequestParam("params") String params ) {
+        params = "{\"startDate\":\"2020-04-01\",\"endDate\":\"2020-04-30\",\"dept\":\"Computer Sc. & Engineering\",\"semester\":\"8th\",\"subject\":\"Major Projct\",\"facultyName\":\"mdtalibahmad@gmail.com\",\"facultyEmail\":\"mdtalibahmad@gmail.com\"}";
         Gson gson =new Gson();
         FacultyReportDetail facultyReportDetail = gson.fromJson(params,FacultyReportDetail.class);
         sub = facultyReportDetail.getSubject();
@@ -62,15 +65,25 @@ public class FacultyGenerateReport {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                System.out.println("Data received : " + dataSnapshot.getChildren());
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
-                Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
+                try {
+                    Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
+                } catch (DocumentException e) {
+                    System.out.println("Unable to Generate the report.");
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    System.out.println("Unable to write into file.");
+                    e.printStackTrace();
+                }
                 String email =facultyReportDetail.getFacultyEmail();
                 sendMailWithAttachments(email, fileWithAbsolutePath);
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
+                System.out.println("Firebase call failed , did not received response." + error.getMessage() + error.getDetails());
             }
         });
         return "";

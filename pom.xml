@@ -48,12 +48,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
+           <!-- <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
+           <!-- <scope>provided</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -128,6 +128,13 @@
             <artifactId>layout</artifactId>
             <version>7.0.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>4.2.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -148,7 +155,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
+        <!--<resources>
             <resource>
                 <directory>resources</directory>
                 <targetPath>${project.build.outputDirectory}</targetPath>
@@ -158,7 +165,7 @@
                     <include>SMS.properties</include>
                 </includes>
             </resource>
-        </resources>
+        </resources>-->
 
     </build>
 

@@ -9,6 +9,8 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.StringUtils;
+import io.grpc.netty.shaded.io.netty.util.internal.StringUtil;
 import org.springframework.context.annotation.Configuration;
 
 import java.io.*;
@@ -20,8 +22,6 @@ import java.util.stream.Collectors;
 @Configuration
 public class FirebaseDocumentHelper {
 
-    private Map<String, Boolean> hc;
-
     public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) throws DocumentException, IOException {
         Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
         if (document != null) {
@@ -31,22 +31,37 @@ public class FirebaseDocumentHelper {
                 String db_semester = (String) child.child("semester").getValue();
                 String db_subject = (String) child.child("subject").getValue();
                 String date = (String) child.child("date").getValue();
+                Boolean haveValidInfo = StringUtil.isNullOrEmpty(db_department) ||
+                                        StringUtil.isNullOrEmpty(db_semester) ||
+                                        StringUtil.isNullOrEmpty(db_subject);
+                if(!haveValidInfo && (
+                            db_department.equalsIgnoreCase(facultyReportDetail.getDept()) &&
+                            db_subject.equalsIgnoreCase(facultyReportDetail.getSubject()) &&
+                            db_semester.equalsIgnoreCase(facultyReportDetail.getSemester())
+                        )){
                 if (attendanceList != null) {
                     Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
                     TreeMap<String, Boolean> treeMap = new TreeMap<>();
                     treeMap.putAll(attendanceListVal);
                     reportInfo.put(date, treeMap);
-                }
+                } }
             }
         }
-        fillDummyDataForTesting(reportInfo);
+        //fillDummyDataForTesting(reportInfo);
         Document doc = new Document();
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PdfPTable table = getPdfPTable(facultyReportDetail, reportInfo, doc);
         PdfWriter.getInstance(doc, out);
-        doc.open();
-        doc.add(table);
-        doc.close();
+        if(table.getRows().size() <= 0) {
+            doc.open();
+            doc.add(table.addCell(new PdfPCell(new Phrase("No. record found for this details"))));
+            doc.close();
+        }
+        else{
+            doc.open();
+            doc.add(table);
+            doc.close();
+        }
         OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsolutePath());
         out.writeTo(os);
         os.close();

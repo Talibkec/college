@@ -53,7 +53,9 @@ public class FirebaseDocumentHelper {
         Integer columnPerPage = 10;
         Integer pageSize = noOfDays / columnPerPage;
         doc.open();
+        DocUtils.setDocumentHeader(doc, facultyReportDetail);
         getPdfPTable(facultyReportDetail, reportInfo, doc, columnPerPage, pageSize );
+        doc.add(DocUtils.facultySign());
 
        if(reportInfo.size() <= 0) {
             doc.add(new Paragraph(new Phrase("No. record found for this details")));
@@ -63,7 +65,7 @@ public class FirebaseDocumentHelper {
        if(doc.isOpen()){
            doc.close();
        }
-        OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsolutePath());
+        OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsoluteFile());
         out.writeTo(os);
         os.close();
         out.close();
@@ -72,7 +74,7 @@ public class FirebaseDocumentHelper {
 
     private void getPdfPTable(FacultyReportDetail facultyReportDetail, Map<String, Map<String, Boolean>> reportInfo,
                               Document doc, Integer columnPerPage, Integer pageSize) throws DocumentException {
-        DocUtils.setDocumentHeader(doc, facultyReportDetail);
+
         Integer noOfDays = reportInfo.keySet().size();
         Set<String> days = reportInfo.keySet();
         Integer offset = 0;
@@ -81,6 +83,7 @@ public class FirebaseDocumentHelper {
 
         while( pageNo < pageSize){
             PdfPTable table = new PdfPTable(columnPerPage + 1);
+
             setRowHeader(arrayOfdates, table, offset, columnPerPage);
             Set<String> regNos = reportInfo.get(facultyReportDetail.getStartDate()).keySet();
             Iterator<String> regNoIterator = regNos.iterator();

@@ -294,7 +294,7 @@
                                                    <ul>
 
 
-                                                       <c:forEach items="${tenderList}" var="notice">
+                                                       <c:forEach items="${noticeList}" var="notice">
                                                        <c:if test = "${notice.noticeType == 'Tendor'}">
                                                           <div>
                                                               <span class="label" style="border:  solid 1px #ccc; color: #000;">

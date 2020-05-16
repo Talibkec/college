@@ -1,100 +1,109 @@
 package com.college.core.controller.firebase;
 
-import com.college.firebase.FirebaseDocumentHelper;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Tab;
-import com.itextpdf.layout.element.TabStop;
-import com.itextpdf.layout.property.TabAlignment;
-import com.itextpdf.layout.property.TextAlignment;
-import com.itextpdf.text.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.net.MalformedURLException;
+import com.itextpdf.layout.element.Tab;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.draw.VerticalPositionMark;
+
+import java.io.IOException;
 
 public class DocUtils {
 
 
-    public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail){
+    public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail) throws DocumentException {
 
-        //doc.add(kecLogo());
-        //doc.add.add(dashedLine());
-        //doc.add(attendanceTitle());
-        //doc.add(deptTitle(facultyReportDetail));
-        //doc.add(semTitle(facultyReportDetail));
-        //doc.add(subTitle(facultyReportDetail));
+
+        doc.add(new Paragraph(kecLogo()));
+        doc.add(new Paragraph(attTitle()));
+        doc.add(new Paragraph(deptTitle(facultyReportDetail)));
+        doc.add(new Paragraph(semTitle(facultyReportDetail)));
+        doc.add(new Paragraph(subTitle(facultyReportDetail)));
 
     }
 
-    //KEC Logo
-    public static Image kecLogo(){
-        ImageData data=null;
-        try {
-            data = ImageDataFactory.create("http://localhost/sites/default/files/logo.jpeg");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        Image image =new Image(data);
-        return image;
+    //Print KEC Logo
+public  static Paragraph kecLogo(){
+        System.setProperty("http.agent","Chrome");
+    String attString ="http://localhost/sites/default/files/compressed/logo.png";
+    Image image=null;
+    try {
+        image =  Image.getInstance(attString);
+    } catch (BadElementException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    image.setAlignment(Element.ALIGN_CENTER);
+    Paragraph kecLogo = new Paragraph(32F);
+    kecLogo.add(image);
+
+    return  kecLogo;
+
+}
+
+//Print Attendance Title
+public static Paragraph attTitle(){
+    String attString = "Attendance Report";
+    Paragraph attTitle =new Paragraph(10F);
+    attTitle.setSpacingAfter(25F);
+    attTitle.setFont(FontFactory.getFont(FontFactory.HELVETICA,16F));
+    attTitle.setAlignment(Element.ALIGN_CENTER);
+    attTitle.add(new Phrase(attString));
+    return attTitle;
+}
+
+//Print Department Title and Faculty Name
+    public  static Paragraph deptTitle(FacultyReportDetail facultyReportDetail){
+        Chunk chunk = new Chunk(new VerticalPositionMark());
+        String deptString = "Department - " + facultyReportDetail.getDept();
+        Paragraph deptTitle = new Paragraph(10F);
+        deptTitle.setIndentationLeft(25F);
+        deptTitle.setSpacingAfter(10F);
+        deptTitle.add(new Phrase(deptString));
+        deptTitle.add(new Chunk(chunk));
+        deptTitle.add(new Phrase("Faculty Name - "+ facultyReportDetail.getFacultyName()));
+
+        return  deptTitle;
     }
 
+    //Print Semester and Start date
+    public  static Paragraph semTitle(FacultyReportDetail facultyReportDetail){
+        Chunk chunk = new Chunk(new VerticalPositionMark());
+        String semString = "Semester- "+ facultyReportDetail.getSemester();
+        Paragraph semTitle =new Paragraph(10F);
+        semTitle.setIndentationLeft(25F);
+        semTitle.setSpacingAfter(10F);
+        semTitle.add(new Phrase(semString));
+        semTitle.add(new Chunk(chunk));
+        semTitle.add(new Phrase("Start Date - "+ facultyReportDetail.getStartDate()));
 
-    // A line after KEC Logo
-    public static Paragraph dashedLine(){
-        String line = "________________________________";
-        Paragraph clgNamePara = new Paragraph(line).setTextAlignment(TextAlignment.CENTER).setFontSize(25F);
-        return  clgNamePara;
+        return  semTitle;
+
     }
 
+//Print Subject Title and End date
+    public  static Paragraph subTitle(FacultyReportDetail facultyReportDetail){
+       Chunk chunk =new Chunk(new VerticalPositionMark());
+       String subString ="Subject - "+facultyReportDetail.getSubject();
+       Paragraph subTitle =new Paragraph(10F);
+       subTitle.setIndentationLeft(25F);
+       subTitle.setSpacingAfter(10F);
+       subTitle.add(new Phrase(subString));
+       subTitle.add(new Chunk(chunk));
+       subTitle.add(new Phrase("End Date - "+facultyReportDetail.getEndDate()));
+        return  subTitle;
 
-    // Title of PDF Report file
-    public static Paragraph attendanceTitle(){
-        String attendanceTitle = "Attendance Report ";
-        Paragraph attndancePara = new Paragraph(attendanceTitle).setTextAlignment(TextAlignment.CENTER).setFontSize(20F);
-        return  attndancePara;
     }
 
-
-    //Name of Department and Faculty Name
-    public static Paragraph deptTitle( FacultyReportDetail facultyReportDetail){
-        String deptTitle ="Department - " + facultyReportDetail.getDept();//.dept;//Get Department Name
-        String facultyName = "Faculty Name - "+ facultyReportDetail.getFacultyName();//Get Faculty Name
-        Paragraph deptPara = new Paragraph(deptTitle);//Print Department Name
-        deptPara.add(new Tab());//Tab Alignment
-        deptPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        deptPara.add(facultyName);// Print Faculty's Name
-         return  deptPara;
-    }
-
-    //Semester and Start Date
-    public static Paragraph semTitle( FacultyReportDetail facultyReportDetail){
-        String semTitle = "Semester - " + facultyReportDetail.getSemester();
-        String startDate = "Start Date - "+ facultyReportDetail.getStartDate();
-        Paragraph semPara = new Paragraph(semTitle);
-        semPara.add(new Tab());
-        semPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        semPara.add(startDate);
-        return  semPara;
-    }
-
-    //Subject and End Date
-    public static Paragraph subTitle(FacultyReportDetail facultyReportDetail){
-        String subTitle = "Subject - " + facultyReportDetail.getSubject();
-        String endDate = "End Date - "+ facultyReportDetail.getEndDate();
-        Paragraph subPara = new Paragraph(subTitle);
-        subPara.add(new Tab());
-        subPara.addTabStops(new TabStop(1000, TabAlignment.RIGHT));
-        subPara.add(endDate);
-        return  subPara;
-    }
-
-    //Signature
-    public static  Paragraph sign(){
-        String signature = "____________________" + "\n" + "Faculty's Signature";
-        Paragraph signPara = new Paragraph(signature).setTextAlignment(TextAlignment.RIGHT).setMarginTop(70F);
+    //Print Fcaulty's Signature
+    public static  Paragraph facultySign(){
+        String sign="_____________________"+"\n\n"+"Faculty's Signature";
+        Paragraph signPara =new Paragraph(10F);
+        signPara.setSpacingBefore(50F);
+        signPara.setAlignment(Element.ALIGN_RIGHT);
+        signPara.add(sign);
         return signPara;
     }
+
 
 }

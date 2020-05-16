@@ -294,7 +294,7 @@
                                                    <ul>
 
 
-                                                       <c:forEach items="${tenderList}" var="notice">
+                                                       <c:forEach items="${noticeList}" var="notice">
                                                        <c:if test = "${notice.noticeType == 'Tendor'}">
                                                           <div>
                                                               <span class="label" style="border:  solid 1px #ccc; color: #000;">
@@ -303,7 +303,7 @@
                                                                <c:if test = "${ notice.noticeType == 'Tender'}">
                                                                         <c:set var = "clazz"  value = "label label-primary"/>
                                                                  </c:if>
-                                                              <i class=""></i> ${tender.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                                              <i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                                               <c:forEach var="item" items="${Role}">
                                                                   <c:if test = "${'Admin' eq item}">
                                                                   <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>

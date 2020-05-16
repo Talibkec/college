@@ -47,7 +47,7 @@ public class FacultyGenerateReport {
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(@RequestParam("params") String params ) {
-        params = "{\"startDate\":\"2020-04-01\",\"endDate\":\"2020-04-30\",\"dept\":\"Computer Sc. & Engineering\",\"semester\":\"8th\",\"subject\":\"Major Projct\",\"facultyName\":\"mdtalibahmad@gmail.com\",\"facultyEmail\":\"mdtalibahmad@gmail.com\"}";
+        params = "{\"startDate\":\"2020-04-01\",\"endDate\":\"2020-04-30\",\"dept\":\"Computer Sc. & Engineering\",\"semester\":\"8th\",\"subject\":\"Major Projct\",\"facultyName\":\"Md Talib Ahmad\",\"facultyEmail\":\"apcbadal@gmail.com\"}";
         Gson gson =new Gson();
         FacultyReportDetail facultyReportDetail = gson.fromJson(params,FacultyReportDetail.class);
         sub = facultyReportDetail.getSubject();
@@ -55,7 +55,7 @@ public class FacultyGenerateReport {
         startDate =facultyReportDetail.getStartDate();
         endDate=facultyReportDetail.getEndDate();
         facultyName = facultyReportDetail.getFacultyName();
-       dept = facultyReportDetail.getDept();
+        dept = facultyReportDetail.getDept();
         System.out.println("Report Generation is being called with following parameters. " + params );
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
@@ -91,7 +91,7 @@ public class FacultyGenerateReport {
         {
             public void prepare(MimeMessage mimeMessage) throws Exception
             {
-                System.out.println("sendMalwithAttchment method being called");
+                System.out.println("sendMailwithAttachment method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
                 mimeMessage.setFrom(new InternetAddress("test@lkeck.ac.in"));
                 mimeMessage.setSubject("KEC, Attendance Report.");

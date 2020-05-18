@@ -2,6 +2,7 @@ package com.college.firebase;
 
 import com.college.core.controller.firebase.DocUtils;
 import com.college.core.controller.firebase.FacultyReportDetail;
+import com.college.core.controller.firebase.LeaveRequestDetail;
 import com.google.firebase.database.DataSnapshot;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -71,7 +72,20 @@ public class FirebaseDocumentHelper {
         out.close();
         return reportInfo;
     }
-
+    public void getLeaveInfo(File fileWithAbsolutePath, LeaveRequestDetail leaveRequestDetail) throws DocumentException, IOException {
+        Document doc = new Document();
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        PdfWriter.getInstance(doc, out);
+        doc.open();
+        DocUtils.setLeaveApplication(doc,leaveRequestDetail);
+        if(doc.isOpen()){
+            doc.close();
+        }
+        OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsoluteFile());
+        out.writeTo(os);
+        os.close();
+        out.close();
+    }
     private void getPdfPTable(FacultyReportDetail facultyReportDetail, Map<String, Map<String, Boolean>> reportInfo,
                               Document doc, Integer columnPerPage, Integer pageSize) throws DocumentException {
 

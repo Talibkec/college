@@ -2,6 +2,8 @@ package com.college.core.controller;
 
 import com.college.FacultyHelper;
 import com.college.KECDateHelper;
+import com.college.core.model.FacultyDTO;
+import com.college.service.FacultyService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
@@ -26,6 +28,8 @@ public class CivilController {
     public NoticeBoardService noticeBoardService;
     @Autowired
     public FacultyHelper facultyHelper;
+    @Autowired
+    public FacultyService facultyService;
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
         ModelAndView modalAndView=new ModelAndView();
@@ -87,10 +91,14 @@ public class CivilController {
     @RequestMapping(value="faculty")
     public ModelAndView getFaculty(){
         ModelAndView mv=new ModelAndView();
+        Long deptno = 2L;
+        List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
+        mv.addObject("facultyList",facultyList);
         mv.setViewName("department/civil/faculty.jsp");
         return mv;
     }
     @RequestMapping(value="students")
+
     public ModelAndView getStudents(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("department/civil/students.jsp");

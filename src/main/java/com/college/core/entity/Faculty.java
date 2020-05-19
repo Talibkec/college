@@ -2,7 +2,6 @@ package com.college.core.entity;
 
 
 import javax.persistence.*;
-import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +17,7 @@ public class Faculty {
     private Long facultyMobNo;
     private String fileType;
     private User user;
-    private Set<Property> facultyProperties = new HashSet<>(0);
+    private Set<FacultyKeyProps> facultyKeyProps = new HashSet<>(0);
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "facultyId")
@@ -96,14 +95,13 @@ public class Faculty {
 
 
     /*-------------------------------------------------------------*/
-    @ManyToMany
-    @JoinTable(name="faculty_property", joinColumns = @JoinColumn(name="faculty_Id"), inverseJoinColumns = @JoinColumn(name="property_Id"))
-    public Set<Property> getFacultyProperties() {
-        return facultyProperties;
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public Set<FacultyKeyProps> getFacultyKeyProps() {
+        return facultyKeyProps;
     }
 
-    public void setFacultyProperties(Set<Property> facultyProperties) {
-        this.facultyProperties = facultyProperties;
+    public void setFacultyKeyProps(Set<FacultyKeyProps> facultyKeyProps) {
+        this.facultyKeyProps = facultyKeyProps;
     }
 
     @OneToOne

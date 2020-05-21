@@ -1,3 +1,4 @@
+/*
 package com.college.core.entity;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -6,6 +7,8 @@ import java.util.Set;
 @Entity
 @Table( name= "PROPERTY")
 public class Property {
+*/
+/*
     private  Long propertyId;
     private String propertyName;
     private Set<Faculty> facultyies = new HashSet<>(0);
@@ -28,5 +31,8 @@ public class Property {
     public void setFacultyies(Set<Faculty> facultyies) {
         this.facultyies = facultyies;
     }
+*//*
+
 
 }
+*/

@@ -39,6 +39,7 @@ public class CommonResourceController {
     @Autowired
     FacultyDocumentsService facultyDocumentsService;
 
+
     @ResponseBody
     @RequestMapping(value = "common/store/getProductName", method = RequestMethod.GET)
     public List<String> getProductName(@RequestParam("prodName") String prodName) {
@@ -150,7 +151,7 @@ public class CommonResourceController {
             saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile, isLink, linkAddress);
         }
 
-        String notice = "http://keck.ac.in/wp-content/uploads/facultydocuments/" + fileName;
+        String notice = "http://localhost/wp-content/uploads/facultydocuments/" + fileName;
         notice = notice + "," + facultydocumentsHeader;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
 
@@ -180,4 +181,12 @@ public class CommonResourceController {
         model.addObject("isProfilePic", isProfilePic);
         return model;
     }
+    @RequestMapping(value = "/facultyDetails", method = RequestMethod.GET)
+    public ModelAndView displayFacultyDetails(@RequestParam("facultyId")Long facultyId) {
+        ModelAndView model = new ModelAndView();
+        model = facultyHelper.getFacultyDetailsbyId(facultyId);
+        model.setViewName("facultydetails.jsp");
+        return model;
+    }
+
 }

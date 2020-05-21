@@ -95,7 +95,7 @@ public class Faculty {
 
 
     /*-------------------------------------------------------------*/
-    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     public Set<FacultyKeyProps> getFacultyKeyProps() {
         return facultyKeyProps;
     }

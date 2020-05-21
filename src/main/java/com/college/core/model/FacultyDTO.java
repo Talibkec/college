@@ -1,9 +1,8 @@
 package com.college.core.model;
 
-import com.college.core.entity.Property;
+
 import com.college.core.entity.User;
 
-import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,10 +14,13 @@ public class FacultyDTO {
     private String facultyOfficialEmail;
     private String facultyPersonalEmail;
 
+
     private byte[] facultyPhoto;
     private User user;
     private String fileType;
-    private Set<Property> facultyProperties = new HashSet<>(0);
+
+
+    private Set<FacultyKeyPropsDTO> facultyKeyProps = new HashSet<>(0);
 
     public String getFacultyOfficialEmail() {return facultyOfficialEmail;}
 
@@ -70,13 +72,7 @@ public class FacultyDTO {
         this.user = user;
     }
 
-    public Set<Property> getFacultyProperties() {
-        return facultyProperties;
-    }
 
-    public void setFacultyProperties(Set<Property> facultyProperties) {
-        this.facultyProperties = facultyProperties;
-    }
 
     public String getFileType() {
         return fileType;
@@ -92,6 +88,14 @@ public class FacultyDTO {
 
     public void setFacultyPhoto(byte[] facultyPhoto) {
         this.facultyPhoto = facultyPhoto;
+    }
+
+    public Set<FacultyKeyPropsDTO> getFacultyKeyProps() {
+        return facultyKeyProps;
+    }
+
+    public void setFacultyKeyProps(Set<FacultyKeyPropsDTO> facultyKeyProps) {
+        this.facultyKeyProps = facultyKeyProps;
     }
 
 

@@ -9,8 +9,22 @@
         <aside class="col-sm-3" role="complementary">
             <div class="region region-sidebar-second">
                 <section id="block-menu-block-3" class="block block-menu-block clearfix">
+                        <c:if test ="${facultyDetails.departmentId eq '1'}">
+                            <h2 class="block-title">Faculty of Computer Sc. & Engg.</h2>
+                         </c:if>
+                         <c:if test ="${facultyDetails.departmentId eq '2'}">
+                            <h2 class="block-title">Faculty of Civil Engg.</h2>
+                         </c:if>
+                         <c:if test ="${facultyDetails.departmentId eq '3'}">
+                            <h2 class="block-title">Faculty of Mechanical Engg.</h2>
+                          </c:if>
+                          <c:if test ="${facultyDetails.departmentId eq '4'}">
+                               <h2 class="block-title"> Faculty of Electrical & Electronics Engg.</h2>
+                           </c:if>
+                          <c:if test ="${facultyDetails.departmentId eq '5'}">
+                                <h2 class="block-title"> Faculty of Applied Sc. & Humanities</h2>
+                           </c:if>
 
-                    <h2 class="block-title">Faculty of Civil Engg.</h2>
 
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
@@ -31,13 +45,14 @@
         </aside>
 
         <div class="col-md-8">
-            <c:forEach items="${loggedInUser}" var ='loggedInuser'>
-                <c:if test="${loggedInuser}">
+                    <c:forEach items ="${Role}" var ='role'>
+                <c:if test="${fUserName eq  loggedInUser and 'Faculty' eq role}" >
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                             Documents &nbsp;|</a></strong>
                     <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                  </c:if>
                                  </c:forEach>
+
 
 
                 <ul class=" nav nav-tabs" role="tablist">
@@ -47,7 +62,7 @@
                             <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab"
                                     data-toggle="tab"><i class="fa fa-download"></i> Downloads</a></li>
                             <c:forEach var="item" items="${Role}">
-                                <c:if test="${'Faculty' eq item and UserName eq '${fUserName}'}">
+                                <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
                                     <li role="presentation"><a href="#order" aria-controls="order" role="tab"
                                             data-toggle="tab"><i class="fa fa-angle-double-right"></i> Request</a></li>
                                 </c:if>
@@ -59,9 +74,22 @@
                                         style="height: 200px;width:250px"
                                         src="http://localhost/${facultyDetails.facultyId}/image${fileExtension}" />
                                     <h2>${facultyDetails.facultyName}</h2>
-                                    <p style="font-size: 130%;">Assistant Professor and Head of the Department <br />
-                                        Department of Civil
-                                        Engineering
+                                    <p style="font-size: 130%;">Assistant Professor <br />
+                                       <c:if test ="${facultyDetails.departmentId eq '1'}">
+                                             Department of Computer Sc. & Engineering
+                                       </c:if>
+                                       <c:if test ="${facultyDetails.departmentId eq '2'}">
+                                              Department of Civil Engineering
+                                       </c:if>
+                                        <c:if test ="${facultyDetails.departmentId eq '3'}">
+                                         Department of Mechanical Engineering
+                                         </c:if>
+                                         <c:if test ="${facultyDetails.departmentId eq '4'}">
+                                          Department of Electrical and Electronics Engineering
+                                          </c:if>
+                                         <c:if test ="${facultyDetails.departmentId eq '5'}">
+                                         Department of Applied Science & Humanities
+                                         </c:if>
                                         <p><i class="fa fa-phone">${facultyDetails.facultyMobNo}</i> &nbsp; | &nbsp; <i
                                                 class="fa fa-envelope"></i> <a
                                                 href="mailto:${facultyDetails.facultyOfficialEmail}">

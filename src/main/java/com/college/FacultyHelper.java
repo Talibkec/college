@@ -76,6 +76,7 @@ public class FacultyHelper {
         mv.addObject("facultyNameList", facultyNames);
         mv.addObject("fUserName",facultyDTO.getUser().getUsername());
         mv.addObject("loggedInUser", userName);
+        mv.addObject("Role", role);
 
 
         return mv;

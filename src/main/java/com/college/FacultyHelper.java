@@ -68,7 +68,6 @@ public class FacultyHelper {
         List<RequestDTO> requests = new ArrayList<>();
         FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
         mv.addObject("facultyDetails",facultyDTO);
-
         return mv;
     }
 

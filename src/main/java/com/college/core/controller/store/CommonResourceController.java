@@ -183,8 +183,7 @@ public class CommonResourceController {
     }
     @RequestMapping(value = "/facultyDetails", method = RequestMethod.GET)
     public ModelAndView displayFacultyDetails(@RequestParam("facultyId")Long facultyId) {
-        ModelAndView model = new ModelAndView();
-        model = facultyHelper.getFacultyDetailsbyId(facultyId);
+        ModelAndView model = facultyHelper.getFacultyDetailsbyId(facultyId);
         model.setViewName("facultydetails.jsp");
         return model;
     }

@@ -66,26 +66,34 @@
                                         Department of Civil
                                         Engineering
                                         <p><i class="fa fa-phone">${facultyDetails.facultyMobNo}</i> &nbsp; | &nbsp; <i
-                                                class="fa fa-envelope"></i> <a href="mailto:${facultyDetails.facultyOfficialEmail}">
+                                                class="fa fa-envelope"></i> <a
+                                                href="mailto:${facultyDetails.facultyOfficialEmail}">
                                                 <span>${facultyDetails.facultyOfficialEmail}</span>
                                                 &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
                                                     href="mailto:${facultyDetails.facultyPersonalEmail}">
                                                     <span>${facultyDetails.facultyPersonalEmail}</span>
 
                                                 </a></p> <br /><br />
-                                          <c:forEach items ="$facultyDetails" var="fDetails">
-                                        <div class="panel panel-default facultyInfo">
-                                            <div class="panel-heading"><Strong>${fDetails.facultyKeyProps.keyPropertyName}</Strong>
+
+
+                                            <div class="panel panel-default facultyInfo">
+                                
+                                                <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
+                                                    <div class="panel-heading">
+                                                        <Strong>${keyprop.keyPropertyName}</Strong>
+                                                    </div>
+                                                    <c:forEach items="${keyprop.keyPropVals}" var="propVal">
+                                                        <table class="table table-striped">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>&nbsp&nbsp${propVal.keyPropVal}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </c:forEach>
+                                                </c:forEach>
                                             </div>
-                                            <table class="table table-striped">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>&nbsp&nbsp${fDetails.facultyKeyProps.keyPropVals}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </c:forEach>
+
                                 </div>
 
                                 <div role="tabpanel" class="tab-pane" id="downloads">

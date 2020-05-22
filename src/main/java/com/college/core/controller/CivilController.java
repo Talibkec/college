@@ -91,9 +91,8 @@ public class CivilController {
         return mv;
     }
     @RequestMapping(value="faculty")
-    public ModelAndView getFaculty(){
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno){
         ModelAndView mv=new ModelAndView();
-        Long deptno = 2L;
         List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
         mv.addObject("facultyList",facultyList);
         mv.setViewName("department/civil/faculty.jsp");

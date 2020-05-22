@@ -53,7 +53,7 @@
                                         Address:</strong> <a href="mailto:${faculty.facultyOfficialEmail}">${faculty.facultyOfficialEmail}</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rps"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/facultyDetails?facultyId=${faculty.facultyId}"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -76,7 +76,7 @@
                                             href="mailto:finestabhi@gmail.com">finestabhi@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/abhi"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/fecultyDetails?fa"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>

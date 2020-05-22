@@ -1,6 +1,27 @@
 <jsp:include page="header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //group add limit
+    var maxGroup = 10;
 
+    //add more fields group
+    $(".addMore").click(function(){
+        if($('body').find('.fieldGroup').length < maxGroup){
+            var fieldHTML = '<div class="form-group fieldGroup">'+$(".fieldGroupCopy").html()+'</div>';
+            $('body').find('.fieldGroup:last').after(fieldHTML);
+        }else{
+            alert('Maximum '+maxGroup+' groups are allowed.');
+        }
+    });
+
+    //remove fields group
+    $("body").on("click",".remove",function(){
+        $(this).parents(".fieldGroup").remove();
+    });
+});
+</script>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 <div style="margin-left:50px" ><h3><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
@@ -42,6 +63,8 @@
 
          <label for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
          <input type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
+
+
     </c:if>
 
         <div id="chooseFileBox" style="display:block">
@@ -53,6 +76,17 @@
             <div id="msg" style="display: none; color: red;">*Please Select a file</div>
             <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
         </div>
+        <c:if test ="${isProfilePic eq 'Yes'}">
+         <div class="form-group fieldGroup">
+                        <div class="input-group">
+                            <input type="text" name="propertykeyname[]" class="form-control" placeholder="Enter Property Key Name"/>
+                            <input type="text" name="propertykeyvalue[]" class="form-control" placeholder="Enter Property Key Value"/>
+                            <div class="input-group-addon">
+                                <a href="javascript:void(0)" class="btn btn-success addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
+                            </div>
+                        </div>
+                    </div>
+        </c:if>
         <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" />
         <div class="col-sm-4"></div>
         </div>
@@ -64,7 +98,17 @@
     <input type="hidden" name="hfileLocation" id="hfileLocation"/><br/><br/>
 
 </form></div>
+<div class="form-group fieldGroupCopy" style="display: none;">
+    <div class="input-group">
+        <input type="text" name="propertykeyname[]" class="form-control" placeholder="Enter Property Key Name"/>
+        <input type="text" name="propertykeyvalue[]" class="form-control" placeholder="Enter Property Key Value"/>
+        <div class="input-group-addon">
+            <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
+        </div>
+    </div>
+</div>
+
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<script src="http://keck.ac.in/js/facultyfileUpload.js"></script>
+<script src="http://localhost/js/facultyfileUpload.js"></script>

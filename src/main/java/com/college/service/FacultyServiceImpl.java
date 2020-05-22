@@ -10,11 +10,15 @@ import com.college.repository.PasswordResetTokenRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class FacultyServiceImpl implements FacultyService {
@@ -97,6 +101,35 @@ public class FacultyServiceImpl implements FacultyService {
             facultyDTO = modelMapper.map(faculty, targetListType);
         }
         return facultyDTO;
+
+    }
+
+    @Override
+    @Cacheable(value = "facultyNameByDeptNoCache")
+    public Map<Long, List<Map<String, String>>> getFacultyNameByDeptNo() {
+
+        Map<Long, List<Map<String, String>>> facultyNamesMap = new HashMap<>();
+        List<Faculty> faculties = facultyRepository.getFacultiesName();
+        for(Faculty f: faculties){
+            String deptId = "";
+            if(f.getDepartmentId() != null){
+                deptId = f.getDepartmentId().toString();
+            }
+
+            List<Map<String, String>> facultyNames = null;
+            if(facultyNamesMap.get(f.getDepartmentId()) == null){
+                facultyNames = new ArrayList<>();
+            }
+            else{
+                facultyNames = facultyNamesMap.get(f.getDepartmentId());
+            }
+            Map<String, String> fMap = new HashMap<>();
+            fMap.put(f.getFacultyName(),f.getFacultyId().toString());
+            facultyNames.add(fMap);
+            facultyNamesMap.put(f.getDepartmentId(), facultyNames);
+        }
+
+        return facultyNamesMap;
 
     }
 

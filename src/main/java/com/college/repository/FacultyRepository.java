@@ -32,4 +32,7 @@ public interface FacultyRepository extends JpaRepository<Faculty, Long> {
     @Query("select f from Faculty f where f.departmentId = :deptno)")
     List<Faculty> getFacultyByDeptNo(@Param("deptno") Long deptno);
 
+    @Query("select f from Faculty f")
+    List<Faculty> getFacultiesName();
+
 }

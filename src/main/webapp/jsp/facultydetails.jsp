@@ -14,21 +14,16 @@
 
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
-                            <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/civil/rm"
-                                    class="sf-depth-2 active">Rashid Mustafa</a></li>
 
-                            <li class="leaf menu-mlid-1294"><a href="http://localhost/department/civil/akg"
-                                    class="sf-depth-2">Anil Kumar Gupta</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/rps"
-                                    class="sf-depth-2">Rana Pratap Singh</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/abhi"
-                                    class="sf-depth-2">Abhishek Ranjan</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/ar"
-                                    class="sf-depth-2">Aale rasul</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/kkk"
-                                    class="sf-depth-2">Krishna kant Thakur</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/sss"
-                                    class="sf-depth-2">shashank shekhar sandliya</a></li>
+                            <c:forEach items="${facultyNameList}" var="entry">
+
+                                <c:forEach items="${entry}" var="entryVal">
+
+                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/facultyDetails?facultyId=${entryVal.value}"
+                                                                                                        class="sf-depth-2">${entryVal.key}</a></li>
+                                </c:forEach>
+                            </c:forEach>
+
                         </ul>
                     </div>
                 </section>
@@ -36,13 +31,15 @@
         </aside>
 
         <div class="col-md-8">
-            <c:forEach var="item" items="${Role}">
-                <c:if test="${'Faculty' eq item and UserName eq 'talktorashid'}">
+            <c:forEach items="${loggedInUser}" var ='loggedInuser'>
+                <c:if test="${loggedInuser}">
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                             Documents &nbsp;|</a></strong>
                     <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                  </c:if>
-                          </c:forEach>
+                                 </c:forEach>
+
+
                 <ul class=" nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
                                     data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
@@ -50,7 +47,7 @@
                             <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab"
                                     data-toggle="tab"><i class="fa fa-download"></i> Downloads</a></li>
                             <c:forEach var="item" items="${Role}">
-                                <c:if test="${'Faculty' eq item and UserName eq 'talktorashid'}">
+                                <c:if test="${'Faculty' eq item and UserName eq '${fUserName}'}">
                                     <li role="presentation"><a href="#order" aria-controls="order" role="tab"
                                             data-toggle="tab"><i class="fa fa-angle-double-right"></i> Request</a></li>
                                 </c:if>
@@ -60,7 +57,7 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
                                         style="height: 200px;width:250px"
-                                        src="http://localhost/${facultyId}/image${fileExtension}" />
+                                        src="http://localhost/${facultyDetails.facultyId}/image${fileExtension}" />
                                     <h2>${facultyDetails.facultyName}</h2>
                                     <p style="font-size: 130%;">Assistant Professor and Head of the Department <br />
                                         Department of Civil

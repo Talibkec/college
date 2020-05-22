@@ -2,8 +2,12 @@ package com.college.core.controller.store;
 
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
+import com.college.core.entity.FacultyKeyPropValues;
+import com.college.core.entity.FacultyKeyProps;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
+import com.college.core.model.FacultyKeyPropValuesDTO;
+import com.college.core.model.FacultyKeyPropsDTO;
 import com.college.service.FacultyDocumentsService;
 import com.college.service.FacultyService;
 import com.college.service.ProductService;
@@ -86,6 +90,7 @@ public class CommonResourceController {
         return  obj.toString();
     }
 
+
     @ResponseBody
     @RequestMapping(value="/uploadfile/facultyFileUpload", method= RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
@@ -160,6 +165,8 @@ public class CommonResourceController {
     private void saveFacultydocumentsDetails(String username, String facultydocumentsHeader, String fileName,
                                              MultipartFile uploadFile, Boolean isLink, String linkAddress){
         FacultyDocumentsDTO facultyDocumentsDTO =new FacultyDocumentsDTO();
+        FacultyKeyPropsDTO facultyKeyPropsDTO =new FacultyKeyPropsDTO();
+        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
         facultyDocumentsDTO.setHeadLine(facultydocumentsHeader);
         facultyDocumentsDTO.setUploadedFileName(fileName);
         facultyDocumentsDTO.setUploadedBy(username);

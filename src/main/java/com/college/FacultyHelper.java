@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class FacultyHelper {
 
@@ -63,11 +65,19 @@ public class FacultyHelper {
 
     public ModelAndView getFacultyDetailsbyId(Long facultyId) {
         ModelAndView mv = new ModelAndView();
-        String loggedInUser = ControllerUtility.getUserName();
+        String userName = ControllerUtility.getUserName();
         List<String> role = ControllerUtility.getRole();
-        List<RequestDTO> requests = new ArrayList<>();
+        Map<Long, List<Map<String, String>>> facultyNameByDeptNo = facultyService.getFacultyNameByDeptNo();
         FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        List<Map<String, String>> facultyNames = facultyNameByDeptNo.get(facultyDTO.getDepartmentId());
+        List<FacultyDocumentsDTO> documents = facultyDocumentsService.getFacultyDocuments(facultyDTO.getUser().getUsername());
         mv.addObject("facultyDetails",facultyDTO);
+        mv.addObject("facultyDocument", documents);
+        mv.addObject("facultyNameList", facultyNames);
+        mv.addObject("fUserName",facultyDTO.getUser().getUsername());
+        mv.addObject("loggedInUser", userName);
+
+
         return mv;
     }
 

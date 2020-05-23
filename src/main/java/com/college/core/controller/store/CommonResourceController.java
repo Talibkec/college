@@ -74,25 +74,25 @@ public class CommonResourceController {
 
     @ResponseBody
     @RequestMapping(value = "/common/store/sm/searchFacultyName", method = RequestMethod.GET)
-    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model){
+    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model) {
 
         List<FacultyDTO> faculties = facultyService.getFacultyByName(facultyNames);
         JsonObject obj = null;
-        if(faculties.size() > 0) {
+        if (faculties.size() > 0) {
             obj = new JsonObject();
             FacultyDTO facultyDTO = faculties.get(0);
             obj.addProperty("name", facultyDTO.getFacultyName());
             obj.addProperty("id", facultyDTO.getFacultyId());
         }
-        if(obj == null){
+        if (obj == null) {
             return null;
         }
-        return  obj.toString();
+        return obj.toString();
     }
 
 
     @ResponseBody
-    @RequestMapping(value="/uploadfile/facultyFileUpload", method= RequestMethod.POST)
+    @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
             @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
@@ -101,23 +101,29 @@ public class CommonResourceController {
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
             @RequestParam("facultyMobNo") Long facultyMobNo,
             @RequestParam("facultyName") String facultyName,
-            @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink ,
+            @RequestParam("propertykeyname[]") String keyPropertyName,
+            @RequestParam("propertykeyvalue") String keyPropVal,
+            @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink,
             @RequestParam(name = "linkAddress", required = false) String linkAddress) {
         String fileName = uploadfile.getOriginalFilename();
         if (!isLink && (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
             String msg = "";
-            if(uploadfile.isEmpty())
-            {
+            if (uploadfile.isEmpty()) {
                 msg = "Please select a file.";
-            }
-            else {
+            } else {
                 msg = "Please give notice heading";
             }
-            return new ResponseEntity(msg,  new HttpHeaders(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
         String userName = ControllerUtility.getUserName();
-        if("Yes".equalsIgnoreCase(isProfilePic)){
+        if ("Yes".equalsIgnoreCase(isProfilePic)) {
             FacultyDTO facultyDTO = facultyService.getFaculty(userName);
+            FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
+            FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+            facultyKeyPropsDTO.setKeyPropertyName(keyPropertyName);
+            facultyKeyPropValuesDTO.setKeyPropVal(keyPropVal);
+            facultyKeyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+            facultyDTO.getFacultyKeyProps().add(facultyKeyPropsDTO);
             facultyDTO.setFileType(fileName);
             try {
                 facultyDTO.setFacultyPhoto(uploadfile.getBytes());
@@ -125,34 +131,30 @@ public class CommonResourceController {
                 e.printStackTrace();
             }
             facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
-            if(StringUtils.isEmpty(facultyOfficialEmail)){
+            if (StringUtils.isEmpty(facultyOfficialEmail)) {
                 facultyDTO.setFacultyOfficialEmail(facultyDTO.getFacultyOfficialEmail());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
             }
-            if(StringUtils.isEmpty(facultyPersonalEmail)){
+            if (StringUtils.isEmpty(facultyPersonalEmail)) {
                 facultyDTO.setFacultyPersonalEmail(facultyDTO.getFacultyPersonalEmail());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
             }
-            if(StringUtils.isEmpty(facultyMobNo)){
+            if (StringUtils.isEmpty(facultyMobNo)) {
                 facultyDTO.setFacultyMobNo(facultyDTO.getFacultyMobNo());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyMobNo(facultyMobNo);
             }
-            if(StringUtils.isEmpty(facultyName)){
+            if (StringUtils.isEmpty(facultyName)) {
                 facultyDTO.setFacultyName(facultyDTO.getFacultyName());
-            }
-            else{
+            } else {
                 facultyDTO.setFacultyName(facultyName);
             }
 
             facultyService.saveFaculty(facultyDTO);
-        }
-        else {
+
+        } else {
             saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile, isLink, linkAddress);
         }
 
@@ -163,9 +165,9 @@ public class CommonResourceController {
     }
 
     private void saveFacultydocumentsDetails(String username, String facultydocumentsHeader, String fileName,
-                                             MultipartFile uploadFile, Boolean isLink, String linkAddress){
-        FacultyDocumentsDTO facultyDocumentsDTO =new FacultyDocumentsDTO();
-        FacultyKeyPropsDTO facultyKeyPropsDTO =new FacultyKeyPropsDTO();
+                                             MultipartFile uploadFile, Boolean isLink, String linkAddress) {
+        FacultyDocumentsDTO facultyDocumentsDTO = new FacultyDocumentsDTO();
+        FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
         FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
         facultyDocumentsDTO.setHeadLine(facultydocumentsHeader);
         facultyDocumentsDTO.setUploadedFileName(fileName);
@@ -188,17 +190,19 @@ public class CommonResourceController {
         model.addObject("isProfilePic", isProfilePic);
         return model;
     }
+
     @RequestMapping(value = "/facultyDetails", method = RequestMethod.GET)
-    public ModelAndView displayFacultyDetails(@RequestParam("facultyId")Long facultyId) {
+    public ModelAndView displayFacultyDetails(@RequestParam("facultyId") Long facultyId) {
         ModelAndView model = facultyHelper.getFacultyDetailsbyId(facultyId);
         model.setViewName("facultydetails.jsp");
         return model;
     }
-    @RequestMapping(value="faculty")
-    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno){
-        ModelAndView mv=new ModelAndView();
+
+    @RequestMapping(value = "faculty")
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno) {
+        ModelAndView mv = new ModelAndView();
         List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
-        mv.addObject("facultyList",facultyList);
+        mv.addObject("facultyList", facultyList);
         mv.setViewName("facultylist.jsp");
         return mv;
     }

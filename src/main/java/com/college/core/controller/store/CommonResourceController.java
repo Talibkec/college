@@ -194,5 +194,13 @@ public class CommonResourceController {
         model.setViewName("facultydetails.jsp");
         return model;
     }
+    @RequestMapping(value="faculty")
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno){
+        ModelAndView mv=new ModelAndView();
+        List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
+        mv.addObject("facultyList",facultyList);
+        mv.setViewName("facultylist.jsp");
+        return mv;
+    }
 
 }

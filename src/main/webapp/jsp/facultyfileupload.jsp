@@ -79,8 +79,8 @@ $(document).ready(function(){
         <c:if test ="${isProfilePic eq 'Yes'}">
          <div class="form-group fieldGroup">
                         <div class="input-group">
-                            <input type="text" name="propertykeyname[]" class="form-control" placeholder="Enter Property Key Name"/>
-                            <input type="text" name="propertykeyvalue[]" class="form-control" placeholder="Enter Property Key Value"/>
+                            <input type="text" name="propertykeyname" class="form-control" placeholder="Enter Property Key Name"/>
+                            <input type="text" name="propertykeyvalue" class="form-control" placeholder="Enter Property Key Value"/>
                             <div class="input-group-addon">
                                 <a href="javascript:void(0)" class="btn btn-success addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
                             </div>

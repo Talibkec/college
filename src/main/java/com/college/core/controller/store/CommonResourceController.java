@@ -206,5 +206,13 @@ public class CommonResourceController {
         mv.setViewName("facultylist.jsp");
         return mv;
     }
+    @RequestMapping(value = "/uploadfile/editfacultydetails")
+    public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId) {
+        ModelAndView mv = new ModelAndView();
+        FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        mv.setViewName("editfacultydetails.jsp");
+        mv.addObject("facultyDetails",facultyDTO);
+        return mv;
+    }
 
 }

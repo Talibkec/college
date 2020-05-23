@@ -27,10 +27,10 @@ $(document).ready(function(){
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
 <div class="panel panel-primary"><div class="panel-heading"> <i class="fa fa-sign-in"></i>EditProfile Details</div>
 
-<div class="panel-body"style="height: 300px; ">
+<div class="panel-body"style="height: 500px; ">
 
 
-<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+<form method="POST" enctype="multipart/form-data" id="editDetailsForm">
 
 
 
@@ -41,26 +41,14 @@ $(document).ready(function(){
          <input type="email" id="facultyOfficialEmail" value="${facultyDetails.facultyOfficialEmail}"name="facultyOfficialEmail"class="control-label col-sm-4"></br></br>
          <label for ="facultyPersonalEmail"class="control-label col-sm-4">Enter Personal Email</label>
           <input type="email" id="facultyPersonalEmail"value="${facultyDetails.facultyPersonalEmail}" name="facultyPersonalEmail"class="control-label col-sm-4"></br></br>
-
          <label for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
          <input type="text" id="facultyMobNo"value="${facultyDetails.facultyMobNo} "name="facultyMobNo"class="control-label col-sm-4"></br></br>
-
-
-
-
-        <div id="chooseFileBox" style="display:block">
-            <label for="file" class="control-label col-sm-4" style="text-align: right;" >
-
-            <div class=" btn-default  col-sm-4" style="color:red">
-            <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>
-            <div id="msg" style="display: none; color: red;">*Please Select a file</div>
-
-        </div>
-
          <div class="form-group fieldGroup">
                         <div class="input-group">
-                            <input type="text" name="propertykeyname[]" class="form-control" placeholder="Enter Property Key Name"/>
-                            <input type="text" name="propertykeyvalue[]" class="form-control" placeholder="Enter Property Key Value"/>
+                        <label for ="propertyName"class="control-label col-sm-4">Enter Property Key Name </label>
+                            <input type="text" name="propertykeyname[]" class="control-label col-sm-4" placeholder="Enter Property Key Name"/></br><br>
+                            <label for ="propertyValue"class="control-label col-sm-4">Enter Property Key Value </label>
+                            <input type="text" name="propertykeyvalue[]" class="control-label col-sm-4" placeholder="Enter Property Key Value"/>
                             <div class="input-group-addon">
                                 <a href="javascript:void(0)" class="btn btn-success addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
                             </div>
@@ -75,8 +63,10 @@ $(document).ready(function(){
 </div>
 <div class="form-group fieldGroupCopy" style="display: none;">
     <div class="input-group">
-        <input type="text" name="propertykeyname[]" class="form-control" placeholder="Enter Property Key Name"/>
-        <input type="text" name="propertykeyvalue[]" class="form-control" placeholder="Enter Property Key Value"/>
+         <label for ="propertyName"class="control-label col-sm-4">Enter Property Key Name </label>
+          <input type="text" name="propertykeyname[]" class="control-label col-sm-4" placeholder="Enter Property Key Name"/></br></br>
+          <br><label for ="propertyValue"class="control-label col-sm-4">Enter Property Key Value </label>
+          <input type="text" name="propertykeyvalue[]" class="control-label col-sm-4" placeholder="Enter Property Key Value"/>
         <div class="input-group-addon">
             <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
         </div>

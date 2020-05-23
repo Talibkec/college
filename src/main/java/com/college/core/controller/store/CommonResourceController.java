@@ -90,6 +90,48 @@ public class CommonResourceController {
         return obj.toString();
     }
 
+    @ResponseBody
+    @RequestMapping(value="/uploadfile/editfacultydetails",method = RequestMethod.POST)
+    public  ResponseEntity<?>editFacultyDetails(
+            @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
+            @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
+            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam("facultyName") String facultyName,
+            @RequestParam("propertykeyname[]") String keyPropertyName,
+            @RequestParam("propertykeyvalue") String keyPropVal,
+            @RequestParam("facultyId") Long facultyId){
+        FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
+        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+        facultyKeyPropsDTO.setKeyPropertyName(keyPropertyName);
+        facultyKeyPropValuesDTO.setKeyPropVal(keyPropVal);
+        facultyKeyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+        facultyDTO.getFacultyKeyProps().add(facultyKeyPropsDTO);
+        if (StringUtils.isEmpty(facultyOfficialEmail)) {
+            facultyDTO.setFacultyOfficialEmail(facultyDTO.getFacultyOfficialEmail());
+        } else {
+            facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
+        }
+        if (StringUtils.isEmpty(facultyPersonalEmail)) {
+            facultyDTO.setFacultyPersonalEmail(facultyDTO.getFacultyPersonalEmail());
+        } else {
+            facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
+        }
+        if (StringUtils.isEmpty(facultyMobNo)) {
+            facultyDTO.setFacultyMobNo(facultyDTO.getFacultyMobNo());
+        } else {
+            facultyDTO.setFacultyMobNo(facultyMobNo);
+        }
+        if (StringUtils.isEmpty(facultyName)) {
+            facultyDTO.setFacultyName(facultyDTO.getFacultyName());
+        } else {
+            facultyDTO.setFacultyName(facultyName);
+        }
+
+        facultyService.saveFaculty(facultyDTO);
+        return new ResponseEntity( new HttpHeaders(), HttpStatus.OK);
+
+    }
 
     @ResponseBody
     @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)

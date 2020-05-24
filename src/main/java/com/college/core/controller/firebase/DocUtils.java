@@ -95,14 +95,40 @@ public static Paragraph attTitle(){
 
     }
 
-    public static void setLeaveApplication(Document doc, LeaveRequestDetail leaveRequestDetail) throws DocumentException {
+    public static void setDefaultLeaveApplication(Document doc, LeaveRequestDetail leaveRequestDetail) throws DocumentException {
 
 
         doc.add(new Paragraph(kecLogo()));
-        doc.add(new Paragraph(addContent(leaveRequestDetail)));
+        doc.add(new Paragraph(addContent()));
+        doc.add(new Paragraph(addSubject(leaveRequestDetail)));
+        doc.add(new Paragraph(addGreet()));
+        doc.add(new Paragraph(addBody(leaveRequestDetail)));
         doc.add(new Paragraph(facultyInfo(leaveRequestDetail)));
 
 
+    }
+    public static void setCustomLeaveApplication(Document doc,LeaveRequestDetail leaveRequestDetail) throws DocumentException {
+        doc.add(new Paragraph(kecLogo()));
+        doc.add(new Paragraph(addContent()));
+        doc.add(new Paragraph(addCustomSubject(leaveRequestDetail)));
+        doc.add(new Paragraph(addGreet()));
+        doc.add(new Paragraph(addCustomBody(leaveRequestDetail)));
+        doc.add(new Paragraph(facultyInfo(leaveRequestDetail)));
+    }
+    public static Paragraph addCustomSubject(LeaveRequestDetail leaveRequestDetail){
+        String subject = "Subject - "+leaveRequestDetail.getSubject();
+        Paragraph addSubject =new Paragraph(10F);
+        addSubject.setSpacingAfter(25F);
+        addSubject.add(new Phrase(subject));
+        return  addSubject;
+
+    }
+    public static  Paragraph addCustomBody(LeaveRequestDetail leaveRequestDetail){
+        String body = leaveRequestDetail.getEmailContent();
+        Paragraph addBody = new Paragraph(25F);
+        addBody.setSpacingAfter(25F);
+        addBody.add(new Phrase(body));
+        return  addBody;
     }
     //Print Fcaulty's Signature
     public static  Paragraph facultySign(){
@@ -114,27 +140,27 @@ public static Paragraph attTitle(){
         return signPara;
     }
     //Print Leave Application
-    public static Paragraph addContent(LeaveRequestDetail leaveRequestDetail){
-        String addressingWord = "To,";
-        String designation = "The Principal";
-        String collegeName = "KEC, Katihar";
+    public static Paragraph addContent(){
+        String addressingWord = "To,"+"\n"+"The Principal"+"\n"+"KEC, Katihar";
+        String designation = "The Principal"+"\n"+"KEC, Katihar";
+        /*String collegeName = "KEC, Katihar";
         String subject = "Subject - Regarding leave from"+leaveRequestDetail.getStartDate()+"to"+leaveRequestDetail.getEndDate();
         String greet = "\n"+"Sir/Ma'am";
         String body = "With immense respect, I hereby wish to notify you that I wish to take " +leaveRequestDetail.getLeaveType()+" from "+ leaveRequestDetail.getStartDate()+" to " + leaveRequestDetail.getEndDate() +". On the stated days I will not be able to attend the college because of some reasons";
         String endLine = "\n"+"I wish that you will consider and grant my leave request. For this, I will be grateful of you. Thankyou!";
-
-        Paragraph addAddressing =new Paragraph(10F);
-        Paragraph addDesignation =new Paragraph(10F);
+*/
+        Paragraph addAddressing =new Paragraph(25F);
+        /*Paragraph addDesignation =new Paragraph(10F);
         Paragraph addCollegeName =new Paragraph(10F);
         Paragraph addSubject =new Paragraph(10F);
         Paragraph addGreet = new Paragraph(10F);
         Paragraph addBody = new Paragraph(10F);
         Paragraph addEndLine = new Paragraph(10F);
-
+*/
 
         addAddressing.setSpacingAfter(25F);
         addAddressing.add(new Phrase(addressingWord));
-        addDesignation.setSpacingAfter(25F);
+        /*addDesignation.setSpacingAfter(25F);
         addDesignation.add(new Phrase(designation));
         addCollegeName.setSpacingAfter(25F);
         addCollegeName.add(new Phrase(collegeName));
@@ -146,20 +172,42 @@ public static Paragraph attTitle(){
         addBody.add(new Phrase(body));
         addEndLine.setSpacingAfter(25F);
         addEndLine.add(new Phrase(endLine));
-
-        addAddressing.add(new Paragraph(addDesignation));
+*/
+        /*addAddressing.add(new Paragraph(addDesignation));
         addDesignation.add(new Paragraph(addCollegeName));
         addCollegeName.add(new Paragraph(addSubject));
         addSubject.add(new Paragraph(addGreet));
         addGreet.add(new Paragraph(addBody));
         addBody.add(new Paragraph(addEndLine));
-
+*/
         return addAddressing;
 
     }
+    public static Paragraph addSubject(LeaveRequestDetail leaveRequestDetail){
+        String subject = "\n"+"Subject - Regarding leave from "+leaveRequestDetail.getStartDate()+" to "+leaveRequestDetail.getEndDate();
+        Paragraph addSubject =new Paragraph(10F);
+        addSubject.setSpacingAfter(25F);
+        addSubject.add(new Phrase(subject));
+        return  addSubject;
+
+    }
+    public static  Paragraph addGreet(){
+        String greet = "\n"+"Sir/Ma'am,";
+        Paragraph addGreet = new Paragraph(10F);
+        addGreet.setSpacingAfter(25F);
+        addGreet.add(new Phrase((greet)));
+        return addGreet;
+    }
+    public static  Paragraph addBody(LeaveRequestDetail leaveRequestDetail){
+        String body = "With immense respect, I would like to inform you that I would be on " +leaveRequestDetail.getLeaveType()+" from "+ leaveRequestDetail.getStartDate()+" to " + leaveRequestDetail.getEndDate() +" .On the above mentioned dates, I will not be able to attend college due to personal reasons"+"\n\n"+"I wish that you will consider and grant my leave request. For this, I will be grateful of you. "+"\n\n"+"Thankyou!";
+        Paragraph addBody = new Paragraph(25F);
+        addBody.setSpacingAfter(25F);
+        addBody.add(new Phrase(body));
+        return  addBody;
+    }
     //Print Faculty's Informatiion in Leave Application
     public static  Paragraph facultyInfo(LeaveRequestDetail leaveRequestDetail){
-        String sign="_____________________"+"\n\n"+"(Faculty's Signature)"+"\n"+leaveRequestDetail.getName()+"\n"+"Date- "+leaveRequestDetail.getRequestDate()+"\n"+"Department- "+leaveRequestDetail.getDepartment();
+        String sign="_____________________"+"\n\n"+"(Faculty's Signature)"+"\n\n"+leaveRequestDetail.getName()+"\n\n"+"Date- "+leaveRequestDetail.getRequestDate()+"\n\n"+"Department- "+leaveRequestDetail.getDepartment();
         Paragraph signPara =new Paragraph(10F);
         signPara.setSpacingBefore(50F);
         signPara.setAlignment(Element.ALIGN_LEFT);

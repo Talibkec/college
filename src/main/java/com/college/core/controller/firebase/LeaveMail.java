@@ -40,6 +40,8 @@ public class LeaveMail {
     public String requestDate = "";
     public String name = "";
     public String leaveType = "";
+    public String subject = "";
+    public String emailContent = "";
 
     @Autowired
     FirebaseDocumentHelper firebaseDocumentHelper;
@@ -58,6 +60,8 @@ public class LeaveMail {
         requestDate = leaveRequestDetail.getRequestDate();
         name = leaveRequestDetail.getName();
         leaveType = leaveRequestDetail.getLeaveType();
+        subject = leaveRequestDetail.getSubject();
+        emailContent = leaveRequestDetail.getEmailContent();
         System.out.println("Leave Application is being called with following parameters. " + params );
         File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
         File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/RequestLeave.pdf");
@@ -81,6 +85,7 @@ public class LeaveMail {
             {
                 System.out.println("send Mail with Attachment method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
                 mimeMessage.setSubject("Leave Request.");
                 mimeMessage.setText("Please find the attached leave request.");
@@ -88,8 +93,8 @@ public class LeaveMail {
 
                 FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath()));
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
-                helper.setText("Please find the attached attendance report.", true);
+                helper.addAttachment(MimeUtility.encodeText("LeaveMail.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
+                helper.setText("Please find the attached leave application.", true);
 
             }
         };

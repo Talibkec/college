@@ -77,7 +77,12 @@ public class FirebaseDocumentHelper {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PdfWriter.getInstance(doc, out);
         doc.open();
-        DocUtils.setLeaveApplication(doc,leaveRequestDetail);
+        if(leaveRequestDetail.getSubject().isEmpty() || leaveRequestDetail.getEmailContent().isEmpty()) {
+            DocUtils.setDefaultLeaveApplication(doc, leaveRequestDetail);
+        }
+        else{
+            DocUtils.setCustomLeaveApplication(doc,leaveRequestDetail);
+        }
         if(doc.isOpen()){
             doc.close();
         }

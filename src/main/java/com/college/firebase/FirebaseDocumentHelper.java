@@ -31,19 +31,19 @@ public class FirebaseDocumentHelper {
                 String db_subject = (String) child.child("subject").getValue();
                 String date = (String) child.child("date").getValue();
                 Boolean haveValidInfo = StringUtil.isNullOrEmpty(db_department) ||
-                                        StringUtil.isNullOrEmpty(db_semester) ||
-                                        StringUtil.isNullOrEmpty(db_subject);
+                        StringUtil.isNullOrEmpty(db_semester) ||
+                        StringUtil.isNullOrEmpty(db_subject);
                 if(!haveValidInfo && (
-                            db_department.equalsIgnoreCase(facultyReportDetail.getDept()) &&
-                            db_subject.equalsIgnoreCase(facultyReportDetail.getSubject()) &&
-                            db_semester.equalsIgnoreCase(facultyReportDetail.getSemester())
-                        )){
-                if (attendanceList != null) {
-                    Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
-                    TreeMap<String, Boolean> treeMap = new TreeMap<>();
-                    treeMap.putAll(attendanceListVal);
-                    reportInfo.put(date, treeMap);
-                } }
+                        db_department.equalsIgnoreCase(facultyReportDetail.getDept()) &&
+                                db_subject.equalsIgnoreCase(facultyReportDetail.getSubject()) &&
+                                db_semester.equalsIgnoreCase(facultyReportDetail.getSemester())
+                )){
+                    if (attendanceList != null) {
+                        Map<String, Boolean> attendanceListVal = (Map<String, Boolean>) attendanceList.getValue();
+                        TreeMap<String, Boolean> treeMap = new TreeMap<>();
+                        treeMap.putAll(attendanceListVal);
+                        reportInfo.put(date, treeMap);
+                    } }
             }
         }
         //fillDummyDataForTesting(reportInfo);
@@ -58,14 +58,14 @@ public class FirebaseDocumentHelper {
         getPdfPTable(facultyReportDetail, reportInfo, doc, columnPerPage, pageSize );
         doc.add(DocUtils.facultySign());
 
-       if(reportInfo.size() <= 0) {
+        if(reportInfo.size() <= 0) {
             doc.add(new Paragraph(new Phrase("No. record found for this details")));
             doc.close();
         }
 
-       if(doc.isOpen()){
-           doc.close();
-       }
+        if(doc.isOpen()){
+            doc.close();
+        }
         OutputStream os = new FileOutputStream(fileWithAbsolutePath.getAbsoluteFile());
         out.writeTo(os);
         os.close();

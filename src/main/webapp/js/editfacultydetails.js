@@ -9,35 +9,23 @@ $(document).ready(function () {
 
     });
 
-    $("#isLink").click( function( event ) {
-        if($("#isLink").is(':checked')){
-            $("#linkBox").css("display","block");
-            $("#chooseFileBox").css("display","none");
-        }
-        else{
-             $("#linkBox").css("display","none");
-             $("#chooseFileBox").css("display","block");
-        }
-    })
+
 
 });
 
 function fire_ajax_submit() {
 
     // Get form
-    var form = $('#fileUploadForm')[0];
+    var form = $('#editDetailsForm')[0];
 
     var data = new FormData(form);
-
-    data.append("CustomField", "This is some extra data, testing");
-    data.append("isScrollable",$("#isScrollable").is(':checked'));
 
     $("#btnSubmit").prop("disabled", true);
 
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/uploadfile/facultyFileUpload",
+        url: "/uploadfile/editfacultydetails",
         data: data,
         //http://api.jquery.com/jQuery.ajax/
         //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects

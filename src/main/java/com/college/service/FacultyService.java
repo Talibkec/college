@@ -5,6 +5,7 @@ import com.college.core.model.FacultyDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface FacultyService {
@@ -22,7 +23,9 @@ public interface FacultyService {
 
     List<FacultyDTO> getFacultyByName(String facultyName);
 
-    public List<FacultyDTO> getFacultyByDeptNo(Long  deptno);
+    List<FacultyDTO> getFacultyByDeptNo(Long  deptno);
+
+    Map<Long, List<Map<String, String>>> getFacultyNameByDeptNo();
 
     FacultyDTO findUserByEmail(String userEmail);
 

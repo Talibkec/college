@@ -2,8 +2,12 @@ package com.college.core.controller.store;
 
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
+import com.college.core.entity.FacultyKeyPropValues;
+import com.college.core.entity.FacultyKeyProps;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
+import com.college.core.model.FacultyKeyPropValuesDTO;
+import com.college.core.model.FacultyKeyPropsDTO;
 import com.college.service.FacultyDocumentsService;
 import com.college.service.FacultyService;
 import com.college.service.ProductService;
@@ -39,6 +43,7 @@ public class CommonResourceController {
     @Autowired
     FacultyDocumentsService facultyDocumentsService;
 
+
     @ResponseBody
     @RequestMapping(value = "common/store/getProductName", method = RequestMethod.GET)
     public List<String> getProductName(@RequestParam("prodName") String prodName) {
@@ -69,24 +74,67 @@ public class CommonResourceController {
 
     @ResponseBody
     @RequestMapping(value = "/common/store/sm/searchFacultyName", method = RequestMethod.GET)
-    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model){
+    public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model) {
 
         List<FacultyDTO> faculties = facultyService.getFacultyByName(facultyNames);
         JsonObject obj = null;
-        if(faculties.size() > 0) {
+        if (faculties.size() > 0) {
             obj = new JsonObject();
             FacultyDTO facultyDTO = faculties.get(0);
             obj.addProperty("name", facultyDTO.getFacultyName());
             obj.addProperty("id", facultyDTO.getFacultyId());
         }
-        if(obj == null){
+        if (obj == null) {
             return null;
         }
-        return  obj.toString();
+        return obj.toString();
     }
 
     @ResponseBody
-    @RequestMapping(value="/uploadfile/facultyFileUpload", method= RequestMethod.POST)
+    @RequestMapping(value="/uploadfile/editfacultydetails",method = RequestMethod.POST)
+    public  ResponseEntity<?>editFacultyDetails(
+            @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
+            @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
+            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam("facultyName") String facultyName,
+            @RequestParam("propertykeyname[]") String keyPropertyName,
+            @RequestParam("propertykeyvalue") String keyPropVal,
+            @RequestParam("facultyId") Long facultyId){
+        FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
+        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+        facultyKeyPropsDTO.setKeyPropertyName(keyPropertyName);
+        facultyKeyPropValuesDTO.setKeyPropVal(keyPropVal);
+        facultyKeyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+        facultyDTO.getFacultyKeyProps().add(facultyKeyPropsDTO);
+        if (StringUtils.isEmpty(facultyOfficialEmail)) {
+            facultyDTO.setFacultyOfficialEmail(facultyDTO.getFacultyOfficialEmail());
+        } else {
+            facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
+        }
+        if (StringUtils.isEmpty(facultyPersonalEmail)) {
+            facultyDTO.setFacultyPersonalEmail(facultyDTO.getFacultyPersonalEmail());
+        } else {
+            facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
+        }
+        if (StringUtils.isEmpty(facultyMobNo)) {
+            facultyDTO.setFacultyMobNo(facultyDTO.getFacultyMobNo());
+        } else {
+            facultyDTO.setFacultyMobNo(facultyMobNo);
+        }
+        if (StringUtils.isEmpty(facultyName)) {
+            facultyDTO.setFacultyName(facultyDTO.getFacultyName());
+        } else {
+            facultyDTO.setFacultyName(facultyName);
+        }
+
+        facultyService.saveFaculty(facultyDTO);
+        return new ResponseEntity( new HttpHeaders(), HttpStatus.OK);
+
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
             @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
@@ -95,23 +143,29 @@ public class CommonResourceController {
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
             @RequestParam("facultyMobNo") Long facultyMobNo,
             @RequestParam("facultyName") String facultyName,
-            @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink ,
+            @RequestParam("propertykeyname[]") String keyPropertyName,
+            @RequestParam("propertykeyvalue") String keyPropVal,
+            @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink,
             @RequestParam(name = "linkAddress", required = false) String linkAddress) {
         String fileName = uploadfile.getOriginalFilename();
         if (!isLink && (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
             String msg = "";
-            if(uploadfile.isEmpty())
-            {
+            if (uploadfile.isEmpty()) {
                 msg = "Please select a file.";
-            }
-            else {
+            } else {
                 msg = "Please give notice heading";
             }
-            return new ResponseEntity(msg,  new HttpHeaders(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
         String userName = ControllerUtility.getUserName();
-        if("Yes".equalsIgnoreCase(isProfilePic)){
+        if ("Yes".equalsIgnoreCase(isProfilePic)) {
             FacultyDTO facultyDTO = facultyService.getFaculty(userName);
+            FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
+            FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+            facultyKeyPropsDTO.setKeyPropertyName(keyPropertyName);
+            facultyKeyPropValuesDTO.setKeyPropVal(keyPropVal);
+            facultyKeyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+            facultyDTO.getFacultyKeyProps().add(facultyKeyPropsDTO);
             facultyDTO.setFileType(fileName);
             try {
                 facultyDTO.setFacultyPhoto(uploadfile.getBytes());
@@ -119,46 +173,44 @@ public class CommonResourceController {
                 e.printStackTrace();
             }
             facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
-            if(StringUtils.isEmpty(facultyOfficialEmail)){
+            if (StringUtils.isEmpty(facultyOfficialEmail)) {
                 facultyDTO.setFacultyOfficialEmail(facultyDTO.getFacultyOfficialEmail());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
             }
-            if(StringUtils.isEmpty(facultyPersonalEmail)){
+            if (StringUtils.isEmpty(facultyPersonalEmail)) {
                 facultyDTO.setFacultyPersonalEmail(facultyDTO.getFacultyPersonalEmail());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
             }
-            if(StringUtils.isEmpty(facultyMobNo)){
+            if (StringUtils.isEmpty(facultyMobNo)) {
                 facultyDTO.setFacultyMobNo(facultyDTO.getFacultyMobNo());
-            }
-            else {
+            } else {
                 facultyDTO.setFacultyMobNo(facultyMobNo);
             }
-            if(StringUtils.isEmpty(facultyName)){
+            if (StringUtils.isEmpty(facultyName)) {
                 facultyDTO.setFacultyName(facultyDTO.getFacultyName());
-            }
-            else{
+            } else {
                 facultyDTO.setFacultyName(facultyName);
             }
 
             facultyService.saveFaculty(facultyDTO);
-        }
-        else {
+
+        } else {
             saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile, isLink, linkAddress);
         }
 
-        String notice = "http://keck.ac.in/wp-content/uploads/facultydocuments/" + fileName;
+        String notice = "http://localhost/wp-content/uploads/facultydocuments/" + fileName;
         notice = notice + "," + facultydocumentsHeader;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
 
     }
 
     private void saveFacultydocumentsDetails(String username, String facultydocumentsHeader, String fileName,
-                                             MultipartFile uploadFile, Boolean isLink, String linkAddress){
-        FacultyDocumentsDTO facultyDocumentsDTO =new FacultyDocumentsDTO();
+                                             MultipartFile uploadFile, Boolean isLink, String linkAddress) {
+        FacultyDocumentsDTO facultyDocumentsDTO = new FacultyDocumentsDTO();
+        FacultyKeyPropsDTO facultyKeyPropsDTO = new FacultyKeyPropsDTO();
+        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
         facultyDocumentsDTO.setHeadLine(facultydocumentsHeader);
         facultyDocumentsDTO.setUploadedFileName(fileName);
         facultyDocumentsDTO.setUploadedBy(username);
@@ -180,4 +232,29 @@ public class CommonResourceController {
         model.addObject("isProfilePic", isProfilePic);
         return model;
     }
+
+    @RequestMapping(value = "/facultyDetails", method = RequestMethod.GET)
+    public ModelAndView displayFacultyDetails(@RequestParam("facultyId") Long facultyId) {
+        ModelAndView model = facultyHelper.getFacultyDetailsbyId(facultyId);
+        model.setViewName("facultydetails.jsp");
+        return model;
+    }
+
+    @RequestMapping(value = "faculty")
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno) {
+        ModelAndView mv = new ModelAndView();
+        List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
+        mv.addObject("facultyList", facultyList);
+        mv.setViewName("facultylist.jsp");
+        return mv;
+    }
+    @RequestMapping(value = "/uploadfile/editfacultydetails")
+    public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId) {
+        ModelAndView mv = new ModelAndView();
+        FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        mv.setViewName("editfacultydetails.jsp");
+        mv.addObject("facultyDetails",facultyDTO);
+        return mv;
+    }
+
 }

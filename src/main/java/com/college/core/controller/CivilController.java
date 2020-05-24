@@ -2,6 +2,8 @@ package com.college.core.controller;
 
 import com.college.FacultyHelper;
 import com.college.KECDateHelper;
+import com.college.core.model.FacultyDTO;
+import com.college.service.FacultyService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
@@ -10,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -26,6 +29,8 @@ public class CivilController {
     public NoticeBoardService noticeBoardService;
     @Autowired
     public FacultyHelper facultyHelper;
+    @Autowired
+    public FacultyService facultyService;
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout(){
         ModelAndView modalAndView=new ModelAndView();
@@ -78,6 +83,7 @@ public class CivilController {
 
 
 
+
     @RequestMapping(value="vision")
     public ModelAndView getVision(){
         ModelAndView mv=new ModelAndView();
@@ -85,12 +91,15 @@ public class CivilController {
         return mv;
     }
     @RequestMapping(value="faculty")
-    public ModelAndView getFaculty(){
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno){
         ModelAndView mv=new ModelAndView();
+        List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
+        mv.addObject("facultyList",facultyList);
         mv.setViewName("department/civil/faculty.jsp");
         return mv;
     }
     @RequestMapping(value="students")
+
     public ModelAndView getStudents(){
         ModelAndView mv=new ModelAndView();
         mv.setViewName("department/civil/students.jsp");

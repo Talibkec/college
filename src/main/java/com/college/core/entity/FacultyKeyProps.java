@@ -25,7 +25,7 @@ public class FacultyKeyProps {
         this.faculty = faculty;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "facultyId")
     public Faculty getFaculty() {
         return faculty;

@@ -74,7 +74,7 @@ public class LeaveMail {
             System.out.println("Unable to write into file.");
             e.printStackTrace();
         }
-        String email = "ankitdutta170@gmail.com";
+        String email = leaveRequestDetail.getEmail();
         sendMailWithAttachments(email, fileWithAbsolutePath);
         return "";
     }

@@ -184,7 +184,7 @@ public static Paragraph attTitle(){
 
     }
     public static Paragraph addSubject(LeaveRequestDetail leaveRequestDetail){
-        String subject = "\n"+"Subject - Regarding leave from "+leaveRequestDetail.getStartDate()+" to "+leaveRequestDetail.getEndDate();
+        String subject = "\n"+"Subject - Regarding "+leaveRequestDetail.getLeaveType()+" from "+leaveRequestDetail.getStartDate()+" to "+leaveRequestDetail.getEndDate();
         Paragraph addSubject =new Paragraph(10F);
         addSubject.setSpacingAfter(25F);
         addSubject.add(new Phrase(subject));

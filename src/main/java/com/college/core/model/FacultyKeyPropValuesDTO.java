@@ -1,7 +1,10 @@
 package com.college.core.model;
 
 public class FacultyKeyPropValuesDTO {
-    private  Long keyPropValuesId;
+
+    private Long keyPropValuesId;
+    private FacultyKeyPropsDTO facultyKeyProps;
+    private String keyPropVal;
 
     public Long getKeyPropValuesId() {
         return keyPropValuesId;
@@ -19,5 +22,11 @@ public class FacultyKeyPropValuesDTO {
         this.keyPropVal = keyPropVal;
     }
 
-    private String keyPropVal;
+    public void setFacultyKeyProps(FacultyKeyPropsDTO facultyKeyProps) {
+        this.facultyKeyProps = facultyKeyProps;
+    }
+
+    public FacultyKeyPropsDTO getFacultyKeyProps() {
+        return facultyKeyProps;
+    }
 }

@@ -1,6 +1,7 @@
 package com.college.core.entity;
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -9,7 +10,7 @@ public class FacultyKeyProps {
     private  Long keyPropertyId;
     private String keyPropertyName;
     private Faculty faculty;
-    private Set<FacultyKeyPropValues> keyPropVals = new HashSet<>() ;
+    private List<FacultyKeyPropValues> keyPropVals = new ArrayList<>() ;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
@@ -25,18 +26,18 @@ public class FacultyKeyProps {
         this.faculty = faculty;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Faculty.class)
     @JoinColumn(name = "facultyId")
     public Faculty getFaculty() {
         return faculty;
     }
 
     @OneToMany(mappedBy = "facultyKeyProps", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    public Set<FacultyKeyPropValues> getKeyPropVals() {
+    public List<FacultyKeyPropValues> getKeyPropVals() {
         return keyPropVals;
     }
 
-    public void setKeyPropVals(Set<FacultyKeyPropValues> keyPropVals) {
+    public void setKeyPropVals(List<FacultyKeyPropValues> keyPropVals) {
         this.keyPropVals = keyPropVals;
     }
 }

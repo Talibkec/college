@@ -1,13 +1,15 @@
 package com.college.core.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class FacultyKeyPropsDTO {
     private Long keyPropertyId;
     private String keyPropertyName;
-    private FacultyDTO facultyDTO;
-    private Set<FacultyKeyPropValuesDTO> keyPropVals = new HashSet<>();
+    private FacultyDTO faculty;
+    private List<FacultyKeyPropValuesDTO> keyPropVals = new ArrayList<>();
 
     public Long getKeyPropertyId() {
         return keyPropertyId;
@@ -25,11 +27,19 @@ public class FacultyKeyPropsDTO {
         this.keyPropertyName = keyPropertyName;
     }
 
-    public void setKeyPropVals(Set<FacultyKeyPropValuesDTO> keyPropVals) {
+    public void setKeyPropVals(List<FacultyKeyPropValuesDTO> keyPropVals) {
         this.keyPropVals = keyPropVals;
     }
 
-    public Set<FacultyKeyPropValuesDTO> getKeyPropVals() {
+    public List<FacultyKeyPropValuesDTO> getKeyPropVals() {
         return keyPropVals;
+    }
+
+    public void setFaculty(FacultyDTO faculty) {
+        this.faculty = faculty;
+    }
+
+    public FacultyDTO getFaculty() {
+        return faculty;
     }
 }

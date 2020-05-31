@@ -10,6 +10,4 @@ import java.util.List;
 
     @Repository
     public interface AdministrationRepository extends JpaRepository<Administration, Long> {
-        @Query(value = "select * from Administration", nativeQuery=true)
-        public List<Request> getAllAdministration();
     }

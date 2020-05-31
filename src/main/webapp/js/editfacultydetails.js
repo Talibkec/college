@@ -4,21 +4,21 @@ $(document).ready(function () {
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_key'); //Add button selector
     var wrapper = $('.newPropsClass'); //Input field wrapper
-    var fieldHTML = '<div class="newpropkeybox"><input type="text" name="propkey" class="propKey"/>' +
-        '<a href="javascript:void(0);" class="remove_Key">Delete Property Heading</a>' +
-        '<a href="javascript:void(0);" class="add_key">Add Property Heading</a>' +
-        '<div class="propVals"><input type="text" name="field_name[]" value="" class="propVal"/>' +
-        '<a href="javascript:void(0);" class="add_button">add</a>' +
-        '<a href="javascript:void(0);" class="remove_button">Remove</a></div></div>';
+    var fieldHTML = '<div class="newpropkeybox panel panel-success"><input type="text" placeholder="Property Heading"name="propkey"style="margin-top:2%;margin-left:3%" class="propKey control-label col-md-6"/>' +
+        '<a href="javascript:void(0);" class="remove_Key btn btn-warning" style="margin-left:5%;margin-top:2%">Delete</a>' +
+        '<a href="javascript:void(0);" class="add_key btn btn-primary"style="margin-top:2%;margin-left:1%">Add Property Heading</a>' +
+        '<div class="propVals"><input type="text" placeholder="Property Value"name="field_name[]" style="margin-left:3%;margin-top:2%"value="" class="propVal control-label col-md-6"/>' +
+        '<a href="javascript:void(0);" class="add_button btn btn-info" style="margin-left:5%;margin-right:1%;margin-top:2%"><span class="glyphicon glyphicon-plus-sign"></span>Add</a>' +
+        '<a href="javascript:void(0);" class="remove_button btn btn-danger"style="margin-top:2%"><span class="glyphicon glyphicon-remove-sign"></span>Remove</a></div></div>';
     //New input field html
     var x = 1; //Initial field counter is 1
 
     //Once add button is clicked
     $(wrapper).on('click', '.add_button', function (e) {
         e.preventDefault();
-        $(this).parent('div').append('<div class="propVals"><input type="text" name="field_name[]" value="" class="propVal"/>' +
-            '<a href="javascript:void(0);" class="add_button">add</a>' +
-            '<a href="javascript:void(0);" class="remove_button">Remove</a></div>'); //Remove field html
+        $(this).parent('div').append('<div class="propVals"><input type="text"placeholder="Property Value" name="field_name[]" value=""style="margin-left:3%;margin-top:2%" class="propVal control-label col-md-6"/>' +
+            '<a href="javascript:void(0);" class="add_button btn btn-info"style="margin-left:5%;margin-top:2%;margin-right:1%"><span class="glyphicon glyphicon-plus-sign"></span>Add</a>' +
+            '<a href="javascript:void(0);" class="remove_button btn btn-danger"style="margin-top:2%" ><span class="glyphicon glyphicon-remove-sign"></span>Remove</a></div>'); //Remove field html
         x--; //Decrement field counter
     });
 
@@ -53,9 +53,9 @@ $(document).ready(function () {
 
     $(".oldPropsClass").on('click', '.add_button', function (e) {
         e.preventDefault();
-        $(this).parent('div').append('<div class="propVals"><input type="text" name="field_name[]" value="" class="propVal"/>' +
-            '<a href="javascript:void(0);" class="add_button">add</a>' +
-            '<a href="javascript:void(0);" class="remove_button">Remove</a></div>'); //Remove field html
+        $(this).parent('div').append('<div class="propVals"><input type="text" style="margin-left:3%" name="field_name[]" value="" class="propVal col-md-6"/>' +
+            '<a href="javascript:void(0);" class="add_button btn btn-info "style="margin-left:5%;margin-bottom:2%;margin-right:1%"><span class="glyphicon glyphicon-plus-sign"></span>Add</a>' +
+            '<a href="javascript:void(0);" class="remove_button btn btn-danger" style="margin-bottom:2%"><span class="glyphicon glyphicon-remove-sign"></span>Remove</a></div>'); //Remove field html
         x--; //Decrement field counter
     });
 

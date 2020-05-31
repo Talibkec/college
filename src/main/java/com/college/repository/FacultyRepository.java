@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface FacultyRepository extends JpaRepository<Faculty, Long> {
-    @Query(value = "select * from Faculty", nativeQuery=true)
+    @Query(value = "select * from Faculty", nativeQuery = true)
     public List<Request> getAllFaculty();
 
     @Query("select f from Faculty f where f.user.username = :userName")
@@ -34,5 +34,7 @@ public interface FacultyRepository extends JpaRepository<Faculty, Long> {
 
     @Query("select f from Faculty f")
     List<Faculty> getFacultiesName();
+    @Query("select f from Faculty f where f.facultyOfficialEmail = :facultyEmail")
+    Faculty searchByEmail(@Param("facultyEmail") String facultyEmail);
 
 }

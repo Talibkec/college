@@ -9,9 +9,31 @@ $(document).ready(function () {
 
     });
 
+    $( "#userName" ).autocomplete({
+               source: function( request, response ) {
+               $.ajax({
+                    url: "/user/userNameAutocomplete",
+                    data: {
+                        userName:$("#userName").val()
+                    },
+                    success: function( data ) {
+                        response( data );
+                    },
+                    error: function (xhr, status) {
+                        alert(status);
+                    }
+               });
+               },
+               minLength: 1,
+               select: function( event, ui ) {
+               event.preventDefault(); //preventing default methods
+               $("#userName").val(ui.item.label);
+               }
+            });
 
 
 });
+
 
 function fire_ajax_submit() {
 
@@ -58,3 +80,4 @@ function fire_ajax_submit() {
     });
 
 }
+

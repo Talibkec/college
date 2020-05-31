@@ -37,9 +37,6 @@ public class AdministrationDTO {
         this.dutyAssigned = dutyAssigned;
     }
 
-
-
-
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
     }

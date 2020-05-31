@@ -10,6 +10,8 @@ public interface AdministrationService {
     List<AdministrationDTO> getAllAdministration();
 
     void saveAdministration(AdministrationDTO administrationDTO);
+
     void deleteItem(Long id);
+
 }
 

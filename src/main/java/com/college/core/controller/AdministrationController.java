@@ -49,19 +49,8 @@ public  class AdministrationController {
         Faculty faculty = facultyService.searchByEmail(facultyEmail);
         administrationDTO.setFaculty(faculty);
         administrationService.saveAdministration(administrationDTO);
-
-
-
-    //administrationController.saveAdministrationDetails(facultyName,updateDutyAssigned, roleValue);
-
-
-
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
-
 }
-
-
-
     private void saveAdministrationDetails( String facultyName, String updateDutyAssigned,String roleValue) {
         AdministrationDTO administrationDTO = new AdministrationDTO();
         administrationDTO.getFaculty().setFacultyName(facultyName);

@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.ProductTransformer;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import com.college.core.model.UserRoleDTO;
@@ -12,6 +13,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -26,9 +28,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
 
-        if(!StringUtils.isEmpty(user.getRole())){
-            Role role  = roleRepository.findOne(Long.parseLong(user.getRole()));
-            if(user.getRoles() == null){
+        if (!StringUtils.isEmpty(user.getRole())) {
+            Role role = roleRepository.findOne(Long.parseLong(user.getRole()));
+            if (user.getRoles() == null) {
                 user.setRoles(new HashSet<>());
             }
             user.getRoles().add(role);
@@ -44,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUserRole(UserRoleDTO userRoleDTO) {
-        Set<Role> roles= new HashSet<>();
+        Set<Role> roles = new HashSet<>();
         User user = userRepository.findOne(userRoleDTO.getUserId());
         Role role = roleRepository.findOne(userRoleDTO.getRoleId());
         Role newRole = new Role();
@@ -58,18 +60,24 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUserRole(UserRoleDTO userRoleDTO)
-    {
+    public void deleteUserRole(UserRoleDTO userRoleDTO) {
         Long id = userRoleDTO.getRoleId();
         User user = userRepository.findOne(userRoleDTO.getUserId());
         Set<Role> roles = user.getRoles();
         Iterator<Role> it = roles.iterator();
-        while(it.hasNext()) {
-            Role r =  it.next();
+        while (it.hasNext()) {
+            Role r = it.next();
             if (r.getId() == userRoleDTO.getRoleId()) {
                 it.remove();
             }
         }
         userRepository.save(user);
+    }
+    @Override
+    public List<String> searchUserName(String userName){
+        userName = userName.toLowerCase();
+        List<User> user = userRepository.searchUserName(userName);
+        List<String> userNames= ProductTransformer.getUserName(user);
+        return userNames;
     }
 }

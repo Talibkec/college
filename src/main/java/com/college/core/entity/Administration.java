@@ -15,27 +15,17 @@ public class Administration {
     private String role;
     private String dutyAssigned;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "adminRoleId")
     @SequenceGenerator(name = "adminRoleId", sequenceName = "adminRoleId")
-    public Long getAdminRoleId() {
-        return adminRoleId;
-    }
+    public Long getAdminRoleId() { return adminRoleId; }
 
     public void setAdminRoleId(Long adminRoleId) {
         this.adminRoleId = adminRoleId;
     }
 
-
-
-
-
-
     @Column(name = "F_ROLE")
-    public String getrole() {
-        return role;
-    }
+    public String getrole() { return role; }
 
     public void setRole(String role) {
         this.role = role;

@@ -51,7 +51,8 @@
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                         Documents &nbsp;|</a></strong>
                     <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
-                        Details</a></strong>
+                        Details &nbsp;|</a></strong>
+                    <strong><a href="http://localhost/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
                 </c:if>
             </c:forEach>
 

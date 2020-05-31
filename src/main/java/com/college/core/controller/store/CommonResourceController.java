@@ -3,16 +3,20 @@ package com.college.core.controller.store;
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
 import com.college.core.entity.FacultyKeyPropValues;
-import com.college.core.entity.FacultyKeyProps;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.FacultyKeyPropValuesDTO;
 import com.college.core.model.FacultyKeyPropsDTO;
+import com.college.repository.FacultyKeyPropsRepository;
+import com.college.repository.FacultyKeyPrpsValueRepository;
 import com.college.service.FacultyDocumentsService;
 import com.college.service.FacultyService;
 import com.college.service.ProductService;
+import com.google.common.reflect.TypeToken;
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,16 +24,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
+import java.lang.reflect.Type;
+import java.util.*;
 
 @Controller
 public class CommonResourceController {
@@ -42,6 +43,12 @@ public class CommonResourceController {
     FacultyHelper facultyHelper;
     @Autowired
     FacultyDocumentsService facultyDocumentsService;
+    @Autowired
+    FacultyKeyPropsRepository facultyKeyPropsRepository;
+    @Autowired
+    FacultyKeyPrpsValueRepository facultyKeyPrpsValueRepository;
+    @Autowired
+    Gson gson;
 
 
     @ResponseBody
@@ -90,6 +97,62 @@ public class CommonResourceController {
         return obj.toString();
     }
 
+    @ResponseBody
+    @RequestMapping(value="/uploadfile/editfacultydetails",method = RequestMethod.POST)
+    public  ResponseEntity<?>editFacultyDetails(
+            @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
+            @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
+            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam("facultyName") String facultyName,
+            @RequestParam("facultyId") Long facultyId,
+            @RequestParam("newProps") String newProps,
+            @RequestParam("oldProps") String oldProps){
+
+        FacultyDTO newFacultyDTO = new FacultyDTO();
+        Type type = new TypeToken<LinkedHashMap<String, List<String>>>(){}.getType();
+        LinkedHashMap<String, List<String>> oldPropMap = gson.fromJson(oldProps, type);
+        LinkedHashMap<String, List<String>> newPropsMap = gson.fromJson(newProps, type);
+        FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
+        BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
+        newFacultyDTO.getFacultyKeyProps().clear();
+        addNewProperties(newFacultyDTO, oldPropMap);
+        addNewProperties(newFacultyDTO, newPropsMap);
+        if (!StringUtils.isEmpty(facultyOfficialEmail)) {
+            newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
+        }
+        if (!StringUtils.isEmpty(facultyPersonalEmail)) {
+            newFacultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
+        }
+        if (!StringUtils.isEmpty(facultyMobNo)) {
+            newFacultyDTO.setFacultyMobNo(facultyMobNo);
+        }
+        if (!StringUtils.isEmpty(facultyName)) {
+            newFacultyDTO.setFacultyName(facultyName);
+        }
+        facultyService.saveFaculty(newFacultyDTO);
+        return new ResponseEntity( new HttpHeaders(), HttpStatus.OK);
+
+    }
+
+    private void addNewProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props) {
+        for(String propKey: props.keySet()){
+            if(!StringUtils.isEmpty(propKey)){
+                FacultyKeyPropsDTO keyPropsDTO = new FacultyKeyPropsDTO();
+                keyPropsDTO.setFaculty(newFacultyDTO);
+                keyPropsDTO.setKeyPropertyName(propKey);
+                List<String> propValues = props.get(propKey);
+                for(String propVal: propValues){
+                    if(!StringUtils.isEmpty(propVal)) {
+                        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+                        facultyKeyPropValuesDTO.setFacultyKeyProps(keyPropsDTO);
+                        facultyKeyPropValuesDTO.setKeyPropVal(propVal);
+                        keyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+                    }
+                }
+                newFacultyDTO.getFacultyKeyProps().add(keyPropsDTO);
+            }
+        }
+    }
 
     @ResponseBody
     @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)
@@ -204,6 +267,14 @@ public class CommonResourceController {
         List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
         mv.addObject("facultyList", facultyList);
         mv.setViewName("facultylist.jsp");
+        return mv;
+    }
+    @RequestMapping(value = "/uploadfile/editfacultydetails")
+    public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId) {
+        ModelAndView mv = new ModelAndView();
+        FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
+        mv.setViewName("editfacultydetails.jsp");
+        mv.addObject("facultyDetails",facultyDTO);
         return mv;
     }
 

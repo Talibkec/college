@@ -9,6 +9,26 @@ public class LeaveRequestDetail {
     private String name;
     private String leaveType;
 
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    private String subject;
+
+    public String getEmailContent() {
+        return emailContent;
+    }
+
+    public void setEmailContent(String emailContent) {
+        this.emailContent = emailContent;
+    }
+
+    private String emailContent;
+
     public String getEmail() {
         return email;
     }

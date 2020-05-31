@@ -2,9 +2,11 @@
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:forEach var="item" items="${Role}">
         <c:if test = "${'Admin' eq item}">
-        <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>
-        <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>
-        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image</a></strong>
+        <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>|
+        <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>|
+        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image</a></strong>|
+        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/addfaculty">Add Faculty</a></strong>|
+        <strong><i class="fa fa-news"></i> <a href="/about/updateAdministration">Assign Administration Role</a></strong>
         </c:if>
     </c:forEach>
     <div class="row scrollingnews">

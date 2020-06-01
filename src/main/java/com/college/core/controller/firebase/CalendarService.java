@@ -20,7 +20,7 @@ public class CalendarService {
     private static final String APPLICATION_NAME = "calendar-json.googleapis.com";
 
     /** E-mail address of the service account. */
-    private static final String SERVICE_ACCOUNT_EMAIL = "attendance-leave@attendance-278911.iam.gserviceaccount.com";
+    private static final String SERVICE_ACCOUNT_EMAIL = "online-attendance-7e3c3@appspot.gserviceaccount.com";
 
     /** Global instance of the HTTP transport. */
     private static HttpTransport httpTransport;
@@ -38,7 +38,7 @@ public class CalendarService {
                     System.err.println(SERVICE_ACCOUNT_EMAIL);
                     System.exit(1);
                 }
-                URL loc = this.getClass().getResource("/attendance-278911-5f653aa76d72.p12");
+                URL loc = this.getClass().getResource("/online-attendance-7e3c3-d915dd0ea010.p12");
                 String path = loc.getPath();
                 File file = new File(path);
                 String p12Content = Files.readFirstLine(file, Charset.defaultCharset());

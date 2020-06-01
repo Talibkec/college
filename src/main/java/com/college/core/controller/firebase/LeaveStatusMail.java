@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.EventAttendee;
+import com.google.api.services.calendar.model.Events;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.CalendarListEntry;
 
@@ -29,6 +29,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
@@ -129,9 +130,18 @@ public class LeaveStatusMail {
         Event createdEvent = service.events().insert("primary", event).execute();
 
         System.out.println("Data is :"+createdEvent.getId());
-        CalendarListEntry calendarListEntry = service.calendarList().get("calendarId").execute();
+       // CalendarListEntry calendarListEntry = service.calendarList().get("primary").execute();
 
-        System.out.println(calendarListEntry.getSummary());
+       // System.out.println(calendarListEntry.getSummary());// Iterate over the events in the specified calendar
+        String pageToken = null;
+        do {
+            Events events = service.events().list("primary").setPageToken(pageToken).execute();
+            List<Event> items = events.getItems();
+            for (Event eventItems : items) {
+                System.out.println(eventItems.getSummary());
+            }
+            pageToken = events.getNextPageToken();
+        } while (pageToken != null);
     }
     
     private void  sendLeaveStatusMail(String email, LeaveStatusDetail leaveStatusDetail){

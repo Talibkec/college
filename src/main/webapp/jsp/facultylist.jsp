@@ -32,7 +32,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                         src="http://localhost/${faculty.facultyId}/image.${faculty.fileType}"
+                                                                         src="http://keck.ac.in/${faculty.facultyId}/image.${faculty.fileType}"
                                                                          style="background-image: url(rps.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -60,7 +60,7 @@
                                 <div class="visible-xs"><br/></div>
                             </div>
                             <div class="col-sm-3 box-profile-link"><a
-                                    href="http://localhost/facultyDetails?facultyId=${faculty.facultyId}"
+                                    href="http://keck.ac.in/facultyDetails?facultyId=${faculty.facultyId}"
                                     class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                 Profile Page </a></div>

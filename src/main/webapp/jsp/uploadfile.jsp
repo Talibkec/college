@@ -16,7 +16,7 @@
     <div class="col-sm-8">
             <select name = "noticeType" id="noticeType"><option value="Notice">Notice</option>
                                                         <option value="News">News</option>
-                                                        <option value="Tender">Tendor</option>
+                                                        <option value="Tender">Tender</option>
                                                   <!--      <option value="CSENotice">Cse</option>
                                                         <option value="CIVILNotice">Civil</option>
                                                         <option value="MECHNotice">Mechanical</option>

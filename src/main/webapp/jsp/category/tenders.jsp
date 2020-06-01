@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <c:forEach items="${noticeList}" var="notice">
-                <c:if test = "${ notice.noticeType == 'Tendor'}">
+                <c:if test = "${ notice.noticeType == 'Tender'}">
                     <div class="post-entry panel panel-default">
                         <div class="panel-heading"></a></h4></div>
                         <div class="panel-body">

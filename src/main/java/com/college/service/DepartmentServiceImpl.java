@@ -19,10 +19,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     DepartmentRepository departmentRepository;
+
     @Override
     public List<DepartmentDTO> getAllDepartment() {
         List<Department> departments = departmentRepository.findAll();
-        Type targetListType = new TypeToken<List<DepartmentRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<DepartmentRepository>>() {
+        }.getType();
         return modelMapper.map(departments, targetListType);
     }
 }

@@ -1,6 +1,7 @@
 package com.college;
 
 import com.college.core.controller.ControllerUtility;
+import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.RequestDTO;
@@ -63,6 +64,7 @@ public class FacultyHelper {
         return names;
     }
 
+
     public ModelAndView getFacultyDetailsbyId(Long facultyId) {
         ModelAndView mv = new ModelAndView();
         String userName = ControllerUtility.getUserName();
@@ -71,10 +73,10 @@ public class FacultyHelper {
         FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
         List<Map<String, String>> facultyNames = facultyNameByDeptNo.get(facultyDTO.getDepartmentId());
         List<FacultyDocumentsDTO> documents = facultyDocumentsService.getFacultyDocuments(facultyDTO.getUser().getUsername());
-        mv.addObject("facultyDetails",facultyDTO);
+        mv.addObject("facultyDetails", facultyDTO);
         mv.addObject("facultyDocument", documents);
         mv.addObject("facultyNameList", facultyNames);
-        mv.addObject("fUserName",facultyDTO.getUser().getUsername());
+        mv.addObject("fUserName", facultyDTO.getUser().getUsername());
         mv.addObject("loggedInUser", userName);
         mv.addObject("Role", role);
 

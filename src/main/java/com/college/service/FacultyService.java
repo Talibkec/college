@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.core.entity.Faculty;
 import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,13 @@ public interface FacultyService {
 
     List<FacultyDTO> getFacultyByName(String facultyName);
 
-    List<FacultyDTO> getFacultyByDeptNo(Long  deptno);
+    List<FacultyDTO> getFacultyByDeptNo(Long deptno);
 
     Map<Long, List<Map<String, String>>> getFacultyNameByDeptNo();
 
     FacultyDTO findUserByEmail(String userEmail);
 
     void createPasswordResetTokenForUser(User user, String token);
+
+    Faculty searchByEmail(String facultyEmail);
 }

@@ -1,9 +1,13 @@
 package com.college.core.entity;
 
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 
 @Entity
@@ -17,7 +21,7 @@ public class Faculty {
     private Long facultyMobNo;
     private String fileType;
     private User user;
-    private Set<FacultyKeyProps> facultyKeyProps = new HashSet<>(0);
+    private List<FacultyKeyProps> facultyKeyProps = new ArrayList<>(0);
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "facultyId")
@@ -95,16 +99,17 @@ public class Faculty {
 
 
     /*-------------------------------------------------------------*/
-    @OneToMany(mappedBy = "faculty", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    public Set<FacultyKeyProps> getFacultyKeyProps() {
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Fetch(FetchMode.SELECT)
+    public List<FacultyKeyProps> getFacultyKeyProps() {
         return facultyKeyProps;
     }
 
-    public void setFacultyKeyProps(Set<FacultyKeyProps> facultyKeyProps) {
+    public void setFacultyKeyProps(List<FacultyKeyProps> facultyKeyProps) {
         this.facultyKeyProps = facultyKeyProps;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "username", referencedColumnName = "username")
     public User getUser() {
         return user;

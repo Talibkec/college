@@ -9,45 +9,26 @@ $(document).ready(function () {
 
     });
 
-    $( "#userName" ).autocomplete({
-               source: function( request, response ) {
-               $.ajax({
-                    url: "/user/userNameAutocomplete",
-                    data: {
-                        userName:$("#userName").val()
-                    },
-                    success: function( data ) {
-                        response( data );
-                    },
-                    error: function (xhr, status) {
-                        alert(status);
-                    }
-               });
-               },
-               minLength: 1,
-               select: function( event, ui ) {
-               event.preventDefault(); //preventing default methods
-               $("#userName").val(ui.item.label);
-               }
-            });
 
 
 });
 
-
 function fire_ajax_submit() {
 
     // Get form
-    var form = $('#addFacultyForm')[0];
+    var form = $('#fileUploadForm')[0];
 
     var data = new FormData(form);
+
+    data.append("CustomField", "This is some extra data, testing");
+    data.append("isScrollable",$("#isScrollable").is(':checked'));
 
     $("#btnSubmit").prop("disabled", true);
 
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/auth/uploadfile/addfaculty",
+        url: "/api/uploadAdministration",
         data: data,
         //http://api.jquery.com/jQuery.ajax/
         //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
@@ -60,9 +41,9 @@ function fire_ajax_submit() {
              //window.location.href = "jsp/login.jsp?a=b&c=d";
 
                 var params = data.split(",");
-                $("#hfileLocation").val(params[0]);
-                $("#hnoticeHeader").val(params[1]);
-                $("#hnoticeType").val(params[2]);
+                $("#facultyName").val(params[0]);
+                $("#updateDutyAssigned").val(params[1]);
+                $("#updateRole").val(params[2]);
                 $("#result").text(data);
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
@@ -80,4 +61,3 @@ function fire_ajax_submit() {
     });
 
 }
-

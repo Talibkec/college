@@ -14,7 +14,7 @@ public class FacultyKeyPropValues {
     public void setKeyPropValuesId(Long keyPropValuesId) {this.keyPropValuesId = keyPropValuesId;}
 
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "keyPropertyId")
     public FacultyKeyProps getFacultyKeyProps() {
         return facultyKeyProps;

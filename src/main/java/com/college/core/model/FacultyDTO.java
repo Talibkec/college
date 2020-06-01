@@ -3,7 +3,9 @@ package com.college.core.model;
 
 import com.college.core.entity.User;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class FacultyDTO {
@@ -20,7 +22,7 @@ public class FacultyDTO {
     private String fileType;
 
 
-    private Set<FacultyKeyPropsDTO> facultyKeyProps = new HashSet<>(0);
+    private List<FacultyKeyPropsDTO> facultyKeyProps = new ArrayList<>(0);
 
     public String getFacultyOfficialEmail() {return facultyOfficialEmail;}
 
@@ -90,11 +92,11 @@ public class FacultyDTO {
         this.facultyPhoto = facultyPhoto;
     }
 
-    public Set<FacultyKeyPropsDTO> getFacultyKeyProps() {
+    public List<FacultyKeyPropsDTO> getFacultyKeyProps() {
         return facultyKeyProps;
     }
 
-    public void setFacultyKeyProps(Set<FacultyKeyPropsDTO> facultyKeyProps) {
+    public void setFacultyKeyProps(List<FacultyKeyPropsDTO> facultyKeyProps) {
         this.facultyKeyProps = facultyKeyProps;
     }
 

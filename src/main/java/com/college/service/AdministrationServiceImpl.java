@@ -22,7 +22,7 @@ public class AdministrationServiceImpl implements AdministrationService {
     @Override
     public List<AdministrationDTO> getAllAdministration() {
         List<Administration> administration= administrationRepository.findAll();
-        Type targetListType = new TypeToken<List<AdministrationRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<AdministrationDTO>>() {}.getType();
         return modelMapper.map(administration, targetListType);
     }
 

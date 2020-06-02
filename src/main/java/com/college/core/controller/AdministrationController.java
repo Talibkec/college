@@ -18,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -30,35 +32,25 @@ public  class AdministrationController {
     AdministrationService administrationService;
     @Autowired
     FacultyService facultyService;
-   // AdministrationController administrationController;
     private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
-  //  private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
-
-    //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
     @RequestMapping(value = "/api/uploadAdministration", method = RequestMethod.POST)
-
-
     public ResponseEntity<?> uploadAdministration(
             @RequestParam("facultyEmail") String facultyEmail,
-            @RequestParam("updateDutyAssigned") String updateDutyAssigned,@RequestParam("roleValue") String roleValue) {
+            @RequestParam("updateDutyAssigned") String updateDutyAssigned, @RequestParam("roleValue") String roleValue) {
         AdministrationDTO administrationDTO = new AdministrationDTO();
-       // administrationDTO.getFaculty().setFacultyName(facultyName);
+        // administrationDTO.getFaculty().setFacultyName(facultyName);
         administrationDTO.setDutyAssigned(updateDutyAssigned);
         administrationDTO.setRole(roleValue);
         Faculty faculty = facultyService.searchByEmail(facultyEmail);
         administrationDTO.setFaculty(faculty);
         administrationService.saveAdministration(administrationDTO);
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
+    }
+    @RequestMapping(value = "/auth/uploadfile/updateAdministration")
+    public ModelAndView updateAdministration() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("updateAdministration.jsp");
+        return mv;
+    }
 }
-    private void saveAdministrationDetails( String facultyName, String updateDutyAssigned,String roleValue) {
-        AdministrationDTO administrationDTO = new AdministrationDTO();
-        administrationDTO.getFaculty().setFacultyName(facultyName);
-        administrationDTO.setDutyAssigned(updateDutyAssigned);
-        administrationDTO.setRole(roleValue);
-
-        administrationService.saveAdministration(administrationDTO);
-
-
-    }}
-

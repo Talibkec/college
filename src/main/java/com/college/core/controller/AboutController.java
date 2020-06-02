@@ -58,17 +58,12 @@ public class AboutController {
     @RequestMapping(value = "administration")
     public ModelAndView getAdministration() {
         ModelAndView mv = new ModelAndView();
-        List<AdministrationDTO> administrationDTOS=administrationService.getAllAdministration();
-        mv.addObject("adminsDetails",administrationDTOS);
+        List<AdministrationDTO>administration =administrationService.getAllAdministration();
+        mv.addObject("adminsDetails",administration);
         mv.setViewName("about/administration.jsp");
         return mv;
     }
-    @RequestMapping(value = "updateAdministration")
-    public ModelAndView updateAdministration() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("updateAdministration.jsp");
-        return mv;
-    }
+
 
     @RequestMapping(value = "staff")
     public ModelAndView getStaff() {

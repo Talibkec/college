@@ -29,12 +29,12 @@
 
 
 
-         <label for="updateDutyAssigned" class="control-label col-sm-4" >Duty Assigned:</label>
+         <label for="updateDutyAssigned" class="control-label col-sm-4" >Designation:</label>
              <div class="col-sm-8">
                          <input type="text" name="updateDutyAssigned" id="updateDutyAssigned"/><br/><br/>
                      </div>
 
-                     <label for="updateRole" class="control-label col-sm-4" >Role:</label>
+                     <label for="updateRole" class="control-label col-sm-4" >Duty Assigned:</label>
                          <div class="col-sm-8">
                                       <input type="text" name="roleValue" id="updateRole"/><br/><br/>
                                   </div>

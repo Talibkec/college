@@ -132,13 +132,11 @@
                                                     <span class="label" style="border:  solid 1px #ccc; color: #000;">
                                                         <c:set var="clazz" value="label label-warning"/>
                                                         <i class=""></i> ${facultyDocument.date} </span>&nbsp;
-                                    <c:forEach var="item" items="${Role}">
-                                        <c:if
-                                                test="${'Faculty' eq item and UserName eq 'talktorashid' }">
-                                                            <span class="label label-danger"><a
-                                                                    href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
-                                        </c:if>
-                                    </c:forEach>
+                             <c:forEach var="item" items="${Role}">
+                               <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
+                                 <span class="label label-danger"><a href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                             </c:if>
+                            </c:forEach>
 
                                     <c:choose>
                                         <c:when test="${facultyDocument.link}">

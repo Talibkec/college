@@ -16,7 +16,7 @@ $(document).ready(function () {
 function fire_ajax_submit() {
 
     // Get form
-    var form = $('#fileUploadForm')[0];
+    var form = $('#updateAdministrationForm')[0];
 
     var data = new FormData(form);
 

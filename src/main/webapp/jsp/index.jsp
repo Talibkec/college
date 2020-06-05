@@ -6,7 +6,7 @@
         <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/addfaculty">Add Faculty</a></strong>|
-        <strong><i class="fa fa-news"></i> <a href="/about/updateAdministration">Assign Administration Role</a></strong>
+        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/updateAdministration">Assign Administration Role</a></strong>
         </c:if>
     </c:forEach>
     <div class="row scrollingnews">

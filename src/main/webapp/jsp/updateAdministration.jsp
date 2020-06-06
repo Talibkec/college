@@ -7,10 +7,14 @@
 <form method="POST" enctype="multipart/form-data" id="updateAdministrationForm">
          <label for ="facultyOfficialEmail" class="control-label col-sm-4">Enter Official Email of Faculty</label>
          <input type="email" id="facultyEmail"name="facultyEmail"placeholder="Faculty Official Email"class="control-label col-sm-4"></br></br>
+         <label for ="role" class="control-label col-sm-4">Enter Role</label>
+         <input type="role" id="role"name="role"placeholder="Role Value"class="control-label col-sm-4"></br></br>
+
          <label for ="designation" class="control-label col-sm-4">Enter Designation</label>
-         <input type="email" id="dutyAssigned"name="updateDutyAssigned"placeholder="Desgnation"class="control-label col-sm-4"></br></br>
-         <label for ="DustyAssigned" class="control-label col-sm-4">Assign Admministration duty</label>
-         <input type="email" id="roleValue"name="roleValue"placeholder="Administration Role"class="control-label col-sm-4"></br></br>
+         <input type="text" id="designation"name="designation"placeholder="Designation"class="control-label col-sm-4"></br></br>
+
+         <label for ="dutyAssigned" class="control-label col-sm-4">Assign Administration duty</label>
+         <input type="dutyAssigned" id="dutyAssigned"name="updateDutyAssigned"placeholder="Administration Duty"class="control-label col-sm-4"></br></br>
          <input type="submit" value="Submit" id="btnSubmit" class="btn btn-success" style="margin-left:10%" />
          <div class="col-sm-4"></div>
         </div>
@@ -21,5 +25,9 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
 <script src="http://localhost/js/uploadAdministration.js"></script>
+
+
 

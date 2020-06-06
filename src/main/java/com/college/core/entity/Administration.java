@@ -13,6 +13,7 @@ public class Administration {
     private Long adminRoleId;
     private Faculty faculty;
     private String role;
+    private String designation;
     private String dutyAssigned;
 
     @Id
@@ -39,6 +40,16 @@ public class Administration {
     public void setDutyAssigned(String dutyAssigned) {
         this.dutyAssigned = dutyAssigned;
     }
+
+    @Column(name = "F_DESIGNATION")
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;

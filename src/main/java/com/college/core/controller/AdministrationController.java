@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,15 +37,17 @@ public  class AdministrationController {
     @ResponseBody
     @RequestMapping(value = "/api/uploadAdministration", method = RequestMethod.POST)
     public ResponseEntity<?> uploadAdministration(
-            @RequestParam("facultyEmail") String facultyEmail,
-            @RequestParam("updateDutyAssigned") String updateDutyAssigned, @RequestParam("roleValue") String roleValue) {
+            @RequestParam("facultyEmail") String facultyEmail, @RequestParam("designation") String designation, @RequestParam("role") String roleValue,
+            @RequestParam("updateDutyAssigned") String updateDutyAssigned ,HttpServletResponse res) throws IOException {
         AdministrationDTO administrationDTO = new AdministrationDTO();
         // administrationDTO.getFaculty().setFacultyName(facultyName);
         administrationDTO.setDutyAssigned(updateDutyAssigned);
         administrationDTO.setRole(roleValue);
+        administrationDTO.setDesignation(designation);
         Faculty faculty = facultyService.searchByEmail(facultyEmail);
         administrationDTO.setFaculty(faculty);
         administrationService.saveAdministration(administrationDTO);
+        res.sendRedirect("/");
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
     }
     @RequestMapping(value = "/auth/uploadfile/updateAdministration")
@@ -53,4 +56,15 @@ public  class AdministrationController {
         mv.setViewName("updateAdministration.jsp");
         return mv;
     }
+    @RequestMapping(value = "/auth/deleteAdminRole/{adminRoleId}", method = RequestMethod.GET)
+    public void deleteItem( @PathVariable("adminRoleId") Long id, HttpServletResponse res) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        administrationService.deleteItem(id);
+
+        res.sendRedirect("/");
+    }
+
+
 }
+
+

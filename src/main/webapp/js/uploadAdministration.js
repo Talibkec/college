@@ -11,6 +11,30 @@ $(document).ready(function () {
 
 
 
+
+    $( "#facultyEmail" ).autocomplete({
+                  source: function( request, response ) {
+                  $.ajax({
+                       url: "/common/store/facultyEmailAutocomplete",
+                       data: {
+                           facultyEmail:$("#facultyEmail").val()
+                       },
+                       success: function( data ) {
+                           response( data );
+                       },
+                       error: function (xhr, status) {
+                           alert(status);
+                       }
+                  });
+                  },
+                  minLength: 1,
+                  select: function( event, ui ) {
+                  event.preventDefault(); //preventing default methods
+                  $("#facultyEmail").val(ui.item.label);
+                  }
+               });
+
+
 });
 
 function fire_ajax_submit() {
@@ -42,8 +66,9 @@ function fire_ajax_submit() {
 
                 var params = data.split(",");
                 $("#facultyName").val(params[0]);
-                $("#updateDutyAssigned").val(params[1]);
-                $("#updateRole").val(params[2]);
+                $("#designation").val(params[3]);
+                $("#dutyAssigned").val(params[1]);
+                $("#role").val(params[2]);
                 $("#result").text(data);
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);

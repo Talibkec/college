@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
@@ -45,12 +45,24 @@
                                      <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/${Details.faculty.facultyId}/image/${fileExtension}"/>
                                         <div class="visible-xs"><br/></div>
                                      </div>
-                                   <div class="col-sm-6 box-profile-info"> <strong>${Details.faculty.facultyName}</strong><br/><strong>Duty assigned:</strong> ${Details.role}<br/> <strong>Designation:</strong>${Details.dutyAssigned}
+                                   <div class="col-sm-6 box-profile-info"> <strong>${Details.faculty.facultyName}</strong><br/> <strong>Designation:</strong> ${Details.designation}<br/> <strong>Duty Assigned:</strong>${Details.dutyAssigned}
                                     <br/> <strong>Phone Number:</strong>${Details.faculty.facultyMobNo}<br/>
+
+
+                                        <c:forEach var="item" items="${Role}">
+                                                                                           <c:if test = "${'Admin' eq item}">
+                                                                                           <span class="label label-danger"><a href="<c:url value='/auth/deleteAdminRole/${Details.adminRoleId}'/>">Delete</a></span>
+                                                                                        </c:if>
+                                                                                       </c:forEach>
                                      <div class="visible-xs"><br/></div>
+
                                    </div>
                                    <div class="col-sm-3 box-profile-link"><a href="http://localhost/facultyDetails?facultyId=${Details.faculty.facultyId}"class="btn btn-default btn-lg">
                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>Profile Page </a></div>
+
+
+
+
                                </div>
                            </div>
                         </div>

@@ -12,6 +12,7 @@ public class AdministrationDTO {
     private String role;
     private Faculty faculty;
     private String dutyAssigned;
+    private String designation;
 
     public Long getAdminRoleId() {
         return adminRoleId;
@@ -36,6 +37,17 @@ public class AdministrationDTO {
     public void setDutyAssigned(String dutyAssigned) {
         this.dutyAssigned = dutyAssigned;
     }
+
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;

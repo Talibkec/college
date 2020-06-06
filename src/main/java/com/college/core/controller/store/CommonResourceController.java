@@ -3,16 +3,10 @@ package com.college.core.controller.store;
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
 import com.college.core.entity.User;
-import com.college.core.model.FacultyDTO;
-import com.college.core.model.FacultyDocumentsDTO;
-import com.college.core.model.FacultyKeyPropValuesDTO;
-import com.college.core.model.FacultyKeyPropsDTO;
+import com.college.core.model.*;
 import com.college.repository.FacultyKeyPropsRepository;
 import com.college.repository.FacultyKeyPrpsValueRepository;
-import com.college.service.FacultyDocumentsService;
-import com.college.service.FacultyService;
-import com.college.service.ProductService;
-import com.college.service.UserService;
+import com.college.service.*;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -40,6 +34,8 @@ public class CommonResourceController {
     ProductService productService;
     @Autowired
     FacultyService facultyService;
+    @Autowired
+    AdministrationService administrationService;
     @Autowired
     FacultyHelper facultyHelper;
     @Autowired
@@ -74,6 +70,15 @@ public class CommonResourceController {
         List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
         return facultyHelper.facultyNames(facultyNames);
     }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/common/store/facultyEmailAutocomplete", method = RequestMethod.GET)
+    public List<String> facultyEmailAutocomplete(@RequestParam("facultyEmail") String facultyEmail) {
+        List<FacultyDTO> facultyEmails = facultyService.searchFacultyEmail(facultyEmail);
+        return facultyHelper.facultyEmails(facultyEmails);
+    }
+
     @ResponseBody
     @RequestMapping(value="/user/userNameAutocomplete", method =RequestMethod.GET)
     public List<String> userNameAutocomplete(@RequestParam("userName") String userName){

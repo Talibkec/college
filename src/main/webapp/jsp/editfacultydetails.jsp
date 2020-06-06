@@ -1,11 +1,6 @@
 <jsp:include page="header.jsp" />
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-.keyprops:{
-    margin-bottom:5%
-}
-</style>
 <div class="container"> <br /><br />
     <div class="row">
         <div class="col-sm-offset-2 col-sm-8">
@@ -70,7 +65,7 @@
                         <div class="col-sm-4"></div>
                     </form>
                 </div>
-                
+
             </div>
 
         </div>

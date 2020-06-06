@@ -1,7 +1,6 @@
 package com.college.core.controller.firebase;
 
 import com.college.firebase.FirebaseDocumentHelper;
-import com.google.firebase.database.*;
 import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
@@ -9,12 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
-import org.springframework.mail.MailSender;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +22,8 @@ import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 @Controller
 public class LeaveMail {
@@ -74,7 +68,7 @@ public class LeaveMail {
             System.out.println("Unable to write into file.");
             e.printStackTrace();
         }
-        String email = leaveRequestDetail.getEmail();
+        String email = "ankitdutta170@gmail.com";
         sendMailWithAttachments(email, fileWithAbsolutePath);
         return "";
     }

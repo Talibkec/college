@@ -16,28 +16,30 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.bind.annotation.*;
+
+import java.net.SocketTimeoutException;
+import java.security.GeneralSecurityException;
+
 import com.google.api.client.util.DateTime;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.Events;
 import com.google.api.services.calendar.model.EventDateTime;
-import com.google.api.services.calendar.model.CalendarListEntry;
+import com.google.api.services.calendar.model.EventReminder;
+import com.google.api.services.calendar.model.EventAttendee;
 
 import javax.mail.Message;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
         
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 @Controller
 public class LeaveStatusMail {
@@ -55,7 +57,7 @@ public class LeaveStatusMail {
     
     @ResponseBody
     @RequestMapping(value = "/rs", method = RequestMethod.GET)
-    public String LeaveStatusMailController(@RequestParam("params") String params ) throws  IOException, ParseException{
+    public String LeaveStatusMailController(@RequestParam("params") String params ) throws  IOException{
         Gson gson= new Gson();
         LeaveStatusDetail leaveStatusDetail = gson.fromJson(params,LeaveStatusDetail.class);
         leaveId = leaveStatusDetail.getLeaveId();
@@ -76,72 +78,37 @@ public class LeaveStatusMail {
         return "";
     }
     @ExceptionHandler(IOException.class)
-    public void addEventToCalendar(LeaveStatusDetail leaveStatusDetail) throws IOException, ParseException
+    public void addEventToCalendar(LeaveStatusDetail leaveStatusDetail) throws IOException
     {
-        Event event = new Event();
-        Calendar service =null;
+        String summary = leaveStatusDetail.getName()+" is on Leave today";
+        String description = leaveStatusDetail.getName()+ " is on leave from "+leaveStatusDetail.getStartDate()+" to "+leaveStatusDetail.getEndDate();
+        Event event = new Event()
+                .setSummary(summary)
+                .setLocation("Katihar, Bihar, India")
+                .setDescription(description);
 
-        event.setSummary("Calendar Testing");
-        event.setLocation("India");
-        event.setDescription("Desired description");
+        DateTime startDateTime = new DateTime(leaveStatusDetail.getStartDate()+"T09:00:00-07:00");
+        EventDateTime start = new EventDateTime()
+                .setDateTime(startDateTime);
+                
+        event.setStart(start);
 
-        /*ArrayList<EventAttendee> attendees = new ArrayList<EventAttendee>();
-        attendees.add(new EventAttendee().setEmail("ankitdutta170@gmail.com"));
-        // ...
-        event.setAttendees(attendees);*/
-
-
-        // set the number of days
-        String startDate = leaveStatusDetail.getStartDate();
-        String endDate = leaveStatusDetail.getEndDate();
-        String temp[];
-        String delimeter ="-";
-        temp = startDate.split(delimeter);
-        int startYear = Integer.parseInt(temp[0]) ;
-        int startMonth = Integer.parseInt(temp[1]);
-        int startDay = Integer.parseInt(temp[2]);
-        java.util.Calendar startCal = java.util.Calendar.getInstance();
-        startCal.set(java.util.Calendar.YEAR, startYear);
-        startCal.set(java.util.Calendar.MONTH, startMonth);
-        startCal.set(java.util.Calendar.DATE, startDay);
-        startCal.set(java.util.Calendar.HOUR_OF_DAY, 7);
-        startCal.set(java.util.Calendar.MINUTE, 0);
-        Date getStartDate = startCal.getTime();
+        DateTime endDateTime = new DateTime(leaveStatusDetail.getEndDate()+"T17:00:00-07:00");
+        EventDateTime end = new EventDateTime()
+                .setDateTime(endDateTime);
+                
+        event.setEnd(end);
         
-        temp = endDate.split(delimeter);
-        int endYear = Integer.parseInt(temp[0]) ;
-        int endMonth = Integer.parseInt(temp[1]);
-        int endDay = Integer.parseInt(temp[2]);
-        java.util.Calendar endCal = java.util.Calendar.getInstance();
-        endCal.set(java.util.Calendar.YEAR, endYear);
-        endCal.set(java.util.Calendar.MONTH, endMonth);
-        endCal.set(java.util.Calendar.DATE, endDay);
-        endCal.set(java.util.Calendar.HOUR_OF_DAY, 18);
-        endCal.set(java.util.Calendar.MINUTE, 0);
-        Date getEndDate = startCal.getTime();
-        
-        
-        DateTime start = new DateTime(getStartDate);
-        event.setStart(new EventDateTime().setDateTime(start));
-        DateTime end = new DateTime(getEndDate);
-        event.setEnd(new EventDateTime().setDateTime(end));
-
+        Calendar service = null;
         service = new CalendarService().configure();
-        Event createdEvent = service.events().insert("primary", event).execute();
-
-        System.out.println("Data is :"+createdEvent.getId());
-       // CalendarListEntry calendarListEntry = service.calendarList().get("primary").execute();
-
-       // System.out.println(calendarListEntry.getSummary());// Iterate over the events in the specified calendar
-        String pageToken = null;
-        do {
-            Events events = service.events().list("primary").setPageToken(pageToken).execute();
-            List<Event> items = events.getItems();
-            for (Event eventItems : items) {
-                System.out.println(eventItems.getSummary());
-            }
-            pageToken = events.getNextPageToken();
-        } while (pageToken != null);
+        String calendarId = "onlineattendance@keck.ac.in";
+        try {
+                event = service.events().insert(calendarId, event).execute();
+        }
+        catch (SocketTimeoutException e){
+            System.out.print(e.getStackTrace());
+        }
+        System.out.printf("Event created: %s\n", event.getHtmlLink());
     }
     
     private void  sendLeaveStatusMail(String email, LeaveStatusDetail leaveStatusDetail){

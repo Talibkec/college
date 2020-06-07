@@ -85,4 +85,11 @@ public class FacultyHelper {
     }
 
 
+    public List<String> facultyEmails(List<FacultyDTO> facultyEmails) {
+        List<String> facultyEmail = new ArrayList<>();
+        for(FacultyDTO facultyDTO : facultyEmails){
+            facultyEmail.add(facultyDTO.getFacultyOfficialEmail());
+        }
+        return  facultyEmail;
+    }
 }

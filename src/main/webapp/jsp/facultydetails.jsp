@@ -103,10 +103,8 @@
 
                     </a></p> <br/><br/>
 
-
+                   <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
                     <div class="panel panel-default facultyInfo">
-
-                        <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
                             <div class="panel-heading">
                                 <Strong>${keyprop.keyPropertyName}</Strong>
                             </div>
@@ -114,14 +112,14 @@
                                 <table class="table table-striped">
                                     <tbody>
                                     <tr>
-                                        <td>&nbsp&nbsp${propVal.keyPropVal}</td>
+                                        <td>&nbsp&nbsp&nbsp${propVal.keyPropVal}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </c:forEach>
-                        </c:forEach>
-                    </div>
 
+                    </div>
+                </c:forEach>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="downloads">

@@ -76,17 +76,7 @@ $(document).ready(function(){
             <div id="msg" style="display: none; color: red;">*Please Select a file</div>
             <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
         </div>
-        <c:if test ="${isProfilePic eq 'Yes'}">
-         <div class="form-group fieldGroup">
-                        <div class="input-group">
-                            <input type="text" name="propertykeyname" class="form-control" placeholder="Enter Property Key Name"/>
-                            <input type="text" name="propertykeyvalue" class="form-control" placeholder="Enter Property Key Value"/>
-                            <div class="input-group-addon">
-                                <a href="javascript:void(0)" class="btn btn-success addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
-                            </div>
-                        </div>
-                    </div>
-        </c:if>
+
         <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" />
         <div class="col-sm-4"></div>
         </div>
@@ -111,4 +101,4 @@ $(document).ready(function(){
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<script src="http://keck.ac.in/js/facultyfileUpload.js"></script>
+<script src="http://localhost/js/facultyfileUpload.js"></script>

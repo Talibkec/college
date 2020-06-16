@@ -20,6 +20,8 @@ public interface FacultyService {
 
     List<FacultyDTO> searchFacultyName(String facultyName);
 
+    List<String> searchFacultyNames(String facultyName);
+
     List<FacultyDTO> searchFacultyEmail(String facultyEmail);
 
 

@@ -71,19 +71,43 @@ public class CommonResourceController {
         return facultyHelper.facultyNames(facultyNames);
     }
 
-
-    @ResponseBody
-    @RequestMapping(value = "/common/store/facultyEmailAutocomplete", method = RequestMethod.GET)
-    public List<String> facultyEmailAutocomplete(@RequestParam("facultyEmail") String facultyEmail) {
-        List<FacultyDTO> facultyEmails = facultyService.searchFacultyEmail(facultyEmail);
-        return facultyHelper.facultyEmails(facultyEmails);
-    }
+//    @ResponseBody
+//    @RequestMapping(value = "/common/store/facultyEmailAutocomplete", method = RequestMethod.GET)
+//    public List<String> facultyEmailAutocomplete(@RequestParam("facultyEmail") String facultyEmail) {
+//        List<FacultyDTO> facultyEmails = facultyService.searchFacultyEmail(facultyEmail);
+//        return facultyHelper.facultyEmails(facultyEmails);
+//    }
 
     @ResponseBody
     @RequestMapping(value="/user/userNameAutocomplete", method =RequestMethod.GET)
     public List<String> userNameAutocomplete(@RequestParam("userName") String userName){
             List<String> usernames = userService.searchUserName(userName);
             return  usernames;
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/faculty/facultyNameAutocompletes", method = RequestMethod.GET)
+    public List<String> facultyNameAutocompletes(@RequestParam("facultyName") String facultyName) {
+        List<FacultyDTO> facultyNames = facultyService.searchFacultyName(facultyName);
+        return facultyHelper.facultyNames(facultyNames);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/faculty/searchFacultyNames", method = RequestMethod.GET)
+    public String searchFacultyByNames(@RequestParam("facultyName") String facultyNames, Model model) {
+
+        List<FacultyDTO> faculties = facultyService.getFacultyByName(facultyNames);
+        JsonObject obj = null;
+        if (faculties.size() > 0) {
+            obj = new JsonObject();
+            FacultyDTO facultyDTO = faculties.get(0);
+            obj.addProperty("name", facultyDTO.getFacultyName());
+            obj.addProperty("id", facultyDTO.getFacultyId());
+        }
+        if (obj == null) {
+            return null;
+        }
+        return obj.toString();
     }
 
     @ResponseBody
@@ -110,7 +134,6 @@ public class CommonResourceController {
         }
         return obj.toString();
     }
-
 
     @ResponseBody
     @RequestMapping(value="/uploadfile/editfacultydetails",method = RequestMethod.POST)
@@ -274,6 +297,7 @@ public class CommonResourceController {
         mv.setViewName("facultylist.jsp");
         return mv;
     }
+
     @RequestMapping(value = "/uploadfile/editfacultydetails")
     public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId) {
         ModelAndView mv = new ModelAndView();
@@ -282,6 +306,7 @@ public class CommonResourceController {
         mv.addObject("facultyDetails",facultyDTO);
         return mv;
     }
+
     @RequestMapping(value="/auth/uploadfile/addfaculty")
     public  ModelAndView addFaculty(){
         ModelAndView mv = new ModelAndView();
@@ -289,6 +314,7 @@ public class CommonResourceController {
 
         return mv;
     }
+
     @ResponseBody
     @RequestMapping(value="/auth/uploadfile/addfaculty",method = RequestMethod.POST)
     public ResponseEntity<?> addFaculty(

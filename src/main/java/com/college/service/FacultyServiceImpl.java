@@ -1,5 +1,6 @@
 package com.college.service;
 
+import com.college.ProductTransformer;
 import com.college.core.entity.Department;
 import com.college.core.entity.Faculty;
 import com.college.core.entity.PasswordResetToken;
@@ -72,6 +73,14 @@ public class FacultyServiceImpl implements FacultyService {
         }
         return facultyDTO;
 
+    }
+
+    @Override
+    public List<String> searchFacultyNames(String facultyName) {
+        facultyName = facultyName.toLowerCase();
+        List<Faculty> faculties = facultyRepository.searchFacultyName(facultyName);
+        List<String> facultyNames= ProductTransformer.getFacultyName(faculties);
+        return facultyNames;
     }
 
 

@@ -33,7 +33,7 @@
 
 <div class="gallery" style="margin-bottom: 10px;">
 	<center>
-		<p><h1>MEDIA GALLERY</h1></p>
+		<div class="row text-center" ><b><h1>MEDIA GALLERY</h1></b></div>
 	<a href="http://keck.ac.in/wp-content/uploads/2018/img1.JPG" data-lightbox="photo"><img src="http://keck.ac.in/wp-content/uploads/2018/img1.JPG" style="max-width:50%;"></a>
 	<a href="http://keck.ac.in/sites/default/files/img8.JPG" data-lightbox="photo"><img src="http://keck.ac.in/sites/default/files/img8.JPG" style="max-width:50%;"></a>
 	<a href="http://keck.ac.in/wp-content/uploads/2018/img3.JPG" data-lightbox="photo"><img src="http://keck.ac.in/wp-content/uploads/2018/img3.JPG"  style="max-width:50%;"></a>

@@ -6,11 +6,14 @@ import com.college.core.entity.User;
 import com.college.core.model.UserRoleDTO;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import sun.net.ftp.FtpDirEntry;
 
+import java.lang.reflect.Type;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -79,5 +82,12 @@ public class UserServiceImpl implements UserService {
         List<User> user = userRepository.searchUserName(userName);
         List<String> userNames= ProductTransformer.getUserName(user);
         return userNames;
+    }
+
+    @Override
+    public  List<String> getAllUserName(){
+        List<User> getUserNames = userRepository.findAll();
+        List<String> allUserNames =ProductTransformer.getAllUserNames(getUserNames);
+        return  allUserNames;
     }
 }

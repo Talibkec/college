@@ -15,4 +15,6 @@ public interface UserService {
     List<String> searchUserName(String userName);
 
     void deleteUserRole(UserRoleDTO userRoleDTO);
+    
+    List<String> getAllUserName();
 }

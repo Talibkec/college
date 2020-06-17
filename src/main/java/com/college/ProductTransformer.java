@@ -43,4 +43,11 @@ public class ProductTransformer {
         }
         return facultyName;
     }
+    public static List<String> getAllUserNames(List<User>users) {
+        List<String> allUsername=new ArrayList<>();
+        for(User user : users){
+            allUsername.add(user.getUsername());
+        }
+        return  allUsername;
+    }
 }

@@ -71,12 +71,12 @@ public class CommonResourceController {
         return facultyHelper.facultyNames(facultyNames);
     }
 
-//    @ResponseBody
-//    @RequestMapping(value = "/common/store/facultyEmailAutocomplete", method = RequestMethod.GET)
-//    public List<String> facultyEmailAutocomplete(@RequestParam("facultyEmail") String facultyEmail) {
-//        List<FacultyDTO> facultyEmails = facultyService.searchFacultyEmail(facultyEmail);
-//        return facultyHelper.facultyEmails(facultyEmails);
-//    }
+     @ResponseBody
+     @RequestMapping(value = "/common/store/facultyEmailAutocomplete", method = RequestMethod.GET)
+      public List<String> facultyEmailAutocomplete(@RequestParam("facultyEmail") String facultyEmail) {
+      List<FacultyDTO> facultyEmails = facultyService.searchFacultyEmail(facultyEmail);
+       return facultyHelper.facultyEmails(facultyEmails); 
+}
 
     @ResponseBody
     @RequestMapping(value="/user/userNameAutocomplete", method =RequestMethod.GET)
@@ -332,7 +332,14 @@ public class CommonResourceController {
         facultyDTO.setFacultyName(facultyName);
         User user = userService.findByUsername(username);
         facultyDTO.setUser(user);
-        facultyService.saveFaculty(facultyDTO);
+        List<String> allUserName = userService.getAllUserName();
+        if(allUserName.equals(username)) {
+            facultyService.saveFaculty(facultyDTO);
+        }
+        else{
+            System.out.println("Faculty not Registered !");
+        }
+
 
         return new ResponseEntity( new HttpHeaders(), HttpStatus.OK);
 

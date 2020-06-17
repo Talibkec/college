@@ -1,7 +1,9 @@
 package com.college;
 
+import com.college.core.entity.Faculty;
 import com.college.core.entity.Product;
 import com.college.core.entity.User;
+import com.college.core.model.FacultyDTO;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
@@ -30,5 +32,15 @@ public class ProductTransformer {
             usernames.add(user.getUsername());
         }
         return usernames;
+    }
+
+    public static List<String> getFacultyName(List<Faculty> faculties)
+    {
+        List<String> facultyName = new ArrayList<>();
+        for (Faculty faculty : faculties)
+        {
+            facultyName.add(faculty.getFacultyName());
+        }
+        return facultyName;
     }
 }

@@ -1,11 +1,18 @@
 $(document).ready(function () {
-
+    $( "#caption" ).on('input', function() {
+        if ($(this).val().length>50) {
+            alert('Caption should be less than 50 characters');      
+        }
+        
+        
+    });
     $("#btnSubmit").click(function (event) {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
-
+        
         fire_ajax_submit();
+        
 
     });
 

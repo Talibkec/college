@@ -7,6 +7,7 @@
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/addfaculty">Add Faculty</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/updateAdministration">Assign Administration Role</a></strong>
+        |<strong><i class="fa fa-news"></i> <a href="auth/uploadfile/achievementslideimage">Add a Achievement</a></strong>
         </c:if>
     </c:forEach>
     <div class="row scrollingnews">
@@ -253,7 +254,7 @@
                     <div class="region region-home-gallery">
                         <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
 
-                            <h2 class="block-title">Achievement</h2>
+                            <h2 class="block-title">Achievements</h2>
 
                             <div class="view view-nodequeue-10 view-id-nodequeue_10 view-display-id-block view-dom-id-092f3c9d9a1a277eabf025598077161b">
 
@@ -267,9 +268,11 @@
                                                     <div class="field-content"><a href="http://localhost/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}" target ="_blank"><img
                                                             typeof="foaf:Image" class="img-responsive"
                                                             src="http://localhost/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
-                                                            width="330" height="225" alt=""
+                                                            width="80%" height="80%" alt=""
                                                             title="${achievementImage.achievementCaption} "/></a>
-                                                            
+                                                            <span class="caption">
+                                                               ${achievementImage.achievementCaption}
+                                                            </span>
                                                             </div>
                                                 </div>
                                             </li>

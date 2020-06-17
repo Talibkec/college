@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.KECDateHelper;
 import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
+import com.college.core.model.AchievementDTO;
 import com.college.core.model.ImageSlideDTO;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.*;
@@ -50,7 +51,8 @@ public class UserController {
 
     @Autowired
     ImageSlideService imageSlideService;
-
+    @Autowired
+    AchievementSlideService achievementSlideService;
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)
@@ -61,7 +63,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -88,17 +90,19 @@ public class UserController {
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public ModelAndView welcome(Model model) {
         ModelAndView modelAndView = new ModelAndView();
-        List<NoticeBoardDTO>  list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
-        modelAndView.addObject("imageList",getImageList(imageList));
+        List<AchievementDTO> achievementImageList = achievementSlideService.getAllImages();
+        modelAndView.addObject("achievementImageList", getAllAchievementImage(achievementImageList));
+        modelAndView.addObject("imageList", getImageList(imageList));
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
-        modelAndView.addObject("noticeList",getNoticeList(list, false));
+        modelAndView.addObject("noticeList", getNoticeList(list, false));
         modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
-        if( imageSlideDTO.getFileType() != null)
+        if (imageSlideDTO.getFileType() != null)
             modelAndView.addObject("fileExtension", "." + imageSlideDTO.getFileType());
         modelAndView.addObject("imageSlideId", imageSlideDTO.getImageSlideId());
-        modelAndView.addObject("caption",imageSlideDTO.getCaption());
+        modelAndView.addObject("caption", imageSlideDTO.getCaption());
 
         modelAndView.setViewName("index.jsp");
         return modelAndView;
@@ -123,21 +127,20 @@ public class UserController {
     private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
         List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
 
-        for(NoticeBoardDTO dto : list){
-            dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
+        for (NoticeBoardDTO dto : list) {
+            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
             dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if(scrollable){
-                if(dto.getIsScrollable() != null &&  dto.getIsScrollable() == 1)
+            if (scrollable) {
+                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
                     scrollingNotices.add(dto);
-            }
-            else if(!scrollable){
-                if(dto.getIsScrollable()== null )
+            } else if (!scrollable) {
+                if (dto.getIsScrollable() == null)
                     scrollingNotices.add(dto);
 
             }
         }
 
-        return  scrollingNotices;
+        return scrollingNotices;
     }
 
     private List<ImageSlideDTO> getImageList(List<ImageSlideDTO> imageList) {
@@ -151,30 +154,52 @@ public class UserController {
         return slidingImage;
     }
 
-    @RequestMapping(value ="/{id}/notice")
-    public @ResponseBody byte[] getdocuments(@PathVariable("id")Long id) throws IOException{
-        NoticeBoardDTO noticeBoardDTO =noticeBoardService.getNoticeDocument(id);
-        if(noticeBoardDTO.getNotice()!= null){
+    private List<AchievementDTO> getAllAchievementImage(List<AchievementDTO> achievementList) {
+
+        List<AchievementDTO> achievementImage = new ArrayList<>();
+        for (AchievementDTO dto : achievementList) {
+            dto.setFileType("." + FilenameUtils.getExtension(dto.getFileName()));
+            achievementImage.add(dto);
+        }
+        return achievementImage;
+    }
+
+    @RequestMapping(value = "/{id}/notice")
+    public @ResponseBody
+    byte[] getdocuments(@PathVariable("id") Long id) throws IOException {
+        NoticeBoardDTO noticeBoardDTO = noticeBoardService.getNoticeDocument(id);
+        if (noticeBoardDTO.getNotice() != null) {
             InputStream in = new ByteArrayInputStream(noticeBoardDTO.getNotice());
-            return  IOUtils.toByteArray(in);
+            return IOUtils.toByteArray(in);
         }
         return null;
     }
-    @RequestMapping(value ="/{id}/slideImage")
-    public @ResponseBody byte[] getimages(@PathVariable("id")Long imageSlideId) throws IOException{
-        ImageSlideDTO imageSlideDTO =imageSlideService.getImages(imageSlideId);
-        if(imageSlideDTO.getImage()!= null){
+
+    @RequestMapping(value = "/{id}/achievementImage")
+    public @ResponseBody
+    byte[] getachievementImage(@PathVariable("id") Long id) throws IOException {
+        AchievementDTO achievementDTO = achievementSlideService.getImages(id);
+    if(achievementDTO.getAchievementImage()!=null){InputStream in = new ByteArrayInputStream(achievementDTO.getAchievementImage());
+  return IOUtils.toByteArray(in);
+}return null;}
+   @RequestMapping(value = "/{id}/slideImage")
+    public @ResponseBody
+    byte[] getimages(@PathVariable("id") Long imageSlideId) throws IOException {
+        ImageSlideDTO imageSlideDTO = imageSlideService.getImages(imageSlideId);
+        if (imageSlideDTO.getImage() != null) {
             InputStream in = new ByteArrayInputStream(imageSlideDTO.getImage());
-            return  IOUtils.toByteArray(in);
+            return IOUtils.toByteArray(in);
         }
         return null;
     }
+
     @RequestMapping(value = "/auth/deleteSlideImage/{id}", method = RequestMethod.GET)
-    public void deleteSlideImage( @PathVariable("id") Long imageSlideId, HttpServletResponse res) throws IOException {
+    public void deleteSlideImage(@PathVariable("id") Long imageSlideId, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         imageSlideService.deleteSlideImage(imageSlideId);
         res.sendRedirect("/");
     }
+
     @RequestMapping(value = "/hod/{fileName}/{id}", method = RequestMethod.GET)
     public void deleteItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
@@ -193,15 +218,15 @@ public class UserController {
     }
 
     private void deleteFileDromDisk(String fileName) {
-        File file = new File("http://keck.ac.in/wp-content/uploads/notice/" + fileName);
+        File file = new File("http://localhost/wp-content/uploads/notice/" + fileName);
         file.delete();
     }
 
     @RequestMapping(value = "/pagination/next/getNotices", method = RequestMethod.GET)
-    public ModelAndView getNextPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize){
-        ModelAndView modalAndView =new ModelAndView();
+    public ModelAndView getNextPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize) {
+        ModelAndView modalAndView = new ModelAndView();
         List<NoticeBoardDTO> notices = noticeBoardHelper.getNotices(deptno, pageSize);
-        if(notices != null && notices.size() < 10){
+        if (notices != null && notices.size() < 10) {
             pageSize--;
         }
         ControllerUtility.getNoticelist(notices);
@@ -211,11 +236,12 @@ public class UserController {
         modalAndView.setViewName(viewName);
         return modalAndView;
     }
+
     @RequestMapping(value = "/pagination/next/getTenders", method = RequestMethod.GET)
-    public ModelAndView getNextPageTender(@RequestParam("pageSize") Integer pageSize){
-        ModelAndView modalAndView =new ModelAndView();
+    public ModelAndView getNextPageTender(@RequestParam("pageSize") Integer pageSize) {
+        ModelAndView modalAndView = new ModelAndView();
         List<NoticeBoardDTO> tenders = noticeBoardHelper.getTenders(pageSize);
-        if(tenders != null && tenders.size() < 10){
+        if (tenders != null && tenders.size() < 10) {
             pageSize--;
         }
         ControllerUtility.getNoticelist(tenders);
@@ -227,11 +253,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/pagination/prev/getNotices", method = RequestMethod.GET)
-    public ModelAndView getPreviousPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize){
-        if(pageSize < 0){
+    public ModelAndView getPreviousPageNotice(@RequestParam("deptno") String deptno, @RequestParam("pageSize") Integer pageSize) {
+        if (pageSize < 0) {
             pageSize = 0;
         }
-        ModelAndView modalAndView =new ModelAndView();
+        ModelAndView modalAndView = new ModelAndView();
         List<NoticeBoardDTO> cseNotices = noticeBoardHelper.getNotices(deptno, pageSize);
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
@@ -240,12 +266,13 @@ public class UserController {
         modalAndView.setViewName(viewName);
         return modalAndView;
     }
+
     @RequestMapping(value = "/pagination/prev/getTenders", method = RequestMethod.GET)
-    public ModelAndView getPreviousPageNotice(@RequestParam("pageSize") Integer pageSize){
-        if(pageSize < 0){
+    public ModelAndView getPreviousPageNotice(@RequestParam("pageSize") Integer pageSize) {
+        if (pageSize < 0) {
             pageSize = 0;
         }
-        ModelAndView modalAndView =new ModelAndView();
+        ModelAndView modalAndView = new ModelAndView();
         List<NoticeBoardDTO> tenders = noticeBoardHelper.getTenders(pageSize);
         ControllerUtility.getNoticelist(tenders);
         modalAndView.addObject("noticeList", tenders);

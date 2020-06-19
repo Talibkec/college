@@ -24,21 +24,13 @@
                     <c:if test="${facultyDetails.departmentId eq '5'}">
                         <h2 class="block-title"> Faculty of Applied Sc. & Humanities</h2>
                     </c:if>
-
-
-                    <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
-
                             <c:forEach items="${facultyNameList}" var="entry">
-
                                 <c:forEach items="${entry}" var="entryVal">
-
-                                    <li class="leaf menu-mlid-1467"><a
-                                            href="http://localhost/facultyDetails?facultyId=${entryVal.value}"
-                                            class="sf-depth-2">${entryVal.key}</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/facultyDetails?facultyId=${entryVal.value}"class="sf-depth-2">${entryVal.key}</a></li>
                                 </c:forEach>
                             </c:forEach>
-
                         </ul>
                     </div>
                 </section>
@@ -50,9 +42,9 @@
                 <c:if test="${fUserName eq  loggedInUser and 'Faculty' eq role}">
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                         Documents &nbsp;|</a></strong>
-                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
+                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
                         Details &nbsp;|</a></strong>
-                    <strong><a href="http://localhost/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
+                    <strong><a href="http://keck.ac.in/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
                 </c:if>
             </c:forEach>
 
@@ -73,9 +65,7 @@
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"
-                                                                               style="height: 200px;width:250px"
-                                                                               src="http://localhost/${facultyDetails.facultyId}/image${fileExtension}"/>
+                <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"style="height: 200px;width:250px" src="http://keck.ac.in/${facultyDetails.facultyId}/image${fileExtension}"/>
                     <h2>${facultyDetails.facultyName}</h2>
                     <p style="font-size: 130%;">Assistant Professor <br/>
                         <c:if test="${facultyDetails.departmentId eq '1'}">
@@ -126,13 +116,13 @@
                     <div style="padding: 15px;">
                         <div class="">
                             <c:forEach items="${facultyDocument}" var="facultyDocument">
-                                <div>
-                                                    <span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                                        <c:set var="clazz" value="label label-warning"/>
-                                                        <i class=""></i> ${facultyDocument.date} </span>&nbsp;
+                              <div>
+                                <span class="label" style="border:  solid 1px #ccc; color: #000;">
+                                <c:set var="clazz" value="label label-warning"/>
+                                <i class=""></i> ${facultyDocument.date} </span>&nbsp;
                              <c:forEach var="item" items="${Role}">
                                <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
-                                 <span class="label label-danger"><a href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                               <span class="label label-danger"><a href="http://keck.ac.in/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                              </c:if>
                             </c:forEach>
 
@@ -142,7 +132,7 @@
                                                target="_blank">${facultyDocument.headLine}</a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}"
+                                            <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}"
                                                target="_blank">${facultyDocument.headLine}</a>
                                         </c:otherwise>
                                     </c:choose>
@@ -154,10 +144,10 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="order">
                     <div style="padding: 15px;">
-                        <a href="http://localhost/fstore/faculty/order"> Order Item </a>
+                        <a href="http://keck.ac.in/fstore/faculty/order"> Order Item </a>
                     </div>
                     <div style="padding: 15px;">
-                        <a href="http://localhost/fstore/faculty/facultyOrderHistory"> Order History
+                        <a href="http://keck.ac.in/fstore/faculty/facultyOrderHistory"> Order History
                         </a>
                     </div>
                     <div style="padding: 15px;">
@@ -190,10 +180,10 @@
                                                         pattern="dd/MM/yyyy"/>
                                     </div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}"
+                                            href="http://keck.ac.in/fstore/faculty/editfacultyrequest?id=${request.requestId}"
                                             id="editId${request.requestId}">Edit</a></div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
+                                            href="http://keck.ac.in/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -207,6 +197,6 @@
 </div>
 </div>
 <jsp:include page="/jsp/footer.jsp"/>
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/facultyprofile.js"></script>
+<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://keck.ac.in/js/jquery-ui.js"></script>
+<script src="http://keck.ac.in/js/facultyprofile.js"></script>

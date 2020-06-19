@@ -14,21 +14,21 @@
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul>
                <li style="display:inline;float:left">
-                  <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
+                  <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                </li><span>&nbsp;</span>
                      
                <li style="display:inline">
-                                 <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
-                                 <a href="http://localhost/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
+                                 <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
+                                 <a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
                 </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>
                  <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                    <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
                  </c:if>
-                 <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                 <a href="http://keck.ac.in/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
                  <c:forEach var="item" items="${Role}">
                      <c:if test = "${'Admin' eq item}">
                               <span class="label label-danger"><a style="display: inline" href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
@@ -45,7 +45,7 @@
 <style>
 <c:forEach items ="${imageList}" var ="image">
 .slide${image.imageSlideId}{
-    background-image : url(http://localhost/${image.imageSlideId}/slideImage${image.fileType});
+    background-image : url(http://keck.ac.in/${image.imageSlideId}/slideImage${image.fileType});
 }</c:forEach>
 </style>
     <div class = "imageSlider">
@@ -109,7 +109,7 @@
                                     <div class="rwsvticker1" style="height:260px">
                                      <ul>
                                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
-                                            <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="http://localhost/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
+                                            <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="http://keck.ac.in/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
 
                                          <c:forEach items="${noticeList}" var="notice">
                                          <c:if test = "${ notice.noticeType == 'News' or notice.noticeType == 'Notice'}">
@@ -126,7 +126,7 @@
                                                     <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
-                                                <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                               
                                             </div>
                                           </c:if>
@@ -135,7 +135,7 @@
 
 
                                     </div>
-                                     <div class="" style="margin-left:33%;margin-top:9%"><a class="box-link" href="http://localhost/category/notices">View all Notices</a></div>
+                                     <div class="" style="margin-left:33%;margin-top:9%"><a class="box-link" href="http://keck.ac.in/category/notices">View all Notices</a></div>
 
                                 </div>
 
@@ -172,14 +172,14 @@
                                                                   <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                                                </c:if>
                                                               </c:forEach>
-                                                              <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                              <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
 
                                                           </div>
                                                          </c:if>
                                                          </c:forEach>
                                                         </ul>
                                                         </div>
-                                                                            <div style="margin-top:18%;margin-left:28%"><a class="box-link" href="http://localhost/category/tenders">View all Tenders</a></div>
+                                                                            <div style="margin-top:18%;margin-left:28%"><a class="box-link" href="http://keck.ac.in/category/tenders">View all Tenders</a></div>
 
 
                                                     </div>
@@ -210,7 +210,7 @@
                                 <div class="field field-name-body field-type-text-with-summary field-label-hidden">
                                     <div class="field-items">
                                         <div class="field-item even" property="content:encoded"><p><strong>Katihar Engineering College (KEC), Katihar </strong>with the advent of technology and the emergence of notable education in our society, had decided to adapt the prevailing need of light. In the mission to achieve the eminence in the field, the establishment of Katihar Engineering College was laid in the year 2016. The college is enriched with a pollyannaish environment, highly motivated and enthusiastic students guided by well qualified professional from different prestigious colleges of our country. The college was established with three branches- Civil Engineering, Mechanical Engineering and Computer Science and Engineering. Each branch has a number of renowned professors with high qualifications and experience in teaching or their respective industries. The college consists of a central library, Computer Labs, Training and Placement Cell, Programmer's Club etc, with the exceptional support staffs and infrastructure. All the labs and other infrastructure is in highly conditional states serving at their best to provide the best facilities to all the members of the college. Student of the college have exhibited their skill at different platform and gathered many awards from premium institutes. Presently the college functions in Government Polytechnic, Bheriya Rhekia, Katihar. It is situated 3 km from Katihar Railway Station and there is a good transportation facility available from there. Currently, the own campus for the college is under-construction in Hajipur, Katihar near NH 31. It is expected to complete soon.<a
-                                                    href="http://localhost/about/history">more</a>...</p>
+                                                    href="http://keck.ac.in/about/history">more</a>...</p>
                                         </div>
                                     </div>
                                 </div>
@@ -265,14 +265,20 @@
                                         <ul class="achievementSlider">
                                             <li class="views-row views-row-1 views-row-odd views-row-first">
                                                 <div class="views-field views-field-field-image">
-                                                    <div class="field-content"><a href="http://localhost/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}" target ="_blank"><img
+                                                    <div class="field-content"><a href="http://keck.ac.in/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}" target ="_blank"><img
                                                             typeof="foaf:Image" class="img-responsive"
-                                                            src="http://localhost/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
+                                                            src="http://keck.ac.in/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
                                                             width="80%" height="80%" alt=""
                                                             title="${achievementImage.achievementCaption} "/></a>
                                                             <span class="caption">
                                                                ${achievementImage.achievementCaption}
                                                             </span>
+                                                          <c:forEach var="item" items="${Role}">
+                                                                    <c:if test = "${'Admin' eq item}">
+                                                                 <span class="label label-danger">
+                                                                 <a style="display: inline" href="<c:url value='/auth/deleteAchievementImage/${achievementImage.achievementSlideId}' />">Delete</a></span>
+                                                              </c:if>
+                                                          </c:forEach>
                                                             </div>
                                                 </div>
                                             </li>
@@ -305,27 +311,27 @@
                                             <ul>
                                                 <li class="views-row views-row-1 views-row-odd views-row-first">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg" target ="_blank"><img
+                                                        <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec.jpeg" target ="_blank"><img
                                                                 typeof="foaf:Image" class="img-responsive"
-                                                                src="http://localhost/sites/default/files/sportkec.jpeg"
+                                                                src="http://keck.ac.in/sites/default/files/sportkec.jpeg"
                                                                 width="330" height="225" alt=""
                                                                 title="Pitch for a Better India"/></a></div>
                                                     </div>
                                                 </li>
                                                 <li class="views-row views-row-2 views-row-even">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec1.jpeg"><img
+                                                        <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec1.jpeg"><img
                                                                 typeof="foaf:Image" class="img-responsive"
-                                                                src="http://localhost/sites/default/files/sportkec1.jpeg"
+                                                                src="http://keck.ac.in/sites/default/files/sportkec1.jpeg"
                                                                 width="330" height="225" alt=""
                                                                 title="Ace the Psychometric"/></a></div>
                                                     </div>
                                                 </li>
                                                 <li class="views-row views-row-3 views-row-odd views-row-last">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
+                                                        <div class="field-content"><a href="http://keck.ac.in/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
                                                                                                             class="img-responsive"
-                                                                                                            src="http://localhost/sites/default/files/sportkec.jpeg"
+                                                                                                            src="http://keck.ac.in/sites/default/files/sportkec.jpeg"
                                                                                                             width="330"
                                                                                                             height="225" alt=""
                                                                                                             title="Machine Assembly and Disassembly Workshop"/></a>
@@ -338,7 +344,7 @@
 
 
                                     <div class="more-link">
-                                        <a href="http://localhost/gallery/photogallery">
+                                        <a href="http://keck.ac.in/gallery/photogallery">
                                             View All </a>
                                     </div>
 
@@ -369,7 +375,7 @@
 
 
 
-                                                   <div style="margin-top:4%">           <a class="box-link" href="http://localhost/gallery/mediagallery" style="margin-left:39%;margin-top:10%">View All </a></div>
+                                                   <div style="margin-top:4%">           <a class="box-link" href="http://keck.ac.in/gallery/mediagallery" style="margin-left:39%;margin-top:10%">View All </a></div>
 
 
 
@@ -382,4 +388,4 @@
             </div>
         </div>
     <jsp:include page="footer.jsp"/>
-<script src="http://localhost/js/achievment.js">
+<script src="http://keck.ac.in/js/achievment.js">

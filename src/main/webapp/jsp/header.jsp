@@ -54,13 +54,10 @@
                                     <div>
                                         <h2 class="element-invisible">Search form</h2>
                                         <ul>
-
-                                        <li>Search Faculty Name</li>
-
                                         <li>
                                         <form id = "searchFacultyName">
-                                        <div class="col-md-7 text-center"><input type="text" name="facultyName" id = "facultyNames" /></div>
-                                        <div class="col-md-5 text-center"><input type="submit" value="submit" id="search" class="btn btn-success" /></div>
+                                        <div class="col-md-7 text-center "><input type="text" name="facultyName" id = "facultyNames" /></div>
+                                        <div class="col-md-5 text-center"><input type="submit" value="Search" id="search" class="btn btn-success" /></div>
                                         </form>
                                         </li>
                                             <li class="facebook gtlisocialitems"><a title="Facebook" rel="nofollow"
@@ -299,6 +296,7 @@
         </div>
     </div>
 </header>
+<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
 <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://keck.ac.in/js/jquery-ui.js"></script>
 <script src="http://keck.ac.in/js/searchFaculty.js"></script>

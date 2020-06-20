@@ -14,7 +14,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 @Service
-public class RequestServiceImpl implements RequestService{
+public class RequestServiceImpl implements RequestService {
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     RequestRepository requestRepository;
@@ -25,7 +25,8 @@ public class RequestServiceImpl implements RequestService{
     @Override
     public List<RequestDTO> getAllRequest() {
         List<Request> requests = requestRepository.findAll();
-        Type targetListType = new TypeToken<List<RequestDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<RequestDTO>>() {
+        }.getType();
         return modelMapper.map(requests, targetListType);
     }
 
@@ -41,8 +42,9 @@ public class RequestServiceImpl implements RequestService{
     @Override
     public List<RequestDTO> getFacultyRequest(Long facultyId) {
         List<Request> request = requestRepository.getFacultyRequest(facultyId);
-        Type requestType = new TypeToken<List<RequestDTO>>(){}.getType();
-        return  modelMapper.map(request, requestType);
+        Type requestType = new TypeToken<List<RequestDTO>>() {
+        }.getType();
+        return modelMapper.map(request, requestType);
 
     }
 
@@ -56,11 +58,12 @@ public class RequestServiceImpl implements RequestService{
     public List<RequestDTO> getNewRequest(String aNew) {
         List<RequestDTO> requestDTO = null;
         List<Request> requests = requestRepository.getNewRequest(aNew);
-        if(requests != null){
-            Type requestType = new TypeToken<List<RequestDTO>>(){}.getType();
+        if (requests != null) {
+            Type requestType = new TypeToken<List<RequestDTO>>() {
+            }.getType();
             requestDTO = modelMapper.map(requests, requestType);
         }
-        return  requestDTO;
+        return requestDTO;
     }
 
     @Override

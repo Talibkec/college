@@ -15,10 +15,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@SuppressWarnings({"unchecked","rawtypes"})
+@SuppressWarnings({"unchecked", "rawtypes"})
 @ControllerAdvice
-public class CustomExceptionHandler extends ResponseEntityExceptionHandler
-{
+public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(SocketTimeoutException.class)
     public final void SocketTimeException(Exception ex, WebRequest request) {
@@ -32,10 +31,9 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler
     public final void handleIOException(Exception ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        if(ex.getMessage() != null && ex.getMessage().contains("Broken pipe")){
+        if (ex.getMessage() != null && ex.getMessage().contains("Broken pipe")) {
             logger.error("Broken Pipe exception has occured");
-        }
-        else {
+        } else {
             logger.error("Looks like pipe broken exception");
         }
     }
@@ -50,14 +48,14 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler
 
 
     final Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
+
     @ExceptionHandler(Exception.class)
     public final void handleAllExceptions(Exception ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
-        if(ex.getMessage() != null && ex.getMessage().contains("Broken pipe")){
+        if (ex.getMessage() != null && ex.getMessage().contains("Broken pipe")) {
             logger.error("Broken Pipe exception has occured");
-        }
-        else {
+        } else {
             logger.error("Something went wrong", ex);
         }
     }

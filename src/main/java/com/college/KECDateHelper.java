@@ -15,8 +15,8 @@ public class KECDateHelper {
     public static Integer getNoticeAge(NoticeBoardDTO dto) {
         int daysdiff = 999;
         long today = new Date().getTime();
-        if(dto.getDate() != null ) {
-            long diff = dto.getDate().getTime() - today ;
+        if (dto.getDate() != null) {
+            long diff = dto.getDate().getTime() - today;
             long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
             daysdiff = (int) diffDays;
         }

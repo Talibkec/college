@@ -14,11 +14,15 @@ public class RequestDTO {
     private Date approvalDate;
     private Date deliverDate;
 
-    public String getDesc() { return desc; }
+    public String getDesc() {
+        return desc;
+    }
 
-    public void setDesc(String desc) { this.desc = desc; }
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
-    private  String desc;
+    private String desc;
 
     public Long getRequestId() {
         return requestId;
@@ -43,7 +47,6 @@ public class RequestDTO {
     public void setProduct(ProductDTO product) {
         this.product = product;
     }
-
 
 
     public Integer getProductQuantity() {

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><link rel="shortcut icon" href="http://keck.ac.in/favicon.png" />
+<meta charset="utf-8"><link rel="shortcut icon" href="http://localhost/favicon.png" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
@@ -75,7 +75,7 @@ Katihar Engineering College</title>
 <div class="visible-xs"><br /><br /></div>
 <div class="row">
 
-<div class="col-sm-7"><div class="logo-left pull-left"><img alt="" src="logo1.jpeg"class="img-responsive" style="height: 100px; margin-right: 5px;"></div><a href="http://www.keck.ac.in" class="logo-right pull-left"> <span style="font-size: 70%;">Katihar Engineering College, Katihar</span><br> <span style="font-size: 30%; margin-top: -10px;" class="pull-left">( Dept. Of Science &amp; Technology, Govt. Of Bihar )</span> </a><div class="clearfix">
+<div class="col-sm-7"><div class="logo-left pull-left"><img alt="" src="logo1.jpeg"class="img-responsive" style="height: 100px; margin-right: 5px;"></div><a href="http://www.localhost" class="logo-right pull-left"> <span style="font-size: 70%;">Katihar Engineering College, Katihar</span><br> <span style="font-size: 30%; margin-top: -10px;" class="pull-left">( Dept. Of Science &amp; Technology, Govt. Of Bihar )</span> </a><div class="clearfix">
 </div>
 </div>
 <div class="col-sm-5 text-right">
@@ -297,7 +297,7 @@ a
  	<div>
  		<span class="label" style="border:  solid 1px #ccc; color: #000;">
  		<c:set var = "clazz"  value = "label label-warning"/>
- 		<c:set var = "filePath"  value = "http://keck.ac.in/wp-content/uploads/notice/"/>
+ 		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
  		 <c:if test = "${ notice.noticeType == 'News'}">
                   <c:set var = "clazz"  value = "label label-primary"/>
           </c:if>
@@ -310,7 +310,7 @@ a
  </li>
  </c:forEach>
  </ul>
- <a href="http://keck.ac.in/category/notices" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+ <a href="http://localhost/category/notices" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
 </div>
 </div>
 </div>
@@ -342,7 +342,7 @@ a
 
                                         <div class="views-field views-field-field-image">
                                             <div class="field-content"><img typeof="foaf:Image" class="img-responsive"
-                                                                            src="http://keck.ac.in/sites/default/files/img12.JPG"
+                                                                            src="http://localhost/sites/default/files/img12.JPG"
                                                                             width="2000" height="550" alt=""/></div>
                                         </div>
                                         <div class="views-field views-field-title"><span
@@ -589,7 +589,7 @@ a
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/pitch-better-india"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://keck.ac.in/sites/default/files/styles/our_gallery_home_page/public/Pitch%20for%20a%20Better%20India_1.jpg?itok=U6XG7P1q"
+                                                        src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Pitch%20for%20a%20Better%20India_1.jpg?itok=U6XG7P1q"
                                                         width="330" height="225" alt=""
                                                         title="Pitch for a Better India"/></a></div>
                                             </div>
@@ -598,7 +598,7 @@ a
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/ace-psychometric"><img
                                                         typeof="foaf:Image" class="img-responsive"
-                                                        src="http://keck.ac.in/sites/default/files/styles/our_gallery_home_page/public/Ace%20the%20Psychometric_1.jpg?itok=4GiuxxhB"
+                                                        src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Ace%20the%20Psychometric_1.jpg?itok=4GiuxxhB"
                                                         width="330" height="225" alt=""
                                                         title="Ace the Psychometric"/></a></div>
                                             </div>
@@ -607,7 +607,7 @@ a
                                             <div class="views-field views-field-field-image">
                                                 <div class="field-content"><a href="/workshop"><img typeof="foaf:Image"
                                                                                                     class="img-responsive"
-                                                                                                    src="http://keck.ac.in/sites/default/files/styles/our_gallery_home_page/public/Disassembly%20Workshop_01.JPG?itok=29HGx6Gr"
+                                                                                                    src="http://localhost/sites/default/files/styles/our_gallery_home_page/public/Disassembly%20Workshop_01.JPG?itok=29HGx6Gr"
                                                                                                     width="330"
                                                                                                     height="225" alt=""
                                                                                                     title="Machine Assembly and Disassembly Workshop"/></a>
@@ -788,7 +788,7 @@ a
 <ul class="newsbox">
 <c:forEach items="${noticeList}" var="notice">
 
-		<c:set var = "filePath"  value = "http://keck.ac.in/wp-content/uploads/notice/"/>
+		<c:set var = "filePath"  value = "http://localhost/wp-content/uploads/notice/"/>
 		<li class="news-item" style="padding: 10px;">
 		<h4>
 			<i class="fa fa-angle-double-right"></i>
@@ -806,7 +806,7 @@ a
 
 
 </ul>
-<a href="http://keck.ac.in/category/notices" class="btn btn-default">View More <i class="fa fa-double-angle-right"></i></a>
+<a href="http://localhost/category/notices" class="btn btn-default">View More <i class="fa fa-double-angle-right"></i></a>
 
 </div></div>
 <div role="tabpanel" class="tab-pane" id="tenders"><div style="width: 100%; height: 5px; background: #EC8D1F;"></div>

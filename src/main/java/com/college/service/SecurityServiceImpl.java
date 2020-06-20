@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class SecurityServiceImpl implements SecurityService{
+public class SecurityServiceImpl implements SecurityService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -26,7 +26,7 @@ public class SecurityServiceImpl implements SecurityService{
     public String findLoggedInUsername() {
         Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
         if (userDetails instanceof UserDetails) {
-            return ((UserDetails)userDetails).getUsername();
+            return ((UserDetails) userDetails).getUsername();
         }
 
         return null;
@@ -49,7 +49,7 @@ public class SecurityServiceImpl implements SecurityService{
         //UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         Object userDetail = SecurityContextHolder.getContext().getAuthentication().getDetails();
         if (userDetail instanceof UserDetails) {
-            UserDetails users =  ((UserDetails)userDetail);
+            UserDetails users = ((UserDetails) userDetail);
             for (GrantedAuthority authority : users.getAuthorities()) {
                 logger.info("Autherities for user is {[]}", authority.getAuthority());
             }

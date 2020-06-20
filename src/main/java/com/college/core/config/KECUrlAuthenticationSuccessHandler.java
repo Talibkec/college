@@ -57,8 +57,7 @@ public class KECUrlAuthenticationSuccessHandler
             if (grantedAuthority.getAuthority().equals("SM")) {
                 isSM = true;
                 break;
-            }
-            else if(grantedAuthority.getAuthority().equals("SK")){
+            } else if (grantedAuthority.getAuthority().equals("SK")) {
                 isSK = true;
                 break;
             }
@@ -66,11 +65,10 @@ public class KECUrlAuthenticationSuccessHandler
 
         if (isSM) {
             return "/store/smdashboard";
-        } else if(isSK){
+        } else if (isSK) {
             return "/sk/storekeeper";
-        }
-        else {
-           return "/";
+        } else {
+            return "/";
         }
     }
 
@@ -85,6 +83,7 @@ public class KECUrlAuthenticationSuccessHandler
     public void setRedirectStrategy(RedirectStrategy redirectStrategy) {
         this.redirectStrategy = redirectStrategy;
     }
+
     protected RedirectStrategy getRedirectStrategy() {
         return redirectStrategy;
     }

@@ -52,6 +52,7 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     }
 
     @Override
+    @CacheEvict(value="deleteAchievementCache",allEntries = true)
     public  void deleteAchievementImage(Long id){
         achievementRepository.delete(id);
     }

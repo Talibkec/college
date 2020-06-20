@@ -15,7 +15,7 @@ public class ControllerUtility {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<String> userRole = new ArrayList<>();
         if (principal instanceof UserDetails) {
-            UserDetails userDetails = ((UserDetails)principal);
+            UserDetails userDetails = ((UserDetails) principal);
             for (GrantedAuthority authority : userDetails.getAuthorities()) {
                 userRole.add(authority.getAuthority());
             }
@@ -28,15 +28,16 @@ public class ControllerUtility {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userName = null;
         if (principal instanceof UserDetails) {
-            userName= ((UserDetails) principal).getUsername();
+            userName = ((UserDetails) principal).getUsername();
         }
         return userName;
     }
-    public static List<NoticeBoardDTO> getNoticelist(List<NoticeBoardDTO> list){
+
+    public static List<NoticeBoardDTO> getNoticelist(List<NoticeBoardDTO> list) {
         List<NoticeBoardDTO> noticeList = new ArrayList<>();
-        for(NoticeBoardDTO dto : list){
-            dto.setFileType(("."+ FilenameUtils.getExtension(dto.getUploadedFileName())));
+        for (NoticeBoardDTO dto : list) {
+            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
         }
-         return noticeList;
+        return noticeList;
     }
 }

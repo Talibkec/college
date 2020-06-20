@@ -2,25 +2,25 @@
 <html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
 <head>
-   <link rel="stylesheet" href="http://keck.ac.in/modules/myfile/myfile.css"/>
+   <link rel="stylesheet" href="http://localhost/modules/myfile/myfile.css"/>
     <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="shortcut icon" href="http://keck.ac.in/sites/default/files/logo1.jpeg"
+    <link rel="shortcut icon" href="http://localhost/sites/default/files/logo1.jpeg"
           type="image/vnd.microsoft.icon"/>
     <meta name="description" content="Katihar Engineering College, Katihar"/>
     <meta name="robots" content="follow, index"/
-    <link rel="canonical" href="http://www.keck.ac.in"/>
-    <link rel="shortlink" href="http://www.keck.ac.in"/>
+    <link rel="canonical" href="http://www.localhost"/>
+    <link rel="shortlink" href="http://www.localhost"/>
     <meta property="og:site_name" content="KEC Katihar"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:url" content="http://www.keck.ac.in"/>
+    <meta property="og:url" content="http://www.localhost"/>
     <meta property="og:title" content="KEC Katihar"/>
     <meta itemprop="name" content="About Us"/>
     <meta name="dcterms.title" content="KEC Katihar"/>
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
-    <meta name="dcterms.identifier" content="http://keck.ac.in"/>
+    <meta name="dcterms.identifier" content="http://localhost"/>
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
 
 </head>
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-sm-4 loading">
                     <a class="logo navbar-btn pull-left loading" href="/" title="Home" >
-                        <img src="http://keck.ac.in/sites/default/files/compressed/logo.png" alt="Home"/>
+                        <img src="http://localhost/sites/default/files/compressed/logo.png" alt="Home"/>
                     </a>
                 </div>
                 <div class="col-sm-8">
@@ -43,10 +43,10 @@
 
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="http://keck.ac.in/academic/antiragging">Anti Ragging</a></li>
-                                <li><a href="http://keck.ac.in/rti/rtiact">RTI</a></li>
-                                <li><a href="http://keck.ac.in/approval/aicteapproval" target="_blank">AICTE</a></li>
-                                <li><a href="http://keck.ac.in/category/kecwebteam"target="_blank">KEC Web Team</a></li>
+                                <li><a href="http://localhost/academic/antiragging">Anti Ragging</a></li>
+                                <li><a href="http://localhost/rti/rtiact">RTI</a></li>
+                                <li><a href="http://localhost/approval/aicteapproval" target="_blank">AICTE</a></li>
+                                <li><a href="http://localhost/category/kecwebteam"target="_blank">KEC Web Team</a></li>
                             </ul>
 
                         </section>
@@ -71,7 +71,7 @@
                                                     aria-hidden="true" class="fa fa-instagram"></i><br> </a></li>
                                             <li class="linkedin gtlisocialitems"><a title="Email" rel="nofollow"
                                                                                     target="_blank"
-                                                                                    href="mailto:help@keck.ac.in"><i
+                                                                                    href="mailto:help@localhost"><i
                                                     aria-hidden="true" class="fa fa-envelope"></i><br> </a></li>
 
                                         </ul>
@@ -109,20 +109,20 @@
                                     href="/" class="sf-depth-1 active">Home</a></li>
                                     <li id="menu-1131-1"
                                                                     class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                                    <a href="http://keck.ac.in/about/history" class="sf-depth-1 menuparent">About KEC</a>
+                                                                    <a href="http://localhost/about/history" class="sf-depth-1 menuparent">About KEC</a>
                                                                     <ul>
                                                                         <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/history" class="sf-depth-2">History</a></li>
+                                                                                href="http://localhost/about/history" class="sf-depth-2">History</a></li>
                                                                         <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/administration" class="sf-depth-2">Administration</a></li>
+                                                                                href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
                                                                         <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/principal" class="sf-depth-2">Principal's Message</a></li>
+                                                                                href="http://localhost/about/principal" class="sf-depth-2">Principal's Message</a></li>
                                                                         <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/vision" title="" class="sf-depth-2">Vision &amp; Mission</a></li>
+                                                                                href="http://localhost/about/vision" title="" class="sf-depth-2">Vision &amp; Mission</a></li>
                                                                         <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                                                                href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
                                                                         <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                href="http://keck.ac.in/about/allotment" class="sf-depth-2">Allotment &amp; Surrender Report</a></li>
+                                                                                href="http://localhost/about/allotment" class="sf-depth-2">Allotment &amp; Surrender Report</a></li>
 
 
                                                                     </ul>
@@ -130,139 +130,139 @@
 
                              <li id="menu-1131-1"
                                                                                                 class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                                                                <a href="http://keck.ac.in/academic/admission" class="sf-depth-1 menuparent">Academic</a>
+                                                                                                <a href="http://localhost/academic/admission" class="sf-depth-1 menuparent">Academic</a>
                                                                                                 <ul>
                                                                                                     <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/admission" class="sf-depth-2">Admission</a></li>
+                                                                                                            href="http://localhost/academic/admission" class="sf-depth-2">Admission</a></li>
                                                                                                     <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/regulations" class="sf-depth-2">Academic Regulations</a></li>
+                                                                                                            href="http://localhost/academic/regulations" class="sf-depth-2">Academic Regulations</a></li>
                                                                                                     <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/calender" class="sf-depth-2">Academic Calender</a></li>
+                                                                                                            href="http://localhost/academic/calender" class="sf-depth-2">Academic Calender</a></li>
                                                                                                     <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/holidays" title="" class="sf-depth-2">List of Holidays</a></li>
+                                                                                                            href="http://localhost/academic/holidays" title="" class="sf-depth-2">List of Holidays</a></li>
                                                                                                     <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/attendance" class="sf-depth-2">Attendance</a></li>
+                                                                                                            href="http://localhost/academic/attendance" class="sf-depth-2">Attendance</a></li>
                                                                                                     <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/syllabus" class="sf-depth-2">Syllabus</a></li>
+                                                                                                            href="http://localhost/academic/syllabus" class="sf-depth-2">Syllabus</a></li>
                                                                                                     <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
-                                                                                                            href="http://keck.ac.in/academic/rules" class="sf-depth-2">Disciplinary Rules</a></li>
+                                                                                                            href="http://localhost/academic/rules" class="sf-depth-2">Disciplinary Rules</a></li>
                                                                                                     <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
-                                                                                                                   href="http://keck.ac.in/academic/paymenttutorial" class="sf-depth-2"> Online Fee Payment Tutorial</a></li>
+                                                                                                                   href="http://localhost/academic/paymenttutorial" class="sf-depth-2"> Online Fee Payment Tutorial</a></li>
                                                                                                    <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
 <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/academic/antiragging"
+                                            href="http://localhost/academic/antiragging"
                                             title="Hostels" class="sf-depth-2">Anti Ragging</a></li>
                                     <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
+                                            href="http://localhost/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
                                     <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
+                                            href="http://localhost/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
                                    | </ul>
                                                                                             </li>
 
                             <li id="menu-1131-1"
                                                             class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                            <a href="http://keck.ac.in/category/department" class="sf-depth-1 menuparent">Departments</a>
+                                                            <a href="http://localhost/category/department" class="sf-depth-1 menuparent">Departments</a>
                                                             <ul>
                                                                 <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/civil/about" class="sf-depth-2">Civil Engineering</a></li>
+                                                                        href="http://localhost/department/civil/about" class="sf-depth-2">Civil Engineering</a></li>
                                                                 <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a></li>
+                                                                        href="http://localhost/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a></li>
                                                                 <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
+                                                                        href="http://localhost/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
                                                                 <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics Engg.</a></li>
+                                                                        href="http://localhost/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics Engg.</a></li>
                                                                 <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
+                                                                        href="http://localhost/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1"
                                 class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                <a href="http://keck.ac.in/facilities/csecenter" class="sf-depth-1 menuparent">Facilities</a>
+                                <a href="http://localhost/facilities/csecenter" class="sf-depth-1 menuparent">Facilities</a>
                                 <ul>
                                     <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/bank" class="sf-depth-2">Bank</a></li>
+                                            href="http://localhost/facilities/bank" class="sf-depth-2">Bank</a></li>
                                     <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/centrallibrary" class="sf-depth-2">Central Library</a></li>
+                                            href="http://localhost/facilities/centrallibrary" class="sf-depth-2">Central Library</a></li>
                                     <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/csecenter" class="sf-depth-2">Computer Centre</a></li>
+                                            href="http://localhost/facilities/csecenter" class="sf-depth-2">Computer Centre</a></li>
                                     <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/club" title="" class="sf-depth-2">Club</a></li>
+                                            href="http://localhost/facilities/club" title="" class="sf-depth-2">Club</a></li>
                                     <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/guesthouse" class="sf-depth-2">Guest House</a></li>
+                                            href="http://localhost/facilities/guesthouse" class="sf-depth-2">Guest House</a></li>
                                     <li id="menu-1321-17" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/gymnasium" class="sf-depth-2">Gymnasium</a></li>
+                                            href="http://localhost/facilities/gymnasium" class="sf-depth-2">Gymnasium</a></li>
                                     <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/healthcenter" class="sf-depth-2">Health Centre</a></li>
+                                            href="http://localhost/facilities/healthcenter" class="sf-depth-2">Health Centre</a></li>
                                     <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/hostels"
+                                            href="http://localhost/facilities/hostels"
                                             title="Hostels" class="sf-depth-2">Hostels</a></li>
                                     <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/medicalfacilities" class="sf-depth-2">Medical Facilities</a></li>
+                                            href="http://localhost/facilities/medicalfacilities" class="sf-depth-2">Medical Facilities</a></li>
                                     <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/placementbrouchure" class="sf-depth-2">Placement</a></li>
+                                            href="http://localhost/facilities/placementbrouchure" class="sf-depth-2">Placement</a></li>
                                     <li id="menu-1321-22" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/sportsfacilities" class="sf-depth-2">Sports Facilities</a></li>
+                                            href="http://localhost/facilities/sportsfacilities" class="sf-depth-2">Sports Facilities</a></li>
                                     <li id="menu-1321-23" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/startupcell" class="sf-depth-2">Startup cell</a></li>
+                                            href="http://localhost/facilities/startupcell" class="sf-depth-2">Startup cell</a></li>
                                     <li id="menu-1321-24" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/usefulllink" class="sf-depth-2">Useful Link</a></li>
+                                            href="http://localhost/facilities/usefulllink" class="sf-depth-2">Useful Link</a></li>
                                     <li id="menu-1321-25" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://keck.ac.in/facilities/wifi" class="sf-depth-2">Wi Fi</a></li>
+                                            href="http://localhost/facilities/wifi" class="sf-depth-2">Wi Fi</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1"
                                                             class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                            <a href="http://keck.ac.in/trainingplacement/placementbrochure" class="sf-depth-1 menuparent">Training & Placement</a>
+                                                            <a href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-1 menuparent">Training & Placement</a>
                                                             <ul>
                                                                 <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/trainingplacement/placementbrochure" class="sf-depth-2">About Placement</a></li>
+                                                                        href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-2">About Placement</a></li>
                                                                 <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in//trainingplacement/placementbrochure" class="sf-depth-2">Placement Brouchure</a></li>
+                                                                        href="http://localhost//trainingplacement/placementbrochure" class="sf-depth-2">Placement Brouchure</a></li>
                                                                 <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in//trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of training & Placement</a></li>
+                                                                        href="http://localhost//trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of training & Placement</a></li>
                                                                 <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/trainingplacement/tipsforresume" title="" class="sf-depth-2">Tips for Resume</a></li>
+                                                                        href="http://localhost/trainingplacement/tipsforresume" title="" class="sf-depth-2">Tips for Resume</a></li>
                                                                 <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/trainingplacement/studentplacementcoordinator" class="sf-depth-2">Student Placement Coordinator</a></li>
+                                                                        href="http://localhost/trainingplacement/studentplacementcoordinator" class="sf-depth-2">Student Placement Coordinator</a></li>
                                                                                               </ul>
                             </li>
                            <li id="menu-1131-1"
                                                            class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                           <a href="http://keck.ac.in/approval/akuapproval" class="sf-depth-1 menuparent">Approval</a>
+                                                           <a href="http://localhost/approval/akuapproval" class="sf-depth-1 menuparent">Approval</a>
                                                            <ul>
                                                                <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                       href="http://keck.ac.in/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
+                                                                       href="http://localhost/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
                                                                <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                       href="http://keck.ac.in/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                                                                       href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1"
                                                             class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                            <a href="http://keck.ac.in/rti/rtiact" class="sf-depth-1 menuparent">RTI</a>
+                                                            <a href="http://localhost/rti/rtiact" class="sf-depth-1 menuparent">RTI</a>
                                                             <ul>
                                                                 <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/rti/rtiact" class="sf-depth-2">RTI Act 2005</a></li>
+                                                                        href="http://localhost/rti/rtiact" class="sf-depth-2">RTI Act 2005</a></li>
                                                                 <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/rti/rtiapplication" class="sf-depth-2">RTI Application Form</a></li>
+                                                                        href="http://localhost/rti/rtiapplication" class="sf-depth-2">RTI Application Form</a></li>
                                                                 <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in//rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
+                                                                        href="http://localhost//rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
                                                                 <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/rti/publicinformationcell" title="" class="sf-depth-2">Public Information Cell</a></li>
+                                                                        href="http://localhost/rti/publicinformationcell" title="" class="sf-depth-2">Public Information Cell</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1"
                                                             class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
-                                                            <a href="http://keck.ac.in/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
+                                                            <a href="http://localhost/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
                                                             <ul>
                                                                 <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                        href="http://keck.ac.in/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+                                                                        href="http://localhost/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
 
                                 </ul>
                             </li>
 
                             <li id="menu-1124-1"
      class="last even sf-item-10 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent">
-                                <a href="http://keck.ac.in/login" title="" class="sf-depth-1 menuparent">Login</a>
+                                <a href="http://localhost/login" title="" class="sf-depth-1 menuparent">Login</a>
                                 <ul>
                                   <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a
                                             href="/login" class="sf-depth-2">Admin Login</a></li>
@@ -296,7 +296,7 @@
         </div>
     </div>
 </header>
-<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://keck.ac.in/js/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/searchFaculty.js"></script>
+<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
+<script src="http://localhost/js/searchFaculty.js"></script>

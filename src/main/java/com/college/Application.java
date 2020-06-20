@@ -19,10 +19,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //@EnableWebMvc
 @EnableScheduling
 @EnableCaching
-@EnableAutoConfiguration(exclude={MultipartAutoConfiguration.class})
-public class Application extends SpringBootServletInitializer{
-	
-	 private static Class<Application> applicationClass = Application.class;
+@EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})
+public class Application extends SpringBootServletInitializer {
+
+    private static Class<Application> applicationClass = Application.class;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface FacultyDocumentsRepository extends JpaRepository <FacultyDocuments, Long> {
+public interface FacultyDocumentsRepository extends JpaRepository<FacultyDocuments, Long> {
 
     @Query("select new com.college.core.entity.FacultyDocuments(fd.id,fd.headLine,fd.uploadedFileName,fd.date, fd.link,fd.linkAddress) from FacultyDocuments fd where fd.uploadedBy = :userName order by fd.date desc")
     List<FacultyDocuments> getFacultyDocuments(@Param("userName") String userName);

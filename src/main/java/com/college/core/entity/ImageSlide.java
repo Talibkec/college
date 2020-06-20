@@ -3,11 +3,12 @@ package com.college.core.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="image_slide")
+@Table(name = "image_slide")
 public class ImageSlide {
     private Long imageSlideId;
     private String caption;
     private byte[] image;
+
     public String getFileType() {
         return fileType;
     }
@@ -16,7 +17,8 @@ public class ImageSlide {
         this.fileType = fileType;
     }
 
-    private  String fileType;
+    private String fileType;
+
     @Lob
 
 
@@ -51,6 +53,7 @@ public class ImageSlide {
     public void setCaption(String caption) {
         this.caption = caption;
     }
+
     @Column(name = "IMAGE", columnDefinition = "mediumblob")
     public byte[] getImage() {
         return image;

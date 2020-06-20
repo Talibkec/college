@@ -50,17 +50,17 @@ public class SlideImageController {
         }
 
 
-
         //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveImageSlide(uploadfile,caption,fileName,fileType);
+        saveImageSlide(uploadfile, caption, fileName, fileType);
 
 
-        String notice = "http://keck.ac.in/wp-content/uploads/notice/" + fileName;
+        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
         notice = notice + "," + caption;
         notice = notice + "," + uploadfile;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
 
     }
+
     @RequestMapping(value = "/auth/uploadfile/uploadslideimage", method = RequestMethod.GET)
     public ModelAndView displaySlideImage() {
         ModelAndView model = new ModelAndView();
@@ -69,7 +69,7 @@ public class SlideImageController {
         return model;
     }
 
-    private void saveImageSlide( MultipartFile uploadfile, String caption,String fileName,String fileType) {
+    private void saveImageSlide(MultipartFile uploadfile, String caption, String fileName, String fileType) {
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
         imageSlideDTO.setCaption(caption);
         imageSlideDTO.setFileName(fileName);
@@ -84,11 +84,7 @@ public class SlideImageController {
         imageSlideService.saveImageSlide(imageSlideDTO);
 
 
-
     }
-
-
-
 
 
 }

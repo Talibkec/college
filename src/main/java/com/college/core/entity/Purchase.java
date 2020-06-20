@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="PURCHASE")
+@Table(name = "PURCHASE")
 
 public class Purchase {
 
@@ -112,7 +112,7 @@ public class Purchase {
 
 }
 
-    /*-------------------------------------------------------------*/
+/*-------------------------------------------------------------*/
 
 
 

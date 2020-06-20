@@ -1,4 +1,5 @@
 package com.college.core.controller;
+
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.apache.commons.io.FilenameUtils;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -63,7 +65,7 @@ public class FileUploadCintroller {
         saveNoticeDetails(userName, noticeHeader, noticeType, fileName, isScrollable, uploadfile, date);
 
 
-        String notice = "http://keck.ac.in/wp-content/uploads/notice/" + fileName;
+        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
         notice = notice + "," + noticeHeader;
         notice = notice + "," + noticeType;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);

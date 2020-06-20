@@ -13,11 +13,11 @@ import org.springframework.web.servlet.view.JstlView;
 public class BeanConfig {
 
     @Bean
-    public InternalResourceViewResolver setupViewResolver()  {
-        InternalResourceViewResolver resolver =  new InternalResourceViewResolver();
-        resolver.setPrefix ("/jsp/");
+    public InternalResourceViewResolver setupViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/jsp/");
         //resolver.setSuffix (".jsp");
-        resolver.setViewClass (JstlView.class);
+        resolver.setViewClass(JstlView.class);
         return resolver;
     }
 
@@ -29,19 +29,19 @@ public class BeanConfig {
     }
 
     @Bean(name = "facultyHelper")
-    public FacultyHelper facultyHelper(){
+    public FacultyHelper facultyHelper() {
         FacultyHelper facultyHelper = new FacultyHelper();
         return facultyHelper;
     }
 
     @Bean(name = "noticeBoardHelper")
-    public NoticeBoardHelper noticeBoardHelper(){
+    public NoticeBoardHelper noticeBoardHelper() {
         NoticeBoardHelper noticeBoardHelper = new NoticeBoardHelper();
         return noticeBoardHelper;
     }
 
     @Bean(name = "FirebaseAPI")
-    public  FirebaseSetup setupFireBase(){
+    public FirebaseSetup setupFireBase() {
         FirebaseSetup firebaseSetup = new FirebaseSetup();
         return firebaseSetup;
     }

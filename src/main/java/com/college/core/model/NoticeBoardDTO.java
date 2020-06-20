@@ -13,16 +13,22 @@ public class NoticeBoardDTO {
     private String fileType;
     private byte[] notice;
 
-    public String getFileType() {return fileType;}
+    public String getFileType() {
+        return fileType;
+    }
 
-    public void setFileType(String fileType) { this.fileType = fileType; }
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 
 
+    public byte[] getNotice() {
+        return notice;
+    }
 
-    public byte[] getNotice() { return notice; }
-
-    public void setNotice(byte[] notice) { this.notice = notice; }
-
+    public void setNotice(byte[] notice) {
+        this.notice = notice;
+    }
 
 
     private Integer noticeAge;
@@ -74,7 +80,6 @@ public class NoticeBoardDTO {
     public void setIsScrollable(Integer isScrollable) {
         this.isScrollable = isScrollable;
     }
-
 
 
     public Date getDate() {

@@ -10,36 +10,36 @@ import org.springframework.web.servlet.ModelAndView;
 public class TrainingPlacementController {
 
     @RequestMapping(value = "placementbrochure")
-    public ModelAndView getPlacementBrochure(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getPlacementBrochure() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/placementbrochure.jsp");
         return mv;
     }
 
     @RequestMapping(value = "rulesoftrainingplacement")
-    public ModelAndView getRulesOfTrainingPlacement(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getRulesOfTrainingPlacement() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/rulesoftrainingplacement.jsp");
         return mv;
     }
 
     @RequestMapping(value = "studentplacementcoordinator")
-    public ModelAndView getStudentPlacementCoordinator(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getStudentPlacementCoordinator() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/studentplacementcoordinator.jsp");
         return mv;
     }
 
     @RequestMapping(value = "tipsforresume")
-    public ModelAndView getTipsForResume(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getTipsForResume() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/tipsforresume.jsp");
         return mv;
     }
 
     @RequestMapping(value = "aboutplacement")
-    public ModelAndView getAboutPlacement(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getAboutPlacement() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/aboutplacement.jsp");
         return mv;
     }

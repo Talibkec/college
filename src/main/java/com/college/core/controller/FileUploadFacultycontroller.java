@@ -34,36 +34,39 @@ public class FileUploadFacultycontroller {
     @Autowired
     FacultyService facultyService;
     private final Logger logger = LoggerFactory.getLogger(FileUploadFacultycontroller.class);
-   // private final String UPLOADED_FOLDER = getPath();
+    // private final String UPLOADED_FOLDER = getPath();
 
 
     @RequestMapping(value = "/{id}/image")
-    public @ResponseBody byte[] getImage(@PathVariable("id") Long id) throws IOException {
+    public @ResponseBody
+    byte[] getImage(@PathVariable("id") Long id) throws IOException {
 
         FacultyDTO facultyDTO = facultyService.getFacultyById(id);
-        if(facultyDTO.getFacultyPhoto() != null) {
+        if (facultyDTO.getFacultyPhoto() != null) {
             InputStream in = new ByteArrayInputStream(facultyDTO.getFacultyPhoto());
             return IOUtils.toByteArray(in);
         }
         return null;
     }
-    @RequestMapping(value ="/{id}/documents")
-    public @ResponseBody byte[] getdocuments( @PathVariable("id")Long id) throws IOException{
-        FacultyDocumentsDTO facultyDocumentsDTO =facultyDocumentsService.getFacultyDocument(id);
-        if(facultyDocumentsDTO.getDocument()!= null){
+
+    @RequestMapping(value = "/{id}/documents")
+    public @ResponseBody
+    byte[] getdocuments(@PathVariable("id") Long id) throws IOException {
+        FacultyDocumentsDTO facultyDocumentsDTO = facultyDocumentsService.getFacultyDocument(id);
+        if (facultyDocumentsDTO.getDocument() != null) {
             InputStream in = new ByteArrayInputStream(facultyDocumentsDTO.getDocument());
-            return  IOUtils.toByteArray(in);
+            return IOUtils.toByteArray(in);
         }
         return null;
     }
 
 
     @RequestMapping(value = "/common/deleteFacultyDoc/{id}")
-    public  void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
+    public void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
 
         facultyDocumentsService.deleteFacultyDoc(id);
         String url = request.getHeader("Referer");
-        if(StringUtils.isEmpty(url)){
+        if (StringUtils.isEmpty(url)) {
             url = "/";
         }
         response.sendRedirect(url);

@@ -37,11 +37,11 @@ public class StoreKeeperController {
         requestDTO.setApprovalDate(new Date());
         saveOrder(requestDTO, facultyDTO.getFacultyName());
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://keck.ac.in/sk/storekeeper");
+        response.sendRedirect("http://localhost/sk/storekeeper");
     }
 
     @RequestMapping(value = "storekeeper", method = RequestMethod.GET)
-    public ModelAndView skDashboard(){
+    public ModelAndView skDashboard() {
         ModelAndView mv = new ModelAndView();
         List<RequestDTO> requestDTOS = requestService.getNewRequest("Approved");
         mv.addObject("request", requestDTOS);
@@ -51,7 +51,7 @@ public class StoreKeeperController {
     }
 
     @Transactional
-    private void saveOrder(RequestDTO requestDTO, String facultyName){
+    private void saveOrder(RequestDTO requestDTO, String facultyName) {
         requestService.deleteFacultyRequest(requestDTO.getRequestId());
         OrderDTO orderDTO = RequestOrderTransformer.convertToOrderDTO(requestDTO);
         orderDTO.setFacultyName(facultyName);

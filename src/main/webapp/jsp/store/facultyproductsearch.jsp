@@ -18,8 +18,8 @@
         </div>
 	</div>
 </form>
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
- <script src="http://keck.ac.in/js/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/store/facultyproductsearch.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+ <script src="http://localhost/js/jquery-ui.js"></script>
+<script src="http://localhost/js/store/facultyproductsearch.js"></script>
 </body>
 </html>

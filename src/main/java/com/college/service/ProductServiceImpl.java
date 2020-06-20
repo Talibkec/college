@@ -15,14 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     ProductRepository productRepository;
+
     @Override
     public List<ProductDTO> getAllProduct() {
         List<Product> products = productRepository.findAll();
-        Type targetListType = new TypeToken<List<ProductRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<ProductRepository>>() {
+        }.getType();
         return modelMapper.map(products, targetListType);
     }
 
@@ -51,33 +53,33 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<ProductDTO> getProductDetails(String prodName, String vendorName, String productId) {
         List<Product> prods = new ArrayList<>();
-        if(productId != null && productId != ""){
+        if (productId != null && productId != "") {
             Product prod = productRepository.findOne(Long.parseLong(productId));
             prods.add(prod);
-        }
-        else{
-            if(!StringUtils.isEmpty(prodName) && !StringUtils.isEmpty(vendorName)){
+        } else {
+            if (!StringUtils.isEmpty(prodName) && !StringUtils.isEmpty(vendorName)) {
                 prodName = prodName.toLowerCase();
                 vendorName = vendorName.toLowerCase();
                 prods = productRepository.products(prodName, vendorName);
-            }
-            else if(StringUtils.isEmpty(vendorName)){
+            } else if (StringUtils.isEmpty(vendorName)) {
                 prodName = prodName.toLowerCase();
                 prods = productRepository.getProductNames(prodName);
-            }
-            else if(StringUtils.isEmpty(prodName)){
+            } else if (StringUtils.isEmpty(prodName)) {
                 vendorName = vendorName.toLowerCase();
                 prods = productRepository.getvendorNames(vendorName);
             }
         }
-        Type targetListType = new TypeToken<List<ProductDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<ProductDTO>>() {
+        }.getType();
         return modelMapper.map(prods, targetListType);
     }
+
     @Override
     public ProductDTO getProduct(Long productId) {
         Product product = productRepository.findOne(productId);
-        return  modelMapper.map(product, ProductDTO.class);
+        return modelMapper.map(product, ProductDTO.class);
     }
+
     @Override
     public void deleteProduct(Long id) {
         productRepository.delete(id);

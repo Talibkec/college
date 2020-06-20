@@ -69,6 +69,7 @@ public class OrderDTO {
     public Date getDeliveryDate() {
         return deliveryDate;
     }
+
     public void setDeliveryDate(Date deliveryDate) {
         this.deliveryDate = deliveryDate;
     }

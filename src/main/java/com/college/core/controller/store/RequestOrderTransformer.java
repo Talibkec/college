@@ -15,6 +15,6 @@ public class RequestOrderTransformer {
         orderDTO.setRequestDate(requestDTO.getRequestDate());
         orderDTO.setApproval(requestDTO.getApprovalDate());
         orderDTO.setDeliveryDate(new Date());
-        return  orderDTO;
+        return orderDTO;
     }
 }

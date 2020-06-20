@@ -45,7 +45,7 @@ function fire_ajax_search() {
                 $("#facultyId").val(d.id);
                 $("#facultySpan").text($("#facultyNames").val());
 
-                window.location.href="http://keck.ac.in/facultyDetails?facultyId="+facultyId;
+                window.location.href="http://localhost/facultyDetails?facultyId="+facultyId;
 
              }
         },

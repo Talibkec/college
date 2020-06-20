@@ -90,8 +90,8 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-core/4.0.3.RELEASE/spring-security-core-4.0.3.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-web/4.0.3.RELEASE/spring-security-web-4.0.3.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/firebase/firebase-admin/6.11.0/firebase-admin-6.11.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/api-client/google-api-client/1.19.0/google-api-client-1.19.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/oauth-client/google-oauth-client/1.19.0/google-oauth-client-1.19.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/api-client/google-api-client/1.23.0/google-api-client-1.23.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/oauth-client/google-oauth-client/1.23.0/google-oauth-client-1.23.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/http-client/google-http-client/1.30.1/google-http-client-1.30.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpclient/4.5.1/httpclient-4.5.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar"/>
@@ -152,8 +152,13 @@
   <classpathentry kind="var" path="M2_REPO/com/itextpdf/io/7.0.2/io-7.0.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/itextpdf/layout/7.0.2/layout-7.0.2.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/itextpdf/itextpdf/5.5.6/itextpdf-5.5.6.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava-jdk5/13.0/guava-jdk5-13.0.jar"/>
-  <classpathentry kind="var" path="M2_REPO/com/google/apis/google-api-services-calendar/v3-rev96-1.19.0/google-api-services-calendar-v3-rev96-1.19.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/guava/guava-jdk5/17.0/guava-jdk5-17.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/apis/google-api-services-calendar/v3-rev305-1.23.0/google-api-services-calendar-v3-rev305-1.23.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/oauth-client/google-oauth-client-jetty/1.23.0/google-oauth-client-jetty-1.23.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/google/oauth-client/google-oauth-client-java6/1.23.0/google-oauth-client-java6-1.23.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/http-client/google-http-client-jackson/1.19.0/google-http-client-jackson-1.19.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.9.11/jackson-core-asl-1.9.11.jar"/>
 </classpath>

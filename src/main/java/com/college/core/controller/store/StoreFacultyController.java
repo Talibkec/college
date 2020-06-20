@@ -55,25 +55,26 @@ public class StoreFacultyController {
     SecurityService securityService;
 
 
-    Gson gson=new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
+    Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
 
 
-    @Value("#{${users}}") private Map<String,String> userMap;
-    @Value("#{${dept}}") private Map<String,String> deptMap;
+    @Value("#{${users}}")
+    private Map<String, String> userMap;
+    @Value("#{${dept}}")
+    private Map<String, String> deptMap;
 
     private Logger logger = LoggerFactory.getLogger(StoreFacultyController.class);
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 
     @RequestMapping(value = "order")
-    public ModelAndView facultyOrderRequest()
-    {
+    public ModelAndView facultyOrderRequest() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/facultyproductsearch.jsp");
         return mv;
     }
 
     @RequestMapping(value = "submitFacultySearchOrder", method = RequestMethod.POST)
-    public ModelAndView submitFacultySearchOrder(@RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate){
+    public ModelAndView submitFacultySearchOrder(@RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate) {
 
         List<OrderDTO> orders;
         Date to = new Date(), from = new Date();
@@ -93,8 +94,7 @@ public class StoreFacultyController {
 
 
     @RequestMapping(value = "facultyOrderHistory")
-    public ModelAndView facultyOrderHistory()
-    {
+    public ModelAndView facultyOrderHistory() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/searchfacultyorder.jsp");
         return mv;
@@ -125,7 +125,7 @@ public class StoreFacultyController {
         requestDTO.setFacultyId(facultyDTO.getFacultyId());
         requestDTO.setStatus("New");
         requestService.saveRequest(requestDTO);
-        String url = "http://keck.ac.in/department/" +
+        String url = "http://localhost/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
         response.sendRedirect(url);
@@ -134,7 +134,7 @@ public class StoreFacultyController {
 
 
     @RequestMapping(value = "editfacultyrequest", method = RequestMethod.GET)
-    public ModelAndView editFacultyRequest(@RequestParam("id") Long id){
+    public ModelAndView editFacultyRequest(@RequestParam("id") Long id) {
         ModelAndView mv = new ModelAndView();
         RequestDTO requestDTO = requestService.getRequest(id);
         mv.addObject("requestId", id);
@@ -160,7 +160,7 @@ public class StoreFacultyController {
         requestDTO.setProductQuantity(requestedQty);
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/editrequest.jsp");
-        String url = "http://keck.ac.in/department/" +
+        String url = "http://localhost/department/" +
                 deptMap.get(facultyDTO.getDepartmentId().toString()) + "/" +
                 userMap.get(facultyDTO.getUser().getUsername());
         response.sendRedirect(url);

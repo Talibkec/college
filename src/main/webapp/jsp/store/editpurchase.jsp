@@ -44,9 +44,9 @@
             <button id="editPurchase" name="editPurchase" class="btn btn-success" style="margin-left:500px" id="btnSubmit" type= "submit">Submit</button>
         </div>
     </form>
-    <link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
-        <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-        <script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
-    <script src="http://keck.ac.in/js/store/editpurchase.js"></script>
+    <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+        <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+        <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
+    <script src="http://localhost/js/store/editpurchase.js"></script>
 </body>
 <html>

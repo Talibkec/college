@@ -3,12 +3,12 @@ package com.college.core.controller.firebase;
 public class FacultyReportDetail {
 
     private String semester;
-    private  String startDate;
-    private  String endDate;
-    private  String facultyName;
-    private  String dept;
-    private  String facultyEmail;
-    private  String subject;
+    private String startDate;
+    private String endDate;
+    private String facultyName;
+    private String dept;
+    private String facultyEmail;
+    private String subject;
 
     public String getFacultyEmail() {
         return facultyEmail;

@@ -93,7 +93,7 @@ public class FacultyGenerateReport {
             {
                 System.out.println("sendMailwithAttachment method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-                mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
+                mimeMessage.setFrom(new InternetAddress("test@localhost"));
                 mimeMessage.setSubject("KEC, Attendance Report.");
                 mimeMessage.setText("Please find the attached attendance report.");
                 mimeMessage.addHeader("Content-Type", "application/pdf");

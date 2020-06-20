@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    @Query(value = "select * from Product", nativeQuery=true)
+    @Query(value = "select * from Product", nativeQuery = true)
     public List<Request> getAllProducts();
 
     @Query("select prod from Product prod where prod.productName like lower(CONCAT('%',:prodName,'%'))")

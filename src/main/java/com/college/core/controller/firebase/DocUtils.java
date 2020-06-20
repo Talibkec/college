@@ -24,7 +24,7 @@ public class DocUtils {
     //Print KEC Logo
 public  static Paragraph kecLogo(){
         System.setProperty("http.agent","Chrome");
-    String attString ="http://keck.ac.in/sites/default/files/compressed/logo.png";
+    String attString ="http://localhost/sites/default/files/compressed/logo.png";
     Image image=null;
     try {
         image =  Image.getInstance(attString);

@@ -8,7 +8,7 @@ width:100%
 }
 .remove_button:{
 width:8%
-}
+}   
 }
 
 </style>

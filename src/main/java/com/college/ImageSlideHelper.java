@@ -15,16 +15,17 @@ import java.util.List;
 public class ImageSlideHelper {
     @Autowired
     ImageSlideService imageSlideService;
+
     public ModelAndView getSlideImages(Long id) {
         ModelAndView mv = new ModelAndView();
-        List<ImageSlideDTO> allSlideImage  =  imageSlideService.getAllImages();
+        List<ImageSlideDTO> allSlideImage = imageSlideService.getAllImages();
         ImageSlideDTO imageSlideDTO = imageSlideService.getImages(id);
 
-        if( imageSlideDTO.getFileType() != null)
+        if (imageSlideDTO.getFileType() != null)
             mv.addObject("fileExtension", "." + imageSlideDTO.getFileType());
-        mv.addObject("imageList", allSlideImage );
+        mv.addObject("imageList", allSlideImage);
 
-        return  mv;
+        return mv;
     }
 
 }

@@ -101,7 +101,7 @@ public class LeaveStatusMail {
         
         Calendar service = null;
         service = new CalendarService().configure();
-        String calendarId = "onlineattendance@keck.ac.in";
+        String calendarId = "onlineattendance@localhost";
         try {
                 event = service.events().insert(calendarId, event).execute();
         }
@@ -120,7 +120,7 @@ public class LeaveStatusMail {
                 System.out.println("send Mail with Status method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
-                mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
+                mimeMessage.setFrom(new InternetAddress("test@localhost"));
                 mimeMessage.setSubject(subject);
                 mimeMessage.setText(mailBody);
 

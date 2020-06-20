@@ -21,14 +21,16 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderDTO> getAllOrder() {
         List<Order> orders = orderRepository.findAll();
-        Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<OrderDTO>>() {
+        }.getType();
         return modelMapper.map(orders, targetListType);
     }
 
     @Override
     public List<OrderDTO> getFacultyOrders(Long facultyId) {
         List<Order> orders = orderRepository.getFacultyOrder(facultyId);
-        Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<OrderDTO>>() {
+        }.getType();
         return modelMapper.map(orders, targetListType);
     }
 
@@ -42,32 +44,35 @@ public class OrderServiceImpl implements OrderService {
     public List<OrderDTO> getOrderByFacultyName(Long facultyId, Date from, Date to) {
         List<OrderDTO> orderDTOS = null;
         List<Order> orders = orderRepository.getOrderByFaculId(facultyId, from, to);
-        if(orders != null){
-            Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        if (orders != null) {
+            Type targetListType = new TypeToken<List<OrderDTO>>() {
+            }.getType();
             orderDTOS = modelMapper.map(orders, targetListType);
         }
-        return  orderDTOS;
+        return orderDTOS;
     }
 
     @Override
     public List<OrderDTO> getOrderByProductName(String prodName, Date from, Date to) {
         List<OrderDTO> orderDTOS = null;
         List<Order> orders = orderRepository.getOrderByProductName(prodName, from, to);
-        if(orders != null){
-            Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        if (orders != null) {
+            Type targetListType = new TypeToken<List<OrderDTO>>() {
+            }.getType();
             orderDTOS = modelMapper.map(orders, targetListType);
         }
-        return  orderDTOS;
+        return orderDTOS;
     }
 
     @Override
     public List<OrderDTO> getOrderBetweenDate(Date from, Date to) {
         List<OrderDTO> orderDTOS = null;
         List<Order> orders = orderRepository.getOrderBetweenDate(from, to);
-        if(orders != null){
-            Type targetListType = new TypeToken<List<OrderDTO>>() {}.getType();
+        if (orders != null) {
+            Type targetListType = new TypeToken<List<OrderDTO>>() {
+            }.getType();
             orderDTOS = modelMapper.map(orders, targetListType);
         }
-        return  orderDTOS;
+        return orderDTOS;
     }
 }

@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "test_user")
-public class    User implements Serializable {
+public class User implements Serializable {
     private Long id;
     private String username;
     private String password;

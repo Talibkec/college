@@ -13,33 +13,28 @@ public class NoticeBoardHelper {
     private Integer pazeSize = 10;
     @Autowired
     NoticeBoardService noticeBoardService;
+
     public List<NoticeBoardDTO> getNotices(String deptno, Integer pageNo) {
         List<NoticeBoardDTO> noticeBoardDTOS = null;
 
         Pageable pageable = new PageRequest(pageNo, pazeSize);
 
-        if("CSE".equalsIgnoreCase(deptno)){
+        if ("CSE".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getCseNotices(pageable);
-        }
-
-        else if("EEE".equalsIgnoreCase(deptno)){
-            return  noticeBoardService.getEecNotices(pageable);
-        }
-
-        else if("CIVIL".equalsIgnoreCase(deptno)){
-            return  noticeBoardService.getCivilNotices(pageable);
-        }
-        else if("MECHANICAL".equalsIgnoreCase(deptno)){
+        } else if ("EEE".equalsIgnoreCase(deptno)) {
+            return noticeBoardService.getEecNotices(pageable);
+        } else if ("CIVIL".equalsIgnoreCase(deptno)) {
+            return noticeBoardService.getCivilNotices(pageable);
+        } else if ("MECHANICAL".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getMechNotices(pageable);
-        }
-
-        else if("ASH".equalsIgnoreCase(deptno)){
-            return  noticeBoardService.getApplidScienceNotices(pageable);
+        } else if ("ASH".equalsIgnoreCase(deptno)) {
+            return noticeBoardService.getApplidScienceNotices(pageable);
         }
 
         return noticeBoardService.getAllNotice(pageable);
     }
-    public List<NoticeBoardDTO> getTenders(Integer pageNo){
+
+    public List<NoticeBoardDTO> getTenders(Integer pageNo) {
         List<NoticeBoardDTO> noticeBoardDTOS = null;
         Pageable pageable = new PageRequest(pageNo, pazeSize);
         return noticeBoardService.getAllNotice(pageable);
@@ -48,29 +43,23 @@ public class NoticeBoardHelper {
     public String getViewName(String deptno) {
 
         String viewName = "category/notices.jsp";
-        if("CSE".equalsIgnoreCase(deptno)){
+        if ("CSE".equalsIgnoreCase(deptno)) {
             viewName = "department/cse/notice.jsp";
-        }
-
-        else if("EEE".equalsIgnoreCase(deptno)){
-           viewName = "department/eee/notice.jsp";
-        }
-
-        else if("CIVIL".equalsIgnoreCase(deptno)){
+        } else if ("EEE".equalsIgnoreCase(deptno)) {
+            viewName = "department/eee/notice.jsp";
+        } else if ("CIVIL".equalsIgnoreCase(deptno)) {
             viewName = "department/civil/notice.jsp";
-        }
-        else if("MECHANICAL".equalsIgnoreCase(deptno)){
+        } else if ("MECHANICAL".equalsIgnoreCase(deptno)) {
             viewName = "department/mechanical/notice.jsp";
-        }
-
-        else if("ASH".equalsIgnoreCase(deptno)){
+        } else if ("ASH".equalsIgnoreCase(deptno)) {
             viewName = "department/ash/notice.jsp";
         }
-        return  viewName;
+        return viewName;
     }
-    public String getTenderViewName(){
+
+    public String getTenderViewName() {
         String viewName = "category/tenders.jsp";
         return viewName;
-                
+
     }
 }

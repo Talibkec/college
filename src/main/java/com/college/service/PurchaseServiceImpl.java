@@ -22,14 +22,17 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Autowired
     ProductRepository productRepository;
+
     @Override
     public List<PurchaseDTO> getAllPurchase() {
         List<Purchase> purchases = purchaseRepository.findAll();
-        Type targetListType = new TypeToken<List<PurchaseRepository>>() {}.getType();
+        Type targetListType = new TypeToken<List<PurchaseRepository>>() {
+        }.getType();
         return modelMapper.map(purchases, targetListType);
     }
+
     @Override
-    public void savePurchaseDetails(PurchaseDTO purchaseDTO){
+    public void savePurchaseDetails(PurchaseDTO purchaseDTO) {
 
         Product product = updateProduct(purchaseDTO);
         Purchase purchase = modelMapper.map(purchaseDTO, Purchase.class);
@@ -41,14 +44,15 @@ public class PurchaseServiceImpl implements PurchaseService {
     @Override
     public List<PurchaseDTO> getPurchaseByProductId(Long productId, Date fromDate, Date toDate) {
         List<Purchase> purchases = purchaseRepository.getPurchaseByProductId(productId, fromDate, toDate);
-        Type targetListType = new TypeToken<List<PurchaseDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<PurchaseDTO>>() {
+        }.getType();
         return modelMapper.map(purchases, targetListType);
     }
 
     @Override
     public PurchaseDTO getPurchase(Long purchaseId) {
         Purchase purchase = purchaseRepository.findOne(purchaseId);
-        return  modelMapper.map(purchase, PurchaseDTO.class);
+        return modelMapper.map(purchase, PurchaseDTO.class);
     }
 
     @Override
@@ -61,25 +65,24 @@ public class PurchaseServiceImpl implements PurchaseService {
 
         List<PurchaseDTO> purchaseDTOS = null;
         List<Purchase> purchases = purchaseRepository.getPurchaseBtweenDates(from, to);
-        Type targetListType = new TypeToken<List<PurchaseDTO>>() {}.getType();
-        if(purchases != null) {
+        Type targetListType = new TypeToken<List<PurchaseDTO>>() {
+        }.getType();
+        if (purchases != null) {
             purchaseDTOS = modelMapper.map(purchases, targetListType);
         }
-        return  purchaseDTOS;
+        return purchaseDTOS;
     }
 
-    private Product updateProduct(PurchaseDTO purchaseDTO){
+    private Product updateProduct(PurchaseDTO purchaseDTO) {
         Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
-        if(product.getAvailableQuantity()!= null) {
+        if (product.getAvailableQuantity() != null) {
             product.setAvailableQuantity(product.getAvailableQuantity() + purchaseDTO.getQuantity());
-        }
-        else {
+        } else {
             product.setAvailableQuantity(purchaseDTO.getQuantity());
         }
-        if(product.getProductQuantity()!= null){
+        if (product.getProductQuantity() != null) {
             product.setProductQuantity(product.getProductQuantity() + purchaseDTO.getQuantity());
-        }
-        else{
+        } else {
             product.setProductQuantity(purchaseDTO.getQuantity());
         }
         return product;

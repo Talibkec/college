@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="REQUEST")
+@Table(name = "REQUEST")
 public class Request {
     private Long requestId;
     private Long facultyId;
@@ -15,12 +15,18 @@ public class Request {
     private Date approvalDate;
     private Date deliverDate;
     private String desc;
-    @Column(name = "DESCRIPTION")
-    public String getDesc() { return desc;}
 
-    public void setDesc(String desc) {this.desc = desc;}
+    @Column(name = "DESCRIPTION")
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO, generator = "requestId")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "requestId")
     @SequenceGenerator(name = "requestId", sequenceName = "requestId")
     @Column(name = "request_Id")
     public Long getRequestId() {
@@ -37,13 +43,12 @@ public class Request {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Faculty ID
 
     public void setFacultyId(Long facultyId) {
         this.facultyId = facultyId;
     }
+
     @Column(name = "F_Id")
     public Long getFacultyId() {
         return facultyId;
@@ -51,7 +56,6 @@ public class Request {
 
 
     /*-------------------------------------------------------------*/
-
 
 
     //Setter and getter for Product ID
@@ -68,12 +72,12 @@ public class Request {
     /*-------------------------------------------------------------*/
 
 
-
     //Setter and getter for Product Quantity
 
     public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
     }
+
     @Column(name = "Prod_Quantity")
     public Integer getProductQuantity() {
         return productQuantity;
@@ -83,13 +87,12 @@ public class Request {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Request Date
 
     public void setRequestDate(Date requestDate) {
         this.requestDate = requestDate;
     }
+
     @Column(name = "Request_Date")
     @Temporal(TemporalType.DATE)
     public Date getRequestDate() {
@@ -104,6 +107,7 @@ public class Request {
     public void setStatus(String status) {
         this.status = status;
     }
+
     @Column(name = "Status")
     public String getStatus() {
         return status;
@@ -112,13 +116,12 @@ public class Request {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Approval Date
 
     public void setApprovalDate(Date approvalDate) {
         this.approvalDate = approvalDate;
     }
+
     @Column(name = "Approval_Date")
     @Temporal(TemporalType.DATE)
     public Date getApprovalDate() {
@@ -128,13 +131,12 @@ public class Request {
     /*-------------------------------------------------------------*/
 
 
-
-
     //Setter and getter for Deliver Date
 
     public void setDeliverDate(Date deliverDate) {
         this.deliverDate = deliverDate;
     }
+
     @Column(name = "Deliver_Date")
     @Temporal(TemporalType.DATE)
     public Date getDeliverDate() {

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
-    @Query(value = "select * from Request", nativeQuery=true)
+    @Query(value = "select * from Request", nativeQuery = true)
     public List<Request> getAllRequests();
 
     @Query("select r from Request r where r.facultyId = :facultyId")

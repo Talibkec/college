@@ -13,7 +13,8 @@ public class NoticeBoard {
     private String uploadedFileName;
     private Date date;
     private Integer isScrollable;
-    public NoticeBoard(){
+
+    public NoticeBoard() {
 
     }
 
@@ -28,10 +29,15 @@ public class NoticeBoard {
 
     @Lob
     private byte[] notice;
-    @Column(name="NB_FILE", columnDefinition="mediumblob")
-    public byte[] getNotice() { return notice;}
 
-    public void setNotice(byte[] notice) { this.notice = notice; }
+    @Column(name = "NB_FILE", columnDefinition = "mediumblob")
+    public byte[] getNotice() {
+        return notice;
+    }
+
+    public void setNotice(byte[] notice) {
+        this.notice = notice;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -81,12 +87,12 @@ public class NoticeBoard {
     }
 
 
-
     @Temporal(TemporalType.DATE)
     @Column(name = "NB_UPLOADDATE")
     public Date getDate() {
         return date;
     }
+
     public void setDate(Date date) {
         this.date = date;
     }

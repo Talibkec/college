@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+
 @Service
 public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     ModelMapper modelMapper = new ModelMapper();
@@ -20,14 +21,16 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     @Override
     public List<FacultyDocumentsDTO> getFacultyDocuments(String userName) {
         List<FacultyDocuments> facultyDocuments = facultyDocumentsRepository.getFacultyDocuments(userName);
-        Type targetListType = new TypeToken<List<FacultyDocumentsDTO>>() {}.getType();
-        List<FacultyDocumentsDTO>  facultyDocumentsDTO = modelMapper.map(facultyDocuments, targetListType);
+        Type targetListType = new TypeToken<List<FacultyDocumentsDTO>>() {
+        }.getType();
+        List<FacultyDocumentsDTO> facultyDocumentsDTO = modelMapper.map(facultyDocuments, targetListType);
         UploadFileUtility.setFileType(facultyDocumentsDTO);
         return facultyDocumentsDTO;
     }
+
     @Override
-    public void saveFacultydocumentsDetails(FacultyDocumentsDTO facultyDocumentsDTO){
-        FacultyDocuments facultyDocuments =modelMapper.map(facultyDocumentsDTO, FacultyDocuments.class);
+    public void saveFacultydocumentsDetails(FacultyDocumentsDTO facultyDocumentsDTO) {
+        FacultyDocuments facultyDocuments = modelMapper.map(facultyDocumentsDTO, FacultyDocuments.class);
         facultyDocumentsRepository.save(facultyDocuments);
     }
 
@@ -35,7 +38,7 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     public FacultyDocumentsDTO getFacultyDocument(Long id) {
         FacultyDocumentsDTO facultyDocumentsDTO = null;
         FacultyDocuments facultyDocuments = facultyDocumentsRepository.findOne(id);
-        if(facultyDocuments != null){
+        if (facultyDocuments != null) {
             facultyDocumentsDTO = modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
         }
         return facultyDocumentsDTO;

@@ -25,7 +25,7 @@
 </pre>
 
 <script type="text/javascript"
-        src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+        src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 
 <script type="text/javascript" src="/js/fileupload.js"></script>
 

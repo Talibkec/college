@@ -26,6 +26,7 @@ public class CustomerOrder {
     public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
+
     public Long getCustomerId() {
         return customerId;
     }
@@ -97,6 +98,7 @@ public class CustomerOrder {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
     public String getOrderStatus() {
         return orderStatus;
     }
@@ -104,6 +106,7 @@ public class CustomerOrder {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
+
     public List<ProductDetails> getOrderDetails() {
         return orderDetails;
     }

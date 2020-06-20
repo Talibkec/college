@@ -199,6 +199,13 @@ public class UserController {
         imageSlideService.deleteSlideImage(imageSlideId);
         res.sendRedirect("/");
     }
+    @RequestMapping(value = "/auth/deleteAchievementImage/{achievementSlideId}", method = RequestMethod.GET)
+    public void deleteAchievementImage(@PathVariable("achievementSlideId")Long achivementImageId, HttpServletResponse res) throws  IOException{
+        
+        ModelAndView modelAndView = new ModelAndView();
+        achievementSlideService.deleteAchievementImage(achivementImageId);
+        res.sendRedirect("/");
+    }
 
     @RequestMapping(value = "/hod/{fileName}/{id}", method = RequestMethod.GET)
     public void deleteItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {

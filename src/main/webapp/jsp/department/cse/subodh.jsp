@@ -18,24 +18,24 @@
                     <li class="list-group-item" style="background: #eee; font-size: 16px;">Department of Computer
                         Science and Engineering
                     </li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/subodh"
+                    <li class="list-group-item"><a href="http://localhost/department/cse/subodh"
                                                           style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Subodh Kumar</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/dky" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/dky" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Dharmveer Kumar Yadav</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/shweta" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/shweta" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Shweta Kumari</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/snehakumari" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/snehakumari" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i>Sneha Kumari</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/sjk" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/sjk" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Sujeet Kumar</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/mta" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/mta" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Md Talib Ahmad</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/pks" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/pks" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Pradeep Kumar Sharma</a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/snjk" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/snjk" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Sinjan Kumar </a></li>
-                    <li class="list-group-item"><a href="http://keck.ac.in/department/cse/shk" style="font-size: 14px;">&nbsp;&nbsp;<i
+                    <li class="list-group-item"><a href="http://localhost/department/cse/shk" style="font-size: 14px;">&nbsp;&nbsp;<i
                             class="fa fa-angle-double-right"></i> Sritosh Kumar </a></li>
                  </ul>
             </div>-->
@@ -47,23 +47,23 @@
 
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
-                            <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/department/cse/subodh"
+                            <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/cse/subodh"
                                     class="sf-depth-2 active">Subodh Kumar</a></li>
-                            <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/department/cse/dky"
+                            <li class="leaf menu-mlid-1121"><a href="http://localhost/department/cse/dky"
                                     class="sf-depth-2">Dharmveer Kumar Yadav</a></li>
-                            <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/department/cse/shweta"
+                            <li class="leaf menu-mlid-1156"><a href="http://localhost/department/cse/shweta"
                                     class="sf-depth-2">Shweta Kumari</a></li>
-                            <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/cse/snehakumari"
+                            <li class="leaf menu-mlid-1294"><a href="http://localhost/department/cse/snehakumari"
                                     class="sf-depth-2">Sneha Kumari</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/sjk"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/sjk"
                                     class="sf-depth-2">Sujeet Kumar</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/mta"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/mta"
                                     class="sf-depth-2">Md Talib Ahmad</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/pks"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/pks"
                                     class="sf-depth-2">Pradeep Kumar Sharma</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/snjk"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/snjk"
                                     class="sf-depth-2">Sinjan Kumar</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/cse/shk"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/cse/shk"
                                     class="sf-depth-2">Sritosh Kumar</a></li>
                         </ul>
                     </div>
@@ -75,9 +75,9 @@
             <c:forEach var="item" items="${Role}">
                 <c:if test="${'Faculty' eq item and UserName eq 'subodhkumar'}">
 
-                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No"
+                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=No"
                             style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
-                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile
+                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile
                             Details</a></strong>
                 </c:if>
             </c:forEach>
@@ -96,7 +96,7 @@
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage" width="250px"
-                        style="height: 200px" src="http://keck.ac.in/${facultyId}/image${fileExtension}" />
+                        style="height: 200px" src="http://localhost/${facultyId}/image${fileExtension}" />
                     <h2>${facultyName}</h2>
                     <p style="font-size: 130%;">Assistant Professor and Head <br /> Department of
                         Computer Science and Engineering</p>
@@ -165,7 +165,7 @@
                                     <c:forEach var="item" items="${Role}">
                                         <c:if test="${'Faculty' eq item and UserName eq 'subodhkumar' }">
                                             <span class="label label-danger"><a
-                                                    href="http://keck.ac.in/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                                    href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                                         </c:if>
                                     </c:forEach>
                                     <c:choose>
@@ -174,7 +174,7 @@
                                                                 target="_blank">${facultyDocument.headLine}</a>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}"
+                                                            <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}"
                                                                 target="_blank">${facultyDocument.headLine}</a>
                                                         </c:otherwise>
                                                     </c:choose>
@@ -186,10 +186,10 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="order">
                     <div style="padding: 15px;">
-                        <a href="http://keck.ac.in/fstore/faculty/order"> Order Item </a>
+                        <a href="http://localhost/fstore/faculty/order"> Order Item </a>
                     </div>
                     <div style="padding: 15px;">
-                        <a href="http://keck.ac.in/fstore/faculty/facultyOrderHistory"> Order History </a>
+                        <a href="http://localhost/fstore/faculty/facultyOrderHistory"> Order History </a>
                     </div>
                     <div style="padding: 15px;">
                         <div class="row" style="border:1px solid green;padding:10px">
@@ -216,10 +216,10 @@
                                         <fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy" />
                                     </div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://keck.ac.in/fstore/faculty/editfacultyrequest?id=${request.requestId}"
+                                            href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}"
                                             id="editId${request.requestId}">Edit</a></div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://keck.ac.in/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
+                                            href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -233,6 +233,6 @@
 </div>
 </div>
 <jsp:include page="/jsp/footer.jsp" />
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://keck.ac.in/js/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/facultyprofile.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
+<script src="http://localhost/js/facultyprofile.js"></script>

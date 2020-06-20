@@ -23,15 +23,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler(){
+    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler() {
         return new KECUrlAuthenticationSuccessHandler();
     }
 
     @Override
-   protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable().authorizeRequests()
-                .antMatchers("/user/updatePassword*","/user/savePassword*","/updatePassword*")
+                .antMatchers("/user/updatePassword*", "/user/savePassword*", "/updatePassword*")
                 .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
                 .antMatchers("/fstore/**").hasAuthority("Faculty")
                 .antMatchers("/store/**").hasAuthority("SM")

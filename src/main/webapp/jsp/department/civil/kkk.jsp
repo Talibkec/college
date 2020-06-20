@@ -15,20 +15,20 @@
 
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
-                            <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/department/civil/rm"
+                            <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/civil/rm"
                                     class="sf-depth-2 active">Rashid Mustafa</a></li>
 
-                            <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/civil/akg"
+                            <li class="leaf menu-mlid-1294"><a href="http://localhost/department/civil/akg"
                                     class="sf-depth-2">Anil Kumar Gupta</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/rps"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/rps"
                                     class="sf-depth-2">Rana Pratap Singh</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/abhi"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/abhi"
                                     class="sf-depth-2">Abhishek Ranjan</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/ar"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/ar"
                                     class="sf-depth-2">Aale rasul</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/kkk"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/kkk"
                                     class="sf-depth-2">krishna kant Thakur</a></li>
-                            <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/sss"
+                            <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/sss"
                                     class="sf-depth-2">Shanhank shekhar sandilya</a></li>
                         </ul>
                     </div>
@@ -38,9 +38,9 @@
         <div class="col-md-8">
             <c:forEach var="item" items="${Role}">
                 <c:if test="${'Faculty' eq item and UserName eq 'krishna'}">
-                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=No"
+                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=No"
                             style="margin-right:10px">Upload Documents &nbsp;|</a></strong>
-                    <strong><a href="http://keck.ac.in/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
+                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile Details</a></strong>
                                  </c:if>
                           </c:forEach>
                 <ul class=" nav nav-tabs" role="tablist">
@@ -59,7 +59,7 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="profile"><img alt="kkk"
                                         id="profileImage" style="height: 200px;width:250px"
-                                        src="http://keck.ac.in/${facultyId}/image${fileExtension}" />
+                                        src="http://localhost/${facultyId}/image${fileExtension}" />
                                     <h2>${facultyName}</h2>
                                     <p style="font-size: 130%;">Assistant Professor</p>
                                     <p><i class="fa fa-phone"></i>${facultyMobNo}&nbsp; | &nbsp; <i
@@ -176,7 +176,7 @@
                                                         <c:forEach var="item" items="${Role}">
                                                             <c:if test="${'Faculty' eq item and UserName eq 'krishna'}">
                                                                 <span class="label label-danger"><a
-                                                                        href="http://keck.ac.in/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                                                                        href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                                                             </c:if>
                                                         </c:forEach>
 
@@ -186,7 +186,7 @@
                                                                 target="_blank">${facultyDocument.headLine}</a>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <a href="http://keck.ac.in/${facultyDocument.id}/documents${facultyDocument.fileType}"
+                                                            <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}"
                                                                 target="_blank">${facultyDocument.headLine}</a>
                                                         </c:otherwise>
                                                     </c:choose>
@@ -212,10 +212,10 @@
                                                         pattern="dd/MM/yyyy" />
                                                 </div>
                                                 <div class="col-md-2 text-center"><a
-                                                        href="http://keck.ac.in/fstore/faculty/editfacultyrequest?id=${request.requestId}"
+                                                        href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}"
                                                         id="editId${request.requestId}">Edit</a></div>
                                                 <div class="col-md-2 text-center"><a
-                                                        href="http://keck.ac.in/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
+                                                        href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
                                                 </div>
                                             </div>
                                         </c:forEach>
@@ -229,6 +229,6 @@
 </div>
 </div>
 <jsp:include page="/jsp/footer.jsp" />
-<script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://keck.ac.in/js/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/facultyprofile.js"></script>
+<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
+<script src="http://localhost/js/facultyprofile.js"></script>

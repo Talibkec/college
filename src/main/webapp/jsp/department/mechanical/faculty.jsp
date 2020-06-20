@@ -20,19 +20,19 @@
 
                                                   <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                                  <ul class="menu nav">
-                                                <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/department/mechanical/mech" class="sf-depth-2 active">About Mechanical Engg.</a></li>
-                                                <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/department/mechanical/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                                <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/department/mechanical/faculty" class="sf-depth-2">Faculty of Mechanical Engg.</a></li>
-                                                <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/mechanical/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/question" class="sf-depth-2">Question Bank</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/awards" class="sf-depth-2">awards & Recognition</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/programs" class="sf-depth-2">Program Activities</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/students" class="sf-depth-2">Student of Mechanical Engg.</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/notice" class="sf-depth-2">Notice</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/programs" class="sf-depth-2">Course File</a></li>
-                                                 <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/staff" class="sf-depth-2">Staff of Mechanical Engg.</a></li>
-                                                <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/mechanical/attendance" class="sf-depth-2">Attendance Summary</a></li>
+                                                <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/mechanical/mech" class="sf-depth-2 active">About Mechanical Engg.</a></li>
+                                                <li class="leaf menu-mlid-1121"><a href="http://localhost/department/mechanical/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                                <li class="leaf menu-mlid-1156"><a href="http://localhost/department/mechanical/faculty" class="sf-depth-2">Faculty of Mechanical Engg.</a></li>
+                                                <li class="leaf menu-mlid-1294"><a href="http://localhost/department/mechanical/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/question" class="sf-depth-2">Question Bank</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/awards" class="sf-depth-2">awards & Recognition</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/programs" class="sf-depth-2">Program Activities</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/students" class="sf-depth-2">Student of Mechanical Engg.</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/notice" class="sf-depth-2">Notice</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/weekly" class="sf-depth-2">Weekly Test Result</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/programs" class="sf-depth-2">Course File</a></li>
+                                                 <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/staff" class="sf-depth-2">Staff of Mechanical Engg.</a></li>
+                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/mechanical/attendance" class="sf-depth-2">Attendance Summary</a></li>
                                                    </ul></div>
 
                                                 </section>
@@ -44,7 +44,7 @@
                         <div class="panel-heading faculty-title">Dr. Surya Kumar&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/26/image${fileExtension}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/26/image${fileExtension}"
                                                                              style="background-image: url(srk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -53,7 +53,7 @@
                                         Address:</strong> <a href="mailto:mechsurya@hotmail.com">mechsurya@hotmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/srk"
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/srk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -66,7 +66,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/27/image${fileExtension}"
+                                                                             src="http://localhost/27/image${fileExtension}"
                                                                              style="background-image: url(jk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -76,7 +76,7 @@
                                             href="mailto:jayant906@gmail.com">jayant906@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/jk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/jk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -87,7 +87,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/28/image${fileExtension}"
+                                                                             src="http://localhost/28/image${fileExtension}"
                                                                              style="background-image: url(mk.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -97,7 +97,7 @@
                                             href="mailto:mukeshme24@gmail.com">mukeshme24@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/mk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/mk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -108,7 +108,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://keck.ac.in/29/image${fileExtension}"
+                                                                             src="http://localhost/29/image${fileExtension}"
                                                                              style="background-image: url(ajk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -118,7 +118,7 @@
                                             href="mailto:ajaykumar2189@gmail.com">ajaykumar2189@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ajk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ajk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -130,7 +130,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                         src="http://keck.ac.in/30/image${fileExtension}"
+                                                                         src="http://localhost/30/image${fileExtension}"
                                                                          style="background-image: url(smnk.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -140,7 +140,7 @@
                                         href="mailto:suman828@gmail.com">suman828@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/smnk" class="btn btn-default btn-lg">
+                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/smnk" class="btn btn-default btn-lg">
                                 <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>
@@ -150,7 +150,7 @@
                     <div class="panel-heading faculty-title">Dr Arbind Prasad</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/37/image${fileExtension}"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/37/image${fileExtension}"
                                                                          style="background-image: url(ap.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -160,7 +160,7 @@
                                         href="mailto:arbind.geit@gmail.com">arbind.geit@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>
@@ -170,7 +170,7 @@
                     <div class="panel-heading faculty-title">Kanchan Kumar Sinha</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://keck.ac.in/32/image${fileExtension}"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/32/image${fileExtension}"
                                                                          style="background-image: url(dummy.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -180,7 +180,7 @@
                                         href="mailto:kanchansinha1@gmail.com">kanchansinha1@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://keck.ac.in/department/mechanical/kks" class="btn btn-default btn-lg"> <br
+                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/kks" class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>

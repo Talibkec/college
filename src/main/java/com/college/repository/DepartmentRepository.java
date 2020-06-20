@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
-    @Query(value = "select * from Department", nativeQuery=true)
+    @Query(value = "select * from Department", nativeQuery = true)
     public List<Request> getAllDepartmnet();
 }

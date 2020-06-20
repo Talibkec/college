@@ -5,7 +5,7 @@
 <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Image</div>
 <div class="panel-body">
 
-<form method="POST" enctype="multipart/form-data" id="achievementImageUploadForm" action="keck.ac.in">
+<form method="POST" enctype="multipart/form-data" id="achievementImageUploadForm" action="localhost">
     <label for="caption" class="control-label col-sm-4" >Caption</label>
     <div class="col-sm-8">
         <input type="text" name="caption" id="caption"/><br/><br/>
@@ -24,7 +24,7 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
-<script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/achievementImageupload.js"></script>
+<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="http://localhost/js/achievementImageupload.js"></script>
 

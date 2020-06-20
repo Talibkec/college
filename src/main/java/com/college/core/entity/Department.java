@@ -4,16 +4,16 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="DEPARTMENT")
+@Table(name = "DEPARTMENT")
 public class Department {
     private Long departmentId;
     private String departmentName;
     private String departmentHod;
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO, generator = "departmentId")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "departmentId")
     @SequenceGenerator(name = "departmentId", sequenceName = "departmentId")
-    @Column(name ="dept_Id")
+    @Column(name = "dept_Id")
     public Long getDepartmentId() {
         return departmentId;
     }
@@ -30,6 +30,7 @@ public class Department {
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
+
     @Column(name = "dept_Name")
     public String getDepartmentName() {
         return departmentName;
@@ -42,13 +43,13 @@ public class Department {
     public void setDepartmentHod(String departmentHod) {
         this.departmentHod = departmentHod;
     }
+
     @Column(name = "dept_hod")
     public String getDepartmentHod() {
         return departmentHod;
     }
 
     /*-------------------------------------------------------------*/
-
 
 
 }

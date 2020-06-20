@@ -10,15 +10,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class GalleryController {
 
     @RequestMapping(value = "photogallery")
-    public ModelAndView getPhotoGallery(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getPhotoGallery() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/gallery/photogallery.jsp");
         return mv;
     }
+
     @RequestMapping(value = "mediagallery")
-    public ModelAndView getMediaGallery(){
-        ModelAndView mv=new ModelAndView();
+    public ModelAndView getMediaGallery() {
+        ModelAndView mv = new ModelAndView();
         mv.setViewName("/gallery/mediagallery.jsp");
         return mv;
-        }
+    }
 }

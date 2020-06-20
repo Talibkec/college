@@ -685,7 +685,7 @@ text-align:center;}
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
+    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-left-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     background-position: center;
@@ -699,7 +699,7 @@ text-align:center;}
     width: 60px;
     position: absolute;
     background: #fff;
-    background-image: url(http://keck.ac.in/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
+    background-image: url(http://localhost/sites/all/themes/rwsiitj/images/arrow-right-ss.png);
     background-repeat: no-repeat;
     top: 50%;
     left: 91vw;

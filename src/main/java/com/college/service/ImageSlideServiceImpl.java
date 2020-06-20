@@ -19,7 +19,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 @Service
-public class ImageSlideServiceImpl implements  ImageSlideService{
+public class ImageSlideServiceImpl implements ImageSlideService {
     Logger logger = LoggerFactory.getLogger(ImageSlideServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
@@ -33,11 +33,10 @@ public class ImageSlideServiceImpl implements  ImageSlideService{
     }
 
     @Override
-    public ImageSlideDTO getImages(Long id)
-    {
+    public ImageSlideDTO getImages(Long id) {
         ImageSlideDTO imageSlideDTO = null;
         ImageSlide imageSlide = imageSlideRepository.findOne(id);
-        if(imageSlide != null){
+        if (imageSlide != null) {
             imageSlideDTO = modelMapper.map(imageSlide, ImageSlideDTO.class);
         }
         return imageSlideDTO;
@@ -49,7 +48,8 @@ public class ImageSlideServiceImpl implements  ImageSlideService{
         logger.info("Query is being served from database for image slide.");
 
         List<ImageSlide> imageSlides = imageSlideRepository.getAllImages();
-        Type targetListType = new TypeToken<List<ImageSlideDTO>>() {}.getType();
+        Type targetListType = new TypeToken<List<ImageSlideDTO>>() {
+        }.getType();
 
         return modelMapper.map(imageSlides, targetListType);
     }

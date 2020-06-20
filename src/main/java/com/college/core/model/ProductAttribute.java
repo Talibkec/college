@@ -48,6 +48,7 @@ public class ProductAttribute {
     public void setPrice(Double price) {
         this.price = price;
     }
+
     public String getProductDesccription() {
         return productDesccription;
     }

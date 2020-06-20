@@ -17,6 +17,7 @@ public class UploadFileUtility {
 
     //save file
     final static Logger logger = LoggerFactory.getLogger(UploadFileUtility.class);
+
     public static String saveUploadedFiles(List<MultipartFile> files, String uploadFolder) {
 
         String fileName = null;
@@ -26,11 +27,11 @@ public class UploadFileUtility {
                 continue; //next pls
             }
             try {
-            byte[] bytes = file.getBytes();
-            fileName = file.getOriginalFilename();
-            logger.info("Filel to upload is " + uploadFolder+ File.separatorChar+ fileName);
+                byte[] bytes = file.getBytes();
+                fileName = file.getOriginalFilename();
+                logger.info("Filel to upload is " + uploadFolder + File.separatorChar + fileName);
 
-            Path path = Paths.get(uploadFolder+ File.separatorChar+ fileName);
+                Path path = Paths.get(uploadFolder + File.separatorChar + fileName);
 
                 Files.write(path, bytes);
             } catch (IOException e) {
@@ -43,15 +44,14 @@ public class UploadFileUtility {
     }
 
     public static void setFileType(List<FacultyDocumentsDTO> facultyDocuments) {
-        for(FacultyDocumentsDTO fd : facultyDocuments){
-            if(fd.getLink() == true){
+        for (FacultyDocumentsDTO fd : facultyDocuments) {
+            if (fd.getLink() == true) {
 
-            }
-            else{
+            } else {
                 fd.setLink(false);
                 String fileName = fd.getUploadedFileName();
                 Integer index = fileName.lastIndexOf(".");
-                if(index >=0){
+                if (index >= 0) {
                     fd.setFileType(fileName.substring(index));
                 }
 
@@ -59,9 +59,6 @@ public class UploadFileUtility {
 
         }
     }
-
-
-
 
 
 }

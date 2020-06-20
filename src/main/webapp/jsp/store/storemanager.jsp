@@ -18,14 +18,14 @@
             <div class="col-md-3 text-center" ><input type="text" name="vendorName" id = "vendorName" /></div>
             <div class="col-md-2 text-center"><input type="text" name="productId" id = "productId"/></div>
             <div class="col-md-2 text-center"><input type="submit" value="submit" id="getProductDetails" class="btn btn-success"/></div>
-            <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/orderPage" class="btn btn-success">Search Order</a></div>
+            <div class="col-md-2 text-center"><a href="http://localhost/store/orderPage" class="btn btn-success">Search Order</a></div>
         </div>
         <h5 id="valid"></h5>
 	</div>
 </form>
 <c:if test = "${productFound == false}">
     <div class="row">
-        <div class="text-center"><a href="http://keck.ac.in/store/addProduct" class="btn btn-success">Add Product</a><div>
+        <div class="text-center"><a href="http://localhost/store/addProduct" class="btn btn-success">Add Product</a><div>
     </div>
 </c:if>
 
@@ -49,8 +49,8 @@
            <div class="col-md-1 text-center">${req.status}</div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.requestDate}" pattern="dd/MM/yyyy"/></div>
            <div class="col-md-2 text-center"><fmt:formatDate value="${req.approvalDate}" pattern="dd/MM/yyyy"/></div>
-           <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/approvefacultyrequest?requestId=${req.requestId}" class="btn btn-success">Approve</a></div>
-           <div class="col-md-2 text-center"><a href="http://keck.ac.in/store/rejectfacultyrequest?requestId=${req.requestId}" class="btn btn-success">Cancel</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/store/approvefacultyrequest?requestId=${req.requestId}" class="btn btn-success">Approve</a></div>
+           <div class="col-md-2 text-center"><a href="http://localhost/store/rejectfacultyrequest?requestId=${req.requestId}" class="btn btn-success">Cancel</a></div>
         </div>
      </c:forEach>
   </div>
@@ -78,14 +78,14 @@
     <div class="row text-center"><h3> Assign - Revoke SM Role </h3></div>
     <div class="row" style="border:1px solid green;padding:10px">
         <div class="col-md-4 text-center">
-        <a href="http://keck.ac.in/store/smincharge">
+        <a href="http://localhost/store/smincharge">
             <input type="submit" name="smincharge" id = "smincharge" value="SM Incharge" class="btn btn-success" />
         </a></div>
     </div>
 
- <link rel="stylesheet" href="http://keck.ac.in/js/store/jquery-ui/jquery-ui.css">
- <script src="http://keck.ac.in/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
- <script src="http://keck.ac.in/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://keck.ac.in/js/store/storemanager.js"></script>
+ <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
+ <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+ <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="http://localhost/js/store/storemanager.js"></script>
 </body>
 </html>

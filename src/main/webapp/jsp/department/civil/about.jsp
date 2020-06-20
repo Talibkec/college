@@ -10,9 +10,9 @@
                   <li style= "display: inline;">
                   <i class="fa fa-asterisk"></i>
                   <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                     <img class="" src="http://keck.ac.in/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                     <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
                   </c:if>
-                  <a href="http://keck.ac.in/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                  <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
                   <c:forEach var="item" items="${Role}">
                                                <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
                                                                       <span class="label label-danger"><a style="display: inline" href="<c:url value='/hod/deleteNotice/${scrollingNotice.id}' />">Delete</a></span>
@@ -103,19 +103,19 @@
 
                            <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                           <ul class="menu nav">
-                         <li class="first leaf  menu-mlid-1154"><a href="http://keck.ac.in/department/civil/about" class="sf-depth-2 active">About Civil Engg.</a></li>
-                         <li class="leaf menu-mlid-1121"><a href="http://keck.ac.in/department/civil/vision" class="sf-depth-2">Vision & Mission</a></li>
-                         <li class="leaf menu-mlid-1156"><a href="http://keck.ac.in/department/civil/faculty" class="sf-depth-2">Faculty of Civil Engg.</a></li>
-                         <li class="leaf menu-mlid-1294"><a href="http://keck.ac.in/department/civil/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/question" class="sf-depth-2">Question Bank</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/awards" class="sf-depth-2">awards & Recognition</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/programs" class="sf-depth-2">Program Activities</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/students" class="sf-depth-2">Student of Civil Engg.</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/notice" class="sf-depth-2">Notice</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/programs" class="sf-depth-2">Course File</a></li>
-                          <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/staff" class="sf-depth-2">Staff of Civil Engg.</a></li>
-                         <li class="leaf menu-mlid-1467"><a href="http://keck.ac.in/department/civil/attendance" class="sf-depth-2">Attendance Summary</a></li>
+                         <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/civil/about" class="sf-depth-2 active">About Civil Engg.</a></li>
+                         <li class="leaf menu-mlid-1121"><a href="http://localhost/department/civil/vision" class="sf-depth-2">Vision & Mission</a></li>
+                         <li class="leaf menu-mlid-1156"><a href="http://localhost/faculty?deptno=2" class="sf-depth-2">Faculty of Civil Engg.</a></li>
+                         <li class="leaf menu-mlid-1294"><a href="http://localhost/department/civil/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/question" class="sf-depth-2">Question Bank</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/awards" class="sf-depth-2">awards & Recognition</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/programs" class="sf-depth-2">Program Activities</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/students" class="sf-depth-2">Student of Civil Engg.</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/notice" class="sf-depth-2">Notice</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/weekly" class="sf-depth-2">Weekly Test Result</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/programs" class="sf-depth-2">Course File</a></li>
+                          <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/staff" class="sf-depth-2">Staff of Civil Engg.</a></li>
+                         <li class="leaf menu-mlid-1467"><a href="http://localhost/department/civil/attendance" class="sf-depth-2">Attendance Summary</a></li>
                             </ul></div>
 
                          </section>
@@ -135,7 +135,7 @@
                                                                                                                                                                          <i class="fa fa-news"></i> Latest News / Updates</strong>
                                                                                                                                                                                                                                                    <c:forEach var="item" items="${Role}">
                                                                                                                                                                                                                                                                           <c:if test = "${'HOD' eq item and UserName eq 'hodcivil'}">
-                                                                                                                                                                                                                                                                 <strong><i class="fa fa-news"></i> <a href="http://keck.ac.in/hod/uploadfile/upload">Upload Notice / News</a></strong>
+                                                                                                                                                                                                                                                                 <strong><i class="fa fa-news"></i> <a href="http://localhost/hod/uploadfile/upload">Upload Notice / News</a></strong>
 
                                                                                                                                                                                                                                                              </c:if>
                                                                                                                                                                                                                                                              </c:forEach></div>
@@ -164,12 +164,12 @@
                                                                                                                                                                                                                                    <span class="label label-danger"><a href="<c:url value='/hod/deleteNotice/${notice.id}' />">Delete</a></span>
                                                                                                                                                                                                                                                                              </c:if>
                                                                                                                                                                                                                                                                              </c:forEach>
-                                                                                                                                                                                                                                                                            <a href="http://keck.ac.in/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                                                                                                                                                                                                                                            <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                                                                                                                                                                                                                                                          </div>
                                                                                                                                                                                                                                                                      </li>
                                                                                                                                                                                                                                                                  </c:forEach>
                                                                                                                                                                                                                                                              </ul>
-                                                                                                                                                                                                                                                             <a href="http://keck.ac.in/department/civil/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                                                                                                                                                                                                                                                             <a href="http://localhost/department/civil/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
                                                                                                                                                                         </div>
                                                                                                                                                                         </div>
                                                                                                                                                                         </div>

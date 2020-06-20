@@ -9,6 +9,7 @@ import java.util.List;
 @Service
 public interface PurchaseService {
     List<PurchaseDTO> getAllPurchase();
+
     public void savePurchaseDetails(PurchaseDTO purchaseDTO);
 
     List<PurchaseDTO> getPurchaseByProductId(Long productId, Date fromDate, Date toDate);

@@ -59,7 +59,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "addProduct", method = RequestMethod.GET)
-    public ModelAndView addProduct(){
+    public ModelAndView addProduct() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/addproduct.jsp");
         return mv;
@@ -72,14 +72,13 @@ public class ProductController {
         List<ProductDTO> products = new ArrayList<>();
         products = productService.getProductDetails(prodName, vendorName, productId);
         Integer productSize = 0;
-        if(products.size() != 0){
+        if (products.size() != 0) {
             productSize = products.size();
             mv.addObject("prodList", products);
             mv.addObject("noOfItems", products.size());
             mv.addObject("productSize", productSize);
             mv.setViewName("/store/productdetails.jsp");
-        }
-        else{
+        } else {
             mv.addObject("productFound", false);
             mv.setViewName("/store/storemanager.jsp");
 
@@ -97,29 +96,29 @@ public class ProductController {
         mv.addObject("productName", prodName);
         mv.addObject("vendorName", vendorName);
         mv.addObject("productQuantity", productQuantity);
-        mv.addObject("productId",productId);
+        mv.addObject("productId", productId);
         mv.setViewName("/store/addpurchase.jsp");
         return mv;
     }
 
     @RequestMapping(value = "purchasedetails")
     public ModelAndView purchasedetails(@RequestParam("vendor") String vendorName,
-                                    @RequestParam("name") String prodName,
-                                    @RequestParam("productQuantity") String productQuantity,
-                                    @RequestParam("productId") Long productId) {
+                                        @RequestParam("name") String prodName,
+                                        @RequestParam("productQuantity") String productQuantity,
+                                        @RequestParam("productId") Long productId) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("productName", prodName);
         mv.addObject("vendorName", vendorName);
         mv.addObject("productQuantity", productQuantity);
-        mv.addObject("productId",productId);
+        mv.addObject("productId", productId);
         mv.setViewName("/store/searchpurchasedetails.jsp");
         return mv;
     }
 
     @RequestMapping(value = "purchasedetail")
     public ModelAndView purchasedetail(@RequestParam("toDatepicker") String toDate,
-                                        @RequestParam("fromDatepicker") String fromDate,
-                                        @RequestParam("productId") Long productId) {
+                                       @RequestParam("fromDatepicker") String fromDate,
+                                       @RequestParam("productId") Long productId) {
         ModelAndView mv = new ModelAndView();
         Date to = new Date(), from = new Date();
         try {
@@ -136,7 +135,7 @@ public class ProductController {
 
     @RequestMapping(value = "getPurchaseBtweenDates")
     public ModelAndView getPurchaseBtweenDates(@RequestParam("fromDate") String fromDate,
-                                       @RequestParam("toDate") String toDate) {
+                                               @RequestParam("toDate") String toDate) {
         ModelAndView mv = new ModelAndView();
         Date to = new Date(), from = new Date();
         try {
@@ -145,7 +144,7 @@ public class ProductController {
         } catch (ParseException e) {
             logger.error("Could not parse the either to or from date, Please contact to administrator.");
         }
-        List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseBtweenDates( from, to);
+        List<PurchaseDTO> purchaseDetails = purchaseService.getPurchaseBtweenDates(from, to);
         mv.addObject("purchases", purchaseDetails);
         mv.setViewName("/store/purchasedetails.jsp");
         return mv;
@@ -154,17 +153,18 @@ public class ProductController {
     @RequestMapping(value = "editPurchase")
     public ModelAndView editPurchase(@RequestParam("purchaseId") Long purchaseId) {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("purchaseId",purchaseId);
-        PurchaseDTO purchase =  purchaseService.getPurchase(purchaseId);
+        mv.addObject("purchaseId", purchaseId);
+        PurchaseDTO purchase = purchaseService.getPurchase(purchaseId);
         mv.addObject("purchase", purchase);
         mv.setViewName("/store/editpurchase.jsp");
         return mv;
     }
+
     @RequestMapping(value = "editProduct")
     public ModelAndView editProduct(@RequestParam("productId") Long productId) {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("productId",productId);
-        ProductDTO productDTO =  productService.getProduct(productId);
+        mv.addObject("productId", productId);
+        ProductDTO productDTO = productService.getProduct(productId);
         mv.addObject("product", productDTO);
         mv.setViewName("/store/editproduct.jsp");
         return mv;
@@ -173,22 +173,23 @@ public class ProductController {
     @RequestMapping(value = "deletePurchase")
     public void deletePurchase(HttpServletRequest request, HttpServletResponse response, @RequestParam("purchaseId") Long purchaseId) throws IOException {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("purchaseId",purchaseId);
+        mv.addObject("purchaseId", purchaseId);
         purchaseService.deletePurchase(purchaseId);
         String url = request.getHeader("Referer");
-        if(StringUtils.isEmpty(url)){
+        if (StringUtils.isEmpty(url)) {
             url = "/";
         }
         response.sendRedirect(url);
 
     }
+
     @RequestMapping(value = "deleteProduct")
     public void deleteProduct(HttpServletRequest request, HttpServletResponse response, @RequestParam("productId") Long productId) throws IOException {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("productId",productId);
+        mv.addObject("productId", productId);
         productService.deleteProduct(productId);
         String url = request.getHeader("Referer");
-        if(StringUtils.isEmpty(url)){
+        if (StringUtils.isEmpty(url)) {
             url = "/";
         }
         response.sendRedirect(url);
@@ -201,13 +202,13 @@ public class ProductController {
         PurchaseDTO purchaseDTO = gson.fromJson(purchaseDetails, PurchaseDTO.class);
         purchaseService.savePurchaseDetails(purchaseDTO);
         logger.info(purchaseDetails);
-        mv.addObject("","");
+        mv.addObject("", "");
         mv.setViewName("/store/storemanager.jsp");
-        return  mv;
+        return mv;
     }
 
     @RequestMapping(value = "smdashboard", method = RequestMethod.GET)
-    public ModelAndView smDashBoard(){
+    public ModelAndView smDashBoard() {
         ModelAndView mv = new ModelAndView();
         List<RequestDTO> requestDTOS = requestService.getNewRequest("New");
         mv.addObject("productFound", true);
@@ -218,9 +219,8 @@ public class ProductController {
     }
 
 
-
     @RequestMapping(value = "orderPage", method = RequestMethod.GET)
-    public ModelAndView showOrderPage(){
+    public ModelAndView showOrderPage() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/searchorder.jsp");
         return mv;
@@ -228,7 +228,7 @@ public class ProductController {
 
     @RequestMapping(value = "submitSearchOrder", method = RequestMethod.POST)
     public ModelAndView submitSearchOrder(@RequestParam("prodName") String prodName, @RequestParam("facultyName") String facultyName
-            , @RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate){
+            , @RequestParam("fromDate") String fromDate, @RequestParam("toDate") String toDate) {
 
         List<OrderDTO> orders = new ArrayList<>();
         Date to = new Date(), from = new Date();
@@ -238,19 +238,17 @@ public class ProductController {
         } catch (ParseException e) {
             logger.error("Could not parse the either to or from date, Please contact to administrator.");
         }
-        if(StringUtils.isEmpty(prodName ) && !StringUtils.isEmpty(facultyName)){
+        if (StringUtils.isEmpty(prodName) && !StringUtils.isEmpty(facultyName)) {
             List<FacultyDTO> facultyDTO = facultyService.getFacultyByName(facultyName);
-            for(FacultyDTO faculty : facultyDTO){
+            for (FacultyDTO faculty : facultyDTO) {
                 List<OrderDTO> orderDTOS = orderService.getOrderByFacultyName(faculty.getFacultyId(), from, to);
-                if(orderDTOS != null)
+                if (orderDTOS != null)
                     orders.addAll(orderService.getOrderByFacultyName(faculty.getFacultyId(), from, to));
             }
 
-        }
-        else if(StringUtils.isEmpty(facultyName) && !StringUtils.isEmpty(prodName ) ){
+        } else if (StringUtils.isEmpty(facultyName) && !StringUtils.isEmpty(prodName)) {
             orders = orderService.getOrderByProductName(prodName, from, to);
-        }
-        else{
+        } else {
             orders = orderService.getOrderBetweenDate(from, to);
         }
         ModelAndView mv = new ModelAndView();
@@ -267,7 +265,7 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://keck.ac.in/store/smdashboard");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
 
     @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
@@ -278,11 +276,11 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://keck.ac.in/store/smdashboard");
+        response.sendRedirect("http://localhost/store/smdashboard");
     }
 
     @RequestMapping(value = "smincharge")
-    public ModelAndView smincharge(){
+    public ModelAndView smincharge() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/store/smincharge.jsp");
         return mv;
@@ -290,7 +288,7 @@ public class ProductController {
 
     @RequestMapping(value = "saveRole", method = RequestMethod.POST)
     public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
-        ModelAndView mv=new ModelAndView();
+        ModelAndView mv = new ModelAndView();
         UserRoleDTO userRoleDTO = new UserRoleDTO();
         FacultyDTO facultyDTO = new FacultyDTO();
 
@@ -301,8 +299,8 @@ public class ProductController {
         mv.setViewName("/index.jsp");
     }
 
-    @RequestMapping(value = "deleteUserRole",method = RequestMethod.GET)
-    public void deleteUserRole(HttpServletRequest request, HttpServletResponse response,@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+    @RequestMapping(value = "deleteUserRole", method = RequestMethod.GET)
+    public void deleteUserRole(HttpServletRequest request, HttpServletResponse response, @RequestParam("facultyDetails") String facultyDetails) throws IOException {
         ModelAndView mv = new ModelAndView();
         UserRoleDTO userRoleDTO = new UserRoleDTO();
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
@@ -311,7 +309,6 @@ public class ProductController {
         userService.deleteUserRole(userRoleDTO);
         mv.setViewName("/store/editrequest.jsp");
     }
-
 
 
 }

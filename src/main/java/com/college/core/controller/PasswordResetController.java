@@ -53,7 +53,7 @@ public class PasswordResetController {
                                          @RequestParam("email") String userEmail) throws Exception {
         FacultyDTO facultyDTO = facultyService.findUserByEmail(userEmail);
         User user = null;
-        if(facultyDTO != null)
+        if (facultyDTO != null)
             user = userService.findByUsername(facultyDTO.getUser().getUsername());
 
         if (user == null) {
@@ -80,7 +80,7 @@ public class PasswordResetController {
         email.setSubject(subject);
         email.setText(body);
         email.setTo(user.getFacultyOfficialEmail());
-        email.setFrom("test@keck.ac.in");
+        email.setFrom("test@localhost");
         return email;
     }
 
@@ -127,10 +127,10 @@ public class PasswordResetController {
     @ResponseBody
     public GenericResponse savePassword(Locale locale, @RequestParam("newPassword") String newPassword) {
 
-        if(newPassword == null || (newPassword.length() < 8 || newPassword.length() > 32)){
-            return new GenericResponse("Password must be between 8 to 32 characters.","Invalid Password");
+        if (newPassword == null || (newPassword.length() < 8 || newPassword.length() > 32)) {
+            return new GenericResponse("Password must be between 8 to 32 characters.", "Invalid Password");
         }
-        User user= (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         user.setPassword(newPassword);
         userService.save(user);
         return new GenericResponse(

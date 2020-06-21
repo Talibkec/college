@@ -1,7 +1,9 @@
 package com.college.core.controller;
 
+import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.ImageSlideDTO;
 
+import com.college.service.GalleryImageService;
 import com.college.service.ImageSlideService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -28,6 +30,8 @@ import java.io.InputStream;
 public class SlideImageController {
     @Autowired
     ImageSlideService imageSlideService;
+    @Autowired
+    GalleryImageService galleryImageService;
     private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
 
 
@@ -61,6 +65,35 @@ public class SlideImageController {
 
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/auth/api/uploadgalleryimage", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadFiles(
+            @RequestParam("galleryImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
+        logger.debug("Single file upload!");
+        String fileName = uploadfile.getOriginalFilename();
+        String fileType = uploadfile.getContentType();
+        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please give a proper caption";
+            }
+            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
+
+        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+        saveImageGallery(uploadfile, caption, fileName, fileType);
+
+
+        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
+        notice = notice + "," + caption;
+        notice = notice + "," + uploadfile;
+        return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
+
+    }
+
     @RequestMapping(value = "/auth/uploadfile/uploadslideimage", method = RequestMethod.GET)
     public ModelAndView displaySlideImage() {
         ModelAndView model = new ModelAndView();
@@ -82,6 +115,23 @@ public class SlideImageController {
         }
         imageSlideDTO.setFileType(FilenameUtils.getExtension(fileName));
         imageSlideService.saveImageSlide(imageSlideDTO);
+
+
+    }
+
+    private void saveImageGallery(MultipartFile uploadfile, String caption, String fileName, String fileType) {
+        GalleryImageDTO galleryImageDTO = new GalleryImageDTO();
+        galleryImageDTO.setCaption(caption);
+        galleryImageDTO.setFileName(fileName);
+        galleryImageDTO.setFileType(fileType);
+
+        try {
+            galleryImageDTO.setImage(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        galleryImageDTO.setFileType(FilenameUtils.getExtension(fileName));
+        galleryImageService.saveImageSlide(galleryImageDTO);
 
 
     }

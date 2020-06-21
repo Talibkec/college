@@ -144,7 +144,9 @@ public class CommonResourceController {
             @RequestParam("facultyName") String facultyName,
             @RequestParam("facultyId") Long facultyId,
             @RequestParam("newProps") String newProps,
-            @RequestParam("oldProps") String oldProps){
+            @RequestParam("oldProps") String oldProps,
+            @RequestParam("oldKeyOrder") List<String> oldKeyOrder,
+            @RequestParam("newKeyOrder") List<String> newKeyOrder){
 
         FacultyDTO newFacultyDTO = new FacultyDTO();
         Type type = new TypeToken<LinkedHashMap<String, List<String>>>(){}.getType();
@@ -153,8 +155,8 @@ public class CommonResourceController {
         FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
         BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
         newFacultyDTO.getFacultyKeyProps().clear();
-        addNewProperties(newFacultyDTO, oldPropMap);
-        addNewProperties(newFacultyDTO, newPropsMap);
+        addProperties(newFacultyDTO, oldPropMap, oldKeyOrder);
+        addProperties(newFacultyDTO, newPropsMap, newKeyOrder);
         if (!StringUtils.isEmpty(facultyOfficialEmail)) {
             newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
         }
@@ -172,19 +174,21 @@ public class CommonResourceController {
 
     }
 
-    private void addNewProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props) {
-        for(String propKey: props.keySet()){
+    private void addProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props, List<String> keysOrder) {
+        for(String propKey: keysOrder){
             if(!StringUtils.isEmpty(propKey)){
                 FacultyKeyPropsDTO keyPropsDTO = new FacultyKeyPropsDTO();
                 keyPropsDTO.setFaculty(newFacultyDTO);
                 keyPropsDTO.setKeyPropertyName(propKey);
                 List<String> propValues = props.get(propKey);
-                for(String propVal: propValues){
-                    if(!StringUtils.isEmpty(propVal)) {
-                        FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
-                        facultyKeyPropValuesDTO.setFacultyKeyProps(keyPropsDTO);
-                        facultyKeyPropValuesDTO.setKeyPropVal(propVal);
-                        keyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+                if(!StringUtils.isEmpty(propValues)) {
+                    for (String propVal : propValues) {
+                        if (!StringUtils.isEmpty(propVal)) {
+                            FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+                            facultyKeyPropValuesDTO.setFacultyKeyProps(keyPropsDTO);
+                            facultyKeyPropValuesDTO.setKeyPropVal(propVal);
+                            keyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
+                        }
                     }
                 }
                 newFacultyDTO.getFacultyKeyProps().add(keyPropsDTO);

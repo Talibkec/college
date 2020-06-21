@@ -45,12 +45,12 @@ width:8%
                             <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyProp">
                             <div class="oldpropkeybox" >
                             <div class="panel panel-success"style="margin-top:5%">
-                            <input type="text" name="keyProp"placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyName}" ></input>
+                            <input type="text" name="keyProp" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyName}" ></input>
                             <a href="javascript:void(0);" class="remove_Key btn btn-danger" style ="margin-top:2%;margin-left:5%;margin-bottom:2%">Delete Property Heading</a>
 
                             <c:forEach items="${keyProp.keyPropVals}" var="propVal">
                                <div class="propVals">
-                                <input type="textarea"name="field_name[]" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropVal}"class="propVal col-md-6" />
+                                <input type="textarea"name="field_name" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropVal}"class="propVal col-md-6" />
                                 <a href="javascript:void(0);" class="add_button btn btn-success "id="add_button"style ="width:8%;margin-left:5%;margin-bottom:2%;"><span class="glyphicon glyphicon-plus-sign"></span></a>
                                 <a href="javascript:void(0);" class="remove_button btn btn-danger "style="width:8%;margin-bottom:2%;margin-left:2%"><span class="glyphicon glyphicon-remove-sign"></span></a>
                                </div>
@@ -63,14 +63,14 @@ width:8%
                         <button class="btn btn-success"><span class="glyphicon glyphicon-plus-sign">Add New Property</span></button>
                         </div>
                         <div class="newPropsClass">
-                            <div class="newpropkeybox"style="display:none">
+                            <div class="newpropkeybox" style="display:none">
                             <div class ="panel panel-success">
                                 <input type="text" name="propkey"style="margin-left:3%;margin-top:2%"placeholder="Property Heading" class="propKey  col-md-6" />
                                 <a href="javascript:void(0);" class="remove_Key btn btn-danger"id="deleteNewProps" style="width:8%;margin-left:5%;margin-top:2%;margin-right:1%">Delete </a>
                                 <a href="javascript:void(0);"style="margin-top:2%;width:9%" class="add_key btn btn-success add_keYAlign" >Add More </a>
 
                                 <div class="propVals">
-                                    <input type="text"style="margin-left:3%;margin-top:2%" placeholder="Property Value"name="field_name[]" value="" class="propVal  col-md-6" />
+                                    <input type="text"style="margin-left:3%;margin-top:2%" placeholder="Property Value"name="field_name" value="" class="propVal  col-md-6" />
                                     <a href="javascript:void(0);" class="add_button btn btn-success"style="width:8%;margin-left:5%;margin-top:2%"><span class="glyphicon glyphicon-plus-sign"></span></a>
                                     <a href="javascript:void(0);" class="remove_button btn btn-danger " style="width:9.5%;margin-top:2%;margin-left:0.5%"><span class="glyphicon glyphicon-remove-sign"></span></a>
                                 </div>

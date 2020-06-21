@@ -7,7 +7,7 @@ $(document).ready(function () {
     var fieldHTML = '<div class="newpropkeybox panel panel-success"><input type="text" placeholder="Property Heading"name="propkey"style="margin-top:2%;margin-left:3%" class="propKey control-label col-md-6"/>' +
         '<a href="javascript:void(0);" class="remove_Key btn btn-danger"style="width:8%;margin-left:5%;margin-top:2%;margin-right:1%">Delete </a>' +
         '<a href="javascript:void(0);" class="add_key btn btn-success "style="margin-top:2%;WIDTH:9%">Add More</a>' +
-        '<div class="propVals"><input type="text" placeholder="Property Value"name="field_name[]" style="margin-left:3%;margin-top:2%"value="" class="propVal control-label col-md-6"/>' +
+        '<div class="propVals"><input type="text" placeholder="Property Value"name="field_name" style="margin-left:3%;margin-top:2%"value="" class="propVal control-label col-md-6"/>' +
         '<a href="javascript:void(0);" class="add_button btn btn-success" style="width:8%;margin-left:5%;margin-top:2%"><span class="glyphicon glyphicon-plus-sign"></span></a>' +
         '<a href="javascript:void(0);" class="remove_button btn btn-danger"style="width:9.5%;margin-left:1%;margin-top:2%;margin-left:0.5%"><span class="glyphicon glyphicon-remove-sign"></span></a></div></div>';
     //New input field html
@@ -16,7 +16,7 @@ $(document).ready(function () {
     //Once add button is clicked
     $(wrapper).on('click', '.add_button', function (e) {
         e.preventDefault();
-        $(this).parent('div').append('<div class="propVals"><input type="text"placeholder="Property Value" name="field_name[]" value=""style="margin-left:3%;margin-top:2%" class="propVal control-label col-md-6"/>' +
+        $(this).parent('div').append('<div class="propVals"><input type="text"placeholder="Property Value" name="field_name" value=""style="margin-left:3%;margin-top:2%" class="propVal control-label col-md-6"/>' +
             '<a href="javascript:void(0);" class="add_button btn btn-success"style="width:8%;margin-left:5%;margin-top:2%;margin-right:1%"><span class="glyphicon glyphicon-plus-sign"></span></a>' +
             '<a href="javascript:void(0);" class="remove_button btn btn-danger "style="width:9%;margin-top:2%;margin-left:0.5%"><span class="glyphicon glyphicon-remove-sign"></span></a>'); //Remove field html
         x--; //Decrement field counter
@@ -26,7 +26,7 @@ $(document).ready(function () {
         //Check maximum number of input fields
         if (x < maxField) {
             x++; //Increment field counter
-            $(".newpropkeybox").after(fieldHTML); //Add field html
+            $(".newpropkeybox").last().after(fieldHTML); //Add field html
         }
 
     });
@@ -59,7 +59,7 @@ $(document).ready(function () {
 
     $(".oldPropsClass").on('click', '.add_button', function (e) {
         e.preventDefault();
-        $(this).parent('div').append('<div class="propVals"><input type="text" style="margin-left:3%" name="field_name[]" value="" class="propVal col-md-6"/>' +
+        $(this).parent('div').append('<div class="propVals"><input type="text" style="margin-left:3%" name="field_name" value="" class="propVal col-md-6"/>' +
             '<a href="javascript:void(0);" class="add_button btn btn-success "id="add_button"style ="width:8.5%;margin-left:5%;margin-bottom:2%;"><span class="glyphicon glyphicon-plus-sign"></span></a>' +
             '<a href="javascript:void(0);" class="remove_button btn btn-danger "style="width:8%;margin-bottom:2%;margin-left:2%"><span class="glyphicon glyphicon-remove-sign"></span></a>'); //Remove field html
         x--; //Decrement field counter
@@ -98,7 +98,7 @@ $("#addNewProp").on('click',function(e){
 
 });
 
-function getProps(clazz) {
+function getProps(clazz, keysOrder) {
     newProps = {};
     arr = $(clazz);
     $.each(arr, function (index, item) {
@@ -106,6 +106,7 @@ function getProps(clazz) {
         if($(this).find('input.propKey')[0] != undefined && $(this).find('input.propKey')[0] != null)  {
 
              var propKey = $(this).find('input.propKey')[0].value;
+             keysOrder.push(propKey);
              var propVals = $(this).find('input.propVal')
                         .map(function () { return $(this).val(); }).get();
              if(propKey !=undefined && propKey!=null && propKey!=""){
@@ -121,15 +122,19 @@ function getProps(clazz) {
 
 function fire_ajax_submit() {
 
-    var newProps = getProps(".newpropkeybox");
-    var oldProps = getProps(".oldpropkeybox");
-
+    var oldKeyOrder = [];
+    var newKeyOrder = [];
+    //Below order matters here.
+    var oldProps = getProps(".oldpropkeybox", oldKeyOrder);
+    var newProps = getProps(".newpropkeybox", newKeyOrder);
     // Get form
     var form = $('#editDetailsForm')[0];
 
     var data = new FormData(form);
     data.append("newProps", JSON.stringify(newProps));
     data.append("oldProps", JSON.stringify(oldProps));
+    data.append("oldKeyOrder", oldKeyOrder);
+    data.append("newKeyOrder", newKeyOrder);
     $("#btnSubmit").prop("disabled", true);
 
     $.ajax({

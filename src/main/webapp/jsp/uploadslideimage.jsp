@@ -15,11 +15,24 @@
     <div id="msg" style="display: none; color: red;">*Please Select a file</div>
     <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" /><div class="col-sm-5"></div></div>
 </form>
-<form method="GET" action="/" id="homePageForm">
 
+<div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Gallery Images</div>
+<div class="panel-body">
 
-
+<form method="POST" enctype="multipart/form-data" id="galleryimageUploadForm" action="localhost">
+    <label for="caption" class="control-label col-sm-4" >Caption</label>
+    <div class="col-sm-8">
+        <input type="text" name="caption" id="caption"/><br/><br/>
+    </div>
+      <label for="file" class="control-label col-sm-4" >Choose File</label>
+    <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="galleryImage" id="galleryImage"/><br/></div></div>
+    <div id="msg" style="display: none; color: red;">*Please Select a file</div>
+    <input type="submit" value="Submit" id="gallerybtnSubmit" class="btn btn-primary" /><div class="col-sm-5"></div></div>
 </form>
+
+</div>
+</div>
+</div>
 </div>
 </div>
 </div></div></div>
@@ -27,3 +40,4 @@
 <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
 <script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
 <script src="http://localhost/js/slideimageupload.js"></script>
+<script src="http://localhost/js/galleryImageUpload.js"></script>

@@ -4,7 +4,7 @@
         <c:if test = "${'Admin' eq item}">
         <strong><i class="fa fa-news"></i> <a href="/auth/uploadfile/upload">Upload Notice / News</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="/auth/sendMessage">Send Message</a></strong>|
-        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image</a></strong>|
+        <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/uploadslideimage">Upload Slider Image / Gallery Image</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/addfaculty">Add Faculty</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/updateAdministration">Assign Administration Role</a></strong>
         |<strong><i class="fa fa-news"></i> <a href="auth/uploadfile/achievementslideimage">Add a Achievement</a></strong>

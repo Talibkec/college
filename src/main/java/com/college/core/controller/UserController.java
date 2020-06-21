@@ -4,6 +4,7 @@ import com.college.KECDateHelper;
 import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
 import com.college.core.model.AchievementDTO;
+import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.ImageSlideDTO;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.*;
@@ -51,6 +52,9 @@ public class UserController {
 
     @Autowired
     ImageSlideService imageSlideService;
+
+    @Autowired
+    GalleryImageService galleryImageService;
     @Autowired
     AchievementSlideService achievementSlideService;
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -174,6 +178,18 @@ public class UserController {
         }
         return null;
     }
+
+    @RequestMapping(value = "/{id}/galleryImage")
+    public @ResponseBody
+    byte[] getimage(@PathVariable("id") Long galleryImageId) throws IOException {
+        GalleryImageDTO galleryImageDTO = galleryImageService.getImages(galleryImageId);
+        if (galleryImageDTO.getImage() != null) {
+            InputStream in = new ByteArrayInputStream(galleryImageDTO.getImage());
+            return IOUtils.toByteArray(in);
+        }
+        return null;
+    }
+
 
     @RequestMapping(value = "/{id}/achievementImage")
     public @ResponseBody

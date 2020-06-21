@@ -20,6 +20,12 @@ public class AcademicController {
         mv.setViewName("academic/regulations.jsp");
         return mv;
     }
+    @RequestMapping(value = "adminsValue")
+    public ModelAndView getAdmins() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("academic/administration.jsp");
+        return mv;
+    }
 
     @RequestMapping(value = "calender")
     public ModelAndView getCalender() {

@@ -60,15 +60,5 @@ public class GalleryController {
         return galleryImage;
     }
 
-    @RequestMapping(value = "/{id}/galleryImage")
-    public @ResponseBody
-    byte[] getimages(@PathVariable("id") Long galleryImageId) throws IOException {
-        GalleryImageDTO galleryImageDTO = galleryImageService.getImages(galleryImageId);
-        if (galleryImageDTO.getImage() != null) {
-            InputStream in = new ByteArrayInputStream(galleryImageDTO.getImage());
-            return IOUtils.toByteArray(in);
-        }
-        return null;
-    }
 
 }

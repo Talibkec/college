@@ -11,23 +11,28 @@
 
 
 </head>
-   <style>
-   	.gallery img{
-   		width: 260px;
-   		padding: 5px;
+ <style>
+ div.gallery {
+   margin: 15px;
+   border: 1px solid #ccc;
+   float: left;
+   width: 300px;
+ }
 
-   	}
+ div.gallery:hover {
+   border: 1px solid #777;
+ }
 
-   	   .gallery img:hover{
+ div.gallery img {
+   width: 150%;
+   height: 200px;
+ }
 
-
-   		transform: scale(1.1);
-   		transition: 1s;
-   	}
-
-
-
-   </style>
+ div.desc {
+   padding: 15px;
+   text-align: center;
+ }
+ </style>
 
 <body>
 

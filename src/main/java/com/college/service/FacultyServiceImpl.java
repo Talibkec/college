@@ -6,6 +6,7 @@ import com.college.core.entity.Faculty;
 import com.college.core.entity.PasswordResetToken;
 import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
+import com.college.core.model.FacultyKeyPropsDTO;
 import com.college.repository.FacultyRepository;
 import com.college.repository.PasswordResetTokenRepository;
 import com.college.repository.UserRepository;
@@ -48,6 +49,10 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public void saveFaculty(FacultyDTO facultyDTO) {
 
+        System.out.println("Insertion Order inservice layer saveFaculty method ");
+        for(FacultyKeyPropsDTO keyPropsDTO:facultyDTO.getFacultyKeyProps()){
+            System.out.println(keyPropsDTO.getKeyPropertyName());
+        }
         Faculty faculty = modelMapper.map(facultyDTO, Faculty.class);
         facultyRepository.save(faculty);
     }
@@ -58,6 +63,10 @@ public class FacultyServiceImpl implements FacultyService {
         Faculty faculty = facultyRepository.findOne(id);
         if (faculty != null) {
             facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
+        }
+        System.out.println("Fetching Order inservice layer method ");
+        for(FacultyKeyPropsDTO keyPropsDTO:facultyDTO.getFacultyKeyProps()){
+            System.out.println(keyPropsDTO.getKeyPropertyName());
         }
         return facultyDTO;
     }

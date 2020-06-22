@@ -148,14 +148,14 @@ public class CommonResourceController {
             @RequestParam("oldKeyOrder") List<String> oldKeyOrder,
             @RequestParam("newKeyOrder") List<String> newKeyOrder){
 
+        System.out.println("oldKeyOrder = " + oldKeyOrder);
+        System.out.println("newKeyOrder = " + newKeyOrder);
         FacultyDTO newFacultyDTO = new FacultyDTO();
         Type type = new TypeToken<LinkedHashMap<String, List<String>>>(){}.getType();
         LinkedHashMap<String, List<String>> oldPropMap = gson.fromJson(oldProps, type);
         LinkedHashMap<String, List<String>> newPropsMap = gson.fromJson(newProps, type);
         FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
         BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
-        newFacultyDTO.getFacultyKeyProps().clear();
-        addProperties(newFacultyDTO, oldPropMap, oldKeyOrder);
         addProperties(newFacultyDTO, newPropsMap, newKeyOrder);
         if (!StringUtils.isEmpty(facultyOfficialEmail)) {
             newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);

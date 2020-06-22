@@ -155,6 +155,7 @@ public class CommonResourceController {
         LinkedHashMap<String, List<String>> oldPropMap = gson.fromJson(oldProps, type);
         LinkedHashMap<String, List<String>> newPropsMap = gson.fromJson(newProps, type);
         FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
+        removeProps(oldKeyOrder, oldFacultyDTO);
         BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
         addProperties(newFacultyDTO, newPropsMap, newKeyOrder);
         if (!StringUtils.isEmpty(facultyOfficialEmail)) {
@@ -174,12 +175,40 @@ public class CommonResourceController {
 
     }
 
+    private void removeProps(List<String> oldProps, FacultyDTO oldFacultyDTO) {
+        List<FacultyKeyPropsDTO> facultyKeyProps = oldFacultyDTO.getFacultyKeyProps();
+        List<FacultyKeyPropsDTO> removeList = new ArrayList<>();
+        if(facultyKeyProps != null){
+            for(FacultyKeyPropsDTO keyPropsDTO:facultyKeyProps){
+                boolean found = false;
+                for(String key : oldProps){
+                    if(key.equalsIgnoreCase(keyPropsDTO.getKeyPropertyName())){
+                        found = true;
+                    }
+                }
+                if(!found){
+                    removeList.add(keyPropsDTO);
+                }
+
+            }
+        }
+        facultyKeyProps.removeAll(removeList);
+    }
+
     private void addProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props, List<String> keysOrder) {
+        List<FacultyKeyPropsDTO> facultyKeyProps = newFacultyDTO.getFacultyKeyProps();
+        Integer keyOrderNumber = 0;
+        if(facultyKeyProps != null){
+            Integer len = facultyKeyProps.size() - 1;
+            if(len >=0)
+                keyOrderNumber = facultyKeyProps.get(len).getKeyPropsOrder() + 1;
+        }
         for(String propKey: keysOrder){
             if(!StringUtils.isEmpty(propKey)){
                 FacultyKeyPropsDTO keyPropsDTO = new FacultyKeyPropsDTO();
                 keyPropsDTO.setFaculty(newFacultyDTO);
                 keyPropsDTO.setKeyPropertyName(propKey);
+                keyPropsDTO.setKeyPropsOrder(keyOrderNumber++);
                 List<String> propValues = props.get(propKey);
                 if(!StringUtils.isEmpty(propValues)) {
                     for (String propVal : propValues) {

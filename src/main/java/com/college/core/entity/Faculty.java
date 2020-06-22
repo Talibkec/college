@@ -101,6 +101,7 @@ public class Faculty {
     /*-------------------------------------------------------------*/
     @OneToMany(mappedBy = "faculty", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.SELECT)
+    @OrderBy("key_props_order")
     public List<FacultyKeyProps> getFacultyKeyProps() {
         return facultyKeyProps;
     }

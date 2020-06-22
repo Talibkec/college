@@ -11,6 +11,7 @@ public class FacultyKeyProps {
     private String keyPropertyName;
     private Faculty faculty;
     private List<FacultyKeyPropValues> keyPropVals = new ArrayList<>() ;
+    private Integer keyPropsOrder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
@@ -39,5 +40,14 @@ public class FacultyKeyProps {
 
     public void setKeyPropVals(List<FacultyKeyPropValues> keyPropVals) {
         this.keyPropVals = keyPropVals;
+    }
+
+    public void setKeyPropsOrder(Integer keyPropsOrder) {
+        this.keyPropsOrder = keyPropsOrder;
+    }
+
+    @Column(name = "key_props_order")
+    public Integer getKeyPropsOrder() {
+        return keyPropsOrder;
     }
 }

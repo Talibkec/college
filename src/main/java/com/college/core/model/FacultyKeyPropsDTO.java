@@ -9,6 +9,7 @@ public class FacultyKeyPropsDTO {
     private Long keyPropertyId;
     private String keyPropertyName;
     private FacultyDTO faculty;
+    private Integer keyPropsOrder;
     private List<FacultyKeyPropValuesDTO> keyPropVals = new ArrayList<>();
 
     public Long getKeyPropertyId() {
@@ -41,5 +42,13 @@ public class FacultyKeyPropsDTO {
 
     public FacultyDTO getFaculty() {
         return faculty;
+    }
+
+    public void setKeyPropsOrder(Integer keyPropsOrder) {
+        this.keyPropsOrder = keyPropsOrder;
+    }
+
+    public Integer getKeyPropsOrder() {
+        return keyPropsOrder;
     }
 }

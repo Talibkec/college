@@ -102,7 +102,11 @@
                                 <table class="table table-striped">
                                     <tbody>
                                     <tr>
-                                        <td>&nbsp&nbsp&nbsp${propVal.keyPropVal}</td>
+                                    <ul>
+                                       <li>
+                                        ${propVal.keyPropVal}
+                                       </li>
+                                     </ul>
                                     </tr>
                                     </tbody>
                                 </table>

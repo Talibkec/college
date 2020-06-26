@@ -15,6 +15,7 @@ public class FacultyDTO {
     private Long facultyMobNo;
     private String facultyOfficialEmail;
     private String facultyPersonalEmail;
+    private String imageURL;
 
 
     private byte[] facultyPhoto;
@@ -100,5 +101,11 @@ public class FacultyDTO {
         this.facultyKeyProps = facultyKeyProps;
     }
 
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
+    public String getImageURL() {
+        return imageURL;
+    }
 }

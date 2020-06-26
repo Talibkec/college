@@ -32,8 +32,8 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                         src="http://localhost/${faculty.facultyId}/image.${faculty.fileType}"
-                                                                         style="background-image: url(rps.JPG)"/>
+                                                                         src="${faculty.imageURL}"
+                                                                         />
                                 <div class="visible-xs"><br/></div>
                             </div>
 

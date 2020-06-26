@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.codec.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -25,7 +26,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
 
 @Controller
 public class CommonResourceController {
@@ -323,9 +328,22 @@ public class CommonResourceController {
     }
 
     @RequestMapping(value = "faculty")
-    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno) {
+    public ModelAndView getFaculty(@RequestParam("deptno") Long deptno) throws IOException {
         ModelAndView mv = new ModelAndView();
         List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
+        for( FacultyDTO dto: facultyList){
+            String url = null;
+            if (dto.getFacultyPhoto() != null && "png".equalsIgnoreCase(dto.getFileType())){
+                url = "data:image/png;base64," + new String(Base64.encode(dto.getFacultyPhoto()));
+            }
+            else if(dto.getFacultyPhoto() != null && "jpg".equalsIgnoreCase(dto.getFileType())){
+                url = "data:image/jpg;base64," + new String(Base64.encode(dto.getFacultyPhoto()));
+            }
+            else if(dto.getFacultyPhoto() != null && "jpeg".equalsIgnoreCase(dto.getFileType())){
+                url = "data:image/jpeg;base64," + new String(Base64.encode(dto.getFacultyPhoto()));
+            }
+            dto.setImageURL(url);
+        }
         mv.addObject("facultyList", facultyList);
         mv.setViewName("facultylist.jsp");
         return mv;

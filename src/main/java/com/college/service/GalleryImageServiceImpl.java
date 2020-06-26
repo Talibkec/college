@@ -31,8 +31,6 @@ public class GalleryImageServiceImpl implements GalleryImageService{
         galleryImageRepository.save(galleryImage);
     }
 
-    @Override
-    @Cacheable(value = "homepageSlideImageCache")
     public List<GalleryImageDTO> getAllImages() {
         logger.info("Query is being served from database for image slide.");
 

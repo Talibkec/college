@@ -23,7 +23,7 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Autowired
     AchievementRepository achievementRepository;
     @Override
-    @CacheEvict(value="achievementSlideImageCache",allEntries = true)
+    //@CacheEvict(value="achievementSlideImageCache",allEntries = true)
     public  void saveAchievementSlide(AchievementDTO achievementDTO){
 
         Achievement achievement = modelMapper.map(achievementDTO, Achievement.class);
@@ -41,7 +41,7 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     }
 
     @Override
-    @Cacheable(value = "achievementSlideImageCache")
+    //@Cacheable(value = "achievementSlideImageCache")
     public List<AchievementDTO> getAllImages() {
 
         List<Achievement> achievements = achievementRepository.getAllImages();
@@ -52,7 +52,7 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     }
 
     @Override
-    @CacheEvict(value="deleteAchievementCache",allEntries = true)
+   // @CacheEvict(value="deleteAchievementCache",allEntries = true)
     public  void deleteAchievementImage(Long id){
         achievementRepository.delete(id);
     }

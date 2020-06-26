@@ -10,6 +10,14 @@ public class Department {
     private String departmentName;
     private String departmentHod;
 
+    public Department(){
+
+    }
+
+    public  Department(String departmentHod){
+        this.departmentHod = departmentHod;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "departmentId")
     @SequenceGenerator(name = "departmentId", sequenceName = "departmentId")

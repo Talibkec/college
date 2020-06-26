@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface DepartmentService {
     List<DepartmentDTO> getAllDepartment();
+    public String getHodName(Long deptId);
 }

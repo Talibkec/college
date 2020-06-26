@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
                                                                          src="${faculty.imageURL}"
-                                                                         />
+                                                                         style="background-image: url(rps.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
 

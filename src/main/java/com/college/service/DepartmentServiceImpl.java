@@ -27,4 +27,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         }.getType();
         return modelMapper.map(departments, targetListType);
     }
+
+    @Override
+    public String getHodName(Long deptId){
+        Department department = departmentRepository.getHodName(deptId);
+        return department.getDepartmentHod();
+    }
+
 }

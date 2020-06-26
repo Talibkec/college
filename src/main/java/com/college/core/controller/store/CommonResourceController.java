@@ -26,10 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -53,6 +50,8 @@ public class CommonResourceController {
     Gson gson;
     @Autowired
     UserService userService;
+    @Autowired
+    DepartmentService departmentService;
 
 
     @ResponseBody
@@ -331,7 +330,12 @@ public class CommonResourceController {
     public ModelAndView getFaculty(@RequestParam("deptno") Long deptno) throws IOException {
         ModelAndView mv = new ModelAndView();
         List<FacultyDTO> facultyList = facultyService.getFacultyByDeptNo(deptno);
-        for( FacultyDTO dto: facultyList){
+        Iterator<FacultyDTO> iterator = facultyList.iterator();
+        String hodName = departmentService.getHodName(deptno);
+        int index = 0;
+        FacultyDTO hod = null;
+        while(iterator.hasNext()){
+            FacultyDTO dto = iterator.next();
             String url = null;
             if (dto.getFacultyPhoto() != null && "png".equalsIgnoreCase(dto.getFileType())){
                 url = "data:image/png;base64," + new String(Base64.encode(dto.getFacultyPhoto()));
@@ -342,7 +346,18 @@ public class CommonResourceController {
             else if(dto.getFacultyPhoto() != null && "jpeg".equalsIgnoreCase(dto.getFileType())){
                 url = "data:image/jpeg;base64," + new String(Base64.encode(dto.getFacultyPhoto()));
             }
+
             dto.setImageURL(url);
+            if(dto.getFacultyName()!= null && dto.getFacultyName().contains("HOD")){
+                iterator.remove();
+            }
+            else if(dto.getFacultyName()!= null && dto.getFacultyName().equalsIgnoreCase(hodName)){
+               hod = dto;
+               iterator.remove();
+            }
+        }
+        if(hod != null){
+            facultyList.add(0, hod);
         }
         mv.addObject("facultyList", facultyList);
         mv.setViewName("facultylist.jsp");

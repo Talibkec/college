@@ -51,11 +51,9 @@ public class GalleryController {
 
     private List<GalleryImageDTO> getImageList(List<GalleryImageDTO> imageList) {
         List<GalleryImageDTO> galleryImage = new ArrayList<>();
-
         for (GalleryImageDTO dto : imageList) {
             dto.setFileType(("." + FilenameUtils.getExtension(dto.getFileName())));
             galleryImage.add(dto);
-
         }
         return galleryImage;
     }

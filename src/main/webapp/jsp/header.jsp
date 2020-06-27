@@ -56,7 +56,7 @@
                                         <ul>
                                         <li>
                                         <form id = "searchFacultyName">
-                                        <div class="col-md-7 text-center "><input type="text" name="facultyName" id = "facultyNames" /></div>
+                                        <div class="col-md-7 text-center "><input type="text"placeholder="Search Faculty" name="facultyName" id = "facultyNames" /></div>
                                         <div class="col-md-5 text-center"><input type="submit" value="Search" id="search" class="btn btn-success" /></div>
                                         </form>
                                         </li>

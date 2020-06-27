@@ -300,3 +300,8 @@
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://localhost/js/jquery-ui.js"></script>
 <script src="http://localhost/js/searchFaculty.js"></script>
+<style>
+.ui-autocomplete{
+z-index:100000000
+}
+</style>

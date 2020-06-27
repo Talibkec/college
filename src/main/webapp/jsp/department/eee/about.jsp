@@ -47,7 +47,7 @@
                                                 <ul class="menu nav">
                                                <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/eee/about" class="sf-depth-2 active">About Electrical & Electronics Engg.</a></li>
                                                <li class="leaf menu-mlid-1121"><a href="http://localhost/department/eee/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                               <li class="leaf menu-mlid-1156"><a href="http://localhost/department/eee/faculty" class="sf-depth-2">Faculty of Electrical & Electronics Engg.</a></li>
+                                               <li class="leaf menu-mlid-1156"><a href="http://localhost/faculty?deptno=4" class="sf-depth-2">Faculty of Electrical & Electronics Engg.</a></li>
                                                <li class="leaf menu-mlid-1294"><a href="http://localhost/department/eee/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/question" class="sf-depth-2">Question Bank</a></li>
                                                <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/awards" class="sf-depth-2">awards & Recognition</a></li>

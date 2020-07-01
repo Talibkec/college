@@ -1,7 +1,26 @@
-<jsp:include page="header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-<div style="margin-left:50px" ><h3>Upload File</h3></div>
-</div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
+
+<jsp:include page="./admin/HeaderDashboard.jsp"/>
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+           
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              
+              
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+<div class="col-sm-offset-4 col-sm-4">
 <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Notice/News</div>
 <div class="panel-body">
 
@@ -50,7 +69,7 @@
     <input type="hidden" name="hnoticeType" id="hnoticeType"/><br/><br/>
 </form></div>
 </div>
-</div></div></div>
+</div></div>
 <jsp:include page ="footer.jsp"/>
 <link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>

@@ -1,8 +1,6 @@
-<jsp:include page="header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-<div style="margin-left:50px" ><h3>Upload Achievement Image</h3></div>
+<jsp:include page="./admin/HeaderDashboard.jsp"/>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
-<div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Image</div>
+<div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Achievement Image</div>
 <div class="panel-body">
 
 <form method="POST" enctype="multipart/form-data" id="achievementImageUploadForm" action="localhost">

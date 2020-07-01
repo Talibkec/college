@@ -1,6 +1,6 @@
-<jsp:include page="header.jsp"/>
+<jsp:include page="./admin/HeaderDashboard.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></div></div>
 <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
 <div class="panel panel-primary"><div class="panel-heading"> <i class="fa fa-sign-in"></i>&nbsp;Update Administration Details</div>
 <div class="panel-body"style="height:100%; ">

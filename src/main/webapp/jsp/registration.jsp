@@ -4,10 +4,8 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<jsp:include page ="header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-<div style="margin-left:10%"><h2> Create Account</h1></div>
-</div>
+<jsp:include page ="./admin/HeaderDashboard.jsp"/>
+</div></div>
 <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4"><div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Create Accoount</div>
 
 

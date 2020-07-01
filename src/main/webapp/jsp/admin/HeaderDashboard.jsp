@@ -55,7 +55,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+            <a href="http://localhost/auth/uploadDashboard" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -64,7 +64,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/uploadDashboard" class="nav-link ">
+                <a href="/auth/uploadDashboard" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dashboard</p>
                 </a>
@@ -95,7 +95,7 @@
                  </a>
                </li>
                <li class="nav-item">
-                  <a href="http://localhost/auth/uploadfile/uploadslideimage" class="nav-link">
+                  <a href="http://localhost/auth/registration" class="nav-link">
                     <i class="ion ion-person-add "></i>
                     <p>User Registration</p>
                   </a>
@@ -107,12 +107,12 @@
               </a>
             </li>
            <li class="nav-item">
-              <a href="http://localhost/auth/uploadfile/achievementslideimage" class="nav-link">
+              <a href="http://localhost/auth/uploadfile/updateAdministration" class="nav-link">
                  <p>Assign Administration Role</p>
               </a>
            </li>
            <li class="nav-item">
-              <a href="http://localhost/auth/uploadfile/achievementslideimage" class="nav-link">
+              <a href="http://localhost/auth/uploadDashboard" class="nav-link">
                  <i class="ion ion-person "></i>               
                  <p>Assign HOD Role</p>
                </a>

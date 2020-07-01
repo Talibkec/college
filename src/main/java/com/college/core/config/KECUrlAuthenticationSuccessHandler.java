@@ -50,6 +50,7 @@ public class KECUrlAuthenticationSuccessHandler
     protected String determineTargetUrl(Authentication authentication) {
         boolean isSM = false;
         boolean isSK = false;
+        boolean isAdmin=false;
 
         Collection<? extends GrantedAuthority> authorities
                 = authentication.getAuthorities();
@@ -61,13 +62,20 @@ public class KECUrlAuthenticationSuccessHandler
                 isSK = true;
                 break;
             }
+            else if (grantedAuthority.getAuthority().equals("Admin")){
+                isAdmin=true;
+            }
         }
 
         if (isSM) {
             return "/store/smdashboard";
         } else if (isSK) {
             return "/sk/storekeeper";
-        } else {
+        }
+        else if(isAdmin){
+            return "/auth/uploadDashboard";
+        }
+        else {
             return "/";
         }
     }

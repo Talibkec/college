@@ -18,7 +18,7 @@ import java.util.List;
 public class AdminController {
     @Autowired
     NoticeBoardService noticeBoardService;
-    @RequestMapping(value = "uploadDashboard")
+    @RequestMapping(value = "/auth/uploadDashboard")
     public ModelAndView getUploadDashboard() {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         ModelAndView mv = new ModelAndView();

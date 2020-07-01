@@ -36,7 +36,7 @@
               <div class="icon">
                 <i class="ion ion-upload"></i>
               </div>
-              <a href="/auth/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="http://localhost/auth/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -51,7 +51,7 @@
               <div class="icon">
                 <i class="ion ion-image"></i>
               </div>
-              <a href="auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="http://localhost/auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -64,7 +64,7 @@
                                   <div class="icon">
                                   <i class="ion ion-image"></i>
                                  </div>
-                                 <a href="auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+                                 <a href="http://localhost/auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                                 </div>
                                <!-- ./col -->
@@ -91,7 +91,7 @@
                         <div class="icon">
                           <i class="ion ion-person-add"></i>
                         </div>
-                        <a href="auth/uploadfile/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="/auth/uploadfile/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
                       </div>
                     </div>
           <!-- ./col -->
@@ -104,7 +104,7 @@
               <div class="icon">
                 <i class="ion ion-trophy"></i>
               </div>
-              <a href="auth/uploadfile/achievementslideimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/auth/uploadfile/achievementslideimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -117,7 +117,7 @@
                <div class="icon">
                <i class="ion ion-person"></i>
               </div>
-              <a href="auth/uploadfile/updateAdministration" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/auth/uploadfile/updateAdministration" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
              </div>
              </div>
             <!-- ./col -->

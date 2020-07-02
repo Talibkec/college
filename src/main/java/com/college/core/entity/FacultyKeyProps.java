@@ -1,4 +1,7 @@
 package com.college.core.entity;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,8 @@ public class FacultyKeyProps {
     }
 
     @OneToMany(mappedBy = "facultyKeyProps", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SELECT)
+    @OrderBy("key_value_order")
     public List<FacultyKeyPropValues> getKeyPropVals() {
         return keyPropVals;
     }
@@ -50,4 +55,5 @@ public class FacultyKeyProps {
     public Integer getKeyPropsOrder() {
         return keyPropsOrder;
     }
+    
 }

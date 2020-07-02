@@ -155,13 +155,14 @@ public class CommonResourceController {
         System.out.println("oldKeyOrder = " + oldKeyOrder);
         System.out.println("newKeyOrder = " + newKeyOrder);
         FacultyDTO newFacultyDTO = new FacultyDTO();
+        FacultyKeyPropsDTO newFacultyKeyPropsDTO = new FacultyKeyPropsDTO();
         Type type = new TypeToken<LinkedHashMap<String, List<String>>>(){}.getType();
         LinkedHashMap<String, List<String>> oldPropMap = gson.fromJson(oldProps, type);
         LinkedHashMap<String, List<String>> newPropsMap = gson.fromJson(newProps, type);
         FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
         removeProps(oldKeyOrder, oldFacultyDTO);
         BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
-        addProperties(newFacultyDTO, newPropsMap, newKeyOrder);
+        addProperties(newFacultyDTO, newPropsMap, newKeyOrder, newFacultyKeyPropsDTO);
         if (!StringUtils.isEmpty(facultyOfficialEmail)) {
             newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
         }
@@ -199,13 +200,21 @@ public class CommonResourceController {
         facultyKeyProps.removeAll(removeList);
     }
 
-    private void addProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props, List<String> keysOrder) {
+    private void addProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props, List<String> keysOrder, FacultyKeyPropsDTO newFacultyKeyProps) {
         List<FacultyKeyPropsDTO> facultyKeyProps = newFacultyDTO.getFacultyKeyProps();
         Integer keyOrderNumber = 0;
         if(facultyKeyProps != null){
             Integer len = facultyKeyProps.size() - 1;
             if(len >=0)
                 keyOrderNumber = facultyKeyProps.get(len).getKeyPropsOrder() + 1;
+        }
+        Integer keyValueOrderNum=0;
+        List<FacultyKeyPropValuesDTO> facultyKeyPropValuesDTOS = newFacultyKeyProps.getKeyPropVals();
+        if(facultyKeyPropValuesDTOS !=null){
+            Integer length = facultyKeyPropValuesDTOS.size()-1;
+            if(length >=0){
+                keyValueOrderNum= facultyKeyPropValuesDTOS.get(length).getKeyValueOrder() + 1;
+            }
         }
         for(String propKey: keysOrder){
             if(!StringUtils.isEmpty(propKey)){
@@ -218,6 +227,7 @@ public class CommonResourceController {
                     for (String propVal : propValues) {
                         if (!StringUtils.isEmpty(propVal)) {
                             FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
+                            facultyKeyPropValuesDTO.setKeyValueOrder(keyValueOrderNum++);
                             facultyKeyPropValuesDTO.setFacultyKeyProps(keyPropsDTO);
                             facultyKeyPropValuesDTO.setKeyPropVal(propVal);
                             keyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);

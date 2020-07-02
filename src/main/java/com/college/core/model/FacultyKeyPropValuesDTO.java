@@ -5,7 +5,10 @@ public class FacultyKeyPropValuesDTO {
     private Long keyPropValuesId;
     private FacultyKeyPropsDTO facultyKeyProps;
     private String keyPropVal;
+    public Integer getKeyValueOrder() { return keyValueOrder; }
+    public void setKeyValueOrder(Integer keyValueOrder) { this.keyValueOrder = keyValueOrder; }
 
+    private  Integer keyValueOrder;
     public Long getKeyPropValuesId() {
         return keyPropValuesId;
     }

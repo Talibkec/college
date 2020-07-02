@@ -7,7 +7,8 @@ public class FacultyKeyPropValues {
     private  Long keyPropValuesId;
     private String keyPropVal;
     private FacultyKeyProps facultyKeyProps;
-
+    private Integer keyValueOrder;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO )
     public Long getKeyPropValuesId() {return keyPropValuesId;}
@@ -31,4 +32,9 @@ public class FacultyKeyPropValues {
     public String getKeyPropVal() {
         return keyPropVal;
     }
+    @Column(name="key_value_order")
+    public Integer getKeyValueOrder() { return keyValueOrder; }
+    
+    public void setKeyValueOrder(Integer keyValueOrder) { this.keyValueOrder = keyValueOrder; }
+
 }

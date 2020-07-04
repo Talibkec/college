@@ -1,3 +1,4 @@
+<jsp:include page="header.jsp" />
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
@@ -7,7 +8,7 @@
 <body>
 <form autocomplete="off" id = "searchFacultyName">
 <div class="container" style="margin:50px">
-        <div class="row text-center"><strong> Assign - Revoke SM Role </strong></div>
+        <div class="row text-center"><strong> Assign - Revoke HOD Role </strong></div>
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center"><strong>Search By FacultyName</strong></div>
         </div>
@@ -46,9 +47,6 @@
 <script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="http://localhost/js/jquery-ui.js"></script>
 <script src="http://localhost/js/hodincharge.js"></script>
-<style>
-.ui-autocomplete{
-z-index:100000000
-}
-</style>
+
 </html>
+<jsp:include page="footer.jsp" />

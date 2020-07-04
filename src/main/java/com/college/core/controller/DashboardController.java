@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -143,8 +144,8 @@ public class DashboardController {
         return model;
     }
 
-    @RequestMapping(value = "/hod/saveRole", method = RequestMethod.POST)
-    public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+    @RequestMapping(value = "/auth/saveRole", method = RequestMethod.POST)
+    public void setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
         ModelAndView mv = new ModelAndView();
         UserRoleDTO userRoleDTO = new UserRoleDTO();
         FacultyDTO facultyDTO = new FacultyDTO();
@@ -153,7 +154,7 @@ public class DashboardController {
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
         userRoleDTO.setRoleId(role.getId());
         userService.saveUserRole(userRoleDTO);
-        mv.setViewName("/index.jsp");
+        res.sendRedirect("/");
     }
 
 }

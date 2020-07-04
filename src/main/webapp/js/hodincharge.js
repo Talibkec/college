@@ -40,7 +40,7 @@ function fire_ajax_submit() {
 
     $.ajax({
         type: "POST",
-        url: "/hod/saveRole",
+        url: "/auth/saveRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())
         },
@@ -50,7 +50,7 @@ function fire_ajax_submit() {
         success: function (data, textStatus, xhr) {
 
              $("#submit").prop("disabled", false);
-             window.location.href = "http://localhost/index.jsp";
+             
         },
         error: function (e) {
 
@@ -66,6 +66,7 @@ function fire_ajax_delete() {
     $("#deleteUserRole").prop("disable", true);
 
     $.ajax({
+        type:"POST",
         url: "/hod/deleteUserRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())

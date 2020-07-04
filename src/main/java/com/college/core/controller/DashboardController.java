@@ -1,10 +1,17 @@
 package com.college.core.controller;
 
+import com.college.core.entity.Role;
+import com.college.core.model.FacultyDTO;
+import com.college.core.model.UserRoleDTO;
+import com.college.service.FacultyService;
 import com.college.service.NoticeBoardService;
+import com.college.service.RoleService;
+import com.college.service.UserService;
 import com.college.sms.MessageSender;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import com.google.gson.JsonObject;
 import org.apache.catalina.connector.ClientAbortException;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -13,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Controller
 public class DashboardController {
@@ -27,6 +36,12 @@ public class DashboardController {
     Logger logger = LoggerFactory.getLogger(DashboardController.class);
     @Autowired
     NoticeBoardService noticeBoardService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    FacultyService facultyService;
 
 
     @Autowired
@@ -118,6 +133,27 @@ public class DashboardController {
         String imagePath = "/sites/default/files/compressed/" + name + "." + type;
         InputStream is = request.getSession().getServletContext().getResourceAsStream(imagePath);
         return IOUtils.toByteArray(is);
+    }
+
+
+    @RequestMapping(value = "/auth/hodincharge")
+    public ModelAndView hodIncharge() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("hodincharge.jsp");
+        return model;
+    }
+
+    @RequestMapping(value = "/hod/saveRole", method = RequestMethod.POST)
+    public void setRoles(@RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        FacultyDTO facultyDTO = new FacultyDTO();
+
+        Role role = roleService.getRole("HOD");
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        userRoleDTO.setRoleId(role.getId());
+        userService.saveUserRole(userRoleDTO);
+        mv.setViewName("/index.jsp");
     }
 
 }

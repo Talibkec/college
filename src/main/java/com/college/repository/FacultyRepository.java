@@ -3,6 +3,7 @@ package com.college.repository;
 import com.college.core.entity.Faculty;
 import com.college.core.entity.Request;
 
+import com.college.core.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -20,7 +21,6 @@ public interface FacultyRepository extends JpaRepository<Faculty, Long> {
 
     @Query("select f from Faculty f where f.facultyName like lower(CONCAT('%',:facultyName,'%'))")
     List<Faculty> searchFacultyName(@Param("facultyName") String facultyName);
-
 
     @Query("select f from Faculty f where f.facultyOfficialEmail like lower(CONCAT('%',:facultyEmail,'%'))")
     List<Faculty> searchFacultyEmail(@Param("facultyEmail") String facultyEmail);

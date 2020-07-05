@@ -46,11 +46,16 @@ width:8%
                             <div class="oldpropkeybox" >
                             <div class="panel panel-success"style="margin-top:5%">
                             <input type="text" name="keyProp" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyName}" ></input>
+                            <input type="hidden" name="keyPropertyId" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyId}" ></input>
+                            <input type="hidden" name="keyPropsOrder" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropsOrder}" ></input>
+
                             <a href="javascript:void(0);" class="remove_Key btn btn-danger" style ="margin-top:2%;margin-left:5%;margin-bottom:2%">Delete Property Heading</a>
 
                             <c:forEach items="${keyProp.keyPropVals}" var="propVal">
                                <div class="propVals">
-                                <input type="textarea"name="field_name" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropVal}"class="propVal col-md-6" />
+                                <input type="textarea "name="field_name" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropVal}"class="propVal col-md-6" />
+                                <input type="hidden" name="keyPropValuesId" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropValuesId}"class="propVal col-md-6" />
+                                <input type="hidden" name="keyValueOrder" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyValueOrder}"class="propVal col-md-6" />
                                 <a href="javascript:void(0);" class="add_button btn btn-success "id="add_button"style ="width:8%;margin-left:5%;margin-bottom:2%;"><span class="glyphicon glyphicon-plus-sign"></span></a>
                                 <a href="javascript:void(0);" class="remove_button btn btn-danger "style="width:8%;margin-bottom:2%;margin-left:2%"><span class="glyphicon glyphicon-remove-sign"></span></a>
                                </div>

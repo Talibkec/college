@@ -2,6 +2,7 @@ package com.college.core.controller.store;
 
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
+import com.college.core.entity.FacultyKeyPropValues;
 import com.college.core.entity.User;
 import com.college.core.model.*;
 import com.college.repository.FacultyKeyPropsRepository;
@@ -150,19 +151,19 @@ public class CommonResourceController {
             @RequestParam("newProps") String newProps,
             @RequestParam("oldProps") String oldProps,
             @RequestParam("oldKeyOrder") List<String> oldKeyOrder,
-            @RequestParam("newKeyOrder") List<String> newKeyOrder){
+            @RequestParam("newKeyOrder") List<String> newKeyOrder,
+            @RequestParam("facultyDetails") String facultyDetails){
 
         System.out.println("oldKeyOrder = " + oldKeyOrder);
         System.out.println("newKeyOrder = " + newKeyOrder);
         FacultyDTO newFacultyDTO = new FacultyDTO();
+        FacultyDTO gsonFacultyObject = gson.fromJson(facultyDetails, FacultyDTO.class);
         FacultyKeyPropsDTO newFacultyKeyPropsDTO = new FacultyKeyPropsDTO();
         Type type = new TypeToken<LinkedHashMap<String, List<String>>>(){}.getType();
-        LinkedHashMap<String, List<String>> oldPropMap = gson.fromJson(oldProps, type);
-        LinkedHashMap<String, List<String>> newPropsMap = gson.fromJson(newProps, type);
         FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
-        removeProps(oldKeyOrder, oldFacultyDTO);
+        removeDefaultValues(gsonFacultyObject, oldFacultyDTO);
         BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
-        addProperties(newFacultyDTO, newPropsMap, newKeyOrder, newFacultyKeyPropsDTO);
+        //addProperties(newFacultyDTO, newPropsMap, newKeyOrder, newFacultyKeyPropsDTO);
         if (!StringUtils.isEmpty(facultyOfficialEmail)) {
             newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
         }
@@ -180,64 +181,35 @@ public class CommonResourceController {
 
     }
 
-    private void removeProps(List<String> oldProps, FacultyDTO oldFacultyDTO) {
-        List<FacultyKeyPropsDTO> facultyKeyProps = oldFacultyDTO.getFacultyKeyProps();
-        List<FacultyKeyPropsDTO> removeList = new ArrayList<>();
-        if(facultyKeyProps != null){
-            for(FacultyKeyPropsDTO keyPropsDTO:facultyKeyProps){
-                boolean found = false;
-                for(String key : oldProps){
-                    if(key.equalsIgnoreCase(keyPropsDTO.getKeyPropertyName())){
-                        found = true;
+    private void removeDefaultValues(FacultyDTO gsonFacultyObject, FacultyDTO oldFacultyDTO) {
+        oldFacultyDTO.getFacultyKeyProps().clear();
+        Iterator<FacultyKeyPropsDTO> keyIterator = gsonFacultyObject.getFacultyKeyProps().iterator();
+        List<FacultyKeyPropsDTO> keyPropsDTOS = new ArrayList<>();
+        while(keyIterator.hasNext() ){
+            FacultyKeyPropsDTO keyDTO = keyIterator.next();
+            if(!StringUtils.isEmpty(keyDTO.getKeyPropertyName())) {
+                if (keyDTO.getKeyPropertyId() == -9999) {
+                    keyDTO.setKeyPropertyId(null);
+                }
+                Iterator<FacultyKeyPropValuesDTO> valueIterator = keyDTO.getKeyPropVals().iterator();
+                List<FacultyKeyPropValuesDTO> valDTOs = new ArrayList<>();
+                while (valueIterator.hasNext()) {
+                    FacultyKeyPropValuesDTO valueDTO = valueIterator.next();
+                    if (valueDTO.getKeyPropValuesId() == -9999) {
+                        valueDTO.setKeyPropValuesId(null);
                     }
+                    valueDTO.setFacultyKeyProps(keyDTO);
+                    valDTOs.add(valueDTO);
                 }
-                if(!found){
-                    removeList.add(keyPropsDTO);
-                }
-
+                keyDTO.getKeyPropVals().addAll(valDTOs);
+                keyDTO.setFaculty(oldFacultyDTO);
+                keyPropsDTOS.add(keyDTO);
             }
         }
-        facultyKeyProps.removeAll(removeList);
+        oldFacultyDTO.getFacultyKeyProps().addAll(keyPropsDTOS);
     }
 
-    private void addProperties(FacultyDTO newFacultyDTO, LinkedHashMap<String, List<String>> props, List<String> keysOrder, FacultyKeyPropsDTO newFacultyKeyProps) {
-        List<FacultyKeyPropsDTO> facultyKeyProps = newFacultyDTO.getFacultyKeyProps();
-        Integer keyOrderNumber = 0;
-        if(facultyKeyProps != null){
-            Integer len = facultyKeyProps.size() - 1;
-            if(len >=0)
-                keyOrderNumber = facultyKeyProps.get(len).getKeyPropsOrder() + 1;
-        }
-        Integer keyValueOrderNum=0;
-        List<FacultyKeyPropValuesDTO> facultyKeyPropValuesDTOS = newFacultyKeyProps.getKeyPropVals();
-        if(facultyKeyPropValuesDTOS !=null){
-            Integer length = facultyKeyPropValuesDTOS.size()-1;
-            if(length >=0){
-                keyValueOrderNum= facultyKeyPropValuesDTOS.get(length).getKeyValueOrder() + 1;
-            }
-        }
-        for(String propKey: keysOrder){
-            if(!StringUtils.isEmpty(propKey)){
-                FacultyKeyPropsDTO keyPropsDTO = new FacultyKeyPropsDTO();
-                keyPropsDTO.setFaculty(newFacultyDTO);
-                keyPropsDTO.setKeyPropertyName(propKey);
-                keyPropsDTO.setKeyPropsOrder(keyOrderNumber++);
-                List<String> propValues = props.get(propKey);
-                if(!StringUtils.isEmpty(propValues)) {
-                    for (String propVal : propValues) {
-                        if (!StringUtils.isEmpty(propVal)) {
-                            FacultyKeyPropValuesDTO facultyKeyPropValuesDTO = new FacultyKeyPropValuesDTO();
-                            facultyKeyPropValuesDTO.setKeyValueOrder(keyValueOrderNum++);
-                            facultyKeyPropValuesDTO.setFacultyKeyProps(keyPropsDTO);
-                            facultyKeyPropValuesDTO.setKeyPropVal(propVal);
-                            keyPropsDTO.getKeyPropVals().add(facultyKeyPropValuesDTO);
-                        }
-                    }
-                }
-                newFacultyDTO.getFacultyKeyProps().add(keyPropsDTO);
-            }
-        }
-    }
+
 
     @ResponseBody
     @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)

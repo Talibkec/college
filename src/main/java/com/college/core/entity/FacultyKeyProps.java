@@ -36,7 +36,7 @@ public class FacultyKeyProps {
         return faculty;
     }
 
-    @OneToMany(mappedBy = "facultyKeyProps", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "facultyKeyProps", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.SELECT)
     @OrderBy("key_value_order")
     public List<FacultyKeyPropValues> getKeyPropVals() {

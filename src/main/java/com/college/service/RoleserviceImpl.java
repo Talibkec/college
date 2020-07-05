@@ -22,4 +22,11 @@ public class RoleserviceImpl implements RoleService {
         Role role = roleRepository.getRoleByName(sm);
         return role;
     }
+
+    @Override
+    public Role getHodRole(String hod) {
+        Role role = roleRepository.getHodRoleByName(hod);
+        return role;
+    }
+
 }

@@ -2,7 +2,8 @@
 // Save UserSMRole
 $(document).ready(function () {
 
-    $("#submit").click(function (event) {
+
+    $("#submitHod").click(function (event) {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
@@ -11,12 +12,12 @@ $(document).ready(function () {
 
     });
 
-    $("#search").click(function(event){
+    $("#searchHod").click(function(event){
          event.preventDefault();
         fire_ajax_search();
     });
 
-    $("#deleteUserRole").click(function(event){
+    $("#deleteHodRole").click(function(event){
          event.preventDefault();
         fire_ajax_delete();
         });
@@ -27,6 +28,8 @@ function divShow()
     $("#assign").css("display","block");
 }
 
+
+
 function fire_ajax_submit() {
 
     // POST form
@@ -36,11 +39,11 @@ function fire_ajax_submit() {
 
     //data.append("CustomField", "This is some extra data, testing");
 
-    $("#submit").prop("disabled", true);
+    $("#submitHod").prop("disabled", true);
 
     $.ajax({
         type: "POST",
-        url: "/auth/saveRole",
+        url: "/auth/hod/saveRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())
         },
@@ -49,12 +52,12 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 
-             $("#submit").prop("disabled", false);
+             $("#submitHod").prop("disabled", false);
              
         },
         error: function (e) {
 
-            $("#submit").prop("disabled", false);
+            $("#submitHod").prop("disabled", false);
 
         }
     });
@@ -63,23 +66,23 @@ function fire_ajax_submit() {
 
 function fire_ajax_delete() {
 
-    $("#deleteUserRole").prop("disable", true);
+    $("#deleteHodRole").prop("disable", true);
 
     $.ajax({
-        type:"POST",
-        url: "/hod/deleteUserRole",
+
+        url: "/auth/hod/deleteHodRole",
         data: {
             facultyDetails:JSON.stringify(getFacultyDetails())
         },
         timeout: 600000,
                 success: function (data, textStatus, xhr) {
 
-                     $("#deleteUserRole").prop("disabled", false);
-                     window.location.href = "http://localhost/store/smdashboard";
+                     $("#deleteHodRole").prop("disabled", false);
+                     window.location.href = "http://localhost/auth/hodincharge";
                 },
                 error: function (e) {
 
-                    $("#deleteUserRole").prop("disabled", false);
+                    $("#deleteHodRole").prop("disabled", false);
          }
     });
 
@@ -92,12 +95,12 @@ function fire_ajax_search() {
 
     //data.append("CustomField", "This is some extra data, testing");
 
-    $("#search").prop("disabled", true);
+    $("#searchHod").prop("disabled", true);
 
     $.ajax({
         url: "/common/store/sm/searchFacultyName",
         data: {
-            facultyName:$("#facultyName").val()
+            facultyName:$("#facultyNameHod").val()
         },
         //contentType: false,
         //cache: false,
@@ -105,17 +108,17 @@ function fire_ajax_search() {
         success: function (data, textStatus, xhr) {
 
 
-             $("#search").prop("disabled", false);
+             $("#searchHod").prop("disabled", false);
               if(data != "" && data != undefined){
                 $("#assign").css("display", "block");
                 var d = JSON.parse(data);
                 $("#facultyId").val(d.id);
-                $("#facultySpan").text($("#facultyName").val());
+                $("#facultySpan").text($("#facultyNameHod").val());
              }
         },
         error: function (e) {
 
-            $("#search").prop("disabled", false);
+            $("#searchHod").prop("disabled", false);
 
         }
     });
@@ -124,22 +127,29 @@ function fire_ajax_search() {
 
 function getFacultyDetails(){
     var facultyJsonObj = {};
+        facultyJsonObj.facultyName = $("#facultyNameHod").val();
         facultyJsonObj.userId = $("#facultyId").val();
+        facultyJsonObj.departmentId = $("select.departments").children("option:selected").val();
 
 
         return facultyJsonObj;
+}
+
+function departmentName(){
+            var selectedDepartments = $(this).children("option:selected").val();
+            return selectedDepartments;
 }
 
 
 
 //autocomplete Form
 
- $( "#facultyName" ).autocomplete({
+ $( "#facultyNameHod" ).autocomplete({
        source: function( request, response ) {
        $.ajax({
             url: "/common/store/facultyNameAutocomplete",
             data: {
-                facultyName:$("#facultyName").val()
+                facultyName:$("#facultyNameHod").val()
             },
             success: function( data ) {
                 response( data );
@@ -152,6 +162,6 @@ function getFacultyDetails(){
        minLength: 1,
        select: function( event, ui ) {
        event.preventDefault(); //preventing default methods
-       $("#facultyName").val(ui.item.label);
+       $("#facultyNameHod").val(ui.item.label);
        }
     });

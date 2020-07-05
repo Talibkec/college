@@ -4,6 +4,7 @@ import com.college.ProductTransformer;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import com.college.core.model.UserRoleDTO;
+import com.college.repository.DepartmentRepository;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
 import org.modelmapper.TypeToken;
@@ -27,6 +28,8 @@ public class UserServiceImpl implements UserService {
     private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
+    DepartmentRepository departmentRepository;
 
     @Override
     public void save(User user) {
@@ -59,6 +62,10 @@ public class UserServiceImpl implements UserService {
         roles.add(newRole);
         user.setRoles(roles);
         userRepository.save(user);
+        if(role.getName().equals("HOD"))
+        {
+            departmentRepository.updateHodName(userRoleDTO.getFacultyName(), userRoleDTO.getDepartmentId());
+        }
 
     }
 

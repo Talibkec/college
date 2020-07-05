@@ -8,6 +8,8 @@
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/addfaculty">Add Faculty</a></strong>|
         <strong><i class="fa fa-news"></i> <a href="auth/uploadfile/updateAdministration">Assign Administration Role</a></strong>
         |<strong><i class="fa fa-news"></i> <a href="auth/uploadfile/achievementslideimage">Add a Achievement</a></strong>
+        |<strong><i class="fa fa-news"></i> <a href="/auth/hodincharge">Assign-Revoke HOD</a></strong>
+
         </c:if>
     </c:forEach>
     <div class="row scrollingnews">

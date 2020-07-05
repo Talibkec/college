@@ -1,18 +1,19 @@
 package com.college.core.controller;
 
+import com.college.core.entity.Department;
 import com.college.core.entity.Role;
+import com.college.core.model.DepartmentDTO;
 import com.college.core.model.FacultyDTO;
+import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.UserRoleDTO;
-import com.college.service.FacultyService;
-import com.college.service.NoticeBoardService;
-import com.college.service.RoleService;
-import com.college.service.UserService;
+import com.college.service.*;
 import com.college.sms.MessageSender;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import com.google.gson.JsonObject;
 import org.apache.catalina.connector.ClientAbortException;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,6 +45,8 @@ public class DashboardController {
     UserService userService;
     @Autowired
     FacultyService facultyService;
+    @Autowired
+    DepartmentService departmentService;
 
 
     @Autowired
@@ -140,21 +144,35 @@ public class DashboardController {
     @RequestMapping(value = "/auth/hodincharge")
     public ModelAndView hodIncharge() {
         ModelAndView model = new ModelAndView();
+        List<Department> departmentList = departmentService.getAllDepartments();
+        model.addObject("departments", departmentList);
         model.setViewName("hodincharge.jsp");
         return model;
     }
 
-    @RequestMapping(value = "/auth/saveRole", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/auth/hod/saveRole", method = RequestMethod.POST)
     public void setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
         ModelAndView mv = new ModelAndView();
         UserRoleDTO userRoleDTO = new UserRoleDTO();
         FacultyDTO facultyDTO = new FacultyDTO();
 
-        Role role = roleService.getRole("HOD");
+        Role role = roleService.getHodRole("HOD");
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
         userRoleDTO.setRoleId(role.getId());
         userService.saveUserRole(userRoleDTO);
-        res.sendRedirect("/");
+        mv.setViewName("index.jsp");
+    }
+
+    @RequestMapping(value = "/auth/hod/deleteHodRole", method = RequestMethod.GET)
+    public void deleteHodRole(HttpServletRequest request, HttpServletResponse response, @RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        Role role = roleService.getRole("HOD");
+        userRoleDTO.setRoleId(role.getId());
+        userService.deleteUserRole(userRoleDTO);
+        mv.setViewName("/auth/hodincharge.jsp");
     }
 
 }

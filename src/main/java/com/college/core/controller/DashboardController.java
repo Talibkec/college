@@ -1,11 +1,19 @@
 package com.college.core.controller;
 
-import com.college.service.NoticeBoardService;
+import com.college.core.entity.Department;
+import com.college.core.entity.Role;
+import com.college.core.model.DepartmentDTO;
+import com.college.core.model.FacultyDTO;
+import com.college.core.model.GalleryImageDTO;
+import com.college.core.model.UserRoleDTO;
+import com.college.service.*;
 import com.college.sms.MessageSender;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import com.google.gson.JsonObject;
 import org.apache.catalina.connector.ClientAbortException;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,13 +21,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class DashboardController {
@@ -27,6 +39,14 @@ public class DashboardController {
     Logger logger = LoggerFactory.getLogger(DashboardController.class);
     @Autowired
     NoticeBoardService noticeBoardService;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    UserService userService;
+    @Autowired
+    FacultyService facultyService;
+    @Autowired
+    DepartmentService departmentService;
 
 
     @Autowired
@@ -118,6 +138,41 @@ public class DashboardController {
         String imagePath = "/sites/default/files/compressed/" + name + "." + type;
         InputStream is = request.getSession().getServletContext().getResourceAsStream(imagePath);
         return IOUtils.toByteArray(is);
+    }
+
+
+    @RequestMapping(value = "/auth/hodincharge")
+    public ModelAndView hodIncharge() {
+        ModelAndView model = new ModelAndView();
+        List<Department> departmentList = departmentService.getAllDepartments();
+        model.addObject("departments", departmentList);
+        model.setViewName("hodincharge.jsp");
+        return model;
+    }
+
+
+    @RequestMapping(value = "/auth/hod/saveRole", method = RequestMethod.POST)
+    public void setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        FacultyDTO facultyDTO = new FacultyDTO();
+
+        Role role = roleService.getHodRole("HOD");
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        userRoleDTO.setRoleId(role.getId());
+        userService.saveUserRole(userRoleDTO);
+        mv.setViewName("index.jsp");
+    }
+
+    @RequestMapping(value = "/auth/hod/deleteHodRole", method = RequestMethod.GET)
+    public void deleteHodRole(HttpServletRequest request, HttpServletResponse response, @RequestParam("facultyDetails") String facultyDetails) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        UserRoleDTO userRoleDTO = new UserRoleDTO();
+        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        Role role = roleService.getRole("HOD");
+        userRoleDTO.setRoleId(role.getId());
+        userService.deleteUserRole(userRoleDTO);
+        mv.setViewName("/auth/hodincharge.jsp");
     }
 
 }

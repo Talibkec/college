@@ -1,11 +1,8 @@
 package com.college.service;
 
 import com.college.core.entity.Department;
-import com.college.core.entity.NoticeBoard;
 import com.college.core.model.DepartmentDTO;
-import com.college.core.model.NoticeBoardDTO;
 import com.college.repository.DepartmentRepository;
-import com.college.repository.NoticeBoardRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +23,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         Type targetListType = new TypeToken<List<DepartmentRepository>>() {
         }.getType();
         return modelMapper.map(departments, targetListType);
+    }
+
+    @Override
+    public List<Department> getAllDepartments(){
+        return departmentRepository.findAll();
     }
 
     @Override

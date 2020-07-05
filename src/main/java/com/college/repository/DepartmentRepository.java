@@ -17,4 +17,7 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
     @Query("select new com.college.core.entity.Department(dept.departmentHod) from Department dept where dept.departmentId = :deptId")
     public Department getHodName(@Param("deptId") Long deptId);
+
+    @Query(value = "update Department set departmentHod = :facultyName where departmentId = :departmentId")
+    public Department updateHodName(@Param("facultyName") String facultyName, @Param("departmentId") Long departmentId);
 }

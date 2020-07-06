@@ -112,7 +112,7 @@
             <!-- small box -->
              <div class="small-box bg-warning">
                <div class="inner">
-                 <h5 style="font-size:20px">Assign Administration Role</h5>
+                 <h5 style="font-size:16px">Assign Administration Role</h5>
                </div>
                <div class="icon">
                <i class="ion ion-person"></i>

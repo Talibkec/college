@@ -17,10 +17,10 @@ public interface DepartmentRepository extends JpaRepository<Department, Long> {
     @Query(value = "select * from Department", nativeQuery = true)
     public List<Request> getAllDepartmnet();
     
-    @Modifying(clearAutomatically = true)
+    
 
     @Query("select new com.college.core.entity.Department(dept.departmentHod) from Department dept where dept.departmentId = :deptId")
-    public Department getHodName(@Param("deptId") Long deptId);
+    public Department  getHodName(@Param("deptId") Long deptId);
     
     @Transactional
     @Modifying

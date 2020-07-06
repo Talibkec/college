@@ -166,6 +166,7 @@ function fire_ajax_submit() {
     var facultyKeyProps = [];
     var facultyDTO = {};
     var oldProps = getProps(".oldpropkeybox", oldKeyOrder, facultyKeyProps, lastKeySeqNo);
+    lastKeySeqNo = $(".oldpropkeybox").length;
     var newProps = getProps(".newpropkeybox", newKeyOrder, facultyKeyProps, lastKeySeqNo);
     facultyDTO.facultyKeyProps = facultyKeyProps;
     facultyDTO.facultyId = -9999;

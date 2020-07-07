@@ -50,9 +50,7 @@ Ph.: 06452-239122</span></p>
 
 </div>
 
-
-
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script><script type="text/javascript" src="http://localhost/j/protectcode.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
+<script type="text/javascript" src="http://localhost/j/protectcode.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script> <script src="http://localhost/wp-content/themes/kec/assets/vendors/waypoints/lib/jquery.waypoints.min.js"></script> <script>$(document).ready(function(){
             $('#homePageSlider').on('slid.bs.carousel', function ( event ) {
                 var slide = event.relatedTarget;
                 var slideInfoAnimation = $(slide).find('.slideInfo').attr('data-animation');
@@ -250,7 +248,6 @@ Ph.: 06452-239122</span></p>
         <script   src="http://localhost/sites/all/themes/rwsiitj/js/rwscustom.js"></script>
         <script src="http://localhost/sites/all/themes/rwsiitj/js/jqueryui/jquery-ui.min.js"></script>
     <!-- jQuery -->
-    <script src="http://localhost/jsp/admin/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="http://localhost/jsp/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

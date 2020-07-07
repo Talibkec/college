@@ -9,6 +9,7 @@ import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -64,7 +65,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
         if(role.getName().equals("HOD"))
         {
-            departmentRepository.updateHodName(userRoleDTO.getFacultyName(), userRoleDTO.getDepartmentId());
+            departmentRepository.updateHodName( userRoleDTO.getFacultyName(), userRoleDTO.getDepartmentId());
         }
 
     }
@@ -73,6 +74,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUserRole(UserRoleDTO userRoleDTO) {
         Long id = userRoleDTO.getRoleId();
         User user = userRepository.findOne(userRoleDTO.getUserId());
+        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
         Set<Role> roles = user.getRoles();
         Iterator<Role> it = roles.iterator();
         while (it.hasNext()) {
@@ -80,6 +82,9 @@ public class UserServiceImpl implements UserService {
             if (r.getId() == userRoleDTO.getRoleId()) {
                 it.remove();
             }
+        }
+        if(role.getName().equals("HOD")){
+            departmentRepository.deleteHodName(userRoleDTO.getDepartmentId());
         }
         userRepository.save(user);
     }

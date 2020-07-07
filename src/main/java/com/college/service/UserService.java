@@ -2,9 +2,10 @@ package com.college.service;
 
 import com.college.core.entity.User;
 import com.college.core.model.UserRoleDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface UserService {
     void save(User user);
 

@@ -1,4 +1,5 @@
 <jsp:include page="header.jsp" />
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <style>
@@ -53,7 +54,9 @@ width:8%
 
                             <c:forEach items="${keyProp.keyPropVals}" var="propVal">
                                <div class="propVals">
-                                <input type="textarea "name="field_name" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropVal}"class="propVal col-md-6" />
+                               <c:set var ="keyVals" value="${propVal.keyPropVal}"/>
+                               
+                                <input type="text" name="field_name" placeholder="Enter Property Value" style="margin-left:3%;"value="${fn:escapeXml(keyVals)}"class="propVal col-md-6" />
                                 <input type="hidden" name="keyPropValuesId" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropValuesId}"class="propVal col-md-6" />
                                 <input type="hidden" name="keyValueOrder" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyValueOrder}"class="propVal col-md-6" />
                                 <a href="javascript:void(0);" class="add_button btn btn-success "id="add_button"style ="width:8%;margin-left:5%;margin-bottom:2%;"><span class="glyphicon glyphicon-plus-sign"></span></a>

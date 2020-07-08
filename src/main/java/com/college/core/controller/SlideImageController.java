@@ -102,6 +102,14 @@ public class SlideImageController {
         return model;
     }
 
+    @RequestMapping(value = "/auth/uploadfile/uploadgalleryimage", method = RequestMethod.GET)
+    public ModelAndView displayGalleryImage() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadGalleryImage.jsp");
+        return model;
+    }
+
     private void saveImageSlide(MultipartFile uploadfile, String caption, String fileName, String fileType) {
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
         imageSlideDTO.setCaption(caption);

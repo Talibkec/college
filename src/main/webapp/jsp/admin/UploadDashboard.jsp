@@ -64,7 +64,7 @@
                                   <div class="icon">
                                   <i class="ion ion-image"></i>
                                  </div>
-                                 <a href="http://localhost/auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+                                 <a href="http://localhost/auth/uploadfile/uploadgalleryimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                                 </div>
                                <!-- ./col -->

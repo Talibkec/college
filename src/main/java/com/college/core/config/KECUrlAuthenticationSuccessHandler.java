@@ -60,7 +60,7 @@ public class KECUrlAuthenticationSuccessHandler
         boolean isSK = false;
         boolean isAdmin=false;
         boolean isFaculty =false;
-        
+        boolean isHOD =false;
         Long facultyId=null;
         String currentUserName= authentication.getName();
        
@@ -82,7 +82,9 @@ public class KECUrlAuthenticationSuccessHandler
                 facultyId = facultyDTO.getFacultyId();
                 isFaculty = true;
             }
-            
+            else if(grantedAuthority.getAuthority().equals("HOD")){
+                isHOD=true;
+            }
         }
 
         if (isSM) {
@@ -97,7 +99,9 @@ public class KECUrlAuthenticationSuccessHandler
            
             return "/facultyDetails?facultyId="+facultyId;
         }
-        
+        else if(isHOD){
+            return "/hod/hodDashboard";
+        }
         else {
             return "/";
         }

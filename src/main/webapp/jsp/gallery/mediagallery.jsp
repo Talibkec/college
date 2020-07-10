@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp" />
 
 
@@ -13,7 +14,7 @@
    	.gallery img{
    		width: 260px;
    		padding: 5px;
-
+        height:260px  
    	}
 
    	   .gallery img:hover{
@@ -32,12 +33,10 @@
 <div class="gallery">
 	<center>
 		<p><h1>GALLERY</h1></p>
-	<a href="http://localhost/wp-content/uploads/2018/img1.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img1.JPG" style="max-width:50%;"></a>
-	<a href="http://localhost/sites/default/files/img8.JPG" data-lightbox="photo"><img src="http://localhost/sites/default/files/img8.JPG" style="max-width:50%;"></a>
-	<a href="http://localhost/wp-content/uploads/2018/img3.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img3.JPG"  style="max-width:50%;"></a>
-	<a href="http://localhost/sites/default/files/sportkec.jpeg" data-lightbox="photo"><img src="http://localhost/sites/default/files/sportkec.jpeg"  style="max-width:50%;"></a>
-	<a href="http://localhost/wp-content/uploads/2018/img7.JPG" data-lightbox="photo"><img src="http://localhost/wp-content/uploads/2018/img7.JPG"></a>
-    
+		<c:forEach items="${imageList}" var="image">
+	<a href="http://localhost/${image.galleryImageId}/galleryImage${image.fileType}" data-lightbox="photo"><img src="http://localhost/${image.galleryImageId}/galleryImage${image.fileType}" style="max-width:50%;"></a>
+	
+    </c:forEach>
 
 	</center>
 </div>

@@ -176,7 +176,7 @@
                                         </li>
                                     </c:forEach>
                                 </ul>
-                                <a href="http://localhost/department/civil/notice" class="btn btn-default">View All<i
+                                <a href="http://localhost/department/mechanical/notice" class="btn btn-default">View All<i
                                         class="fa fa-double-angle-right"></i></a>
                             </div>
                         </div>

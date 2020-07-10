@@ -46,5 +46,13 @@ public class AdminController {
 
         return scrollingNotices;
     }
-    
+
+    @RequestMapping(value = "/hod/hodDashboard")
+    public ModelAndView getHodDashboard() {
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("admin/HodDashboard.jsp");
+        return mv;
+
+    }
 }

@@ -153,41 +153,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading faculty-title"> Nishu Singh&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K16)</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/ns.jpeg"
-                                                                             style="background-image: url(ns.jpeg)"/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
-                                    Computer Science and Engineering<br/> <strong>Designation:</strong>
-                                    Content Writer<br/> <strong>Phone Number:</strong><br/> <strong>Email
-                                        Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                             data-cfemail="aad9cbc4dec5d9c2d8cbc3eac7c3dec7dfd0cbcccccbd8dadfd884c5d8cd">singhnishu567@gmail.com</a>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading faculty-title"> Sakshi Priya&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K16)</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/sp.jpeg"
-                                                                             style="background-image: url(sp.jpeg)"/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
-                                    Computer Science and Engineering<br/> <strong>Designation:</strong>
-                                    Content Writer<br/> <strong>Phone Number:</strong><br/> <strong>Email
-                                        Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                             data-cfemail="aad9cbc4dec5d9c2d8cbc3eac7c3dec7dfd0cbcccccbd8dadfd884c5d8cd">hummingbeauty14@gmail.com</a>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
+                    
                             </div>
                         </div>
                     </div>

@@ -33,10 +33,7 @@ Ph.: 06452-239122</span></p>
                 <h2 class="block-title">Visitor Counter</h2>
 
                 <p>Since January, 2019</p>
-                <p><a href="" target="_blank"><img alt="Web Counter"
-                                                   src=""
-                                                   title="Web Counter"/></a></p>
-
+                
             </section>
 
         </div>

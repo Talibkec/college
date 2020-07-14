@@ -25,7 +25,9 @@
 
 </head>
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
-
+<style>
+@media
+</style>
 <header id="navbar" role="banner" class=" navbar navbar-default">
     <div class="container">
 
@@ -56,23 +58,13 @@
                                         <ul>
                                         <li>
                                         <form id = "searchFacultyName">
-                                        <div class="col-md-7 text-center "><input type="text"placeholder="Search Faculty" name="facultyName" id = "facultyNames" /></div>
-                                        <div class="col-md-5 text-center"><input type="submit" value="Search" id="search" class="btn btn-success" /></div>
-                                        </form>
+                                        <div class="col-md-7 text-center  "><input type="text"placeholder="Search Faculty" name="facultyName" id = "facultyNames" /></div>
+                                        
+                                        
                                         </li>
-                                            <li class="facebook gtlisocialitems"><a title="Facebook" rel="nofollow"
-                                                                                    target="_blank"
-                                                                                    href="https://www.facebook.com/keckatiharofficial/"><i
-                                                    aria-hidden="true" class="fa fa-facebook"></i></a></li>
-
-                                            <li class="instagram gtlisocialitems"><a title="Instagram" rel="nofollow"
-                                                                                    target="_blank"
-                                                                                    href="https://www.instagram.com/keckatihar"><i
-                                                    aria-hidden="true" class="fa fa-instagram"></i><br> </a></li>
-                                            <li class="linkedin gtlisocialitems"><a title="Email" rel="nofollow"
-                                                                                    target="_blank"
-                                                                                    href="mailto:help@localhost"><i
-                                                    aria-hidden="true" class="fa fa-envelope"></i><br> </a></li>
+                                        <button class="glyphicon glyphicon-search"id="search"style="font-size:170%"></button>
+                                           </form>
+                                            
 
                                         </ul>
                                 </div>
@@ -303,5 +295,10 @@
 <style>
 .ui-autocomplete{
 z-index:100000000
+}
+
+@media(min-width:768px)
+.region{
+        display:block
 }
 </style>

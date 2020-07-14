@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
 <head>
-   <link rel="stylesheet" href="http://localhost/modules/myfile/myfile.css"/>
+   
     <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="shortcut icon" href="http://localhost/sites/default/files/logo1.jpeg"
+    <link rel="shortcut icon" href="https://kecwebdeploy.firebaseapp.com/images/logo1.jpeg"
           type="image/vnd.microsoft.icon"/>
     <meta name="description" content="Katihar Engineering College, Katihar"/>
     <meta name="robots" content="follow, index"/
@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="col-sm-4 loading">
                     <a class="logo navbar-btn pull-left loading" href="/" title="Home" >
-                        <img src="http://localhost/sites/default/files/compressed/logo.png" alt="Home"/>
+                        <img src="https://kecwebdeploy.firebaseapp.com/images/logo.png" alt="Home"/>
                     </a>
                 </div>
                 <div class="col-sm-8">
@@ -296,9 +296,9 @@
         </div>
     </div>
 </header>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://kecwebdeploy.firebaseapp.com/css/jquery-ui.css">
+<script src="https://kecwebdeploy.firebaseapp.com/js/jquery.min.js"></script>
+<script src="https://kecwebdeploy.firebaseapp.com/js/jquery-ui.js"></script>
 <script src="http://localhost/js/searchFaculty.js"></script>
 <style>
 .ui-autocomplete{

@@ -21,14 +21,14 @@
                </li><span>&nbsp;</span>
                      
                <li style="display:inline">
-                                 <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
+                                 <img class="" src="https://kecwebdeploy.firebaseapp.com/images/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                                  <a href="http://localhost/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
                 </li>
                 <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>
                  <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                    <img class="" src="https://kecwebdeploy.firebaseapp.com/images/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
                  </c:if>
                  <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
                  <c:forEach var="item" items="${Role}">
@@ -123,12 +123,16 @@
                                                           <c:set var = "clazz"  value = "label label-primary"/>
                                                    </c:if>
                                                 <i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
+                                                
                                                 <c:forEach var="item" items="${Role}">
                                                     <c:if test = "${'Admin' eq item}">
                                                     <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
                                                 <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                                <c:if test = "${notice.noticeAge <= 45}">
+                                                                    <img class="" src="https://kecwebdeploy.firebaseapp.com/images/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                                                                 </c:if>
                                               
                                             </div>
                                           </c:if>
@@ -313,27 +317,27 @@
                                             <ul>
                                                 <li class="views-row views-row-1 views-row-odd views-row-first">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg" target ="_blank"><img
+                                                        <div class="field-content"><a href="https://kecwebdeploy.firebaseapp.com/images/sportkec.jpeg" target ="_blank"><img
                                                                 typeof="foaf:Image" class="img-responsive"
-                                                                src="http://localhost/sites/default/files/sportkec.jpeg"
+                                                                src="https://kecwebdeploy.firebaseapp.com/images/sportkec.jpeg"
                                                                 width="330" height="225" alt=""
                                                                 title="Pitch for a Better India"/></a></div>
                                                     </div>
                                                 </li>
                                                 <li class="views-row views-row-2 views-row-even">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec1.jpeg"><img
+                                                        <div class="field-content"><a href="https://kecwebdeploy.firebaseapp.com/images/sportkec1.jpeg"><img
                                                                 typeof="foaf:Image" class="img-responsive"
-                                                                src="http://localhost/sites/default/files/sportkec1.jpeg"
+                                                                src="https://kecwebdeploy.firebaseapp.com/images/sportkec1.jpeg"
                                                                 width="330" height="225" alt=""
                                                                 title="Ace the Psychometric"/></a></div>
                                                     </div>
                                                 </li>
                                                 <li class="views-row views-row-3 views-row-odd views-row-last">
                                                     <div class="views-field views-field-field-image">
-                                                        <div class="field-content"><a href="http://localhost/sites/default/files/sportkec.jpeg"><img typeof="foaf:Image"
+                                                        <div class="field-content"><a href="https://kecwebdeploy.firebaseapp.com/images/sportkec.jpeg"><img typeof="foaf:Image"
                                                                                                             class="img-responsive"
-                                                                                                            src="http://localhost/sites/default/files/sportkec.jpeg"
+                                                                                                            src="https://kecwebdeploy.firebaseapp.com/images/sportkec.jpeg"
                                                                                                             width="330"
                                                                                                             height="225" alt=""
                                                                                                             title="Machine Assembly and Disassembly Workshop"/></a>
@@ -390,4 +394,4 @@
             </div>
         </div>
     <jsp:include page="footer.jsp"/>
-<script src="http://localhost/js/achievment.js">
+

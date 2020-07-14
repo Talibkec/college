@@ -81,7 +81,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/anshu.jpg"
+                                                                             src="https://kecwebdeploy.firebaseapp.com/images/anshu.jpg"
                                                                              style="background-image: url(http://localhost/jsp/category/anshu.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>

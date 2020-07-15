@@ -264,6 +264,7 @@ Ph.: 06452-239122</span></p>
 <script async src="https://kecwebdeploy.firebaseapp.com/js/jquery.marquee.min.js"></script>
 <script src="https://kecwebdeploy.firebaseapp.com/js/rwscustom.js"></script>
 <script src="https://kecwebdeploy.firebaseapp.com/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://localhost/js/protectcode.js"></script>
 
 <!--Jquery-->
 <script>

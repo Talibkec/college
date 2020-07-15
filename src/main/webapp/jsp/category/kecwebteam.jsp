@@ -17,7 +17,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/mta.jpg"
-                                                                              style="background-image: url(http://localhost/jsp/category/mta.jpg)"/>
+                                                                              style="border-radius:20%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
@@ -39,7 +39,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/sjn.jpg"
-                                                                             style="background-image: url(sjn.jpg)"/>
+                                                                             style="border-radius:20%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -63,7 +63,7 @@
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
                                                                              src="http://localhost/jsp/category/ad.jpg"
-                                                                             style="background-image: url(http://localhost/jsp/category/ad.jpg)"/>
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -82,7 +82,7 @@
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
                                                                              src="https://kecwebdeploy.firebaseapp.com/images/anshu.jpg"
-                                                                             style="background-image: url(http://localhost/jsp/category/anshu.jpg)"/>
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -103,8 +103,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/gaurav.jpg"
-                                                                             style="background-image: url(http://localhost/jsp/category/gaurav.jpg)"/>
+                                                                             src="https://slackanshu.web.app/images/SAVE_20200715_152559.jpg"
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -124,7 +124,7 @@
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
                                                                              src="http://localhost/jsp/category/suraj.jpg"
-                                                                             style="background-image: url(suraj.jpg)"/>
+                                                                             style="border-radius:30%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -143,7 +143,7 @@
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
                                                                              src="http://localhost/jsp/category/akp.jpg"
-                                                                             style="background-image: url(http://localhost/jsp/category/akp.jpg)"/>
+                                                                             style="border-radius:20%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of

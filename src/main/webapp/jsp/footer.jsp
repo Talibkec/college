@@ -227,11 +227,12 @@ Ph.: 06452-239122</span></p>
 <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"
       media="all"/>
 <link type="text/css" rel="stylesheet" href="https://kecwebdeploy.firebaseapp.com/css/superfish/css/superfish.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="https://kecwebdeploy.firebaseapp.com/css/style.css" media="all"/>
 <style>
 
 
 
-@import url("https://kecwebdeploy.firebaseapp.com/css/style.css");
+<!--@import url("http://localhost/sites/all/themes/rwsiitj/css/style.css")-->
 
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
@@ -264,7 +265,10 @@ Ph.: 06452-239122</span></p>
 <script async src="https://kecwebdeploy.firebaseapp.com/js/jquery.marquee.min.js"></script>
 <script src="https://kecwebdeploy.firebaseapp.com/js/rwscustom.js"></script>
 <script src="https://kecwebdeploy.firebaseapp.com/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://localhost/js/protectcode.js"></script>
+<script type="text/javascript" src="http://localhost/js/proteccode.js"></script>
+<script>window.jQuery || document.write('<script src="http://localhost/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+ <script src="http://localhost/js/main.js"></script>
+	
 
 <!--Jquery-->
 <script>

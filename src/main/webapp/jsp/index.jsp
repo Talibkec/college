@@ -1,4 +1,18 @@
   <jsp:include page="header.jsp"/>
+  <div id="demo-content">
+    
+    		<div id="loader-wrapper">
+    			<div id="loader"></div>
+    
+    			<div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+    
+    		</div>
+    		<style>
+    		#demo-content{
+    		padding-bottom:1px
+    		}
+    		</style>
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:forEach var="item" items="${Role}">
         <c:if test = "${'Admin' eq item}">

@@ -25,7 +25,7 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     GalleryImageRepository galleryImageRepository;
 
     @Override
-    @CacheEvict(value = "homepageSlideImageCache", allEntries = true)
+    @CacheEvict(value = "GalleryImageCache", allEntries = true)
     public void saveImageSlide(GalleryImageDTO galleryImageDTO) {
         GalleryImage galleryImage = modelMapper.map(galleryImageDTO, GalleryImage.class);
         galleryImageRepository.save(galleryImage);
@@ -49,5 +49,12 @@ public class GalleryImageServiceImpl implements GalleryImageService{
             galleryImageDTO = modelMapper.map(galleryImage, GalleryImageDTO.class);
         }
         return galleryImageDTO;
+    }
+
+
+    @Override
+    @CacheEvict(value = "GalleryImageCache", allEntries = true)
+    public void deleteGalleryImage(Long id) {
+        galleryImageRepository.delete(id);
     }
 }

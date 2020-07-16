@@ -240,6 +240,14 @@ public class UserController {
         res.sendRedirect("/");
     }
 
+
+    @RequestMapping(value = "/auth/galleryImageDelete/{id}", method = RequestMethod.GET)
+    public void galleryImageDelete(@PathVariable("id") Long imageGalleryId, HttpServletResponse res) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        galleryImageService.deleteGalleryImage(imageGalleryId);
+        res.sendRedirect("/");
+    }
+
     private void deleteFileDromDisk(String fileName) {
         File file = new File("http://localhost/wp-content/uploads/notice/" + fileName);
         file.delete();

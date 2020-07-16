@@ -12,6 +12,7 @@ public interface GalleryImageService {
     void saveImageSlide(GalleryImageDTO galleryImageDTO);
     List<GalleryImageDTO> getAllImages();
     GalleryImageDTO getImages(Long id);
+    void deleteGalleryImage(Long id);
 
 
 }

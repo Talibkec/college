@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,6 +39,8 @@ public class GalleryController {
         List<GalleryImageDTO> imageList = galleryImageService.getAllImages();
         mv.addObject("imageList", getImageList(imageList));
         GalleryImageDTO galleryImageDTO = new GalleryImageDTO();
+        List<String> role = ControllerUtility.getRole();
+        mv.addObject("Role", role);
 
         if (galleryImageDTO.getFileType() != null)
             mv.addObject("fileExtension", "." + galleryImageDTO.getFileType());
@@ -47,6 +51,7 @@ public class GalleryController {
         mv.setViewName("/gallery/mediagallery.jsp");
         return mv;
     }
+
 
 
     private List<GalleryImageDTO> getImageList(List<GalleryImageDTO> imageList) {

@@ -6,7 +6,7 @@
     <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link rel="shortcut icon" href="https://kecwebdeploy.firebaseapp.com/images/logo1.jpeg"
+    <link rel="shortcut icon" href="http://localhost/images/logo1.jpeg"
           type="image/vnd.microsoft.icon"/>
     <meta name="description" content="Katihar Engineering College, Katihar"/>
     <meta name="robots" content="follow, index"/
@@ -22,9 +22,7 @@
     <meta name="dcterms.format" content="text/html"/>
     <meta name="dcterms.identifier" content="http://localhost"/>
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="http://localhost/js/vendor/modernizr-2.6.2.min.js"></script>
+   
 </head>
 <div id="demo-content">
   
@@ -49,7 +47,7 @@
             <div class="row">
                 <div class="col-sm-4 loading">
                     <a class="logo navbar-btn pull-left loading" href="/" title="Home" >
-                        <img src="https://kecwebdeploy.firebaseapp.com/images/logo.png" alt="Home"/>
+                        <img src="http://localhost/images/logo.png" alt="Home"/>
                     </a>
                 </div>
                 <div class="col-sm-8">
@@ -302,9 +300,9 @@
         </div>
     </div>
 </header>
-<link rel="stylesheet" href="https://kecwebdeploy.firebaseapp.com/css/jquery-ui.css">
-<script src="https://kecwebdeploy.firebaseapp.com/js/jquery.min.js"></script>
-<script src="https://kecwebdeploy.firebaseapp.com/js/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://localhost/css/jquery-ui.css">
+<script src="http://localhost/js/jquery.min.js"></script>
+<script src="http://localhost/js/jquery-ui.js"></script>
 <script src="http://localhost/js/searchFaculty.js"></script>
 <style>
 .ui-autocomplete{

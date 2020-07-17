@@ -22,17 +22,15 @@ function fire_ajax_search() {
     //data.append("CustomField", "This is some extra data, testing");
 
     $("#search").prop("disabled", true);
-
+    $("#tempid").show();// show message
     $.ajax({
         url: "/faculty/searchFacultyNames",
         data: {
             facultyName:$("#facultyNames").val()
         },
 
-
-
         //contentType: false,
-        //cache: false,
+        cache: true,
         timeout: 600000,
         success: function (data, textStatus, xhr) {
 
@@ -80,5 +78,7 @@ function fire_ajax_search() {
        select: function( event, ui ) {
        event.preventDefault(); //preventing default methods
        $("#facultyNames").val(ui.item.label);
-       }
+       },
+      
+       
     });

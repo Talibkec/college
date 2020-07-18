@@ -30,20 +30,7 @@
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
-<div id="demo-content">
-  
-  		<div id="loader-wrapper">
-  			<div id="loader"></div>
-  
-  			<div class="loader-section section-left"></div>
-              <div class="loader-section section-right"></div>
-  
-  		</div>
-  		<style>
-  		#demo-content{
-  		padding-bottom:1px
-  		}
-  		</style>
+
 <header id="navbar" role="banner" class=" navbar navbar-default">
     <div class="container">
 

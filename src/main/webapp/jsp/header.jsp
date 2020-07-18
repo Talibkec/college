@@ -21,9 +21,15 @@
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
     <meta name="dcterms.identifier" content="http://localhost"/>
+    <link rel="stylesheet" href="http://localhost/css/normalize.css">
+        <link rel="stylesheet" href="http://localhost/css/main.css">
+        <script src="http://localhost/js/vendor/modernizr-2.6.2.min.js"></script>
+    
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
    
 </head>
+
+<body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
 <div id="demo-content">
   
   		<div id="loader-wrapper">
@@ -38,8 +44,6 @@
   		padding-bottom:1px
   		}
   		</style>
-<body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
-
 <header id="navbar" role="banner" class=" navbar navbar-default">
     <div class="container">
 

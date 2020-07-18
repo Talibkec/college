@@ -232,7 +232,9 @@ Ph.: 06452-239122</span></p>
 
 
 
-<!--@import url("http://localhost/sites/all/themes/rwsiitj/css/style.css")-->
+
+
+
 
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
@@ -266,8 +268,9 @@ Ph.: 06452-239122</span></p>
 <script src="http://localhost/js/rwscustom.js"></script>
 <script src="http://localhost/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://localhost/js/proteccode.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="js/main.js"></script>
 
-	
 
 <!--Jquery-->
     <script>

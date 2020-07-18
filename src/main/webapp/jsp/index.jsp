@@ -1,4 +1,19 @@
-  <jsp:include page="header.jsp"/>
+<jsp:include page="header.jsp"/>
+  <div id="demo-content">
+    
+    		<div id="loader-wrapper">
+    			<div id="loader"></div>
+    
+    			<div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+    
+    		</div>
+    		<style>
+    		#demo-content{
+    		padding-bottom:1px
+    		}
+    		</style>
+  
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:forEach var="item" items="${Role}">
         <c:if test = "${'Admin' eq item}">
@@ -130,9 +145,7 @@
                                                  </c:if>
                                                 </c:forEach>
                                                 <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
-                                                <c:if test = "${notice.noticeAge <= 45}">
-                                                                    <img class="" src="http://localhost/images/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
-                                                                 </c:if>
+                                               
                                               
                                             </div>
                                           </c:if>

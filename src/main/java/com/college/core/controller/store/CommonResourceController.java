@@ -11,22 +11,31 @@ import com.college.service.*;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.sun.jndi.toolkit.url.Uri;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.codec.Base64;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.config.annotation.RedirectViewControllerRegistration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistration;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.text.MessageFormat;
 import java.util.*;
 
 
@@ -105,6 +114,7 @@ public class CommonResourceController {
         JsonObject obj = null;
         if (faculties.size() > 0) {
             obj = new JsonObject();
+            
             FacultyDTO facultyDTO = faculties.get(0);
             obj.addProperty("name", facultyDTO.getFacultyName());
             obj.addProperty("id", facultyDTO.getFacultyId());
@@ -153,7 +163,8 @@ public class CommonResourceController {
             @RequestParam("oldKeyOrder") List<String> oldKeyOrder,
             @RequestParam("newKeyOrder") List<String> newKeyOrder,
             @RequestParam("facultyDetails") String facultyDetails){
-
+        
+        
         System.out.println("oldKeyOrder = " + oldKeyOrder);
         System.out.println("newKeyOrder = " + newKeyOrder);
         FacultyDTO newFacultyDTO = new FacultyDTO();
@@ -177,7 +188,9 @@ public class CommonResourceController {
             newFacultyDTO.setFacultyName(facultyName);
         }
         facultyService.saveFaculty(newFacultyDTO);
-        return new ResponseEntity( new HttpHeaders(), HttpStatus.OK);
+        
+        
+        return new ResponseEntity( new HttpHeaders(),HttpStatus.OK);
 
     }
 
@@ -197,11 +210,15 @@ public class CommonResourceController {
                     FacultyKeyPropValuesDTO valueDTO = valueIterator.next();
                     if (valueDTO.getKeyPropValuesId() == -9999) {
                         valueDTO.setKeyPropValuesId(null);
+                        
                     }
+                    
                     valueDTO.setFacultyKeyProps(keyDTO);
                     valDTOs.add(valueDTO);
+                    System.out.println("Print Property Value in controller layer"+valueDTO.getKeyPropVal());
                 }
                 keyDTO.getKeyPropVals().addAll(valDTOs);
+                
                 keyDTO.setFaculty(oldFacultyDTO);
                 keyPropsDTOS.add(keyDTO);
             }
@@ -344,18 +361,30 @@ public class CommonResourceController {
         mv.addObject("facultyList", facultyList);
         mv.setViewName("facultylist.jsp");
         return mv;
-    }
+    }   
 
     @RequestMapping(value = "/uploadfile/editfacultydetails")
-    public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId) {
+    public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId, Authentication authentication) {
         ModelAndView mv = new ModelAndView();
+        
         FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
-        mv.setViewName("editfacultydetails.jsp");
+        String loggedInUserName= authentication.getName();
+        String userName= facultyDTO.getUser().getUsername();
+
+        if(userName.equalsIgnoreCase(loggedInUserName)){
+            
+            mv.setViewName("editfacultydetails.jsp");
+        }
+        else{
+            mv.setViewName("/error-403.jsp");
+        }
         mv.addObject("facultyDetails",facultyDTO);
+        
+        
         return mv;
     }
 
-    @RequestMapping(value="/auth/uploadfile/addfaculty")
+    @RequestMapping(value="/uploadfile/addfaculty")
     public  ModelAndView addFaculty(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("addfaculty.jsp");
@@ -364,7 +393,7 @@ public class CommonResourceController {
     }
 
     @ResponseBody
-    @RequestMapping(value="/auth/uploadfile/addfaculty",method = RequestMethod.POST)
+    @RequestMapping(value="/uploadfile/addfaculty",method = RequestMethod.POST)
     public ResponseEntity<?> addFaculty(
             @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,

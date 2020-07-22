@@ -123,8 +123,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/suraj.jpg"
-                                                                             style="border-radius:30%"/>
+                                                                             src="http://localhost/jsp/category/suraj.png"
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -142,8 +142,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/akp.jpg"
-                                                                             style="border-radius:20%"/>
+                                                                             src="http://localhost/jsp/category/aman.png"
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of

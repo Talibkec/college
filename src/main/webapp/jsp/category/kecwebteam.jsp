@@ -16,8 +16,8 @@
                         <div class="panel-heading faculty-title">Md Talib Ahmad</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/mta.jpg"
-                                                                              style="border-radius:20%"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/mta.png"
+                                                                              style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
@@ -38,8 +38,8 @@
                         <div class="panel-heading faculty-title">Sinjan Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/sjn.jpg"
-                                                                             style="border-radius:20%"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/snjk.png"
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of

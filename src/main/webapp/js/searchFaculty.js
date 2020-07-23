@@ -1,7 +1,7 @@
 
 // Save UserSMRole
 $(document).ready(function () {
-
+        
 
     $("#search").click(function(event){
          event.preventDefault();
@@ -43,7 +43,7 @@ function fire_ajax_search() {
                 $("#facultyId").val(d.id);
                 $("#facultySpan").text($("#facultyNames").val());
 
-                window.location.href="http://localhost/facultyDetails?facultyId="+facultyId;
+                window.location.href="/facultyDetails?facultyId="+facultyId;
 
              }
         },

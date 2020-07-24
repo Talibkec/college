@@ -1,7 +1,3 @@
-jQuery(window).load(function($) {
-		// Animate loader off screen
-	//$(".rws-pageloader").fadeOut("slow");
-});
 
 jQuery(document).ready(function($){
 		/*$(".dropdown").hover(

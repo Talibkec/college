@@ -33,17 +33,7 @@ jQuery(document).ready(function($){
 			visible: 3
 		});*/
 
-		$('.rwsvticker1').marquee({
-			direction: 'up',
-			speed: 20,
-			duplicated: false,
-			pauseOnHover: true
-		});
-
-		$('.rwsvticker2').easyTicker({
-			direction: 'up',
-			visible: 1
-		});
+		
 
 		//start of the scripts to handle the image slider
 
@@ -105,5 +95,15 @@ jQuery(document).ready(function($){
         });
 
         callIntervalId = setInterval(function(){$( ".right-image-holder" ).trigger( "click" ); }, 5000);
-
+        $('.rwsvticker1').marquee({
+        			direction: 'up',
+        			speed: 20,
+        			duplicated: false,
+        			pauseOnHover: true
+        		});
+        
+        		$('.rwsvticker2').easyTicker({
+        			direction: 'up',
+        			visible: 1
+        		});
 });

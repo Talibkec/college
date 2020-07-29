@@ -262,7 +262,7 @@ Ph.: 06452-239122</span></p>
 <script src="http://localhost/css/superfish/supersubs.js"></script>
 <script src="http://localhost/css//superfish/modules/superfish/superfish.js"></script>
 <script src="http://localhost/js/jquery-ui.min.js"></script>
-<script src="http://localhost/js/rwscustom.js?param=ad218e"></script>
+<script src="http://localhost/js/rwscustom.js"></script>
 <script src="http://localhost/js/jquery-migrate-1.3.0.min.js"></script>
 <script async src="http://localhost/js/jquery.easy-ticker.js"></script>
 <script async src="http://localhost/js/jquery.marquee.min.js"></script>

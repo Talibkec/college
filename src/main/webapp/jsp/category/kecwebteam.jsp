@@ -92,7 +92,7 @@
                                                              data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">apcbadal@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                     
-                                </div><div class="col-sm-3 box-profile-link"><a href="https://kecwebdeploy.web.app/anshuman"target="_blank"class="btn btn-default btn-lg"> <br
+                                </div><div class="col-sm-3 box-profile-link"><a href="https://apcbadal.github.io"target="_blank"class="btn btn-default btn-lg"> <br
                                                                               class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                           Profile Page </a></div>
                             </div>

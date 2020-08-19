@@ -181,40 +181,6 @@ Ph.: 06452-239122</span></p>
 <script src="http://localhost/css//waypoints/lib/shortcuts/sticky.min.js">
 </script>
 <script src="http://localhost/css/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
-<script>$(document).ready(function(){
-        new Waypoint.Sticky({
-            element: $('.navbar.navbar-default')[0]
-        });
-        $('#modal-inquiry-form').on('hidden.bs.modal', function(){
-            $.cookie('hide-inquiry-form', '1', {path: '/'});
-        });
-    });
-    function changeTheme(theme){
-        $('#theme').attr('href', 'changetheme/css/' + theme);
-        $.cookie('selected-theme', theme, {path: '/', expires: 30});
-    }
-    function doInquiry(form){
-        $(form).find('button[type="submit"]').button('loading');
-        $.post(
-            'https://#/wp-admin/admin-ajax.php',
-            $(form).serialize(),
-            function(d){
-                if(d.error){
-                    swal('Alert!', d.errorMessage, 'error');
-                }else if(d.success){
-                    swal('Inquiry Submitted!', 'Thanks for contacting us.', 'success');
-                    $('#modal-inquiry-form').modal('hide');
-                }
-            },
-            'json'
-        ).always(function(){
-            $(form).find('button[type="submit"]').button('reset');
-        });
-        return false;
-    }
-
-
-</script>
 <style>
 
 
@@ -280,16 +246,6 @@ Ph.: 06452-239122</span></p>
 <script>
 $(document).ready(function(){
     $(this).scrollTop(0);
-});
-$(window).scroll(function(e){ 
-  var $el = $('.fixedElement'); 
-  var isPositionFixed = ($el.css('position') == 'fixed');
-  if ($(this).scrollTop() > 200 && !isPositionFixed){ 
-    $el.css({'position': 'fixed', 'top': '0px','background-color':'#3295a8'}); 
-  }
-  if ($(this).scrollTop() < 200 && isPositionFixed){
-    $el.css({'position': 'static', 'top': '0px','background-color':'white'}); 
-  } 
 });
 </script>
 </body>

@@ -92,7 +92,7 @@ public class UserController {
     }
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    public ModelAndView welcome(Model model) {
+    public ModelAndView welcome(Model model ) {
         ModelAndView modelAndView = new ModelAndView();
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
@@ -232,11 +232,11 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/auth/{fileName}/{id}", method = RequestMethod.GET)
-    public void deleteNoticeItem(@PathVariable("fileName") String fileName, @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
+    @RequestMapping(value = "/auth/delNotice/{id}", method = RequestMethod.GET)
+    public void deleteNoticeItem( @PathVariable("id") Long id, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         noticeBoardService.deleteItem(id);
-        deleteFileDromDisk(fileName);
+        
         res.sendRedirect("/");
     }
 

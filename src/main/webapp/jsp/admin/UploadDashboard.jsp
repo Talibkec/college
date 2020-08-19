@@ -174,7 +174,7 @@
                                        <i class=""></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
                                           <c:forEach var="item" items="${Role}">
                                              <c:if test = "${'Admin' eq item}">
-                                                <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
+                                                <span class="label label-danger"><a href="<c:url value='/auth/delNotice/${notice.id}'/>">Delete</a></span>
                                              </c:if>
                                           </c:forEach>
                                        <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
@@ -216,5 +216,23 @@
 </div>
 <!-- ./wrapper -->
 
-
+<!-- jQuery -->
+    <!-- jQuery UI 1.11.4 -->
+    <script src="http://localhost/jsp/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="http://localhost/jsp/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="http://localhost/jsp/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="http://localhost/jsp/admin/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="http://localhost/jsp/admin/dist/js/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="http://localhost/jsp/admin/dist/js/demo.js"></script>
+    
 <jsp:include page="../footer.jsp"/>

@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
-.fixedElement {
-    margin-bottom:40px;
-    position:fixed;
-    top:100;
-    width:100%;
-    z-index:100;
-    
-}
-</style>
 <html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
 <head>
@@ -73,11 +63,10 @@
                                         <ul>
                                         <li>
                                         <form id = "searchFacultyName">
-                                        <div class="col-md-7 text-center  "><input type="text"placeholder="Search Faculty" name="facultyName" id = "facultyNames" /></div>
-                                        
-                                        
+                                        <div class="col-md-7 text-center  "><input type="text"placeholder="Search Faculty" name="facultyName" id = "facultyNames" /></div>  
                                         </li>
                                         <button class="glyphicon glyphicon-search"id="search"style="font-size:170%"></button>
+                                      </br>
                                            </form>
                                             
 
@@ -99,7 +88,7 @@
             </button>
         </div>
 
-        <div class="navbar-collapse collapse fixedElement" id="navbar-collapse">
+        <div class="navbar-collapse collapse" id="navbar-collapse">
             <nav role="navigation">
             
             

@@ -29,7 +29,7 @@
     </c:forEach>
     <div class="row scrollingnews">
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
-            <ul>
+            <ul style="padding-top:3%">
                <li style="display:inline;float:left">
                   <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
@@ -141,7 +141,7 @@
                                                 
                                                 <c:forEach var="item" items="${Role}">
                                                     <c:if test = "${'Admin' eq item}">
-                                                    <span class="label label-danger"><a href="<c:url value='/auth/${notice.uploadedFileName}/${notice.id}'/>">Delete</a></span>
+                                                    <span class="label label-danger"><a href="<c:url value='/auth/delNotice/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
                                                 <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>

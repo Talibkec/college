@@ -20,11 +20,11 @@ public class FirebaseSetup {
     public void initialize() {
         try {
 
-            Resource resource = resourceLoader.getResource("classpath:online-attendance-accountInfo.json");
+            Resource resource = resourceLoader.getResource("classpath:kecattendance-account-info.json");
             InputStream serviceAccount = resource.getInputStream();
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setDatabaseUrl("https://online-attendance-7e3c3.firebaseio.com")
+                    .setDatabaseUrl("https://kecattendance.firebaseio.com/")
                     .build();
 
             FirebaseApp.initializeApp(options);

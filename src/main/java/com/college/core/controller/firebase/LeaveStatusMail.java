@@ -70,7 +70,7 @@ public class LeaveStatusMail {
         requestDate = leaveStatusDetail.getRequestDate();
         System.out.println("Leave Status is being called with following parameters. " + params );
         File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
-        String email = "ankitdutta170@gmail.com";
+        String email = leaveStatusDetail.getEmail();
         sendLeaveStatusMail(email,leaveStatusDetail);
         
         addEventToCalendar(leaveStatusDetail);

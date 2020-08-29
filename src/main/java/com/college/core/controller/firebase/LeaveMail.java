@@ -80,7 +80,7 @@ public class LeaveMail {
                 System.out.println("send Mail with Attachment method being called");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
-                mimeMessage.setFrom(new InternetAddress("test@localhost"));
+                mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
                 mimeMessage.setSubject("Leave Request.");
                 mimeMessage.setText("Please find the attached leave request.");
                 mimeMessage.addHeader("Content-Type", "application/pdf");

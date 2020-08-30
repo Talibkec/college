@@ -25,6 +25,7 @@ public class DocUtils {
 public  static Paragraph kecLogo(){
         System.setProperty("http.agent","Chrome");
     String attString ="http://localhost/sites/default/files/compressed/logo.png";
+    System.out.println("Image string found = " + attString);
     Image image=null;
     try {
         image =  Image.getInstance(attString);

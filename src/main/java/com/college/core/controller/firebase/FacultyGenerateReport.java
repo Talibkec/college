@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -47,7 +48,7 @@ public class FacultyGenerateReport {
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)
     public String FirebaseReportController(@RequestParam("params") String params ) {
-        
+        //params = "{\"startDate\":\"2020-08-29\",\"endDate\":\"2020-09-04\",\"dept\":\"Computer Sc. & Engineering\",\"semester\":\"7\",\"subject\":\"Artificial Intelligence\",\"facultyName\":\"Md Talib Ahmad\",\"facultyEmail\":\"apcbadal@gmail.com\"}";
         Gson gson =new Gson();
         FacultyReportDetail facultyReportDetail = gson.fromJson(params,FacultyReportDetail.class);
         sub = facultyReportDetail.getSubject();
@@ -73,6 +74,10 @@ public class FacultyGenerateReport {
                 } catch (IOException e) {
                     System.out.println("Unable to write into file.");
                     e.printStackTrace();
+                }
+                catch(Exception ex){
+                    System.out.println("Error while generating report");
+                    ex.printStackTrace();
                 }
                 String email =facultyReportDetail.getFacultyEmail();
                 sendMailWithAttachments(email, fileWithAbsolutePath);

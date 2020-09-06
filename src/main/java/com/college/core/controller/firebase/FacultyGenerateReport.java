@@ -27,8 +27,12 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Map;
+import java.io.PrintWriter;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 public class FacultyGenerateReport {
@@ -64,10 +68,11 @@ public class FacultyGenerateReport {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 System.out.println("Firebase Data received : " + dataSnapshot.getChildren());
+                Map<String, Map<String, Boolean>> reportInfo = null;
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 try {
-                    Map<String, Map<String, Boolean>> reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
+                    reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
                 } catch (DocumentException e) {
                     System.out.println("Unable to Generate the report.");
                     e.printStackTrace();
@@ -79,8 +84,8 @@ public class FacultyGenerateReport {
                     System.out.println("Error while generating report");
                     ex.printStackTrace();
                 }
-                String email =facultyReportDetail.getFacultyEmail();
-                sendMailWithAttachments(email, fileWithAbsolutePath);
+                String email ="mdtalibahmad@gmail.com";//facultyReportDetail.getFacultyEmail();
+                sendMailWithAttachments(email, fileWithAbsolutePath, reportInfo);
             }
 
             @Override
@@ -91,7 +96,7 @@ public class FacultyGenerateReport {
         return "";
     }
 
-    private void sendMailWithAttachments( String email, File fileWithAbsolutePath) {
+    private void sendMailWithAttachments( String email, File fileWithAbsolutePath,  Map<String, Map<String, Boolean>> reportInfo) {
         MimeMessagePreparator preparator = new MimeMessagePreparator()
         {
             public void prepare(MimeMessage mimeMessage) throws Exception
@@ -101,11 +106,12 @@ public class FacultyGenerateReport {
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
                 mimeMessage.setSubject("KEC, Attendance Report.");
                 mimeMessage.setText("Please find the attached attendance report.");
-                mimeMessage.addHeader("Content-Type", "application/pdf");
-
+                //mimeMessage.addHeader("Content-Type", "application/pdf");
                 FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath()));
+                FileSystemResource csvFile = new FileSystemResource(getCSVFile(reportInfo));
                 MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
+                helper.addAttachment(MimeUtility.encodeText("AttendanceReport.csv"), new ByteArrayResource(IOUtils.toByteArray(csvFile.getInputStream())));
                 helper.setText("Please find the attached attendance report.", true);
 
             }
@@ -122,6 +128,83 @@ public class FacultyGenerateReport {
             System.err.println(ex.getMessage());
                 //fileWithAbsolutePath.delete();
         }
+    }
+
+    public File getCSVFile(Map<String, Map<String, Boolean>> reportInfo) throws FileNotFoundException {
+        List<String[]> dataLines = getData(reportInfo);
+
+        File csvOutputFile = new File("test.csv");
+        try (PrintWriter pw = new PrintWriter(csvOutputFile)) {
+            dataLines.stream()
+                    .map(this::convertToCSV)
+                    .forEach(pw::println);
+        }
+
+        return csvOutputFile;
+
+    }
+
+    private List<String[]> getData(Map<String, Map<String, Boolean>> reportInfo) {
+        List<String[]> data = new ArrayList<>();
+        List<String> dates = new ArrayList<>(reportInfo.keySet());
+        Collections.sort(dates);
+        List<String> regNos = new ArrayList<>(reportInfo.get(dates.get(0)).keySet());
+        Collections.sort(regNos);
+        dates.add(0, "");
+        String[] arr = dates.stream().toArray(String[] ::new);
+        data.add(arr);
+        dates.remove(0);
+        for(String regNum : regNos){
+            List<String> list = new ArrayList<>();
+            list.add(regNum);
+            Integer count = 0;
+
+            for(String date: dates){
+                String status = "A";
+                if(reportInfo.get(date).get(regNum)){
+                    status = "P";
+                    count++;
+                }
+                list.add(status);
+            }
+            list.add(count.toString());
+            arr = list.stream().toArray(String[] ::new);
+            data.add(arr);
+        }
+        List<String> dayCount = getDayCount(regNos, dates, reportInfo);
+        dayCount.add(0, "");
+        arr = dayCount.stream().toArray(String[] ::new);
+        data.add(arr);
+        return data;
+    }
+
+    private List<String> getDayCount(List<String> regNos, List<String> dates, Map<String, Map<String, Boolean>> reportInfo) {
+        List<String> dayCount = new ArrayList<>();
+        for(String date : dates){
+            Integer count = 0;
+            for(String regnum: regNos){
+                if(reportInfo.get(date).get(regnum)){
+                    count++;
+                }
+            }
+            dayCount.add(count.toString());
+        }
+        return  dayCount;
+    }
+
+    public String convertToCSV(String[] data) {
+        return Stream.of(data)
+                .map(this::escapeSpecialCharacters)
+                .collect(Collectors.joining(","));
+    }
+
+    public String escapeSpecialCharacters(String data) {
+        String escapedData = data.replaceAll("\\R", " ");
+        if (data.contains(",") || data.contains("\"") || data.contains("'")) {
+            data = data.replace("\"", "\"\"");
+            escapedData = "\"" + data + "\"";
+        }
+        return escapedData;
     }
 
 }

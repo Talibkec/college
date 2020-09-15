@@ -138,27 +138,17 @@ public class FirebaseDocumentHelper {
     private Map<String, Integer> getCount(Map<String, Map<String, Boolean>> reportInfo, Set<String> regNos) {
     
         Map<String, Integer> counts = new TreeMap<>();
-        Iterator<Map.Entry<String, Map<String, Boolean>>> iterator = reportInfo.entrySet().iterator();
-        
-        while(iterator.hasNext()){
-            Map.Entry<String, Map<String, Boolean>> next = iterator.next();
-            Map<String, Boolean> value = next.getValue();
-            Iterator<String> regNoIterator = regNos.iterator();
-            while(regNoIterator.hasNext()){
-                String regNo = regNoIterator.next();
-                if(value.get(regNo)){
-                   if( counts.get(regNo) == null){
-                       counts.put(regNo, 1);
-                   }
-                   else{
-                       counts.put(regNo, counts.get(regNo) + 1);
-                   }
-                }
-                else{
-                    counts.put(regNo, 0);
-                }
+        List<String> reglist = regNos.stream().collect(Collectors.toList());
+        List<String> dateList = reportInfo.keySet().stream().collect(Collectors.toList());
+        for(String regNo : reglist){
+            counts.put(regNo, 0);
+            for(String date : dateList){
+               if(reportInfo.get(date).get(regNo)){
+                   counts.put(regNo, counts.get(regNo) + 1);
+               }
             }
         }
+
         return  counts;
     }
 

@@ -139,7 +139,7 @@ public class FirebaseDocumentHelper {
     
         Map<String, Integer> counts = new TreeMap<>();
         List<String> reglist = regNos.stream().collect(Collectors.toList());
-        List<String> dateList = reportInfo.keySet().stream().collect(Collectors.toList());
+        List<String> dateList = reportInfo.keySet().stream().collect(Collectors.toList());//
         for(String regNo : reglist){
             counts.put(regNo, 0);
             for(String date : dateList){

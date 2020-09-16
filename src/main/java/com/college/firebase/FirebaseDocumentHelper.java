@@ -113,7 +113,7 @@ public class FirebaseDocumentHelper {
             Set<String> regNos = reportInfo.get(firstKeyVal).keySet();
             Iterator<String> regNoIterator = regNos.iterator();
            
-            printAttendanceList(table, regNoIterator, reportInfo, offset, columnPerPage, arrayOfdates, null);
+            printAttendanceList(table, regNoIterator, reportInfo, offset, columnPerPage, arrayOfdates,studentsPresentationCount);
            // setRowFooter(arrayOfdates,table,offset,columnPerPage,reportInfo);
             doc.add(table);
             offset += columnPerPage;
@@ -161,10 +161,11 @@ public class FirebaseDocumentHelper {
             table.addCell(cell);
             while (colNum < offset + colPPage) {
                 
-                String date = arrayOfDates.get(colNum++);
+                String date = arrayOfDates.get(colNum);
                 String status = "";
                 if("Count".equalsIgnoreCase(date)){
-                    if(counts.get(regNo) != null){
+                    
+                    if( colNum == arrayOfDates.size() - 1 && counts.get(regNo) != null){
                         status = counts.get(regNo).toString();
                     }
                   
@@ -172,6 +173,7 @@ public class FirebaseDocumentHelper {
                 else status = reportInfo.get(date).get(regNo) ? "P" : "A";
                 cell = new PdfPCell(new Phrase(status));
                 table.addCell(cell);
+                colNum++;
                 
             }
         }

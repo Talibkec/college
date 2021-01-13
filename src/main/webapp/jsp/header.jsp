@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- 
-
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
@@ -193,10 +192,15 @@
                             <li id="menu-1124-1" class="last even sf-item-10 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent">
                                 <a href="http://localhost/login" title="" class="sf-depth-1 menuparent">Login</a>
                                 <ul>
+                                 <sec:authorize access="!isAuthenticated()">
+   
                                     <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/login" class="sf-depth-2">Admin Login</a></li>
-                                   
+                                   </sec:authorize>
+<sec:authorize access="isAuthenticated()">
+
                                          <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/logout" title="" class="sf-depth-2">logout</a></li>
-                                   
+                                   </sec:authorize>
+
                                        
                                     
                                 </ul>

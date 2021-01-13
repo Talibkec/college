@@ -384,7 +384,7 @@ public class CommonResourceController {
         return mv;
     }
 
-    @RequestMapping(value="/uploadfile/addfaculty")
+    @RequestMapping(value="/uploadfile/addfacultyForm")
     public  ModelAndView addFaculty(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("addfaculty.jsp");

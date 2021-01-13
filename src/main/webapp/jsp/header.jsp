@@ -29,7 +29,23 @@
         <script src="http://localhost/js/vendor/modernizr-2.6.2.min.js"></script>
     
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
-   
+                   <style>
+      .blink {
+        animation: blinker 0.8s linear infinite;
+        color: #1c87c9;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: sans-serif;
+          margin-left:10%
+      }
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+        
+      }
+    </style>
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
@@ -47,6 +63,13 @@
                 <div class="col-sm-8">
                     <div class="region region-navigation">
                         <section id="block-block-8" class="block block-block clearfix">
+            
+
+<div class="blink" style="font-family:courier,arial,helvetica;color:blue;font-weight:bold">
+  <sec:authorize access="isAuthenticated()">
+   	 Welcome <sec:authentication property="principal.username"> </sec:authentication>
+</sec:authorize>
+   </div>
 
 
                             <ul>
@@ -189,22 +212,16 @@
                                 </ul>
                             </li>
             
-                            <li id="menu-1124-1" class="last even sf-item-10 sf-depth-1 sf-total-children-5 sf-parent-children-0 sf-single-children-5 menuparent">
+                            <sec:authorize access="!isAuthenticated()">
+                               <li >
                                 <a href="http://localhost/login" title="" class="sf-depth-1 menuparent">Login</a>
-                                <ul>
-                                 <sec:authorize access="!isAuthenticated()">
-   
-                                    <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/login" class="sf-depth-2"> Login</a></li>
+                               </li>
+                             </sec:authorize>
+                             <sec:authorize access="isAuthenticated()">
+		                            <li>
+                                <a href="http://localhost/logout" title="" class="sf-depth-1 menuparent">Logout</a>
+                              </li>
                                    </sec:authorize>
-<sec:authorize access="isAuthenticated()">
-
-                                         <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/logout" title="" class="sf-depth-2">logout</a></li>
-                                   </sec:authorize>
-
-                                       
-                                    
-                                </ul>
-                            </li>
                         </ul>
                     </section>
                 </div>

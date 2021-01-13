@@ -29,23 +29,7 @@
         <script src="http://localhost/js/vendor/modernizr-2.6.2.min.js"></script>
     
     <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
-                   <style>
-      .blink {
-        animation: blinker 0.8s linear infinite;
-        color: #1c87c9;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: sans-serif;
-          margin-left:10%
-      }
-      @keyframes blinker {
-        50% {
-          opacity: 0;
-        }
-      }
-        
-      }
-    </style>
+                   
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
@@ -65,11 +49,6 @@
                         <section id="block-block-8" class="block block-block clearfix">
             
 
-<div class="blink" style="font-family:courier,arial,helvetica;color:blue;font-weight:bold">
-  <sec:authorize access="isAuthenticated()">
-   	 Welcome <sec:authentication property="principal.username"> </sec:authentication>
-</sec:authorize>
-   </div>
 
 
                             <ul>

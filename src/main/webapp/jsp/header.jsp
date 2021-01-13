@@ -192,8 +192,10 @@
                                 <a href="http://localhost/login" title="" class="sf-depth-1 menuparent">Login</a>
                                 <ul>
                                     <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/login" class="sf-depth-2">Admin Login</a></li>
-                                    
-                                        <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/logout" title="" class="sf-depth-2">logout</a></li>
+                                    <sec:authorize access="isAuthenticated()">
+                                         <li id="menu-528-1" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/logout" title="" class="sf-depth-2">logout</a></li>
+                                    </sec:authorize>
+                                       
                                     
                                 </ul>
                             </li>

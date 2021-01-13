@@ -194,7 +194,7 @@
                                 <ul>
                                  <sec:authorize access="!isAuthenticated()">
    
-                                    <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/login" class="sf-depth-2">Admin Login</a></li>
+                                    <li id="menu-1120-1" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/login" class="sf-depth-2"> Login</a></li>
                                    </sec:authorize>
 <sec:authorize access="isAuthenticated()">
 

@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
                                     Computer Science and Engineering<br/> <strong>Designation:</strong>Web developer &
-                                    Content Writer<br/> <strong>Phone Number:</strong>+91-8757399001<br/> <strong>Email
+                                    Content Writer<br/> <strong>Email
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                                                              data-cfemail="aad9cbc4dec5d9c2d8cbc3eac7c3dec7dfd0cbcccccbd8dadfd884c5d8cd">ankitdutta170@gmail.com</a>
                                     <div class="visible-xs"><br/></div>

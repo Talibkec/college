@@ -65,7 +65,7 @@
                             <tr bgcolor="#e9feea">
                                 <td>Prof. In-charge</td>
                                 <td>Md Talib Ahmad</td>
-                                <td>9108006551</td>
+                                <td></td>
                             </tr>
                             <tr bgcolor="#e9feea">
                                 <td>Prof. In-charge</td>

@@ -69,7 +69,7 @@
                             </tr>
                             <tr bgcolor="#e9feea">
                                 <td>Prof. In-charge</td>
-                                <td>Dharmveer Kumar Yadav</td>
+                                <td>Dharmveer Kumar </td>
                                 <td></td>
                             </tr>
                             </tbody>

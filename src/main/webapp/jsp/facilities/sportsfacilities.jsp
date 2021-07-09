@@ -70,7 +70,7 @@
                             <tr bgcolor="#e9feea">
                                 <td>Prof. In-charge</td>
                                 <td>Dharmveer Kumar Yadav</td>
-                                <td>8757760847</td>
+                                <td></td>
                             </tr>
                             </tbody>
                         </table>

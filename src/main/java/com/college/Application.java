@@ -11,11 +11,13 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @ComponentScan({"com.college.*"})
 @Import({BeanConfig.class, WebConfig.class})
+@PropertySource("file:${C:\\Users\\sujee\\IdeaProjects\\college\\src\\main\\resources\\employee.properties}")
 //@EnableWebMvc
 @EnableScheduling
 @EnableCaching

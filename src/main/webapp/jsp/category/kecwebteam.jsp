@@ -22,9 +22,8 @@
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
                                     Engineering<br/> <strong>Designation:</strong> Assistant Professor & KEC Web
-                                    Head<br/> <strong>Phone Number:</strong> +91-9108006551<br/> <strong>Email
-                                        Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                             data-cfemail="98f9ebf0f1ebf0d8f5f1ecf5ede2f9fefef9eae8edeab6f7eaff">mdtalibahmad@gmail.com</a>
+                                    Head<br/> <strong>Email
+                                        Address:</strong> <a href="mailto:talib@keck.ac.in">talib@keck.ac.in</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
@@ -68,7 +67,7 @@
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
                                     Computer Science and Engineering<br/> <strong>Designation:</strong>Web developer &
-                                    Content Writer<br/> <strong>Phone Number:</strong>+91-8757399001<br/> <strong>Email
+                                    Content Writer<br/> <strong>Email
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                                                              data-cfemail="aad9cbc4dec5d9c2d8cbc3eac7c3dec7dfd0cbcccccbd8dadfd884c5d8cd">ankitdutta170@gmail.com</a>
                                     <div class="visible-xs"><br/></div>

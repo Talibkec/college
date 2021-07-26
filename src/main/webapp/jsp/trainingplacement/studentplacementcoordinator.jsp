@@ -50,7 +50,7 @@
                                                      <td width="168"><span style="color: #000000;">Ankit Dutta</span></td>
                                                      <td width="102"><span style="color: #000000;">CSE</span></td>
                                                      <td width="245"><span style="color: #000000;">ankitdutta170@gmail.com</span></td>
-                                                     <td width="245"><span style="color: #000000;">7903083839</span></td>
+                                                     <td width="245"><span style="color: #000000;"></span></td>
                                                  </tr>
                            <tr>
                                                       <td width="42"><span style="color: #000000;">3</span></td>

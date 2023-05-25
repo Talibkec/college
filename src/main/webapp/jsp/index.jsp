@@ -31,7 +31,7 @@
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul style="padding-top:3%">
                <li style="display:inline;float:left">
-                  <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">
+                  <img class="" src="http://localhost/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
                </li><span>&nbsp;</span>
                      

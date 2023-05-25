@@ -32,7 +32,7 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     }
 
     public List<GalleryImageDTO> getAllImages() {
-        logger.info("Query is being served from database for image slide.");
+        logger.info("dd Query is being served from database for image slide.");
 
         List<GalleryImage> galleryImages = galleryImageRepository.getAllImages();
         Type targetListType = new TypeToken<List<GalleryImageDTO>>() {}.getType();

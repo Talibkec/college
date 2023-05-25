@@ -17,6 +17,8 @@
                          <ul class="menu nav">
                              <li class="first leaf  menu-mlid-1154"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">AICTE Approval</a></li>
                                <li class="leaf menu-mlid-1121"><a href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                             <li class="first leaf  menu-mlid-1178"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Grievance</a></li>
+                             <li class="first leaf  menu-mlid-1179"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Mandatory Disclosure</a></li>
                           </ul>
                      </div>
                    </section>

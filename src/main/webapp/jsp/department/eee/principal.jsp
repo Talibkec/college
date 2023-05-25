@@ -12,30 +12,7 @@
     <div class="container">
 
         <div class="row">
-            <aside class="col-sm-3" role="complementary">
-                                                                                <div class="region region-sidebar-second">
-                                                                      <section id="block-menu-block-3" class="block block-menu-block clearfix">
-
-                                                                              <h2 class="block-title"> Faculty of Electrical & Electronics Engg.</h2>
-
-                                                                        <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                                                                       <ul class="menu nav">
-                                                                      <li class="first leaf  menu-mlid-1154"><a href="http://localhost/department/eee/principal" class="sf-depth-2 ">Prof. Ranjana Kumari</a></li>
-                                                                      <li class="leaf menu-mlid-1121"><a href="http://localhost/department/eee/rk" class="sf-depth-2">Dr. Ram Kumar</a></li>
-                                                                      <li class="leaf menu-mlid-1156"><a href="http://localhost/department/eee/aks" class="sf-depth-2">Amit Kumar Suman</a></li>
-                                                                      <li class="leaf menu-mlid-1294"><a href="http://localhost/department/eee/ak" class="sf-depth-2">Abhijeet Kumar</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/aa" class="sf-depth-2">Alauddin Ansari</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/sa" class="sf-depth-2">Sajjad Ahmad</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/ss" class="sf-depth-2">Saket Saurabh</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/tr" class="sf-depth-2">Tarique Rashid</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/rdr" class="sf-depth-2">Rajeev Dev Ranjan</a></li>
-                                                                      <li class="leaf menu-mlid-1467"><a href="http://localhost/department/eee/nk" class="sf-depth-2">Naveen Kumar</a></li>
-
-                                                                         </ul></div>
-
-                                                                      </section>
-                                                                        </div>
-                                                                            </aside>
+            <jsp:include page="../sidebars/eeesidebar.jsp"/>
 
            <div class="col-md-8">
             <c:forEach var="item" items="${Role}">

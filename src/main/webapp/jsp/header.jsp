@@ -150,7 +150,7 @@
                                     <li id="menu-1311-18" class="middle even sf-item-6 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/healthcenter" class="sf-depth-2">Health Centre</a></li>
                                     <li id="menu-1401-19" class="last odd sf-item-7 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/hostels" title="Hostels" class="sf-depth-2">Hostels</a></li>
                                     <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/medicalfacilities" class="sf-depth-2">Medical Facilities</a></li>
-                                    <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/placementbrouchure" class="sf-depth-2">Placement</a></li>
+                                    <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/placementbrochure" class="sf-depth-2">Placement</a></li>
                                     <li id="menu-1321-22" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/sportsfacilities" class="sf-depth-2">Sports Facilities</a></li>
                                     <li id="menu-1321-23" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/startupcell" class="sf-depth-2">Startup cell</a></li>
                                     <li id="menu-1321-24" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/facilities/usefulllink" class="sf-depth-2">Useful Link</a></li>
@@ -172,6 +172,8 @@
                                 <ul>
                                     <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
                                     <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                                    <li class="first leaf  menu-mlid-1178"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Grievance</a></li>
+                                    <li class="first leaf  menu-mlid-1179"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Mandatory Disclosure</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1" class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">

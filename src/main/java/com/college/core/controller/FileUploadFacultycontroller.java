@@ -46,7 +46,8 @@ public class FileUploadFacultycontroller {
             InputStream in = new ByteArrayInputStream(facultyDTO.getFacultyPhoto());
             return IOUtils.toByteArray(in);
         }
-        return null;
+        InputStream in = new ByteArrayInputStream( facultyService.getFacultyById(25L).getFacultyPhoto());
+        return IOUtils.toByteArray(in);
     }
 
     @RequestMapping(value = "/{id}/documents")

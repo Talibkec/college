@@ -58,10 +58,10 @@ public class AboutController {
     @RequestMapping(value = "administration")
     public ModelAndView getAdministration() {
         ModelAndView mv = new ModelAndView();
-        List<String> role= ControllerUtility.getRole();
-        List<AdministrationDTO>administration =administrationService.getAllAdministration();
-        mv.addObject("adminsDetails",administration);
-        mv.addObject("Role", role);
+        //List<String> role= ControllerUtility.getRole();
+        //List<AdministrationDTO> administration =administrationService.getAllAdministration();
+        //mv.addObject("adminsDetails",administration);
+        //mv.addObject("Role", role);
         mv.setViewName("about/administration.jsp");
         return mv;
     }

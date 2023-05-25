@@ -6,11 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping(value = "trainingplacement")
-
 public class TrainingPlacementController {
 
     @RequestMapping(value = "placementbrochure")
-    public ModelAndView getPlacementBrochure() {
+    public ModelAndView getplacementbrochure() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/trainingplacement/placementbrochure.jsp");
         return mv;

@@ -17,11 +17,9 @@ public class FacultyDTO {
     private String facultyPersonalEmail;
     private String imageURL;
 
-
     private byte[] facultyPhoto;
     private User user;
     private String fileType;
-
 
     private List<FacultyKeyPropsDTO> facultyKeyProps = new ArrayList<>(0);
 

@@ -162,14 +162,14 @@ public class AppliedController {
     @RequestMapping(value = "bnm")
     public ModelAndView getBnm() {
         ModelAndView mv = facultyHelper.getFacultyDetails("bnmahto");
-        mv.setViewName("department/ash/bnm.jsp");
+        mv.setViewName("department/ash/old/bnm.jsp");
         return mv;
     }
 
     @RequestMapping(value = "snk")
     public ModelAndView getSnk() {
         ModelAndView mv = facultyHelper.getFacultyDetails("sunil");
-        mv.setViewName("department/ash/snk.jsp");
+        mv.setViewName("department/ash/old/snk.jsp");
         return mv;
     }
 }

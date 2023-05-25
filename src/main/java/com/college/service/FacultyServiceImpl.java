@@ -188,6 +188,11 @@ public class FacultyServiceImpl implements FacultyService {
 
     }
 
+    @Override
+    public void deleteFaculty(long facultyId) {
+        facultyRepository.delete(facultyId);
+    }
+
 
     @Override
     public void createPasswordResetTokenForUser(User user, String token) {

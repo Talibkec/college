@@ -22,9 +22,10 @@
          <label for ="facultyPersonalEmail"class="control-label col-sm-4">Enter Personal Email</label>
          <input type="email" id="facultyPersonalEmail" name="facultyPersonalEmail"class="control-label col-sm-4"></br></br>
          <label for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
-         <input type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
+         <input type="number" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
          <label for ="userName" class="control-label col-sm-4">Enter User Name</label>
         <input type="text" id="userName" name="userName" class="control-label col-sm-4 ui-autocomplete-input"autocomplete="off" ></br></br>
+    <div id="form_message"></div>
          <input type="submit" value="Submit" id="btnSubmit" class="btn btn-success" style="margin-left:10%" />
          <div class="col-sm-4"></div>
         </div>

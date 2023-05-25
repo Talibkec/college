@@ -38,4 +38,6 @@ public interface FacultyService {
     void createPasswordResetTokenForUser(User user, String token);
 
     Faculty searchByEmail(String facultyEmail);
+
+    void deleteFaculty(long facultyId);
 }

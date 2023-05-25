@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 
 
@@ -19,6 +20,8 @@
                 <ul class="menu nav">
                     <li class="first leaf  menu-mlid-1154"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">AICTE Approval</a></li>
                       <li class="leaf menu-mlid-1121"><a href="http://localhost/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
+                    <li class="first leaf  menu-mlid-1178"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Grievance</a></li>
+                    <li class="first leaf  menu-mlid-1179"><a href="http://localhost/approval/aicteapproval" class="sf-depth-2 active">Mandatory Disclosure</a></li>
                  </ul>
             </div>
           </section>
@@ -37,19 +40,29 @@
                                 <td><strong>Year</strong></td>
                                 <td width="472" align="center"><strong>Documents</strong></td>
                             </tr>
-
-                            <tr bgcolor="#e9feea">
-                                <td width="40">1</td>
-                                <td width="134">2018</td>
-                                <td width="472" align="center">
-                                    <i class="fa fa-download"></i>
-                                     <a href="http://localhost/jsp/approval/abc.pdf">
-                                       <button type="button" class="btn btn-success" data-dismiss="modal">Download
-                                          </button></a>
-
-                                </td>
-                            </tr>
                             </tbody>
+                            <c:forEach items ="${allDocuments}" var ="document">
+
+
+                                <tr bgcolor="#e9feea">
+                                    <td width="40">${document.id}</td>
+                                    <td width="134">${document.title}</td>
+                                    <td width="134">${document.fileName}</td>
+
+                                    <td width="472" align="center">
+                                        <i class="fa fa-download"></i>
+                                        <a href="http://localhost/approval/document/${document.id}">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">Download
+                                            </button></a>
+
+                                    </td>
+                                </tr>
+
+                            </c:forEach>
+
+
+
+
                         </table>
                         <p>&nbsp;</p>
                         <p>&nbsp;</p></div>

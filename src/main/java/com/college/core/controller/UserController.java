@@ -15,6 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,11 +27,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 @Controller
@@ -82,6 +88,8 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout, HttpServletRequest req, HttpServletResponse res) {
+
+
         if (error != null)
             model.addAttribute("error", "Your username and password is invalid.");
 
@@ -96,6 +104,7 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView();
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
         List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
+
         List<AchievementDTO> achievementImageList = achievementSlideService.getAllImages();
         modelAndView.addObject("achievementImageList", getAllAchievementImage(achievementImageList));
         modelAndView.addObject("imageList", getImageList(imageList));
@@ -170,12 +179,17 @@ public class UserController {
 
     @RequestMapping(value = "/{id}/notice")
     public @ResponseBody
-    byte[] getdocuments(@PathVariable("id") Long id) throws IOException {
+    ResponseEntity<?> getdocuments(@PathVariable("id") Long id) throws IOException {
         NoticeBoardDTO noticeBoardDTO = noticeBoardService.getNoticeDocument(id);
+        String filename = noticeBoardDTO.getUploadedFileName();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/"+noticeBoardDTO.getFileType()));
+        headers.add("content-disposition", "inline;filename="+filename);
         if (noticeBoardDTO.getNotice() != null) {
             InputStream in = new ByteArrayInputStream(noticeBoardDTO.getNotice());
-            return IOUtils.toByteArray(in);
+            return  new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);
         }
+
         return null;
     }
 
@@ -201,6 +215,8 @@ public class UserController {
    @RequestMapping(value = "/{id}/slideImage")
     public @ResponseBody
     byte[] getimages(@PathVariable("id") Long imageSlideId) throws IOException {
+
+        //imageSlideId = 8L;
         ImageSlideDTO imageSlideDTO = imageSlideService.getImages(imageSlideId);
         if (imageSlideDTO.getImage() != null) {
             InputStream in = new ByteArrayInputStream(imageSlideDTO.getImage());

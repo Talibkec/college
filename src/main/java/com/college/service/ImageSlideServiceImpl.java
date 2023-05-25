@@ -45,7 +45,7 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     @Override
     @Cacheable(value = "homepageSlideImageCache")
     public List<ImageSlideDTO> getAllImages() {
-        logger.info("Query is being served from database for image slide.");
+        logger.info("ff Query is being served from database for image slide.");
 
         List<ImageSlide> imageSlides = imageSlideRepository.getAllImages();
         Type targetListType = new TypeToken<List<ImageSlideDTO>>() {

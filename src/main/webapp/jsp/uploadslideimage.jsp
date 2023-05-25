@@ -11,7 +11,7 @@
     </div>
       <label for="file" class="control-label col-sm-4" >Choose File</label>
     <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="slideImage" id="slideImage"/><br/></div></div>
-    <div id="msg" style="display: none; color: red;">*Please Select a file</div>
+    <div id="msg" style="display: block; color: red;"></div>
     <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" /><div class="col-sm-5"></div></div>
 </form>
 

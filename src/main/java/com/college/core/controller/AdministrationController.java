@@ -60,7 +60,6 @@ public  class AdministrationController {
     public void deleteItem( @PathVariable("adminRoleId") Long id, HttpServletResponse res) throws IOException {
         ModelAndView modelAndView = new ModelAndView();
         administrationService.deleteItem(id);
-
         res.sendRedirect("/");
     }
 

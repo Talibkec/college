@@ -6,6 +6,10 @@ import com.college.service.NoticeBoardService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.orm.hibernate3.SpringSessionContext;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,6 +57,14 @@ public class AdminController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("admin/HodDashboard.jsp");
         return mv;
+
+    }
+    @RequestMapping(value = "/auth/uploadAICTEapproval")
+    public ModelAndView uploadAICTEapproval() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadAICTEapproval.jsp");
+        return model;
 
     }
 }

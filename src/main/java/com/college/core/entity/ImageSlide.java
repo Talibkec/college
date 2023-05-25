@@ -20,8 +20,6 @@ public class ImageSlide {
     private String fileType;
 
     @Lob
-
-
     public String getFileName() {
         return fileName;
     }

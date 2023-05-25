@@ -39,4 +39,4 @@
           <div><p><strong>Updated Soon &#8230</strong></p></div>
         </div>
     </div>
-<jsp:include page="/jsp/header.jsp"/>
+<jsp:include page="/jsp/footer.jsp"/>

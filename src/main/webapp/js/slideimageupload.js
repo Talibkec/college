@@ -36,7 +36,6 @@ function fire_ajax_submit() {
         processData: false, //prevent jQuery from automatically transforming the data into a query string
         contentType: false,
         cache: false,
-        timeout: 600000,
         success: function (data, textStatus, xhr) {
 
              //window.location.href = "jsp/login.jsp?a=b&c=d";
@@ -49,6 +48,8 @@ function fire_ajax_submit() {
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
                 $("#homePageForm").submit();
+            $("#msg").html(data);
+            $("#msg").css("color" , "green");
         },
         error: function (e) {
 

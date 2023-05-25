@@ -326,7 +326,7 @@ Katihar Engineering College</title>
                                     <li id="menu-1321-20" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                                             href="http://localhost/facilities/medicalfacilities" class="sf-depth-2">Medical Facilities</a></li>
                                     <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                            href="http://localhost/facilities/placementbrouchure" class="sf-depth-2">Placement</a></li>
+                                            href="http://localhost/facilities/placementbrochure" class="sf-depth-2">Placement</a></li>
                                     <li id="menu-1321-22" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                                             href="http://localhost/facilities/sportsfacilities" class="sf-depth-2">Sports Facilities</a></li>
                                     <li id="menu-1321-23" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a

@@ -44,12 +44,17 @@ function fire_ajax_submit() {
 
     var data = new FormData(form);
 
+    if(($("#facultyName").val() === '')||($("#facultyOfficialEmail").val() === '')||($("#facultyPersonalEmail").val() === '')||($("#facultyMobNo").val() === '')||($("#userName").val() === '')){
+        $("#form_message").html("All fields are required !! ");
+        return false;
+    }
+
     $("#btnSubmit").prop("disabled", true);
 
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/uploadfile/addfaculty",
+        url: "/auth/uploadfile/addfaculty",
         data: data,
         //http://api.jquery.com/jQuery.ajax/
         //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
@@ -68,7 +73,8 @@ function fire_ajax_submit() {
                 $("#result").text(data);
                 console.log("SUCCESS : ", data);
                 $("#btnSubmit").prop("disabled", false);
-                history.go(-1);
+                $("#form_message").html(data);
+                //history.go(-1);
         },
         error: function (e) {
 

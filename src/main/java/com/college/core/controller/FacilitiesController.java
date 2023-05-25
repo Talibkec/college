@@ -73,7 +73,7 @@ public class FacilitiesController {
     }
 
     @RequestMapping(value = "placementbrochure")
-    public ModelAndView getPlacementBrochure() {
+    public ModelAndView getplacementbrochure() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("/facilities/placementbrochure.jsp");
         return mv;
@@ -96,7 +96,7 @@ public class FacilitiesController {
     @RequestMapping(value = "usefulllink")
     public ModelAndView getUseFullLink() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/facilities/usefulllink.jsp");
+        mv.setViewName("/facilities/usefullink.jsp");
         return mv;
     }
 

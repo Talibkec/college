@@ -36,17 +36,18 @@ Ph.: 06452-239122</span></p>
                 <a href="/legal/productandservices"><p class="block-title">Product and Services</p></a>
                 <a href="/legal/termandcondition"><p class="block-title">Terms and Conditions</p></a>
                 <a href="/legal/refundandcancellation"><p class="block-title">Refund/Cancellation Policy</p></a>
+                <a href="/legal/feestructure"><p class="block-title">Fee Structure </p></a>
                <p>Since January, 2019</p>
 
             </section>
 
         </div>
-        <section id="block-block-4" class="block block-block clearfix">
+        <section id="" class="block block-block clearfix">
 
             <h2 class="block-title">&copy 2018 KEC Katihar</h2>
 
             <p>Designed & Developed by</p>
-            <p><a href="http://localhost/category/kecwebteam" target="_blank">KEC Web Team</p></a>
+            <p><a href="http://localhost/category/kecwebteam" target="_blank">KEC Web Team</a></p>
         </section>
     </footer>
 

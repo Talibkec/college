@@ -1,16 +1,13 @@
 package com.college.core.controller;
 
-import com.college.core.entity.Administration;
-import com.college.core.model.AdministrationDTO;
+
 import com.college.service.AdministrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.jws.WebParam;
-import java.util.List;
+
 
 @Controller
 

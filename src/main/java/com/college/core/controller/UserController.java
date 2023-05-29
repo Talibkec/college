@@ -122,7 +122,7 @@ public class UserController {
     @RequestMapping(value = "forgotPassword", method = RequestMethod.GET)
     public ModelAndView forgotPassword() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("forgotPassword.html");
+        modelAndView.setViewName("forgotPassword.jsp");
         return modelAndView;
     }
 

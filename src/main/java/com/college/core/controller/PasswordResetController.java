@@ -97,7 +97,7 @@ public class PasswordResetController {
                     messages.getMessage("auth.message." + result, null, locale));
             return "redirect:/login?lang=" + locale.getLanguage();
         }
-        return "redirect:/jsp/updatePassword.html?lang=" + locale.getLanguage();
+        return "redirect:/jsp/updatePassword.jsp?lang=" + locale.getLanguage();
     }
 
     private String validatePasswordResetToken(long id, String token) {

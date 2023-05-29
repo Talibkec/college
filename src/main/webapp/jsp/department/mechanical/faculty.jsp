@@ -19,7 +19,7 @@
                         <div class="panel-heading faculty-title">Dr. Surya Kumar&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/26/image${fileExtension}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/26/image${fileExtension}"
                                                                              style="background-image: url(srk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -28,7 +28,7 @@
                                         Address:</strong> <a href="mailto:mechsurya@hotmail.com">mechsurya@hotmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/srk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/srk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -41,7 +41,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/27/image${fileExtension}"
+                                                                             src="/27/image${fileExtension}"
                                                                              style="background-image: url(jk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -51,7 +51,7 @@
                                             href="mailto:jayant906@gmail.com">jayant906@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/jk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/jk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -62,7 +62,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/28/image${fileExtension}"
+                                                                             src="/28/image${fileExtension}"
                                                                              style="background-image: url(mk.jpeg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -72,7 +72,7 @@
                                             href="mailto:mukeshme24@gmail.com">mukeshme24@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/mk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/mk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -83,7 +83,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/29/image${fileExtension}"
+                                                                             src="/29/image${fileExtension}"
                                                                              style="background-image: url(ajk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -93,7 +93,7 @@
                                             href="mailto:ajaykumar2189@gmail.com">ajaykumar2189@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ajk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ajk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -105,7 +105,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                         src="http://localhost/30/image${fileExtension}"
+                                                                         src="/30/image${fileExtension}"
                                                                          style="background-image: url(smnk.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -115,7 +115,7 @@
                                         href="mailto:suman828@gmail.com">suman828@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/smnk" class="btn btn-default btn-lg">
+                            <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/smnk" class="btn btn-default btn-lg">
                                 <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>
@@ -125,7 +125,7 @@
                     <div class="panel-heading faculty-title">Dr Arbind Prasad</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/37/image${fileExtension}"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="/37/image${fileExtension}"
                                                                          style="background-image: url(ap.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -135,7 +135,7 @@
                                         href="mailto:arbind.geit@gmail.com">arbind.geit@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                            <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>
@@ -145,7 +145,7 @@
                     <div class="panel-heading faculty-title">Kanchan Kumar Sinha</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/32/image${fileExtension}"
+                            <div class="col-sm-3 box-profile-image"><img alt="" src="/32/image${fileExtension}"
                                                                          style="background-image: url(dummy.png)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
@@ -155,7 +155,7 @@
                                         href="mailto:kanchansinha1@gmail.com">kanchansinha1@gmail.com</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/kks" class="btn btn-default btn-lg"> <br
+                            <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/kks" class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                 Page </a></div>
                         </div>

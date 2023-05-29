@@ -1,7 +1,6 @@
 package com.college.core.controller.firebase;
 
 
-import com.itextpdf.layout.element.Tab;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 
@@ -24,7 +23,7 @@ public class DocUtils {
     //Print KEC Logo
 public  static Paragraph kecLogo(){
         System.setProperty("http.agent","Chrome");
-    String attString ="http://localhost:8080/sites/default/files/compressed/logo.png";
+    String attString = "/sites/default/files/compressed/logo.png";
     System.out.println("Image string found = " + attString);
     Image image=null;
     try {

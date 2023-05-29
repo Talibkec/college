@@ -78,7 +78,7 @@ function fire_ajax_delete() {
                 success: function (data, textStatus, xhr) {
 
                      $("#deleteHodRole").prop("disabled", false);
-                     window.location.href = "http://localhost/auth/hodincharge";
+                     window.location.href = "/auth/hodincharge";
                 },
                 error: function (e) {
 

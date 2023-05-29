@@ -57,14 +57,14 @@
                                 <div class="visible-xs"><br/></div>
                             </div>
                             <div class="col-sm-3 box-profile-link"><a
-                                    href="http://localhost/facultyDetails?facultyId=${faculty.facultyId}"
+                                    href="/facultyDetails?facultyId=${faculty.facultyId}"
                                     class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                 Profile Page </a>
                                 <br> <br>
 
                                 <c:if test="${showDeleteBtn}">
-                                    <a href="http://localhost/deleteFaculty?deptno=${faculty.departmentId}&facultyId=${faculty.facultyId}">
+                                    <a href="/deleteFaculty?deptno=${faculty.departmentId}&facultyId=${faculty.facultyId}">
                                         <button class="btn btn-danger mt-2 p-2"> Delete Faculty</button>
                                     </a>
                                 </c:if>

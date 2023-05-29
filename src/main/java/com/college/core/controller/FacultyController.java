@@ -150,7 +150,7 @@
 //            saveFacultydocumentsDetails(userName, facultydocumentsHeader, fileName, uploadfile, isLink, linkAddress);
 //        }
 //
-//        String notice = "http://localhost/wp-content/uploads/facultydocuments/" + fileName;
+//        String notice = "/wp-content/uploads/facultydocuments/" + fileName;
 //        notice = notice + "," + facultydocumentsHeader;
 //        return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
 //

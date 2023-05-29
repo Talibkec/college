@@ -9,14 +9,14 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="http://localhost/jsp/admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/jsp/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="http://localhost/jsp/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="/jsp/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
  
   <!-- Theme style -->
-  <link rel="stylesheet" href="http://localhost/jsp/admin/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/jsp/admin/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -41,7 +41,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="http://localhost/jsp/gallery/facultypic/mta.jp" class="img-circle elevation-2" alt="User Image">
+          <img src="/jsp/gallery/facultypic/mta.jp" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Head of Department </a>
@@ -54,7 +54,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
-            <a href="http://localhost/hod/hodDashboard" class="nav-link active">
+            <a href="/hod/hodDashboard" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -125,7 +125,7 @@
               <div class="icon">
                 <i class="ion ion-upload"></i>
               </div>
-              <a href="http://localhost/hod/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/hod/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -140,7 +140,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="http://localhost/uploadfile/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/uploadfile/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           

@@ -20,13 +20,13 @@
 
                                           <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                          <ul class="menu nav">
-                                        <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                        <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                        <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                        <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                        <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
-                                        <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                        <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                        <li class="first leaf  menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                        <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                        <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                        <li class="leaf menu-mlid-1294"><a href="/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                        <li class="leaf menu-mlid-1467"><a href="/about/administration" class="sf-depth-2">Administration</a></li>
+                                        <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                        <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2">History</a></li>
 
                                            </ul></div>
 
@@ -52,7 +52,7 @@
                <div class="card" style="box-shadow:12px 12px 12px rgba(0.5,0.5,0.2,0.4);border:0.1px solid #ccc;padding:10px;line-height:210%;background-color:#eef2f4">
 
                <!--  <a class="logo navbar-btn pull-left" href="/" title="Home">-->
-                       <img src="http://localhost/sites/default/files/logo.png" alt="Home"/>
+                       <img src="/sites/default/files/logo.png" alt="Home"/>
 
 
 
@@ -76,7 +76,7 @@
                                   <tr>  <td> <strong>Students</strong></td><td>720</td></tr>
                                   <tr> <td><strong>Established</strong></td><td>2016</td></tr>
                                   <tr> <td><strong>Affiliations</strong></td><td>AKU,AICTE</td></tr>
-                                  <tr><td><strong>Website</strong></td><td><a href=http://www.localhost>localhost</td></tr>
+                                  <tr><td><strong>Website</strong></td><td><a href="/">keck.ac.in</td></tr>
                                   <tr><td><strong>Location</strong></td><td>Hajipur Katihar</td></tr>
                                   </table>
 

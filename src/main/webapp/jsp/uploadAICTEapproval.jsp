@@ -1,4 +1,4 @@
-<jsp:include page="./admin/HeaderDashboard.jsp"/>
+<jsp:include page="admin/HeaderDashboard.jsp"/>
 
 <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
   <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload AICTE approval documents</div>
@@ -22,6 +22,6 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://localhost/js/uploadAICTEapproval.js"></script>
+<link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
+<script src="/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="/js/uploadAICTEapproval.js"></script>

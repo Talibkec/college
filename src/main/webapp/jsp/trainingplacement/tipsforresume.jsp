@@ -17,10 +17,10 @@
                                         <h2 class="block-title">Training & Placement </h2>
                                        <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                            <ul class="menu nav">
-                                               <li class="first leaf  menu-mlid-1154"><a href="http://localhost/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
-                                                 <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
-                                                 <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
-                                                  <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
+                                               <li class="first leaf  menu-mlid-1154"><a href="/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
+                                                 <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
+                                                 <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
+                                                  <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
                                             </ul>
                                        </div>
                                      </section>
@@ -58,14 +58,14 @@
                                     </ul><table border="1" width="500">
                                     <tr><td><p>For sample resume </p></td>
                                     <td><i class="fa fa-download"></i>
-                                        <a href="http://localhost/jsp/trainingplacement/sample.pdf">
+                                        <a href="/jsp/trainingplacement/sample.pdf">
                                         <button type="button" class="btn btn-success" data-dismiss="modal"style="margin-left" class="btn btn-success">click here
                                         </button></a>
                                     </td>
                                     </tr>
                                    <tr><td><p>For resume tips </p></td>
                                    <td><i class="fa fa-download"></i>
-                                       <a href="http://localhost/jsp/trainingplacement/tips.pdf">
+                                       <a href="/jsp/trainingplacement/tips.pdf">
                                        <button type="button" class="btn btn-success" data-dismiss="modal" class="btn btn-success">click here
                                        </button></a></td>
                                     </table>

@@ -36,7 +36,7 @@
               <div class="icon">
                 <i class="ion ion-upload"></i>
               </div>
-              <a href="http://localhost/auth/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/auth/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -51,7 +51,7 @@
               <div class="icon">
                 <i class="ion ion-image"></i>
               </div>
-              <a href="http://localhost/auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/auth/uploadfile/uploadslideimage" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -64,7 +64,7 @@
                                   <div class="icon">
                                   <i class="ion ion-image"></i>
                                  </div>
-                                 <a href="http://localhost/auth/uploadfile/uploadgalleryimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+                                 <a href="/auth/uploadfile/uploadgalleryimage" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
                                 </div>
                                 </div>
                                <!-- ./col -->
@@ -130,7 +130,7 @@
                     <div class="icon">
                     <i class="ion ion-person"></i>
                    </div>
-                   <a href="http://localhost/auth/hodincharge" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
+                   <a href="/auth/hodincharge" class="small-box-footer">Click Here<i class="fas fa-arrow-circle-right"></i></a>
                   </div>
                   </div>
                  <!-- ./col -->
@@ -161,7 +161,7 @@
                 <marquee direction="up" Scrolldelay=250 loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
                           <ul>
                              <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="https://www.aicte-india.org/feedback/" target="_blank">Student and Faculty give feedback to AICTE</a></span></span></li>
-                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="http://localhost/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
+                             <li><span style="font-size:14px"><span style="font-family:arial,helvetica,sans-serif"><a href="/jsp/facilities/payment.pdf" target="_blank">Fee Payment Tutorial through SBI Collect</a></span></span></li>
        
                         <c:forEach items="${noticeList}" var="notice">
                             <c:if test = "${ notice.noticeType == 'News' or notice.noticeType == 'Notice'}">
@@ -177,7 +177,7 @@
                                                 <span class="label label-danger"><a href="<c:url value='/auth/delNotice/${notice.id}'/>">Delete</a></span>
                                              </c:if>
                                           </c:forEach>
-                                       <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                       <a href="/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                                                       
                                           </div>
                                                 </c:if>
@@ -218,21 +218,21 @@
 
 <!-- jQuery -->
     <!-- jQuery UI 1.11.4 -->
-    <script src="http://localhost/jsp/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/jsp/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="http://localhost/jsp/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/jsp/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="http://localhost/jsp/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="/jsp/admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="http://localhost/jsp/admin/dist/js/adminlte.js"></script>
+    <script src="/jsp/admin/dist/js/adminlte.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="http://localhost/jsp/admin/dist/js/dashboard.js"></script>
+    <script src="/jsp/admin/dist/js/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="http://localhost/jsp/admin/dist/js/demo.js"></script>
+    <script src="/jsp/admin/dist/js/demo.js"></script>
     
 <jsp:include page="../footer.jsp"/>

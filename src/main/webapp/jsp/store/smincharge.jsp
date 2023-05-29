@@ -42,7 +42,7 @@
 </form>
 <h4 id="success" style="margin:50px"></h4>
 </body>
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/smincharge.js"></script>
+<script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/store/smincharge.js"></script>
 </html>

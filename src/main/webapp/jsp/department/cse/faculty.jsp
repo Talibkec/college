@@ -19,8 +19,8 @@
                             of the Department)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/3/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/3/image${fileExtension})"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/3/image${fileExtension}"
+                                                                             style="background-image: url(/3/image${fileExtension})"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
@@ -29,7 +29,7 @@
                                             href="mailto:subodhkumar012@gmail.com">subodhkumar012@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/subodh"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/subodh"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -40,8 +40,8 @@
                         <div class="panel-heading faculty-title">Dharmveer Kumar Yadav</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/2/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/dky.jpg)"/>
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/2/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/dky.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -50,7 +50,7 @@
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection">kumar.dharmveer@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/dky"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/dky"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -62,8 +62,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/4/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/Shwetakumari.JPG)"/>
+                                                                             src="/4/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/Shwetakumari.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -73,7 +73,7 @@
                                             href="mailto:shwetaverma673@gmail.com">shwetaverma673@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/shweta"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/shweta"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -85,8 +85,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/5/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/snehakumari.jpg)"/>
+                                                                             src="/5/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/snehakumari.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -95,7 +95,7 @@
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection">sprasad460@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snehakumari"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/snehakumari"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -107,8 +107,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/6/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/sjk.JPG)"/>
+                                                                             src="/6/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/sjk.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -118,7 +118,7 @@
                                             href="/cdn-cgi/l/email-protection">sujeetkrmail@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/sjk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/sjk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -130,8 +130,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/1/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/mta.jpg)"/>
+                                                                             src="/1/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/mta.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -141,7 +141,7 @@
                                             href="/cdn-cgi/l/email-protection">mdtalibahmad@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/mta"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -153,8 +153,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/7/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/pks.jpg)"/>
+                                                                             src="/7/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/pks.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -164,7 +164,7 @@
                                             href="/cdn-cgi/l/email-protection">cspradeepindia@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/pks"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/pks"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -176,8 +176,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/9/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/sjn.jpg)"/>
+                                                                             src="/9/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/sjn.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -186,7 +186,7 @@
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection">sinjan.dtu@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snjk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/snjk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -198,8 +198,8 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/10/image${fileExtension}"
-                                                                             style="background-image: url(http://localhost/department/cse/shk.jpg)"/>
+                                                                             src="/10/image${fileExtension}"
+                                                                             style="background-image: url(/department/cse/shk.jpg)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
@@ -209,7 +209,7 @@
                                             href="mailto:sritosh04@gmail.com">sritoshkumar04@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/shk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/shk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>

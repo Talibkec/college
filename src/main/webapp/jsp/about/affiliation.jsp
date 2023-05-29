@@ -19,13 +19,13 @@
 
                                                  <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                                 <ul class="menu nav">
-                                               <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                               <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                               <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                               <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                               <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                               <li class="first leaf  menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                               <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                               <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                               <li class="leaf menu-mlid-1294"><a href="/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="/about/administration" class="sf-depth-2">Administration</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                               <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2">History</a></li>
 
                                                   </ul></div>
 

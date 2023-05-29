@@ -17,7 +17,7 @@
                         <div class="panel-heading faculty-title"> Dr. Pramod Kumar&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>(Head of the Department of Mathematics)</strong></div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/33/image${fileExtension}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/33/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -26,7 +26,7 @@
                                             href="/cdn-cgi/l/email-protection">pramodbhoola@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/pk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/ash/pk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -37,7 +37,7 @@
                         <div class="panel-heading faculty-title">Dr Vipin Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/34/image${fileExtension}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/34/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -47,7 +47,7 @@
 
 										<div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/vk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/ash/vk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -59,7 +59,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/35/image${fileExtension}"
+                                                                             src="/35/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -70,7 +70,7 @@
                                             href="/cdn-cgi/l/email-protection"></a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/bnm"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/ash/bnm"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -81,7 +81,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                 src="http://localhost/36/image${fileExtension}"
+                                                                                 src="/36/image${fileExtension}"
                                                                                  style="background-image: url(snk.jpg)"/>
                                         <div class="visible-xs"><br/></div>
                                     </div>
@@ -92,7 +92,7 @@
                                                 href="mailto: aviaguy@gmail.com"> aviaguy@gmail.com</a>
                                         <div class="visible-xs"><br/></div>
                                     </div>
-                                    <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/snk"
+                                    <div class="col-sm-3 box-profile-link"><a href="/department/ash/snk"
                                                                               class="btn btn-default btn-lg"> <br
                                             class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                         Profile Page </a></div>

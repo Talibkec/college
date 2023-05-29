@@ -17,10 +17,10 @@
                                          <h2 class="block-title">Training & Placement </h2>
                                         <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                             <ul class="menu nav">
-                                                <li class="first leaf  menu-mlid-1154"><a href="http://localhost/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
-                                                  <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
-                                                  <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
-                                                   <li class="leaf menu-mlid-1121"><a href="http://localhost/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
+                                                <li class="first leaf  menu-mlid-1154"><a href="/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
+                                                  <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
+                                                  <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
+                                                   <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
                                              </ul>
                                         </div>
                                       </section>
@@ -30,7 +30,7 @@
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <p>
-                        <embed src="http://localhost/jsp/trainingplacement/brochure.pdf" width="800px" height="950px"></embed>
+                        <embed src="/jsp/trainingplacement/brochure.pdf" width="800px" height="950px"></embed>
                     </p>
                 </div>
             </div>

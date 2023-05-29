@@ -16,7 +16,7 @@
                         <div class="panel-heading faculty-title">Md Talib Ahmad</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/mta.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/category/mta.png"
                                                                               style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -26,7 +26,7 @@
                                         Address:</strong> <a href="mailto:talib@keck.ac.in">talib@keck.ac.in</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/mta"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -37,7 +37,7 @@
                         <div class="panel-heading faculty-title">Sinjan Kumar</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/category/snjk.png"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/category/snjk.png"
                                                                              style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -48,7 +48,7 @@
                                                              data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">sinjan.dtu@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snjk"
+                                <div class="col-sm-3 box-profile-link"><a href="/department/cse/snjk"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -61,7 +61,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/ad.jpg"
+                                                                             src="/jsp/category/ad.jpg"
                                                                              style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -120,7 +120,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/suraj.png"
+                                                                             src="/jsp/category/suraj.png"
                                                                              style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -139,7 +139,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/category/aman.png"
+                                                                             src="/jsp/category/aman.png"
                                                                              style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>

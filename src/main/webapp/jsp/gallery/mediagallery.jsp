@@ -34,7 +34,7 @@
 	<center>
 		<p><h1>GALLERY</h1></p>
 		<c:forEach items="${imageList}" var="image">
-	        <a href="http://localhost/${image.galleryImageId}/galleryImage${image.fileType}" data-lightbox="photo"><img src="http://localhost/${image.galleryImageId}/galleryImage${image.fileType}" style="max-width:50%;"></a>
+	        <a href="/${image.galleryImageId}/galleryImage${image.fileType}" data-lightbox="photo"><img src="/${image.galleryImageId}/galleryImage${image.fileType}" style="max-width:50%;"></a>
             <c:forEach var="item" items="${Role}">
                 <c:if test = "${'Admin' eq item}">
                 <span class="label label-danger"><a href="<c:url value='/auth/galleryImageDelete/${image.galleryImageId}'/>">Delete</a></span>

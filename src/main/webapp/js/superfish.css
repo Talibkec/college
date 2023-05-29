@@ -53,7 +53,7 @@ a.sf-depth-1.active{ color:#c8eaff;}
   min-width: 1px;
 }
 .sf-sub-indicator {
-  background: url('../images/arrows-ffffff.png') no-repeat -10px -100px;
+  background: url('images/arrows-ffffff.png') no-repeat -10px -100px;
   display: block;
   height: 10px;
   overflow: hidden;
@@ -124,7 +124,7 @@ li.sfHover > a > .sf-sub-indicator {
 .sf-menu.rtl .sf-sub-indicator {
   left: 0.75em;
   right: auto;
-  background: url('../images/arrows-ffffff-rtl.png') no-repeat -10px -100px;
+  background: url('images/arrows-ffffff-rtl.png') no-repeat -10px -100px;
 }
 .sf-menu.rtl a > .sf-sub-indicator {
   top: 0.8em;

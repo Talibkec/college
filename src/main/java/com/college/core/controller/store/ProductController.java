@@ -265,7 +265,7 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://localhost/store/smdashboard");
+        response.sendRedirect("/store/smdashboard");
     }
 
     @RequestMapping(value = "rejectfacultyrequest", method = RequestMethod.GET)
@@ -276,7 +276,7 @@ public class ProductController {
         requestDTO.setApprovalDate(new Date());
         requestService.saveRequest(requestDTO);
         mv.setViewName("/store/storemanager.jsp");
-        response.sendRedirect("http://localhost/store/smdashboard");
+        response.sendRedirect("/store/smdashboard");
     }
 
     @RequestMapping(value = "smincharge")

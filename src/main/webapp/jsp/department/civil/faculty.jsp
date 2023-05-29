@@ -18,7 +18,7 @@
                         <div class="panel-heading faculty-title"> ${faculty.facultyName}</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/${faculty.facultyId}/image.${faculty.fileType}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/${faculty.facultyId}/image.${faculty.fileType}"
                                                                              style="background-image: url(rps.JPG)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -28,7 +28,7 @@
                                         Address:</strong> <a href="mailto:${faculty.facultyOfficialEmail}">${faculty.facultyOfficialEmail}</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/facultyDetails?facultyId=${faculty.facultyId}"
+                                <div class="col-sm-3 box-profile-link"><a href="/facultyDetails?facultyId=${faculty.facultyId}"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -41,7 +41,7 @@
                         <div class="panel-heading faculty-title">Abhishek Ranjan</div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/25/image${fileExtension}"
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/25/image${fileExtension}"
                                                                              style="background-image: url(dummy.png)"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -51,7 +51,7 @@
                                             href="mailto:finestabhi@gmail.com">finestabhi@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/fecultyDetails?fa"
+                                <div class="col-sm-3 box-profile-link"><a href="/fecultyDetails?fa"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
@@ -62,7 +62,7 @@
                                         <div class="panel-heading faculty-title">Aale Rasul</div>
                                         <div class="panel-body">
                                             <div class="row">
-                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/25/image${fileExtension}"
+                                                <div class="col-sm-3 box-profile-image"><img alt="" src="/25/image${fileExtension}"
                                                                                              style="background-image: url(dummy.png)"/>
                                                     <div class="visible-xs"><br/></div>
                                                 </div>
@@ -72,7 +72,7 @@
                                                             href="aalerasulnitp@gmail.com">aalerasulnitp@gmail.com</a>
                                                     <div class="visible-xs"><br/></div>
                                                 </div>
-                                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/ar"
+                                                <div class="col-sm-3 box-profile-link"><a href="/department/civil/ar"
                                                                                           class="btn btn-default btn-lg"> <br
                                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                     Profile Page </a></div>
@@ -84,7 +84,7 @@
                                                                   <div class="panel-heading faculty-title">Shashank shekhar sandilya</div>
                                                                   <div class="panel-body">
                                                                       <div class="row">
-                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/25/image${fileExtension}"
+                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="/25/image${fileExtension}"
                                                                                                                        style="background-image: url(dummy.png)"/>
                                                                               <div class="visible-xs"><br/></div>
                                                                           </div>
@@ -94,7 +94,7 @@
                                                                                       href="mailto:shashankshekhar@gmail.com">shashankshekhar55555@gmail.com</a>
                                                                               <div class="visible-xs"><br/></div>
                                                                           </div>
-                                                                          <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/sss"
+                                                                          <div class="col-sm-3 box-profile-link"><a href="/department/civil/sss"
                                                                                                                     class="btn btn-default btn-lg"> <br
                                                                                   class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                               Profile Page </a></div>
@@ -104,7 +104,7 @@
                                                                <div class="panel panel-default">
                                                                       <div class="panel-heading faculty-title">Krishna kant Thakur</div>
                                                                              <div class="panel-body">                                                                                                               <div class="row">
-                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/25/image${fileExtension}"
+                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="/25/image${fileExtension}"
                                                                                                                                                                                      style="background-image: url(dummy.png)"/>
                                                                                               <div class="visible-xs"><br/></div>
                                                                                                                                         </div>
@@ -114,7 +114,7 @@
                                                                                                                                                     href="mailto:kk350thakur@gmail.com">kk350thakur@gmail.com</a>
                                                                                                                                             <div class="visible-xs"><br/></div>
                                                                                                                                         </div>
-                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/kkk"
+                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="/department/civil/kkk"
                                                                                                                                                                                   class="btn btn-default btn-lg"> <br
                                                                                                                                                 class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                             Profile Page </a></div>

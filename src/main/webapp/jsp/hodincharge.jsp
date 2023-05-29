@@ -49,10 +49,10 @@
 </form>
 <h4 id="success" style="margin:50px"></h4>
 </body>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/hodincharge.js"></script>
+<link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
+<script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/hodincharge.js"></script>
 
 </html>
 <jsp:include page="footer.jsp" />

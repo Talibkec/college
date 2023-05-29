@@ -13,9 +13,9 @@
                  <li style= "display: inline;">
                  <i class="fa fa-asterisk"></i>
                  <c:if test = "${scrollingNotice.noticeAge <= 45}">
-                    <img class="" src="http://localhost/sites/noticeicon.gif" alt=""Related image" width="44" height="40" style="display: inline" />
+                    <img class="" src="/sites/noticeicon.gif" alt="" Related image" width="44" height="40" style="display: inline" />
                  </c:if>
-                 <a href="http://localhost/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
+                 <a href="/${scrollingNotice.id}/notice${scrollingNotice.fileType}" style="display: inline" target="_blank">${scrollingNotice.headLine}</a>
                  <c:forEach var="item" items="${Role}">
                                                <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">                              <span class="label label-danger"><a style="display: inline" href="<c:url value='/hod/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
                      </c:if>
@@ -63,7 +63,7 @@
              <i class="fa fa-news"></i> Latest News / Updates</strong>
                              <c:forEach var="item" items="${Role}">
                                  <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
-                                 <strong><i class="fa fa-news"></i> <a href="http://localhost/hod/uploadfile/upload">Upload Notice / News</a></strong>
+                                 <strong><i class="fa fa-news"></i> <a href="/hod/uploadfile/upload">Upload Notice / News</a></strong>
                              </c:if>
                              </c:forEach>
                              </div>
@@ -91,12 +91,12 @@
                                                  <span class="label label-danger"><a href="<c:url value='/hod/deleteNotice/${notice.id}' />">Delete</a></span>
                                              </c:if>
                                              </c:forEach>
-                                              <a href="http://localhost/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
+                                              <a href="/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
                                          </div>
                                      </li>
                                  </c:forEach>
                              </ul>
-                             <a href="http://localhost/department/cse/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
+                             <a href="/department/cse/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
             </div>
             </div>
             </div>

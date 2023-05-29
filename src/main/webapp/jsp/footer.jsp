@@ -4,7 +4,7 @@
             <section id="block-block-3" class="block block-block clearfix">
 
 
-                <p><img alt="" src="http://localhost/images/logo.png" style="height:90px; width:240px"/>
+                <p><img alt="" src="/images/logo.png" style="height:90px; width:240px"/>
                 </p>
 
             </section>
@@ -47,13 +47,13 @@ Ph.: 06452-239122</span></p>
             <h2 class="block-title">&copy 2018 KEC Katihar</h2>
 
             <p>Designed & Developed by</p>
-            <p><a href="http://localhost/category/kecwebteam" target="_blank">KEC Web Team</a></p>
+            <p><a href="/category/kecwebteam" target="_blank">KEC Web Team</a></p>
         </section>
     </footer>
 
 </div>
 
-<!--<script type="text/javascript" src="http://localhost/js/protectcode.js"></script>-->
+<!--<script type="text/javascript" src="/js/protectcode.js"></script>-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
@@ -103,7 +103,7 @@ Ph.: 06452-239122</span></p>
 });
 
 </script>
-<script src="http://localhost/css/nivo-lightbox/dist/nivo-lightbox.min.js"></script>
+<script src="/css/nivo-lightbox/dist/nivo-lightbox.min.js"></script>
 <script>var brandTimer = null;
 $(document).ready(function () {
     $('.list-brands1 > li, .list-brands2 > li').each(function () {
@@ -189,10 +189,10 @@ function moveTicker() {
 </script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-<script src="http://localhost/css//jquery.cookie/jquery.cookie.js"></script>
-<script src="http://localhost/css//waypoints/lib/shortcuts/sticky.min.js">
+<script src="/css//jquery.cookie/jquery.cookie.js"></script>
+<script src="/css//waypoints/lib/shortcuts/sticky.min.js">
 </script>
-<script src="http://localhost/css/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+<script src="/css/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
 <style>
 
 
@@ -202,8 +202,8 @@ function moveTicker() {
 </style>
 <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"
       media="all"/>
-<link type="text/css" rel="stylesheet" href="http://localhost/css/superfish/css/superfish.css" media="all"/>
-<link type="text/css" rel="stylesheet" href="http://localhost/css/style.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="/css/superfish/css/superfish.css" media="all"/>
+<link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
 <style>
 
 
@@ -215,27 +215,27 @@ function moveTicker() {
 <!--[if lt IE 9]>
 <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="http://localhost/css/contrib/seckit/js/seckit.document_write.js"></script>
+<script type="text/javascript" src="/css/contrib/seckit/js/seckit.document_write.js"></script>
 <link type="text/css" rel="stylesheet" id="seckit-clickjacking-no-body" media="all"
-      href="http://localhost/css/contrib/seckit/css/seckit.no_body.css"/>
+      href="/css/contrib/seckit/css/seckit.no_body.css"/>
 <!-- stop SecKit protection -->
 
 <!-- Jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="http://localhost/js/jquery.once.js"></script>
-<script src="http://localhost/js/drupal.js"></script>
-<script src="http://localhost/css/superfish/sftouchscreen.js"></script>
-<script src="http://localhost/css/superfish/sfsmallscreen.js"></script>
-<script src="http://localhost/css/superfish/supposition.js"></script>
-<script src="http://localhost/css/superfish/superfish.js"></script>
-<script src="http://localhost/css/superfish/supersubs.js"></script>
-<script src="http://localhost/css//superfish/modules/superfish/superfish.js"></script>
-<script src="http://localhost/js/jquery-ui.min.js"></script>
-<script src="http://localhost/js/rwscustom.js"></script>
-<script src="http://localhost/js/jquery-migrate-1.3.0.min.js"></script>
-<script async src="http://localhost/js/jquery.easy-ticker.js"></script>
-<script async src="http://localhost/js/jquery.marquee.min.js"></script>
-<!--<script type="text/javascript" src="http://localhost/js/protectcode.js"></script>-->
+<script src="/js/jquery.once.js"></script>
+<script src="/js/drupal.js"></script>
+<script src="/css/superfish/sftouchscreen.js"></script>
+<script src="/css/superfish/sfsmallscreen.js"></script>
+<script src="/css/superfish/supposition.js"></script>
+<script src="/css/superfish/superfish.js"></script>
+<script src="/css/superfish/supersubs.js"></script>
+<script src="/css//superfish/modules/superfish/superfish.js"></script>
+<script src="/js/jquery-ui.min.js"></script>
+<script src="/js/rwscustom.js"></script>
+<script src="/js/jquery-migrate-1.3.0.min.js"></script>
+<script async src="/js/jquery.easy-ticker.js"></script>
+<script async src="/js/jquery.marquee.min.js"></script>
+<!--<script type="text/javascript" src="/js/protectcode.js"></script>-->
 
 <script src="js/main.js"></script>
 

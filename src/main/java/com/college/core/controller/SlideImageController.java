@@ -5,8 +5,6 @@ import com.college.core.model.ImageSlideDTO;
 import com.college.service.AllDocuments;
 import com.college.service.GalleryImageService;
 import com.college.service.ImageSlideService;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.google.gson.JsonObject;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -122,7 +120,7 @@ public class SlideImageController {
         saveImageGallery(uploadfile, caption, fileName, fileType);
 
 
-        String notice = "http://localhost/wp-content/uploads/notice/" + fileName;
+        String notice = "/wp-content/uploads/notice/" + fileName;
         notice = notice + "," + caption;
         notice = notice + "," + uploadfile;
         return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);

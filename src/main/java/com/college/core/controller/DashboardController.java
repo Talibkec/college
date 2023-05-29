@@ -2,18 +2,14 @@ package com.college.core.controller;
 
 import com.college.core.entity.Department;
 import com.college.core.entity.Role;
-import com.college.core.model.DepartmentDTO;
 import com.college.core.model.FacultyDTO;
-import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.UserRoleDTO;
 import com.college.service.*;
 import com.college.sms.MessageSender;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import com.google.gson.JsonObject;
 import org.apache.catalina.connector.ClientAbortException;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -30,7 +25,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -55,7 +49,7 @@ public class DashboardController {
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 
 
-    //http://localhost/wp-content/themes/kec/rti-kec/rti-act
+    ///wp-content/themes/kec/rti-kec/rti-act
     @RequestMapping(value = "/wp-content/themes/kec/rti-kec/rti-act", method = RequestMethod.GET)
     public ModelAndView approvalkec() {
         ModelAndView model = new ModelAndView();

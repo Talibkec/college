@@ -80,7 +80,7 @@ public class PasswordResetController {
         email.setSubject(subject);
         email.setText(body);
         email.setTo(user.getFacultyOfficialEmail());
-        email.setFrom("test@localhost");
+        email.setFrom("test@keck.ac.in");
         return email;
     }
 

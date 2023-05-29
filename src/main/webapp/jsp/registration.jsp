@@ -4,7 +4,7 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<jsp:include page ="./admin/HeaderDashboard.jsp"/>
+<jsp:include page ="admin/HeaderDashboard.jsp"/>
 </div></div>
 <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4"><div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Create Accoount</div>
 

@@ -9,15 +9,15 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="http://localhost/jsp/admin/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/jsp/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet"
-          href="http://localhost/jsp/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+          href="/jsp/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="http://localhost/jsp/admin/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/jsp/admin/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -57,7 +57,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview menu-open">
-                        <a href="http://localhost/auth/uploadDashboard" class="nav-link active">
+                        <a href="/auth/uploadDashboard" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -78,49 +78,49 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadfile/uploadslideimage" class="nav-link">
+                                <a href="/auth/uploadfile/uploadslideimage" class="nav-link">
                                     <i class="ion ion-image "></i>
                                     <p>Upload Slider Image</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadfile/uploadslideimage" class="nav-link">
+                                <a href="/auth/uploadfile/uploadslideimage" class="nav-link">
                                     <i class="ion ion-image "></i>
                                     <p>Upload Gallery Image</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadfile/addfaculty" class="nav-link">
+                                <a href="/auth/uploadfile/addfaculty" class="nav-link">
                                     <i class="ion ion-person-add "></i>
                                     <p>Add Faculty</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/registration" class="nav-link">
+                                <a href="/auth/registration" class="nav-link">
                                     <i class="ion ion-person-add "></i>
                                     <p>User Registration</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadfile/achievementslideimage" class="nav-link">
+                                <a href="/auth/uploadfile/achievementslideimage" class="nav-link">
                                     <i class="ion ion-trophy "></i>
                                     <p>Add Achievements</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadfile/updateAdministration" class="nav-link">
+                                <a href="/auth/uploadfile/updateAdministration" class="nav-link">
                                     <p>Assign Administration Role</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadDashboard" class="nav-link">
+                                <a href="/auth/uploadDashboard" class="nav-link">
                                     <i class="ion ion-person "></i>
                                     <p>Assign HOD Role</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="http://localhost/auth/uploadAICTEapproval" class="nav-link">
+                                <a href="/auth/uploadAICTEapproval" class="nav-link">
                                     <i class="ion ion-person "></i>
                                     <p>Upload AICTE approval</p>
                                 </a>

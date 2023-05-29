@@ -19,13 +19,13 @@
 
                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                     <ul class="menu nav">
-                                   <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                   <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                   <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                   <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                   <li class="first leaf  menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                   <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                   <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                   <li class="leaf menu-mlid-1294"><a href="/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/administration" class="sf-depth-2">Administration</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2">History</a></li>
 
                                       </ul></div>
 
@@ -43,8 +43,8 @@
                                                            </div>
                                                            <div class="panel-body">
                                                                <div class="row">
-                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/rk.jpg"
-                                                                                                                style="background-image: url(http://localhost/department/eee/principal1.JPG);height:100px;width:200px"/>
+                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/rk.jpg"
+                                                                                                                style="background-image: url(/department/eee/principal1.JPG);height:100px;width:200px"/>
                                                                        <div class="visible-xs"><br/></div>
                                                                    </div>
                                                                    <div class="col-sm-6 box-profile-info"> <strong>Smt. Ranjana Kumari</strong><br/><strong>Duty assigned:</strong>
@@ -52,7 +52,7 @@
                                                                        <br/> <strong>Phone Number:</strong>9576977097<br/>
                                                                        <div class="visible-xs"><br/></div>
                                                                    </div>
-                                                                   <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/principal"
+                                                                   <div class="col-sm-3 box-profile-link"><a href="/department/eee/principal"
                                                                                                              class="btn btn-default btn-lg">
                                                                        <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                        Profile Page </a></div>
@@ -64,8 +64,8 @@
                                                                                <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Vice Principal</strong></div>
                                                                                <div class="panel-body">
                                                                                    <div class="row">
-                                                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/ramk.jpg"
-                                                                                                                                    style="background-image: url(http://localhost/department/eee/rk.jpg);height:100px;width:200px"/>
+                                                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/ramk.jpg"
+                                                                                                                                    style="background-image: url(/department/eee/rk.jpg);height:100px;width:200px"/>
                                                                                            <div class="visible-xs"><br/></div>
                                                                                        </div>
                                                                                        <div class="col-sm-6 box-profile-info"><strong>Ram Kumar</strong>
@@ -73,7 +73,7 @@
                                                                                            <br/> <strong>Phone Number:</strong> 9508527210<br/>
                                                                                            <div class="visible-xs"><br/></div>
                                                                                        </div>
-                                                                                       <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/rk" class="btn btn-default btn-lg">
+                                                                                       <div class="col-sm-3 box-profile-link"><a href="/department/eee/rk" class="btn btn-default btn-lg">
                                                                                            <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                            Profile Page </a></div>
                                                                                    </div>
@@ -85,7 +85,7 @@
                                                                                                  <div class="panel-body">
                                                                                                      <div class="row">
                                                                                                          <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                      src="http://localhost/jsp/gallery/facultypic/mk.jpg"
+                                                                                                                                                      src="/jsp/gallery/facultypic/mk.jpg"
                                                                                                                                                       style="background-image: url(mk.jpeg);width:200px;height:100px"/>
                                                                                                              <div class="visible-xs"><br/></div>
                                                                                                          </div>
@@ -94,7 +94,7 @@
                                                                                                              <strong>Phone Number:</strong>9074275324<br/>
                                                                                                              <div class="visible-xs"><br/></div>
                                                                                                          </div>
-                                                                                                         <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/mk" class="btn btn-default btn-lg">
+                                                                                                         <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/mk" class="btn btn-default btn-lg">
                                                                                                              <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                              Profile Page </a></div>
                                                                                                      </div>
@@ -106,8 +106,8 @@
                                                                                                     <div class="panel-body">
                                                                                                         <div class="row">
                                                                                                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                         src="http://localhost/jsp/gallery/facultypic/mta.jpg"
-                                                                                                                                                         style="background-image: url(http://localhost/department/cse/mta.jpg);height:100px;width:200px"/>
+                                                                                                                                                         src="/jsp/gallery/facultypic/mta.jpg"
+                                                                                                                                                         style="background-image: url(/department/cse/mta.jpg);height:100px;width:200px"/>
                                                                                                                 <div class="visible-xs"><br/></div>
                                                                                                             </div>
                                                                                                             <div class="col-sm-6 box-profile-info"><strong>Md Talib Ahmad</strong>
@@ -115,7 +115,7 @@
                                                                                                                 Professor(CSE)<br/> <strong>Phone Number:</strong>9108006551<br/>
                                                                                                                 <div class="visible-xs"><br/></div>
                                                                                                             </div>
-                                                                                                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
+                                                                                                            <div class="col-sm-3 box-profile-link"><a href="/department/cse/mta"
                                                                                                                                                       class="btn btn-default btn-lg"> <br
                                                                                                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                 Profile Page </a></div>
@@ -130,8 +130,8 @@
                                                                                                       <div class="panel-body">
                                                                                                           <div class="row">
                                                                                                               <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                           src="http://localhost/jsp/gallery/facultypic/sik.jpg"
-                                                                                                                                                           style="background-image: url(http://localhost/department/cse/sjn.jpg);width:200px;height:100px"/>
+                                                                                                                                                           src="/jsp/gallery/facultypic/sik.jpg"
+                                                                                                                                                           style="background-image: url(/department/cse/sjn.jpg);width:200px;height:100px"/>
                                                                                                                   <div class="visible-xs"><br/></div>
                                                                                                               </div>
                                                                                                               <div class="col-sm-6 box-profile-info"><strong>Sinjan Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -139,7 +139,7 @@
                                                                                                                   Professor(CSE)<br/> <strong>Phone Number:</strong>9871634888<br/>
                                                                                                                   <div class="visible-xs"><br/></div>
                                                                                                               </div>
-                                                                                                              <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snjk"
+                                                                                                              <div class="col-sm-3 box-profile-link"><a href="/department/cse/snjk"
                                                                                                                                                         class="btn btn-default btn-lg"> <br
                                                                                                                       class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                   Profile Page </a></div>
@@ -153,7 +153,7 @@
                                                                                                                         <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Head of the Departments</strong></div>
                                                                                                                         <div class="panel-body">
                                                                                                                             <div class="row">
-                                                                                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/rm.jpg"
+                                                                                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/rm.jpg"
                                                                                                                                                                              style="background-image: url(#);width:200px;height:100px"/>
                                                                                                                                     <div class="visible-xs"><br/></div>
                                                                                                                                 </div>
@@ -161,7 +161,7 @@
                                                                                                                                     <br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong>8920012798<br/>
                                                                                                                                     <div class="visible-xs"><br/></div>
                                                                                                                                 </div>
-                                                                                                                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rm" class="btn btn-default btn-lg">
+                                                                                                                                <div class="col-sm-3 box-profile-link"><a href="/department/civil/rm" class="btn btn-default btn-lg">
                                                                                                                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                     Profile Page </a></div>
                                                                                                                             </div>
@@ -175,7 +175,7 @@
 
                                                                                                                                            <div class="panel-body">
                                                                                                                                                <div class="row">
-                                                                                                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dsk.jpg"
+                                                                                                                                                   <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dsk.jpg"
                                                                                                                                                                                                 style="background-image: url(srk.JPG);width:200px;height:100px"/>
                                                                                                                                                        <div class="visible-xs"><br/></div>
                                                                                                                                                    </div>
@@ -183,7 +183,7 @@
                                                                                                                                                        <br/> <strong>Designation:</strong> Assistant Professor(MECH.)<br/> <strong>Phone Number:</strong> 8650301056<br/>
                                                                                                                                                        <div class="visible-xs"><br/></div>
                                                                                                                                                    </div>
-                                                                                                                                                   <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/srk"
+                                                                                                                                                   <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/srk"
                                                                                                                                                                                              class="btn btn-default btn-lg"> <br
                                                                                                                                                            class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                                        Profile Page </a></div>
@@ -196,8 +196,8 @@
 
                                                                                                                           <div class="panel-body">
                                                                                                                               <div class="row">
-                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/sk.jpg"
-                                                                                                                                                                               style="background-image: url(http://localhost/3/image${fileExtension});height:100px;width:200px"/>
+                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/sk.jpg"
+                                                                                                                                                                               style="background-image: url(/3/image${fileExtension});height:100px;width:200px"/>
                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                   </div>
                                                                                                                                   <div class="col-sm-6 box-profile-info"><strong>Subodh Kumar</strong><br/><strong>Duty Assigned:</strong> HOD(CSE)
@@ -205,7 +205,7 @@
                                                                                                                                           Number:</strong>8171778441<br/>
                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                   </div>
-                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/subodh"
+                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="/department/cse/subodh"
                                                                                                                                                                             class="btn btn-default btn-lg"> <br
                                                                                                                                           class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                       Profile Page </a></div>
@@ -218,8 +218,8 @@
                                                                                <div class="panel panel-default">
                                                                                                        <div class="panel-body">
                                                                                                          <div class="row">
-                                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/aks.jpg"
-                                                                                                                                                          style="background-image: url(http://localhost/department/eee/aks.JPG);width:200px;height:100px"/>
+                                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/aks.jpg"
+                                                                                                                                                          style="background-image: url(/department/eee/aks.JPG);width:200px;height:100px"/>
                                                                                                                  <div class="visible-xs"><br/></div>
                                                                                                              </div>
                                                                                                              <div class="col-sm-6 box-profile-info"><strong>Amit Kumar Suman</strong><br/><strong>Duty Assigned:</strong> HOD(EEE)
@@ -227,7 +227,7 @@
                                                                                                                  Professor(EEE) <br/> <strong>Phone Number:</strong>9835938174<br/>
                                                                                                                  <div class="visible-xs"><br/></div>
                                                                                                              </div>
-                                                                                                             <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/aks"
+                                                                                                             <div class="col-sm-3 box-profile-link"><a href="/department/eee/aks"
                                                                                                                                                        class="btn btn-default btn-lg"> <br
                                                                                                                      class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                  Profile Page </a></div>
@@ -243,7 +243,7 @@
                                                                                                         <div class="panel-body">
                                                                                                             <div class="row">
                                                                                                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                             src="http://localhost/35/image${fileExtension}"
+                                                                                                                                                             src="/35/image${fileExtension}"
                                                                                                                                                              style="background-image: url(dummy.png)"/>
                                                                                                                     <div class="visible-xs"><br/></div>
                                                                                                                 </div>
@@ -254,7 +254,7 @@
 
                                                                                                                     <div class="visible-xs"><br/></div>
                                                                                                                 </div>
-                                                                                                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/bnm"
+                                                                                                                <div class="col-sm-3 box-profile-link"><a href="/department/ash/bnm"
                                                                                                                                                           class="btn btn-default btn-lg"> <br
                                                                                                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                     Profile Page </a></div>
@@ -266,8 +266,8 @@
 
                                                                                  <div class="panel-body">
                                                                                      <div class="row">
-                                                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/aa.jpg"
-                                                                                                                                      style="background-image: url(http://localhost/department/eee/aa.JPG);width:200px;height:100px"/>
+                                                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/aa.jpg"
+                                                                                                                                      style="background-image: url(/department/eee/aa.JPG);width:200px;height:100px"/>
                                                                                              <div class="visible-xs"><br/></div>
                                                                                          </div>
                                                                                          <div class="col-sm-6 box-profile-info"><strong>Alauddin Ansari</strong><br/><strong>Duty Assigned:</strong> HOD(CHEMISTRY)
@@ -275,7 +275,7 @@
                                                                                              <br/> <strong>Phone Number:</strong>9027262492<br/>
                                                                                              <div class="visible-xs"><br/></div>
                                                                                          </div>
-                                                                                         <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/aa" class="btn btn-default btn-lg">
+                                                                                         <div class="col-sm-3 box-profile-link"><a href="/department/eee/aa" class="btn btn-default btn-lg">
                                                                                              <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                              Profile Page </a></div>
                                                                                      </div>
@@ -289,7 +289,7 @@
 
                                                       <div class="panel-body">
                                                           <div class="row">
-                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/33/image${fileExtension}"
+                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="/33/image${fileExtension}"
                                                                                                            style="background-image: url(dummy.png)"/>
                                                                   <div class="visible-xs"><br/></div>
                                                               </div>
@@ -297,7 +297,7 @@
                                                                       Number:</strong>9117430155<br/>
                                                                   <div class="visible-xs"><br/></div>
                                                               </div>
-                                                              <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/pk"
+                                                              <div class="col-sm-3 box-profile-link"><a href="/department/ash/pk"
                                                                                                         class="btn btn-default btn-lg"> <br
                                                                       class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                   Profile Page </a></div>
@@ -311,7 +311,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="http://localhost/jsp/gallery/facultypic/ajk.jpg" style="width:200px;height:100px"
+                                                                             src="/jsp/gallery/facultypic/ajk.jpg" style="width:200px;height:100px"
                                                                              />
                                     <div class="visible-xs"><br/></div>
                                 </div>
@@ -320,7 +320,7 @@
                                     <strong>Phone Number:</strong>8802009023<br/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ajk" class="btn btn-default btn-lg">
+                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ajk" class="btn btn-default btn-lg">
                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>
                             </div>
@@ -333,7 +333,7 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                         src="http://localhost/jsp/gallery/facultypic/sumk.jpg"
+                                                                                         src="/jsp/gallery/facultypic/sumk.jpg"
                                                                                          style="background-image: url(smnk.JPG);width:200px;height:100px"/>
                                                 <div class="visible-xs"><br/></div>
                                             </div>
@@ -342,7 +342,7 @@
                                                     Number:</strong> 9891024077<br/>
                                                 <div class="visible-xs"><br/></div>
                                             </div>
-                                            <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/smnk" class="btn btn-default btn-lg">
+                                            <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/smnk" class="btn btn-default btn-lg">
                                                 <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                 Page </a></div>
                                         </div>
@@ -354,7 +354,7 @@
                                                         <div class="panel-body">
                                                             <div class="row">
                                                                 <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                             src="http://localhost/jsp/gallery/facultypic/jk.jpg"
+                                                                                                             src="/jsp/gallery/facultypic/jk.jpg"
                                                                                                              style="background-image: url(jk.JPG);width:200px;height:100px"/>
                                                                     <div class="visible-xs"><br/></div>
                                                                 </div>
@@ -363,7 +363,7 @@
                                                                     <strong>Phone Number:</strong>8755821987<br/>
                                                                     <div class="visible-xs"><br/></div>
                                                                 </div>
-                                                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/jk" class="btn btn-default btn-lg">
+                                                                <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/jk" class="btn btn-default btn-lg">
                                                                     <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                     Profile Page </a></div>
                                                             </div>
@@ -374,8 +374,8 @@
                                                                                                                                                           <div class="panel-heading faculty-title"> &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;<strong>Examination Section</strong></div>
                                                                                                                                                           <div class="panel-body">
                                                                                                                                                               <div class="row">
-                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/ramk.jpg"
-                                                                                                                                                                                                               style="background-image: url(http://localhost/department/eee/rk.jpg);height:100px;width:200px"/>
+                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/ramk.jpg"
+                                                                                                                                                                                                               style="background-image: url(/department/eee/rk.jpg);height:100px;width:200px"/>
                                                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                                                   </div>
                                                                                                                                                                   <div class="col-sm-6 box-profile-info"><strong>Ram Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -383,7 +383,7 @@
                                                                                                                                                                       <br/> <strong>Phone Number:</strong> 9508527210<br/>
                                                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                                                   </div>
-                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/rk" class="btn btn-default btn-lg">
+                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="/department/eee/rk" class="btn btn-default btn-lg">
                                                                                                                                                                       <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                                                       Profile Page </a></div>
                                                                                                                                                               </div>
@@ -396,8 +396,8 @@
                                                                   <div class="panel-body">
                                                                       <div class="row">
                                                                           <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                       src="http://localhost/jsp/gallery/facultypic/suk.jpg"
-                                                                                                                       style="background-image: url(http://localhost/department/cse/sjk.JPG);width:200px;height:100px"/>
+                                                                                                                       src="/jsp/gallery/facultypic/suk.jpg"
+                                                                                                                       style="background-image: url(/department/cse/sjk.JPG);width:200px;height:100px"/>
                                                                               <div class="visible-xs"><br/></div>
                                                                           </div>
                                                                           <div class="col-sm-6 box-profile-info"><strong>Sujeet Kumar</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
@@ -405,7 +405,7 @@
                                                                               Professor(CSE)<br/> <strong>Phone Number:</strong>9572341301<br/>
                                                                               <div class="visible-xs"><br/></div>
                                                                           </div>
-                                                                          <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/sjk"
+                                                                          <div class="col-sm-3 box-profile-link"><a href="/department/cse/sjk"
                                                                                                                     class="btn btn-default btn-lg"> <br
                                                                                   class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                               Profile Page </a></div>
@@ -418,7 +418,7 @@
                                                                                   <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Student Extra Curricular Activity Board</strong></div>
                                                                                   <div class="panel-body">
                                                                                       <div class="row">
-                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dap.jpg"
+                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dap.jpg"
                                                                                                                                        style="background-image: url(ap.png);width:200px;height:100px"/>
                                                                                               <div class="visible-xs"><br/></div>
                                                                                           </div>
@@ -427,7 +427,7 @@
                                                                                                   Number:</strong>9678437791<br/>
                                                                                               <div class="visible-xs"><br/></div>
                                                                                           </div>
-                                                                                          <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                          <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                                                                                   class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                                                               Page </a></div>
                                                                                       </div>
@@ -438,8 +438,8 @@
                                                                                                       <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Library</strong></div>
                                                                                                       <div class="panel-body">
                                                                                                           <div class="row">
-                                                                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/aa.jpg"
-                                                                                                                                                           style="background-image: url(http://localhost/department/eee/aa.JPG);width:200px;height:100px"/>
+                                                                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/aa.jpg"
+                                                                                                                                                           style="background-image: url(/department/eee/aa.JPG);width:200px;height:100px"/>
                                                                                                                   <div class="visible-xs"><br/></div>
                                                                                                               </div>
                                                                                                               <div class="col-sm-6 box-profile-info"><strong>Alauddin Ansari</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -447,7 +447,7 @@
                                                                                                                   <br/> <strong>Phone Number:</strong>9027262492<br/>
                                                                                                                   <div class="visible-xs"><br/></div>
                                                                                                               </div>
-                                                                                                              <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/aa" class="btn btn-default btn-lg">
+                                                                                                              <div class="col-sm-3 box-profile-link"><a href="/department/eee/aa" class="btn btn-default btn-lg">
                                                                                                                   <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                   Profile Page </a></div>
                                                                                                           </div>
@@ -459,8 +459,8 @@
                                                                                                                           <div class="panel-body">
                                                                                                                               <div class="row">
                                                                                                                                   <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                                               src="http://localhost/jsp/gallery/facultypic/shk.jpg"
-                                                                                                                                                                               style="background-image: url(http://localhost/department/cse/Shwetakumari.JPG);width:200px;height:100px"/>
+                                                                                                                                                                               src="/jsp/gallery/facultypic/shk.jpg"
+                                                                                                                                                                               style="background-image: url(/department/cse/Shwetakumari.JPG);width:200px;height:100px"/>
                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                   </div>
                                                                                                                                   <div class="col-sm-6 box-profile-info"><strong>Shweta kumari</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
@@ -468,7 +468,7 @@
                                                                                                                                       Professor(CSE)<br/> <strong>Phone Number:</strong>7549647373<br/>
                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                   </div>
-                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/shweta"
+                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="/department/cse/shweta"
                                                                                                                                                                             class="btn btn-default btn-lg"> <br
                                                                                                                                           class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                       Profile Page </a></div>
@@ -482,8 +482,8 @@
                                                                                      <div class="panel-heading faculty-title">  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Purchase Section</strong></div>
                                                                                      <div class="panel-body">
                                                                                          <div class="row">
-                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/sa.jpg"
-                                                                                                                                          style="background-image: url(http://localhost/department/eee/sa.JPG);width:200px;height:100px"/>
+                                                                                             <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/sa.jpg"
+                                                                                                                                          style="background-image: url(/department/eee/sa.JPG);width:200px;height:100px"/>
                                                                                                  <div class="visible-xs"><br/></div>
                                                                                              </div>
                                                                                              <div class="col-sm-6 box-profile-info"><strong>Sajjad Ahmad</strong><br/><strong>Duty Assigned:</strong> Purchase Officer
@@ -492,7 +492,7 @@
                                                                                                  <br/> <strong>Phone Number:</strong>8130952264<br/>
                                                                                                  <div class="visible-xs"><br/></div>
                                                                                              </div>
-                                                                                             <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/sa" class="btn btn-default btn-lg">
+                                                                                             <div class="col-sm-3 box-profile-link"><a href="/department/eee/sa" class="btn btn-default btn-lg">
                                                                                                  <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                  Profile Page </a></div>
                                                                                          </div>
@@ -507,7 +507,7 @@
                                                                                        <div class="panel-body">
                                                                                            <div class="row">
                                                                                                <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                            src="http://localhost/jsp/gallery/facultypic/mk.jpg"
+                                                                                                                                            src="/jsp/gallery/facultypic/mk.jpg"
                                                                                                                                             style="background-image: url(mk.jpeg);height:100px;width:200px"/>
                                                                                                    <div class="visible-xs"><br/></div>
                                                                                                </div>
@@ -516,7 +516,7 @@
                                                                                                    <strong>Phone Number:</strong>9074275324<br/>
                                                                                                    <div class="visible-xs"><br/></div>
                                                                                                </div>
-                                                                                               <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/mk" class="btn btn-default btn-lg">
+                                                                                               <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/mk" class="btn btn-default btn-lg">
                                                                                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                    Profile Page </a></div>
                                                                                            </div>
@@ -531,8 +531,8 @@
                                                                            <div class="panel-body">
                                                                                <div class="row">
                                                                                    <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                src="http://localhost/jsp/gallery/facultypic/pks.jpg"
-                                                                                                                                style="background-image: url(http://localhost/department/cse/pks.jpg);width:200px;height:100px"/>
+                                                                                                                                src="/jsp/gallery/facultypic/pks.jpg"
+                                                                                                                                style="background-image: url(/department/cse/pks.jpg);width:200px;height:100px"/>
                                                                                        <div class="visible-xs"><br/></div>
                                                                                    </div>
                                                                                    <div class="col-sm-6 box-profile-info"><strong>Pradeep Kumar Sharma</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -540,7 +540,7 @@
                                                                                        Professor(CSE)<br/> <strong>Phone Number:</strong>8876024875<br/>
                                                                                        <div class="visible-xs"><br/></div>
                                                                                    </div>
-                                                                                   <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/pks"
+                                                                                   <div class="col-sm-3 box-profile-link"><a href="/department/cse/pks"
                                                                                                                              class="btn btn-default btn-lg"> <br
                                                                                            class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                        Profile Page </a></div>
@@ -554,8 +554,8 @@
                                                                                                <div class="panel-body">
                                                                                                    <div class="row">
                                                                                                        <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                    src="http://localhost/jsp/gallery/facultypic/sik.jpg"
-                                                                                                                                                    style="background-image: url(http://localhost/department/cse/sjn.jpg);width:200px;height:100px"/>
+                                                                                                                                                    src="/jsp/gallery/facultypic/sik.jpg"
+                                                                                                                                                    style="background-image: url(/department/cse/sjn.jpg);width:200px;height:100px"/>
                                                                                                            <div class="visible-xs"><br/></div>
                                                                                                        </div>
                                                                                                        <div class="col-sm-6 box-profile-info"><strong>Sinjan Kumar</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -563,7 +563,7 @@
                                                                                                            Professor(CSE)<br/> <strong>Phone Number:</strong>9871634888<br/>
                                                                                                            <div class="visible-xs"><br/></div>
                                                                                                        </div>
-                                                                                                       <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snjk"
+                                                                                                       <div class="col-sm-3 box-profile-link"><a href="/department/cse/snjk"
                                                                                                                                                  class="btn btn-default btn-lg"> <br
                                                                                                                class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                            Profile Page </a></div>
@@ -579,7 +579,7 @@
                                                                                                                                   <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Time Table </strong></div>
                                                                                                                                   <div class="panel-body">
                                                                                                                                       <div class="row">
-                                                                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                          <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dap.jpg"
                                                                                                                                                                                        style="background-image: url(ap.png);width:200px;height:100px"/>
                                                                                                                                               <div class="visible-xs"><br/></div>
                                                                                                                                           </div>
@@ -588,7 +588,7 @@
                                                                                                                                                   Number:</strong>9678437791<br/>
                                                                                                                                               <div class="visible-xs"><br/></div>
                                                                                                                                           </div>
-                                                                                                                                          <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                          <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                                                                                                                                   class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                                                                                                               Page </a></div>
                                                                                                                                       </div>
@@ -601,8 +601,8 @@
                                                                                                                                                                                                                                                 <div class="panel-body">
                                                                                                                                                                                                                                                     <div class="row">
                                                                                                                                                                                                                                                         <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                                                                                                                                                                                                     src="http://localhost/jsp/gallery/facultypic/mta.jpg"
-                                                                                                                                                                                                                                                                                                     style="background-image: url(http://localhost/department/cse/mta.jpg);width:200px;height:100px"/>
+                                                                                                                                                                                                                                                                                                     src="/jsp/gallery/facultypic/mta.jpg"
+                                                                                                                                                                                                                                                                                                     style="background-image: url(/department/cse/mta.jpg);width:200px;height:100px"/>
                                                                                                                                                                                                                                                             <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                         </div>
                                                                                                                                                                                                                                                         <div class="col-sm-6 box-profile-info"><strong>Md Talib Ahmad</strong>
@@ -610,7 +610,7 @@
                                                                                                                                                                                                                                                             Professor(CSE)<br/> <strong>Phone Number:</strong>9108006551<br/>
                                                                                                                                                                                                                                                             <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/mta"
+                                                                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="/department/cse/mta"
                                                                                                                                                                                                                                                                                                   class="btn btn-default btn-lg"> <br
                                                                                                                                                                                                                                                                 class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                                                                                                                                             Profile Page </a></div>
@@ -623,8 +623,8 @@
 
                                                                             <div class="panel-body">
                                                                                 <div class="row">
-                                                                                    <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dky.jpg"
-                                                                                                                                 style="background-image: url(http://localhost/department/cse/dky.jpg);width:200px;height:100px"/>
+                                                                                    <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dky.jpg"
+                                                                                                                                 style="background-image: url(/department/cse/dky.jpg);width:200px;height:100px"/>
                                                                                         <div class="visible-xs"><br/></div>
                                                                                     </div>
                                                                                     <div class="col-sm-6 box-profile-info"><strong>Dharmveer Kumar Yadav</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -632,7 +632,7 @@
                                                                                         Professor(CSE)<br/> <strong>Phone Number:</strong>8757760847<br/>
                                                                                         <div class="visible-xs"><br/></div>
                                                                                     </div>
-                                                                                    <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/dky"
+                                                                                    <div class="col-sm-3 box-profile-link"><a href="/department/cse/dky"
                                                                                                                               class="btn btn-default btn-lg"> <br
                                                                                             class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                         Profile Page </a></div>
@@ -648,7 +648,7 @@
                                                         <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Training & Placement Section</strong> </div>
                                                         <div class="panel-body">
                                                             <div class="row">
-                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/rps.jpg"
+                                                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/rps.jpg"
                                                                                                              style="background-image: url(rps.JPG);width:200px;height:100px"/>
                                                                     <div class="visible-xs"><br/></div>
                                                                 </div>
@@ -656,7 +656,7 @@
                                                                    <br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong> 7500594761<br/>
                                                                     <div class="visible-xs"><br/></div>
                                                                 </div>
-                                                                <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rps"
+                                                                <div class="col-sm-3 box-profile-link"><a href="/department/civil/rps"
                                                                                                           class="btn btn-default btn-lg"> <br
                                                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                     Profile Page </a></div>
@@ -670,8 +670,8 @@
 
                                              <div class="panel-body">
                                                  <div class="row">
-                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/abk.jpg"
-                                                                                                  style="background-image: url(http://localhost/department/eee/ak.JPG);width:200px;height:100px"/>
+                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/abk.jpg"
+                                                                                                  style="background-image: url(/department/eee/ak.JPG);width:200px;height:100px"/>
                                                          <div class="visible-xs"><br/></div>
                                                      </div>
                                                      <div class="col-sm-6 box-profile-info"><strong>Abhijeet Kumar</strong><br/><strong>Duty Assigned:</strong> Joint TPO
@@ -679,7 +679,7 @@
                                                          <br/> <strong>Phone Number:</strong>8802927260<br/>
                                                          <div class="visible-xs"><br/></div>
                                                      </div>
-                                                     <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/ak" class="btn btn-default btn-lg">
+                                                     <div class="col-sm-3 box-profile-link"><a href="/department/eee/ak" class="btn btn-default btn-lg">
                                                          <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                          Profile Page </a></div>
                                                  </div>
@@ -694,7 +694,7 @@
                                                <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Store Section</strong></div>
                                                <div class="panel-body">
                                                    <div class="row">
-                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/akg.jpg"
+                                                       <div class="col-sm-3 box-profile-image"><img alt="" src="/akg.jpg"
                                                                                                     style="background-image: url(akg.JPG);width:200px;height:100px"/>
                                                            <div class="visible-xs"><br/></div>
                                                        </div>
@@ -703,7 +703,7 @@
                                                                Number:</strong>7728035877<br/>
                                                            <div class="visible-xs"><br/></div>
                                                        </div>
-                                                       <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/akg"
+                                                       <div class="col-sm-3 box-profile-link"><a href="/department/civil/akg"
                                                                                                  class="btn btn-default btn-lg"> <br
                                                                class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                            Profile Page </a></div>
@@ -716,8 +716,8 @@
 
                                                                        <div class="panel-body">
                                                                            <div class="row">
-                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/19/image${fileExtension}"
-                                                                                                                            style="background-image: url(http://localhost/department/eee/dummy.png)"/>
+                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="/19/image${fileExtension}"
+                                                                                                                            style="background-image: url(/department/eee/dummy.png)"/>
                                                                                    <div class="visible-xs"><br/></div>
                                                                                </div>
                                                                                <div class="col-sm-6 box-profile-info"><strong>Rajeev Dev Ranjan</strong><br/><strong>Duty Assigned:</strong> Joint Prof.
@@ -725,7 +725,7 @@
                                                                                    Professor(EEE)<br/> <strong>Phone Number:</strong>9835051301<br/>
                                                                                    <div class="visible-xs"><br/></div>
                                                                                </div>
-                                                                               <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/rdr"
+                                                                               <div class="col-sm-3 box-profile-link"><a href="/department/eee/rdr"
                                                                                                                          class="btn btn-default btn-lg">
                                                                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                    Profile Page </a></div>
@@ -738,8 +738,8 @@
                                                                  <div class="panel-body">
                                                                      <div class="row">
                                                                          <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                                                                      src="http://localhost/jsp/gallery/facultypic/snk.jpg"
-                                                                                                                      style="background-image: url(http://localhost/department/cse/snehakumari.jpg);width:200px;height:100px"/>
+                                                                                                                      src="/jsp/gallery/facultypic/snk.jpg"
+                                                                                                                      style="background-image: url(/department/cse/snehakumari.jpg);width:200px;height:100px"/>
                                                                              <div class="visible-xs"><br/></div>
                                                                          </div>
                                                                          <div class="col-sm-6 box-profile-info"><strong>Sneha Kumari</strong><br/><strong>Duty Assigned:</strong> Superintendent
@@ -747,7 +747,7 @@
                                                                              Professor(CSE)<br/> <strong>Phone Number:</strong>8405016439<br/>
                                                                              <div class="visible-xs"><br/></div>
                                                                          </div>
-                                                                         <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/cse/snehakumari"
+                                                                         <div class="col-sm-3 box-profile-link"><a href="/department/cse/snehakumari"
                                                                                                                    class="btn btn-default btn-lg"> <br
                                                                                  class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                              Profile Page </a></div>
@@ -760,8 +760,8 @@
                                                       <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>TEQIP</strong></div>
                                                       <div class="panel-body">
                                                           <div class="row">
-                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/ss.jpg"
-                                                                                                           style="background-image: url(http://localhost/department/eee/ss.JPG);wiidth:200px;height:100px"/>
+                                                              <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/ss.jpg"
+                                                                                                           style="background-image: url(/department/eee/ss.JPG);wiidth:200px;height:100px"/>
                                                                   <div class="visible-xs"><br/></div>
                                                               </div>
                                                               <div class="col-sm-6 box-profile-info"><strong>Saket Saurabh</strong><br/><strong>Duty Assigned:</strong> TEQIP Coordinator
@@ -769,7 +769,7 @@
                                                                   <br/> <strong>Phone Number:</strong>7004712309<br/>
                                                                   <div class="visible-xs"><br/></div>
                                                               </div>
-                                                              <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/ss" class="btn btn-default btn-lg">
+                                                              <div class="col-sm-3 box-profile-link"><a href="/department/eee/ss" class="btn btn-default btn-lg">
                                                                   <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                   Profile Page </a></div>
                                                           </div>
@@ -784,7 +784,7 @@
                                                                                                   <div class="row">
 
                                                                                                   <div class="panel-body">
-                                                                                                      <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/rps.jpg"
+                                                                                                      <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/rps.jpg"
                                                                                                                                                    style="background-image: url(rps.JPG);width:200x;height:100px"/>
                                                                                                           <div class="visible-xs"><br/></div>
                                                                                                       </div>
@@ -792,7 +792,7 @@
                                                                                                           Coordinator<br/> <strong>Designation:</strong> Assistant Professor(CIVIL)<br/> <strong>Phone Number:</strong> 7500594761<br/>
                                                                                                           <div class="visible-xs"><br/></div>
                                                                                                       </div>
-                                                                                                      <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/civil/rps"
+                                                                                                      <div class="col-sm-3 box-profile-link"><a href="/department/civil/rps"
                                                                                                                                                 class="btn btn-default btn-lg"> <br
                                                                                                               class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                           Profile Page </a></div>
@@ -805,7 +805,7 @@
                                                                                                                                                                                                 <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Virtual Lab Coordinator</strong></div>
                                                                                                                                                                                                 <div class="panel-body">
                                                                                                                                                                                                     <div class="row">
-                                                                                                                                                                                                        <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                        <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dap.jpg"
                                                                                                                                                                                                                                                      style="background-image: url(ap.png);width:200px;height:100px"/>
                                                                                                                                                                                                             <div class="visible-xs"><br/></div>
                                                                                                                                                                                                         </div>
@@ -814,7 +814,7 @@
                                                                                                                                                                                                                 Number:</strong>9678437791<br/>
                                                                                                                                                                                                             <div class="visible-xs"><br/></div>
                                                                                                                                                                                                         </div>
-                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                        <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                                                                                                                                                                                                 class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                                                                                                                                                                             Page </a></div>
                                                                                                                                                                                                     </div>
@@ -825,7 +825,7 @@
                                                                                                                                                                                                                                                           <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>NBA Coordinator</strong></div>
                                                                                                                                                                                                                                                           <div class="panel-body">
                                                                                                                                                                                                                                                               <div class="row">
-                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dap.jpg"
                                                                                                                                                                                                                                                                                                                style="background-image: url(ap.png);width:200px;height:100px"/>
                                                                                                                                                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                                   </div>
@@ -834,7 +834,7 @@
                                                                                                                                                                                                                                                                           Number:</strong>9678437791<br/>
                                                                                                                                                                                                                                                                       <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                                   </div>
-                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                                                                  <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                                                                                                                                                                                                                                                           class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                                                                                                                                                                                                                                       Page </a></div>
                                                                                                                                                                                                                                                               </div>
@@ -845,7 +845,7 @@
                                                                                                                                                                                                                                                                                                                                    <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Purchase Section </strong></div>
                                                                                                                                                                                                                                                                                                                                    <div class="panel-body">
                                                                                                                                                                                                                                                                                                                                        <div class="row">
-                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/dap.jpg"
+                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/dap.jpg"
                                                                                                                                                                                                                                                                                                                                                                                         style="background-image: url(ap.png);width:200px;height:100px"/>
                                                                                                                                                                                                                                                                                                                                                <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                                                                                                            </div>
@@ -854,7 +854,7 @@
                                                                                                                                                                                                                                                                                                                                                    Number:</strong>9678437791<br/>
                                                                                                                                                                                                                                                                                                                                                <div class="visible-xs"><br/></div>
                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/ap" class="btn btn-default btn-lg"> <br
+                                                                                                                                                                                                                                                                                                                                           <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/ap" class="btn btn-default btn-lg"> <br
                                                                                                                                                                                                                                                                                                                                                    class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                                                                                                                                                                                                                                                                                                                Page </a></div>
                                                                                                                                                                                                                                                                                                                                        </div>
@@ -870,8 +870,8 @@
                                                                                                                                                              <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Student Attendance</strong></div>
                                                                                                                                                              <div class="panel-body">
                                                                                                                                                                  <div class="row">
-                                                                                                                                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/ss.jpg"
-                                                                                                                                                                                                                  style="background-image: url(http://localhost/department/eee/ss.JPG);width:200px;height:100px"/>
+                                                                                                                                                                     <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/ss.jpg"
+                                                                                                                                                                                                                  style="background-image: url(/department/eee/ss.JPG);width:200px;height:100px"/>
                                                                                                                                                                          <div class="visible-xs"><br/></div>
                                                                                                                                                                      </div>
                                                                                                                                                                      <div class="col-sm-6 box-profile-info"><strong>Saket Saurabh</strong><br/><strong>Duty Assigned:</strong> Prof. In-Charge
@@ -879,7 +879,7 @@
                                                                                                                                                                          <br/> <strong>Phone Number:</strong>7004712309<br/>
                                                                                                                                                                          <div class="visible-xs"><br/></div>
                                                                                                                                                                      </div>
-                                                                                                                                                                     <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/ss" class="btn btn-default btn-lg">
+                                                                                                                                                                     <div class="col-sm-3 box-profile-link"><a href="/department/eee/ss" class="btn btn-default btn-lg">
                                                                                                                                                                          <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                                                                                          Profile Page </a></div>
                                                                                                                                                                  </div>
@@ -892,8 +892,8 @@
                                                  <div class="panel-heading faculty-title"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Kushal Yuva Program & Bursar</strong></div>
                                                  <div class="panel-body">
                                                      <div class="row">
-                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/jsp/gallery/facultypic/tr.jpg"
-                                                                                                      style="background-image: url(http://localhost/department/eee/tr.JPG);width:200px;height:100px"/>
+                                                         <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/gallery/facultypic/tr.jpg"
+                                                                                                      style="background-image: url(/department/eee/tr.JPG);width:200px;height:100px"/>
                                                              <div class="visible-xs"><br/></div>
                                                          </div>
                                                          <div class="col-sm-6 box-profile-info"><strong>Tarique Rashid</strong><br/><strong>Duty Assigned:</strong> Nodal Prof.
@@ -901,7 +901,7 @@
                                                              Professor NBA Coordinator(EEE)<br/> <strong>Phone Number:</strong>9135826736<br/>
                                                              <div class="visible-xs"><br/></div>
                                                          </div>
-                                                         <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/eee/tr" class="btn btn-default btn-lg">
+                                                         <div class="col-sm-3 box-profile-link"><a href="/department/eee/tr" class="btn btn-default btn-lg">
                                                              <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                              Profile Page </a></div>
                                                      </div>
@@ -913,7 +913,7 @@
                                      <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Supervision of campus & classroom</strong></div>
                                      <div class="panel-body">
                                          <div class="row">
-                                             <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/32/image${fileExtension}"
+                                             <div class="col-sm-3 box-profile-image"><img alt="" src="/32/image${fileExtension}"
                                                                                           style="background-image: url(dummy.png)"/>
                                                  <div class="visible-xs"><br/></div>
                                              </div>
@@ -922,7 +922,7 @@
                                                      Number:</strong>9835623827<br/>
                                                  <div class="visible-xs"><br/></div>
                                              </div>
-                                             <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/mechanical/kks" class="btn btn-default btn-lg"> <br
+                                             <div class="col-sm-3 box-profile-link"><a href="/department/mechanical/kks" class="btn btn-default btn-lg"> <br
                                                      class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/> Profile
                                                  Page </a></div>
                                          </div>
@@ -935,7 +935,7 @@
 
                                                                                        <div class="panel-body">
                                                                                            <div class="row">
-                                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/33/image${fileExtension}"
+                                                                                               <div class="col-sm-3 box-profile-image"><img alt="" src="/33/image${fileExtension}"
                                                                                                                                             style="background-image: url(dummy.png)"/>
                                                                                                    <div class="visible-xs"><br/></div>
                                                                                                </div>
@@ -943,7 +943,7 @@
                                                                                                        Number:</strong>9117430155<br/>
                                                                                                    <div class="visible-xs"><br/></div>
                                                                                                </div>
-                                                                                               <div class="col-sm-3 box-profile-link"><a href="http://localhost/department/ash/pk"
+                                                                                               <div class="col-sm-3 box-profile-link"><a href="/department/ash/pk"
                                                                                                                                          class="btn btn-default btn-lg"> <br
                                                                                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                                                                                    Profile Page </a></div>

@@ -97,4 +97,4 @@ width:8%
 </div>
 </div>
 <jsp:include page="footer.jsp" />
-<script src="http://localhost/js/editfacultydetails.js"></script>
+<script src="/js/editfacultydetails.js"></script>

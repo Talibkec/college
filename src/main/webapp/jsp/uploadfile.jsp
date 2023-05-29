@@ -1,5 +1,5 @@
 
-<jsp:include page="./admin/HeaderDashboard.jsp"/>
+<jsp:include page="admin/HeaderDashboard.jsp"/>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -71,7 +71,7 @@
 </div>
 </div></div>
 <jsp:include page ="footer.jsp"/>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://localhost/js/fileupload.js"></script>
+<link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
+<script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="/js/fileupload.js"></script>

@@ -21,13 +21,13 @@
 
                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                                     <ul class="menu nav">
-                                   <li class="first leaf  menu-mlid-1154"><a href="http://localhost/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
-                                   <li class="leaf menu-mlid-1121"><a href="http://localhost/about/vision" class="sf-depth-2">Vision & Mission</a></li>
-                                   <li class="leaf menu-mlid-1156"><a href="http://localhost/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
-                                   <li class="leaf menu-mlid-1294"><a href="http://localhost/about/affiliation" class="sf-depth-2">Affiliation</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/administration" class="sf-depth-2">Administration</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/staff" class="sf-depth-2">Support Staff</a></li>
-                                   <li class="leaf menu-mlid-1467"><a href="http://localhost/about/history" class="sf-depth-2">History</a></li>
+                                   <li class="first leaf  menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
+                                   <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2">Vision & Mission</a></li>
+                                   <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
+                                   <li class="leaf menu-mlid-1294"><a href="/about/affiliation" class="sf-depth-2">Affiliation</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/administration" class="sf-depth-2">Administration</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2">Support Staff</a></li>
+                                   <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2">History</a></li>
 
                                       </ul></div>
 
@@ -42,7 +42,7 @@
                            <div class="panel-heading faculty-title">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>${Details.role}</strong></div>
                                 <div class="panel-body">
                                    <div class="row">
-                                     <div class="col-sm-3 box-profile-image"><img alt="" src="http://localhost/${Details.faculty.facultyId}/image/${fileExtension}"/>
+                                     <div class="col-sm-3 box-profile-image"><img alt="" src="/${Details.faculty.facultyId}/image/${fileExtension}"/>
                                         <div class="visible-xs"><br/></div>
                                      </div>
                                    <div class="col-sm-6 box-profile-info"> <strong>${Details.faculty.facultyName}</strong><br/> <strong>Designation:</strong> ${Details.designation}<br/> <strong>Duty Assigned:</strong>${Details.dutyAssigned}
@@ -57,7 +57,7 @@
                                      <div class="visible-xs"><br/></div>
 
                                    </div>
-                                   <div class="col-sm-3 box-profile-link"><a href="http://localhost/facultyDetails?facultyId=${Details.faculty.facultyId}"class="btn btn-default btn-lg">
+                                   <div class="col-sm-3 box-profile-link"><a href="/facultyDetails?facultyId=${Details.faculty.facultyId}"class="btn btn-default btn-lg">
                                    <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>Profile Page </a></div>
 
 

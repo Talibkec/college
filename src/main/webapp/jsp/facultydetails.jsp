@@ -28,7 +28,7 @@
                         <ul class="menu nav">
                             <c:forEach items="${facultyNameList}" var="entry">
                                 <c:forEach items="${entry}" var="entryVal">
-                                    <li class="leaf menu-mlid-1467"><a href="http://localhost/facultyDetails?facultyId=${entryVal.value}"class="sf-depth-2">${entryVal.key}</a></li>
+                                    <li class="leaf menu-mlid-1467"><a href="/facultyDetails?facultyId=${entryVal.value}"class="sf-depth-2">${entryVal.key}</a></li>
                                 </c:forEach>
                             </c:forEach>
                         </ul>
@@ -42,9 +42,9 @@
                 <c:if test="${fUserName eq  loggedInUser and 'Faculty' eq role}">
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                         Documents &nbsp;|</a></strong>
-                    <strong><a href="http://localhost/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
+                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
                         Details &nbsp;|</a></strong>
-                    <strong><a href="http://localhost/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
+                    <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
                 </c:if>
             </c:forEach>
 
@@ -65,7 +65,7 @@
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"style="height: 200px;width:250px" src="http://localhost/${facultyDetails.facultyId}/image${fileExtension}"/>
+                <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"style="height: 200px;width:250px" src="/${facultyDetails.facultyId}/image${fileExtension}"/>
                     <h2>${facultyDetails.facultyName}</h2>
                     <p style="font-size: 130%;">Assistant Professor <br/>
                         <c:if test="${facultyDetails.departmentId eq '1'}">
@@ -126,7 +126,7 @@
                                 <i class=""></i> ${facultyDocument.date} </span>&nbsp;
                              <c:forEach var="item" items="${Role}">
                                <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
-                               <span class="label label-danger"><a href="http://localhost/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
+                               <span class="label label-danger"><a href="/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
                              </c:if>
                             </c:forEach>
 
@@ -136,7 +136,7 @@
                                                target="_blank">${facultyDocument.headLine}</a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="http://localhost/${facultyDocument.id}/documents${facultyDocument.fileType}"
+                                            <a href="/${facultyDocument.id}/documents${facultyDocument.fileType}"
                                                target="_blank">${facultyDocument.headLine}</a>
                                         </c:otherwise>
                                     </c:choose>
@@ -148,10 +148,10 @@
                 </div>
                 <div role="tabpanel" class="tab-pane" id="order">
                     <div style="padding: 15px;">
-                        <a href="http://localhost/fstore/faculty/order"> Order Item </a>
+                        <a href="/fstore/faculty/order"> Order Item </a>
                     </div>
                     <div style="padding: 15px;">
-                        <a href="http://localhost/fstore/faculty/facultyOrderHistory"> Order History
+                        <a href="/fstore/faculty/facultyOrderHistory"> Order History
                         </a>
                     </div>
                     <div style="padding: 15px;">
@@ -184,10 +184,10 @@
                                                         pattern="dd/MM/yyyy"/>
                                     </div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://localhost/fstore/faculty/editfacultyrequest?id=${request.requestId}"
+                                            href="/fstore/faculty/editfacultyrequest?id=${request.requestId}"
                                             id="editId${request.requestId}">Edit</a></div>
                                     <div class="col-md-2 text-center"><a
-                                            href="http://localhost/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
+                                            href="/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -201,6 +201,6 @@
 </div>
 </div>
 <jsp:include page="/jsp/footer.jsp"/>
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/facultyprofile.js"></script>
+<script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/facultyprofile.js"></script>

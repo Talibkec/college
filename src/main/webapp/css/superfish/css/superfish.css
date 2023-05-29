@@ -53,7 +53,7 @@ a.sf-depth-1.active{ color:#c8eaff;}
   min-width: 1px;
 }
 .sf-sub-indicator {
-  background: url('../images/arrows-ffffff.png') no-repeat -10px -100px;
+  background: url('arrows-ffffff.png') no-repeat -10px -100px;
   display: block;
   height: 10px;
   overflow: hidden;

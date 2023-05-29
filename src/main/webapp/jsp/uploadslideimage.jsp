@@ -1,10 +1,10 @@
-<jsp:include page="./admin/HeaderDashboard.jsp"/>
+<jsp:include page="admin/HeaderDashboard.jsp"/>
 
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
 <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Slide Image</div>
 <div class="panel-body">
 
-<form method="POST" enctype="multipart/form-data" id="slideimageUploadForm" action="localhost">
+<form method="POST" enctype="multipart/form-data" id="slideimageUploadForm" action="/">
     <label for="caption" class="control-label col-sm-4" >Caption</label>
     <div class="col-sm-8">
         <input type="text" name="caption" id="caption"/><br/><br/>
@@ -22,6 +22,6 @@
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<link rel="stylesheet" href="http://localhost/js/store/jquery-ui/jquery-ui.css">
-<script src="http://localhost/js/store/jquery-ui/jquery-ui.js"></script>
-<script src="http://localhost/js/slideimageupload.js"></script>
+<link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
+<script src="/js/store/jquery-ui/jquery-ui.js"></script>
+<script src="/js/slideimageupload.js"></script>

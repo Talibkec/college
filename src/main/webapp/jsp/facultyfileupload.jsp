@@ -101,4 +101,4 @@ $(document).ready(function(){
 </div>
 </div></div></div>
 <jsp:include page ="footer.jsp"/>
-<script src="http://localhost/js/facultyfileUpload.js"></script>
+<script src="/js/facultyfileUpload.js"></script>

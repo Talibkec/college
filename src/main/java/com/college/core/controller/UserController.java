@@ -27,13 +27,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 @Controller
@@ -265,7 +263,7 @@ public class UserController {
     }
 
     private void deleteFileDromDisk(String fileName) {
-        File file = new File("http://localhost/wp-content/uploads/notice/" + fileName);
+        File file = new File("/wp-content/uploads/notice/" + fileName);
         file.delete();
     }
 

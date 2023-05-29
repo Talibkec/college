@@ -20,6 +20,7 @@
   <div class="row"  style="margin:30px">
     <h3 style="width:100%; text-align: center">Katihar Engineering College , Katihar - 854109</h3>
     <h3 style="width:100%; text-align: center"><u>Fee Structure for Day Scholars</u></h3>
+    <div style="width: 100%; overflow: scroll">
     <table border="1" style="width:100%;">
       <thead>
       <tr>
@@ -127,6 +128,7 @@
    </tbody>
 
     </table>
+    </div>
   </div>
 </div>
 <jsp:include page="/jsp/footer.jsp"/>

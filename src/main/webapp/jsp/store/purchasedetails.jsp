@@ -21,15 +21,15 @@
             <div class="col-md-2 text-center">${element.purchaseBy}</div>
             <div class="col-md-2 text-center">${element.price}</div>
             <div class="col-md-1 text-center">${element.invoice}</div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/editPurchase?purchaseId=${element.purchaseId}">Edit Purchase</a></div>
-            <div class="col-md-2 text-center"><a href="http://localhost/store/deletePurchase?purchaseId=${element.purchaseId}">Delete Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="/store/editPurchase?purchaseId=${element.purchaseId}">Edit Purchase</a></div>
+            <div class="col-md-2 text-center"><a href="/store/deletePurchase?purchaseId=${element.purchaseId}">Delete Purchase</a></div>
         </div>
         </c:forEach>
 	</div>
 </form>
 
-<script src="http://localhost/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="http://localhost/js/jquery-ui.js"></script>
-<script src="http://localhost/js/store/editpurchase.js"></script>
+<script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/store/editpurchase.js"></script>
 </body>
 </html>

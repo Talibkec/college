@@ -53,40 +53,40 @@ function fire_ajax_submit() {
         success: function (data, textStatus, xhr) {
 
              $("#submitHod").prop("disabled", false);
-             
+             window.alert(data);
         },
         error: function (e) {
 
             $("#submitHod").prop("disabled", false);
-
+            window.alert(data);
         }
     });
 
 }
 
-function fire_ajax_delete() {
-
-    $("#deleteHodRole").prop("disable", true);
-
-    $.ajax({
-
-        url: "/auth/hod/deleteHodRole",
-        data: {
-            facultyDetails:JSON.stringify(getFacultyDetails())
-        },
-        timeout: 600000,
-                success: function (data, textStatus, xhr) {
-
-                     $("#deleteHodRole").prop("disabled", false);
-                     window.location.href = "/auth/hodincharge";
-                },
-                error: function (e) {
-
-                    $("#deleteHodRole").prop("disabled", false);
-         }
-    });
-
-}
+// function fire_ajax_delete() {
+//
+//     $("#deleteHodRole").prop("disable", true);
+//
+//     $.ajax({
+//
+//         url: "/auth/hod/deleteHodRole",
+//         data: {
+//             facultyDetails:JSON.stringify(getFacultyDetails())
+//         },
+//         timeout: 600000,
+//                 success: function (data, textStatus, xhr) {
+//
+//                      $("#deleteHodRole").prop("disabled", false);
+//                      window.location.href = "/auth/hodincharge";
+//                 },
+//                 error: function (e) {
+//
+//                     $("#deleteHodRole").prop("disabled", false);
+//          }
+//     });
+//
+// }
 
 function fire_ajax_search() {
 

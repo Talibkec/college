@@ -56,6 +56,28 @@
                         </div>
                     </div>
 
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading faculty-title">Vishal Kumar Singh &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K20)</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/category/vks.jpg"
+                                                                             style="border-radius:50%;height:180px;width:150px"/>
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of
+                                    Computer Science and Engineering<br/> <strong>Designation:</strong> Web Developer <br/> <strong>Phone Number:</strong>+91-8178572536<br/> <strong>Email
+                                        Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                             data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">vishalkrsinghmsk@gmail.com</a>
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-3 box-profile-link"><a href="https://Vishal-KumarSingh.github.io"
+                                                                          class="btn btn-default btn-lg"> <br
+                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                    Profile Page </a></div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading faculty-title"> Ankit Dutta&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K16)</div>
                         <div class="panel-body">

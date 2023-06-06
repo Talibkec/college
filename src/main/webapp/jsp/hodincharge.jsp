@@ -24,9 +24,8 @@
          <div class="col-md-2 text-center"><strong>FacultyName</strong></div>
          <div class="col-md-2 text-center"><strong>Select Department</strong></div>
          <div class="col-md-2 text-center"><strong>Assign HODRole</strong></div>
-         <div class="col-md-2 text-center"><strong>Revoke HODRole</strong></div>
     </div>
-    <div class="row" style="border:1px solid green;padding:10px display:block">
+    <div class="row" style="border:1px solid green;padding:10px; display:block">
           <div class="col-md-2 text-center" value="facultyname" id="faculty"><span id="facultySpan"></span></div>
            <div class="col-md-2 text-center">
             <select name="department" class="departments">
@@ -39,10 +38,10 @@
                <button id="submitHod" class="btn btn-success" type = "submit">Assign</button>
            </div>
 
-            <div class="col-md-2 text-center">
-                <button id="deleteHodRole" class="btn btn-success" type="button">Revoke</button>
-                </a>
-            </div>
+<%--            <div class="col-md-2 text-center">--%>
+<%--                <button id="deleteHodRole" class="btn btn-success" type="button">Revoke</button>--%>
+<%--                </a>--%>
+<%--            </div>--%>
           </div>
     </div>
     <input type="hidden" id="facultyId" name="facultyId" value="${faculty.facultyId}" />

@@ -20,8 +20,8 @@
                 <ul class="menu nav">
                     <li class="first leaf  menu-mlid-1154"><a href="/approval/aicteapproval" class="sf-depth-2 active">AICTE Approval</a></li>
                       <li class="leaf menu-mlid-1121"><a href="/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
-                    <li class="first leaf  menu-mlid-1178"><a href="/approval/aicteapproval" class="sf-depth-2 active">Grievance</a></li>
-                    <li class="first leaf  menu-mlid-1179"><a href="/approval/aicteapproval" class="sf-depth-2 active">Mandatory Disclosure</a></li>
+                    <li class="first leaf  menu-mlid-1178"><a href="/approval/grievance" class="sf-depth-2 active">Grievance</a></li>
+                    <li class="first leaf  menu-mlid-1179"><a href="/approval/mandatorydisclosure" class="sf-depth-2 active">Mandatory Disclosure</a></li>
                  </ul>
             </div>
           </section>
@@ -39,6 +39,7 @@
                                 <td><strong>SL. No.</strong></td>
                                 <td><strong>Year</strong></td>
                                 <td width="472" align="center"><strong>Documents</strong></td>
+                                <td width="472" align="center"></td>
                             </tr>
                             </tbody>
                             <c:forEach items ="${allDocuments}" var ="document">
@@ -54,6 +55,12 @@
                                         <a href="/approval/document/${document.id}">
                                             <button type="button" class="btn btn-success" data-dismiss="modal">Download
                                             </button></a>
+                                    </td><td>
+                                        <c:if test="${showDeleteBtn}">
+                                            <a href="/approval/deletedocument/${document.id}">
+                                                <button class="btn btn-danger mt-2 p-2"> Delete Document</button>
+                                            </a>
+                                        </c:if>
 
                                     </td>
                                 </tr>

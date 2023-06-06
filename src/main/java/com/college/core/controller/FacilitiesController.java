@@ -15,7 +15,12 @@ public class FacilitiesController {
         mv.setViewName("facilities/bank.jsp");
         return mv;
     }
-
+    @RequestMapping(value = "downloads")
+    public ModelAndView getdownloads() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("facilities/downloads.jsp");
+        return mv;
+    }
     @RequestMapping(value = "centrallibrary")
     public ModelAndView getCentralLibrary() {
         ModelAndView mv = new ModelAndView();

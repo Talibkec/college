@@ -25,7 +25,7 @@ public class NoticeBoardHelper {
             return noticeBoardService.getEecNotices(pageable);
         } else if ("CIVIL".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getCivilNotices(pageable);
-        } else if ("MECHANICAL".equalsIgnoreCase(deptno)) {
+        } else if ("MECH".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getMechNotices(pageable);
         } else if ("ASH".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getApplidScienceNotices(pageable);
@@ -49,7 +49,7 @@ public class NoticeBoardHelper {
             viewName = "department/eee/notice.jsp";
         } else if ("CIVIL".equalsIgnoreCase(deptno)) {
             viewName = "department/civil/notice.jsp";
-        } else if ("MECHANICAL".equalsIgnoreCase(deptno)) {
+        } else if ("MECH".equalsIgnoreCase(deptno)) {
             viewName = "department/mechanical/notice.jsp";
         } else if ("ASH".equalsIgnoreCase(deptno)) {
             viewName = "department/ash/notice.jsp";

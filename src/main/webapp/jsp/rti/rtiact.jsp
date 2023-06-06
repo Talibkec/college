@@ -26,10 +26,12 @@
                        </aside>
         <div class="col-md-8">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <p>
-                    <embed src="/wp-content/uploads/2018/rti-act-2.pdf" width="800px"
-                           height="950px"></embed>
-                </p>
+
+                <div>
+                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/wp-content/uploads/2018/rti-act-2.pdf" type="application/pdf" width="700" height="1000">
+                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.i/wp-content/uploads/2018/RTI-application-format.pdf" type="application/pdf">
+                    </object>
+                </div>
             </div>
             <i class="fa fa-download"></i>
             <a href="/wp-content/uploads/2018/rti-act-2.pdf">

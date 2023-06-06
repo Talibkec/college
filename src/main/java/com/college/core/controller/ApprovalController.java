@@ -1,31 +1,29 @@
 package com.college.core.controller;
 
-import com.college.core.entity.Faculty;
-import com.college.core.entity.FacultyKeyPropValues;
-import com.college.core.entity.FacultyKeyProps;
+import com.college.core.entity.*;
 import com.college.core.model.AicteDocumentsDTO;
-import com.college.core.model.ImageSlideDTO;
-import com.college.core.model.NoticeBoardDTO;
 import com.college.repository.FacultyRepository;
 import com.college.service.AllDocuments;
-import com.college.service.AllDocumentsServiceImpl;
+import com.college.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Controller
 @RequestMapping(value = "approval")
@@ -34,7 +32,8 @@ public class ApprovalController {
     AllDocuments allDocuments;
     @Autowired
     FacultyRepository facultyRepository;
-
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "akuapproval")
     public ModelAndView getAkuApproval() {
@@ -42,13 +41,40 @@ public class ApprovalController {
         mv.setViewName("/approval/akuapproval.jsp");
         return mv;
     }
-
+    @RequestMapping(value = "grievance")
+    public ModelAndView getGrievance() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/approval/grievance.jsp");
+        return mv;
+    }
+    @RequestMapping(value = "mandatorydisclosure")
+    public ModelAndView getMandatoryDisclosure() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/approval/mandatorydisclosure.jsp");
+        return mv;
+    }
     @RequestMapping(value = "aicteapproval")
-    public ModelAndView getAicteApproval() {
+    public ModelAndView getAicteApproval(Authentication authentication) {
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+
         System.out.println("in aicte approval method");
         ModelAndView mv = new ModelAndView();
         List<AicteDocumentsDTO> allDocumentList = allDocuments.getAllDocuments();
         mv.addObject("allDocuments" , allDocumentList);
+        mv.addObject("showDeleteBtn" , accessAllow);
         mv.setViewName("/approval/aicteapproval.jsp");
         return mv;
     }
@@ -66,6 +92,29 @@ public class ApprovalController {
 
         }
         return null;
+
+    }
+    @RequestMapping(value = "deletedocument/{id}")
+    public ResponseEntity<?> deleteDocument(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+        if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
+        System.out.println("User tried to delete document with id :- " + documentId);
+        allDocuments.deleteAicteDocument(documentId);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/approval/aicteapproval';</script>" , headers , HttpStatus.OK);
 
     }
     @RequestMapping(value = "addFaculty", method = RequestMethod.GET)

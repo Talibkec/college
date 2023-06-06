@@ -38,7 +38,12 @@
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <p>
-                        <strong> <embed src="/jsp/academic/regulation.pdf" width="800px" height="950px"></embed></strong>
+
+                    <div>
+                        <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/academic/regulation.pdf" type="application/pdf" width="700" height="1000">
+                            <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/academic/regulation.pdf" type="application/pdf">
+                        </object>
+                    </div>
                     </p>
 
                 </div>

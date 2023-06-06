@@ -15,6 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -146,8 +149,8 @@ public class DashboardController {
 
 
     @RequestMapping(value = "/auth/hod/saveRole", method = RequestMethod.POST)
-    public void setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
-        ModelAndView mv = new ModelAndView();
+    public ResponseEntity<?> setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
+
         UserRoleDTO userRoleDTO = new UserRoleDTO();
         FacultyDTO facultyDTO = new FacultyDTO();
 
@@ -155,18 +158,18 @@ public class DashboardController {
         userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
         userRoleDTO.setRoleId(role.getId());
         userService.saveUserRole(userRoleDTO);
-        mv.setViewName("index.jsp");
+        return new ResponseEntity<>("Successfully assigned the role ", new HttpHeaders(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/auth/hod/deleteHodRole", method = RequestMethod.GET)
-    public void deleteHodRole(HttpServletRequest request, HttpServletResponse response, @RequestParam("facultyDetails") String facultyDetails) throws IOException {
-        ModelAndView mv = new ModelAndView();
-        UserRoleDTO userRoleDTO = new UserRoleDTO();
-        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
-        Role role = roleService.getRole("HOD");
-        userRoleDTO.setRoleId(role.getId());
-        userService.deleteUserRole(userRoleDTO);
-        mv.setViewName("/auth/hodincharge.jsp");
-    }
+//    @RequestMapping(value = "/auth/hod/deleteHodRole", method = RequestMethod.GET)
+//    public void deleteHodRole(HttpServletRequest request, HttpServletResponse response, @RequestParam("facultyDetails") String facultyDetails) throws IOException {
+//        ModelAndView mv = new ModelAndView();
+//        UserRoleDTO userRoleDTO = new UserRoleDTO();
+//        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+//        Role role = roleService.getRole("HOD");
+//        userRoleDTO.setRoleId(role.getId());
+//        userService.deleteUserRole(userRoleDTO);
+//        mv.setViewName("/auth/hodincharge.jsp");
+//    }
 
 }

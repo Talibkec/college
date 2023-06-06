@@ -35,7 +35,7 @@
 <body class="html front not-logged-in no-sidebars page-node page-node- page-node-1 node-type-page">
 
 <header id="navbar" role="banner" class=" navbar navbar-default">
-    <div class="container">
+    <div class="container" style="width:1300px">
 
         <div class="gt-topheader">
             <div class="row">
@@ -172,8 +172,8 @@
                                 <ul>
                                     <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a href="/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
                                     <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
-                                    <li class="first leaf  menu-mlid-1178"><a href="/approval/aicteapproval" class="sf-depth-2 active">Grievance</a></li>
-                                    <li class="first leaf  menu-mlid-1179"><a href="/approval/aicteapproval" class="sf-depth-2 active">Mandatory Disclosure</a></li>
+                                    <li class="first leaf  menu-mlid-1178"><a href="/approval/grievance" class="sf-depth-2 active">Grievance</a></li>
+                                    <li class="first leaf  menu-mlid-1179"><a href="/approval/mandatorydisclosure" class="sf-depth-2 active">Mandatory Disclosure</a></li>
                                 </ul>
                             </li>
                             <li id="menu-1131-1" class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
@@ -192,7 +192,10 @@
             
                                 </ul>
                             </li>
-            
+                            <li id="menu-218-1" class="active-trail first odd sf-item-1 sf-depth-1 sf-no-children">
+                                <a href="/facilities/downloads" class="sf-depth-1 ">
+                                Downloads</a>
+                            </li>
                             <sec:authorize access="!isAuthenticated()">
                                <li >
                                 <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>

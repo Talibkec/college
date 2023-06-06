@@ -34,7 +34,7 @@
                                                                                             </c:if>
 
                                                     <ul class="pager">
-                                                        <li><a href="/pagination/prev/getNotices?deptno=mechanical&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
+                                                        <li><a href="/pagination/prev/getNotices?deptno=MECHl&pageSize=${pageSize - 1}"><i class="fa fa-angle-double-left"></i> Previous</a></li>
                                                         <li><a href="/pagination/next/getNotices?deptno=MECH&pageSize=${pageSize + 1}">Next <i class="fa fa-angle-double-right"></i></a>
                                                         </li>
                                                     </ul>

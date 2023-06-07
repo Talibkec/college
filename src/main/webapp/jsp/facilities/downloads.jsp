@@ -1,7 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp" />
 
-
+<style>
+    td {
+        padding: 10px !important;
+    }
+</style>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
     <div class="container">
         <div class="row">
@@ -24,6 +28,7 @@
                             <td><strong>SL. No.</strong></td>
                             <td><strong>Year</strong></td>
                             <td ><strong>Documents</strong></td>
+                            <td ><strong>Uploaded By </strong></td>
                             <td ></td>
                         </tr>
                         </tbody>
@@ -31,11 +36,12 @@
 
 
                             <tr bgcolor="#e9feea">
-                                <td width="40">${document.id}</td>
-                                <td width="134">${document.fileName}</td>
-                                <td width="134">${document.fileName}</td>
+                                <td>${document.id}</td>
+                                <td >${document.fileName}</td>
+                                <td>${document.fileName}</td>
+                                <td >${document.uploadedBy}</td>
 
-                                <td width="472" align="center">
+                                <td align="center">
                                     <i class="fa fa-download"></i>
                                     <a href="/facilities/document/${document.id}">
                                         <button type="button" class="btn btn-success" data-dismiss="modal">Download

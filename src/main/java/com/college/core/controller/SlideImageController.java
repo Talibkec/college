@@ -1,8 +1,10 @@
 package com.college.core.controller;
 import com.college.core.model.AicteDocumentsDTO;
+import com.college.core.model.DownloadDTO;
 import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.ImageSlideDTO;
 import com.college.service.AllDocuments;
+import com.college.service.DownloadService;
 import com.college.service.GalleryImageService;
 import com.college.service.ImageSlideService;
 import org.apache.commons.io.FilenameUtils;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +30,8 @@ public class SlideImageController {
 
     @Autowired
     AllDocuments allDocuments;
+    @Autowired
+    DownloadService downloadService;
     @Autowired
     GalleryImageService galleryImageService;
     private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
@@ -96,6 +101,50 @@ public class SlideImageController {
 
         return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
 
+    }
+    @ResponseBody
+    @RequestMapping(value = "/auth/api/uploadDownload", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadDownload(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+        logger.debug("Single download file upload!");
+        String fileName = uploadfile.getOriginalFilename();
+        String fileType = uploadfile.getContentType();
+        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please provide a caption";
+            }
+            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
+
+        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+        saveDownloadFile(uploadfile, caption, fileName, fileType , authentication);
+        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+
+
+        return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
+
+    }
+
+    private void saveDownloadFile(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
+        if(!authentication.isAuthenticated()){
+                return ;
+        }
+        DownloadDTO downloadDTO = new DownloadDTO();
+        downloadDTO.setFileName(caption);
+
+        String username = authentication.getName();
+        downloadDTO.setUploadedBy(authentication.getName());
+        try {
+            downloadDTO.setUploadedFile(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        downloadDTO.setFileType(FilenameUtils.getExtension(fileName));
+        downloadService.saveDownloadBoard(downloadDTO);
     }
 
     @ResponseBody

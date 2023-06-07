@@ -67,4 +67,12 @@ public class AdminController {
         return model;
 
     }
+    @RequestMapping(value = "/auth/uploadDownload")
+    public ModelAndView uploadDownload() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadDownload.jsp");
+        return model;
+
+    }
 }

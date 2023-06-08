@@ -55,7 +55,26 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="panel panel-default">
+                        <div class="panel-heading faculty-title">Gourav Kumar &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K18) </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/category/gourav.jpg"
+                                                                             style="border-radius:50%"/>
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Computer Science and
+                                    Engineering<br/> <strong>Designation:</strong> DevOps<br/> <strong>Email
+                                        Address:</strong> <a href="mailto:gouravk842@gmail.com">gouravk842@gmail.com</a>
+                                    <div class="visible-xs"><br/></div>
+                                </div>
+                                <div class="col-sm-3 box-profile-link"><a href="https://gourav-portfolio.netlify.app/"
+                                                                          class="btn btn-default btn-lg"> <br
+                                        class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
+                                    Profile Page </a></div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="panel panel-default">
                         <div class="panel-heading faculty-title">Vishal Kumar Singh &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Student(2K20)</div>
@@ -71,7 +90,7 @@
                                                              data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">vishalkrsinghmsk@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
                                 </div>
-                                <div class="col-sm-3 box-profile-link"><a href="https://Vishal-KumarSingh.github.io"
+                                <div class="col-sm-3 box-profile-link"><a href="https://github.com/Vishal-KumarSingh"
                                                                           class="btn btn-default btn-lg"> <br
                                         class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                     Profile Page </a></div>

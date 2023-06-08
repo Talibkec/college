@@ -383,11 +383,11 @@
                                         <div class="views-field views-field-field-image">
                                             <div class="field-content embed-responsive embed-responsive-16by9">
                                                 <iframe frameborder="0" height="551"
-                                                        src="https://www.youtube.com/embed/DykZZgT9UHE" width="1050"></iframe>
+                                                        src="https://www.youtube.com/embed/1zoSI1yATFI" width="1050"></iframe>
                                             </div>
                                         </div>
                                         </li></ul>
-                                        <div class="views-field views-field-title" style="margin-left:32%;">Fresher's Party Event<br/></div>
+                                        <div class="views-field views-field-title" style="margin-left:32%;">College Tour<br/></div>
 
 
 

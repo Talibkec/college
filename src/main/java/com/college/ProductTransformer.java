@@ -2,8 +2,6 @@ package com.college;
 import com.college.core.entity.Faculty;
 import com.college.core.entity.Product;
 import com.college.core.entity.User;
-import com.college.core.model.FacultyDTO;
-import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 

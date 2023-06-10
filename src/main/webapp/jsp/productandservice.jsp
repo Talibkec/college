@@ -21,9 +21,9 @@
       <h3>Course Offered</h3>
         <table border="1" style="width:100%;">
             <thead>
-                <td><b> Course Name </b></td>
-                <td><b> Course Duration </b></td>
-                <td><b> Course Level </b> </td>
+                <th><b> Course Name </b></th>
+                <th><b> Course Duration </b></th>
+                <th><b> Course Level </b> </th>
             </thead>
             <tbody>
             <tr>
@@ -46,11 +46,7 @@
                 <td>4 years </td>
                 <td>Graduation</td>
             </tr>
-            <tr>
-                <td>Applied Science and Humanities</td>
-                <td>4 years </td>
-                <td>Graduation</td>
-            </tr>
+
             <tr>
                 <td>Food Processing</td>
                 <td>4 years </td>

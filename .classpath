@@ -42,11 +42,11 @@
   <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.6.5/jackson-core-2.6.5.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/8.0.3/tomcat-embed-jasper-8.0.3.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.3.1/ecj-4.3.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-mail/1.3.3.RELEASE/spring-boot-starter-mail-1.3.3.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-context-support/4.2.5.RELEASE/spring-context-support-4.2.5.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/sun/mail/javax.mail/1.5.5/javax.mail-1.5.5.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/embed/tomcat-embed-jasper/8.0.3/tomcat-embed-jasper-8.0.3.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/eclipse/jdt/core/compiler/ecj/4.3.1/ecj-4.3.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-thymeleaf/1.3.3.RELEASE/spring-boot-starter-thymeleaf-1.3.3.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/thymeleaf/thymeleaf-spring4/2.1.4.RELEASE/thymeleaf-spring4-2.1.4.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/thymeleaf/thymeleaf/2.1.4.RELEASE/thymeleaf-2.1.4.RELEASE.jar"/>
@@ -79,7 +79,7 @@
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-orm/4.2.5.RELEASE/spring-orm-4.2.5.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/springframework/spring-aspects/4.2.5.RELEASE/spring-aspects-4.2.5.RELEASE.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/webjars/jquery/2.2.4/jquery-2.2.4.jar"/>
-  <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/8.0.17/mysql-connector-java-8.0.17.jar"/>
+  <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/modelmapper/modelmapper/2.3.0/modelmapper-2.3.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/smattme/mysql-backup4j/1.0.1/mysql-backup4j-1.0.1.jar"/>
@@ -161,4 +161,6 @@
   <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/google/http-client/google-http-client-jackson/1.19.0/google-http-client-jackson-1.19.0.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/jackson/jackson-core-asl/1.9.11/jackson-core-asl-1.9.11.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-taglibs/5.2.2.RELEASE/spring-security-taglibs-5.2.2.RELEASE.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/springframework/security/spring-security-acl/4.0.3.RELEASE/spring-security-acl-4.0.3.RELEASE.jar"/>
 </classpath>

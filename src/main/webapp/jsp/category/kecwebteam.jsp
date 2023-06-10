@@ -81,7 +81,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt="" src="/jsp/category/vks.jpg"
-                                                                             style="border-radius:50%;height:180px;width:150px"/>
+                                                                             style="border-radius:50%"/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Department:</strong> Department of

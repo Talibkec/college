@@ -473,21 +473,21 @@ Katihar Engineering College</title>
                 <div class="panel-heading"><i class="fa fa-sign-in"></i>Reset Your Password</div>
                 <div class="panel-body">
 
-                    <h1 th:text="#{message.resetPassword}">reset</h1>
+                    <h1 th:text="${message.resetPassword}">reset</h1>
 
-                    <label th:text="#{label.user.email}" class="control-label col-sm-4">Enter email</label>
+                    <label th:text="${label.user.email}" class="control-label col-sm-4">Enter email</label>
                     <div class="col-sm-8">
                         <input id="email" name="email" type="email" value=""/><br><br>
                     </div>
                     <button type="submit" onclick="resetPass()" class="btn btn-primary"
-                            th:text="#{message.resetPassword}">reset
+                            th:text="${message.resetPassword}">reset
                     </button>
                     <div class="col-sm-5"></div>
 
-                    <a th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">
+                    <a th:href="@{/registration.html}" th:text="${label.form.loginSignUp}">
                         registration
                     </a>
-                    <a th:href="@{/login}" th:text="#{label.form.loginLink}">login</a>
+                    <a th:href="@{/login}" th:text="${label.form.loginLink}">login</a>
                 </div>
             </div>
         </div>

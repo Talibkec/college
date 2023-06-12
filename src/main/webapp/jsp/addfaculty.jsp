@@ -6,7 +6,7 @@
 <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
 <div class="panel panel-primary"><div class="panel-heading"> <i class="fa fa-sign-in"></i>&nbsp;Add Faculty</div>
 <div class="panel-body"style="height:100%; ">
-<form  method="POST" enctype="multipart/form-data" id="addFacultyForm">
+<form  method="POST" enctype="multipart/form-data" id="addFacultyForm" data-action="/auth/uploadfile/addfaculty">
           <label for ="facultyName" class="control-label col-sm-4">Enter Name</label>
           <input type="text" id="facultyName"  name="facultyName" class="control-label col-sm-4 ui-autocomplete-input" autocomplete="off"></br></br>
           <label for ="department" class="control-label col-sm-4">Choose Department</label>
@@ -34,7 +34,8 @@
 </div>
 
 </div>
-</div></div></div>
+</div></div>
+</div>
 <jsp:include page ="footer.jsp"/>
 <link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
 <script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>

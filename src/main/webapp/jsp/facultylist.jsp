@@ -27,7 +27,14 @@
 
             <div class="page-content"><h2>Faculty Members </h2></div>
             <hr/>
-
+            <c:if test="${showDeleteBtn}">
+                <a href="auth/uploadfile/addfaculty">
+                    <button class="btn btn-primary mt-2 p-2"> Add Faculty as Admin</button>
+                </a>
+                <a href="hod/addfaculty">
+                    <button class="btn btn-primary mt-2 p-2"> Add Faculty as HOD </button>
+                </a>
+            </c:if>
 
             <% int hod = 1; %>
             <c:forEach items="${facultyList}" var="faculty">

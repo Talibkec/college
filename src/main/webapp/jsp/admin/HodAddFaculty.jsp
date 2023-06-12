@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
   <link rel="stylesheet" href="/jsp/admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
- 
+
   <!-- Theme style -->
   <link rel="stylesheet" href="/jsp/admin/dist/css/adminlte.min.css">
 </head>
@@ -35,7 +35,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    
+
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -77,10 +77,10 @@
               <li class="nav-item">
                 <a href="/hod/addfaculty" class="nav-link">
                   <i class="ion ion-person-add "></i>
-                    <p>Add Faculty</p>
+                  <p>Add Faculty</p>
                 </a>
-               </li>
-              
+              </li>
+
             </ul>
           </li>
         </ul>
@@ -89,19 +89,21 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-<!-- Content Wrapper. Contains page content -->
+  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">
+              Add Faculty
+            </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              
-           
+
+
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -110,44 +112,42 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h4>Upload Notice/ News</h4>
+    <div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
+      <div class="panel panel-primary"><div class="panel-heading"> <i class="fa fa-sign-in"></i>&nbsp;Add Faculty</div>
+        <div class="panel-body"style="height:100%; ">
+          <form  method="POST" enctype="multipart/form-data" id="addFacultyForm" data-action="/hod/uploadfile/addfaculty">
+            <label for ="facultyName" class="control-label col-sm-4">Enter Name</label>
+            <input type="text" id="facultyName"  name="facultyName" class="control-label col-sm-4 ui-autocomplete-input" autocomplete="off"></br></br>
+            <label for ="department" class="control-label col-sm-4">Choose Department</label>
+            <select class="control-label col-sm-4" id="deptId"  name='deptId'>
+              <option value ="1">Computer Sc. & Engineering</option>
+              <option value="2" >Civil Engineering</option>
+              <option value ="3">Mechanical Engineering</option>
+              <option value="4" >Electrical & Electronics Engg.</option>
+              <option value="5" >Applied Sc. & Humanities</option>
+            </select><br></br>
+            <label for ="facultyOfficialEmail" class="control-label col-sm-4">Enter Official Email</label>
+            <input type="email" id="facultyOfficialEmail"name="facultyOfficialEmail"class="control-label col-sm-4"></br></br>
+            <label for ="facultyPersonalEmail"class="control-label col-sm-4">Enter Personal Email</label>
+            <input type="email" id="facultyPersonalEmail" name="facultyPersonalEmail"class="control-label col-sm-4"></br></br>
+            <label for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
+            <input type="number" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
+            <label for ="userName" class="control-label col-sm-4">Enter User Name</label>
+            <input type="text" id="userName" name="userName" class="control-label col-sm-4 ui-autocomplete-input"autocomplete="off" ></br></br>
+            <div id="form_message"></div>
+            <input type="submit" value="Submit" id="btnSubmit" class="btn btn-success" style="margin-left:10%" />
+            <div class="col-sm-4"></div>
+        </div>
+        </form>
 
-                
-              </div>
-              <div class="icon">
-                <i class="ion ion-upload"></i>
-              </div>
-              <a href="/hod/uploadfile/upload" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h4>Add Faculty<sup style="font-size: 20px"></sup></h4>
+      </div>
 
-                
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="/hod/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          
-        <!-- /.row -->
-       
-      </div><!-- /.container-fluid -->
-    </section>
+    </div>
+    </div></div>
+  </div>
+
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -163,4 +163,4 @@
 
 <jsp:include page="../footer.jsp"/>
 
-  
+<script src="/js/addfaculty.js"></script>

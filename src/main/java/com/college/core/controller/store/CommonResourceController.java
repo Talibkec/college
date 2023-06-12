@@ -447,23 +447,23 @@ public class CommonResourceController {
         String regex = "^(.+)@(.+)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher m = pattern.matcher(facultyOfficialEmail);
-        Matcher m2 = pattern.matcher(facultyPersonalEmail);
+//        Matcher m2 = pattern.matcher(facultyPersonalEmail);
         if(!m.matches()){
             error = true;
             message = " Invalid Official Email address entered";
         }
-        if(!m2.matches()){
-            error = true;
-            message = " Invalid Personal Email address entered";
-        }
+//        if(!m2.matches()){
+//            error = true;
+//            message = " Invalid Personal Email address entered";
+//        }
         if(!facultyOfficialEmail.substring(facultyOfficialEmail.indexOf("@") + 1).equals("keck.ac.in")){
             error = true;
             message = " Official email doesn't belong to keck.ac.in ";
         }
-        if(facultyMobNo < 1000000000L || facultyMobNo > 9999999999L){
-            error = true;
-            message = " Mobile Number must be of 10 digit length ";
-        }
+//        if(facultyMobNo < 1000000000L || facultyMobNo > 9999999999L){
+//            error = true;
+//            message = " Mobile Number must be of 10 digit length ";
+//        }
         facultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
         facultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
         facultyDTO.setFacultyMobNo(facultyMobNo);

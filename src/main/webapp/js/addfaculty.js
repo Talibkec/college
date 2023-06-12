@@ -44,17 +44,17 @@ function fire_ajax_submit() {
 
     var data = new FormData(form);
 
-    if(($("#facultyName").val() === '')||($("#facultyOfficialEmail").val() === '')||($("#facultyPersonalEmail").val() === '')||($("#facultyMobNo").val() === '')||($("#userName").val() === '')){
-        $("#form_message").html("All fields are required !! ");
+    if(($("#facultyName").val() === '')||($("#facultyOfficialEmail").val() === '')||($("#userName").val() === '')){
+        $("#form_message").html("All Faculty Name, Official email and username are required !! ");
         return false;
     }
 
     $("#btnSubmit").prop("disabled", true);
-
+    console.log(form.getAttribute("data-action"));
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/auth/uploadfile/addfaculty",
+        url: form.getAttribute("data-action"),
         data: data,
         //http://api.jquery.com/jQuery.ajax/
         //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects

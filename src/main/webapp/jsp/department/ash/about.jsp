@@ -100,8 +100,8 @@
                             various mathematical tools used and their applications in the engineering disciplines.
 
 
-                            <p>
-                            </p></div>
+
+                            </div>
                     </div>
                 </div></div>
 

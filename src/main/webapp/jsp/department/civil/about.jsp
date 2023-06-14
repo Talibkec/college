@@ -151,9 +151,20 @@
                                                                                                                                                                         </div>
                                                                                                                                                                     </div>
                                                                                                                                                <!-- ********************* New content ********************** -->
-                                <div id="ctl00_ContentPlaceHolder1_div_1 " style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;" ><p><strong>INTRODUCTION</strong></p><p>Katihar Engineering College,katihar was established in 2016 and the Civil Engineering Department is part of the institute since its inception. The Department has grown tremendously over the years and is now recognized as one of the major engineering departments in the state of Bihar. Department of civil Engineering offers Bachelors in Technology, have an annual intake 60. The Department of Civil Engineering with its multifaceted faculty from different field like Geotechnical, Environmental and structural engineering maintains high quality teaching and instruction at UG level.</span><br/>
-                                                                                                                   Currently it comprises of various sub divisions like <br/>(1)Building Technology and Construction Management (BTCM)<br/> (2) Environmental and water resources engineering (EWRE)<br/>(3) Geotechnical engineering (GT)<br/>(4) Structural engineering (ST)<br/> (5) Transportation engineering (TR) .
-                                        </p>
+                                <div id="ctl00_ContentPlaceHolder1_div_1 " style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;" ><p><strong>INTRODUCTION</strong></p>Katihar Engineering College,katihar was established in 2016 and the Civil Engineering Department is part of the institute since its inception.
+                                    The Department has grown tremendously over the years and is now recognized as one of the major engineering departments in the state of Bihar.
+                                    Department of civil Engineering offers Bachelors in Technology, have an annual intake 60. The Department of Civil Engineering with its multifaceted faculty from different field like Geotechnical,
+                                    Environmental and structural engineering maintains high quality teaching and instruction at UG level.
+
+                                    Currently, it comprises various subdivisions like
+                                    <ul>
+                                        <li>(1)Building Technology and Construction Management (BTCM)</li>
+                                        <li>(2) Environmental and water resources engineering (EWRE)</li>
+                                        <li>(3) Geotechnical engineering (GT)</li>
+                                        <li> (4) Structural engineering (ST)</li>
+                                        <li> (5) Transportation engineering (TR) .</li>
+                                    </ul>
+
                                 </div>
                              </div>
 

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-sm-8"><h3>Central Library</h3></div>
-/div>
+</div>
     </div>
 </div>
 <div class="container">
@@ -110,5 +110,9 @@
         </div>
     </div>
 </div>
-
+<style>
+    td , th{
+        padding: 10px !important;
+    }
+</style>
 <jsp:include page="/jsp/footer.jsp"/>

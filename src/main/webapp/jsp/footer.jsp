@@ -1,6 +1,6 @@
 <div class="gt-footersection">
     <footer class="footer container">
-        <div class="region region-footer">
+        <div class="region region-footer  " id="footer-flex">
             <section id="block-block-3" class="block block-block clearfix">
 
 
@@ -26,7 +26,7 @@ Ph.: 06452-239122</span></p>
                 <div class="googlemap"><a
                         href="https://www.google.co.in/maps/place/KATIHAR+ENGINEERING+COLLEGE+(NEW+CAMPUS)/@25.5687892,87.5372664,17z/data=!3m1!4b1!4m5!3m4!1s0x39f0015cd2753a37:0x599f1653bdd10604!8m2!3d25.5687844!4d87.5394551?hl=en"
                         target="_blank">
-                    <i class="fa  fa-globe" aria-hidden="true" style="font-size:300%;margin-left:5%"></i></a>
+                    <i class="fa  fa-map-marker" aria-hidden="true" style="font-size:250%;align-content:center;color:red"></i></a>
                     <span></span>
 
                 </div>
@@ -41,14 +41,15 @@ Ph.: 06452-239122</span></p>
 
             </section>
 
-        </div>
-        <section id="" class="block block-block clearfix">
+
+        <section id="block-block-5" class="block block-block clearfix">
 
             <h2 class="block-title">&copy 2018 KEC Katihar</h2>
 
             <p>Designed & Developed by</p>
-            <p><a href="/category/kecwebteam" target="_blank">KEC Web Team</a></p>
+            <p><a href="/category/kecwebteam" target="_blank"> <button class="btn btn-primary">KEC Web Team </button></a></p>
         </section>
+        </div>
     </footer>
 
 </div>

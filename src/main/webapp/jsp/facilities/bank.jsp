@@ -78,5 +78,9 @@
                     </div>
     </div>
 </div>
-
+<style>
+    td , th{
+        padding: 10px !important;
+    }
+</style>
 <jsp:include page="/jsp/footer.jsp"/>

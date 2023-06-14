@@ -68,8 +68,6 @@
 <script data-cfasync="false" id="ao_optimized_gfonts" type="text/javascript">WebFontConfig={google:{families:['Lato:300,400'] },classes:false, events:false, timeout:1500};(function() {var wf = document.createElement('script');wf.src='https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';wf.type='text/javascript';wf.async='true';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(wf, s);})();
 
 
-
-
 </script>
 <link type="text/css" media="all" href="wp-content/cache/autoptimize/css/autoptimize_e5f671b1828a9e81941de090a06f0ed0.css" rel="stylesheet" />
 <title>
@@ -476,23 +474,23 @@ Katihar Engineering College</title>
             <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-sign-in"></i>Reset Your Password</div>
                 <div class="panel-body">
-                    <h1 th:text="#{message.resetYourPassword}">reset</h1>
+                    <h1 th:text="${message.resetYourPassword}">reset</h1>
                     <form>
-                        <label th:text="#{label.user.password}" class="control-label col-sm-4">Enter Password</label>
+                        <label th:text="${label.user.password}" class="control-label col-sm-4">Enter Password</label>
                         <div class="col-sm-8">
                             <input id="password" name="newPassword" type="password" value=""/></br><br>
                         </div>
 
-                        <label th:text="#{label.user.confirmPass}" class="control-label col-sm-4">Confirm
+                        <label th:text="${label.user.confirmPass}" class="control-label col-sm-4">Confirm
                             Password</label>
                         <div class="col-sm-8">
                             <input id="matchPassword" type="password" value=""/><br><br>
                         </div>
                         <div id="globalError" style="display:none"
-                             th:text="#{PasswordMatches.user}">error
+                             th:text="${PasswordMatches.user}">error
                         </div>
                         <button type="submit" onclick="savePass(event)"
-                                th:text="#{message.updatePassword}" class="btn btn-primary">submit
+                                th:text="${message.updatePassword}" class="btn btn-primary">submit
                         </button>
                         <div class="col-sm-5"></div>
                     </form>

@@ -46,7 +46,7 @@
                         professors:-</strong></p>
 
 
-                    <table style="width: 100%;" border="1" align="center" bgcolor="#7eec35">
+                    <table style="width: 100%;" border="1" align="center" bgcolor="#7eec35" >
                         <tbody>
                         <tr bgcolor="#7eec35">
                             <th style="text-align: left;" scope="col"><a>Hostel</a></th>
@@ -67,5 +67,9 @@
         </div>
     </div>
 </div>
-
+<style>
+    td , th{
+        padding: 10px !important;
+    }
+</style>
 <jsp:include page="/jsp/footer.jsp"/>

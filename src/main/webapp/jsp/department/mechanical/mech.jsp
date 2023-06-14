@@ -147,24 +147,24 @@
             <div id="ctl00_ContentPlaceHolder1_div_1 "
                  style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p>
                 <strong>INTRODUCTION</strong></p>
-                <p>Mechanical engineering is the discipline that applies engineering physics, engineering mathematics,
+               Mechanical engineering is the discipline that applies engineering physics, engineering mathematics,
                     and materials science principles to design, analyse, manufacture, and maintain mechanical systems.
                     It is one of the oldest and broadest of the engineering disciplines.It is known as the evergreen
-                    branch among all the branches of engineering department</p>
-                <p>The mechanical engineering field requires an understanding of core areas including mechanics,
+                branch among all the branches of engineering department<br>
+                The mechanical engineering field requires an understanding of core areas including mechanics,
                     dynamics, thermodynamics, materials science, structural analysis, and electricity. In addition to
                     these core principles, mechanical engineers use tools such as computer-aided design (CAD),
                     computer-aided manufacturing (CAM), and product life cycle management to design and analyse
                     manufacturing plants, industrial equipment and machinery, heating and cooling systems, transport
                     systems, aircraft, watercraft, robotics, medical devices, weapons, and others. It is the branch of
-                    engineering that involves the design, production, and operation of machinery.</p>
-                <p>Nowadays the scope of mechanical engineering is expanding beyond its traditional boundaries.In order
+                    engineering that involves the design, production, and operation of machinery.<br>
+                Nowadays the scope of mechanical engineering is expanding beyond its traditional boundaries.In order
                     to contribute to the growth of quality mechanical engineers katihar engineering college has set up
                     the department of mechanical engineering in the year 2016.the faculties here are very supportive in
                     nature they hardly fails to inspire the young minds and enrich them with their knowledge and
                     experience.The management keeps a strong check on each faculties and kindle them to attend
                     workshops,seminars,conferences and faculty development program.Students enthusiastically work here
-                    under the supervision of trained faculty members.</p>
+                    under the supervision of trained faculty members.<br>
             </div>
         </div>
 

@@ -35,7 +35,8 @@
                                                          </aside>
         <div class="col-md-8">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p>Internet
+                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
+                    Internet
                     nowadays has become even more necessary than the basic necessities (e.g., water, air and food) in
                     our life. It explores huge knowledge, information and entertainment. Presently, everywhere class
                     tests, study courses, data records become more familiar with online, students no longer have to look

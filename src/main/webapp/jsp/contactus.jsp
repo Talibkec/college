@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+'<jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
     <div class="container">
         <div class="row">
@@ -66,8 +66,8 @@
                                                 </div>
                                                 <div class="row" style="margin:25px 10px 10px 0px;">
                                                     <div class="col-sm-12">
-                                                        Contact mail :-<a href=mailto:principal@keck.ac.in">
-                                                        principal@keck.ac.in </a><br>
+                                                        Contact mail :-<a href=mailto: principalranjanakri84@gmail.com">
+                                                        principalranjanakri84@gmail.com  </a><br>
                                                         Contact phone:-<a href="tel:06452-239122" class="Blondie">
                                                         06452-239122 </a>
                                                     </div>

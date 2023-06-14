@@ -42,7 +42,7 @@
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><h3>
                         Introduction</h3>
-                        <p>Electrical engineering is a professional engineering discipline that generally
+                       Electrical engineering is a professional engineering discipline that generally
                             deals with the study and application of electricity, electronics, and
                             electromagnetism. Electrical engineering has now subdivided into a wide range of
                             subfields including electronics, digital computers, computer engineering, power
@@ -53,12 +53,12 @@
                             electromagnetics & waves, microwave engineering, nanotechnology,
                             electrochemistry, renewable energies, mechatronics, electrical materials science,
                             and much more. Electrical engineering branch is basically pillar of all branch. It
-                            gives energy to drive all engineering equipment .
+                            gives energy to drive all engineering equipment . <br><br>
                             The Department of Electronics and Electrical Engineering of Katihar
                             College of Engineering, Katihar is ready to prepare well qualified, motivated,
                             application oriented young and dynamic EEE graduates under the guidance of
                             highly qualified faculties who inspire students, ignite students’ imagination and
-                            enrich them with their priceless knowledge and experience</p></div>
+                            enrich them with their priceless knowledge and experience </div>
                 </div>
             </div>
 

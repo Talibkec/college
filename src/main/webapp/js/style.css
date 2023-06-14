@@ -63,7 +63,7 @@ ul.navbar-nav.secondary li a:hover{color:#f3f3f3;}
 
 .sf-menu, .sf-menu *{ text-shadow: none !important; }
 .sf-menu li{padding:17px 10px; cursor:pointer; color:#263546; }
-.sf-menu a{color:#263546; }
+.sf-menu a {color:#ffffff; }
 a.sf-depth-1.active{ color:#00aae7; }
 #navbar-collapse{margin-bottom:0px; background:rgba(255,255,255,0.0); padding:0 !important; border-top:1px solid rgba(255,255,255,0.1); border-bottom:1px solid rgba(255,255,255,0.1); border-right:1px solid rgba(255,255,255,0.1);  border-left:1px solid rgba(255,255,255,0.1);}
 

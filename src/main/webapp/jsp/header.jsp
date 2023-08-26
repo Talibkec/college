@@ -167,6 +167,7 @@
                             <li id="menu-1462-13" class="first odd sf-item-1 sf-depth-2 sf-no-children"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brouchure</a></li>
                             <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of training & Placement</a></li>
                             <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/trainingplacement/tipsforresume" title="" class="sf-depth-2">Tips for Resume</a></li>
+                            <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/trainingplacement/placedstudent" title="" class="sf-depth-2">Placed Students</a></li>
                             <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/trainingplacement/studentplacementcoordinator" class="sf-depth-2">Student Placement Coordinator</a></li>
                         </ul>
                     </li>

@@ -22,6 +22,8 @@
                                                                class="sf-depth-2">Rules of Training & Placement</a></li>
                             <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume"
                                                                class="sf-depth-2">Tips for Resume</a></li>
+
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placedstudent" class="sf-depth-2">Placed Students</a></li>
                             <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure"
                                                                class="sf-depth-2">Placement Brochure</a></li>
                         </ul>

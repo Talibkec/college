@@ -14,7 +14,12 @@ public class TrainingPlacementController {
         mv.setViewName("/trainingplacement/placementbrochure.jsp");
         return mv;
     }
-
+    @RequestMapping(value = "placedstudent")
+    public ModelAndView getPlacedStudent() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/trainingplacement/placedstudent.jsp");
+        return mv;
+    }
     @RequestMapping(value = "rulesoftrainingplacement")
     public ModelAndView getRulesOfTrainingPlacement() {
         ModelAndView mv = new ModelAndView();

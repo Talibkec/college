@@ -36,7 +36,7 @@
                 <div class="page-content"><h2>List of Support Staffs</h2>
                     <hr/>
                     <div class="panel panel-default">
-                        <div class="panel-heading faculty-title">Rahul Kumar </div>
+                        <div class="panel-heading faculty-title">Alok Kumar </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-3 box-profile-image"><img alt="" src="/about-kec/rk.png"

@@ -37,12 +37,12 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/eeesidebar.jsp"/>
+            <jsp:include page="../sidebars/ecesidebar.jsp"/>
             <div class="col-md-6">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><h3>
                         Introduction</h3>
-                       Electrical engineering is a professional engineering discipline that generally
+                        Electronics Engineering (VLSI Design and Technology ) is a professional engineering discipline that generally
                             deals with the study and application of electricity, electronics, and
                             electromagnetism. Electrical engineering has now subdivided into a wide range of
                             subfields including electronics, digital computers, computer engineering, power

@@ -46,8 +46,8 @@
                     5 PM) daily. Currently, Wi-Fi services are restricted to certain areas like academic buildings and
                     certain departments.
 
-                    <br>The current data rate 4Mbps is low in the current campus running under Government Polytechnic,
-                    Katihar based on our Internet requirements. But, our institute has planned for high speed data rated
+                    <br>The current data rate 4Mbps is low in the current campus
+                    based on our Internet requirements. But, our institute has planned for high speed data rated
                     LAN as well as Wi-Fi everywhere within the campus in our new campus which is currently under the
                     construction.</div>
             </div>

@@ -11,6 +11,7 @@
 <li class="leaf menu-mlid-1121"><a href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a></li>
 <li class="leaf menu-mlid-1156"><a href="/department/eee/about" class="sf-depth-2">Electrical & Electronics Engineering</a></li>
 <li class="leaf menu-mlid-1294"><a href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
+     <li class="leaf menu-mlid-1467"><a href="/department/ece/about" class="sf-depth-2">Electronics Engineering (VLSI Design and Technology</a></li>
 <li class="leaf menu-mlid-1467"><a href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
 
 </ul></div>

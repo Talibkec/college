@@ -41,22 +41,37 @@
                 <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><h3
                         id="ctl00_ContentPlaceHolder1_h4_heading">Hostels</h3>
                     <p> Currently Katihar Engineering college is not providing any hostel or transportation facilities.
-                    Probably from next year ,hostel may be available for students.</p>
+                    Probably from next few months ,hostel may be available for students.</p>
                     <p><strong>The administration of hostels is under the supervision of following
                         professors:-</strong></p>
-
-
-                    <table style="width: 100%;" border="1" align="center" bgcolor="#7eec35" >
-                        <tbody>
-                        <tr bgcolor="#7eec35">
-                            <th style="text-align: left;" scope="col"><a>Hostel</a></th>
-                            <th style="text-align: left;" scope="col"><a>Warden</a></th>
-                            <th style="text-align: left;" scope="col"><a>Contact No</a></th>
+                    <br>     <br>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Hostel Name</th>
+                            <th scope="col">Superintendent</th>
+                            <th scope="col">Assistant Superintendent</th>
                         </tr>
-                        <tr bgcolor="#e9feea">
-                            <td>Chief Warden</td>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Krishna Girls Hostel </td>
                             <td>Sneha Kumari</td>
-                            <td>8405016439</td>
+                            <td>Kumari Shipra Suman</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Neelgiri</td>
+                            <td>Mr. Rajeev Ranjan Sinha</td>
+                            <td>Mr.Mukesh Kumar</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Shivalik</td>
+                            <td>Dr. Arbind Prasad</td>
+                            <td>Mr.Ramchandra Kumar</td>
                         </tr>
                         </tbody>
                     </table>
@@ -68,8 +83,6 @@
     </div>
 </div>
 <style>
-    td , th{
-        padding: 10px !important;
-    }
+
 </style>
 <jsp:include page="/jsp/footer.jsp"/>

@@ -42,23 +42,65 @@
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><h3>
                         Introduction</h3>
-                        Electronics Engineering (VLSI Design and Technology ) is a professional engineering discipline that generally
-                            deals with the study and application of electricity, electronics, and
-                            electromagnetism. Electrical engineering has now subdivided into a wide range of
-                            subfields including electronics, digital computers, computer engineering, power
-                            engineering, telecommunications, control systems, radiofrequency engineering,
-                            signal processing, instrumentation, and microelectronics. Many of these
-                            subdisciplines overlap with other engineering branches, spanning a huge number
-                            of specializations such as hardware engineering, power electronics,
-                            electromagnetics & waves, microwave engineering, nanotechnology,
-                            electrochemistry, renewable energies, mechatronics, electrical materials science,
-                            and much more. Electrical engineering branch is basically pillar of all branch. It
-                            gives energy to drive all engineering equipment . <br><br>
-                            The Department of Electronics and Electrical Engineering of Katihar
-                            College of Engineering, Katihar is ready to prepare well qualified, motivated,
-                            application oriented young and dynamic EEE graduates under the guidance of
-                            highly qualified faculties who inspire students, ignite students’ imagination and
-                            enrich them with their priceless knowledge and experience </div>
+                        B.Tech. - Electronics Engineering (VLSI Design and Technology) is a 4-year program designed to
+                        prepare engineering graduates who have comprehensive knowledge about Integrated circuit
+                        designs, which is usually known as chip design. It aims to prepare skilled graduates who know the
+                        key aspects of VLSI Design which is required in VLSI domain Industries.
+                        Through B.Tech. - Electronics Engineering (VLSI Design and Technology) program, graduates will
+                        develop an in-depth understanding of semiconductor devices, VLSI circuit design and verification,
+                        FPGA design, and fabrication process, along with hands-on experience with leading EDA
+                        (Electronic Design & Automation) tools. The evergreen VLSI domain is for the design and
+                        verification of electronics systems and circuits and its applications are found in areas like
+                        Communications, Signal & Image Processing, Space Research and Automation Industry.
+
+                        • The India Semiconductor Mission (ISM) an initiative by Govt of India for growth
+                        of VLSI will help to have more placement opportunities in India
+                        • The program includes hands-on experience on EDA (Software) tools
+                        • Includes industrial internship
+                        • Experienced & Skilled Faculty
+                        • Advance Labs equipped
+
+
+                        USPs of B. Tech. in Electronics Engineering (VLSI Design and Technology)
+                        • New program launched in accordance with India Semiconductor Mission
+                        (ISM)
+                        • Highest paying, high demand professional for semiconductor chip industry
+                        • Research labs for semiconductor chip design and fabrication equipped with
+                        B2spice, RF Spice, Xilinx software and FPGA boards.
+                        Career Opportunities
+                        • Design engineer
+                        • Verification engineer
+                        • CAD engineer
+                        • Application Engineer
+                        • Fabrication Engineer
+                        • Research & Development Engineer
+                        Prominent Recruiters
+                        • Synopsys
+                        • Mentor Graphics
+                        • Cadence
+                        • Qualcomm
+                        • Intel Technologies
+                        • HCL Corporation
+                        • einfochips
+                        • Texas Instruments
+                        • Synapse Design
+                        • AMD-Xilinx India Technology
+                        • Samsung
+                        LABORATORIES
+                        DIGITAL ELECTRONICS & MICROPROCESSOR LAB
+                        This lab provides the basic exposure to sequential and combinations circuits-based experiments
+                        and 8086 microprocessor-based programming using kit-based experiments.
+                        ELECTRONIC CIRCUIT DESIGN LAB
+                        This laboratory aims to familiarize the student with working of electronic devices and designing of
+                        basic electronic circuits. The students analyse the circuit outputs and learns to record data.
+                        VLSI & EMBEDDED SYSTEM DESIGN LAB
+                        This Lab provides competency areas in VLSI Design & Embedded Systems including IC designing
+                        concepts & Embedded system designing concepts to analyse and design complex systems
+                        containing hardware and software components.
+                        SIMULATION LAB
+                        The Simulation lab emphasizes mainly on simulation of electrical systems such as Neural
+                        networks, Control systems, MATLAB software, B2Spice simulation etc.
+                    </div>
                 </div>
             </div>
 

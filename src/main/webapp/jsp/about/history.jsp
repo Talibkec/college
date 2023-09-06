@@ -75,7 +75,7 @@
                                   <tr><td style="line-height:130%"><strong>Motto in English</td><td>Excellence in action</td></tr>
                                   <tr>  <td> <strong>Students</strong></td><td>720</td></tr>
                                   <tr> <td><strong>Established</strong></td><td>2016</td></tr>
-                                  <tr> <td><strong>Affiliations</strong></td><td>AKU,AICTE</td></tr>
+                                  <tr> <td><strong>Affiliations</strong></td><td>BEU , AKU,AICTE</td></tr>
                                   <tr><td><strong>Website</strong></td><td><a href="/">keck.ac.in</td></tr>
                                   <tr><td><strong>Location</strong></td><td>Hajipur Katihar</td></tr>
                                   </table>

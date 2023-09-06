@@ -44,6 +44,7 @@
                     <div>
                         <ul>
                             <li><p><code>AKU Calender 2018-19<a href="http://akubihar.ac.in/Academics/HolidaysCalendar.aspx"target="_blank">&nbsp&nbspDownload</a></code> </p></li>
+                            <li><p><code>Bihar Engineering University Calender<a href="http://beu-bih.ac.in/BEUP/Academic_Calendar.aspx"target="_blank">&nbsp&nbspDownload</a></code> </p></li>
 
                     </div>
                 </div></div>

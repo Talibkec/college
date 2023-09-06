@@ -36,7 +36,11 @@
                                                      </div>
                                                          </aside>
         <div class="col-md-8">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>Updated Soon&#8230;</p>
+            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>
+
+               Currently Katihar Engineering College doesn't provide any Gymnasium Facility.
+
+            </p>
             </div>
         </div>
     </div>

@@ -90,7 +90,7 @@ public class AcademicController {
         return mv;
     }
 
-    @RequestMapping(value = "universityresult")
+    @RequestMapping(value = "universityresults")
     public ModelAndView getUniversityresult() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("academic/universityresult.jsp");

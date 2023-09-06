@@ -9,8 +9,8 @@
 " padding-top: 24px; padding-bottom: 24px;
 "></div>
 <%!
-    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities"};
-    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp"};
+    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities" , "Electronics Engineering (VLSI Design and Technology)"};
+    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp" , "ecesidebar.jsp"};
 %>
 <%
     int depIndex;

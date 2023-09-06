@@ -40,8 +40,8 @@
                     <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
                         <div data-animation="bounceInUp" data-animation-delay="0s">
                             <div id="ctl00_ContentPlaceHolder1_div_4">The Institute is academically governed by <a
-                                    id="ctl00_ContentPlaceHolder1_hl_aryabhatta" href="http://www.akubihar.ac.in/"
-                                    target="_blank" rel="noopener">Aryabhatta Knowlege University, Patna</a> which is
+                                    id="ctl00_ContentPlaceHolder1_hl_aryabhatta" href="http://beu-bih.ac.in/"
+                                    target="_blank" rel="noopener">Bihar Engineering Unviersity, Patna</a> which is
                                 the degree awarding authority for the institute as B.Tech. is recognized by the
                                 A.I.C.T.E., New Delhi, and the Government of Bihar State.
                             </div>

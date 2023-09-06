@@ -82,7 +82,7 @@
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"> <strong>Designation:</strong>Data Entry Operator
-                                   <br/> <strong>Phone Number:</strong>+91-7250404460<br/> <strong>Email
+                                   <br> <strong>Email
                                         Address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                                                              data-cfemail="03756a69627a436e6a776e767962656562717376712d6c7164">bhumeshwarsingh85@gmail.com</a>
                                     <div class="visible-xs"><br/></div>
@@ -169,7 +169,7 @@
                                     <div class="visible-xs"><br/></div>
                                 </div>
                                 <div class="col-sm-6 box-profile-info"><strong>Designation:</strong>Clerk
-                                    <br/> <strong>Phone Number:</strong><br/>
+                                    <br/>
                                     <div class="visible-xs"><br/></div>
                                 </div>
                             </div>

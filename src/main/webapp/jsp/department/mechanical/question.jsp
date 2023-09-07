@@ -24,24 +24,7 @@
                                     <div class="panel-widget-style panel-widget-style-for-330-0-0-0">
                                         <div class="so-widget-sow-editor so-widget-sow-editor-base">
                                             <div class="siteorigin-widget-tinymce textwidget">
-                                                <table style="font-family: Georgia, arial, Times New Roman;"
-                                                       align="center">
-                                                    <tbody>
-                                                    <tr style="border-bottom: 1pt solid black;">
-                                                        <td style="border-bottom: 1pt solid black;">
-                                                            <strong>Semester</strong></td>
-                                                        <td style="border-bottom: 1pt solid black; text-align: center;"
-                                                            colspan="2"><strong>Subjects</strong></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="border-bottom: 1pt solid black;" rowspan="3"
-                                                            width="66"><p style="text-align: center;">
-                                                            <strong>ALL</strong></p></td>
-                                                        <td bgcolor="#FCFCFC" width="354"><a
-                                                                href="http://www.akubihar.com/">QUESTION BANK</a></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+
                                             </div>
                                         </div>
                                     </div>

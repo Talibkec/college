@@ -49,7 +49,7 @@
 
 
 
-                    <p> Currently Katihar Engineering college is has three hostels named : Krishna Girls Hostel , Neelgiri and Shivalik
+                    <p> Currently there are 3 hostels inside Katihar Engineering College campus namely : Krishna Girls Hostel , Neelgiri and Shivalik
                     </p>
                     <p><strong>The administration of hostels is under the supervision of following
                         professors in charge:-</strong></p>
@@ -90,8 +90,8 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Krishna Girls Hostel </td>
-                                        <td>Miss. Sneha Kumari</td>
-                                        <td>Kumari Shipra Suman</td>
+                                        <td>Ms. Sneha Kumari</td>
+                                        <td>Ms. Kumari Shipra Suman</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>

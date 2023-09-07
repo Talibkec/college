@@ -125,6 +125,7 @@
               <option value ="3">Mechanical Engineering</option>
               <option value="4" >Electrical & Electronics Engg.</option>
               <option value="5" >Applied Sc. & Humanities</option>
+              <option value="6" >Electronics Engineering (VLSI Design and Technology)</option>
             </select><br></br>
             <label for ="facultyOfficialEmail" class="control-label col-sm-4">Enter Official Email</label>
             <input type="email" id="facultyOfficialEmail"name="facultyOfficialEmail"class="control-label col-sm-4"></br></br>

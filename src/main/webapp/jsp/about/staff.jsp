@@ -159,22 +159,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading faculty-title">Arvind Kumar</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-sm-3 box-profile-image"><img alt=""
-                                                                             src="/about-kec/data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                                                                             style="background-image: url(/about-kec/dummy.png)"/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                                <div class="col-sm-6 box-profile-info"><strong>Designation:</strong>Clerk
-                                    <br/>
-                                    <div class="visible-xs"><br/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
 
                 </div>

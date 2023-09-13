@@ -90,38 +90,15 @@ function fire_ajax_submit() {
 
 function fire_ajax_search() {
 
-    // POST form
+
+    let id = $("#facultyId").val();
+    if(id != "" && id != undefined){
+        $("#assign").css("display", "block");
 
 
-    //data.append("CustomField", "This is some extra data, testing");
+        $("#facultySpan").text($("#facultyNameHod").val());
+    }
 
-    $("#searchHod").prop("disabled", true);
-
-    $.ajax({
-        url: "/common/store/sm/searchFacultyName",
-        data: {
-            facultyName:$("#facultyNameHod").val()
-        },
-        //contentType: false,
-        //cache: false,
-        timeout: 600000,
-        success: function (data, textStatus, xhr) {
-
-
-             $("#searchHod").prop("disabled", false);
-              if(data != "" && data != undefined){
-                $("#assign").css("display", "block");
-                var d = JSON.parse(data);
-                $("#facultyId").val(d.id);
-                $("#facultySpan").text($("#facultyNameHod").val());
-             }
-        },
-        error: function (e) {
-
-            $("#searchHod").prop("disabled", false);
-
-        }
-    });
 
 }
 
@@ -130,8 +107,6 @@ function getFacultyDetails(){
         facultyJsonObj.facultyName = $("#facultyNameHod").val();
         facultyJsonObj.userId = $("#facultyId").val();
         facultyJsonObj.departmentId = $("select.departments").children("option:selected").val();
-
-
         return facultyJsonObj;
 }
 
@@ -147,12 +122,24 @@ function departmentName(){
  $( "#facultyNameHod" ).autocomplete({
        source: function( request, response ) {
        $.ajax({
-            url: "/common/store/facultyNameAutocomplete",
+            url: "/faculty/facultyNameAutocompletes123",
             data: {
                 facultyName:$("#facultyNameHod").val()
             },
             success: function( data ) {
-                response( data );
+                let list = [];
+                // $.each(data, function (index, ele){
+                //     let obj = {}
+                //     obj.name = ele.facultyName;
+                //     obj.id = ele.facultyId;
+                //     list.push(obj)
+                // })
+                response( $.map( data, function( item ) {
+                    return {
+                        label: item.facultyName,
+                        value: item.facultyId
+                    }
+                }));
             },
             error: function (xhr, status) {
                 alert(status);
@@ -163,5 +150,8 @@ function departmentName(){
        select: function( event, ui ) {
        event.preventDefault(); //preventing default methods
        $("#facultyNameHod").val(ui.item.label);
+       $("#facultyId").val(ui.item.value);
+       $("#assign").css("display", "block");
+       $("#facultySpan").text(ui.item.label);
        }
     });

@@ -14,6 +14,7 @@
         </div>
         <div class="row" style="border:1px solid green;padding:10px">
             <div class="col-md-3 text-center"><input type="text" name="facultyName" id = "facultyNameHod" /></div>
+            <input type="hidden" name="facultyId" id = "facultyId" />
             <div class="col-md-3 text-center"><input type="submit" value="submit" id="searchHod" class="btn btn-success" /></div>
         </div>
 	</div>
@@ -44,7 +45,6 @@
 <%--            </div>--%>
           </div>
     </div>
-    <input type="hidden" id="facultyId" name="facultyId" value="${faculty.facultyId}" />
 </form>
 <h4 id="success" style="margin:50px"></h4>
 </body>

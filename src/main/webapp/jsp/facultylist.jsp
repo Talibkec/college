@@ -9,8 +9,8 @@
 " padding-top: 24px; padding-bottom: 24px;
 "></div>
 <%!
-    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities" , "Electronics Engineering (VLSI Design and Technology)"};
-    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp" , "ecesidebar.jsp"};
+    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)"};
+    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp", "ecesidebar.jsp"};
 %>
 <%
     int depIndex;
@@ -27,12 +27,14 @@
 
             <div class="page-content"><h2>Faculty Members </h2></div>
             <hr/>
-            <c:if test="${showDeleteBtn}">
+            <c:if test="${userType == 2}">
                 <a href="auth/uploadfile/addfaculty">
-                    <button class="btn btn-primary mt-2 p-2"> Add Faculty as Admin</button>
+                    <button class="btn btn-primary mt-2 p-2"> Add Faculty</button>
                 </a>
+            </c:if>
+            <c:if test="${userType == 1}">
                 <a href="hod/addfaculty">
-                    <button class="btn btn-primary mt-2 p-2"> Add Faculty as HOD </button>
+                    <button class="btn btn-primary mt-2 p-2"> Add Faculty</button>
                 </a>
             </c:if>
 
@@ -70,7 +72,7 @@
                                 Profile Page </a>
                                 <br> <br>
 
-                                <c:if test="${showDeleteBtn}">
+                                <c:if test="${userType > 0}">
                                     <a href="/deleteFaculty?deptno=${faculty.departmentId}&facultyId=${faculty.facultyId}">
                                         <button class="btn btn-danger mt-2 p-2"> Delete Faculty</button>
                                     </a>

@@ -28,18 +28,19 @@
                             <td><strong>SL. No.</strong></td>
                             <td><strong>Year</strong></td>
                             <td ><strong>Documents</strong></td>
-                            <td ><strong>Uploaded By </strong></td>
-                            <td ></td>
+                            <td >Actions</td>
                         </tr>
                         </tbody>
+                        <c:set var="count" value='1'/>
                         <c:forEach items="${allDocuments}" var ="document">
 
 
                             <tr bgcolor="#e9feea">
-                                <td>${document.id}</td>
-                                <td >${document.fileName}</td>
+                                <td>${count}</td>
+                                <c:set var="count" value="${count+1}"/>
+                                <td >${document.date}</td>
                                 <td>${document.fileName}</td>
-                                <td >${document.uploadedBy}</td>
+<%--                                <td >${document.uploadedBy}</td>--%>
 
                                 <td align="center">
                                     <i class="fa fa-download"></i>

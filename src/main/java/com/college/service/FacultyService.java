@@ -11,7 +11,6 @@ import java.util.Map;
 @Service
 public interface FacultyService {
     List<FacultyDTO> getAllFaculty();
-
     FacultyDTO getFaculty(String userName);
 
     void saveFaculty(FacultyDTO facultyDTO);

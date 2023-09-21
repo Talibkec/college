@@ -21,11 +21,15 @@ function savePass(event){
     }
     var formData= $('form').serialize();
     $.post(serverContext + "user/savePassword",formData ,function(data){
-        window.location.href = serverContext + "/login?message="+data.message;
+
+        $("#globalError").show().html(data.message);
+        if(data.error == null){
+            window.location.href = serverContext + "/login?lang=en?message=" + data.message;
+        }
     })
     .fail(function(data) {
         if(data.responseJSON.error.indexOf("InternalError") > -1){
-            window.location.href = serverContext + "/login?message=" + data.responseJSON.message;
+            window.location.href = serverContext + "/updatePassword.jsp?lang=en?message=" + data.responseJSON.message;
         }
         else{
             var errors = $.parseJSON(data.responseJSON.message);

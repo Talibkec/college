@@ -487,7 +487,7 @@ Katihar Engineering College</title>
                             <input id="matchPassword" type="password" value=""/><br><br>
                         </div>
                         <div id="globalError" style="display:none"
-                             th:text="${PasswordMatches.user}">error
+                             th:text="${PasswordMatches.user}">Password MisMatch
                         </div>
                         <button type="submit" onclick="savePass(event)"
                                 th:text="${message.updatePassword}" class="btn btn-primary">submit

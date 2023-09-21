@@ -62,24 +62,24 @@ public class PasswordResetController {
         String token = UUID.randomUUID().toString();
         facultyService.createPasswordResetTokenForUser(user, token);
         mailSender.send(constructResetTokenEmail(getAppUrl(request),
-                request.getLocale(), token, facultyDTO));
+                request.getLocale(), token, user, facultyDTO.getFacultyOfficialEmail()));
         return new GenericResponse(
                 messages.getMessage("message.resetPasswordEmail", null,
                         request.getLocale()));
     }
 
-    private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final FacultyDTO user) {
-        final String url = contextPath + "/user/changePassword?id=" + user.getUser().getId() + "&token=" + token;
+    private SimpleMailMessage constructResetTokenEmail(final String contextPath, final Locale locale, final String token, final User user, final String sendMail) {
+        final String url = contextPath + "/user/changePassword?id=" + user.getId() + "&token=" + token;
         final String message = messages.getMessage("message.resetPassword", null, locale);
-        return constructEmail("Reset Password", message + " \r\n" + url, user);
+        return constructEmail("Reset Password", message + " \r\n" + url, sendMail);
 
     }
 
-    private SimpleMailMessage constructEmail(String subject, String body, FacultyDTO user) {
+    private SimpleMailMessage constructEmail(String subject, String body, String sendMail) {
         final SimpleMailMessage email = new SimpleMailMessage();
         email.setSubject(subject);
         email.setText(body);
-        email.setTo(user.getFacultyOfficialEmail());
+        email.setTo(sendMail);
         email.setFrom("test@keck.ac.in");
         return email;
     }

@@ -43,6 +43,8 @@ public class CommonResourceController {
     @Autowired
     FacultyService facultyService;
     @Autowired
+    StaffService staffService;
+    @Autowired
     AdministrationService administrationService;
     @Autowired
     FacultyHelper facultyHelper;
@@ -458,7 +460,13 @@ public class CommonResourceController {
         mv.setViewName("addfaculty.jsp");
         return mv;
     }
-
+    @RequestMapping(value = "/auth/uploadfile/addstaff", method = RequestMethod.GET)
+    public ModelAndView addStaff() {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("message", "No any message for now");
+        mv.setViewName("addstaff.jsp");
+        return mv;
+    }
     @ResponseBody
     @RequestMapping(value = "/auth/uploadfile/addfaculty", method = RequestMethod.POST)
     public String addFaculty(
@@ -534,6 +542,67 @@ public class CommonResourceController {
             facultyDTO.setUser(user2);
             //System.out.println("Saving the detail of faculty with username :-   " + username);
             facultyService.saveFaculty(facultyDTO);
+        }
+
+        return message;
+
+
+    }
+
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "/auth/uploadfile/addstaff", method = RequestMethod.POST)
+    public String addStaff(
+            @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
+            @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
+            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam("facultyName") String facultyName
+          ) {
+        String message = "";
+        boolean error = false;
+        StaffDTO staffDTO = new StaffDTO();
+
+        String regex = "^(.+)@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher m = pattern.matcher(facultyOfficialEmail);
+//        Matcher m2 = pattern.matcher(facultyPersonalEmail);
+//        if (!m.matches()) {
+//            error = true;
+//            message = " Invalid Official Email address entered";
+//        }
+//        if(!m2.matches()){
+//            error = true;
+//            message = " Invalid Personal Email address entered";
+//        }
+//        if (!facultyOfficialEmail.substring(facultyOfficialEmail.indexOf("@") + 1).equals("keck.ac.in")) {
+//            error = false;
+//            message = " Official email doesn't belong to keck.ac.in ";
+//        }
+//        if(facultyMobNo < 1000000000L || facultyMobNo > 9999999999L){
+//            error = true;
+//            message = " Mobile Number must be of 10 digit length ";
+//        }
+        staffDTO.setStaffOfficialEmail(facultyOfficialEmail);
+        staffDTO.setStaffPersonalEmail(facultyPersonalEmail);
+        staffDTO.setStaffMobNo(facultyMobNo);
+        staffDTO.setStaffName(facultyName);
+
+
+        //List<String> allUserName = userService.getAllUserName();
+
+//        for(String s : allUserName) {
+//            if(username.equals(s)){
+//                System.out.println("Faculty already registered with given username :-  " + username);
+//               error = true;
+//            }
+//        }
+        if (!error) {
+            message = "Staff added successfully  ";
+
+            //System.out.println("Saving the detail of faculty with username :-   " + username);
+            staffService.saveStaff(staffDTO);
         }
 
         return message;

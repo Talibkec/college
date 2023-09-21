@@ -3,6 +3,7 @@ package com.college.core.config;
 import com.college.FacultyHelper;
 import firebase.bean.FirebaseSetup;
 import com.college.NoticeBoardHelper;
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -44,6 +45,12 @@ public class BeanConfig {
     public FirebaseSetup setupFireBase() {
         FirebaseSetup firebaseSetup = new FirebaseSetup();
         return firebaseSetup;
+    }
+
+    @Bean(name = "modelMapper")
+    public ModelMapper modelMapper() {
+        ModelMapper modelMapper = new ModelMapper();
+        return modelMapper;
     }
 
 }

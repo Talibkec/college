@@ -97,6 +97,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="/auth/uploadfile/addstaff" class="nav-link">
+                                    <i class="ion ion-person-add "></i>
+                                    <p>Add Staff</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/auth/registration" class="nav-link">
                                     <i class="ion ion-person-add "></i>
                                     <p>User Registration</p>

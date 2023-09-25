@@ -17,7 +17,18 @@
                 <label for ="facultyMobNo" class="control-label col-sm-4">Mobile No. </label>
                 <input type="number" id="facultyMobNo" name="facultyMobNo" class="control-label col-sm-4"></br></br>
 
+
+                <label class="control-label col-sm-4" >Choose Profile Picture</label>
+
+                <div class="btn-default col-md-8" style="color:red">
+
+                    <input type="file" name="slideImage" id="slideImage"/><br/></div>
+
+
+
+
                 <div id="form_message"></div>
+                <div id="msg" style="color: red;"></div>
                 <input type="submit" value="Submit" id="btnSubmit" class="btn btn-success" style="margin-left:10%" />
                 <div class="col-sm-4"></div>
         </div>

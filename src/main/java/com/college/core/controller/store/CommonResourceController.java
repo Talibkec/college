@@ -255,6 +255,8 @@ public class CommonResourceController {
             @RequestParam("facultyName") String facultyName,
             @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink,
             @RequestParam(name = "linkAddress", required = false) String linkAddress) {
+
+
         String fileName = uploadfile.getOriginalFilename();
         if (!isLink && (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
             String msg = "";
@@ -558,7 +560,8 @@ public class CommonResourceController {
             @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
             @RequestParam("facultyMobNo") Long facultyMobNo,
-            @RequestParam("facultyName") String facultyName
+            @RequestParam("facultyName") String facultyName,
+            @RequestParam("slideImage") MultipartFile uploadfile
           ) {
         String message = "";
         boolean error = false;
@@ -584,6 +587,26 @@ public class CommonResourceController {
 //            error = true;
 //            message = " Mobile Number must be of 10 digit length ";
 //        }
+
+        String fileName = uploadfile.getOriginalFilename();
+        if (uploadfile.isEmpty()) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please give notice heading";
+            }
+            return msg;
+        }
+
+        try {
+            staffDTO.setFileType(FilenameUtils.getExtension(fileName));
+            staffDTO.setStaffPhoto(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
         staffDTO.setStaffOfficialEmail(facultyOfficialEmail);
         staffDTO.setStaffPersonalEmail(facultyPersonalEmail);
         staffDTO.setStaffMobNo(facultyMobNo);

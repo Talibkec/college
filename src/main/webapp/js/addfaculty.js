@@ -77,7 +77,6 @@ function fire_ajax_submit() {
                 //history.go(-1);
         },
         error: function (e) {
-
             $("#result").text(e.responseText);
             $("#msg").css({"display":"block", "color":"red"});
             $("#msg").html(e.responseText)

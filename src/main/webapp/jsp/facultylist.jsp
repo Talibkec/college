@@ -21,6 +21,9 @@
 <div class="container">
     <c:set var="sidebarname" value='<%="/jsp/department/sidebars/" + sidebarList[depIndex] %>'/>
     <jsp:include page="${sidebarname}"/>
+
+
+
     <div class="row" style="display:block">
 
         <div class="col-md-8">
@@ -39,6 +42,8 @@
             </c:if>
 
             <% int hod = 1; %>
+
+
             <c:forEach items="${facultyList}" var="faculty">
 
                 <div class="panel panel-default">

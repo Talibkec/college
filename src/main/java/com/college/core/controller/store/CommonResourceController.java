@@ -60,6 +60,8 @@ public class CommonResourceController {
     UserService userService;
     @Autowired
     DepartmentService departmentService;
+    @Autowired
+    PlacementsService placementsService;
 
     @ResponseBody
     @RequestMapping(value = "common/store/getProductName", method = RequestMethod.GET)
@@ -469,6 +471,13 @@ public class CommonResourceController {
         mv.setViewName("addstaff.jsp");
         return mv;
     }
+    @RequestMapping(value = "/auth/uploadfile/addPlacements", method = RequestMethod.GET)
+    public ModelAndView addPlacements() {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("message", "No any message for now");
+        mv.setViewName("addPlacements.jsp");
+        return mv;
+    }
     @ResponseBody
     @RequestMapping(value = "/auth/uploadfile/addfaculty", method = RequestMethod.POST)
     public String addFaculty(
@@ -626,6 +635,49 @@ public class CommonResourceController {
 
             //System.out.println("Saving the detail of faculty with username :-   " + username);
             staffService.saveStaff(staffDTO);
+        }
+
+        return message;
+
+
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "/auth/uploadfile/addPlacements", method = RequestMethod.POST)
+    public String addPlacements(
+            @RequestParam("studentName") String studentName,
+            @RequestParam("companyName") String companyName,
+            @RequestParam("studentSession") String studentSession,
+            @RequestParam("deptId") Long deptId,
+            @RequestParam("registrationNo") Long registrationNo
+    ) {
+        String message = "";
+        boolean error = false;
+        PlacementsDTO placementsDTO = new PlacementsDTO();
+
+
+        placementsDTO.setStudentName(studentName);
+        placementsDTO.setCompanyName(companyName);
+        placementsDTO.setStudentSession(studentSession);
+        placementsDTO.setReigstrationNo(registrationNo);
+        placementsDTO.setDepartmentId(deptId);
+
+
+        //List<String> allUserName = userService.getAllUserName();
+
+//        for(String s : allUserName) {
+//            if(username.equals(s)){
+//                System.out.println("Faculty already registered with given username :-  " + username);
+//               error = true;
+//            }
+//        }
+        if (!error) {
+            message = "Placement added successfully  ";
+
+            //System.out.println("Saving the detail of faculty with username :-   " + username);
+            placementsService.savePlacements(placementsDTO);
         }
 
         return message;

@@ -45,7 +45,7 @@ function fire_ajax_submit() {
     var data = new FormData(form);
 
     if(($("#facultyName").val() === '')||($("#facultyOfficialEmail").val() === '')||($("#userName").val() === '')){
-        $("#form_message").html("All  Name, Official email and username are required !! ");
+        $("#form_message").html("All Fields are required !! ");
         return false;
     }
 

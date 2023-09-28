@@ -4,9 +4,8 @@
 <%@ page import="org.springframework.http.converter.json.GsonBuilderUtils" %>
 <jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <div class="jumbotron" style="
-" padding-top: 24px; padding-bottom: 24px;
+"padding-top: 24px; padding-bottom: 24px;
 "></div>
 <%!
     String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)"};
@@ -17,17 +16,11 @@
     depIndex = Math.toIntExact(((List<FacultyDTO>) request.getAttribute("facultyList")).get(0).getDepartmentId() - 1L);
     String branchName = branchList[depIndex];
 %>
-
 <div class="container">
     <c:set var="sidebarname" value='<%="/jsp/department/sidebars/" + sidebarList[depIndex] %>'/>
     <jsp:include page="${sidebarname}"/>
-
-
-
     <div class="row" style="display:block">
-
         <div class="col-md-8">
-
             <div class="page-content"><h2>Faculty Members </h2></div>
             <hr/>
             <c:if test="${userType == 2}">
@@ -40,12 +33,8 @@
                     <button class="btn btn-primary mt-2 p-2"> Add Faculty</button>
                 </a>
             </c:if>
-
             <% int hod = 1; %>
-
-
             <c:forEach items="${facultyList}" var="faculty">
-
                 <div class="panel panel-default">
                     <div class="panel-heading faculty-title"><b> ${faculty.facultyName} </b><% if (hod == 1) {
                         out.write(" ( HOD  " + branchName + " )");
@@ -60,7 +49,6 @@
                                                                          style="background-image: url(rps.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
-
                             <div class="col-sm-6 box-profile-info"><strong>Department:</strong>
                                 <%=branchName%>
 
@@ -76,23 +64,17 @@
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
                                 Profile Page </a>
                                 <br> <br>
-
                                 <c:if test="${userType > 0}">
                                     <a href="/deleteFaculty?deptno=${faculty.departmentId}&facultyId=${faculty.facultyId}">
                                         <button class="btn btn-danger mt-2 p-2"> Delete Faculty</button>
                                     </a>
                                 </c:if>
 
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-
             </c:forEach>
-
         </div>
     </div>
 </div>

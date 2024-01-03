@@ -30,10 +30,46 @@
     <div class="row scrollingnews">
         <marquee style=  loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
             <ul style="padding-top:3%">
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://rohit-make.github.io/Training-placement-katihar" target="_blank">Placement Portal of Katihar Engineering College </a>
+                </li>
+
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11292" target="_blank">Pay Registration Fee here </a>
+                </li>
+
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11312" target="_blank">Pay  Annual Fee here </a>
+                </li>
+
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11313" target="_blank">Pay Examination Fee  here </a>
+                </li>
+
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11314" target="_blank">Pay Library Fine here </a>
+                </li>
+
+                <li style="display:inline;float:left">
+                    <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
+                    <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11315" target="_blank">Pay  Miscellaneous Fee here </a>
+                </li>
+
+
+
                <li style="display:inline;float:left">
                   <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
                   <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to A.I.C.T.E</a>
-               </li><span>&nbsp;</span>
+               </li>
+
+
+
+                <span>&nbsp;</span>
                      
                <li style="display:inline">
                                  <img class="" src="/sites/noticeicon.gif" alt="" related="" image"="" width="44" height="40">

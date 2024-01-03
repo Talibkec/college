@@ -170,4 +170,12 @@ public class AdminController {
         return model;
 
     }
+    @RequestMapping(value = "/auth/uploadResponsibilityDoc")
+    public ModelAndView uploadResponsibilityDoc() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadResponsibilityDoc.jsp");
+        return model;
+
+    }
 }

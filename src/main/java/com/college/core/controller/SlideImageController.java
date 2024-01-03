@@ -1,12 +1,6 @@
 package com.college.core.controller;
-import com.college.core.model.AicteDocumentsDTO;
-import com.college.core.model.DownloadDTO;
-import com.college.core.model.GalleryImageDTO;
-import com.college.core.model.ImageSlideDTO;
-import com.college.service.AllDocuments;
-import com.college.service.DownloadService;
-import com.college.service.GalleryImageService;
-import com.college.service.ImageSlideService;
+import com.college.core.model.*;
+import com.college.service.*;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +26,8 @@ public class SlideImageController {
     AllDocuments allDocuments;
     @Autowired
     DownloadService downloadService;
+    @Autowired
+    ResponsibilityDocService responsibilityDocService;
     @Autowired
     GalleryImageService galleryImageService;
     private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
@@ -129,6 +125,50 @@ public class SlideImageController {
 
     }
 
+
+    @ResponseBody
+    @RequestMapping(value = "/auth/api/uploadResponsibilityDoc", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadResponsibilityDoc(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+        logger.debug("Single responsibility file upload!");
+        String fileName = uploadfile.getOriginalFilename();
+        String fileType = uploadfile.getContentType();
+        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please provide a session";
+            }
+            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
+
+        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+        saveResponsibilityDoc(uploadfile, caption, fileName, fileType , authentication);
+        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+
+
+        return new ResponseEntity("Responsibility Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
+
+    }
+    private void saveResponsibilityDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
+        if(!authentication.isAuthenticated()){
+            return ;
+        }
+        ResponsibilityDocDTO responsibilityDocDTO = new ResponsibilityDocDTO();
+        responsibilityDocDTO.setFileName(caption);
+
+        String username = authentication.getName();
+        responsibilityDocDTO.setUploadedBy(authentication.getName());
+        try {
+            responsibilityDocDTO.setUploadedFile(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        responsibilityDocDTO.setFileType(FilenameUtils.getExtension(fileName));
+        responsibilityDocService.saveDownloadBoard(responsibilityDocDTO);
+    }
     private void saveDownloadFile(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
         if(!authentication.isAuthenticated()){
                 return ;

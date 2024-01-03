@@ -46,7 +46,7 @@
                     <img src="http://keck.ac.in/6/image.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Sujeet Kumar </a>
+                    <a href="#" class="d-block">Logged In User Name  </a>
                 </div>
             </div>
 
@@ -129,6 +129,12 @@
                                 <a href="/auth/uploadDownload" class="nav-link">
                                     <i class="ion ion-person "></i>
                                     <p>Upload Downloads</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/auth/uploadResponsibilityDoc" class="nav-link">
+                                    <i class="ion ion-person "></i>
+                                    <p>Upload Responsibility Doc</p>
                                 </a>
                             </li>
                             <li class="nav-item">

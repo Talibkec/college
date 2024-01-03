@@ -1,12 +1,14 @@
 package com.college.core.controller;
 
 import com.college.core.entity.Download;
+import com.college.core.entity.ResponsibilityDoc;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.DownloadDTO;
 import com.college.repository.DownloadRepository;
 import com.college.service.DownloadService;
+import com.college.service.ResponsibilityDocService;
 import com.college.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,8 @@ public class FacilitiesController {
     UserService userService;
     @Autowired
     DownloadService downloadService;
+    @Autowired
+    ResponsibilityDocService responsibilityDocService;
     @RequestMapping(value = "bank")
     public ModelAndView getBank() {
         ModelAndView mv = new ModelAndView();

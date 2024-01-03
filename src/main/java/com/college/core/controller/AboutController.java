@@ -1,6 +1,7 @@
 package com.college.core.controller;
 
 
+import com.college.core.entity.ResponsibilityDoc;
 import com.college.core.entity.Role;
 import com.college.core.entity.Staff;
 import com.college.core.entity.User;
@@ -8,6 +9,7 @@ import com.college.core.model.FacultyDTO;
 import com.college.core.model.StaffDTO;
 import com.college.core.model.StaffDTO;
 import com.college.service.AdministrationService;
+import com.college.service.ResponsibilityDocService;
 import com.college.service.StaffService;
 import com.college.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -30,6 +33,8 @@ import java.util.Set;
 public class AboutController {
     @Autowired
     UserService userService;
+    @Autowired
+    ResponsibilityDocService responsibilityDocService;
     @Autowired
     StaffService staffService;
     @Autowired
@@ -71,13 +76,34 @@ public class AboutController {
     }
 
     @RequestMapping(value = "administration")
-    public ModelAndView getAdministration() {
+    public ModelAndView getResponsibilityDoc(Authentication authentication) {
+
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+
+        System.out.println("in download method");
         ModelAndView mv = new ModelAndView();
-        //List<String> role= ControllerUtility.getRole();
-        //List<AdministrationDTO> administration =administrationService.getAllAdministration();
-        //mv.addObject("adminsDetails",administration);
-        //mv.addObject("Role", role);
-        mv.setViewName("about/administration.jsp");
+        List<ResponsibilityDoc> allDocumentList = responsibilityDocService.getAllDownload();
+        mv.setViewName("facilities/responsibilityDoc.jsp");
+        //System.out.println(" document list id " + allDocumentList.get(0).getId());
+        for (ResponsibilityDoc download : allDocumentList) {
+            System.out.println(download.getFileName());
+        }
+        mv.addObject("allDocuments" , allDocumentList);
+        mv.addObject("showDeleteBtn" , accessAllow);
+
         return mv;
     }
 

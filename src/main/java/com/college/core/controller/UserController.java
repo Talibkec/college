@@ -175,14 +175,17 @@ public class UserController {
         return achievementImage;
     }
 
-    @RequestMapping(value = "/{id}/notice")
+    @RequestMapping(value = "notice/{id}")
     public @ResponseBody
     ResponseEntity<?> getdocuments(@PathVariable("id") Long id) throws IOException {
         NoticeBoardDTO noticeBoardDTO = noticeBoardService.getNoticeDocument(id);
         String filename = noticeBoardDTO.getUploadedFileName();
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.parseMediaType("application/"+noticeBoardDTO.getFileType()));
+        String ext = FilenameUtils.getExtension(filename);
+        headers.setContentType(MediaType.parseMediaType("application/"+ext));
+
         headers.add("content-disposition", "inline;filename="+filename);
+        System.out.println(filename);
         if (noticeBoardDTO.getNotice() != null) {
             InputStream in = new ByteArrayInputStream(noticeBoardDTO.getNotice());
             return  new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);

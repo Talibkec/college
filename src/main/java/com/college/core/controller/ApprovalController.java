@@ -2,8 +2,10 @@ package com.college.core.controller;
 
 import com.college.core.entity.*;
 import com.college.core.model.AicteDocumentsDTO;
+import com.college.core.model.ResponsibilityDocDTO;
 import com.college.repository.FacultyRepository;
 import com.college.service.AllDocuments;
+import com.college.service.ResponsibilityDocService;
 import com.college.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,8 @@ import java.util.Set;
 public class ApprovalController {
     @Autowired
     AllDocuments allDocuments;
+    @Autowired
+    ResponsibilityDocService responsibilityDocService;
     @Autowired
     FacultyRepository facultyRepository;
     @Autowired
@@ -92,6 +96,45 @@ public class ApprovalController {
 
         }
         return null;
+
+    }
+    @RequestMapping(value = "responsibilityDoc/{id}")
+    public ResponseEntity<byte[]> getResponsiilityDoc(@PathVariable("id") Long documentId) throws IOException {
+        System.out.println("User tried to responsibility document with id :- " + documentId);
+        ResponsibilityDocDTO responsibilityDocDTO = responsibilityDocService.getDownloadDocument(documentId);
+        String filename = responsibilityDocDTO.getFileName();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/" + responsibilityDocDTO.getFileType()));
+        headers.add("content-disposition", "inline;filename="+filename);
+        if (responsibilityDocDTO.getUploadedFile() != null) {
+            InputStream in = new ByteArrayInputStream(responsibilityDocDTO.getUploadedFile());
+            return  new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);
+
+        }
+        return null;
+
+    }
+    @RequestMapping(value = "deleteResponsibilityDoc/{id}")
+    public ResponseEntity<?> deleteResponsibilityDoc(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+        if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
+        System.out.println("User tried to delete document with id :- " + documentId);
+        responsibilityDocService.deleteItem(documentId);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/about/administration';</script>" , headers , HttpStatus.OK);
 
     }
     @RequestMapping(value = "deletedocument/{id}")

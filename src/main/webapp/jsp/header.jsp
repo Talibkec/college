@@ -175,6 +175,8 @@
                             <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/trainingplacement/tipsforresume" title="" class="sf-depth-2">Tips for Resume</a></li>
                             <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/trainingplacement/placedstudent" title="" class="sf-depth-2">Placed Students</a></li>
                             <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/trainingplacement/studentplacementcoordinator" class="sf-depth-2">Student Placement Coordinator</a></li>
+                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="https://rohit-make.github.io/Training-placement-katihar" class="sf-depth-2">Placement Portal</a></li>
+
                         </ul>
                     </li>
                     <li id="menu-1131-1" class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">
@@ -205,6 +207,10 @@
                     <li id="menu-218-1" class="active-trail first odd sf-item-1 sf-depth-1 sf-no-children">
                         <a href="/facilities/downloads" class="sf-depth-1 ">
                             Downloads</a>
+                    </li>
+                    <li id="menu-218-1" class="active-trail first odd sf-item-1 sf-depth-1 sf-no-children">
+                        <a href="/facilities/downloads" class="sf-depth-1 ">
+                            </a>
                     </li>
                     <sec:authorize access="!isAuthenticated()">
                         <li >

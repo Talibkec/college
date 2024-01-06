@@ -32,7 +32,7 @@
             <ul style="padding-top:3%">
                 <li style="display:inline;">
                     <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="40">
-                    <a href="https://rohit-make.github.io/Training-placement-katihar" target="_blank">Placement Portal of Katihar Engineering College </a>
+                    <a href="https://tpo.keckatihar.in" target="_blank">Placement Portal of Katihar Engineering College </a>
                 </li>
 
                 <li style="display:inline;">

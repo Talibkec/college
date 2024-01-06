@@ -66,12 +66,10 @@
                               <strong>Email Address:</strong> <a href="mailto:${staff.staffOfficialEmail}">${staff.staffOfficialEmail}</a>
                                 <div class="visible-xs"><br/></div>
                           </div>
-                            <div class="col-sm-3 box-profile-link"><a
-                                    href="/staffDetails?staffId=${staff.staffId}" class="btn btn-default btn-lg"> <br class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>
-                                Profile Page </a>
+                            <div class="col-sm-3 box-profile-link">
                                 <br> <br>
                                 <c:if test="${userType > 0}">
-                                    <a href="/deleteStaff?staffId=${staff.staffId}">
+                                    <a href="/about/deleteStaff?staffId=${staff.staffId}">
                                         <button class="btn btn-danger mt-2 p-2"> Delete Staff</button>
                                     </a>
                                 </c:if>

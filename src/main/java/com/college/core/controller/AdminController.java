@@ -178,4 +178,12 @@ public class AdminController {
         return model;
 
     }
+    @RequestMapping(value = "/auth/uploadHoliday")
+    public ModelAndView uploadHoliday() {
+        ModelAndView model = new ModelAndView();
+        //model.addObject("users", getUsers());
+        model.setViewName("uploadHoliday.jsp");
+        return model;
+
+    }
 }

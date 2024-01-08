@@ -138,6 +138,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="/auth/uploadHoliday" class="nav-link">
+                                    <i class="ion ion-person "></i>
+                                    <p>Upload Holiday </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="/auth/uploadAICTEapproval" class="nav-link">
                                     <i class="ion ion-person "></i>
                                     <p>Upload AICTE approval</p>

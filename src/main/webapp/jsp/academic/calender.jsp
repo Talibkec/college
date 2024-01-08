@@ -41,7 +41,7 @@
 
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <div>
+                    <div>F
                         <ul>
                             <li><p><code>AKU Calender 2018-19<a href="http://akubihar.ac.in/Academics/HolidaysCalendar.aspx"target="_blank">&nbsp&nbspDownload</a></code> </p></li>
                             <li><p><code>Bihar Engineering University Calender<a href="http://beu-bih.ac.in/BEUP/Academic_Calendar.aspx"target="_blank">&nbsp&nbspDownload</a></code> </p></li>

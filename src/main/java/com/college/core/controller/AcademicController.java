@@ -1,12 +1,29 @@
 package com.college.core.controller;
 
+import com.college.core.entity.Holiday;
+import com.college.core.entity.ResponsibilityDoc;
+import com.college.core.entity.Role;
+import com.college.core.entity.User;
+import com.college.service.HolidayService;
+import com.college.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.jws.Oneway;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+
 @Controller
 @RequestMapping(value = "academic")
 public class AcademicController {
+    @Autowired
+    HolidayService holidayService;
+    @Autowired
+    UserService userService;
     @RequestMapping(value = "admission")
     public ModelAndView getAdmission() {
         ModelAndView mv = new ModelAndView();
@@ -35,10 +52,39 @@ public class AcademicController {
     }
 
     @RequestMapping(value = "holidays")
-    public ModelAndView getHolidays() {
+    public ModelAndView getHolidays(Authentication authentication) {
+
+
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+
+        System.out.println("in download method");
         ModelAndView mv = new ModelAndView();
+        List<Holiday> allDocumentList = holidayService.getAllDownload();
         mv.setViewName("academic/holidays.jsp");
+        //System.out.println(" document list id " + allDocumentList.get(0).getId());
+        for (Holiday download : allDocumentList) {
+            System.out.println(download.getFileName());
+        }
+        mv.addObject("allDocuments" , allDocumentList);
+        mv.addObject("showDeleteBtn" , accessAllow);
+
         return mv;
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("academic/holidays.jsp");
+//        return mv;
     }
 
     @RequestMapping(value = "attendance")

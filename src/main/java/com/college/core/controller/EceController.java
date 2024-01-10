@@ -70,12 +70,7 @@ public class EceController {
             return mv;
         }
 
-        @RequestMapping(value = "faculty")
-        public ModelAndView getFaculty() {
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("department/ece/faculty.jsp");
-            return mv;
-        }
+
 
         @RequestMapping(value = "students")
         public ModelAndView getStudents() {

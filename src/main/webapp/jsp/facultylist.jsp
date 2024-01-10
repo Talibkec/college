@@ -8,13 +8,15 @@
 "padding-top: 24px; padding-bottom: 24px;
 "></div>
 <%!
-    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)"};
-    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp", "ecesidebar.jsp"};
+    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)" ,  "Food Processing"};
+    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp", "ecesidebar.jsp" , "fpsidebar.jsp"};
 %>
 <%
-    int depIndex;
-    depIndex = Math.toIntExact(((List<FacultyDTO>) request.getAttribute("facultyList")).get(0).getDepartmentId() - 1L);
-    String branchName = branchList[depIndex];
+
+        int depIndex;
+        depIndex = Math.toIntExact(((List<FacultyDTO>) request.getAttribute("facultyList")).get(0).getDepartmentId() - 1L);
+        String branchName = branchList[depIndex];
+
 %>
 <div class="container">
     <c:set var="sidebarname" value='<%="/jsp/department/sidebars/" + sidebarList[depIndex] %>'/>

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -128,5 +129,15 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @CacheEvict(value = "homepageNoticeCache", allEntries = true)
     public void deleteItem(Long id) {
         noticeBoardRepository.delete(id);
+    }
+
+    @Override
+    public List<NoticeBoardDTO> getfpNotices(PageRequest pageRequest) {
+        String noticeType = "FPNotice";
+        String news="FPNews";
+        List<NoticeBoard> noticeBoards = noticeBoardRepository.getCseNotices(noticeType,news,pageRequest);
+        Type targetListType = new TypeToken<List<NoticeBoardDTO>>() {}.getType();
+
+        return modelMapper.map(noticeBoards, targetListType);
     }
 }

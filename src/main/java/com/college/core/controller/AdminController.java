@@ -46,6 +46,16 @@ public class AdminController {
         return mv;
 
     }
+    @RequestMapping(value = "/auth/addPlacement")
+    public ModelAndView addPlacement() {
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("Role", ControllerUtility.getRole());
+        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.setViewName("addPlacement.jsp");
+        return mv;
+
+    }
     private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
         List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
 

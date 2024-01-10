@@ -5,7 +5,7 @@
         <div class="panel-body">
 
             <form method="POST" enctype="multipart/form-data" id="slideimageUploadForm">
-                <label for="caption" class="control-label col-sm-4" >Enter year of Responsibility</label>
+                <label for="caption" class="control-label col-sm-4" >Enter year of Holiday</label>
                 <div class="col-sm-8">
                     <input type="text" name="caption" id="caption"/><br/><br/>
                 </div>

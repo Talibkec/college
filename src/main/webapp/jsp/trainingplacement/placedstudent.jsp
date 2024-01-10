@@ -82,7 +82,7 @@ F
                         <c:forEach items="${placementList}" var="placement">
                         <tr>
                             <td>1</td>
-                            <td>(${placement.studentName})</td>
+                            <td>${placement.studentName}</td>
                             <td>${placement.studentSession}</td>
                             <td>${placement.departmentId}</td>
                             <td>${placement.reigstrationNo}</td>

@@ -1,6 +1,7 @@
 package com.college.service;
 
 import com.college.core.model.NoticeBoardDTO;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +29,6 @@ public interface NoticeBoardService {
     void saveNoticeBoard(NoticeBoardDTO noticeBoardDTO);
 
     void deleteItem(Long id);
+
+    List<NoticeBoardDTO> getfpNotices(PageRequest pageRequest);
 }

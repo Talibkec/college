@@ -14,6 +14,8 @@ import com.google.gson.JsonObject;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.BeanUtils;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.regex.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -374,8 +376,13 @@ public class CommonResourceController {
         //3:- Admin
         int userType = 0;
         String hodName = departmentService.getHodName(deptno);
-        System.out.println(hodName);
+        //System.out.println(hodName);
 
+        if(Objects.equals(hodName, "")) {
+
+            mv.setViewName("invalidDeptId.jsp");
+            return mv;
+        }
         if (authentication != null) {
             String loggedInusername = authentication.getName();
             userType = getUserType(userType, loggedInusername , deptno);

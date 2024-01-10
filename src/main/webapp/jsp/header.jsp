@@ -145,6 +145,7 @@
                             <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
                             <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a href="/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics Engg.</a></li>
                             <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
+                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a href="/department/fp/about" class="sf-depth-2">Food Processing</a></li>
                         </ul>
                     </li>
                     <li id="menu-1131-1" class="middle odd sf-item-5 sf-depth-1 sf-total-children-7 sf-parent-children-0 sf-single-children-7 menuparent">

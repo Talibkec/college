@@ -33,7 +33,12 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public String getHodName(Long deptId){
         Department department = departmentRepository.getHodName(deptId);
-        return department.getDepartmentHod();
+        if(department != null) {
+            return department.getDepartmentHod();
+        }else {
+            return "";
+        }
+
     }
 
 }

@@ -8,7 +8,7 @@
                 <ul class="menu nav">
                     <li class="first leaf  menu-mlid-1154"><a href="/department/fp/about" class="sf-depth-2 active">About FP</a></li>
                     <li class="leaf menu-mlid-1121"><a href="/department/fp/vision" class="sf-depth-2">Vision &amp; Mission</a></li>
-                    <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=1" class="sf-depth-2">Faculty of FP</a></li>
+                    <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=7" class="sf-depth-2">Faculty of FP</a></li>
                     <li class="leaf menu-mlid-1294"><a href="/department/fp/labs" class="sf-depth-2">Labs &amp; Infrastructure</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/fp/question" class="sf-depth-2">Question Bank</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/fp/awards" class="sf-depth-2">awards &amp; Recognition</a></li>

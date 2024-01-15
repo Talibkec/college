@@ -30,7 +30,7 @@ public class AppliedController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("UserName", ControllerUtility.getUserName());
-        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(appliedScienceNotices);
 
         mv.addObject("noticeList", appliedScienceNotices);
@@ -83,7 +83,7 @@ public class AppliedController {
     @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> appliedScienceNotices = noticeBoardService.getApplidScienceNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(appliedScienceNotices);
         mv.addObject("noticeList", appliedScienceNotices);
         mv.addObject("pageSize", 0);

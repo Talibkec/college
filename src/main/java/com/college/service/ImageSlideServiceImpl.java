@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ImageSlideServiceImpl implements ImageSlideService {
@@ -35,9 +36,9 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     @Override
     public ImageSlideDTO getImages(Long id) {
         ImageSlideDTO imageSlideDTO = null;
-        ImageSlide imageSlide = imageSlideRepository.findOne(id);
-        if (imageSlide != null) {
-            imageSlideDTO = modelMapper.map(imageSlide, ImageSlideDTO.class);
+        Optional<ImageSlide> imageSlide = imageSlideRepository.findById(id);
+        if (imageSlide.isPresent()) {
+            imageSlideDTO = modelMapper.map(imageSlide.get(), ImageSlideDTO.class);
         }
         return imageSlideDTO;
     }
@@ -57,7 +58,7 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     @Override
     @CacheEvict(value = "homepageSlideImageCache", allEntries = true)
     public void deleteSlideImage(Long id) {
-        imageSlideRepository.delete(id);
+        imageSlideRepository.deleteById(id);
     }
 
 }

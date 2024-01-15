@@ -11,20 +11,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-@Configuration
+//@Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+    @Autowired
+    BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Bean
-    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler() {
-        return new KECUrlAuthenticationSuccessHandler();
+    private final KECUrlAuthenticationSuccessHandler kecUrlAuthenticationSuccessHandler;
+    WebSecurityConfig(KECUrlAuthenticationSuccessHandler kecAuthenticationSuccessHandler){
+        this.kecUrlAuthenticationSuccessHandler = kecAuthenticationSuccessHandler;
     }
 
     @Override
@@ -42,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/uploadfile/**").hasAnyAuthority("Admin", "Faculty", "SM", "SK", "HOD")
                 .and()
                 .formLogin()
-                .loginPage("/login").successHandler(kecAuthenticationSuccessHandler())
+                .loginPage("/login").successHandler(kecUrlAuthenticationSuccessHandler)
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
@@ -50,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 }

@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 @Service
 public class StaffServiceImpl implements StaffService {
     @Autowired
@@ -47,9 +49,9 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public StaffDTO getStaffById(Long id) {
         StaffDTO staffDTO = null;
-        Staff staff = staffRepository.findOne(id);
-        if (staff != null) {
-            staffDTO = modelMapper.map(staff, StaffDTO.class);
+        Optional<Staff> staff = staffRepository.findById(id);
+        if (staff.isPresent()) {
+            staffDTO = modelMapper.map(staff.get(), StaffDTO.class);
         }
         System.out.println("Fetching Order inservice layer method ");
 //        for(FacultyKeyPropsDTO keyPropsDTO:StaffDTO.getFacultyKeyProps()){
@@ -110,6 +112,6 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void deleteStaff(long StaffId) {
-        staffRepository.delete(StaffId);
+        staffRepository.deleteById(StaffId);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
@@ -37,16 +38,16 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     @Override
     public FacultyDocumentsDTO getFacultyDocument(Long id) {
         FacultyDocumentsDTO facultyDocumentsDTO = null;
-        FacultyDocuments facultyDocuments = facultyDocumentsRepository.findOne(id);
-        if (facultyDocuments != null) {
-            facultyDocumentsDTO = modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
+        Optional<FacultyDocuments> facultyDocuments = facultyDocumentsRepository.findById(id);
+        if (facultyDocuments.isPresent()) {
+            facultyDocumentsDTO = modelMapper.map(facultyDocuments.get(), FacultyDocumentsDTO.class);
         }
         return facultyDocumentsDTO;
     }
 
     @Override
     public void deleteFacultyDoc(Long id) {
-        facultyDocumentsRepository.delete(id);
+        facultyDocumentsRepository.deleteById(id);
     }
 
 }

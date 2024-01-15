@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -54,8 +55,8 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> getProductDetails(String prodName, String vendorName, String productId) {
         List<Product> prods = new ArrayList<>();
         if (productId != null && productId != "") {
-            Product prod = productRepository.findOne(Long.parseLong(productId));
-            prods.add(prod);
+            Optional<Product> prod = productRepository.findById(Long.parseLong(productId));
+            prods.add(prod.get());
         } else {
             if (!StringUtils.isEmpty(prodName) && !StringUtils.isEmpty(vendorName)) {
                 prodName = prodName.toLowerCase();
@@ -76,12 +77,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getProduct(Long productId) {
-        Product product = productRepository.findOne(productId);
-        return modelMapper.map(product, ProductDTO.class);
+        Optional<Product> product = productRepository.findById(productId);
+        return modelMapper.map(product.get(), ProductDTO.class);
     }
 
     @Override
     public void deleteProduct(Long id) {
-        productRepository.delete(id);
+        productRepository.deleteById(id);
     }
 }

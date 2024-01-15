@@ -10,10 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,11 +28,11 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
 
         if (!StringUtils.isEmpty(user.getRole())) {
-            Role role = roleRepository.findOne(Long.parseLong(user.getRole()));
+            Optional<Role> role = roleRepository.findById(Long.parseLong(user.getRole()));
             if (user.getRoles() == null) {
                 user.setRoles(new HashSet<>());
             }
-            user.getRoles().add(role);
+            user.getRoles().add(role.get());
         }
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -48,16 +46,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUserRole(UserRoleDTO userRoleDTO) {
         Set<Role> roles = new HashSet<>();
-        User user = userRepository.findOne(userRoleDTO.getUserId());
-        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
+        Optional<User> user = userRepository.findById(userRoleDTO.getUserId());
+        Optional<Role> role = roleRepository.findById(userRoleDTO.getRoleId());
         Role newRole = new Role();
         newRole.setId(userRoleDTO.getRoleId());
-        newRole.setName(role.getName());
-        roles = user.getRoles();
+        newRole.setName(role.get().getName());
+        roles = user.get().getRoles();
         roles.add(newRole);
-        user.setRoles(roles);
-        userRepository.save(user);
-        if(role.getName().equals("HOD"))
+        user.get().setRoles(roles);
+        userRepository.save(user.get());
+        if(role.get().getName().equals("HOD"))
         {
             departmentRepository.updateHodName( userRoleDTO.getFacultyName(), userRoleDTO.getDepartmentId());
         }
@@ -67,9 +65,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserRole(UserRoleDTO userRoleDTO) {
         Long id = userRoleDTO.getRoleId();
-        User user = userRepository.findOne(userRoleDTO.getUserId());
-        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
-        Set<Role> roles = user.getRoles();
+        Optional<User> user = userRepository.findById(userRoleDTO.getUserId());
+        Optional<Role> role = roleRepository.findById(userRoleDTO.getRoleId());
+        Set<Role> roles = user.get().getRoles();
         Iterator<Role> it = roles.iterator();
         while (it.hasNext()) {
             Role r = it.next();
@@ -77,10 +75,10 @@ public class UserServiceImpl implements UserService {
                 it.remove();
             }
         }
-        if(role.getName().equals("HOD")){
+        if(role.get().getName().equals("HOD")){
             departmentRepository.deleteHodName(userRoleDTO.getDepartmentId());
         }
-        userRepository.save(user);
+        userRepository.save(user.get());
     }
     @Override
     public List<String> searchUserName(String userName){

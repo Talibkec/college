@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RequestServiceImpl implements RequestService {
@@ -33,9 +34,9 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public void saveRequest(RequestDTO requestDTO) {
 
-        Product product = productRepository.findOne(requestDTO.getProduct().getProductId());
+        Optional<Product> product = productRepository.findById(requestDTO.getProduct().getProductId());
         Request request = modelMapper.map(requestDTO, Request.class);
-        request.setProduct(product);
+        request.setProduct(product.get());
         requestRepository.save(request);
     }
 
@@ -50,8 +51,8 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public RequestDTO getRequest(Long id) {
-        Request request = requestRepository.findOne(id);
-        return modelMapper.map(request, RequestDTO.class);
+        Optional<Request> request = requestRepository.findById(id);
+        return modelMapper.map(request.get(), RequestDTO.class);
     }
 
     @Override
@@ -68,6 +69,6 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void deleteFacultyRequest(Long requestId) {
-        requestRepository.delete(requestId);
+        requestRepository.deleteById(requestId);
     }
 }

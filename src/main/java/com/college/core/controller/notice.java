@@ -19,7 +19,7 @@ public class notice {
     @RequestMapping(value = "notices")
     public ModelAndView getNotices() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(list);
         mv.addObject("noticeList", list);
         mv.setViewName("category/notices.jsp");
@@ -29,7 +29,7 @@ public class notice {
     @RequestMapping(value = "tenders")
     public ModelAndView getTenders() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(list);
         mv.addObject("noticeList", list);
         mv.setViewName("category/tenders.jsp");

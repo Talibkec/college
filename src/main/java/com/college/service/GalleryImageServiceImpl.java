@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class GalleryImageServiceImpl implements GalleryImageService{
@@ -44,9 +45,9 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     public GalleryImageDTO getImages(Long id)
     {
         GalleryImageDTO galleryImageDTO = null;
-        GalleryImage galleryImage = galleryImageRepository.findOne(id);
-        if(galleryImage != null){
-            galleryImageDTO = modelMapper.map(galleryImage, GalleryImageDTO.class);
+        Optional<GalleryImage> galleryImage = galleryImageRepository.findById(id);
+        if(galleryImage.isPresent()){
+            galleryImageDTO = modelMapper.map(galleryImage.get(), GalleryImageDTO.class);
         }
         return galleryImageDTO;
     }
@@ -55,6 +56,6 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     @Override
     @CacheEvict(value = "GalleryImageCache", allEntries = true)
     public void deleteGalleryImage(Long id) {
-        galleryImageRepository.delete(id);
+        galleryImageRepository.deleteById(id);
     }
 }

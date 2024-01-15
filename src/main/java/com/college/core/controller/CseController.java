@@ -31,7 +31,7 @@ public class CseController {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
         modalAndView.addObject("UserName", ControllerUtility.getUserName());
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices( PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(cseNotices);
 
 
@@ -48,7 +48,7 @@ public class CseController {
     @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice() {
         ModelAndView modalAndView = new ModelAndView();
-        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> cseNotices = noticeBoardService.getCseNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(cseNotices);
         modalAndView.addObject("noticeList", cseNotices);
 

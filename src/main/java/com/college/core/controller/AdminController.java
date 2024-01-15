@@ -11,7 +11,6 @@ import com.college.service.UserService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.orm.hibernate3.SpringSessionContext;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,7 +37,8 @@ public class AdminController {
     NoticeBoardService noticeBoardService;
     @RequestMapping(value = "/auth/uploadDashboard")
     public ModelAndView getUploadDashboard() {
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", getNoticeList(list, false));
@@ -48,7 +48,7 @@ public class AdminController {
     }
     @RequestMapping(value = "/auth/addPlacement")
     public ModelAndView addPlacement() {
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", getNoticeList(list, false));
@@ -77,7 +77,7 @@ public class AdminController {
 
     @RequestMapping(value = "/hod/hodDashboard")
     public ModelAndView getHodDashboard() {
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.setViewName("admin/HodDashboard.jsp");
         return mv;

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HolidaytServiceImpl implements HolidayService{
@@ -27,9 +28,9 @@ public class HolidaytServiceImpl implements HolidayService{
     @Override
     public HolidayDTO getDownloadDocument(Long id) {
         HolidayDTO downloadDTO = null;
-        Holiday holiday  = holidayRepository.findOne(id);
-        if(holiday != null){
-            downloadDTO = modelMapper.map(holiday , HolidayDTO.class);
+        Optional<Holiday> holiday  = holidayRepository.findById(id);
+        if(holiday.isPresent()){
+            downloadDTO = modelMapper.map(holiday.get() , HolidayDTO.class);
         }
         return downloadDTO;
     }
@@ -42,6 +43,6 @@ public class HolidaytServiceImpl implements HolidayService{
 
     @Override
     public void deleteItem(Long id) {
-        holidayRepository.delete(id);
+        holidayRepository.deleteById(id);
     }
 }

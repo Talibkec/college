@@ -1,13 +1,14 @@
 package com.college.core.entity;
 
-import org.springframework.data.annotation.Id;
-
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "aicte_documents")
 public class AicteDocuments {
 
+    @Id
+    @SequenceGenerator(name = "aicteDocumentsId", sequenceName = "aicteDocumentsId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     @Lob
@@ -25,7 +26,7 @@ public class AicteDocuments {
 
 
 
-    @Column(columnDefinition="BLOB")
+    @Column(columnDefinition="mediumblob")
     public byte[] getImage() {
         return image;
     }
@@ -40,10 +41,6 @@ public class AicteDocuments {
     }
 
 
-    @javax.persistence.Id
-    @Id
-    @SequenceGenerator(name = "aicteDocumentsId", sequenceName = "aicteDocumentsId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

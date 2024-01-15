@@ -31,7 +31,7 @@ public class FPController {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
         modalAndView.addObject("UserName", ControllerUtility.getUserName());
-        List<NoticeBoardDTO> fpNotices = noticeBoardService.getfpNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> fpNotices = noticeBoardService.getfpNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(fpNotices);
 
 
@@ -48,7 +48,7 @@ public class FPController {
     @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice() {
         ModelAndView modalAndView = new ModelAndView();
-        List<NoticeBoardDTO> fpNotices = noticeBoardService.getfpNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> fpNotices = noticeBoardService.getfpNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(fpNotices);
         modalAndView.addObject("noticeList", fpNotices);
 

@@ -18,10 +18,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class FacultyServiceImpl implements FacultyService {
@@ -62,9 +59,9 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public FacultyDTO getFacultyById(Long id) {
         FacultyDTO facultyDTO = null;
-        Faculty faculty = facultyRepository.findOne(id);
+        Optional<Faculty> faculty = facultyRepository.findById(id);
         if (faculty != null) {
-            facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
+            facultyDTO = modelMapper.map(faculty.get(), FacultyDTO.class);
         }
         System.out.println("Fetching Order inservice layer method ");
         for(FacultyKeyPropsDTO keyPropsDTO:facultyDTO.getFacultyKeyProps()){
@@ -192,7 +189,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public void deleteFaculty(long facultyId) {
-        facultyRepository.delete(facultyId);
+        facultyRepository.deleteById(facultyId);
     }
 
 

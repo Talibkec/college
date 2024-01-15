@@ -1,6 +1,6 @@
 package com.college.core.model;
 
-import javax.persistence.Lob;
+import jakarta.persistence.Lob;
 
 public class AicteDocumentsDTO {
 

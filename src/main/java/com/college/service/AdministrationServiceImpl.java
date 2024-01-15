@@ -40,6 +40,6 @@ public class AdministrationServiceImpl implements AdministrationService {
     @Override
     @CacheEvict(value = "administrationCache", allEntries = true)
     public void deleteItem(Long id) {
-        administrationRepository.delete(id);
+        administrationRepository.deleteById(id);
     }
 }

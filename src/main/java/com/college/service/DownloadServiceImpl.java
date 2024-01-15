@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DownloadServiceImpl implements DownloadService{
@@ -25,9 +26,9 @@ public class DownloadServiceImpl implements DownloadService{
     @Override
     public DownloadDTO getDownloadDocument(Long id) {
         DownloadDTO downloadDTO = null;
-        Download download = downloadRepository.findOne(id);
-        if(download != null){
-            downloadDTO = modelMapper.map(download , DownloadDTO.class);
+        Optional<Download> download = downloadRepository.findById(id);
+        if(download.isPresent()){
+            downloadDTO = modelMapper.map(download.get() , DownloadDTO.class);
         }
         return downloadDTO;
     }
@@ -40,6 +41,6 @@ public class DownloadServiceImpl implements DownloadService{
 
     @Override
     public void deleteItem(Long id) {
-       downloadRepository.delete(id);
+       downloadRepository.deleteById(id);
     }
 }

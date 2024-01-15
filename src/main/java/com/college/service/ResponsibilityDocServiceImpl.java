@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
@@ -27,9 +28,9 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
     @Override
     public ResponsibilityDocDTO getDownloadDocument(Long id) {
         ResponsibilityDocDTO downloadDTO = null;
-        ResponsibilityDoc responsibilityDoc = responsibilityDocRepository.findOne(id);
-        if(responsibilityDoc != null){
-            downloadDTO = modelMapper.map(responsibilityDoc , ResponsibilityDocDTO.class);
+        Optional<ResponsibilityDoc> responsibilityDoc = responsibilityDocRepository.findById(id);
+        if(responsibilityDoc.isPresent() ){
+            downloadDTO = modelMapper.map(responsibilityDoc.get() , ResponsibilityDocDTO.class);
         }
         return downloadDTO;
     }
@@ -42,6 +43,6 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
 
     @Override
     public void deleteItem(Long id) {
-        responsibilityDocRepository.delete(id);
+        responsibilityDocRepository.deleteById(id);
     }
 }

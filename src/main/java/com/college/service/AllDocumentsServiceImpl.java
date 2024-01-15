@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AllDocumentsServiceImpl implements AllDocuments {
@@ -29,8 +30,8 @@ public class AllDocumentsServiceImpl implements AllDocuments {
     @Override
     public AicteDocumentsDTO getAicteDocument(Long id) {
         AicteDocumentsDTO aicteDocumentsDTO = null;
-        AicteDocuments aicteDocuments = aicteDocumentRepository.findOne(id);
-        if (aicteDocuments != null) {
+        final Optional<AicteDocuments> aicteDocuments = aicteDocumentRepository.findById(id);
+        if (aicteDocuments.isPresent()) {
             aicteDocumentsDTO = modelMapper.map(aicteDocuments, AicteDocumentsDTO.class);
         }
         return aicteDocumentsDTO;
@@ -49,6 +50,6 @@ public class AllDocumentsServiceImpl implements AllDocuments {
 
     @Override
     public void deleteAicteDocument(Long id) {
-        aicteDocumentRepository.delete(id);
+        aicteDocumentRepository.deleteById(id);
     }
 }

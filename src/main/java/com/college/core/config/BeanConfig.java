@@ -6,7 +6,9 @@ import com.college.NoticeBoardHelper;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+//import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -22,12 +24,12 @@ public class BeanConfig {
         return resolver;
     }
 
-    @Bean(name = "multipartResolver")
+   /* @Bean(name = "multipartResolver")
     public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver multipartResolver
                 = new CommonsMultipartResolver();
         return multipartResolver;
-    }
+    }*/
 
     @Bean(name = "facultyHelper")
     public FacultyHelper facultyHelper() {
@@ -51,6 +53,17 @@ public class BeanConfig {
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
         return modelMapper;
+    }
+
+    @Bean(name = "kecAuthenticationSuccessHandler")
+    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler() {
+        return new KECUrlAuthenticationSuccessHandler();
+    }
+
+    @Bean(name="bCryptPasswordEncoder")
+    public BCryptPasswordEncoder bCryptPasswordEncoder()
+    {
+        return new BCryptPasswordEncoder();
     }
 
 }

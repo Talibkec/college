@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Type;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PurchaseServiceImpl implements PurchaseService {
@@ -51,13 +52,13 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public PurchaseDTO getPurchase(Long purchaseId) {
-        Purchase purchase = purchaseRepository.findOne(purchaseId);
-        return modelMapper.map(purchase, PurchaseDTO.class);
+        Optional<Purchase> purchase = purchaseRepository.findById(purchaseId);
+        return modelMapper.map(purchase.get(), PurchaseDTO.class);
     }
 
     @Override
     public void deletePurchase(Long purchaseId) {
-        purchaseRepository.delete(purchaseId);
+        purchaseRepository.deleteById(purchaseId);
     }
 
     @Override
@@ -74,17 +75,17 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     private Product updateProduct(PurchaseDTO purchaseDTO) {
-        Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
-        if (product.getAvailableQuantity() != null) {
-            product.setAvailableQuantity(product.getAvailableQuantity() + purchaseDTO.getQuantity());
+        Optional<Product> product = productRepository.findById(purchaseDTO.getProduct().getProductId());
+        if (product.get().getAvailableQuantity() != null) {
+            product.get().setAvailableQuantity(product.get().getAvailableQuantity() + purchaseDTO.getQuantity());
         } else {
-            product.setAvailableQuantity(purchaseDTO.getQuantity());
+            product.get().setAvailableQuantity(purchaseDTO.getQuantity());
         }
-        if (product.getProductQuantity() != null) {
-            product.setProductQuantity(product.getProductQuantity() + purchaseDTO.getQuantity());
+        if (product.get().getProductQuantity() != null) {
+            product.get().setProductQuantity(product.get().getProductQuantity() + purchaseDTO.getQuantity());
         } else {
-            product.setProductQuantity(purchaseDTO.getQuantity());
+            product.get().setProductQuantity(purchaseDTO.getQuantity());
         }
-        return product;
+        return product.get();
     }
 }

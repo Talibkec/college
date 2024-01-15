@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;

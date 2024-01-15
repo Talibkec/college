@@ -220,7 +220,7 @@ public class ApprovalController {
         faculty.getFacultyKeyProps().add(facultyKeyProps);
        // faculty.setFacultyName("fname");
         facultyRepository.save(faculty);
-        facultyRepository.findOne(1l);
+        facultyRepository.findById(1l);
         System.out.println();
     }
 

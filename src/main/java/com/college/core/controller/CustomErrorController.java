@@ -1,12 +1,12 @@
 package com.college.core.controller;
 
-import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
 public class CustomErrorController implements ErrorController {
@@ -26,11 +26,6 @@ public class CustomErrorController implements ErrorController {
         }
 
         return modelAndView;
-    }
-
-    @Override
-    public String getErrorPath() {
-        return "/error";
     }
 
 }

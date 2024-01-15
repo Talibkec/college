@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
 
 @Service
@@ -33,9 +34,9 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Override
     public AchievementDTO getImages(Long id) {
         AchievementDTO achievementDTO = null;
-        Achievement achievement = achievementRepository.findOne(id);
-        if (achievement!= null) {
-            achievementDTO= modelMapper.map(achievement, AchievementDTO.class);
+        final Optional<Achievement> repository = achievementRepository.findById(id);
+        if (repository.isPresent()) {
+            achievementDTO= modelMapper.map(repository.get(), AchievementDTO.class);
         }
         return achievementDTO;
     }
@@ -54,6 +55,6 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Override
    // @CacheEvict(value="deleteAchievementCache",allEntries = true)
     public  void deleteAchievementImage(Long id){
-        achievementRepository.delete(id);
+        achievementRepository.deleteById(id);
     }
 }

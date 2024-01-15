@@ -17,7 +17,7 @@ public class NoticeBoardHelper {
     public List<NoticeBoardDTO> getNotices(String deptno, Integer pageNo) {
         List<NoticeBoardDTO> noticeBoardDTOS = null;
 
-        Pageable pageable = new PageRequest(pageNo, pazeSize);
+        Pageable pageable = PageRequest.of(pageNo, pazeSize);
 
         if ("CSE".equalsIgnoreCase(deptno)) {
             return noticeBoardService.getCseNotices(pageable);
@@ -36,7 +36,7 @@ public class NoticeBoardHelper {
 
     public List<NoticeBoardDTO> getTenders(Integer pageNo) {
         List<NoticeBoardDTO> noticeBoardDTOS = null;
-        Pageable pageable = new PageRequest(pageNo, pazeSize);
+        Pageable pageable = PageRequest.of(pageNo, pazeSize);
         return noticeBoardService.getAllNotice(pageable);
     }
 

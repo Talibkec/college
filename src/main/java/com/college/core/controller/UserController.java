@@ -100,7 +100,7 @@ public class UserController {
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public ModelAndView welcome(Model model ) {
         ModelAndView modelAndView = new ModelAndView();
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
 
         List<AchievementDTO> achievementImageList = achievementSlideService.getAllImages();

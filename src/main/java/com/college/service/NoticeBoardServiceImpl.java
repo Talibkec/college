@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NoticeBoardServiceImpl implements NoticeBoardService{
@@ -40,9 +41,9 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public NoticeBoardDTO getNoticeDocument(Long id) {
         NoticeBoardDTO noticeBoardDTO = null;
-        NoticeBoard noticeBoard = noticeBoardRepository.findOne(id);
-        if(noticeBoard != null){
-            noticeBoardDTO = modelMapper.map(noticeBoard, NoticeBoardDTO.class);
+        Optional<NoticeBoard> noticeBoard = noticeBoardRepository.findById(id);
+        if(noticeBoard.isPresent()){
+            noticeBoardDTO = modelMapper.map(noticeBoard.get(), NoticeBoardDTO.class);
         }
         return noticeBoardDTO;
     }
@@ -128,7 +129,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     @CacheEvict(value = "homepageNoticeCache", allEntries = true)
     public void deleteItem(Long id) {
-        noticeBoardRepository.delete(id);
+        noticeBoardRepository.deleteById(id);
     }
 
     @Override

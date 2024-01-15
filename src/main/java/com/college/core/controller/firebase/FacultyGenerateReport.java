@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -21,10 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.mail.Message;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeUtility;
+import jakarta.mail.Message;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeUtility;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -109,7 +108,7 @@ public class FacultyGenerateReport {
                 //mimeMessage.addHeader("Content-Type", "application/pdf");
                 FileSystemResource file = new FileSystemResource(new File(fileWithAbsolutePath.getAbsolutePath()));
                 FileSystemResource csvFile = new FileSystemResource(getCSVFile(reportInfo));
-                MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+                MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.pdf"), new ByteArrayResource(IOUtils.toByteArray(file.getInputStream())));
                 helper.addAttachment(MimeUtility.encodeText("AttendanceReport.csv"), new ByteArrayResource(IOUtils.toByteArray(csvFile.getInputStream())));
                 helper.setText("Please find the attached attendance report.", true);

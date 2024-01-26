@@ -72,7 +72,29 @@ $(document).ready(function(){
                      <c:if test = "${isProfilePic eq 'No'}" >Choose File</c:if>
                      <c:if test = "${isProfilePic eq 'Yes'}" >Choose Profile Pic</c:if></label>
             <div class=" btn-default  col-sm-4" style="color:red">
-            <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"/><br/></div></div>
+            <input type="file" name="facultydocumentsFile" id="facultydocumentsFile"   onchange="Filevalidation()"/><br/></div></div>
+        <script>
+            Filevalidation = () => {
+                const fi = document.getElementById('facultydocumentsFile');
+                // Check if any file is selected.
+                if (fi.files.length > 0) {
+                    for (let i = 0; i <= fi.files.length - 1; i++) {
+
+                        const fsize = fi.files.item(i).size;
+                        const file = Math.round((fsize / 1024));
+                        // The size of the file.
+                        if (file >= 100) {
+                            alert(
+                                "File too Big, please select a file less than 100 kB");
+                            location.reload();
+                        } else {
+                            document.getElementById('size').innerHTML =
+                                '<b>'+ file + '</b> KB';
+                        }
+                    }
+                }
+            }
+        </script>
             <div id="msg" style="display: none; color: red;">*Please Select a file</div>
             <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
         </div>

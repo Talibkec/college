@@ -83,9 +83,9 @@ $(document).ready(function(){
                         const fsize = fi.files.item(i).size;
                         const file = Math.round((fsize / 1024));
                         // The size of the file.
-                        if (file >= 100) {
+                        if (file >= 10) {
                             alert(
-                                "File too Big, please select a file less than 100 kB");
+                                "File too Big, please select a file less than 10 kB");
                             location.reload();
                         } else {
                             document.getElementById('size').innerHTML =

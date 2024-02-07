@@ -42,9 +42,10 @@
                 <c:if test="${fUserName eq  loggedInUser and 'Faculty' eq role}">
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
                         Documents &nbsp;|</a></strong>
-                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes"">Update Profile
+                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile
                         Details &nbsp;|</a></strong>
-                    <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}"">Edit Profile Details</a></strong>
+                    <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}">Edit Profile Details &nbsp;|</a></strong>
+                    <strong><a href="/uploadNoticeFaculty">Upload Notice </a></strong>
                 </c:if>
             </c:forEach>
 

@@ -54,7 +54,7 @@
                                                     <p> <a href="http://bceceboard.bihar.gov.in/">http://bceceboard.bihar.gov.in/</a></p>
                                                 </p>
                                                     <p id="ctl00_ContentPlaceHolder1_h4_heading"><strong>Minimum Qualification for admission in first year of UG programme</strong></p>
-                                                    <div id="ctl00_ContentPlaceHolder1_div_1">The minimum academic qualification for admission through BCECE entrance examination is a pass in the final examination of the Intermediate, 10+2 system or its equivalent. Those appearing in the Intermediate final or equivalent examination may also appear in the entrance examination for consideration of provisional admission. All provisional admissions will stand cancelled, if proof of having passed the qualifying examination (Intermediate or equivalent) is not submitted to the institute at the time of counselling. If an applicant is found ineligible at a later date even after admission to the MIT, his/her admission will be cancelled.
+                                                    <div id="ctl00_ContentPlaceHolder1_div_1">The minimum academic qualification for admission through BCECE entrance examination is a pass in the final examination of the Intermediate, 10+2 system or its equivalent. Those appearing in the Intermediate final or equivalent examination may also appear in the entrance examination for consideration of provisional admission. All provisional admissions will stand cancelled, if proof of having passed the qualifying examination (Intermediate or equivalent) is not submitted to the institute at the time of counselling. If an applicant is found ineligible at a later date even after admission to the KEC, his/her admission will be cancelled.
                                                         All admissions will be subject to verification of facts from the original certificates/documents of the candidates. The decision of the B.C.E.C.E. Board regarding eligibility of any applicant shall be final.
 
                                                     </div>
@@ -124,7 +124,7 @@
                                                                     <p><span style="font-family: Georgia, Palatino;">Computer Sc. & Engineering&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:60 +12*</span>
 
                                                                     </p>
-                                                                    <p><code>*Admisssion through lateral Entry</p></div></code>
+                                                                    <p><code>* Admisssion through lateral Entry</p></div></code>
                                                             </div>
                                                         </div>
                                                     </div></div>

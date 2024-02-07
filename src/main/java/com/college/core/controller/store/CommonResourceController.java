@@ -346,7 +346,13 @@ public class CommonResourceController {
         model.setViewName("facultydetails.jsp");
         return model;
     }
+    @RequestMapping(value = "/uploadNoticeFaculty", method = RequestMethod.GET)
+    public ModelAndView uploadNoticeFaculty() {
+        ModelAndView model = new ModelAndView();
 
+        model.setViewName("uploadNoticeFaculty.jsp");
+        return model;
+    }
     @RequestMapping(value = "deleteFaculty")
     public void deleteFaculty(@RequestParam("facultyId") Long facultyId, @RequestParam("deptno") Long departmentId, Authentication authentication, HttpServletResponse res) {
         int accessAllow = 0;

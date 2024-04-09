@@ -42,7 +42,7 @@ public class AdminController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", getNoticeList(list, false));
-        mv.setViewName("admin/UploadDashboard.jsp");
+        mv.setViewName("admin/dashboard.jsp");
         return mv;
 
     }

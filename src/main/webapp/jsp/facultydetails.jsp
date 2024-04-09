@@ -45,7 +45,9 @@
                     <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile
                         Details &nbsp;|</a></strong>
                     <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}">Edit Profile Details &nbsp;|</a></strong>
-                    <strong><a href="/uploadNoticeFaculty">Upload Notice </a></strong>
+                    <strong><a href="/uploadNoticeFaculty">Upload Notice |</a></strong>
+                    <strong><a href="/user/dashboard">Go to Dashboard </a></strong>
+
                 </c:if>
             </c:forEach>
 

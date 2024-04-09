@@ -191,9 +191,16 @@
                                                     <span class="label label-danger"><a href="<c:url value='/auth/delNotice/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
-                                                <a href="notice/${notice.id}" target="_blank">${notice.headLine}</a>
-                                               
-                                              
+
+
+                                                  <c:if test = "${!notice.link}">
+                                                     <a href="notice/${notice.id}" target="_blank">${notice.headLine}</a>
+                                                  </c:if>
+                                                  <c:if test = "${notice.link}">
+                                                    <a href="${notice.link}" target="_blank">${notice.link}</a>
+                                                  </c:if>
+
+
                                             </div>
                                           </c:if>
                                          </c:forEach>

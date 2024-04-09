@@ -10,18 +10,21 @@ public class NoticeBoard {
     private String uploadedBy;
     private String headLine;
     private String noticeType;
+    private String link;
     private String uploadedFileName;
     private Date date;
     private Integer isScrollable;
 
     public NoticeBoard() {
 
+
     }
 
-    public NoticeBoard(Long id, String headLine, String noticeType, String uploadedFileName, Date date, Integer isScrollable) {
+    public NoticeBoard(Long id, String headLine, String noticeType, String link, String uploadedFileName, Date date, Integer isScrollable) {
         this.id = id;
         this.headLine = headLine;
         this.noticeType = noticeType;
+        this.link = link;
         this.uploadedFileName = uploadedFileName;
         this.date = date;
         this.isScrollable = isScrollable;
@@ -106,4 +109,11 @@ public class NoticeBoard {
         this.isScrollable = isScrollable;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

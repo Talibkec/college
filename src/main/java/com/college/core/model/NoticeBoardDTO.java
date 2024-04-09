@@ -7,11 +7,25 @@ public class NoticeBoardDTO {
     private String uploadedBy;
     private String headLine;
     private String noticeType;
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    private String link;
     private String uploadedFileName;
     private Date date;
     private Integer isScrollable;
     private String fileType;
     private byte[] notice;
+
+    public NoticeBoardDTO() {
+
+    }
 
     public String getFileType() {
         return fileType;

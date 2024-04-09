@@ -1,4 +1,4 @@
-<jsp:include page="admin/HeaderDashboard.jsp"/>
+<jsp:include page="user/HeaderDashboard.jsp"/>
 
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">
 <div class="panel panel-default"><div class="panel-heading"> <i class="fa fa-sign-in"></i>Upload Slide Image</div>

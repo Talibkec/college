@@ -1,5 +1,5 @@
 
-<jsp:include page="admin/HeaderDashboard.jsp"/>
+<jsp:include page="user/HeaderDashboard.jsp"/>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->

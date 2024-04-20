@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/updatePassword*", "/user/savePassword*", "/updatePassword*")
 
                 .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
-                .antMatchers("/user/resetPassword, /user/changePassword").permitAll()
+                .antMatchers("/user/resetPassword","/user/changePassword*").permitAll()
                 .antMatchers("/fstore/**").hasAuthority("Faculty")
                 .antMatchers("/store/**").hasAuthority("SM")
                 .antMatchers("/auth/**").hasAnyAuthority("Admin")

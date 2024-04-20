@@ -35,7 +35,7 @@ public class FileUploadCintroller {
     @RequestMapping(value = "/auth/api/upload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
             @RequestParam("noticeFile") MultipartFile uploadfile, @RequestParam("noticeHeader") String noticeHeader,
-            @RequestParam("noticeType") String noticeType, @RequestParam("isScrollable") Boolean isScrollable, @RequestParam("date") String date) {
+            @RequestParam("noticeType") String noticeType, @RequestParam("link") String link, @RequestParam("isScrollable") Boolean isScrollable, @RequestParam("date") String date) {
         logger.debug("Single file upload!");
         String fileName = uploadfile.getOriginalFilename();
 
@@ -60,7 +60,7 @@ public class FileUploadCintroller {
             userName = principal.toString();
         }
         //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveNoticeDetails(userName, noticeHeader, noticeType, fileName, isScrollable, uploadfile, date);
+        saveNoticeDetails(userName, noticeHeader, noticeType, fileName, isScrollable, uploadfile, date , link);
 
 
         String notice = "/wp-content/uploads/notice/" + fileName;
@@ -70,13 +70,14 @@ public class FileUploadCintroller {
 
     }
 
-    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable, MultipartFile uploadfile, String date) {
+    private void saveNoticeDetails(String userName, String noticeHeader, String noticeType, String fileName, Boolean isScrollable, MultipartFile uploadfile, String date , String link) {
         NoticeBoardDTO noticeBoardDTO = new NoticeBoardDTO();
         noticeBoardDTO.setHeadLine(noticeHeader);
         noticeBoardDTO.setNoticeType(noticeType);
         noticeBoardDTO.setUploadedBy(userName);
         setNoticeUploadDate(noticeBoardDTO, date);
         noticeBoardDTO.setUploadedFileName(fileName);
+        noticeBoardDTO.setLink(link);
         if (isScrollable) {
             noticeBoardDTO.setIsScrollable(1);
         }

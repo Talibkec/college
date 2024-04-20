@@ -51,7 +51,10 @@
     <div class="col-sm-8">
             <input type="text" name="date" id="noticeUploadDate"/>
     </div>
-
+    <label for="noticeUploadDate" class="control-label col-sm-4 mt-1" >Link</label>
+    <div class="col-sm-8 mt-2">
+            <input type="text" name="link" id="noticeUploadDate"/>
+    </div>
     <label for="headLine" class="control-label col-sm-4" >Scrollable</label>
         <div class="col-sm-8">
             <input type="checkbox" name="isScrollable" id="isScrollable" style="width: 25px;height: 40px;" ></input><br><br>

@@ -192,13 +192,18 @@
                                                  </c:if>
                                                 </c:forEach>
 
+                                                     <a onclick="gotoNotice('notice/${notice.id}' , '${notice.link}')" target="_blank">${notice.headLine} </a>
 
-                                                  <c:if test = "${!notice.link}">
-                                                     <a href="notice/${notice.id}" target="_blank">${notice.headLine}</a>
-                                                  </c:if>
-                                                  <c:if test = "${notice.link}">
-                                                    <a href="${notice.link}" target="_blank">${notice.link}</a>
-                                                  </c:if>
+                                                     <script>
+                                                     function gotoNotice(id , link){
+                                                             if(link != ''){
+                                                                window.location.href = link;
+                                                             }else{
+                                                             window.location.href = id;
+                                                             }
+
+                                                     }
+                                                     </script>
 
 
                                             </div>

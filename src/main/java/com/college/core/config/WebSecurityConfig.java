@@ -32,7 +32,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable().authorizeRequests()
                 .antMatchers("/user/updatePassword*", "/user/savePassword*", "/updatePassword*")
+
                 .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
+                .antMatchers("/user/resetPassword").permitAll()
                 .antMatchers("/fstore/**").hasAuthority("Faculty")
                 .antMatchers("/store/**").hasAuthority("SM")
                 .antMatchers("/auth/**").hasAnyAuthority("Admin")
@@ -40,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/sk/**").hasAnyAuthority("SK", "SM")
                 .antMatchers("/common/**").hasAnyAuthority("SM", "Faculty")
                 .antMatchers("/uploadfile/**").hasAnyAuthority("Admin", "Faculty", "SM", "SK", "HOD")
+
                 .antMatchers("/user/**").hasAnyAuthority("Faculty")
                 .and()
                 .formLogin()

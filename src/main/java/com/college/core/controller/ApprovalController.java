@@ -11,21 +11,26 @@ import com.college.service.ResponsibilityDocService;
 import com.college.service.UserService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
@@ -42,6 +47,10 @@ public class ApprovalController {
     FacultyRepository facultyRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    private MessageSource messages;
+    @Autowired
+    private JavaMailSender mailSender;
 
     @RequestMapping(value = "akuapproval")
     public ModelAndView getAkuApproval() {
@@ -55,6 +64,33 @@ public class ApprovalController {
         mv.setViewName("/approval/grievance.jsp");
         return mv;
     }
+    @RequestMapping(value = "raisequery")
+    public ResponseEntity raiseQuery(@RequestParam("name") String name ,@RequestParam("email") String email,@RequestParam("phone") String phone ,@RequestParam("query") String query
+            ,@RequestParam("registration") String registration ) {
+
+
+        SimpleMailMessage emailObj = new SimpleMailMessage();
+        emailObj.setSubject("New Grievence Query Received");
+        emailObj.setText("Grievence details are \n" +
+                "Name:- " + name +
+                "Registration:- " + registration +
+                "Phone no :- " + phone +
+                "Email:- " + email +
+                "Query:- " + query
+        );
+        emailObj.setTo("vishal@keck.ac.in");
+        emailObj.setFrom("test@keck.ac.in");
+        try{
+            mailSender.send(emailObj);
+        }catch(Exception e){
+
+        }
+
+        return ResponseEntity.ok("<script>window.location.href='./grievance'</script>");
+    }
+
+
+
     @RequestMapping(value = "mandatorydisclosure")
     public ModelAndView getMandatoryDisclosure() {
         ModelAndView mv = new ModelAndView();

@@ -40,7 +40,7 @@
                   <div class="panel-heading"><i class="fa fa-sign-in"></i>Raise a Query </div>
                   <span></span>
                   <div class="panel-body">
-                    <form method="post" class="form form-horizontal" action="/raisequery">
+                    <form method="post" class="form form-horizontal" action="./raisequery">
                       <div class="input-group input-group-sm ">
                         <span></span>
                         <div class="row" style="margin:10px 10px 10px 0px;">
@@ -62,14 +62,14 @@
                         </div>
                         <div class="row" style="margin:10px 10px 10px 0px;">
                           <div class="col-sm-12"><input type="number" class="form-control"
-                                                        name="registrationNo" placeholder="Registration No"
+                                                        name="registration" placeholder="Registration No"
                                                         required="">
                           </div>
                         </div>
                         <div class="row" style="margin:10px 10px 10px 0px;">
                           <div class="col-sm-12"><textarea rows="6" cols="5"
                                                            class="form-control"
-                                                           name="message"
+                                                           name="query"
                                                            placeholder="Type your query here"
                                                            required=""></textarea></div>
                         </div>
@@ -123,4 +123,5 @@
     </div>
   </div>
 </div>
+
     <jsp:include page="/jsp/footer.jsp" />

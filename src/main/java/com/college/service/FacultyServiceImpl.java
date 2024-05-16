@@ -151,10 +151,7 @@ public class FacultyServiceImpl implements FacultyService {
         Map<Long, List<Map<String, String>>> facultyNamesMap = new HashMap<>();
         List<Faculty> faculties = facultyRepository.getFacultiesName();
         for (Faculty f : faculties) {
-            String deptId = "";
-            if (f.getDepartmentId() != null) {
-                deptId = f.getDepartmentId().toString();
-            }
+
 
             List<Map<String, String>> facultyNames = null;
             if (facultyNamesMap.get(f.getDepartmentId()) == null) {

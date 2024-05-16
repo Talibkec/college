@@ -72,13 +72,13 @@ public class ApprovalController {
         SimpleMailMessage emailObj = new SimpleMailMessage();
         emailObj.setSubject("New Grievence Query Received");
         emailObj.setText("Grievence details are \n" +
-                "Name:- " + name +
-                "Registration:- " + registration +
-                "Phone no :- " + phone +
+                "\nName:- " + name +
+                "\nRegistration:- " + registration +
+                "\nPhone no :- " + phone +
                 "Email:- " + email +
-                "Query:- " + query
+                "\nQuery:-\n " + query
         );
-        emailObj.setTo("vishal@keck.ac.in");
+        emailObj.setTo("principal@keck.ac.in");
         emailObj.setFrom("test@keck.ac.in");
         try{
             mailSender.send(emailObj);

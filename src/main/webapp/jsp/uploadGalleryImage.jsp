@@ -10,8 +10,11 @@
     <div class="col-sm-8">
         <input type="text" name="caption" id="caption"/><br/><br/>
     </div>
-      <label for="file" claAss="control-label col-sm-4" >Choose File</label>
-    <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="galleryImage" id="galleryImage"/><br/></div></div>
+      <label for="file" class="control-label col-sm-4" >Choose File</label>
+    <div class=" btn-default  col-md-8" style="color:red">
+    <input type="file" name="galleryImage" id="galleryImage"/>
+    </div>
+    </div>
     <div id="msg" style="display: none; color: red;">*Please Select a file</div>
     <input type="submit" value="Submit" id="gallerybtnSubmit" class="btn btn-primary" /><div class="col-sm-5"></div></div>
 </form>

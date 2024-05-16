@@ -51,6 +51,13 @@ public class AchievementImageSlider {
         return new ResponseEntity(new HttpHeaders(), HttpStatus.OK);
 
     }
+    @ResponseBody
+    @RequestMapping(value = "/auth/uploadfile/uploadgalleryimage", method = RequestMethod.GET)
+    public ModelAndView getUploadGalleryPage() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("uploadGalleryImage.jsp");
+        return mv;
+    }
 
     private void saveAchievementImage(MultipartFile uploadfile, String caption, String fileName, String fileType) {
         AchievementDTO achievementDTO= new AchievementDTO();

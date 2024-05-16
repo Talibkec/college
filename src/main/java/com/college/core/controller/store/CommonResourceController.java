@@ -149,6 +149,8 @@ public class CommonResourceController {
         return facultyNames;
     }
 
+
+
     @ResponseBody
     @RequestMapping(value = "/common/store/sm/searchFacultyName", method = RequestMethod.GET)
     public String searchFacultyByName(@RequestParam("facultyName") String facultyNames, Model model) {

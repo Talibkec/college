@@ -191,8 +191,15 @@
                                                     <span class="label label-danger"><a href="<c:url value='/auth/delNotice/${notice.id}'/>">Delete</a></span>
                                                  </c:if>
                                                 </c:forEach>
-
-                                                     <a onclick="gotoNotice('notice/${notice.id}' , '${notice.link}')" target="_blank">${notice.headLine} </a>
+                                                     <style>
+                                                     .underline {
+                                                         text-decoration: underline;
+                                                     }
+                                                     .underline:hover {
+                                                        color: blue;
+                                                     }
+                                                     </style>
+                                                     <a onclick="gotoNotice('notice/${notice.id}' , '${notice.link}')" target="_blank" class="underline">${notice.headLine} </a>
 
                                                      <script>
                                                      function gotoNotice(id , link){

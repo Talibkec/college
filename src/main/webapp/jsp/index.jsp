@@ -194,6 +194,7 @@
                                                      <style>
                                                      .underline {
                                                          text-decoration: underline;
+                                                         cursor: pointer;
                                                      }
                                                      .underline:hover {
                                                         color: blue;

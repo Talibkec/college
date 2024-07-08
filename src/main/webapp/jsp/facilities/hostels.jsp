@@ -1,8 +1,8 @@
 <jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
-    <div class="container">
+<div class="jumbotron flex justify-center w-full">
+    <div class="">
         <div class="row">
 
 </div>
@@ -11,8 +11,8 @@
 <div class="container">
 
 
-    <div class="row">
-       <aside class="col-sm-3" role="complementary">
+    <div class="md:flex justify-center">
+       <aside class="col-sm-3" role="complementary"  style="">
                                                             <div class="region region-sidebar-second">
                                                   <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -38,7 +38,7 @@
                                                     </div>
                                                         </aside>
 
-        <div class="col-md-8">
+        <div class="col-md-8 p-3"  style="">
 
             <div class="page-content">
 

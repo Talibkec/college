@@ -4,9 +4,7 @@
 <%@ page import="org.springframework.http.converter.json.GsonBuilderUtils" %>
 <jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="jumbotron" style="
-"padding-top: 24px; padding-bottom: 24px;
-"></div>
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
 <%!
     String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)" ,  "Food Processing"};
     String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp", "ecesidebar.jsp" , "fpsidebar.jsp"};
@@ -19,10 +17,10 @@
 
 %>
 <div class="container">
-    <c:set var="sidebarname" value='<%="/jsp/department/sidebars/" + sidebarList[depIndex] %>'/>
-    <jsp:include page="${sidebarname}"/>
-    <div class="row" style="display:block">
-        <div class="col-md-8">
+    
+    <div class="md:flex justify-center" >
+       
+        <div class="col-md-8 p-3"  style="min-width: 500px;">
             <div class="page-content"><h2>Faculty Members </h2></div>
             <hr/>
             <c:if test="${userType == 2}">
@@ -37,21 +35,21 @@
             </c:if>
             <% int hod = 1; %>
             <c:forEach items="${facultyList}" var="faculty">
-                <div class="panel panel-default">
+                <div class="panel panel-default w-full" >
                     <div class="panel-heading faculty-title"><b> ${faculty.facultyName} </b><% if (hod == 1) {
                         out.write(" ( HOD  " + branchName + " )");
                         hod = 0;
                     } %></div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-3 box-profile-image"><img alt=""
+                    <div class="panel-body border-2 border-grey-700">
+                        <div class="flex">
+                            <div class="p-2 box-profile-image"><img alt=""
                                                                          height="125px"
                                                                          width="125px"
                                                                          src="${faculty.imageURL}"
                                                                          style="background-image: url(rps.JPG)"/>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-6 box-profile-info"><strong>Department:</strong>
+                            <div class="p-2"><strong>Department:</strong>
                                 <%=branchName%>
 
                                 <br/> <strong>Designation:</strong> Assistant Professor<br/> <strong>Phone
@@ -60,7 +58,7 @@
                                         href="mailto:${faculty.facultyOfficialEmail}">${faculty.facultyOfficialEmail}</a>
                                 <div class="visible-xs"><br/></div>
                             </div>
-                            <div class="col-sm-3 box-profile-link"><a
+                            <div class="p-1"><a
                                     href="/facultyDetails?facultyId=${faculty.facultyId}"
                                     class="btn btn-default btn-lg"> <br
                                     class="hidden-xs"/> <i class="fa fa-link"></i> Visit<br class="hidden-xs"/>

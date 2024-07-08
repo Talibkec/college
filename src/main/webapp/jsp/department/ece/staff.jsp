@@ -10,7 +10,7 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/ecesidebar.jsp"/><div><p><strong>Updated Soon &#8230</strong></p></div>
+            <jsp:include page="sidebar.jsp"/><div><p><strong>Updated Soon &#8230</strong></p></div>
         </div>
     </div>
 

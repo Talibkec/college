@@ -2,15 +2,15 @@
 
 
 
-    <div class="container">
+    <div class="flex justify-center w-full">
         <div class="row">
-            <div class="col-md-10 col-sm-8"><h3>Computer Centre</h3></div>
+            <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Computer Centre</h3></div>
 
     </div>
 </div>
 <div class="container">
-    <div class="row">
-       <aside class="col-sm-3" role="complementary">
+    <div class="md:flex justify-center">
+       <aside class="col-sm-3" role="complementary"  style="">
                                                             <div class="region region-sidebar-second">
                                                   <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -35,7 +35,7 @@
                                                   </section>
                                                     </div>
                                                         </aside>
-        <div class="col-md-8"><img alt="Central Library" src="../wp-content/uploads/2018/img3.JPG"
+        <div class="col-md-8 p-3"  style=""><img alt="Central Library" src="../wp-content/uploads/2018/img3.JPG"
                                                                  class="img-responsive" style="margin: 25px 0; width: 800px"/>
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                 <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><span

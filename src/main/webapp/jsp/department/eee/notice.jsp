@@ -11,9 +11,9 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/eeesidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
             <div class="row">
-                                                            <div class="col-sm-8">
+                                                            <div class="col-md-8">
                                                                 <c:forEach items="${noticeList}" var="notice">
 
                                                                     <div class="post-entry panel panel-default">

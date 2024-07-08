@@ -11,7 +11,7 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/ecesidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><center><strong>VISION
                     OF THE DEPARTMENT</strong></center></p>

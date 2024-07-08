@@ -11,8 +11,8 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/ecesidebar.jsp"/>
-            <div class="row">
+            <jsp:include page="sidebar.jsp"/>
+            <div class="col-md-8">
                                                             <div class="col-sm-8">
                                                                 <c:forEach items="${noticeList}" var="notice">
 

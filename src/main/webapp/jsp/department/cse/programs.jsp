@@ -8,10 +8,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <jsp:include page="../sidebars/csesidebar.jsp"/>
+    <div class="row">
+        <jsp:include page="sidebar.jsp"/>
 
-            <div><p><strong>Updated Soon &#8230</strong></p></div>
+            <div class="col-md-8"><p><strong>Updated Soon &#8230</strong></p></div>
         </div>
     </div>
 <jsp:include page="/jsp/footer.jsp"/>

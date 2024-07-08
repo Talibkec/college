@@ -1,6 +1,6 @@
 <jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
+        <div class="flex justify-center">
             <div class="row">
 
             </div>
@@ -8,9 +8,9 @@
     </div>
     <div class="container">
 
-        <div class="row">
-            <jsp:include page="../sidebars/cesidebar.jsp"/>
-            <div class="col-md-8">
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
+            <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div id="pl-482" class="panel-layout">
                         <div id="pg-482-0" class="panel-grid panel-no-style">

@@ -119,6 +119,28 @@ public class UserController {
         return modelAndView;
     }
 
+    @RequestMapping(value = {"/2", "/welcome2"}, method = RequestMethod.GET)
+    public ModelAndView welcome2(Model model ) {
+        ModelAndView modelAndView = new ModelAndView();
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<ImageSlideDTO> imageList = imageSlideService.getAllImages();
+
+        List<AchievementDTO> achievementImageList = achievementSlideService.getAllImages();
+        modelAndView.addObject("achievementImageList", getAllAchievementImage(achievementImageList));
+        modelAndView.addObject("imageList", getImageList(imageList));
+        ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
+        modelAndView.addObject("noticeList", getNoticeList(list, false));
+        modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
+        modelAndView.addObject("Role", ControllerUtility.getRole());
+        if (imageSlideDTO.getFileType() != null)
+            modelAndView.addObject("fileExtension", "." + imageSlideDTO.getFileType());
+        modelAndView.addObject("imageSlideId", imageSlideDTO.getImageSlideId());
+        modelAndView.addObject("caption", imageSlideDTO.getCaption());
+
+        modelAndView.setViewName("index2.jsp");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "forgotPassword", method = RequestMethod.GET)
     public ModelAndView forgotPassword() {
         ModelAndView modelAndView = new ModelAndView();

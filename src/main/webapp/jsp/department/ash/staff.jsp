@@ -14,7 +14,7 @@
             <li class="active">Staff of Applied Science and Humanities</li>
         </ul>
         <div class="row">
-            <jsp:include page="../sidebars/ashsidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
             <div><p><strong>No Staffs here.</strong></p></div>
         </div>
     </div>

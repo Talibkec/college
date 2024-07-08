@@ -6,21 +6,21 @@
         padding: 10px !important;
     }
 </style>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-    <div class="container">
+<div class="jumbotron flex justify-center w-full" style="">
+    <div class="">
         <div class="row">
-            <div class="col-md-10 col-sm-8"><h3>Administrative Responsibility </h3></div>
+            <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Administrative Responsibility </h3></div>
 
         </div>
     </div>
 </div>
-<div class="container">
+<div class="p-5 ">
     <div class="row">
 
 
         <div class="col-md-12">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <h3 data-animation="wobble" data-animation-delay="0s"> Responsibility Docs</h3>
+                <h3 data-animation="wobble" data-animation-delay="0s" class="text-2xl"> Responsibility Docs</h3>
                 <div data-animation="bounceInDown" data-animation-delay="0s">
                     <table style="width: 100%; padding: 10px;">
                         <tbody>

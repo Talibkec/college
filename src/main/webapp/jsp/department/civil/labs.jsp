@@ -1,15 +1,15 @@
 <jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+<div class="jumbotron flex justify-center">
 
-    <div class="container">
+    <div class="">
         <ul class="breadcrumb" style="background: none">
-            <
+            
         </ul>
-        <div class="row">
-            <jsp:include page="../sidebars/cesidebar.jsp"/>
-            <div class="col-md-8">
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
+            <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div data-animation="bounceInUp" data-animation-delay="0s"><strong>The department has the following laboratories which provide practical instruction to undergraduate students </strong></p>
                         <ul>
@@ -46,4 +46,6 @@
             </div>
         </div>
     </div>
+    </div>
+    
 <jsp:include page="/jsp/footer.jsp"/>

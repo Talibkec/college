@@ -8,12 +8,12 @@
             background-color:#ccccccad !Important
             }
 </style>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-   <div style="margin-left:80px"><h3> Admin Login</h3></div>
+<div class="jumbotron flex justify-center">
+   <div><h3 class="text-2xl"> Admin Login</h3></div>
    </div>
-   <div class="container"><br/><br/>
-       <div class="row">
-           <div class="col-sm-offset-4 col-sm-4">
+   <div class="">
+       <div class="flex justify-center">
+           <div class="col-sm-offset-4 col-sm-4 border-2 border-gray-800 p-5">
                <div class="panel panel-default">
                     <div class="panel-heading"><i class="fa fa-sign-in"></i> Admin Login</div>
                         <span>${param.message}</span>
@@ -22,11 +22,11 @@
                                     <div class="input-group input-group-sm ${error != null ? 'has-error' : ''}">
                                          <span>${message}</span>
                                             <div class="row" style="margin:10px 10px 10px 0px;">
-                                            <div class="col-sm-12"><input type="text" class="form-control" name="username" placeholder="Username" autofocus="true"required>
+                                            <div class="col-sm-12"><input type="text" class="w-full" name="username" placeholder="Username" autofocus="true"required>
                                        </div>
                                     </div>
                                     <div class="row" style="margin:10px 10px 10px 0px;">
-                                    <div class="col-sm-12"><input type="password" class="form-control" name="password"
+                                    <div class="col-sm-12"><input type="password" class="w-full" name="password"
                                                              placeholder="Password" required></div>
                                      </div>
 
@@ -58,7 +58,7 @@
         </div>
         </div>
         </div>
-    <div class="modal fade" id="modalInfo">
+    <div class="flex justify-center hidden" id="modalInfo">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header"><h4 class="modal-title">Information!</h4></div>

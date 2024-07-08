@@ -4,16 +4,16 @@
     display: initial;
   }
 </style>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-  <div class="container">
+<div class="jumbotron flex justify-center">
+  <div class="">
     <div class="row">
-      <div class="col-md-10 col-sm-8"><h3>Grievance</h3></div>
+      <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Grievance</h3></div>
 
     </div>
 
     <div class="container">
-      <div class="row">
-        <aside class="col-sm-3" role="complementary">
+      <div class="md:flex justify-center">
+        <aside class="col-sm-3" role="complementary"  style="">
           <div class="region region-sidebar-second">
             <section id="block-menu-block-3" class="block block-menu-block clearfix">
               <h2 class="block-title">Approval</h2>
@@ -29,8 +29,8 @@
           </div>
         </aside>
 
-
-        <div class="col-sm-9">
+ 
+        <div class="col-sm-9 p-3"  style="">
 
 
           <div class="container"><br><br>

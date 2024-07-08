@@ -10,8 +10,8 @@
     </div>
     <div class="container">
 
-        <div class="row">
-            <jsp:include page="../sidebars/eeesidebar.jsp"/>
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><center><strong>VISION
                     OF THE DEPARTMENT</strong></center></p>

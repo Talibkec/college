@@ -1,18 +1,18 @@
 <jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>College Administration</h3></div>
+<div class="jumbotron flex justify-center w-full">
+        <div class="">
+            <div class="">
+                <div class=""><h3 class="text-2xl" >College Administration</h3></div>
 
             </div>
         </div>
    </div>
-    <div class="container">
+    <div class="w-full flex justify-center">
         <a href="administration.html"><i class="fa fa-home"></i> Home</a>
         </ul>
-        <div class="row">
+        <div class="m-2 p-3 ">
             <aside class="col-sm-3" role="complementary">
                                              <div class="region region-sidebar-second">
                                    <section id="block-menu-block-3" class="block block-menu-block clearfix">

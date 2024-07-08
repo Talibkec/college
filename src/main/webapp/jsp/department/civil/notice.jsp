@@ -2,12 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 
-    <div class="container">
+    <div class="">
 
-        <div class="row">
-            <jsp:include page="../sidebars/cesidebar.jsp"/>
-            <div class="row">
-                                                <div class="col-sm-8">
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
+            
+                                                <div class="col-sm-8  p-3"  style="">
                                                     <c:forEach items="${noticeList}" var="notice">
 
                                                         <div class="post-entry panel panel-default">
@@ -32,7 +32,7 @@
                                                      </li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            
             </div>
         </div>
     </div>

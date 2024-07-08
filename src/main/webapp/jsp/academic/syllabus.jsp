@@ -1,15 +1,15 @@
 <jsp:include page="/jsp/header.jsp"/>
- <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
+ <div class="jumbotron flex justify-center w-full" style="">
+        <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Syllabus</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Syllabus</h3></div>
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="">
 
-        <div class="row">
-             <aside class="col-sm-3" role="complementary">
+        <div class="md:flex justify-center">
+             <aside class="col-sm-3" role="complementary"  style="">
                                                                              <div class="region region-sidebar-second">
                                                                    <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -35,7 +35,7 @@
                                                                      </div>
                                                                          </aside>
 
-            <div class="col-md-8">
+            <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><code></p>
                     <li>New Course Curriculum for Engineering & Technology for 1st & 2nd Semester based on AICTE Model Cirriculum to be followed from Session 2018-19 onwards <a href="http://akubihar.ac.in/Academics/Docs/NEW_CURRICULUM_ENGINEERING_TECHNOLOGY.pdf"
                                                                                                                                                                                  rel="attachment wp-att-2593"> Download</a><br/></li>

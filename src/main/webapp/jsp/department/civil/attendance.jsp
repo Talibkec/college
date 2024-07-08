@@ -2,7 +2,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Attendance</h3></div>
+                
                 <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
                         style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
                         </i> </span> <a
@@ -17,9 +17,9 @@
     </div>
     <div class="container">
 
-        <div class="row">
-            <jsp:include page="../sidebars/cesidebar.jsp"/>
-            <div><p><strong>Updated Soon &#8230</strong></p></div>
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
+            <div class="col-md-8"><p><strong>Updated Soon &#8230</strong></p></div>
         </div>
     </div>
 

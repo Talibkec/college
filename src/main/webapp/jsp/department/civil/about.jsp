@@ -28,7 +28,7 @@
 
 
 
- <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+ <div class="jumbotron flex justify-center">
          <div class="container">
              <div class="row">
 
@@ -80,24 +80,17 @@
      </div>
      <div class="container">
 
-        <h3>About Civil Engg.</h3>
-
-
-         <ul class="breadcrumb" style="background: none">
-             <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-             <li class="active">About Civil Engg.</li>
-
-         </ul>
+        
 
 
 
-         <div class="row">
+         <div class="md:flex justify-center ">
 
 
 
-             <jsp:include page="../sidebars/cesidebar.jsp"/>
+             <jsp:include page="sidebar.jsp"/>
 
-                         <div class="col-md-9">
+                         <div class="col-md-8 p-3"  style="">
                              <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
 
                              <div>

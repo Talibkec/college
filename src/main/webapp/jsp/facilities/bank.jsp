@@ -1,16 +1,16 @@
 <jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-    <div class="container">
+<div class="jumbotron flex justify-center w-full">
+    <div class="">
         <div class="row">
-            <div class="col-md-10 col-sm-8"><h3>Banks</h3></div>
+            <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Banks</h3></div>
 
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="md:flex justify-center">
         <!--<div class="col-md-4">
             <ul class="list-group page-menu">
                 <li class="list-group-item" style="background: #eee; font-size: 20px;">Facilities and Services</li>
@@ -34,7 +34,7 @@
                         class="fa fa-angle-double-right"></i> Startup Cell</a></li>
             </ul>
         </div>-->
-        <aside class="col-sm-3" role="complementary">
+        <aside class="col-sm-3" role="complementary"  style="">
                                                      <div class="region region-sidebar-second">
                                            <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -59,7 +59,7 @@
                                            </section>
                                              </div>
                                                  </aside>
-        <div class="col-md-8">
+        <div class="col-md-8"  style="">
                                                     <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; ">
                                                         <p>
                                                             <table border="1" width="500">

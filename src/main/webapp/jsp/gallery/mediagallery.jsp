@@ -2,14 +2,6 @@
 <jsp:include page="/jsp/header.jsp" />
 
 
-<head>
-	<title>gallery demo</title>
-
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.js"></script>
-
-</head>
    <style>
    	@import url("https://fonts.googleapis.com/css?family=Oswald:300|Roboto:300&display=swap");
 
@@ -120,13 +112,6 @@
      * Page Layout
      */
     html, body { height: 100%; }
-
-    main {
-      min-height: 100vh;
-      margin: 0 auto;
-      max-width: 1200px;
-      padding: 0 1.5em;
-    }
 
     /**
      * Post List Layout

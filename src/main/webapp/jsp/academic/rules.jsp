@@ -1,16 +1,16 @@
 <jsp:include page="/jsp/header.jsp"/>
 
- <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
+ <div class="jumbotron flex justify-center w-full" style="">
+        <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Disciplinary Rules</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Disciplinary Rules</h3></div>
             </div>
         </div>
     </div>
     <div class="container">
 
-        <div class="row">
-             <aside class="col-sm-3" role="complementary">
+        <div class="md:flex justify-center">
+             <aside class="col-sm-3" role="complementary"  style="">
                                                                              <div class="region region-sidebar-second">
                                                                    <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -36,7 +36,7 @@
                                                                      </div>
                                                                          </aside>
 
-          <div><p><strong>Updated Soon &#8230</strong></p></div>
+          <div class="p-3" style=""><p><strong>Updated Soon &#8230</strong></p></div>
         </div>
     </div>
 <jsp:include page="/jsp/footer.jsp"/>

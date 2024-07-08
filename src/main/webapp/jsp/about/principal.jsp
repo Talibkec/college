@@ -1,19 +1,19 @@
 <jsp:include page="/jsp/header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
+<div class="jumbotron w-full flex justify-center" >
+        <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Principal&#8217;s Message</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Principal&#8217;s Message</h3></div>
 
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class=" ">
 
-            <a href="/"><i class="fa fa-home"></i> Home</a>
+    
 
 
-        <div class="row">
-            <aside class="col-sm-3" role="complementary">
+        <div class="md:flex justify-center">
+            <aside class="col-sm-3" role="complementary" style="">
                                                         <div class="region region-sidebar-second">
                                               <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -35,9 +35,9 @@
                                                 </div>
                                                     </aside>
 
-            <div class="col-md-8">
+            <div class="col-md-8"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p
-                        style="text-align: center;"><strong>Principal&#8217;s Message</strong></p>
+                        style="text-align: center;"><strong></strong></p>
                     <div style="font-family: Georgia, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
                         <div style="float: left;"><img class=" wp-image-81 alignleft"
                                                        style="border-radius: 50%; background-image: url('/11/image${fileExtension}'); background-position: center center; background-size: cover; width: 202px; height: 202px; margin: 20px;"

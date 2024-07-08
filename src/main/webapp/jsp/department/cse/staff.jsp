@@ -11,7 +11,7 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/csesidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
             <div><p><strong>No Staffs here.</strong></p></div>
         </div>
     </div>

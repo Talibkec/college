@@ -1,19 +1,19 @@
 <jsp:include page="/jsp/header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
+<div class="jumbotron flex justify-center w-full">
+        <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Vision and Mission</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Vision and Mission</h3></div>
 
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="">
 
-            <a href="/"><i class="fa fa-home"></i> Home</a>
+           
 
-        </ul>
-        <div class="row">
-             <aside class="col-sm-3" role="complementary">
+        
+        <div class="row md:flex justify-center">
+             <aside class="col-sm-3" role="complementary" style="max-width:280px;">
                                                          <div class="region region-sidebar-second">
                                                <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
@@ -35,7 +35,7 @@
                                                  </div>
                                                      </aside>
 
-            <div class="col-md-8">
+            <div class="col-md-8" style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div id="pl-482" class="panel-layout">
                         <div id="pg-482-0" class="panel-grid panel-no-style">

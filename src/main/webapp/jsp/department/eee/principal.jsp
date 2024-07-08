@@ -12,7 +12,7 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/eeesidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
 
            <div class="col-md-8">
             <c:forEach var="item" items="${Role}">

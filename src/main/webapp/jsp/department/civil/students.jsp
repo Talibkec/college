@@ -1,14 +1,11 @@
 <jsp:include page="/jsp/header.jsp"/>
 
- <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+
 
     <div class="container">
 
-        <div class="row">
-            <jsp:include page="../sidebars/cesidebar.jsp"/>
-                                      </div>
-                                          </aside>
-            <div><p>Updated Soon.....</p></div>
-        </div>
-    </div>
+        <div class="md:flex justify-center">
+            <jsp:include page="sidebar.jsp"/>
+            <div class="col-md-8 p-3"  style=""><p><strong>Updated Soon &#8230</strong></p></div>
+    </div></div>
 <jsp:include page="/jsp/footer.jsp"/>

@@ -1,15 +1,15 @@
 <jsp:include page="/jsp/header.jsp"/>
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-    <div class="container">
+<div class="jumbotron flex justify-center">
+    <div class="">
         <div class="row">
-            <div class="col-md-10 col-sm-8"><h3>RTI Application Form</h3></div>
+            <div class="col-md-10 col-sm-8"><h3 class="text-2xl">RTI Application Form</h3></div>
         </div>
     </div>
 </div>
 <div class="container">
-    <div class="row">
- <aside class="col-sm-3" role="complementary">
+    <div class="md:flex justify-center">
+ <aside class="col-sm-3" role="complementary"  style="">
                         <div class="region region-sidebar-second">
                           <section id="block-menu-block-3" class="block block-menu-block clearfix">
                              <h2 class="block-title">Right To Information</h2>
@@ -23,8 +23,8 @@
                             </div>
                           </section>
                           </div>
-                       </aside>        <div class="col-md-8">
-            <div class="col-md-8">
+                       </aside>       
+            <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
 
                     <div>

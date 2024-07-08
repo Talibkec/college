@@ -1,5 +1,5 @@
-<aside class="col-sm-3" role="complementary">
-  <div class="region region-sidebar-second">
+<aside class="col-sm-3" role="complementary"  style="">
+  <div class="region region-sidebar-second">  
     <section id="block-menu-block-3" class="block block-menu-block clearfix">
 
       <h2 class="block-title">In the Department of Mechanical Engg.</h2>

@@ -38,9 +38,9 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/ashsidebar.jsp"/>
+            <jsp:include page="sidebar.jsp"/>
 
-           <div class="col-md-6">
+           <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
                         <div id="ctl00_ContentPlaceHolder1_div_1"><p><strong>INTRODUCTION</strong></p>This department

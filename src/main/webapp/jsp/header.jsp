@@ -207,6 +207,12 @@
                     }
                          
                 }
+
+                li:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                  
+                }
               </style>
               <div role="navigation" class="mobile">
 
@@ -264,50 +270,54 @@
 
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/category/department" class="sf-depth-1 menuparent">Departments  &#9660;</a>
-                        <ul class="submenu">
-                          <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/category/department" class="sf-depth-2">Under Graduate</a>
 
-                            <ul class="submenu2">
-                              <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
+                        <div class="submenu">
+                        <div class=" flex">
+
+
+
+
+                          <ul class="">
+
+                            <li>Under Graduates</li>
+                            <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                              href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
+                              <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a>
                                 <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                  href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a>
-                                  <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                    href="/department/mechandsmartmanufacturing/about" class="sf-depth-2">Mechanical and Smart Manufacturing</a>
-      
+                                  href="/department/mechandsmartmanufacturing/about" class="sf-depth-2">Mechanical and Smart Manufacturing</a>
     
-                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                  href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
-                                  and Technology) </a></li>
-                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                  href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
-                              <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                  href="/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics
-                                  Engg.</a></li>
-                              <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                  href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
-                              <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                  href="/department/fp/about" class="sf-depth-2">Food Processing</a></li>
+  
+                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
+                                and Technology) </a></li>
+                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
+                            <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                href="/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics
+                                Engg.</a></li>
+                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
+                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                href="/department/fp/about" class="sf-depth-2">Food Processing</a></li>
 
-                            </ul>
+                          </ul>
 
-                          </li>
-                          <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                              href="/department/civil/about" class="sf-depth-2">Post Graduate</a>
+                          <ul class="">
+                            <li>Post Graduates</li>
+                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
+                                and Technology) </a></li>
+                        
+                                <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                  href="/department/manufacturing/about" class="sf-depth-2">Manufacturing Engineering</a></li>
 
+                          </ul>
 
-                            <ul class="submenu2">
-                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                  href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
-                                  and Technology) </a></li>
-                          
-                                  <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                    href="/department/manufacturing/about" class="sf-depth-2">Manufacturing Engineering</a></li>
+                        
 
-                            </ul>
-                          </li>
-                        </ul>
+                        </div>
+                      </div>
                       </li>
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/facilities/csecenter" class="sf-depth-1 menuparent">Facilities  &#9660; </a>

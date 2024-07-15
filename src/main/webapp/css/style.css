@@ -263,7 +263,7 @@ justify-content: center; align-items: center; width: 100%; height: 200px; vertic
 .gt-newsblocksection  .morelink a{ font-size:16px; display:inline-block; line-height:22px; padding-right:16px; background: url(/images/images/icon-arrow-right-more.gif) no-repeat right 6px; margin-left:35px; color:#333333;  }
 .gt-newsblocksection  .morelink a:hover{color:#16acc1; text-decoration:none;}
 
-.gtmaincontenthome{ width:100%; clear:both; overflow:hidden; background: url(/images/main-content-bg.png) no-repeat top center; background-size:cover; padding:40px 0; }
+.gtmaincontenthome{ width:100%; clear:both; overflow:hidden;background-blend-mode: lighten; background: url(/images/college.webp) no-repeat top center; background-size:cover; padding:40px 0; }
 
 .page-header{border-bottom:0; font-weight:normal; padding:12px 0 6px 14px; background: url(/images/title-bg.png) no-repeat top left;  border-bottom:3px solid #003f87; color:#003f87; margin-bottom:35px; }
 

@@ -1,4 +1,4 @@
-<jsp:include page="header2.jsp"/>
+<jsp:include page="header.jsp"/>
 
   
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -358,46 +358,53 @@
 
 <style>
     .gtmaincontenthome {
-        width: 100%;
+    width: 100%;
     clear: both;
     overflow: hidden;
-    background: url(/images/main-content-bg.png) no-repeat top center;
+    background: url(/images/college.webp) no-repeat top center;
     background-size: cover;
     padding: 40px 0;
     }
 </style>
-<div class="gtmaincontenthome">
-    <div class="">
-        <div class="row">
-            <div class="p-5">
-                <a id="main-content"></a>
-                <h1 class="p-5 text-3xl" style="color: rgb(34, 34, 34);">About KEC</h1>
 
-                <div class="region region-content">
-                    <section id="block-system-main" class="block block-system clearfix">
-
-
-                        <article id="node-1" class="node node-page clearfix" about="/home" typeof="foaf:Document">
-                            <header>
-                                <span property="dc:title" content="About Us" class="rdf-meta element-hidden"></span>
-                            </header>
-                            <div class="field field-name-body field-type-text-with-summary field-label-hidden">
-                                <div class="field-items">
-                                    <div class="field-item even" property="content:encoded"><p style="padding: 40px;"><strong>Katihar Engineering College (KEC), Katihar </strong>with the advent of technology and the emergence of notable education in our society, had decided to adapt the prevailing need of light. In the mission to achieve the eminence in the field, the establishment of Katihar Engineering College was laid in the year 2016. The college is enriched with a pollyannaish environment, highly motivated and enthusiastic students guided by well qualified professional from different prestigious colleges of our country. The college was established with three branches- Civil Engineering, Mechanical Engineering and Computer Science and Engineering. Each branch has a number of renowned professors with high qualifications and experience in teaching or their respective industries. The college consists of a central library, Computer Labs, Training and Placement Cell, Programmer's Club etc, with the exceptional support staffs and infrastructure. All the labs and other infrastructure is in highly conditional states serving at their best to provide the best facilities to all the members of the college. Student of the college have exhibited their skill at different platform and gathered many awards from premium institutes. It is situated 3 km from Katihar Railway Station and there is a good transportation facility available from there. Currently, the own campus for the college is under-construction in Hajipur, Katihar near NH 31. It is expected to complete soon.<a href="/about/history">more</a>...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                    </section>
+<div class="md:flex justify-between p-5 m-5">
+    <div class="gtmaincontenthome basis-1/2"  style="min-width:50%">
+        <div class="">
+            <div class="row">
+                
+                <div class="col-sm-6">
+                    &nbsp;
                 </div>
-            </div>
-            <div class="col-sm-6">
-                &nbsp;
             </div>
         </div>
     </div>
+
+
+    <div class="p-5 basis-1/2" style="min-width:50%">
+        <a id="main-content"></a>
+        <h1 class="p-5 text-3xl" style="color: rgb(34, 34, 34);">About KEC</h1>
+
+        <div class="region region-content">
+            <section id="block-system-main" class="block block-system clearfix">
+
+
+                <article id="node-1" class="node node-page clearfix" about="/home" typeof="foaf:Document">
+                    <header>
+                        <span property="dc:title" content="About Us" class="rdf-meta element-hidden"></span>
+                    </header>
+                    <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                        <div class="field-items">
+                            <div class="field-item even" property="content:encoded"><p style="padding: 40px;"><strong>Katihar Engineering College (KEC), Katihar </strong>with the advent of technology and the emergence of notable education in our society, had decided to adapt the prevailing need of light. In the mission to achieve the eminence in the field, the establishment of Katihar Engineering College was laid in the year 2016. The college is enriched with a pollyannaish environment, highly motivated and enthusiastic students guided by well qualified professional from different prestigious colleges of our country. The college was established with three branches- Civil Engineering, Mechanical Engineering and Computer Science and Engineering. Each branch has a number of renowned professors with high qualifications and experience in teaching or their respective industries. The college consists of a central library, Computer Labs, Training and Placement Cell, Programmer's Club etc, with the exceptional support staffs and infrastructure. All the labs and other infrastructure is in highly conditional states serving at their best to provide the best facilities to all the members of the college. Student of the college have exhibited their skill at different platform and gathered many awards from premium institutes. It is situated 3 km from Katihar Railway Station and there is a good transportation facility available from there. Currently, the own campus for the college is under-construction in Hajipur, Katihar near NH 31. It is expected to complete soon.<a href="/about/history">more</a>...</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </div>
 </div>
+
 
 
 

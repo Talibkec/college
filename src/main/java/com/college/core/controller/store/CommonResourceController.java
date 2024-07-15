@@ -385,7 +385,10 @@ public class CommonResourceController {
         int userType = 0;
         String hodName = departmentService.getHodName(deptno);
         //System.out.println(hodName);
-
+        //Changing the department no if it is 8
+        if(deptno == 8) {
+            deptno = 3L;
+        }
         if(Objects.equals(hodName, "")) {
 
             mv.setViewName("invalidDeptId.jsp");

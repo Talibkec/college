@@ -9,7 +9,7 @@
                     <li class="first leaf  menu-mlid-1154"><a href="/department/cse/about" class="sf-depth-2 active">About CSE</a></li>
                     <li class="leaf menu-mlid-1121"><a href="/department/cse/vision" class="sf-depth-2">Vision &amp; Mission</a></li>
                     <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=1" class="sf-depth-2">Faculty of CSE</a></li>
-                    <li class="leaf menu-mlid-1294"><a href="/department/cse/labs" class="sf-depth-2">Labs &amp; Infrastructure</a></li>
+                    <li class="leaf menu-mlid-1294"><a href="/academic/lab?dept_id=1" class="sf-depth-2">Labs &amp; Infrastructure</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/question" class="sf-depth-2">Question Bank</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/awards" class="sf-depth-2">awards &amp; Recognition</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/programs" class="sf-depth-2">Program Activities</a></li>

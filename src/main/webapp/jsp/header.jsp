@@ -279,7 +279,10 @@
                               href="/academic/regulations" class="sf-depth-2">Academic Regulations</a></li>
                           <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                               href="/academic/calender" class="sf-depth-2">Academic Calender</a></li>
-                          <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                              href="/academic/lab?id=1" class="sf-depth-2">CSE Labs</a></li>
+                           
+                              <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
                               href="/academic/holidays" title="" class="sf-depth-2">List of Holidays</a></li>
                           <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
                               href="/academic/attendance" class="sf-depth-2">Attendance</a></li>

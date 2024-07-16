@@ -9,7 +9,7 @@
                     <li class="first leaf  menu-mlid-1154"><a href="/department/ece/about" class="sf-depth-2 active">About Electronics Engineering (VLSI Design and Technology ) .</a></li>
                     <li class="leaf menu-mlid-1121"><a href="/department/ece/vision" class="sf-depth-2">Vision & Mission</a></li>
                     <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=4" class="sf-depth-2">Faculty of Electronics Engineering (VLSI Design and Technology ).</a></li>
-                    <li class="leaf menu-mlid-1294"><a href="/department/ece/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+                    <li class="leaf menu-mlid-1294"><a href="/academic/lab?dept_id=4" class="sf-depth-2">Labs & Infrastructure</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/ece/question" class="sf-depth-2">Question Bank</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/ece/awards" class="sf-depth-2">Awards & Recognition</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/ece/programs" class="sf-depth-2">Program Activities</a></li>

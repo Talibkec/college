@@ -19,7 +19,7 @@
 
     <div class="container">
 
-        <jsp:include page="../sidebars/fpsidebar.jsp"/>
+        <jsp:include page="fpsidebar.jsp"/>
 
                         <div class="row">
                                     <div class="col-sm-8">

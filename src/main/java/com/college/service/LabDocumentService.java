@@ -16,4 +16,6 @@ public interface LabDocumentService {
     void saveDownloadBoard(LabDocumentDTO responsibilityDocDTO);
 
     void deleteItem(Long id);
+
+    List<LabDocument> getAllLabDocByDepId(Integer deptId);
 }

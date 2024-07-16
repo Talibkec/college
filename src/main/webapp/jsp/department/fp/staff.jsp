@@ -11,7 +11,7 @@
     <div class="container">
 
         <div class="row">
-            <jsp:include page="../sidebars/fpsidebar.jsp"/>
+            <jsp:include page="fpsidebar.jsp"/>
             <div><p><strong>No Staffs here.</strong></p></div>
         </div>
     </div>

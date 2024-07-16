@@ -9,7 +9,7 @@
           <li class="first leaf  menu-mlid-1154"><a href="/department/civil/about" class="sf-depth-2 active">About Civil Engg.</a></li>
           <li class="leaf menu-mlid-1121"><a href="/department/civil/vision" class="sf-depth-2">Vision & Mission</a></li>
           <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=2" class="sf-depth-2">Faculty of Civil Engg.</a></li>
-          <li class="leaf menu-mlid-1294"><a href="/department/civil/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+          <li class="leaf menu-mlid-1294"><a href="/academic/lab?dept_id=2" class="sf-depth-2">Labs & Infrastructure</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/question" class="sf-depth-2">Question Bank</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/awards" class="sf-depth-2">awards & Recognition</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/programs" class="sf-depth-2">Program Activities</a></li>

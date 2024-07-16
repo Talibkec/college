@@ -10,7 +10,7 @@
     </div>
     <div class="container">
 
-        <jsp:include page="../sidebars/fpsidebar.jsp"/>
+        <jsp:include page="fpsidebar.jsp"/>
 
             <div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">

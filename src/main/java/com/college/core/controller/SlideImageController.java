@@ -187,7 +187,7 @@ public class SlideImageController {
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadLabDoc", method = RequestMethod.POST)
     public ResponseEntity<?> uploadLabDoc(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption ,@RequestParam("deptId") Integer depId , Authentication authentication) {
         logger.debug("Single lab file upload!");
         String fileName = uploadfile.getOriginalFilename();
         String fileType = uploadfile.getContentType();
@@ -203,20 +203,20 @@ public class SlideImageController {
 
 
         //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveLabDoc(uploadfile, caption, fileName, fileType , authentication);
+        saveLabDoc(uploadfile, caption , depId, fileName,  fileType , authentication);
         //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 
 
         return new ResponseEntity("Lab Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
 
     }
-    private void saveLabDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
+    private void saveLabDoc(MultipartFile uploadfile, String caption , Integer deptId, String fileName, String fileType , Authentication authentication) {
         if(!authentication.isAuthenticated()){
             return ;
         }
         LabDocumentDTO holidayDTO = new LabDocumentDTO();
         holidayDTO.setFileName(caption);
-
+        holidayDTO.setDepId(deptId);
         String username = authentication.getName();
         holidayDTO.setUploadedBy(authentication.getName());
         try {

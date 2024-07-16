@@ -9,7 +9,7 @@
           <li class="first leaf  menu-mlid-1154"><a href="/department/eee/about" class="sf-depth-2 active">About Electrical & Electronics Engg.</a></li>
           <li class="leaf menu-mlid-1121"><a href="/department/eee/vision" class="sf-depth-2">Vision & Mission</a></li>
           <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=4" class="sf-depth-2">Faculty of Electrical & Electronics Engg.</a></li>
-          <li class="leaf menu-mlid-1294"><a href="/department/eee/labs" class="sf-depth-2">Labs & Infrastructure</a></li>
+          <li class="leaf menu-mlid-1294"><a href="/academic/lab?dept_id=4" class="sf-depth-2">Labs & Infrastructure</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/question" class="sf-depth-2">Question Bank</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/awards" class="sf-depth-2">awards & Recognition</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/programs" class="sf-depth-2">Program Activities</a></li>

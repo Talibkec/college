@@ -32,9 +32,9 @@
 
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>About CSE</h3></div>
-                <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
+            <div class="md:flex justify-center">
+                <div class="col-md-8 col-sm-8"><h3>About Food Processing</h3></div>
+                <div class="col-md-8 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
                         style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
                         </i> </span> <a
                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-cse%2Fabout-cse%2F"
@@ -46,16 +46,16 @@
             </div>
         </div>
     </div>
-    <div class="container">
-       <jsp:include page="../sidebars/fpsidebar.jsp"/>
+    <div class="row">
+       <jsp:include page="sidebar.jsp"/>
 
-            <div class="col-sm-6">
+            <div class="col-sm-8" >
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
                         <div id="ctl00_ContentPlaceHolder1_div_1">
-
+                             Updated Soon
                            </div>
-                </div>
+               
             </div>
             <div class="heroCol col-sm-3">
             <div class="panel panel-default">
@@ -101,7 +101,7 @@
             </div>
             </div>
             </div>
-            </div>
+                </div>
         </div>
     </div>
 <jsp:include page="/jsp/footer.jsp"/>

@@ -10,7 +10,7 @@
             Engg.</a></li>
           <li class="leaf menu-mlid-1121"><a href="/department/mechanical/vision" class="sf-depth-2">Vision &amp; Mission</a></li>
           <li class="leaf menu-mlid-1156"><a href="/faculty?deptno=3" class="sf-depth-2">Faculty of Mechanical Engg.</a></li>
-          <li class="leaf menu-mlid-1294"><a href="/department/mechanical/labs" class="sf-depth-2">Labs &amp; Infrastructure</a></li>
+          <li class="leaf menu-mlid-1294"><a href="/academic/lab?dept_id=3" class="sf-depth-2">Labs &amp; Infrastructure</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/mechanical/question" class="sf-depth-2">Question Bank</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/mechanical/awards" class="sf-depth-2">awards &amp; Recognition</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/mechanical/programs" class="sf-depth-2">Program Activities</a></li>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Objects;
@@ -87,7 +88,7 @@ public class AcademicController {
 
 
     @RequestMapping(value = "lab")
-    public ModelAndView getLabDocuments(Authentication authentication) {
+    public ModelAndView getLabDocuments(@RequestParam("dept_id") Integer deptId, Authentication authentication) {
 
         boolean accessAllow = false;
         if(authentication != null){
@@ -106,7 +107,7 @@ public class AcademicController {
 
         System.out.println("in download method");
         ModelAndView mv = new ModelAndView();
-        List<LabDocument> allDocumentList = labDocumentService.getAllDownload();
+        List<LabDocument> allDocumentList = labDocumentService.getAllLabDocByDepId(deptId);
         mv.setViewName("academic/labs.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
         for (LabDocument download : allDocumentList) {

@@ -10,7 +10,7 @@
     </div>
     <div class="container">
 
-        <jsp:include page="../sidebars/fpsidebar.jsp"/>
+        <jsp:include page="fpsidebar.jsp"/>
 
             <div><p><strong>Updated Soon &#8230</strong></p></div>
         </div>

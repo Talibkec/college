@@ -25,7 +25,7 @@
       <meta name="dcterms.identifier" content="" />
 
       <link rel="stylesheet" href="/css/main.css">
-
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -213,6 +213,26 @@
                   text-decoration: underline;
                   
                 }
+                .heroCol {
+                      border: 1px solid grey;
+                      padding: 10px;
+                      margin: 10px;
+                  }
+                  #noticeBoardItems li {
+                     margin: 4px;
+                     background: #f1f1f1;
+                     padding: 6px;
+                  }
+                  .btn-default {
+                    color:white;
+                     background-color: #285690;
+                    padding: 8px;
+                    border-radius: 6px;
+                    width: 100% ;
+                  }
+                  .btn-default:hover {
+                    background-color: #062447;
+                  }
               </style>
               <div role="navigation" class="mobile">
 

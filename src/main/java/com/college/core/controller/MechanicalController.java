@@ -38,7 +38,7 @@ public class MechanicalController {
         mv.addObject("scrollingNoticeList", getNoticeList(mechNotices, true));
 
 
-        mv.setViewName("department/mechanical/mech.jsp");
+        mv.setViewName("department/mechanical/about.jsp");
         return mv;
     }
 

@@ -52,12 +52,12 @@
             </c:forEach>
 
 
-            <ul class=" nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab"
+            <ul class=" nav nav-tabs flex justify-around m-3" role="tablist">
+                <li role="presentation" class="active"><a href="#profile" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" aria-controls="profile" role="tab"
                                                           data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab"
-                                           data-toggle="tab"><i class="fa fa-download"></i> Downloads</a></li>
+                                           data-toggle="tab"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><i class="fa fa-download"></i> Downloads</a></li>
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
                         <li role="presentation"><a href="#order" aria-controls="order" role="tab"
@@ -97,12 +97,12 @@
                     </a></p> <br/><br/>
 
                    <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
-                    <div class="panel panel-default facultyInfo">
-                            <div class="panel-heading">
+                    <div class="panel panel-default facultyInfo border border-1 m-2 p-2">
+                            <div class="panel-heading text-white p-2" style="background-color: #285690">
                                 <Strong>${keyprop.keyPropertyName}</Strong>
                             </div>
                             <c:forEach items="${keyprop.keyPropVals}" var="propVal">
-                                <table class="table table-striped">
+                                <table class="table table-striped p-2">
                                     <tbody>
                                     <tr>
                                     <ul>
@@ -149,7 +149,7 @@
                     </div>
 
                 </div>
-                <div role="tabpanel" class="tab-pane" id="order">
+                <div role="tabpanel hidden" class="tab-pane hidden" id="order">
                     <div style="padding: 15px;">
                         <a href="/fstore/faculty/order"> Order Item </a>
                     </div>

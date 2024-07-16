@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp"/>
+<jsp:include page="header2.jsp"/>
 
   
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -438,8 +438,8 @@
                                                             </span>
                                                           <c:forEach var="item" items="${Role}">
                                                                     <c:if test = "${'Admin' eq item}">
-                                                                 <span class="label label-danger">
-                                                                 <a style="display: inline" href="<c:url value='/auth/deleteAchievementImage/${achievementImage.achievementSlideId}' />">Delete</a></span>
+                                                                 <span class="label label-danger m-2">
+                                                                 <a style="display: inline" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" href="<c:url value='/auth/deleteAchievementImage/${achievementImage.achievementSlideId}' />">Delete</a></span>
                                                               </c:if>
                                                           </c:forEach>
                                                             </div>

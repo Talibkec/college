@@ -139,7 +139,7 @@
             <div id="ctl00_ContentPlaceHolder1_div_1 "
                  style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p>
                 <strong>INTRODUCTION</strong></p>
-               Mechanical engineering is the discipline that applies engineering physics, engineering mathematics,
+               Manufacturing engineering is the discipline that applies engineering physics, engineering mathematics,
                     and materials science principles to design, analyse, manufacture, and maintain mechanical systems.
                     It is one of the oldest and broadest of the engineering disciplines.It is known as the evergreen
                 branch among all the branches of engineering department<br>

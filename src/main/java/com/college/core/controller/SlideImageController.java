@@ -33,7 +33,8 @@ public class SlideImageController {
     @Autowired
     GalleryImageService galleryImageService;
     private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
-
+    @Autowired
+    LabDocumentService labDocumentService;
 
     //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
@@ -181,6 +182,53 @@ public class SlideImageController {
         return new ResponseEntity("Holiday Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
 
     }
+
+
+    @ResponseBody
+    @RequestMapping(value = "/auth/api/uploadLabDoc", method = RequestMethod.POST)
+    public ResponseEntity<?> uploadLabDoc(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+        logger.debug("Single lab file upload!");
+        String fileName = uploadfile.getOriginalFilename();
+        String fileType = uploadfile.getContentType();
+        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
+            String msg = "";
+            if (uploadfile.isEmpty()) {
+                msg = "Please select a file.";
+            } else {
+                msg = "Please provide a year";
+            }
+            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+
+
+        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
+        saveLabDoc(uploadfile, caption, fileName, fileType , authentication);
+        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+
+
+        return new ResponseEntity("Lab Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
+
+    }
+    private void saveLabDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
+        if(!authentication.isAuthenticated()){
+            return ;
+        }
+        LabDocumentDTO holidayDTO = new LabDocumentDTO();
+        holidayDTO.setFileName(caption);
+
+        String username = authentication.getName();
+        holidayDTO.setUploadedBy(authentication.getName());
+        try {
+            holidayDTO.setUploadedFile(uploadfile.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        holidayDTO.setFileType(FilenameUtils.getExtension(fileName));
+        labDocumentService.saveDownloadBoard(holidayDTO);
+    }
+
+
     private void saveHolidayDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
         if(!authentication.isAuthenticated()){
             return ;

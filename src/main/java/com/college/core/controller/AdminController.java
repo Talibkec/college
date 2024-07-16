@@ -46,6 +46,18 @@ public class AdminController {
         return mv;
 
     }
+
+    @RequestMapping(value = "/auth/uploadLabDoc")
+    public ModelAndView uploadLabDoc() {
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("Role", ControllerUtility.getRole());
+        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.setViewName("admin/uploadLabDoc.jsp");
+        return mv;
+
+    }
+
     @RequestMapping(value = "/auth/addPlacement")
     public ModelAndView addPlacement() {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));

@@ -1,13 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 
+<div class="flex p-4 bg-gray-200 text-3xl p-5 w-full">
+    AICTE Approval
 
+</div>
+<style>
+    td {
+        padding: 10px;
+    }
+</style>
     <div class="jumbotron flex justify-center">
         <div class="">
-            <div class="row">
-                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">AICTE Approval</h3></div>
-
-            </div>
+          
         </div>
     </div>
     <div class="container">
@@ -30,27 +35,26 @@
 
             <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><img
-                        class="img-responsive" src="/jsp/approval/img.jpg" alt="AICTE" width="639" height="68"/></p>
-                    <h3 data-animation="wobble" data-animation-delay="0s"> AICTE Approval</h3>
+                        class="img-responsive" src="/jsp/approval/img.jpg" alt="AICTE" width="639" height="150"/></p>
                     <div data-animation="bounceInDown" data-animation-delay="0s">
-                        <table style="height: 250px;" width="400" border="1">
+                        <table class="w-full p-3" border="1">
                             <tbody>
                             <tr bgcolor="#7eec35">
-                                <td><strong>SL. No.</strong></td>
+                                <td><strong>#</strong></td>
                                 <td><strong>Year</strong></td>
-                                <td width="472" align="center"><strong>Documents</strong></td>
-                                <td width="472" align="center"></td>
+                                <td><strong>Documents</strong></td>
+                                <td></td>
                             </tr>
                             </tbody>
                             <c:forEach items ="${allDocuments}" var ="document">
 
 
-                                <tr bgcolor="#e9feea">
+                                <tr>
                                     <td width="40">${document.id}</td>
                                     <td width="134">${document.title}</td>
                                     <td width="134">${document.fileName}</td>
 
-                                    <td width="472" align="center">
+                                    <td class="flex justify-center">
                                         <i class="fa fa-download"></i>
                                         <a href="/approval/document/${document.id}">
                                             <button type="button" class="btn btn-success" data-dismiss="modal">Download
@@ -71,8 +75,7 @@
 
 
                         </table>
-                        <p>&nbsp;</p>
-                        <p>&nbsp;</p></div>
+                        </div>
                 </div>
             </div>
         </div>

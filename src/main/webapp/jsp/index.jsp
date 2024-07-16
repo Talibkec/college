@@ -1,4 +1,4 @@
-<jsp:include page="header2.jsp"/>
+<jsp:include page="header.jsp"/>
 
   
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -410,14 +410,13 @@
 
 
 
-    <div class="gt-galleryvideosection" style="margin-top:10px;margin-bottom:10px">
-        <div class="">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="region region-home-gallery">
+    <div class="gt-galleryvideosection p-3 q" style="margin-top:10px;margin-bottom:10px">
+        
+           
+                   
                         <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
 
-                            <h2 class="text-3xl p-5 block-title">Achievements</h2>
+                            <h2 class="text-3xl p-5 block-title w-full p-3">Achievements</h2>
 
                             <div class="view view-nodequeue-10 view-id-nodequeue_10 view-display-id-block view-dom-id-092f3c9d9a1a277eabf025598077161b">
 
@@ -428,12 +427,13 @@
                                         <ul class="achievementSlider">
                                             <li class="views-row views-row-1 views-row-odd views-row-first">
                                                 <div class="views-field views-field-field-image">
-                                                    <div class="field-content"><a href="/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}" target ="_blank"><img
+                                                    <div class="field-content">
+                                                        <a href="/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}" target ="_blank"><img
                                                             typeof="foaf:Image" class="img-responsive"
                                                             src="/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
-                                                            width="80%" height="80%" alt=""
+                                                            width="400" height="500" alt=""
                                                             title="${achievementImage.achievementCaption} "/></a>
-                                                            <span class="caption">
+                                                            <span class="caption text-center w-full p-3">
                                                                ${achievementImage.achievementCaption}
                                                             </span>
                                                           <c:forEach var="item" items="${Role}">
@@ -451,16 +451,16 @@
                                 </div>
                             </div>
                         </section>
-                    </div>
-                </div>
+                    
+              
 
             </div>
         </div>
     </div>
     <div class="gt-galleryvideosection" style="margin-top:10px;margin-bottom:10px">
             <div class="">
-                <div class="row">
-                    <div class="col-sm-8">
+                <div class="">
+                    <div class="">
                         <div class="region region-home-gallery">
                             <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
 
@@ -552,5 +552,5 @@
                 </div>
             </div>
         </div>
-    <jsp:include page="footer2.jsp"/>
+    <jsp:include page="footer.jsp"/>
 

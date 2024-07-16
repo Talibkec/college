@@ -233,6 +233,17 @@
                   .btn-default:hover {
                     background-color: #062447;
                   }
+
+                  .headli {
+                      font-weight: 900;
+                      font-size: large;
+
+
+                   }
+                   .headli:hover {
+                                          text-decoration: none;
+
+                                      }
               </style>
               <div role="navigation" class="mobile">
 
@@ -299,7 +310,7 @@
 
                           <ul class="">
 
-                            <li>Under Graduates</li>
+                            <li class="headli">Under Graduates</li>
                             <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
                               <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
@@ -324,7 +335,7 @@
                           </ul>
 
                           <ul class="">
-                            <li>Post Graduates</li>
+                            <li  class="headli">Post Graduates</li>
                             <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                                 href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
                                 and Technology) </a></li>

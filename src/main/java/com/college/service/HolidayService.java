@@ -14,7 +14,6 @@ public interface HolidayService {
 
     HolidayDTO getDownloadDocument(Long id);
 
-
     void saveDownloadBoard(HolidayDTO responsibilityDocDTO);
 
     void deleteItem(Long id);

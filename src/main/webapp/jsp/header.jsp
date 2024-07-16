@@ -295,7 +295,7 @@
                               href="/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
                           <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
-                          |
+                          
                         </ul>
                       </li>
 

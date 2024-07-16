@@ -3,12 +3,10 @@ package com.college.core.controller;
 import com.college.core.entity.*;
 import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.HolidayDTO;
+import com.college.core.model.LabDocumentDTO;
 import com.college.core.model.ResponsibilityDocDTO;
 import com.college.repository.FacultyRepository;
-import com.college.service.AllDocuments;
-import com.college.service.HolidayService;
-import com.college.service.ResponsibilityDocService;
-import com.college.service.UserService;
+import com.college.service.*;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -154,6 +152,27 @@ public class ApprovalController {
         return null;
 
     }
+
+
+    @Autowired
+    LabDocumentService labDocumentService;
+    @RequestMapping(value = "lab/{id}")
+    public ResponseEntity<byte[]> getLab(@PathVariable("id") Long documentId) throws IOException {
+        System.out.println("User tried to download document with id :- " + documentId);
+        LabDocumentDTO labDocumentDTO = labDocumentService.getDownloadDocument(documentId);
+        String filename = labDocumentDTO.getFileName();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.parseMediaType("application/" + labDocumentDTO.getFileType()));
+        headers.add("content-disposition", "inline;filename="+filename);
+        if (labDocumentDTO.getUploadedFile() != null) {
+            InputStream in = new ByteArrayInputStream(labDocumentDTO.getUploadedFile());
+            return  new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);
+
+        }
+        return null;
+
+    }
+
     @RequestMapping(value = "deleteHoliday/{id}")
     public ResponseEntity<?> deleteHoliday(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
         boolean accessAllow = false;
@@ -173,6 +192,32 @@ public class ApprovalController {
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         System.out.println("User tried to delete document with id :- " + documentId);
         holidayService.deleteItem(documentId);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/academic/holidays';</script>" , headers , HttpStatus.OK);
+
+    }
+
+
+
+    @RequestMapping(value = "deleteLab/{id}")
+    public ResponseEntity<?> deleteLab(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
+        boolean accessAllow = false;
+        if(authentication != null){
+            String loggedInusername = authentication.getName();
+            User loggedInUser = userService.findByUsername(loggedInusername);
+            Set<Role> role = loggedInUser.getRoles();
+
+            for ( Role r: role) {
+                System.out.println(r.getName());
+                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
+                    accessAllow = true;
+                }
+            }
+
+        }
+        if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
+        System.out.println("User tried to delete document with id :- " + documentId);
+        labDocumentService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/academic/holidays';</script>" , headers , HttpStatus.OK);
 

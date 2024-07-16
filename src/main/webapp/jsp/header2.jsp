@@ -440,7 +440,7 @@
                         <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery  &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery  &#9660; </a></li>
+                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
 
                         </ul>
                       </li>

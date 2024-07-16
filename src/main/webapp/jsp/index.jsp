@@ -334,7 +334,7 @@
     }
 </style>
 
-<div class="md:flex justify-between p-5 m-5">
+<div class="md:flex justify-between">
     <div class="gtmaincontenthome basis-1/2" style="min-width:50%">
         <div class="">
             <div class="row">
@@ -361,7 +361,7 @@
                     </header>
                     <div class="field field-name-body field-type-text-with-summary field-label-hidden">
                         <div class="field-items">
-                            <div class="field-item even" property="content:encoded"><p style="padding: 40px;"><strong>Katihar
+                            <div class="field-item even" property="content:encoded"><p class="p-3" style=""><strong>Katihar
                                 Engineering College (KEC), Katihar </strong>with the advent of technology and the
                                 emergence of notable education in our society, had decided to adapt the prevailing need
                                 of light. In the mission to achieve the eminence in the field, the establishment of

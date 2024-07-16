@@ -55,6 +55,7 @@
 @import url("/sites/all/themes/rwsiitj/css/style.css");
 @import url("/sites/all/themes/rwsiitj/js/jqueryui/jquery-ui.min.css");
 @import url("/sites/all/themes/rwsiitj/font-awesome/css/font-awesome.min.css");
+</style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" />
@@ -373,7 +374,7 @@ Katihar Engineering College</title>
                                                                         href="/rti/rtiapplication" class="sf-depth-2">RTI Application Form</a></li>
                                                                 <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                                                                         href="/rti/rtistatus" class="sf-depth-2">RTI Status</a></li>
-                                                                <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                                              s  <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
                                                                         href="/rti/publicinformationcell" title="" class="sf-depth-2">Public Information Cell</a></li>
                                 </ul>
                             </li>

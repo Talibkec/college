@@ -84,7 +84,7 @@
         
 
       }
-
+     
       .main-nav:hover > .submenu {
         display: block;
       }
@@ -99,6 +99,9 @@
         color: white;
         padding: 8px;
         border-radius: 5px;
+      }
+      .page-content {
+        padding: 1rem;
       }
       
     </style>
@@ -147,7 +150,100 @@
               </div>
             </div>
           </div>
+
+        
           <header>
+
+
+
+
+<!-- MobileNav start-->
+
+
+
+
+<div id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+  <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+     <ul class="space-y-2 font-medium">
+        <li>
+           <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+              <span class="ms-3">Home</span>
+           </a>
+        </li>
+        <li>
+           <a href="/about/history" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              
+              <span class="flex-1 ms-3 whitespace-nowrap">About</span>
+                </a>
+        </li>
+        <li>
+           <a href="/academic/admission" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+              <span class="flex-1 ms-3 whitespace-nowrap">Academic</span>
+               </a>
+        </li>
+        <li>
+           <a href="/category/department" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+              <span class="flex-1 ms-3 whitespace-nowrap">Departments</span>
+           </a>
+        </li>
+        <li>
+           <a href="/facilities/csecenter" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+              <span class="flex-1 ms-3 whitespace-nowrap">Facilities</span>
+           </a>
+        </li>
+        <li>
+           <a href="trainingplacement/placementbrochure" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+              <span class="flex-1 ms-3 whitespace-nowrap">Training & Placement</span>
+           </a>
+        </li>
+        <li>
+           <a href="/approval/aicteapproval" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+              
+              <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
+           </a>
+        </li>
+        <li>
+          <a href="/rti/rtiact" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+             
+             <span class="flex-1 ms-3 whitespace-nowrap">RTI</span>
+          </a>
+       </li>
+       <li>
+        <a href="/gallery/mediagallery" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+           
+           <span class="flex-1 ms-3 whitespace-nowrap">Gallery</span>
+        </a>
+     </li>
+     <li>
+      <a href="/facilities/downloads" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+         
+         <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
+      </a>
+   </li>
+   <li>
+    <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+       
+       <span class="flex-1 ms-3 whitespace-nowrap">Login</span>
+    </a>
+ </li>
+     </ul>
+  </div>
+</div>
+
+
+<!-- MobileNav end-->
+
+
+
+
+
+
+
 
 
 
@@ -170,6 +266,7 @@
                     .mobile {
                       display: none;
                     }  
+                   
                     .desktop {
                       display: block;
                     }   
@@ -190,6 +287,9 @@
                     .desktop {
                       display: none;
                     } 
+                    #default-sidebar {
+                      display: none !important;
+                    }
                     .col-md-8 {
                       max-width: 600px;
                       min-width:600px;
@@ -443,7 +543,7 @@
                         <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery  &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery  &#9660; </a></li>
+                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
 
                         </ul>
                       </li>
@@ -478,21 +578,34 @@
 
 
               <div role="navigation" class="desktop">
-                 <div class="menubarholder flex justify-end p-5" style="background: #285690">
+                 <div class="menubarholder flex justify-end" style="background: #285690">
 
-                  <div class="menubar text-3xl text-white" onclick="toggleNav()">
-                    &equiv;
-                  </div>
+                  <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-white inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    </svg>
+                  </button>
 
                  </div>
-                 <script>
-                      function toggleNav() {
-                       
-                             $(".mobilenav").toggleClass("hidden");
-                      
-                      }
-                 </script>
                
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <div class="mobilenav bg-blue hidden" style="position:fixed;height:100vh;overflow-y:scroll;width:100%;top:0; z-index:9999999">
                   <section id="block-superfish-1" class="">

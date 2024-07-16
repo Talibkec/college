@@ -40,15 +40,15 @@
                                     </button>
                                 </div>
                               </div>
-                              <div class="row" style="margin:10px 10px 10px 0px;">
-                                
-                                    <a href="${contextPath}/forgotPassword" data-toggle="modal"class="btn btn-default btnHover w-full text-center" style="background-color:#81cfe8"><i
+                              <div class="">
+                                     
+                                    <a href="${contextPath}/forgotPassword"     class="flex justify-center btn btn-default btnHover w-full text-center" style="background-color:#81cfe8"><i
                                             class="fa fa-info-circle"></i> Forgot Password</a>
-                               
+                                        
                                </div>
                                <div class="row" style="margin:10px 10px 10px 0px;">
                                <div class="w-full">
-                               <a href="${contextPath}/auth/registration" class="btn btn-default btnHover w-full" style=" background-color:#81cfe8"><i
+                               <a href="${contextPath}/auth/registration" class="flex btn btn-default btnHover w-full" style=" background-color:#81cfe8"><i
                                class="fa fa-info-circle"></i>Haven't account ?Sign Up Here </a>
                                </div>
                                </div>

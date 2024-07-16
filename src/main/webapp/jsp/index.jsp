@@ -97,7 +97,7 @@
 
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="/${image.imageSlideId}/slideImage${image.fileType}"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." style="min-height:50vh">
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Admin' eq item}">
                         <span class="label label-danger"><a
@@ -330,6 +330,7 @@
         overflow: hidden;
         background: url(/images/college.webp) no-repeat top center;
         background-size: cover;
+        min-height: 300px;
         padding: 40px 0;
     }
 </style>

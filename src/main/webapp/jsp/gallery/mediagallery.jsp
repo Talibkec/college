@@ -325,7 +325,7 @@
 
 
 <main>
-          <h1>Gallery </h1>
+          <h1 class="p-2">Gallery </h1>
 
           <div class="post-list post-list_grid">
 

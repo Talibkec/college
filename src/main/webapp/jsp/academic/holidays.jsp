@@ -63,8 +63,8 @@
                             <c:if test="${embedpdf}">
 
                                 <div>
-                                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=https://keck.ac.in/approval/holiday/${document.id}" type="application/pdf" width="700" height="1000">
-                                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://keck.ac.in/approval/holiday/${document.id}" type="application/pdf">
+                                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/holiday/${document.id}" type="application/pdf" width="700" height="1000">
+                                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/holiday/${document.id}" type="application/pdf">
                                     </object>
                                 </div>
 

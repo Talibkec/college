@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface HolidayRepository extends JpaRepository<Holiday, Long> {
 
-    @Query(value = "select * from holiday", nativeQuery = true)
+    @Query(value = "select * from holiday order by id desc", nativeQuery = true)
     List<Holiday> getAllDocuments();
 
 }

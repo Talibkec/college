@@ -13,6 +13,26 @@
                         <div class="col-sm-8">
                             <input type="text" name="caption" id="caption" /><br /><br />
                         </div>
+
+
+
+                        <div class="col-sm-8">
+                            <label for="department" class="control-label col-sm-4">Choose Department</label>
+                            <select class="control-label col-sm-4" id="deptId" name='deptId'>
+                                <option value="1">Computer Sc. & Engineering</option>
+                                <option value="2">Civil Engineering</option>
+                                <option value="3">Mechanical Engineering</option>
+                                <option value="4">Electrical & Electronics Engg.</option>
+                                <option value="5">Applied Sc. & Humanities</option>
+                                <option value="6">Electronics Engineering (VLSI Design and Technology)</option>
+                                <option value="7">Mechanical and Manufacturing Engineering</option>
+                          
+                                <option value="8">Manufacturing Engineering</option>
+                          
+                            </select><br></br>
+                        </div>
+
+
                         <label class="control-label col-sm-4">Choose Document</label>
                         <div class=" btn-default  col-md-8" style="color:red"> <input type="file" name="slideImage"
                                 id="slideImage" /><br /></div>

@@ -6,7 +6,7 @@ public class LabDocumentDTO {
     private long id;
     private String fileName;
     private String fileType;
-
+   private Integer depId;
     public LabDocumentDTO(long id, String fileName, String uploadedBy, Date date, byte[] uploadedFile) {
         this.id = id;
         this.fileName = fileName;
@@ -68,5 +68,13 @@ public class LabDocumentDTO {
 
     public String getFileType() {
         return fileType;
+    }
+
+    public Integer getDepId() {
+        return depId;
+    }
+
+    public void setDepId(Integer depId) {
+        this.depId = depId;
     }
 }

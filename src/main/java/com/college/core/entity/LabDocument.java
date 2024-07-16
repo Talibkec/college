@@ -11,7 +11,7 @@ public class LabDocument {
     private String uploadedBy;
     private Date date;
     private String fileType;
-
+    private Integer depId;
     public String getFileType() {
         return fileType;
     }
@@ -74,5 +74,13 @@ public class LabDocument {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Integer getDepId() {
+        return depId;
+    }
+
+    public void setDepId(Integer depId) {
+        this.depId = depId;
     }
 }

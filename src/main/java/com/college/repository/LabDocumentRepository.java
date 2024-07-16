@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface LabDocumentRepository extends JpaRepository<LabDocument, Long> {
 
-    @Query(value = "select * from lab_document", nativeQuery = true)
+    @Query(value = "select * from lab_document order by id desc", nativeQuery = true)
     List<LabDocument> getAllDocuments();
 
 }

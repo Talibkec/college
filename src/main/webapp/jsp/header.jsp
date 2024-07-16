@@ -129,10 +129,10 @@
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
 
                     </div>
-                    <div class="flex justify-center p-4">
+                    <div class="flex justify-center p-4 ">
 
                       <form id="searchFacultyName">
-                        <div class="text-center">
+                        <div class="text-center border border-1">
                           <input type="text" placeholder="Search Faculty" name="facultyName" id="facultyNames"
                             style="outline: none;border: none;padding:8px;border-radius: 10px;"
                             class="ui-autocomplete-input" autocomplete="off">

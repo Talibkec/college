@@ -19,32 +19,37 @@ width:8%
 <div class="container">
     <div class="row">
         <div class=" col-sm-8"></br></br>
-            <div class="panel panel-primary"style="width:140%">
+            <div class="panel panel-primary border border-1 p-3" style="min-width:600px">
                  <div class="panel-body" style="height: 100%">
 
 
                     <form method="POST" enctype="multipart/form-data" id="editDetailsForm">
-                    <div>
+                    <div class="flex m-1 justify-around">
                          
                           <input type="hidden" placeholder="Faculty Id"id="facultyId" value="${facultyDetails.facultyId}" name="facultyId"
                                  class=" col-md-6 "style="margin-left:3%"></br></br>
                     </div>
 
-                        <div>
+                        <div  class="flex m-1 justify-around">
                             <span>Name</span>
                         <input type="text" placeholder="Enter Name"id="facultyName" value="${facultyDetails.facultyName}" name="facultyName"
                             class=" col-md-6 "style="margin-left:3%"></br></br>
                          </div>
-                        <span>Official Email</span>
+                         <div  class="flex m-1 justify-around">
+                        <span >Official Email</span>
                         <input type="email"placeholder="Enter official Email" id="facultyOfficialEmail" value="${facultyDetails.facultyOfficialEmail}"
                             name="facultyOfficialEmail" class=" col-md-6"style="margin-left:3%"></br></br>
-                            <span>Personal Email</span>
+                           </div>
+                        <div  class="flex m-1 justify-around">
+                        <span>Personal Email</span>
                         <input type="email"placeholder="Enter Personal Email" id="facultyPersonalEmail" value="${facultyDetails.facultyPersonalEmail}"
                             name="facultyPersonalEmail" class=" col-md-6"style="margin-left:3%"></br></br>
-                            <span>Mobile No</span>
+                         </div>
+                        <div  class="flex m-1 justify-around">
+                        <span>Mobile No</span>
                         <input type="text"placeholder="Enter Mobile No." id="facultyMobNo" value="${facultyDetails.facultyMobNo} " name="facultyMobNo"
                             class=" col-md-6"style="margin-left:3%"></br>
-
+                        </div>
                         <div class="oldPropsClass" ">
                             <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyProp">
                             <div class="oldpropkeybox" >
@@ -71,7 +76,7 @@ width:8%
                             </c:forEach>
                         </div>
                         <div style="text-align:center" class="m-3" id="addNewProp"style="display:block">
-                        <button class="btn btn-success focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><span class="material-symbols-outlined">add</span> Add New Property</button>
+                        <button class="w-full btn btn-success focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><span class="material-symbols-outlined">add</span> Add New Property</button>
                         </div>
                         <div class="newPropsClass">
                             <div class="newpropkeybox" style="display:none">
@@ -88,7 +93,7 @@ width:8%
                             </div>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" id="btnSubmit" class="btn btn-info focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"/>
+                        <input type="submit" value="Submit" id="btnSubmit" class=" w-full btn btn-info focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"/>
                         <div class="col-sm-4"></div>
                     </form>
                 </div>

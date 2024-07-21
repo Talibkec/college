@@ -105,7 +105,12 @@
         width: 100%;
         overflow-x: scroll;
       }
-      
+
+      .jumbotron {
+           background: #eee;
+           padding-left: 200px;
+           font-size: x-large;
+       }
     </style>
 
     <body>

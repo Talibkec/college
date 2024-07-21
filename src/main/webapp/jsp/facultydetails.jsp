@@ -60,9 +60,9 @@
                                            data-toggle="tab"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><i class="fa fa-download"></i> Downloads</a></li>
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
-                        <li role="presentation"><a href="#order" aria-controls="order" role="tab"
+                        <!-- <li role="presentation"><a href="#order" aria-controls="order" role="tab"
                                                    data-toggle="tab"><i class="fa fa-angle-double-right"></i>
-                            Request</a></li>
+                            Request</a></li> -->
                     </c:if>
                 </c:forEach>
             </ul>

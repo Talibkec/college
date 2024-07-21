@@ -25,9 +25,10 @@ $(document).ready(function(){
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 <div style="margin-left:50px" ><h3><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-2 col-sm-8">
-<div class="panel panel-primary"><div class="panel-heading"> <i class="fa fa-sign-in"></i><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></div>
+<div class="panel panel-primary border border-1 p-3 ">
+<div class="panel-heading text-2xl"> <i class="fa fa-sign-in"></i><c:if test = "${isProfilePic eq 'Yes'}">Upload Profile Details</c:if><c:if test = "${isProfilePic eq 'No'}">Upload Documents</c:if></div>
 
-<c:if test = "${isProfilePic eq 'Yes'}" ><div class="panel-body"style="height: 300px; "></c:if>
+<c:if test = "${isProfilePic eq 'Yes'}" ><div class="panel-body"></c:if>
 <c:if test = "${isProfilePic eq 'No'}" ><div class ="panel-body"></c:if>
 
 <form method="POST" enctype="multipart/form-data" id="fileUploadForm">
@@ -54,17 +55,23 @@ $(document).ready(function(){
     <c:if test = "${isProfilePic eq 'Yes'}" >
 
          <input type="hidden" name="facultydocumentsHeader" id="facultydocumentsHeader" value = "NotAvailable"/><br/><br/>
-         <label for ="facultyName" class="control-label col-sm-4">Enter Name</label>
-          <input type="text" id="facultyName" name="facultyName" class="control-label col-sm-4 "></br></br>
-         <label for ="facultyOfficialEmail" class="control-label col-sm-4">Enter Official Email</label>
-         <input type="email" id="facultyOfficialEmail" name="facultyOfficialEmail"class="control-label col-sm-4"></br></br>
-         <label for ="facultyPersonalEmail"class="control-label col-sm-4">Enter Personal Email</label>
-          <input type="email" id="facultyPersonalEmail" name="facultyPersonalEmail"class="control-label col-sm-4"></br></br>
+         <div class="flex p-2 justify-around">
+         <label style="min-width:50%" for ="facultyName" class="control-label col-sm-4">Enter Name</label>
+          <input  style="min-width:50%"  type="text" id="facultyName" name="facultyName" class="control-label col-sm-4 "></br></br>
+          </div>
+          <div class="flex p-2 justify-around">
+         <label  style="min-width:50%"  for ="facultyOfficialEmail" class="control-label col-sm-4">Enter Official Email</label>
+         <input style="min-width:50%"  type="email" id="facultyOfficialEmail" name="facultyOfficialEmail"class="control-label col-sm-4"></br></br>
+         </div>
+         <div class="flex p-2 justify-around">
+         <label style="min-width:50%"  for ="facultyPersonalEmail"class="control-label col-sm-4">Enter Personal Email</label>
+          <input style="min-width:50%"  type="email" id="facultyPersonalEmail" name="facultyPersonalEmail"class="control-label col-sm-4"></br></br>
+</div>
+<div class="flex p-2 justify-around">
+         <label style="min-width:50%"  for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
+         <input style="min-width:50%"  type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
 
-         <label for ="facultyMobNo"class="control-label col-sm-4">Mobile No. </label>
-         <input type="text" id="facultyMobNo" name="facultyMobNo"class="control-label col-sm-4"></br></br>
-
-
+</div>
     </c:if>
 
         <div id="chooseFileBox" style="display:block">
@@ -99,8 +106,8 @@ $(document).ready(function(){
             <input type = "hidden" name = "isProfilePic" value = "${isProfilePic}" />
         </div>
 
-        <input type="submit" value="Submit" id="btnSubmit" class="btn btn-primary" />
-        <div class="col-sm-4"></div>
+        
+       <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 my-2 w-full">Submit</button>     <div class="col-sm-4"></div>
         </div>
 </form>
 

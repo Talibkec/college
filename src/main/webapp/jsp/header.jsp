@@ -434,7 +434,7 @@
     
   
                             <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
+                                href="/department/ece/about" class="sf-depth-2">Electronics Engineering (VLSI Design
                                 and Technology) </a></li>
                             <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                                 href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>

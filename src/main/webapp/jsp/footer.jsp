@@ -24,14 +24,6 @@
             </section>
             <section id="block-block-4" class="block block-block clearfix">
 
-                <div class="p-1  googlemap"><a
-                        href="https://www.google.co.in/maps/place/KATIHAR+ENGINEERING+COLLEGE+(NEW+CAMPUS)/@25.5687892,87.5372664,17z/data=!3m1!4b1!4m5!3m4!1s0x39f0015cd2753a37:0x599f1653bdd10604!8m2!3d25.5687844!4d87.5394551?hl=en"
-                        target="_blank">
-                        <i class="fa  fa-map-marker" aria-hidden="true"
-                            style="font-size:250%;align-content:center;color:red"></i></a>
-                    <span></span>
-
-                </div>
 
                 <a href="/legal/contactus">
                     <p class="p-1 block-title"> &raquo; Contact Us</p>

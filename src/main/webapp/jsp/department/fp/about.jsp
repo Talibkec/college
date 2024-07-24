@@ -27,82 +27,125 @@
             </marquee>
     </div>
 
+<div class="bg-gray-200 py-4 mt-4">
+     <div class="container mx-auto px-4">
+         <div class="flex items-center justify-between">
+             <!-- Social Media Icons Section -->
+             <div class="flex-grow text-center">
+                 <h3 class="text-2xl font-semibold">About Food Processing</h3>
+             </div>
+              <div class="flex space-x-4">
+                             <a
+                                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
+                                 target="_blank"
+                                 class="text-gray-800 hover:text-blue-600"
+                             >
+                                 <i class="fab fa-facebook"></i>
+                             </a>
+                             <a
+                                 href="https://twitter.com/home?status=About+Civil+Engg.+-+https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
+                                 target="_blank"
+                                 class="text-gray-800 hover:text-blue-400"
+                             >
+                                 <i class="fab fa-twitter"></i>
+                             </a>
+              </div>
+         </div>
+     </div>
+ </div>
 
-
-
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container">
-            <div class="md:flex justify-center">
-                <div class="col-md-8 col-sm-8"><h3>About Food Processing</h3></div>
-                <div class="col-md-8 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
-                        style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
-                        </i> </span> <a
-                        href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-cse%2Fabout-cse%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i></a> <a
-                        href="https://twitter.com/home?status=About+Information+Technology+-+https%3A%2F%2F#%2Fdepartment-of-cse%2Fabout-cse%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i> </a></div>
-            </div>
+<div class="container mx-auto p-4 flex flex-col md:flex-row">
+        <!-- Sidebar -->
+        <div class="md:w-1/4 px-4 mt-6 md:mt-0">
+            <jsp:include page="sidebar.jsp"/>
         </div>
-    </div>
-    <div class="row">
-       <jsp:include page="sidebar.jsp"/>
 
-            <div class="col-sm-8" >
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
-                        <div id="ctl00_ContentPlaceHolder1_div_1">
-                             Updated Soon
-                           </div>
-               
-            </div>
-            <div class="heroCol col-sm-3">
-            <div class="panel panel-default">
-            <div class="panel-heading">
-            <strong>
-             <i class="fa fa-news"></i> Latest News / Updates</strong>
-                             <c:forEach var="item" items="${Role}">
-                                 <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
-                                 <strong><i class="fa fa-news"></i> <a href="/hod/uploadfile/upload">Upload Notice / News</a></strong>
-                             </c:if>
-                             </c:forEach>
-                             </div>
-                         <div class="panel-body" style="max-height: 500px;">
-                             <ul class="listUpdates" id="noticeBoardItems">
-
-                                 <li style="display: block;">
-                                     <div>
-
-                                     </div>
-                                 </li>
-
-                                 <c:forEach items="${noticeList}" var="notice">
-                                     <li>
-                                         <div>
-                              		<span class="label" style="border:  solid 1px #ccc; color: #000;">
-                              		<c:set var = "clazz"  value = "label label-warning"/>
-
-                              		 <c:if test = "${ notice.noticeType == 'News'}">
-                                               <c:set var = "clazz"  value = "label label-primary"/>
-                                       </c:if>
-                              		<i class="fa fa-clock-o"></i> ${notice.date} </span>&nbsp; <span class="${clazz}">${notice.noticeType}</span>
-                                             <c:forEach var="item" items="${Role}">
-                                               <c:if test = "${'HOD' eq item and UserName eq 'hodcse'}">
-                                                 <span class="label label-danger"><a href="<c:url value='/hod/deleteNotice/${notice.id}' />">Delete</a></span>
-                                             </c:if>
-                                             </c:forEach>
-                                              <a href="/${notice.id}/notice${notice.fileType}" target="_blank">${notice.headLine}</a>
-                                         </div>
-                                     </li>
-                                 </c:forEach>
-                             </ul>
-                             <a href="/department/cse/notice" class="btn btn-default">View All<i class="fa fa-double-angle-right"></i></a>
-            </div>
-            </div>
-            </div>
+        <!-- Introduction Section -->
+        <div class="md:w-2/3 px-4 mt-6 md:mt-0">
+            <div class="bg-white p-6 rounded-lg shadow">
+                <div class="text-justify text-lg font-light leading-relaxed">
+                    <div id="ctl00_ContentPlaceHolder1_div_1">
+                        <h3 class="text-3xl font-bold mb-4">Introduction</h3>
+                        <p>
+                            Food Processing Engineering is a specialized field within engineering that focuses on the transformation of raw food ingredients into finished products that are safe, nutritious, and appealing. This discipline integrates principles from various engineering and scientific fields, including chemical engineering, mechanical engineering, and microbiology, to optimize and innovate food processing techniques. Key areas covered in Food Processing Engineering programs include:
+                        </p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li>Food Chemistry</li>
+                            <li>Food Microbiology</li>
+                            <li>Food Processing Technologies</li>
+                            <li>Food Quality Assurance</li>
+                            <li>Packaging Technology</li>
+                            <li>Nutritional Science</li>
+                        </ul>
+                        <p>
+                            The Food Processing Engineering branch is rapidly evolving, driven by the increasing demand for innovative and efficient food production methods to meet global needs. As a response to this growing industry, Katihar College of Engineering has established a Department of Food Processing Engineering from the academic session 2022/23. The department offers a B.Tech program with an annual intake of 60 students and is working towards expanding its intake capacity.
+                        </p>
+                        <p>
+                            The Department of Food Processing Engineering at Katihar Engineering College, Katihar, is dedicated to preparing highly skilled, motivated, and application-oriented graduates. The department is guided by a team of highly qualified faculty members who inspire students, stimulate their creativity, and impart valuable knowledge and experience. Faculty members are actively involved in research in areas such as Food Safety and Quality, Sustainable Food Processing, Food Biotechnology, and Innovative Packaging Solutions. The management ensures rigorous oversight of faculty performance and encourages participation in workshops, seminars, conferences, and professional development programs.
+                        </p>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- News/Updates Section -->
+        <div class="md:w-1/3 px-4 mt-6 md:mt-0">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-gray-800 p-4 text-white">
+                    <strong>
+                        <i class="fa fa-newspaper"></i> Latest News / Updates
+                    </strong>
+                    <c:forEach var="item" items="${Role}">
+                        <c:if test="${'HOD' eq item and UserName eq 'hodfood'}">
+                            <strong>
+                                <i class="fa fa-newspaper"></i>
+                                <a href="/hod/uploadfile/upload" class="text-white hover:underline">
+                                    Upload Notice / News
+                                </a>
+                            </strong>
+                        </c:if>
+                    </c:forEach>
+                </div>
+                <div class="p-4" style="max-height: 500px; overflow-y: auto;">
+                    <ul class="space-y-2" id="noticeBoardItems">
+                        <c:forEach items="${noticeList}" var="notice">
+                            <li class="border-b pb-2">
+                                <div class="flex items-center space-x-2">
+                                    <span class="border border-gray-300 text-black px-2 py-1 rounded whitespace-nowrap">
+                                        <c:set var="clazz" value="bg-yellow-400 text-black"/>
+                                        <c:if test="${notice.noticeType == 'News'}">
+                                            <c:set var="clazz" value="bg-blue-500 text-white"/>
+                                        </c:if>
+                                        <i class="fa fa-clock-o"></i> ${notice.date}
+                                    </span>
+                                    <span class="${clazz} rounded px-2 py-1">
+                                        ${notice.noticeType}
+                                    </span>
+                                    <c:forEach var="item" items="${Role}">
+                                        <c:if test="${'HOD' eq item and UserName eq 'hodfood'}">
+                                            <span class="bg-red-500 text-white px-2 py-1 rounded">
+                                                <a href="<c:url value='/hod/deleteNotice/${notice.id}' />" class="text-white hover:underline">
+                                                    Delete
+                                                </a>
+                                            </span>
+                                        </c:if>
+                                    </c:forEach>
+                                    <a href="/${notice.id}/notice${notice.fileType}" target="_blank" class="text-blue-600 hover:text-blue-800">
+                                        ${notice.headLine}
+                                    </a>
+                                </div>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                    <a href="/department/foodprocessing/notice" class="block mt-4 text-center bg-gray-300 hover:bg-gray-400 text-black font-semibold py-2 rounded">
+                        View All
+                        <i class="fa fa-angle-double-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-<jsp:include page="/jsp/footer.jsp"/>
+
+    <jsp:include page="/jsp/footer.jsp"/>
+
 

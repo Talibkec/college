@@ -445,13 +445,8 @@
             <div class="">
                 <div class="region region-home-gallery">
                     <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
-
                         <h2 class="text-3xl p-5">Gallery</h2>
-
-
                         <div class="">
-
-
                             <div class="view-content ">
                                 <div class="item-list">
                                     <ul class="md:flex w-full justify-around">
@@ -488,45 +483,65 @@
                                         </li>
                                     </ul>
                                     <div class="w-full flex justify-center">
-                                        <a lass="box-link border-1 border-grey-800" style="border: 2px solid grey;
+                                        <a class="box-link border-1 border-gray-800" style="border: 2px solid grey;
                                                 padding: 10px;" href="/gallery/photogallery">
                                             View All </a>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </section>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="region region-home-video" style="">
-                    <section id="block-block-20" class="block block-block clearfix">
+          <div class="flex flex-col sm:flex-row gap-8 p-4 mt-5">
 
-                        <h2 class="text-3xl p-5">Video Gallery</h2>
+            <div class="flex-1 bg-blue-400 py-8">
+              <div class="container mx-auto px-4">
+                <section id="block-block-20" class="space-y-6">
+                  <h2 class="text-3xl font-bold text-center text-white">Video Gallery</h2>
+                  <ul class="space-y-6">
+                    <li>
+                      <div class="p-5">
+                        <div class="relative pb-9/16">
+                         <iframe
+                           frameborder="0"
+                           height="200"
+                            src="https://www.youtube.com/embed/1zoSI1yATFI"
+                             width="100%"
+                               class="w-full"
+                         ></iframe>
 
-                        <ul>
-                            <li>
-                                <div class="views-field views-field-field-image">
-                                    <div class="p-5 field-content embed-responsive embed-responsive-16by9">
-                                        <iframe frameborder="0" height="200"
-                                                src="https://www.youtube.com/embed/1zoSI1yATFI" width="200"></iframe>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-
-
-                        <div class="flex justify-center"><a class="box-link" href="/gallery/mediagallery">View All </a>
                         </div>
-
-
-                    </section>
-                </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="flex justify-center mt-6">
+                    <a
+                      class="text-white font-semibold px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition duration-300"
+                      href="/gallery/mediagallery"
+                    >
+                      View All
+                    </a>
+                  </div>
+                </section>
+              </div>
             </div>
 
-        </div>
+            <div class="flex-1 bg-gray-200 overflow-hidden">
+              <div class="h-full bg-gray-200 rounded-lg">
+                <iframe
+                  class="w-full h-full rounded-lg"
+                   title="Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3599.068905329472!2d87.53685667484957!3d25.56937421652652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39faaa69a3dfa627%3A0x1199a7446d2476a5!2sKatihar%20Engineering%20College%2C%20Katihar!5e0!3m2!1sen!2sin!4v1721727985690!5m2!1sen!2sin"
+                  frameBorder="0"
+                  allowFullScreen=""
+                  aria-hidden="false"
+                   tabIndex="0"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+
     </div>
 </div>
 <jsp:include page="footer.jsp"/>

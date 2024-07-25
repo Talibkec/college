@@ -64,13 +64,13 @@
                    <div class="text-justify text-lg font-light leading-relaxed">
                        <h3 class="text-3xl font-bold mb-4">Introduction</h3>
                        <p>
-                           B.Tech. - Electronics Engineering (VLSI Design and Technology) is a 4-year program designed
+                           M.Tech. - Electronics Engineering (VLSI Design and Technology) is a 2-year program designed
                            to prepare engineering graduates who have comprehensive knowledge about Integrated circuit
                            designs, which is usually known as chip design. It aims to prepare skilled graduates who know the
                            key aspects of VLSI Design which is required in VLSI domain Industries.
                        </p>
                        <p>
-                           Through the B.Tech. - Electronics Engineering (VLSI Design and Technology) program, graduates
+                           Through the M.Tech. - Electronics Engineering (VLSI Design and Technology) program, graduates
                            will develop an in-depth understanding of semiconductor devices, VLSI circuit design and
                            verification, FPGA design, and fabrication process, along with hands-on experience with leading EDA
                            (Electronic Design & Automation) tools. The evergreen VLSI domain is for the design and

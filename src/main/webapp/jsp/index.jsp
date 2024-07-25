@@ -4,86 +4,99 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<div class="row scrollingnews">
-    <marquee style="" loop="infinite">
-        <div class="flex gap-1">
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://youtu.be/cYMNEnq52p8" target="_blank">VIDEO FOR EVC AICTE </a>
-            </div>
+<div class="py-2 ">
+  <marquee behavior="scroll" direction="left" scrollamount="5">
+    <div class="flex gap-10 items-center">
+      <div class="flex  items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://youtu.be/cYMNEnq52p8" target="_blank" class="text-blue-700 hover:underline">
+          VIDEO FOR EVC AICTE
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://tpo.keckatihar.in" target="_blank">Placement Portal of Katihar Engineering College </a>
-            </div>
+      <div class="flex  items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://tpo.keckatihar.in" target="_blank" class="text-blue-700 hover:underline">
+          Placement Portal of Katihar Engineering College
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11292" target="_blank">Pay
-                    Registration Fee here </a>
-            </div>
+      <div class="flex  items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11292" target="_blank"
+          class="text-blue-700 hover:underline">
+          Pay Registration Fee here
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11312" target="_blank">Pay Annual Fee
-                    here </a>
-            </div>
+      <div class="flex  items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11312" target="_blank"
+          class="text-blue-700 hover:underline">
+          Pay Annual Fee here
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11313" target="_blank">Pay
-                    Examination Fee here </a>
-            </div>
+      <div class="flex items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11313" target="_blank"
+          class="text-blue-700 hover:underline">
+          Pay Examination Fee here
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11314" target="_blank">Pay Library
-                    Fine here </a>
-            </div>
+      <div class="flex items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11314" target="_blank"
+          class="text-blue-700 hover:underline">
+          Pay Library Fine here
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11315" target="_blank">Pay
-                    Miscellaneous Fee here </a>
-            </div>
+      <div class="flex items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11315" target="_blank"
+          class="text-blue-700 hover:underline">
+          Pay Miscellaneous Fee here
+        </a>
+      </div>
 
+      <div class="flex items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="https://www.aicte-india.org/feedback/" target="_blank" class="text-blue-700 hover:underline">
+          Click here to give feedback to A.I.C.T.E
+        </a>
+      </div>
 
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="https://www.aicte-india.org/feedback/" target="_blank">Click here to give feedback to
-                    A.I.C.T.E</a>
-            </div>
+      <div class="flex items-center">
+        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
+        <a href="/jsp/facilities/payment.pdf" target="_blank" class="text-blue-700 hover:underline">
+          Click here for Fee Payment Tutorial
+        </a>
+      </div>
 
-
-            <div class="flex gap-1">
-                <img class="" src="/sites/noticeicon.gif" alt="" related="" image="" width="44" height="0">
-                <a href="/jsp/facilities/payment.pdf" target="_blank">Click here for Fee Payment Tutorial</a>
-            </div>
-
-
-            <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
-
-                <div class="flex gap-1">
-                    <i class="fa fa-asterisk"></i>
-                    <c:if test="${scrollingNotice.noticeAge <= 45}">
-                        <img class="" src="/sites/noticeicon.gif" alt=" Related image" width="44" height="0"
-                             style="display: inline"/>
-                    </c:if>
-                    <a href="/notice/${scrollingNotice.id}" style="display: inline"
-                       target="_blank">${scrollingNotice.headLine}</a>
-
-                    <c:forEach var="item" items="${Role}">
-                        <c:if test="${'Admin' eq item}">
-                            <span class="label label-danger"><a style="display: inline"
-                                                                href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">Delete</a></span>
-                        </c:if>
-
-                    </c:forEach>
-                </div>
-
-            </c:forEach>
+      <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
+        <div class="flex items-center">
+          <i class="fa fa-asterisk"></i>
+          <c:if test="${scrollingNotice.noticeAge <= 45}">
+            <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon" />
+          </c:if>
+          <a href="/notice/${scrollingNotice.id}" target="_blank" class="text-blue-700 hover:underline">
+            ${scrollingNotice.headLine}
+          </a>
+          <c:forEach var="item" items="${Role}">
+            <c:if test="${'Admin' eq item}">
+              <button class="text-red-600 hover:underline">
+                <a href="<c:url value='/auth/${scrollingNotice.uploadedFileName}/${scrollingNotice.id}' />">
+                  Delete
+                </a>
+              </button>
+            </c:if>
+          </c:forEach>
         </div>
-    </marquee>
+      </c:forEach>
+    </div>
+  </marquee>
 </div>
 
 
@@ -392,12 +405,12 @@
 </div>
 
 
-<div class="gt-galleryvideosection p-3 q" style="margin-top:10px;margin-bottom:10px">
+<div class=" p-3 q" style="margin-top:10px;margin-bottom:10px">
 
 
     <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
 
-        <h2 class="text-3xl p-5 block-title w-full p-3">Achievements</h2>
+        <h2 class="text-3xl  block-title font-bold w-full ">Achievements</h2>
 
         <div class="view view-nodequeue-10 view-id-nodequeue_10 view-display-id-block view-dom-id-092f3c9d9a1a277eabf025598077161b">
 
@@ -435,64 +448,75 @@
             </div>
         </div>
     </section>
-
-
 </div>
 
-<div class="gt-galleryvideosection" style="margin-top:10px;margin-bottom:10px">
+<div class="" style="margin-top:10px;margin-bottom:10px">
     <div class="">
         <div class="">
-            <div class="">
-                <div class="region region-home-gallery">
-                    <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
-                        <h2 class="text-3xl p-5">Gallery</h2>
-                        <div class="">
-                            <div class="view-content ">
-                                <div class="item-list">
-                                    <ul class="md:flex w-full justify-around">
-                                        <li class="views-row views-row-1 views-row-odd views-row-first">
-                                            <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/images/sportkec.jpeg"
-                                                                              target="_blank"><img
-                                                        typeof="foaf:Image" class="img-responsive"
-                                                        src="/images/sportkec.jpeg"
-                                                        width="330" height="225" alt=""
-                                                        title="Pitch for a Better India"/></a></div>
-                                            </div>
-                                        </li>
-                                        <li class="views-row views-row-2 views-row-even">
-                                            <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/images/sportkec1.jpeg"><img
-                                                        typeof="foaf:Image" class="img-responsive"
-                                                        src="/images/sportkec1.jpeg"
-                                                        width="330" height="225" alt=""
-                                                        title="Ace the Psychometric"/></a></div>
-                                            </div>
-                                        </li>
-                                        <li class="views-row views-row-3 views-row-odd views-row-last">
-                                            <div class="views-field views-field-field-image">
-                                                <div class="field-content"><a href="/images/sportkec.jpeg"><img
-                                                        typeof="foaf:Image"
-                                                        class="img-responsive"
-                                                        src="/images/sportkec.jpeg"
-                                                        width="330"
-                                                        height="225" alt=""
-                                                        title="Machine Assembly and Disassembly Workshop"/></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="w-full flex justify-center">
-                                        <a class="box-link border-1 border-gray-800" style="border: 2px solid grey;
-                                                padding: 10px;" href="/gallery/photogallery">
-                                            View All </a>
-                                    </div>
-                                </div>
+            <div class="py-2 ">
+              <div class="region region-home-gallery  mx-auto px-4">
+                <section id="block-views-10-block" class="block block-views">
+                  <h2 class="text-3xl font-bold mb-8 ">Gallery</h2>
+                  <div class="view-content">
+                    <div class="item-list">
+                      <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                        <li class="views-row views-row-1 views-row-odd views-row-first flex-1">
+                          <div class="views-field views-field-field-image">
+                            <div class="field-content">
+                              <a href="/images/sportkec.jpeg" target="_blank">
+                                <img
+                                  typeof="foaf:Image"
+                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
+                                  src="/images/sportkec.jpeg"
+                                  alt="Pitch for a Better India"
+                                />
+                              </a>
                             </div>
-                        </div>
-                    </section>
-                </div>
+                          </div>
+                        </li>
+                        <li class="views-row views-row-2 views-row-even flex-1">
+                          <div class="views-field views-field-field-image">
+                            <div class="field-content">
+                              <a href="/images/sportkec1.jpeg">
+                                <img
+                                  typeof="foaf:Image"
+                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
+                                  src="/images/sportkec1.jpeg"
+                                  alt="Ace the Psychometric"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="views-row views-row-3 views-row-odd views-row-last flex-1">
+                          <div class="views-field views-field-field-image">
+                            <div class="field-content">
+                              <a href="/images/sportkec.jpeg">
+                                <img
+                                  typeof="foaf:Image"
+                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
+                                  src="/images/sportkec.jpeg"
+                                  alt="Machine Assembly and Disassembly Workshop"
+                                />
+                              </a>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="w-full flex justify-center mt-6">
+                        <a
+                          class="box-link border border-gray-800 px-6 py-2 rounded-md hover:bg-gray-800 hover:text-white transition-colors duration-300"
+                          href="/gallery/photogallery">
+                          View All
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
             </div>
+
+
           <div class="flex flex-col sm:flex-row gap-8 p-4 mt-5">
 
             <div class="flex-1 bg-blue-400 py-8">
@@ -541,7 +565,6 @@
               </div>
             </div>
           </div>
-
     </div>
 </div>
 <jsp:include page="footer.jsp"/>

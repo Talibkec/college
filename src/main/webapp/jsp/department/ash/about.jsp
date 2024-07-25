@@ -106,7 +106,7 @@
                    <ul class="space-y-2" id="noticeBoardItems">
                        <c:forEach items="${noticeList}" var="notice">
                            <li class="border-b pb-2">
-                               <div class="flex items-center space-x-2">
+                               <div class="flex flex-col lg:flex-row gap-2 items-center space-x-2">
                                    <span class="border border-gray-300 text-black px-2 py-1 rounded whitespace-nowrap">
                                        <c:set var="clazz" value="bg-yellow-400 text-black"/>
                                        <c:if test="${notice.noticeType == 'News'}">

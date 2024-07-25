@@ -50,15 +50,15 @@
 
             <section id="" class="p-12 text-center  block-block clearfix">
 
-                <h2 class="block-title">&copy 2018 KEC Katihar</h2>
+                <h2>&copy 2018 KEC Katihar</h2>
 
                 <p>Designed & Developed by</p> <br>
                 <p><a href="/category/kecwebteam" target="_blank">
-                     
-                
+
+
                     <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">KEC Web Team</button>
-      
-                    
+
+
                     </a></p>
             </section>
         </div>
@@ -71,8 +71,8 @@
 
 
 
-<!--<script type="text/javascript" src="/js/protectcode.js"></script>--><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>        
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" /> 
+<!--<script type="text/javascript" src="/js/protectcode.js"></script>--><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/searchFaculty.js"></script>

@@ -2,76 +2,83 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<jsp:include page ="header.jsp"/>
-<style>
-        .btnHover:hover{
-            background-color:#ccccccad !Important
-            }
-</style>
-<div class="jumbotron flex justify-center bg-gray-200 p-5 text-3xl m-5">
-   <div><h3 class="text-2xl"> Admin Login</h3></div>
-   </div>
-   <div class="">
-       <div class="flex justify-center">
-           <div class="col-sm-offset-4 col-sm-4 border-2 border-gray-800 p-5">
-               <div class="panel panel-default">
-                    <div class="panel-heading"><i class="fa fa-sign-in"></i> Admin Login</div>
-                        <span>${param.message}</span>
-                            <div class="panel-body">
-                                <form method="post" class="form form-horizontal" action="${contextPath}/login" >
-                                    <div class="input-group input-group-sm ${error != null ? 'has-error' : ''}">
-                                         <span>${message}</span>
-                                            <div class="row" style="margin:10px 10px 10px 0px;">
-                                            <div class="w-full"><input type="text" class="w-full" name="username" placeholder="Username" autofocus="true"required>
-                                       </div>
-                                    </div>
-                                    <div class="row" style="margin:10px 10px 10px 0px;">
-                                    <div class="w-full"><input type="password" class="w-full" name="password"
-                                                             placeholder="Password" required></div>
-                                     </div>
+<jsp:include page="header.jsp"/>
 
-                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                                     <div class="row" style="margin:25px 10px 10px 0px;">
-                                     <div class="w-full">
-                                       <button type="submit"
-                                            data-loading-text="<i class='fa fa-cog fa-spin'></i> Please wait..."
-                                            class="btn btn-default btnHover" style="background-color:#81cfe8"
-                                            ><i class="fa fa-check"></i> Login
-                                    </button>
-                                </div>
-                              </div>
-                              <div class="">
-                                     
-                                    <a href="${contextPath}/forgotPassword"     class="flex justify-center btn btn-default btnHover w-full text-center" style="background-color:#81cfe8"><i
-                                            class="fa fa-info-circle"></i> Forgot Password</a>
-                                        
-                               </div>
-                               <div class="row" style="margin:10px 10px 10px 0px;">
-                               <div class="w-full">
-                               <a href="${contextPath}/auth/registration" class="flex btn btn-default btnHover w-full" style=" background-color:#81cfe8"><i
-                               class="fa fa-info-circle"></i>Haven't account ?Sign Up Here </a>
-                               </div>
-                               </div>
-                                </div>
-                              </form>
-            </div>
-        </div>
-        </div>
-        </div>
-    <div class="flex justify-center hidden" id="modalInfo">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header"><h4 class="modal-title">Information!</h4></div>
-                <div class="modal-body"> Please contact site admin to reset and get new password for your account.
-                    <hr/>
-                    <div class="text-right">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>
-                            Close
-                        </button>
-                    </div>
-                </div>
+<div class="bg-gray-200 py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-center">
+            <div class="text-center">
+                <h3 class="text-3xl font-semibold">Login</h3>
             </div>
         </div>
     </div>
 </div>
-    <jsp:include page ="footer.jsp"/>
+
+<div class="py-10">
+    <div class="flex justify-center">
+        <div class="w-full max-w-sm bg-white border-2 border-gray-300 p-8 rounded-lg shadow-md">
+            <div class="mb-6 text-center">
+                <h4 class="text-xl font-bold"><i class="fa fa-sign-in"></i> Admin Login</h4>
+            </div>
+            <form method="post" action="${contextPath}/login">
+                <div class="mb-4">
+                    <span class="text-red-500">${param.message}</span>
+                    <div class="relative">
+                        <input type="text" name="username" placeholder="Username"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               autofocus required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <span class="text-red-500">${message}</span>
+                    <div class="relative">
+                        <input type="password" name="password" placeholder="Password"
+                               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                               required>
+                    </div>
+                </div>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <div class="mb-4">
+                    <button type="submit"
+                            class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300">
+                        <i class="fa fa-check"></i> Login
+                    </button>
+                </div>
+
+                <div class="mb-4">
+                    <a href="${contextPath}/forgotPassword"
+                       class="block text-center bg-gray-300 text-black font-bold py-2 px-4 rounded-md hover:bg-gray-400 transition-colors duration-300">
+                        <i class="fa fa-info-circle"></i> Forgot Password
+                    </a>
+                </div>
+
+                <div>
+                    <a href="${contextPath}/auth/registration"
+                       class="block text-center bg-gray-300 text-black font-bold py-2 px-4 rounded-md hover:bg-gray-400 transition-colors duration-300">
+                        <i class="fa fa-info-circle"></i> Haven't account? Sign Up Here
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="flex justify-center hidden" id="modalInfo">
+    <div class="max-w-md w-full bg-white rounded-lg shadow-md">
+        <div class="p-4">
+            <h4 class="text-lg font-bold">Information!</h4>
+            <p class="mt-2">Please contact site admin to reset and get a new password for your account.</p>
+            <hr class="my-4"/>
+            <div class="text-right">
+                <button type="button"
+                        class="px-4 py-2 bg-gray-300 text-black font-bold rounded-md hover:bg-gray-400 transition-colors duration-300">
+                    <i class="fa fa-remove"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<jsp:include page="footer.jsp"/>

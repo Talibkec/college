@@ -1,209 +1,198 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/jsp/header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 
-</div>
-<div class="container">
-    <div class="row">
-        <aside class="col-sm-3" role="complementary">
-            <div class="region region-sidebar-second">
-                <section id="block-menu-block-3" class="block block-menu-block clearfix">
-                    <c:if test="${facultyDetails.departmentId eq '1'}">
-                        <h2 class="block-title">Faculty of Computer Sc. & Engg.</h2>
-                    </c:if>
-                    <c:if test="${facultyDetails.departmentId eq '2'}">
-                        <h2 class="block-title">Faculty of Civil Engg.</h2>
-                    </c:if>
-                    <c:if test="${facultyDetails.departmentId eq '3'}">
-                        <h2 class="block-title">Faculty of Mechanical Engg.</h2>
-                    </c:if>
-                    <c:if test="${facultyDetails.departmentId eq '4'}">
-                        <h2 class="block-title"> Faculty of Electrical & Electronics Engg.</h2>
-                    </c:if>
-                    <c:if test="${facultyDetails.departmentId eq '5'}">
-                        <h2 class="block-title"> Faculty of Applied Sc. & Humanities</h2>
-                    </c:if>
-                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                        <ul class="menu nav">
-                            <c:forEach items="${facultyNameList}" var="entry">
-                                <c:forEach items="${entry}" var="entryVal">
-                                    <li class="leaf menu-mlid-1467"><a href="/facultyDetails?facultyId=${entryVal.value}"class="sf-depth-2">${entryVal.key}</a></li>
-                                </c:forEach>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                </section>
-            </div>
-        </aside>
+<div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+       <aside class="col-span-1 p-2">
+           <div class="bg-gradient-to-b from-white to-gray-50 p-6 shadow-lg rounded-lg border border-gray-200">
+               <section id="block-menu-block-3" class="block block-menu-block">
+                   <c:choose>
+                       <c:when test="${facultyDetails.departmentId eq '1'}">
+                           <h2 class="block-title text-xl font-semibold mb-4 text-gray-800">Faculty of Computer Sc. & Engg.</h2>
+                       </c:when>
+                       <c:when test="${facultyDetails.departmentId eq '2'}">
+                           <h2 class="block-title text-xl font-semibold mb-4 text-gray-800">Faculty of Civil Engg.</h2>
+                       </c:when>
+                       <c:when test="${facultyDetails.departmentId eq '3'}">
+                           <h2 class="block-title text-xl font-semibold mb-4 text-gray-800">Faculty of Mechanical Engg.</h2>
+                       </c:when>
+                       <c:when test="${facultyDetails.departmentId eq '4'}">
+                           <h2 class="block-title text-xl font-semibold mb-4 text-gray-800">Faculty of Electrical & Electronics Engg.</h2>
+                       </c:when>
+                       <c:when test="${facultyDetails.departmentId eq '5'}">
+                           <h2 class="block-title text-xl font-semibold mb-4 text-gray-800">Faculty of Applied Sc. & Humanities</h2>
+                       </c:when>
+                   </c:choose>
+                   <div class="menu-block-wrapper">
+                       <ul class="menu nav flex flex-col gap-3">
+                           <c:forEach items="${facultyNameList}" var="entry">
+                               <c:forEach items="${entry}" var="entryVal">
+                                   <li class="leaf menu-mlid-1467">
+                                       <a href="/facultyDetails?facultyId=${entryVal.value}" class="text-gray-700 hover:text-blue-700 hover:bg-gray-100 px-3 py-2 rounded-md transition-colors duration-200 ease-in-out">${entryVal.key}</a>
+                                   </li>
+                               </c:forEach>
+                           </c:forEach>
+                       </ul>
+                   </div>
+               </section>
+           </div>
+       </aside>
 
-        <div class="col-md-8">
+
+        <div class="col-span-2">
             <c:forEach items="${Role}" var='role'>
-                <c:if test="${fUserName eq  loggedInUser and 'Faculty' eq role}">
-                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" style="margin-right:10px">Upload
-                        Documents &nbsp;|</a></strong>
-                    <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes">Update Profile
-                        Details &nbsp;|</a></strong>
-                    <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}">Edit Profile Details &nbsp;|</a></strong>
-                    <strong><a href="/uploadNoticeFaculty">Upload Notice |</a></strong>
-                    <strong><a href="/user/dashboard">Go to Dashboard </a></strong>
-
+                <c:if test="${fUserName eq loggedInUser and 'Faculty' eq role}">
+                    <div class="flex flex-col lg:flex-row gap-4 mb-4">
+                        <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=No" class="text-blue-700 hover:underline">Upload Documents</a></strong>
+                        <strong><a href="/uploadfile/facultyFileUpload?isProfilePic=Yes" class="text-blue-700 hover:underline">Update Profile Details</a></strong>
+                        <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}" class="text-blue-700 hover:underline">Edit Profile Details</a></strong>
+                        <strong><a href="/uploadNoticeFaculty" class="text-blue-700 hover:underline">Upload Notice</a></strong>
+                        <strong><a href="/user/dashboard" class="text-blue-700 hover:underline">Go to Dashboard</a></strong>
+                    </div>
                 </c:if>
             </c:forEach>
 
-
-            <ul class=" nav nav-tabs flex justify-around m-3" role="tablist">
-                <li role="presentation" class="active"><a href="#profile" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" aria-controls="profile" role="tab"
-                                                          data-toggle="tab"><i class="fa fa-user"></i> Profile</a>
+            <ul class="nav nav-tabs flex justify-around mb-3" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#profile" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5" aria-controls="profile" role="tab" data-toggle="tab">
+                        <i class="fa fa-user"></i> Profile
+                    </a>
                 </li>
-                <li role="presentation"><a href="#downloads" aria-controls="downloads" role="tab"
-                                           data-toggle="tab"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><i class="fa fa-download"></i> Downloads</a></li>
+                <li role="presentation">
+                    <a href="#downloads" aria-controls="downloads" role="tab" data-toggle="tab" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5">
+                        <i class="fa fa-download"></i> Downloads
+                    </a>
+                </li>
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
-                        <!-- <li role="presentation"><a href="#order" aria-controls="order" role="tab"
-                                                   data-toggle="tab"><i class="fa fa-angle-double-right"></i>
-                            Request</a></li> -->
+                        <!-- Uncomment if needed
+                        <li role="presentation">
+                            <a href="#order" aria-controls="order" role="tab" data-toggle="tab">
+                                <i class="fa fa-angle-double-right"></i> Request
+                            </a>
+                        </li>
+                        -->
                     </c:if>
                 </c:forEach>
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="profile"><img alt="" id="profileImage"style="height: 200px;width:250px" src="/${facultyDetails.facultyId}/image${fileExtension}"/>
-                    <h2>${facultyDetails.facultyName}</h2>
-                    <p style="font-size: 130%;">Assistant Professor <br/>
-                        <c:if test="${facultyDetails.departmentId eq '1'}">
-                            Department of Computer Sc. & Engineering
-                        </c:if>
-                        <c:if test="${facultyDetails.departmentId eq '2'}">
-                            Department of Civil Engineering
-                        </c:if>
-                        <c:if test="${facultyDetails.departmentId eq '3'}">
-                            Department of Mechanical Engineering
-                        </c:if>
-                        <c:if test="${facultyDetails.departmentId eq '4'}">
-                            Department of Electrical and Electronics Engineering
-                        </c:if>
-                        <c:if test="${facultyDetails.departmentId eq '5'}">
-                            Department of Applied Science & Humanities
-                        </c:if>
-                    <p><i class="fa fa-phone">${facultyDetails.facultyMobNo}</i> &nbsp; | &nbsp; <i
-                            class="fa fa-envelope"></i> <a
-                            href="mailto:${facultyDetails.facultyOfficialEmail}">
-                        <span>${facultyDetails.facultyOfficialEmail}</span>
-                        &nbsp; | &nbsp; <i class="fa fa-envelope"></i> <a
-                            href="mailto:${facultyDetails.facultyPersonalEmail}">
-                        <span>${facultyDetails.facultyPersonalEmail}</span>
+                <div role="tabpanel" class="tab-pane active" id="profile">
+                    <img alt="" id="profileImage" class="h-52 w-64 object-cover mb-4" src="/${facultyDetails.facultyId}/image${fileExtension}"/>
+                    <h2 class="text-2xl font-semibold mb-2">${facultyDetails.facultyName}</h2>
+                    <p class="text-lg mb-4">Assistant Professor <br/>
+                        <c:choose>
+                            <c:when test="${facultyDetails.departmentId eq '1'}">
+                                Department of Computer Sc. & Engineering
+                            </c:when>
+                            <c:when test="${facultyDetails.departmentId eq '2'}">
+                                Department of Civil Engineering
+                            </c:when>
+                            <c:when test="${facultyDetails.departmentId eq '3'}">
+                                Department of Mechanical Engineering
+                            </c:when>
+                            <c:when test="${facultyDetails.departmentId eq '4'}">
+                                Department of Electrical and Electronics Engineering
+                            </c:when>
+                            <c:when test="${facultyDetails.departmentId eq '5'}">
+                                Department of Applied Science & Humanities
+                            </c:when>
+                        </c:choose>
+                    </p>
+                    <p class="text-base mb-4">
+                        <i class="fa fa-phone"></i> ${facultyDetails.facultyMobNo} &nbsp; | &nbsp;
+                        <i class="fa fa-envelope"></i> <a href="mailto:${facultyDetails.facultyOfficialEmail}" class="text-blue-700 hover:underline">${facultyDetails.facultyOfficialEmail}</a> &nbsp; | &nbsp;
+                        <i class="fa fa-envelope"></i> <a href="mailto:${facultyDetails.facultyPersonalEmail}" class="text-blue-700 hover:underline">${facultyDetails.facultyPersonalEmail}</a>
+                    </p>
 
-                    </a></p> <br/><br/>
-
-                   <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
-                    <div class="panel panel-default facultyInfo border border-1 m-2 p-2">
-                            <div class="panel-heading text-white p-2" style="background-color: #285690">
-                                <Strong>${keyprop.keyPropertyName}</Strong>
+                    <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
+                        <div class="border border-gray-300 rounded p-4 mb-4">
+                            <div class="text-white p-2 bg-blue-700 rounded">
+                                <strong>${keyprop.keyPropertyName}</strong>
                             </div>
                             <c:forEach items="${keyprop.keyPropVals}" var="propVal">
-                                <table class="table table-striped p-2">
-                                    <tbody>
-                                    <tr>
-                                    <ul>
-                                       <li>
-                                        ${propVal.keyPropVal}
-                                       </li>
-                                     </ul>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <ul class="list-disc pl-4 mt-2">
+                                    <li>${propVal.keyPropVal}</li>
+                                </ul>
                             </c:forEach>
-
-                    </div>
-                </c:forEach>
+                        </div>
+                    </c:forEach>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="downloads">
-                    <div style="padding: 15px;">
-                        <div class="">
+                    <div class="p-4">
+                        <div class="space-y-4">
                             <c:forEach items="${facultyDocument}" var="facultyDocument">
-                              <div>
-                                <span class="label" style="border:  solid 1px #ccc; color: #000;">
-                                <c:set var="clazz" value="label label-warning"/>
-                                <i class=""></i> ${facultyDocument.date} </span>&nbsp;
-                             <c:forEach var="item" items="${Role}">
-                               <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
-                               <span class="label label-danger"><a href="/common/deleteFacultyDoc/${facultyDocument.id}">Delete</a></span>
-                             </c:if>
-                            </c:forEach>
+                                <div class="flex flex-col md:flex-row items-start md:items-center space-y-2 md:space-y-0 md:space-x-4 p-4 border border-gray-200 rounded-lg shadow-sm bg-white">
+                                    <span class="border border-gray-300 text-gray-800 px-3 py-1 rounded-md bg-gray-50">${facultyDocument.date}</span>
+                                    <c:forEach var="item" items="${Role}">
+                                        <c:if test="${'Faculty' eq item and fUserName eq loggedInUser}">
+                                            <a href="/common/deleteFacultyDoc/${facultyDocument.id}" class="bg-red-600 text-white hover:bg-red-700 px-4 py-2 rounded-md transition duration-200 ease-in-out">
+                                                Delete
+                                            </a>
+                                        </c:if>
+                                    </c:forEach>
 
                                     <c:choose>
                                         <c:when test="${facultyDocument.link}">
-                                            <a href="${facultyDocument.linkAddress}"
-                                               target="_blank">${facultyDocument.headLine}</a>
+                                            <a href="${facultyDocument.linkAddress}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors duration-200 ease-in-out">${facultyDocument.headLine}</a>
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="/${facultyDocument.id}/documents${facultyDocument.fileType}"
-                                               target="_blank">${facultyDocument.headLine}</a>
+                                            <a href="/${facultyDocument.id}/documents${facultyDocument.fileType}" target="_blank" class="text-blue-600 hover:text-blue-800 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors duration-200 ease-in-out">${facultyDocument.headLine}</a>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
                             </c:forEach>
                         </div>
                     </div>
-
                 </div>
-                <div role="tabpanel hidden" class="tab-pane hidden" id="order">
-                    <div style="padding: 15px;">
-                        <a href="/fstore/faculty/order"> Order Item </a>
-                    </div>
-                    <div style="padding: 15px;">
-                        <a href="/fstore/faculty/facultyOrderHistory"> Order History
-                        </a>
-                    </div>
-                    <div style="padding: 15px;">
-                        <div class="row" style="border:1px solid green;padding:10px">
-                            <div class="col-md-2 text-center"><strong>Product Name</strong></div>
-                            <div class="col-md-1 text-center"><strong>Qty</strong></div>
-                            <div class="col-md-1 text-center"><strong>Status</strong></div>
-                            <div class="col-md-2 text-center"><strong>Requested Date</strong></div>
-                            <div class="col-md-2 text-center"><strong>Approval/Rejection Date</strong>
-                            </div>
-                            <div class="col-md-2 text-center"><strong>Edit</strong></div>
-                            <div class="col-md-2 text-center"><strong>Delete</strong></div>
 
+                <div role="tabpanel" class="tab-pane hidden" id="order">
+                    <div class="p-4">
+                        <a href="/fstore/faculty/order" class="text-blue-700 hover:underline">Order Item</a>
+                    </div>
+                    <div class="p-4">
+                        <a href="/fstore/faculty/facultyOrderHistory" class="text-blue-700 hover:underline">Order History</a>
+                    </div>
+                    <div class="p-4">
+                        <div class="grid grid-cols-7 border border-green-500 p-2">
+                            <div class="col-span-2 text-center font-bold">Product Name</div>
+                            <div class="col-span-1 text-center font-bold">Qty</div>
+                            <div class="col-span-1 text-center font-bold">Status</div>
+                            <div class="col-span-1 text-center font-bold">Requested Date</div>
+                            <div class="col-span-1 text-center font-bold">Approval/Rejection Date</div>
+                            <div class="col-span-1 text-center font-bold">Edit</div>
+                            <div class="col-span-1 text-center font-bold">Delete</div>
                         </div>
-                        <div class="" style>
-                            <c:forEach items="${requests}" var="request">
-                                <div class="row requests" style="border:1px solid green;padding:10px">
-                                    <div class="col-md-2 text-center">${request.product.productName}
-                                    </div>
-                                    <div class="col-md-1 text-center">${request.productQuantity}</div>
-                                    <div class="col-md-1 text-center" id="statusId${request.requestId}">
-                                        ${request.status}
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <fmt:formatDate value="${request.requestDate}"
-                                                        pattern="dd/MM/yyyy"/>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <fmt:formatDate value="${request.approvalDate}"
-                                                        pattern="dd/MM/yyyy"/>
-                                    </div>
-                                    <div class="col-md-2 text-center"><a
-                                            href="/fstore/faculty/editfacultyrequest?id=${request.requestId}"
-                                            id="editId${request.requestId}">Edit</a></div>
-                                    <div class="col-md-2 text-center"><a
-                                            href="/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}">Delete</a>
-                                    </div>
+                        <c:forEach items="${requests}" var="request">
+                            <div class="grid grid-cols-7 border border-green-500 p-2">
+                                <div class="col-span-2 text-center">${request.product.productName}</div>
+                                <div class="col-span-1 text-center">${request.productQuantity}</div>
+                                <div class="col-span-1 text-center" id="statusId${request.requestId}">${request.status}</div>
+                                <div class="col-span-1 text-center">
+                                    <fmt:formatDate value="${request.requestDate}" pattern="dd/MM/yyyy"/>
                                 </div>
-                            </c:forEach>
-                        </div>
+                                <div class="col-span-1 text-center">
+                                    <fmt:formatDate value="${request.approvalDate}" pattern="dd/MM/yyyy"/>
+                                </div>
+                                <div class="col-span-1 text-center">
+                                    <a href="/fstore/faculty/editfacultyrequest?id=${request.requestId}" class="text-blue-700 hover:underline">Edit</a>
+                                </div>
+                                <div class="col-span-1 text-center">
+                                    <a href="/fstore/faculty/deletefacultyrequest?requestId=${request.requestId}" class="text-red-600 hover:underline">Delete</a>
+                                </div>
+                            </div>
+                        </c:forEach>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 <jsp:include page="/jsp/footer.jsp"/>
 <script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="/js/jquery-ui.js"></script>
 <script src="/js/facultyprofile.js"></script>
+

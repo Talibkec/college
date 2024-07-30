@@ -2,107 +2,93 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-@media (max-width:767px){
-.add_button{
-width:100%
-}
-.remove_button:{
-width:8%
-}   
-}
 
-</style>
 <div class="panel-heading bg-gray-200 p-5 text-3xl"> <i class="fa fa-sign-in"></i> &nbsp;Edit Profile Details</div>
 
-               
-<div class="container">
-    <div class="row">
-        <div class=" col-sm-8"></br></br>
-            <div class="panel panel-primary border border-1 p-3" style="min-width:600px">
-                 <div class="panel-body" style="height: 100%">
 
+<div class="container mx-auto p-4">
+    <div class="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-gray-800 flex items-center">
+            <i class="fa fa-sign-in mr-2"></i> Edit Profile Details
+        </h2>
 
-                    <form method="POST" enctype="multipart/form-data" id="editDetailsForm">
-                    <div class="flex m-1 justify-around">
-                         
-                          <input type="hidden" placeholder="Faculty Id"id="facultyId" value="${facultyDetails.facultyId}" name="facultyId"
-                                 class=" col-md-6 "style="margin-left:3%"></br></br>
-                    </div>
+        <form method="POST" enctype="multipart/form-data" id="editDetailsForm">
+            <input type="hidden" id="facultyId" value="${facultyDetails.facultyId}" name="facultyId" />
 
-                        <div  class="flex m-1 justify-around">
-                            <span>Name</span>
-                        <input type="text" placeholder="Enter Name"id="facultyName" value="${facultyDetails.facultyName}" name="facultyName"
-                            class=" col-md-6 "style="margin-left:3%"></br></br>
-                         </div>
-                         <div  class="flex m-1 justify-around">
-                        <span >Official Email</span>
-                        <input type="email"placeholder="Enter official Email" id="facultyOfficialEmail" value="${facultyDetails.facultyOfficialEmail}"
-                            name="facultyOfficialEmail" class=" col-md-6"style="margin-left:3%"></br></br>
-                           </div>
-                        <div  class="flex m-1 justify-around">
-                        <span>Personal Email</span>
-                        <input type="email"placeholder="Enter Personal Email" id="facultyPersonalEmail" value="${facultyDetails.facultyPersonalEmail}"
-                            name="facultyPersonalEmail" class=" col-md-6"style="margin-left:3%"></br></br>
-                         </div>
-                        <div  class="flex m-1 justify-around">
-                        <span>Mobile No</span>
-                        <input type="text"placeholder="Enter Mobile No." id="facultyMobNo" value="${facultyDetails.facultyMobNo} " name="facultyMobNo"
-                            class=" col-md-6"style="margin-left:3%"></br>
-                        </div>
-                        <div class="oldPropsClass" ">
-                            <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyProp">
-                            <div class="oldpropkeybox" >
-                            <div class="panel panel-success"style="margin-top:5%">
-                            <input type="text" name="keyProp" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyName}" ></input>
-                            <input type="hidden" name="keyPropertyId" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropertyId}" ></input>
-                            <input type="hidden" name="keyPropsOrder" placeholder="Enter Property Heading"style="margin-top:2%;margin-left:3%" class="propKey col-md-6" value="${keyProp.keyPropsOrder}" ></input>
-
-                            <a href="javascript:void(0);" class="remove_Key btn btn-danger" style ="margin-top:2%;margin-left:5%;margin-bottom:2%">Delete Property Heading</a>
-
-                            <c:forEach items="${keyProp.keyPropVals}" var="propVal">
-                               <div class="propVals">
-                               <c:set var ="keyVals" value="${propVal.keyPropVal}"/>
-                               
-                                <input type="text" name="field_name" placeholder="Enter Property Value" style="margin-left:3%;"value="${fn:escapeXml(keyVals)}"class="propVal col-md-6" />
-                                <input type="hidden" name="keyPropValuesId" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyPropValuesId}"class="propVal col-md-6" />
-                                <input type="hidden" name="keyValueOrder" placeholder="Enter Property Value"style="margin-left:3%;"value="${propVal.keyValueOrder}"class="propVal col-md-6" />
-                                <a href="javascript:void(0);" class="add_button btn btn-success "id="add_button"style ="width:8%;margin-left:5%;margin-bottom:2%;"><span class="material-symbols-outlined">add</span></a>
-                                <a href="javascript:void(0);" class="remove_button btn btn-danger "style="width:8%;margin-bottom:2%;margin-left:2%"><span class="material-symbols-outlined">remove</span></a>
-                               </div>
-                            </c:forEach>
-                            </div>
-                            </div>
-                            </c:forEach>
-                        </div>
-                        <div style="text-align:center" class="m-3" id="addNewProp"style="display:block">
-                        <button class="w-full btn btn-success focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><span class="material-symbols-outlined">add</span> Add New Property</button>
-                        </div>
-                        <div class="newPropsClass">
-                            <div class="newpropkeybox" style="display:none">
-                            <div class ="panel panel-success">
-                                <input type="text" name="propkey"style="margin-left:3%;margin-top:2%"placeholder="Property Heading" class="propKey  col-md-6" />
-                                <a href="javascript:void(0);" class="remove_Key btn btn-danger"id="deleteNewProps" style="width:8%;margin-left:5%;margin-top:2%;margin-right:1%">Delete </a>
-                                <a href="javascript:void(0);"style="margin-top:2%;width:9%" class="add_key btn btn-success add_keYAlign" >Add More </a>
-
-                                <div class="propVals">
-                                    <input type="text"style="margin-left:3%;margin-top:2%" placeholder="Property Value"name="field_name" value="" class="propVal  col-md-6" />
-                                    <a href="javascript:void(0);" class="add_button btn btn-success"style="width:8%;margin-left:5%;margin-top:2%"><span class="glyphicon glyphicon-plus-sign"></span></a>
-                                    <a href="javascript:void(0);" class="remove_button btn btn-danger " style="width:9.5%;margin-top:2%;margin-left:0.5%"><span class="glyphicon glyphicon-remove-sign"></span></a>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <input type="submit" value="Submit" id="btnSubmit" class=" w-full btn btn-info focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"/>
-                        <div class="col-sm-4"></div>
-                    </form>
-                </div>
-
+            <!-- Name -->
+            <div class="mb-4 flex flex-col">
+                <label for="facultyName" class="text-base sm:text-lg font-medium text-gray-700 mb-1">Name</label>
+                <input type="text" id="facultyName" name="facultyName" value="${facultyDetails.facultyName}" placeholder="Enter Name" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 w-full" />
             </div>
 
-        </div>
+            <!-- Official Email -->
+            <div class="mb-4 flex flex-col">
+                <label for="facultyOfficialEmail" class="text-base sm:text-lg font-medium text-gray-700 mb-1">Official Email</label>
+                <input type="email" id="facultyOfficialEmail" name="facultyOfficialEmail" value="${facultyDetails.facultyOfficialEmail}" placeholder="Enter Official Email" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 w-full" />
+            </div>
+
+            <!-- Personal Email -->
+            <div class="mb-4 flex flex-col">
+                <label for="facultyPersonalEmail" class="text-base sm:text-lg font-medium text-gray-700 mb-1">Personal Email</label>
+                <input type="email" id="facultyPersonalEmail" name="facultyPersonalEmail" value="${facultyDetails.facultyPersonalEmail}" placeholder="Enter Personal Email" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 w-full" />
+            </div>
+
+            <!-- Mobile No -->
+            <div class="mb-4 flex flex-col">
+                <label for="facultyMobNo" class="text-base sm:text-lg font-medium text-gray-700 mb-1">Mobile No</label>
+                <input type="text" id="facultyMobNo" name="facultyMobNo" value="${facultyDetails.facultyMobNo}" placeholder="Enter Mobile No." class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 w-full" />
+            </div>
+
+            <!-- Existing Properties -->
+            <div class="mb-6">
+                <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyProp">
+                    <div class="border border-gray-300 rounded-lg p-4 mb-4">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
+                            <input type="text" name="keyProp" placeholder="Enter Property Heading" value="${keyProp.keyPropertyName}" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 flex-1 w-full sm:w-3/4" />
+                            <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-4 text-red-600 hover:text-red-800 font-medium remove_Key">Delete Property Heading</a>
+                        </div>
+                        <c:forEach items="${keyProp.keyPropVals}" var="propVal">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center mb-2">
+                                <input type="text" name="field_name" placeholder="Enter Property Value" value="${fn:escapeXml(propVal.keyPropVal)}" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 flex-1 w-full sm:w-3/4" />
+                                <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-4 text-green-600 hover:text-green-800 font-medium add_button"><span class="material-symbols-outlined">add</span></a>
+                                <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-2 text-red-600 hover:text-red-800 font-medium remove_button"><span class="material-symbols-outlined">remove</span></a>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </c:forEach>
+            </div>
+
+            <!-- Add New Property Button -->
+            <div class="text-center mb-6">
+                <button type="button" id="addNewProp" class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined">add</span> Add New Property
+                </button>
+            </div>
+
+            <!-- New Properties -->
+            <div class="newPropsClass">
+                <div class="newpropkeybox hidden border border-gray-300 rounded-lg p-4 mb-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center mb-4">
+                        <input type="text" name="propkey" placeholder="Property Heading" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 flex-1 w-full sm:w-3/4" />
+                        <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-4 text-red-600 hover:text-red-800 font-medium remove_Key" id="deleteNewProps">Delete</a>
+                        <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-2 text-green-600 hover:text-green-800 font-medium add_key">Add More</a>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center mb-2">
+                        <input type="text" name="field_name" placeholder="Property Value" class="form-input border border-gray-300 rounded-md shadow-sm px-4 py-2 flex-1 w-full sm:w-3/4" />
+                        <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-4 text-green-600 hover:text-green-800 font-medium add_button"><span class="material-symbols-outlined">add</span></a>
+                        <a href="javascript:void(0);" class="mt-2 sm:mt-0 sm:ml-2 text-red-600 hover:text-red-800 font-medium remove_button"><span class="material-symbols-outlined">remove</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <input type="submit" value="Submit" id="btnSubmit" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg" />
+            </div>
+        </form>
     </div>
 </div>
-</div>
+
+
 <jsp:include page="footer.jsp" />
 <script src="/js/editfacultydetails.js"></script>

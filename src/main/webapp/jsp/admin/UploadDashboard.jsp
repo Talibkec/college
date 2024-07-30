@@ -135,7 +135,7 @@
 
       <div class="flex flex-col lg:flex-row">
         <!-- Left col -->
-        <section class="lg:w-7/12 p-4">
+        <section class="lg:w-full p-4">
           <!-- Custom tabs (Charts with tabs) -->
           <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-lg">
             <div class="flex justify-between items-center p-4 border-b border-gray-300">

@@ -456,11 +456,7 @@
                         
                                 <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
                                   href="/department/manufacturing/about" class="sf-depth-2">Manufacturing Engineering</a></li>
-
                           </ul>
-
-                        
-
                         </div>
                       </div>
                       </li>

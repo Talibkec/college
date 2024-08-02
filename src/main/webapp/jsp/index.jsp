@@ -111,13 +111,21 @@
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src="/${image.imageSlideId}/slideImage${image.fileType}"
                      class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." style="min-height:50vh">
+
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Admin' eq item}">
-                        <span class="label label-danger"><a
-                                href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>">Delete</a></span>
+                        <span class="label label-danger" style="z-index:999; position:relative; padding:10px; border-radius:3px"><a
+                                href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" style="background: red; color:white; padding:5px; border-radius:5px; ">Delete</a></span>
                     </c:if>
                 </c:forEach>
+
+
             </div>
+
+
+
+
+
 
 
         </c:forEach>

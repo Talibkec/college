@@ -456,73 +456,279 @@
             </div>
         </div>
     </section>
+
+   <!-- <section id="block-views-nodequeue-10-block" class="block block-views clearfix">
+
+        <h2 class="text-3xl block-title font-bold w-full text-center text-gray-800 heading-animated">Achievements</h2>
+
+        <div class="view view-nodequeue-10 view-id-nodequeue_10 view-display-id-block view-dom-id-092f3c9d9a1a277eabf025598077161b">
+
+
+            <div class="view-content ">
+                <c:forEach items="${achievementImageList}" var="achievementImage">
+                    <div class="item-list ">
+                        <ul class="achievementSlider">
+                            <li class="views-row views-row-1 views-row-odd views-row-first">
+                                <div class="views-field views-field-field-image">
+                                    <div class="field-content">
+                                        <a href="/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
+                                           target="_blank"><img
+                                                typeof="foaf:Image" class="img-responsive"
+                                                src="/${achievementImage.achievementSlideId}/achievementImage${achievementImage.fileType}"
+                                                width="400" height="500" alt=""
+                                                title="${achievementImage.achievementCaption} "/></a>
+                                        <span class="caption text-center w-full p-3">
+                                                ${achievementImage.achievementCaption}
+                                        </span>
+                                        <c:forEach var="item" items="${Role}">
+                                            <c:if test="${'Admin' eq item}">
+                                                                 <span class="label label-danger m-2">
+                                                                 <a style="display: inline"
+                                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                                                                    href="<c:url value='/auth/deleteAchievementImage/${achievementImage.achievementSlideId}' />">Delete</a></span>
+                                            </c:if>
+                                        </c:forEach>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+    </section>
+    <style>
+
+
+   .heading-animated {
+        position: relative;
+        display: inline-block;
+        background: linear-gradient(90deg, #ff6b6b, #f06595, #cc5de8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientText 3s ease infinite;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+
+      @keyframes gradientText {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .heading-animated:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, #ff6b6b, #f06595, #cc5de8);
+        bottom: -10px;
+        left: 0;
+        border-radius: 5px;
+        animation: slideInUnderline 3s ease infinite;
+      }
+
+      @keyframes slideInUnderline {
+        0%, 100% {
+          transform: scaleX(0);
+        }
+        50% {
+          transform: scaleX(1);
+        }
+      }
+       -->
 </div>
 
 <div class="" style="margin-top:10px;margin-bottom:10px">
     <div class="">
         <div class="">
-            <div class="py-2 ">
-              <div class="region region-home-gallery  mx-auto px-4">
-                <section id="block-views-10-block" class="block block-views">
-                  <h2 class="text-3xl font-bold mb-8 ">Gallery</h2>
-                  <div class="view-content">
-                    <div class="item-list">
-                      <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
-                        <li class="views-row views-row-1 views-row-odd views-row-first flex-1">
-                          <div class="views-field views-field-field-image">
-                            <div class="field-content">
-                              <a href="/images/sportkec.jpeg" target="_blank">
-                                <img
-                                  typeof="foaf:Image"
-                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
-                                  src="/images/sportkec.jpeg"
-                                  alt="Pitch for a Better India"
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="views-row views-row-2 views-row-even flex-1">
-                          <div class="views-field views-field-field-image">
-                            <div class="field-content">
-                              <a href="/images/sportkec1.jpeg">
-                                <img
-                                  typeof="foaf:Image"
-                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
-                                  src="/images/sportkec1.jpeg"
-                                  alt="Ace the Psychometric"
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li class="views-row views-row-3 views-row-odd views-row-last flex-1">
-                          <div class="views-field views-field-field-image">
-                            <div class="field-content">
-                              <a href="/images/sportkec.jpeg">
-                                <img
-                                  typeof="foaf:Image"
-                                  class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg"
-                                  src="/images/sportkec.jpeg"
-                                  alt="Machine Assembly and Disassembly Workshop"
-                                />
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <div class="w-full flex justify-center mt-6">
-                        <a
-                          class="box-link border border-gray-800 px-6 py-2 rounded-md hover:bg-gray-800 hover:text-white transition-colors duration-300"
-                          href="/gallery/photogallery">
-                          View All
-                        </a>
-                      </div>
+    <div class="py-2 bg-gray-50">
+      <div class="region region-home-gallery mx-auto px-4 bg">
+        <section id="block-views-10-block" class="block block-views group">
+          <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 heading-animated">Gallery</h2>
+          <div class="view-content">
+            <div class="item-list">
+              <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+                <li class="views-row views-row-1 views-row-odd views-row-first flex-1 animate-slide-in delay-0 group-hover:animate-slide-in-hover">
+                  <div class="views-field views-field-field-image">
+                    <div class="field-content">
+                      <a href="/images/sportkec.jpeg" target="_blank">
+                        <img
+                          typeof="foaf:Image"
+                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                          src="/images/sportkec.jpeg"
+                          alt="Pitch for a Better India"
+                        />
+                      </a>
                     </div>
                   </div>
-                </section>
+                </li>
+                <li class="views-row views-row-2 views-row-even flex-1 animate-slide-in delay-300 group-hover:animate-slide-in-hover">
+                  <div class="views-field views-field-field-image">
+                    <div class="field-content">
+                      <a href="/images/sportkec1.jpeg">
+                        <img
+                          typeof="foaf:Image"
+                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                          src="/images/sportkec1.jpeg"
+                          alt="Ace the Psychometric"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="views-row views-row-3 views-row-odd views-row-last flex-1 animate-slide-in delay-600 group-hover:animate-slide-in-hover">
+                  <div class="views-field views-field-field-image">
+                    <div class="field-content">
+                      <a href="/images/sportkec.jpeg">
+                        <img
+                          typeof="foaf:Image"
+                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                          src="/images/sportkec.jpeg"
+                          alt="Machine Assembly and Disassembly Workshop"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="w-full flex justify-center mt-6">
+                <a
+                  class="box-link border border-gray-800 px-6 py-2 rounded-md bg-white hover:bg-gray-800 hover:text-white transition-colors duration-300 shadow-lg"
+                  href="/gallery/photogallery">
+                  View All
+                </a>
               </div>
             </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <style>
+    @keyframes slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInFromLeftHover {
+      0% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-slide-in {
+      opacity: 0;
+      transform: translateX(-100%);
+      animation: slideInFromLeft 1s ease-in-out forwards;
+    }
+
+    .group-hover\:animate-slide-in-hover:hover {
+      animation: slideInFromLeftHover 0.5s ease-in-out forwards;
+    }
+
+    .delay-0 {
+      animation-delay: 0s;
+    }
+
+    .delay-300 {
+      animation-delay: 0.3s;
+    }
+
+    .delay-600 {
+      animation-delay: 0.6s;
+    }
+
+    /* Additional styles for enhanced appearance */
+
+
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .bg {
+      padding: 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #e0e7ff, #fefcbf);
+    }
+
+    .item-list {
+      padding: 20px;
+    }
+
+    .box-link {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    /* Enhancing the heading */
+    .heading-animated {
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(90deg, #ff6b6b, #f06595, #cc5de8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientText 3s ease infinite;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    @keyframes gradientText {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .heading-animated:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ff6b6b, #f06595, #cc5de8);
+      bottom: -10px;
+      left: 0;
+      border-radius: 5px;
+      animation: slideInUnderline 3s ease infinite;
+    }
+
+    @keyframes slideInUnderline {
+      0%, 100% {
+        transform: scaleX(0);
+      }
+      50% {
+        transform: scaleX(1);
+      }
+    }
+    </style>
 
 
           <div class="flex flex-col sm:flex-row gap-8 p-4 mt-5">

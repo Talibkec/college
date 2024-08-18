@@ -46,8 +46,6 @@
                     <thead>
                         <tr class="bg-green-500 text-white">
                             <th class="px-4 py-2">SI. No.</th>
-                            <th class="px-4 py-2">Year</th>
-                            <th class="px-4 py-2">Download</th>
                             <th class="px-4 py-2">
                                 <c:if test="${showDeleteBtn}">
                                     Delete

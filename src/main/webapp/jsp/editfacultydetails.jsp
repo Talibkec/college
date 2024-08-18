@@ -54,7 +54,11 @@
                     <input type="text" name="keyProp" placeholder="Enter Property Heading" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropertyName}">
                     <input type="hidden" name="keyPropertyId" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropertyId}">
                     <input type="hidden" name="keyPropsOrder" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropsOrder}">
-                    <a href="javascript:void(0);" class="remove_Key btn btn-danger my-2 ml-5 mb-2">Delete Property Heading</a>
+                  <a href="javascript:void(0);" class="remove_Key btn btn-danger  my-2 ml-2 mb-2">
+                    <button type="button" class=" md:w-auto  rounded text-white ">
+                      <i class="fa-solid fa-trash fa"> Heading</i>
+                    </button>
+                  </a>
 
                     <c:forEach items="${keyProp.keyPropVals}" var="propVal">
                       <div class="propVals">

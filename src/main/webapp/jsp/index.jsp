@@ -2,6 +2,11 @@
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
 <div class="py-2 ">
@@ -99,83 +104,113 @@
   </marquee>
 </div>
 
+   <style>
+        /* General Swiper Styling */
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
 
-<div id="default-carousel" class="relative w-full" data-carousel="slide">
-    <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <!-- Item 1 -->
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            background: #eee;
+            position: relative;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Centered and smaller delete button */
+       .delete-button {
+           position: absolute;
+           transform: translate(-50%, -100%);
+           background: red;
+           color: white;
+           padding: 5px 10px;
+           border-radius: 5px;
+           font-size: 12px;
+           z-index: 1000;
+           text-align: center;
+       }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #000;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #000;
+        }
+
+        /* Increase height on mobile devices */
+        @media (max-width: 767px) {
+            .swiper-slide img {
+                height: 60vh;
+                object-fit: cover;
+            }
+        }
+    </style>
 
 
+<div class="swiper">
+    <div class="swiper-wrapper">
         <c:forEach items="${imageList}" var="image">
-
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="/${image.imageSlideId}/slideImage${image.fileType}"
-                     class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." style="min-height:50vh">
-
+            <div class="swiper-slide">
+                <img src="/${image.imageSlideId}/slideImage${image.fileType}" alt="Slide Image">
                 <c:forEach var="item" items="${Role}">
                     <c:if test="${'Admin' eq item}">
-                        <span class="label label-danger" style="z-index:999; position:relative; padding:10px; border-radius:3px"><a
-                                href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" style="background: red; color:white; padding:5px; border-radius:5px; ">Delete</a></span>
+                        <a href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" class="delete-button">Delete</a>
                     </c:if>
                 </c:forEach>
-
-
             </div>
-
-
-
-
-
-
-
         </c:forEach>
-
-
     </div>
-    <!-- Slider indicators -->
-    <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
 
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
 
-        <c:forEach items="${imageList}" var="image">
-
-            <button type="button" class="w-3 h-3 rounded-full" style="background:#444" aria-current="true"
-                    aria-label="Slide 1" data-carousel-slide-to="0"></button>
-
-
-        </c:forEach>
-
-
-    </div>
-    <!-- Slider controls -->
-    <button type="button"
-            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-prev>
-        <span style="background:#777"
-              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button"
-            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-            data-carousel-next>
-        <span style="background:#777"
-              class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 </div>
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+        },
 
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
 
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // Responsive breakpoints
+        breakpoints: {
+            640: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 1,
+            },
+            1024: {
+                slidesPerView: 1,
+            },
+        },
+    });
+</script>
 <!-- Starting of image slider. -->
 
 
@@ -548,70 +583,70 @@
 <div class="" style="margin-top:10px;margin-bottom:10px">
     <div class="">
         <div class="">
-    <div class="py-2 bg-gray-50">
-      <div class="region region-home-gallery mx-auto px-4 bg">
-        <section id="block-views-10-block" class="block block-views group">
-          <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 heading-animated">Gallery</h2>
-          <div class="view-content">
-            <div class="item-list">
-              <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
-                <li class="views-row views-row-1 views-row-odd views-row-first flex-1 animate-slide-in delay-0 group-hover:animate-slide-in-hover">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content">
-                      <a href="/images/sportkec.jpeg" target="_blank">
-                        <img
-                          typeof="foaf:Image"
-                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
-                          src="/images/sportkec.jpeg"
-                          alt="Pitch for a Better India"
-                        />
-                      </a>
-                    </div>
+  <div class="py-2 bg-gray-50">
+    <div class="region region-home-gallery mx-auto px-4 bg">
+      <section id="block-views-10-block" class="block block-views group">
+        <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 heading-animated">Gallery</h2>
+        <div class="view-content">
+          <div class="item-list">
+            <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+              <li class="views-row views-row-1 views-row-odd views-row-first flex-1 animate-slide-in delay-0 group-hover:animate-slide-in-hover">
+                <div class="views-field views-field-field-image">
+                  <div class="field-content">
+                    <a href="/images/sportkec.jpeg" target="_blank">
+                      <img
+                        typeof="foaf:Image"
+                        class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                        src="/images/sportkec.jpeg"
+                        alt="Pitch for a Better India"
+                      />
+                    </a>
                   </div>
-                </li>
-                <li class="views-row views-row-2 views-row-even flex-1 animate-slide-in delay-300 group-hover:animate-slide-in-hover">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content">
-                      <a href="/images/sportkec1.jpeg">
-                        <img
-                          typeof="foaf:Image"
-                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
-                          src="/images/sportkec1.jpeg"
-                          alt="Ace the Psychometric"
-                        />
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li class="views-row views-row-2 views-row-even flex-1 animate-slide-in delay-300 group-hover:animate-slide-in-hover">
+                <div class="views-field views-field-field-image">
+                  <div class="field-content">
+                    <a href="/images/sportkec1.jpeg">
+                      <img
+                        typeof="foaf:Image"
+                        class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                        src="/images/sportkec1.jpeg"
+                        alt="Ace the Psychometric"
+                      />
+                    </a>
                   </div>
-                </li>
-                <li class="views-row views-row-3 views-row-odd views-row-last flex-1 animate-slide-in delay-600 group-hover:animate-slide-in-hover">
-                  <div class="views-field views-field-field-image">
-                    <div class="field-content">
-                      <a href="/images/sportkec.jpeg">
-                        <img
-                          typeof="foaf:Image"
-                          class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
-                          src="/images/sportkec.jpeg"
-                          alt="Machine Assembly and Disassembly Workshop"
-                        />
-                      </a>
-                    </div>
+                </div>
+              </li>
+              <li class="views-row views-row-3 views-row-odd views-row-last flex-1 animate-slide-in delay-600 group-hover:animate-slide-in-hover">
+                <div class="views-field views-field-field-image">
+                  <div class="field-content">
+                    <a href="/images/sportkec.jpeg">
+                      <img
+                        typeof="foaf:Image"
+                        class="w-full h-auto object-cover rounded-lg transition-transform transform hover:scale-105 hover:shadow-2xl"
+                        src="/images/sportkec.jpeg"
+                        alt="Machine Assembly and Disassembly Workshop"
+                      />
+                    </a>
                   </div>
-                </li>
-              </ul>
-              <div class="w-full flex justify-center mt-6">
-                <a
-                  class="box-link border border-gray-800 px-6 py-2 rounded-md bg-white hover:bg-gray-800 hover:text-white transition-colors duration-300 shadow-lg"
-                  href="/gallery/photogallery">
-                  View All
-                </a>
-              </div>
+                </div>
+              </li>
+            </ul>
+            <div class="w-full flex justify-center mt-6">
+              <a
+                class="box-link border border-gray-800 px-6 py-2 rounded-md bg-white hover:bg-gray-800 hover:text-white transition-colors duration-300 shadow-lg"
+                href="/gallery/photogallery">
+                View All
+              </a>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
+  </div>
 
-    <style>
+  <style>
     @keyframes slideInFromLeft {
       0% {
         opacity: 0;
@@ -635,6 +670,9 @@
     .animate-slide-in {
       opacity: 0;
       transform: translateX(-100%);
+    }
+
+    .in-view {
       animation: slideInFromLeft 1s ease-in-out forwards;
     }
 
@@ -655,8 +693,6 @@
     }
 
     /* Additional styles for enhanced appearance */
-
-
     h2 {
       font-family: 'Montserrat', sans-serif;
     }
@@ -728,7 +764,28 @@
         transform: scaleX(1);
       }
     }
-    </style>
+  </style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const items = document.querySelectorAll('.animate-slide-in');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    items.forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+
 
 
           <div class="flex flex-col sm:flex-row gap-8 p-4 mt-5">

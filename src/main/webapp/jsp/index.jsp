@@ -769,22 +769,34 @@
   </style>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const items = document.querySelectorAll('.animate-slide-in');
+      const items = document.querySelectorAll('.animate-slide-in');
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
+      function handleIntersect(entries, observer) {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('in-view');
+                  observer.unobserve(entry.target);
+              }
+          });
+      }
+
+      const observer = new IntersectionObserver(handleIntersect, {
+          threshold: 0.05 // Adjusted for earlier triggering
       });
-    }, {
-      threshold: 0.1
-    });
 
-    items.forEach(item => {
-      observer.observe(item);
-    });
+      items.forEach(item => {
+          observer.observe(item);
+      });
+
+      window.addEventListener('resize', () => {
+          items.forEach(item => {
+              if (item.classList.contains('in-view')) {
+                  observer.observe(item);
+              }
+          });
+      });
   });
+
 </script>
 
 

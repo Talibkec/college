@@ -126,17 +126,19 @@
         }
 
         /* Centered and smaller delete button */
-       .delete-button {
-           position: absolute;
-           transform: translate(-50%, -100%);
-           background: red;
-           color: white;
-           padding: 5px 10px;
-           border-radius: 5px;
-           font-size: 12px;
-           z-index: 1000;
-           text-align: center;
-       }
+     .delete-button {
+         position: absolute;
+         top: 10px; /* Distance from the top of the image */
+         left: 50%;
+         transform: translateX(-50%); /* Center horizontally */
+         background: red;
+         color: white;
+         padding: 5px 10px;
+         border-radius: 5px;
+         font-size: 12px;
+         z-index: 1000;
+         text-align: center;
+     }
 
         .swiper-button-prev,
         .swiper-button-next {
@@ -150,7 +152,7 @@
         /* Increase height on mobile devices */
         @media (max-width: 767px) {
             .swiper-slide img {
-                height: 60vh;
+                height: 100vh;
                 object-fit: cover;
             }
         }

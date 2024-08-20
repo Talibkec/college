@@ -1,15 +1,18 @@
 <jsp:include page="/jsp/header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-sm-8"><h3> Term and Condition</h3></div>
-
+<div class="py-6">
+    <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
+        <div class="flex space-x-4">
+            <a href="/" class="text-blue-600 flex items-center">
+                <i class="fa fa-home mr-2"></i> Home
+            </a>
+        </div>
+        <div class="flex-grow text-center">
+            <h3 class="text-2xl font-semibold">Term and Condition</h3>
         </div>
     </div>
-</div>
 <div class="container">
 
-    <a href="/"><i class="fa fa-home"></i> Home</a>
+
 
     <div class="row"  style="margin:30px">
     <p></p>

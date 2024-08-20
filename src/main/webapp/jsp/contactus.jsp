@@ -6,7 +6,7 @@
                                         <a href="/" class="text-blue-600 flex items-center"><i class="fa fa-home mr-2"></i> Home</a>
                  </div>
                <div class="flex-grow text-center">
-                   <h3 class="text-2xl font-semibold">About CSE</h3>
+                   <h3 class="text-2xl font-semibold">Contact Us</h3>
                </div>
 
      </div>

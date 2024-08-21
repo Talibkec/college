@@ -108,6 +108,33 @@
       </div>
     </div>
 
+      <div class="bg-white shadow-md rounded-lg mb-6">
+               <div class="bg-gray-100 px-4 py-2 rounded-t-lg text-lg font-semibold">
+                 Abhishek Raj <span class="text-sm text-gray-500">(Student 2K21)</span>
+               </div>
+               <div class="p-4">
+                 <div class="flex flex-col sm:flex-row">
+                   <div class="w-full sm:w-1/4 flex justify-center mb-4 sm:mb-0">
+                     <img alt="" src="/jsp/category/abhia.JPG" class="w-24 h-24 rounded-full object-cover" />
+                   </div>
+                   <div class="w-full sm:w-2/4 mb-4 sm:mb-0">
+                     <p><strong>Department:</strong> Department of Computer Science and Engineering</p>
+                     <p><strong>Designation:</strong> Web Developer</p>
+                     <p><strong>Phone Number:</strong> +91-9835037718</p>
+                     <p>
+                       <strong>Email Address:</strong>
+                       <a href="mailto:abhisinghal276@gmail.com" class="text-blue-500 hover:underline">abhisinghal276@gmail.com</a>
+                     </p>
+                   </div>
+                   <div class="w-full sm:w-1/4 flex justify-center sm:justify-end items-center">
+                     <a href="https://github.com/Abhishekraj276" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                       <i class="fa fa-link"></i> Visit Profile Page
+                     </a>
+                   </div>
+                 </div>
+               </div>
+      </div>
+
     <div class="bg-white shadow-md rounded-lg mb-6">
       <div class="bg-gray-100 px-4 py-2 rounded-t-lg text-lg font-semibold">
         Ankit Dutta <span class="text-sm text-gray-500">(Student 2K16)</span>

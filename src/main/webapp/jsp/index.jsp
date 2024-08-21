@@ -26,45 +26,7 @@
         </a>
       </div>
 
-      <div class="flex  items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11292" target="_blank"
-          class="text-blue-700 hover:underline">
-          Pay Registration Fee here
-        </a>
-      </div>
 
-      <div class="flex  items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11312" target="_blank"
-          class="text-blue-700 hover:underline">
-          Pay Annual Fee here
-        </a>
-      </div>
-
-      <div class="flex items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11313" target="_blank"
-          class="text-blue-700 hover:underline">
-          Pay Examination Fee here
-        </a>
-      </div>
-
-      <div class="flex items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11314" target="_blank"
-          class="text-blue-700 hover:underline">
-          Pay Library Fine here
-        </a>
-      </div>
-
-      <div class="flex items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="https://payments.billdesk.com/bdcollect/bd/katiharenggclg/11315" target="_blank"
-          class="text-blue-700 hover:underline">
-          Pay Miscellaneous Fee here
-        </a>
-      </div>
 
       <div class="flex items-center">
         <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
@@ -73,12 +35,7 @@
         </a>
       </div>
 
-      <div class="flex items-center">
-        <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
-        <a href="/jsp/facilities/payment.pdf" target="_blank" class="text-blue-700 hover:underline">
-          Click here for Fee Payment Tutorial
-        </a>
-      </div>
+
 
       <c:forEach items="${scrollingNoticeList}" var="scrollingNotice">
         <div class="flex items-center">

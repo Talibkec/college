@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
 
+
+
 <div class="py-2 ">
   <marquee behavior="scroll" direction="left" scrollamount="5">
     <div class="flex gap-10 items-center">
@@ -61,72 +63,98 @@
   </marquee>
 </div>
 
-   <style>
-        /* General Swiper Styling */
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
+<style>
+   /* General Swiper Styling */
+   .swiper {
+       width: 100%;
+       height: 100%;
+   }
 
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            background: #eee;
-            position: relative;
-        }
+   .swiper-slide {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       position: relative;
+       background: #eee;
+   }
 
-        .swiper-slide img {
-            width: 100%;
-            height: auto;
-        }
+   .swiper-slide img {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+   }
 
-        /* Centered and smaller delete button */
-     .delete-button {
-         position: absolute;
-         top: 10px; /* Distance from the top of the image */
-         left: 50%;
-         transform: translateX(-50%); /* Center horizontally */
-         background: red;
-         color: white;
-         padding: 5px 10px;
-         border-radius: 5px;
-         font-size: 12px;
-         z-index: 1000;
-         text-align: center;
-     }
+   .caption {
+       position: absolute;
+       bottom: 0;
+       width: 100%;
+       background: rgba(0, 0, 0, 0.6);
+       color: white;
+       text-align: center;
+       padding: 15px;
+       font-size: 16px;
+       font-weight: bold;
+   }
 
-        .swiper-button-prev,
-        .swiper-button-next {
-            color: #000;
-        }
+   .delete-button {
+       position: absolute;
+       top: 10px;
+       left: 50%;
+       transform: translateX(-50%);
+       background: red;
+       color: white;
+       padding: 5px 10px;
+       border-radius: 5px;
+       font-size: 12px;
+       z-index: 1000;
+       text-align: center;
+   }
 
-        .swiper-pagination-bullet-active {
-            background: #000;
-        }
+   .swiper-button-prev,
+   .swiper-button-next {
+       color: #000;
+   }
 
-        /* Increase height on mobile devices */
-        @media (max-width: 767px) {
-            .swiper-slide img {
-                height: 100vh;
-                object-fit: cover;
-            }
-        }
-    </style>
+   .swiper-pagination-bullet-active {
+       background: #000;
+   }
+
+  /* Hide desktop slides on small screens */
+  @media (max-width: 767px) {
+      .desktop-slide {
+          display: none;
+      }
+      .mobile-slide {
+          display: block;
+      }
+  }
+
+  /* Hide mobile slides on larger screens */
+  @media (min-width: 768px) {
+      .desktop-slide {
+          display: block;
+      }
+      .mobile-slide {
+          display: none;
+      }
+  }
 
 
-<div class="swiper">
+</style>
+<div class="swiper desktop-swiper">
     <div class="swiper-wrapper">
         <c:forEach items="${imageList}" var="image">
-            <div class="swiper-slide">
-                <img src="/${image.imageSlideId}/slideImage${image.fileType}" alt="Slide Image">
-                <c:forEach var="item" items="${Role}">
-                    <c:if test="${'Admin' eq item}">
-                        <a href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" class="delete-button">Delete</a>
-                    </c:if>
-                </c:forEach>
-            </div>
+            <c:if test="${image.flag == 0}"> <!-- Desktop -->
+                <div class="swiper-slide desktop-slide">
+                    <img src="/${image.imageSlideId}/slideImage${image.fileType}" alt="Desktop Slide Image">
+                    <div class="caption">${image.caption}</div>
+                    <c:forEach var="item" items="${Role}">
+                        <c:if test="${'Admin' eq item}">
+                            <a href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" class="delete-button">Delete</a>
+                        </c:if>
+                    </c:forEach>
+                </div>
+            </c:if>
         </c:forEach>
     </div>
 
@@ -137,26 +165,48 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
 </div>
+
+<div class="swiper mobile-swiper">
+    <div class="swiper-wrapper">
+        <c:forEach items="${imageList}" var="image">
+            <c:if test="${image.flag == 1}"> <!-- Mobile -->
+                <div class="swiper-slide mobile-slide">
+                    <img src="/${image.imageSlideId}/slideImage${image.fileType}" alt="Mobile Slide Image">
+                    <div class="caption">${image.caption}</div>
+                    <c:forEach var="item" items="${Role}">
+                        <c:if test="${'Admin' eq item}">
+                            <a href="<c:url value='/auth/deleteSlideImage/${image.imageSlideId}'/>" class="delete-button">Delete</a>
+                        </c:if>
+                    </c:forEach>
+                </div>
+            </c:if>
+        </c:forEach>
+    </div>
+
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Navigation -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+
+
+
 <script>
     const swiper = new Swiper('.swiper', {
         loop: true,
         autoplay: {
             delay: 3000,
         },
-
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
-
-        // Navigation arrows
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-
-        // Responsive breakpoints
         breakpoints: {
             640: {
                 slidesPerView: 1,
@@ -170,6 +220,9 @@
         },
     });
 </script>
+
+
+
 <!-- Starting of image slider. -->
 
 

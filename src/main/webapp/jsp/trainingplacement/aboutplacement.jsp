@@ -1,73 +1,56 @@
 <jsp:include page="/jsp/header.jsp"/>
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-sm-8"><h3>About Placement</h3></div>
 
+
+<div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+        <h3 class="text-3xl font-bold text-center md:text-left">About Placement</h3>
     </div>
 </div>
-</div>
-<div class="container">
-    <div class="row">
+
+<div class="container mx-auto px-4 py-6">
+    <div class="flex flex-col md:flex-row">
+        <!-- Sidebar Section -->
         <aside class="col-sm-3" role="complementary">
             <div class="region region-sidebar-second">
                 <section id="block-menu-block-3" class="block block-menu-block clearfix">
-                    <h2 class="block-title">Training & Placement </h2>
+                    <h2 class="block-title">Training & Placement</h2>
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
                         <ul class="menu nav">
-                            <li class="first leaf  menu-mlid-1154"><a href="/trainingplacement/aboutplacement"
-                                                                      class="sf-depth-2 active">About Placement</a></li>
-                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement"
-                                                               class="sf-depth-2">Rules of Training & Placement</a></li>
-                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume"
-                                                               class="sf-depth-2">Tips for Resume</a></li>
-
+                            <li class="first leaf menu-mlid-1154"><a href="/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
                             <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placedstudent" class="sf-depth-2">Placed Students</a></li>
-                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure"
-                                                               class="sf-depth-2">Placement Brochure</a></li>
-                            <li class="leaf menu-mlid-1121"><a href="https://tpo.keckatihar.in/"
-                                                               class="sf-depth-2">Training and Placement Portal</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
                         </ul>
                     </div>
                 </section>
             </div>
         </aside>
-        <div class="col-md-8">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p
-                        id="ctl00_ContentPlaceHolder1_h4_heading"><span
-                        style="font-family: Georgia, Palatino;"><strong>About T&P Cell</strong></span></p>
-                    <div id="ctl00_ContentPlaceHolder1_div_3">The Training and Placement Office provides job
-                        opportunities, arranges Campus Interviews by various Companies of National and International
-                        repute. Students take the help of this office for their Training and Employment. It also caters
-                        to the need of Instructional and Industrial requirements through state of the art facilities,
-                        new technologies and human resources in collaboration with all the Department of studies.
-                        The Training & Placement cell attempts to prepare the students for the career opportunities in
-                        the area of engineering and technology. The Training & Placement cell arranges training programs
-                        to groom the students to their best for the corporate responsibilities and make them employable
-                        and industry ready. We strive for mutual industry-institute relationship by involving institute
-                        with industry in several activities such as campus placements process, internship hiring,
-                        industrial visits, on-site training, expert lectures, workshops and seminars.
-                        <span style="font-family: Georgia, Palatino;"></span><br/>
-                    </div>
 
-                </div>
+        <!-- Main Content Section -->
+        <div class="w-full md:w-3/4">
+            <div class="bg-white shadow rounded-lg p-6 mb-8">
+                <h4 class="text-xl font-semibold mb-4">About T&P Cell</h4>
+                <p class="text-justify text-gray-700 leading-relaxed">
+                    The Training and Placement Office provides job opportunities, arranges Campus Interviews by various Companies of National and International repute. Students take the help of this office for their Training and Employment. It also caters to the need of Instructional and Industrial requirements through state of the art facilities, new technologies and human resources in collaboration with all the Department of studies.
+                    <br/><br/>
+                    The Training & Placement cell attempts to prepare the students for the career opportunities in the area of engineering and technology. The Training & Placement cell arranges training programs to groom the students to their best for the corporate responsibilities and make them employable and industry ready. We strive for mutual industry-institute relationship by involving institute with industry in several activities such as campus placements process, internship hiring, industrial visits, on-site training, expert lectures, workshops and seminars.
+                </p>
             </div>
-            <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; ">
-                    <p>
-                    <div>
-                        <object data=" https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
-                                type="application/pdf" width="700" height="1000">
-                            <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
-                                   type="application/pdf">
-                        </object>
-                    </div>
-                    </p>
+
+            <div class="bg-white shadow rounded-lg p-6">
+                <h4 class="text-xl font-semibold mb-4">Placement Brochure</h4>
+                <div class="w-full overflow-hidden">
+                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
+                            type="application/pdf" class="w-full h-96">
+                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
+                               type="application/pdf" class="w-full h-96">
+                    </object>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <jsp:include page="/jsp/footer.jsp"/>

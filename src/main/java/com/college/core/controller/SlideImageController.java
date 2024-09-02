@@ -40,7 +40,9 @@ public class SlideImageController {
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadslideimage", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
+            @RequestParam("slideImage") MultipartFile uploadfile,
+            @RequestParam("caption") String caption,
+            @RequestParam("flag") int flag) {
         logger.debug("Single file upload!");
         String fileName = uploadfile.getOriginalFilename();
         String fileType = uploadfile.getContentType();
@@ -60,15 +62,15 @@ public class SlideImageController {
             int h = image.getHeight();
             int b = image.getWidth();
             logger.info("Image resolution is " + h + "  " + b);
-            if(b != 2000 || h != 550){
-                msg = "Kindly Resize Your image in 2000 * 550 format";
+            if ((flag == 0 && (b != 2000 || h != 550)) || (flag == 1 && (b != 1080 || h != 1920))){
+                msg = "Kindly Resize Your image in " + (flag == 0 ? "2000 * 550" : "1080 * 1920") + " format";
                 return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveImageSlide(uploadfile, caption, fileName, fileType);
+        saveImageSlide(uploadfile, caption, fileName, fileType, flag);
         //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
 
 
@@ -318,11 +320,12 @@ public class SlideImageController {
         return model;
     }
 
-    private void saveImageSlide(MultipartFile uploadfile, String caption, String fileName, String fileType) {
+    private void saveImageSlide(MultipartFile uploadfile, String caption, String fileName, String fileType, int flag) {
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
         imageSlideDTO.setCaption(caption);
         imageSlideDTO.setFileName(fileName);
         imageSlideDTO.setFileType(fileType);
+        imageSlideDTO.setFlag(flag);
         try {
             imageSlideDTO.setImage(uploadfile.getBytes());
         } catch (IOException e) {

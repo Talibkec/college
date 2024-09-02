@@ -5,6 +5,7 @@ import javax.persistence.Lob;
 public class ImageSlideDTO {
     private Long imageSlideId;
     private String caption;
+    private int flag;
     @Lob
     private byte[] image;
 
@@ -52,5 +53,11 @@ public class ImageSlideDTO {
         this.image = image;
     }
 
+    public int getFlag() {
+        return flag;
+    }
 
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
 }

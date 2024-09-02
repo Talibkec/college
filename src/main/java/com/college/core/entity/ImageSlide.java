@@ -8,6 +8,9 @@ public class ImageSlide {
     private Long imageSlideId;
     private String caption;
     private byte[] image;
+    private int flag;
+
+
 
     public String getFileType() {
         return fileType;
@@ -57,6 +60,13 @@ public class ImageSlide {
         return image;
     }
 
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
+    }
     public void setImage(byte[] image) {
         this.image = image;
     }

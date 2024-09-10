@@ -1,402 +1,89 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp" />
 
-
-   <style>
-   	@import url("https://fonts.googleapis.com/css?family=Oswald:300|Roboto:300&display=swap");
-
-    /**
-     * Reset Styles
-     */
-    /* * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border: 0;
-      outline: 0;
-      font: inherit;
-    } */
-
-    img {
-      border-style: none;
-      height: auto;
-    }
-
-    a img {
-      border: none;
-      outline: none;
-    }
-
-    figure {
-      display: block;
-      background-color: #fff;
-      -ms-interpolation-mode: bicubic;
-    }
-
-    figure img {
-      display: block;
-      width: auto;
-      max-width: 100%;
-    }
-
-    /**
-     * Variables
-     */
-    :root {
-      --master-color: #c19f63;
-      --master-color-partner-dark: #7c591d;
-
-      --headings-color: #263358;
-
-      --main-bg-color: #fff;
-      --secondary1-bg-color: #f6f6f6;
-      --secondary2-bg-color: #fff0ec;
-
-      --main-txt-color: #333;
-      --secondary-txt-color: #757575;
-
-      --sub-color: #b4b4b4;
-    }
-
-    /**
-     * Typography
-     */
-    /* body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 112.5%;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 1.6em;
-
-      color: var(--main-txt-color);
-      background: var(--main-bg-color);
-    } */
-
-    h1, h2 {
-      display: block;
-      font-family: 'Oswald', sans-serif;
-      font-style: normal;
-      font-weight: 300;
-      line-height: 1.4em;
-      color: var(--headings-color);
-    }
-
-    h1 {
-      font-size: calc(24px + 2vw);
-      margin: 1.2em 0;
-    }
-
-    h2 {
-      font-size: calc(22px + .8vw);
-    }
-
-    h1 a,
-    h2 a {
-      font-weight: 300;
-      text-decoration: none;
-      color: var(--headings-color);
-      background-color: transparent;
-      outline: none;
-    }
-
-    a:hover {
-      color: var(--master-color-partner-dark);
-    }
-
-    a:focus {
-      color: var(--headings-color);
-      background-color: var(--secondary2-bg-color);
-    }
-
-    /**
-     * Page Layout
-     */
-    html, body { height: 100%; }
-
-    /**
-     * Post List Layout
-     */
-    .post-list_grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      align-items: stretch;
-    }
-
-    .post-list__post {
-      display: grid;
-      grid-template-areas:
-        "header"
-        "footer"
-        "pr_img";
-      grid-auto-rows: 1fr auto auto;
-      align-items: start;
-      grid-gap: 1em 0;
-    }
-
-    .post-list__post:nth-child(2n+1) {
-      background-color: var(--secondary1-bg-color);
-    }
-
-    .post-list__post:nth-child(3n+2) {
-      grid-template-areas:
-        "pr_img"
-        "header"
-        "footer";
-      grid-auto-rows: auto 1fr auto;
-    }
-
-    .post__preview-img {
-      grid-area: pr_img;
-    }
-
-    .post__header {
-      grid-area: header;
-    }
-
-    .post__meta {
-      grid-area: footer;
-      align-self: start;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    /**
-     * Post List Design
-     */
-    .post-list {
-      margin-bottom: 4em;
-    }
-
-    .post {
-      position: relative;
-      padding: 1.6em;
-    }
-
-    .post:after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      border: 3px var(--master-color) solid;
-      border-image: linear-gradient(110deg, #c19f63, #c6972b, #f5cd87, #c6972b, #c19f63) 1;
-      z-index: 2;
-      opacity: 0;
-      -webkit-transition: all .25s ease-out;
-          transition: all .25s ease-out;
-    }
-
-    .post:hover:after {
-      opacity: 1;
-    }
-
-    .post > * {
-      z-index: 4;
-      position: relative;
-    }
-
-    .post__preview-img {
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .post__preview-img img {
-      width: 100%;
-        height: auto;
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        bottom: -50%;
-        left: -50%;
-        margin: auto;
-    }
-
-    .post__time {
-      color: var(--sub-color);
-    }
-
-    .post__meta a {
-      color: var(--sub-color);
-      text-decoration: none;
-      border-bottom: 1px var(--sub-color) solid;
-    }
-
-    .post__meta a:hover {
-      color: var(--master-color-partner-dark);
-    }
-
-    .post__comments {
-      position: relative;
-      padding-left: 24px;
-    }
-
-    .post__comments:before,
-    .post__comments:after {
-      content: '';
-      display: block;
-      position: absolute;
-      border: 1px var(--sub-color) solid;
-    }
-
-    .post__comments:before {
-      width: 16px;
-      height: 11px;
-      border-radius: 50%;
-      left: 0;
-      top: calc(50% - 8px);
-      z-index: 1;
-    }
-
-    .post__comments:after {
-      width: 3px;
-        height: 6px;
-        border-width: 0 1px 1px 0;
-        transform: rotate(31deg);
-        top: 50%;
-        left: 11px;
-      z-index: 2;
-      background-color: var(--secondary1-bg-color);
-    }
-
-    /**
-     * Breakpoint 900px
-     */
-    @media all and (max-width: 900px) {
-      .post-list_grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .post-list__post:nth-child(n) {
-        background-color: transparent;
-        grid-template-areas:
-          "header"
-          "footer"
-          "pr_img";
-        grid-auto-rows: 1fr auto auto;
-      }
-
-      .post-list__post:nth-child(4n),
-      .post-list__post:nth-child(4n+1) {
-        background-color: var(--secondary1-bg-color);
-      }
-
-      .post-list__post:nth-child(even) {
-        grid-template-areas:
-          "pr_img"
-          "header"
-          "footer";
-        grid-auto-rows: auto 1fr auto;
-      }
-    }
-
-    /**
-     * Breakpoint 670px
-     */
-    @media all and (max-width: 670px) {
-      .post-list_grid {
-        grid-template-columns: 1fr;
-      }
-
-      .post-list__post:nth-child(n) {
-        background-color: var(--secondary1-bg-color);
-        grid-template-areas:
-          "header"
-          "footer"
-          "pr_img";
-        grid-auto-rows: 1fr auto auto;
-      }
-
-      .post-list__post:nth-child(even) {
-        background-color: transparent;
-      }
-    }
-
-
-
-   </style>
-
-<body>
-
-
-<main>
-          <h1 class="p-2">Gallery </h1>
-
-          <div class="post-list post-list_grid">
-
-
-
-
-
-            <!-- Post 1 -->
-
-          <c:forEach items="${imageList}" var="image">
-
-                <div class="post-list__post post">
-                  <figure class="post__preview-img">
-                    <a href="/${image.galleryImageId}/galleryImage${image.fileType}/"><img src="/${image.galleryImageId}/galleryImage${image.fileType}" alt="img description"></a>
-                  </figure>
-
-                  <div class="post__header">
-                    <!-- <time datetime="2019-11-16" class="post__time">november 16, 2019</time> -->
-                    <h2><a href="/${image.galleryImageId}/galleryImage${image.fileType}">${image.caption}</a></h2>
-                  </div>
-
-                  <div class="post__meta">
-                    <c:forEach var="item" items="${Role}">
-                                    <c:if test = "${'Admin' eq item}">
-                                    <span class="label label-danger"><a href="<c:url value='/auth/galleryImageDelete/${image.galleryImageId}'/>">Delete</a></span>
-                     </c:if>
-                    </c:forEach>
-                    <!-- <a href="../blog_details/" class="post__comments">7</a> -->
-                  </div>
-
-                </div>
-
-          </c:forEach>
-
-
-
-
-
-
-
-
-
-
-          </div><!-- / .post-list -->
-
-        </main>
-
-
-
-
-
-
-
-
-
-
-
-<!--
-<div class="gallery">
-	<center>
-		<p><h1>GALLERY</h1></p>
-		<c:forEach items="${imageList}" var="image">
-	        <a href="/${image.galleryImageId}/galleryImage${image.fileType}" data-lightbox="photo"><img src="/${image.galleryImageId}/galleryImage${image.fileType}" style="max-width:50%;"></a>
+<!-- Tailwind CSS and Google Fonts -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f6f6f6;
+  }
+
+  .gallery-item {
+    border: 1px solid #e2e2e2;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .gallery-item img {
+    object-fit: cover;
+    height: 200px;
+  }
+
+  .gallery-item .desc {
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #333;
+  }
+</style>
+
+
+  <div class="bg-gray-200 py-4 mt-4">
+       <div class="container mx-auto px-4">
+           <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                   <a href="/"> <i class="fa fa-home"></i> Home</a>
+                                      </div>
+               <!-- Social Media Icons Section -->
+               <div class="flex-grow text-center">
+                   <h3 class="text-2xl font-semibold">Photo Gallery</h3>
+               </div>
+
+           </div>
+       </div>
+   </div>
+
+  <main class="container mx-auto px-4 py-6">
+    <div class="mb-6 text-lg">
+      Select Image Gallery:
+      <select class="form-select border border-gray-300 rounded-md py-2 px-3 ml-2" onchange="location.href = this.options[this.selectedIndex].value">
+        <option value="">Latest Images</option>
+        <option value="">Campus of KEC Katihar</option>
+        <option value="">Event at KEC Katihar</option>
+        <option value="">Hostel of KEC</option>
+        <option value="">Library of KEC Katihar</option>
+      </select>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <c:forEach items="${imageList}" var="image">
+        <div class="gallery-item">
+          <a href="/${image.galleryImageId}/galleryImage${image.fileType}" target="_blank">
+            <img src="/${image.galleryImageId}/galleryImage${image.fileType}" alt="${image.caption}" class="w-full">
+          </a>
+          <div class="desc">
+            <h2 class="text-xl font-semibold mb-2">
+              <a href="/${image.galleryImageId}/galleryImage${image.fileType}" class="text-blue-600 hover:underline">${image.caption}</a>
+            </h2>
             <c:forEach var="item" items="${Role}">
-                <c:if test = "${'Admin' eq item}">
-                <span class="label label-danger"><a href="<c:url value='/auth/galleryImageDelete/${image.galleryImageId}'/>">Delete</a></span>
-                </c:if>
+              <c:if test="${'Admin' eq item}">
+                <a href="<c:url value='/auth/galleryImageDelete/${image.galleryImageId}'/>" class=" hover:underline border px-4 py-2 bg-red-500 text-white">Delete</a>
+              </c:if>
             </c:forEach>
-    </c:forEach>
-	</center>
-</div>
--->
+          </div>
+        </div>
+      </c:forEach>
+    </div>
+  </main>
 
-<jsp:include page="/jsp/footer.jsp" />
+  <jsp:include page="/jsp/footer.jsp" />
+

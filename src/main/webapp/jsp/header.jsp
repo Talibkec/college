@@ -129,6 +129,8 @@
                 <li class="quicknav"><a href="/rti/rtiact"> &raquo; RTI</a></li>
                 <li class="quicknav"><a href="/approval/aicteapproval" target="_blank"> &raquo; AICTE</a></li>
                 <li class="quicknav"><a href="/category/kecwebteam" target="_blank"> &raquo; KEC Web Team</a></li>
+
+
               </ul>
               <div>
 
@@ -171,74 +173,74 @@
 
 <div id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
   <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-     <ul class="space-y-2 font-medium">
-        <li>
-           <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-              <span class="ms-3">Home</span>
-           </a>
-        </li>
-        <li>
-           <a href="/about/history" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-              
-              <span class="flex-1 ms-3 whitespace-nowrap">About</span>
-                </a>
-        </li>
-        <li>
-           <a href="/academic/admission" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-              <span class="flex-1 ms-3 whitespace-nowrap">Academic</span>
-               </a>
-        </li>
-        <li>
-           <a href="/category/department" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-              <span class="flex-1 ms-3 whitespace-nowrap">Departments</span>
-           </a>
-        </li>
-        <li>
-           <a href="/facilities/csecenter" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-              <span class="flex-1 ms-3 whitespace-nowrap">Facilities</span>
-           </a>
-        </li>
-        <li>
-           <a href="/trainingplacement/placementbrochure" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-              <span class="flex-1 ms-3 whitespace-nowrap">Training & Placement</span>
-           </a>
-        </li>
-        <li>
-           <a href="/approval/aicteapproval" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-              
-              <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
-           </a>
-        </li>
-        <li>
-          <a href="/rti/rtiact" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-             
-             <span class="flex-1 ms-3 whitespace-nowrap">RTI</span>
-          </a>
-       </li>
-       <li>
-        <a href="/gallery/mediagallery" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-           
-           <span class="flex-1 ms-3 whitespace-nowrap">Gallery</span>
+    <ul class="space-y-2 font-medium">
+      <li>
+        <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="ms-3">Home</span>
         </a>
-     </li>
-     <li>
-      <a href="/facilities/downloads" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-         
-         <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
-      </a>
-   </li>
-   <li>
-    <a href="/login" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-       
-       <span class="flex-1 ms-3 whitespace-nowrap">Login</span>
-    </a>
- </li>
-     </ul>
+      </li>
+      <li>
+        <a href="/about/history" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">About</span>
+        </a>
+      </li>
+      <li>
+        <a href="/academic/admission" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Academic</span>
+        </a>
+      </li>
+      <li>
+        <a href="/category/department" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Departments</span>
+        </a>
+      </li>
+      <li>
+        <a href="/facilities/csecenter" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Facilities</span>
+        </a>
+      </li>
+      <li>
+        <a href="/trainingplacement/placementbrochure" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Training & Placement</span>
+        </a>
+      </li>
+      <li>
+        <a href="/approval/aicteapproval" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
+        </a>
+      </li>
+      <li>
+        <a href="/rti/rtiact" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">RTI</span>
+        </a>
+      </li>
+      <li>
+        <a href="/gallery/mediagallery" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Gallery</span>
+        </a>
+      </li>
+      <li>
+        <a href="/facilities/downloads" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+          <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
+        </a>
+      </li>  <sec:authorize access="isAuthenticated()">
+                                          <li class="main-nav">
+                                            <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                                          </li>
+                                        </sec:authorize>
+      <li>
+        <sec:authorize access="!isAuthenticated()">
+                               <li class="main-nav">
+                                 <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
+                               </li>
+                             </sec:authorize>
+                             <sec:authorize access="isAuthenticated()">
+                               <li class="main-nav">
+                                 <a href="/logout" title="" class="sf-depth-1 menuparent">Logout</a>
+                               </li>
+                             </sec:authorize>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -549,19 +551,26 @@
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery  &#9660; </a>
                         <ul class="submenu">
-                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
+
 
                         </ul>
+                        <ul class="submenu">
+                                                  <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                      href="/gallery/photogallery" class="sf-depth-2">photo Gallery </a></li>
+                            <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                        href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
+                                                </ul>
                       </li>
                       <li id="menu-218-1" class="main-nav">
                         <a href="/facilities/downloads" class="sf-depth-1 ">
                           Downloads</a>
                       </li>
-                      <li id="menu-218-1" class="main-nav">
-                        <a href="/facilities/downloads" class="sf-depth-1 ">
-                        </a>
-                      </li>
+
+                     <sec:authorize access="isAuthenticated()">
+                                                               <li id="menu-218-1" class="main-nav">
+                                                                 <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                                                               </li>
+                                                             </sec:authorize>
                       <sec:authorize access="!isAuthenticated()">
                         <li class="main-nav">
                           <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
@@ -807,19 +816,30 @@
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
                         <ul class="submenu">
-                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+
 
                         </ul>
+                        <ul class="submenu">
+                                                  <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                      href="/gallery/photogallery" class="sf-depth-2">Photo Gallery</a></li>
+                                                         <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                                                                      href="/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+                                                </ul>
                       </li>
                       <li id="menu-218-1" class="main-nav">
                         <a href="/facilities/downloads" class="sf-depth-1 ">
                           Downloads</a>
                       </li>
-                      <li id="menu-218-1" class="main-nav">
-                        <a href="/facilities/downloads" class="sf-depth-1 ">
-                        </a>
-                      </li>
+
+                     <c:forEach var="item" items="${Role}">
+                        <c:if test="${'Admin' eq item}">
+                          <li id="menu-218-1" class="main-nav">
+                            <a href="/auth/uploadDashboard" class="sf-depth-1 ">
+                               Dashboard
+                           </a>
+                         </li>
+                      </c:if>
+                                  </c:forEach>
                       <sec:authorize access="!isAuthenticated()">
                         <li class="main-nav">
                           <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>

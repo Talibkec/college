@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+ <jsp:include page="/jsp/header.jsp"/>
 
 
 <div class="jumbotron flex justify-center w-full">

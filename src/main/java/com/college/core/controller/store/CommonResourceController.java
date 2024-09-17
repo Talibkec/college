@@ -14,8 +14,6 @@ import com.google.gson.JsonObject;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.BeanUtils;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.regex.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +41,7 @@ public class CommonResourceController {
     @Autowired
     ProductService productService;
     @Autowired
-    FacultyService facultyService;
+    FacultyService  facultyService;
     @Autowired
     StaffService staffService;
     @Autowired
@@ -64,6 +62,8 @@ public class CommonResourceController {
     DepartmentService departmentService;
     @Autowired
     PlacementsService placementsService;
+    @Autowired
+    TpoCoordinatorService tpoCoordinatorService;
 
     @ResponseBody
     @RequestMapping(value = "common/store/getProductName", method = RequestMethod.GET)
@@ -489,6 +489,13 @@ public class CommonResourceController {
         mv.setViewName("addstaff.jsp");
         return mv;
     }
+    @RequestMapping(value = "/auth/uploadfile/addtpocoordinator", method = RequestMethod.GET)
+    public ModelAndView tpoCoordinator() {
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("message", "No any message for now");
+        mv.setViewName("addtpocoordinator.jsp");
+        return mv;
+    }
     @RequestMapping(value = "/auth/uploadfile/addPlacements", method = RequestMethod.GET)
     public ModelAndView addPlacements() {
         ModelAndView mv = new ModelAndView();
@@ -496,6 +503,7 @@ public class CommonResourceController {
         mv.setViewName("addPlacements.jsp");
         return mv;
     }
+
     @ResponseBody
     @RequestMapping(value = "/auth/uploadfile/addfaculty", method = RequestMethod.POST)
     public String addFaculty(
@@ -702,4 +710,63 @@ public class CommonResourceController {
 
 
     }
+
+    @RequestMapping(value = "/auth/uploadfile/addtpocoordinator", method = RequestMethod.POST)
+    @ResponseBody
+    public String addTpoCoordinator(
+            @RequestParam("studentName") String studentName,
+            @RequestParam("mobile") Long mobile,
+            @RequestParam("email") String email,
+            @RequestParam("studentSession") String studentSession,
+            @RequestParam("deptId") Long deptId,
+            @RequestParam("registrationNo") Long registrationNo
+    ) {
+        String message = "error";
+        boolean error = false;
+        TpoDTO TpoDTO = new TpoDTO();
+
+
+        TpoDTO.setStudentName(studentName);
+        TpoDTO.setMobile(mobile);
+        TpoDTO.setEmail(email);
+        TpoDTO.setStudentSession(studentSession);
+        TpoDTO.setRegistrationNo(registrationNo);
+        TpoDTO.setDepartmentId(deptId);
+
+        if (!error) {
+            message = "TPO added successfully  ";
+
+            //System.out.println("Saving the detail of faculty with username :-   " + username);
+            tpoCoordinatorService.saveTpoCoordinator(TpoDTO);
+        }
+
+        return message;
+
+    }
+
+    @RequestMapping(value = "/trainingplacement/studentplacementcoordinator", method = RequestMethod.GET)
+    public ModelAndView getTpoCoordinators() {
+
+        List<TpoDTO> coordinators = tpoCoordinatorService.getAllTpoCoordinators();
+
+
+        ModelAndView mv = new ModelAndView();
+
+
+        mv.addObject("coordinators", coordinators);
+
+
+        mv.setViewName("trainingplacement/studentplacementcoordinator.jsp");
+
+        return mv;
+    }
+
+    @RequestMapping(value = "/auth/tpoCoordinator/{id}", method = RequestMethod.GET)
+    public void tpoCoordinatorDelete(@PathVariable("id") Long tpoCoordinatorId, HttpServletResponse res) throws IOException {
+        ModelAndView modelAndView = new ModelAndView();
+        tpoCoordinatorService.deleteTpoCoordinator(tpoCoordinatorId);
+        res.sendRedirect("/");
+    }
+
+
 }

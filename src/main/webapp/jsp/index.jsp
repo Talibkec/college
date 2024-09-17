@@ -442,8 +442,7 @@
                     provide the best facilities to all the members of the college. Student of the college
                     have exhibited their skill at different platform and gathered many awards from premium
                     institutes. It is situated 3 km from Katihar Railway Station and there is a good
-                    transportation facility available from there. Currently, the own campus for the college
-                    is under-construction in Hajipur, Katihar near NH 31. It is expected to complete soon.<a
+                    transportation facility available from there. The college new campus in Hajipur, Katihar near NH 31 has been completed and is now fully operational.<a
                       href="/about/history">more</a>...</p>
                 </div>
               </div>

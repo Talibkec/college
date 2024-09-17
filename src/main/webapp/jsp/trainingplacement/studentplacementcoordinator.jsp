@@ -1,76 +1,79 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <jsp:include page="/jsp/header.jsp" />
 
-
-    <div class="jumbotron flex justify-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-sm-8"><h3 style="margin-left: 40%;">Students Placement Coordinator</h3></div>
-
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <!-- Title Section -->
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">Students Placement Coordinator</h3>
             </div>
         </div>
     </div>
 </div>
-    <div class="container">
-        <div class="md:flex justify-center">
-            <aside class="col-sm-3" role="complementary"  style="">
-                                    <div class="region region-sidebar-second">
-                                      <section id="block-menu-block-3" class="block block-menu-block clearfix">
-                                         <h2 class="block-title">Training & Placement </h2>
-                                        <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                                            <ul class="menu nav">
-                                                <li class="first leaf  menu-mlid-1154"><a href="/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
-                                                  <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
-                                                  <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
 
-                                                <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placedstudent" class="sf-depth-2">Placed Students</a></li>
-                                                   <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
-                                             </ul>
-                                        </div>
-                                      </section>
-                                      </div>
-                                   </aside>
-
-            <div class="col-md-8 p-3"  style="">
-                <div style="width: 100%; overflow: scroll">
-                <div class="page-content" style="margin:15px;">
-                    <table border="1">
-                        <tbody>
-                        <tr>
-                            <td width="42"><span style="color: #000000;">SNO</span></td>
-                            <td width="168"><span style="color: #000000;">NAME</span></td>
-                            <td width="102"><span style="color: #000000;">DEPARTMENT</span></td>
-                            <td width="245"><span style="color: #000000;">EMAIL ID</span></td>
-                            <td width="245"><span style="color: #000000;">Mob Num</span></td>
-                        </tr>
-                         <tr>
-                                                    <td width="42"><span style="color: #000000;">1</span></td>
-                                                    <td width="168"><span style="color: #000000;">Abhishek Asit</span></td>
-                                                    <td width="102"><span style="color: #000000;">ME</span></td>
-                                                    <td width="245"><span style="color: #000000;"></span></td>
-                                                    <td width="245"><span style="color: #000000;">9631178799</span></td>
-                                                </tr>
-                          <tr>
-                                                     <td width="42"><span style="color: #000000;">2</span></td>
-                                                     <td width="168"><span style="color: #000000;">Ankit Dutta</span></td>
-                                                     <td width="102"><span style="color: #000000;">CSE</span></td>
-                                                     <td width="245"><span style="color: #000000;">ankitdutta170@gmail.com</span></td>
-                                                     <td width="245"><span style="color: #000000;"></span></td>
-                                                 </tr>
-                           <tr>
-                                                      <td width="42"><span style="color: #000000;">3</span></td>
-                                                      <td width="168"><span style="color: #000000;">Mustaqueem Diwan</span></td>
-                                                      <td width="102"><span style="color: #000000;">CE</span></td>
-                                                      <td width="245"><span style="color: #000000;"></span></td>
-                                                      <td width="245"><span style="color: #000000;"></span></td>
-                          </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                </div>
-
+<div class="container">
+    <div class="md:flex justify-center">
+        <aside class="col-sm-3" role="complementary">
+            <div class="region region-sidebar-second">
+                <section id="block-menu-block-3" class="block block-menu-block clearfix">
+                    <h2 class="block-title">Training & Placement </h2>
+                    <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
+                        <ul class="menu nav">
+                            <li class="first leaf menu-mlid-1154"><a href="/trainingplacement/aboutplacement" class="sf-depth-2 active">About Placement</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/rulesoftrainingplacement" class="sf-depth-2">Rules of Training & Placement</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/tipsforresume" class="sf-depth-2">Tips for Resume</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placedstudent" class="sf-depth-2">Placed Students</a></li>
+                            <li class="leaf menu-mlid-1121"><a href="/trainingplacement/placementbrochure" class="sf-depth-2">Placement Brochure</a></li>
+                        </ul>
+                    </div>
+                </section>
             </div>
-        </div>
+        </aside>
+
+<div class=" p-3">
+   <div class="w-full overflow-auto">
+       <div class="m-4">
+           <table class="min-w-full table-auto border-collapse border border-gray-300">
+               <thead class="bg-gray-100">
+                   <tr>
+                       <th class="border px-4 py-2 text-left">SNO</th>
+                       <th class="border px-4 py-2 text-left">NAME</th>
+                       <th class="border px-4 py-2 text-left">DEPARTMENT</th>
+                       <th class="border px-4 py-2 text-left">EMAIL ID</th>
+                       <th class="border px-4 py-2 text-left">MOBILE NUMBER</th>
+                       <th class="border px-4 py-2 text-left">Registration NO</th>
+                       <th class="border px-4 py-2 text-left">SESSION</th>
+                   </tr>
+               </thead>
+               <tbody>
+                   <c:forEach var="coordinator" items="${coordinators}">
+                       <tr class="hover:bg-gray-100">
+                           <td class="border px-4 py-2">${coordinator.coordinatorId}</td>
+                           <td class="border px-4 py-2">${coordinator.studentName}</td>
+                           <td class="border px-4 py-2">${coordinator.departmentId}</td>
+                           <td class="border px-4 py-2">${coordinator.email}</td>
+                           <td class="border px-4 py-2">${coordinator.mobile}</td>
+                           <td class="border px-4 py-2">${coordinator.registrationNo}</td>
+                           <td class="border px-4 py-2">${coordinator.studentSession}</td>
+
+                       </tr>
+                       <c:forEach var="item" items="${Role}">
+                           <c:if test="${'Admin' eq item}">
+                               <a href="<c:url value='/auth/tpoCoordinator/${coordinator.tpoCoordinatorId}'/>" class="hover:underline border px-4 py-2 bg-red-500 text-white">Delete</a>
+                           </c:if>
+                       </c:forEach>
+
+                   </c:forEach>
+               </tbody>
+           </table>
+       </div>
+   </div>
+</div>
+
     </div>
+</div>
 
 <jsp:include page="/jsp/footer.jsp" />

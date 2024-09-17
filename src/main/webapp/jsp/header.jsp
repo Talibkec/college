@@ -25,7 +25,8 @@
       <meta name="dcterms.identifier" content="" />
 
       <link rel="stylesheet" href="/css/main.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
@@ -35,9 +36,11 @@
     </head>
     <style>
       @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
-      *{
+
+      * {
         box-sizing: border-box;
       }
+
       .quicknav {
         display: inline;
         padding: 4px;
@@ -48,8 +51,8 @@
       }
 
       .submenu {
-         display: none;
-         max-width: fit-content;
+        display: none;
+        max-width: fit-content;
         position: absolute;
         z-index: 100000;
         background: #285690;
@@ -58,11 +61,11 @@
       }
 
       .submenu2 {
-         display: none;
-         max-width: fit-content;
+        display: none;
+        max-width: fit-content;
         position: absolute;
         left: 100%;
-        top : 20px;
+        top: 20px;
 
 
         z-index: 100000;
@@ -70,10 +73,12 @@
         padding: 10px;
 
       }
+
       .submenu li {
         padding: 2px;
 
       }
+
       .submenu2 li {
         padding: 2px;
 
@@ -81,25 +86,29 @@
 
       .main-nav {
         display: inline;
-        
+
 
       }
-     
-      .main-nav:hover > .submenu {
+
+      .main-nav:hover>.submenu {
         display: block;
       }
-      .submenubar:hover > .submenu2 {
+
+      .submenubar:hover>.submenu2 {
         display: block;
       }
-     .submenubar> .submenu2:hover {
+
+      .submenubar>.submenu2:hover {
         display: block;
       }
+
       .btn-danger {
         background-color: red;
         color: white;
         padding: 8px;
         border-radius: 5px;
       }
+
       .page-content {
         padding: 1rem;
         width: 100%;
@@ -107,10 +116,10 @@
       }
 
       .jumbotron {
-           background: #eee;
-           padding-left: 200px;
-           font-size: x-large;
-       }
+        background: #eee;
+        padding-left: 200px;
+        font-size: x-large;
+      }
     </style>
 
     <body>
@@ -160,92 +169,105 @@
             </div>
           </div>
 
-        
+
           <header>
 
 
 
 
-<!-- MobileNav start-->
+            <!-- MobileNav start-->
 
 
 
 
-<div id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-  <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-    <ul class="space-y-2 font-medium">
-      <li>
-        <a href="/" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="ms-3">Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="/about/history" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">About</span>
-        </a>
-      </li>
-      <li>
-        <a href="/academic/admission" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Academic</span>
-        </a>
-      </li>
-      <li>
-        <a href="/category/department" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Departments</span>
-        </a>
-      </li>
-      <li>
-        <a href="/facilities/csecenter" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Facilities</span>
-        </a>
-      </li>
-      <li>
-        <a href="/trainingplacement/placementbrochure" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Training & Placement</span>
-        </a>
-      </li>
-      <li>
-        <a href="/approval/aicteapproval" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
-        </a>
-      </li>
-      <li>
-        <a href="/rti/rtiact" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">RTI</span>
-        </a>
-      </li>
-      <li>
-        <a href="/gallery/mediagallery" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Gallery</span>
-        </a>
-      </li>
-      <li>
-        <a href="/facilities/downloads" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-          <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
-        </a>
-      </li>  <sec:authorize access="isAuthenticated()">
-                                          <li class="main-nav">
-                                            <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
-                                          </li>
-                                        </sec:authorize>
-      <li>
-        <sec:authorize access="!isAuthenticated()">
-                               <li class="main-nav">
-                                 <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
-                               </li>
-                             </sec:authorize>
-                             <sec:authorize access="isAuthenticated()">
-                               <li class="main-nav">
-                                 <a href="/logout" title="" class="sf-depth-1 menuparent">Logout</a>
-                               </li>
-                             </sec:authorize>
-      </li>
-    </ul>
-  </div>
-</div>
+            <div id="default-sidebar"
+              class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
+              aria-label="Sidebar">
+              <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                <ul class="space-y-2 font-medium">
+                  <li>
+                    <a href="/"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="ms-3">Home</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/about/history"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">About</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/academic/admission"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Academic</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/category/department"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Departments</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facilities/csecenter"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Facilities</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/trainingplacement/placementbrochure"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Training & Placement</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/approval/aicteapproval"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Approval</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/rti/rtiact"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">RTI</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/gallery/mediagallery"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Gallery</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/facilities/downloads"
+                      class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                      <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
+                    </a>
+                  </li>
+                  <sec:authorize access="isAuthenticated()">
+                    <li class="main-nav">
+                      <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                    </li>
+                  </sec:authorize>
+                  <li>
+                    <sec:authorize access="!isAuthenticated()">
+                  <li class="main-nav">
+                    <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
+                  </li>
+                  </sec:authorize>
+                  <sec:authorize access="isAuthenticated()">
+                    <li class="main-nav">
+                      <a href="/logout" title="" class="sf-depth-1 menuparent">Logout</a>
+                    </li>
+                  </sec:authorize>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
 
-<!-- MobileNav end-->
+            <!-- MobileNav end-->
 
 
 
@@ -264,109 +286,126 @@
 
             <header class="h-20 bg-white">
               <style>
-                body, html{
-    margin:0;
-    padding:0;
-}
+                body,
+                html {
+                  margin: 0;
+                  padding: 0;
+                }
+
                 .main-nav {
                   display: inline;
-                } 
-                @media only screen and (max-width: 600px) {
-                    .mobile {
-                      display: none;
-                    }  
-                   
-                    .desktop {
-                      display: block;
-                    }   
-                    #default-carousel {
-                         height:50vh;
-                    }
-                    .main-nav {
-                       display: block;
-                       padding: 10px;
-                    }     
-                    .col-md-8 {
-                        width: 100%;
-                    }
-                    aside {
-                      width: 80%;
-                      padding: 20px;
-                      margin: 30px 20px;
-                    }
                 }
-                @media only screen and (min-width: 600px) {
-                    .desktop {
-                      display: none;
-                    } 
 
-                    #default-sidebar {
-                      display: none !important;
-                    }
-                    .col-md-8 {
-                      max-width: 600px;
-                      min-width:600px;
-                      padding: 10px;
-                    }
-                    aside {
-                       max-width:280px;
-                    }
-                    .row {
-                      display: flex;
-                      justify-content: center;
-                    }
-                    .heroCol {
-                      max-width: 200px;
-                    }
-                         
+                @media only screen and (max-width: 600px) {
+                  .mobile {
+                    display: none;
+                  }
+
+                  .desktop {
+                    display: block;
+                  }
+
+                  #default-carousel {
+                    height: 50vh;
+                  }
+
+                  .main-nav {
+                    display: block;
+                    padding: 10px;
+                  }
+
+                  .col-md-8 {
+                    width: 100%;
+                  }
+
+                  aside {
+                    width: 80%;
+                    padding: 20px;
+                    margin: 30px 20px;
+                  }
+                }
+
+                @media only screen and (min-width: 600px) {
+                  .desktop {
+                    display: none;
+                  }
+
+                  #default-sidebar {
+                    display: none !important;
+                  }
+
+                  .col-md-8 {
+                    max-width: 600px;
+                    min-width: 600px;
+                    padding: 10px;
+                  }
+
+                  aside {
+                    max-width: 280px;
+                  }
+
+                  .row {
+                    display: flex;
+                    justify-content: center;
+                  }
+
+                  .heroCol {
+                    max-width: 200px;
+                  }
+
                 }
 
                 li:hover {
                   cursor: pointer;
                   text-decoration: underline;
-                  
+
                 }
+
                 .heroCol {
-                      border: 1px solid grey;
-                      padding: 10px;
-                      margin: 10px;
-                  }
-                  #noticeBoardItems li {
-                     margin: 4px;
-                     background: #f1f1f1;
-                     padding: 6px;
-                  }
-                  .btn-default {
-                    color:white;
-                     background-color: #285690;
-                    padding: 8px;
-                    border-radius: 6px;
-                    width: 100% ;
-                  }
-                  .btn-default:hover {
-                    background-color: #062447;
-                  }
+                  border: 1px solid grey;
+                  padding: 10px;
+                  margin: 10px;
+                }
 
-                  .headli {
-                      font-weight: 900;
-                      font-size: large;
+                #noticeBoardItems li {
+                  margin: 4px;
+                  background: #f1f1f1;
+                  padding: 6px;
+                }
+
+                .btn-default {
+                  color: white;
+                  background-color: #285690;
+                  padding: 8px;
+                  border-radius: 6px;
+                  width: 100%;
+                }
+
+                .btn-default:hover {
+                  background-color: #062447;
+                }
+
+                .headli {
+                  font-weight: 900;
+                  font-size: large;
 
 
-                   }
-                   .headli:hover {
-                                          text-decoration: none;
+                }
 
-                                      }
+                .headli:hover {
+                  text-decoration: none;
+
+                }
               </style>
               <div role="navigation" class="mobile">
 
-       
+
                 <div class="bg-blue">
                   <section id="block-superfish-1" class="">
                     <ul id="superfish-1" class="p-4 md:flex justify-between text-white" style="background:#285690">
                       <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/about/history" class="sf-depth-1 menuparent">About KEC  &#9660;</a>
+                        <a href="/about/history" class="sf-depth-1 menuparent">About KEC &#9660;</a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/about/history" class="sf-depth-2">History</a></li>
@@ -392,10 +431,10 @@
                               href="/academic/regulations" class="sf-depth-2">Academic Regulations</a></li>
                           <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                               href="/academic/calender" class="sf-depth-2">Academic Calender</a></li>
-                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                              href="/academic/lab?id=1" class="sf-depth-2">CSE Labs</a></li>
-                           
-                              <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                          <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                              href="/academic/lab?id=1" class="sf-depth-2">Computer Center Labs</a></li>
+
+                          <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
                               href="/academic/holidays" title="" class="sf-depth-2">List of Holidays</a></li>
                           <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
                               href="/academic/attendance" class="sf-depth-2">Attendance</a></li>
@@ -411,59 +450,62 @@
                               href="/academic/academiccouncil" class="sf-depth-2">MoM of Academic Council</a></li>
                           <li id="menu-1321-21" class="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/academic/notice" class="sf-depth-2">Notice from Govt.</a></li>
-                          
+
                         </ul>
                       </li>
 
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/category/department" class="sf-depth-1 menuparent">Departments  &#9660;</a>
+                        <a href="/category/department" class="sf-depth-1 menuparent">Departments &#9660;</a>
 
                         <div class="submenu">
-                        <div class=" flex">
+                          <div class=" flex">
 
 
 
 
-                          <ul class="">
+                            <ul class="">
 
-                            <li class="headli">Under Graduates</li>
-                            <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                              href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
+                              <li class="headli">Under Graduates</li>
+                              <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                                  href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
                               <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a>
-                                <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
-                                  href="/department/mechandsmartmanufacturing/about" class="sf-depth-2">Mechanical and Smart Manufacturing</a>
-    
-  
-                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                href="/department/ece/about" class="sf-depth-2">Electronics Engineering (VLSI Design
-                                and Technology) </a></li>
-                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
-                            <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
-                                href="/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics
-                                Engg.</a></li>
-                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
-                            <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                href="/department/fp/about" class="sf-depth-2">Food Processing</a></li>
+                                  href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a>
+                              <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                  href="/department/mechandsmartmanufacturing/about" class="sf-depth-2">Mechanical and
+                                  Smart Manufacturing</a>
 
-                          </ul>
 
-                          <ul class="">
-                            <li  class="headli">Post Graduates</li>
-                            <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
-                                href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI Design
-                                and Technology) </a></li>
-                        
-                                <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
-                                  href="/department/manufacturing/about" class="sf-depth-2">Manufacturing Engineering</a></li>
-                          </ul>
+                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                  href="/department/ece/about" class="sf-depth-2">Electronics Engineering (VLSI Design
+                                  and Technology) </a></li>
+                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                  href="/department/cse/about" class="sf-depth-2">Computer Sc. & Engineering</a></li>
+                              <li id="menu-1132-15" class="middle odd sf-item-3 sf-depth-2 sf-no-children"><a
+                                  href="/department/eee/about" title="" class="sf-depth-2">Electrical & Electronics
+                                  Engg.</a></li>
+                              <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                  href="/department/ash/about" class="sf-depth-2">Applied Sc. & Humanities</a></li>
+                              <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                  href="/department/fp/about" class="sf-depth-2">Food Processing</a></li>
+
+                            </ul>
+
+                            <ul class="">
+                              <li class="headli">Post Graduates</li>
+                              <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
+                                  href="/department/ecevlsi/about" class="sf-depth-2">Electronics Engineering (VLSI
+                                  Design
+                                  and Technology) </a></li>
+
+                              <li id="menu-1133-16" class="middle even sf-item-4 sf-depth-2 sf-no-children"><a
+                                  href="/department/manufacturing/about" class="sf-depth-2">Manufacturing
+                                  Engineering</a></li>
+                            </ul>
+                          </div>
                         </div>
-                      </div>
                       </li>
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/facilities/csecenter" class="sf-depth-1 menuparent">Facilities  &#9660; </a>
+                        <a href="/facilities/csecenter" class="sf-depth-1 menuparent">Facilities &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/facilities/bank" class="sf-depth-2">Bank</a></li>
@@ -497,7 +539,7 @@
                       </li>
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/trainingplacement/placementbrochure" class="sf-depth-1 menuparent">Training &
-                          Placement  &#9660; </a>
+                          Placement &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/trainingplacement/placementbrochure" class="sf-depth-2">About Placement</a></li>
@@ -522,7 +564,7 @@
                         </ul>
                       </li>
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/approval/akuapproval" class="sf-depth-1 menuparent">Approval  &#9660; </a>
+                        <a href="/approval/akuapproval" class="sf-depth-1 menuparent">Approval &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/approval/aicteapproval" class="sf-depth-2">AICTE Aproval</a></li>
@@ -535,7 +577,7 @@
                         </ul>
                       </li>
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/rti/rtiact" class="sf-depth-1 menuparent">RTI  &#9660; </a>
+                        <a href="/rti/rtiact" class="sf-depth-1 menuparent">RTI &#9660; </a>
                         <ul class="submenu">
                           <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                               href="/rti/rtiact" class="sf-depth-2">RTI Act 2005</a></li>
@@ -549,28 +591,28 @@
                         </ul>
                       </li>
                       <li id="menu-1131-1" class="main-nav">
-                        <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery  &#9660; </a>
+                        <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery &#9660; </a>
                         <ul class="submenu">
 
 
                         </ul>
                         <ul class="submenu">
-                                                  <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                      href="/gallery/photogallery" class="sf-depth-2">photo Gallery </a></li>
-                            <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                        href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
-                                                </ul>
+                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                              href="/gallery/photogallery" class="sf-depth-2">photo Gallery </a></li>
+                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
+                        </ul>
                       </li>
                       <li id="menu-218-1" class="main-nav">
                         <a href="/facilities/downloads" class="sf-depth-1 ">
                           Downloads</a>
                       </li>
 
-                     <sec:authorize access="isAuthenticated()">
-                                                               <li id="menu-218-1" class="main-nav">
-                                                                 <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
-                                                               </li>
-                                                             </sec:authorize>
+                      <sec:authorize access="isAuthenticated()">
+                        <li id="menu-218-1" class="main-nav">
+                          <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                        </li>
+                      </sec:authorize>
                       <sec:authorize access="!isAuthenticated()">
                         <li class="main-nav">
                           <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
@@ -594,18 +636,21 @@
 
 
               <div role="navigation" class="desktop">
-                 <div class="menubarholder flex justify-end" style="background: #285690">
+                <div class="menubarholder flex justify-end" style="background: #285690">
 
-                  <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="text-white inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600">
+                  <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
+                    aria-controls="default-sidebar" type="button"
+                    class="text-white inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600">
                     <span class="sr-only">Open sidebar</span>
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path clip-rule="evenodd" fill-rule="evenodd"
+                        d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+                      </path>
                     </svg>
                   </button>
 
-                 </div>
-               
-               
+                </div>
 
 
 
@@ -623,11 +668,14 @@
 
 
 
-                <div class="mobilenav bg-blue hidden" style="position:fixed;height:100vh;overflow-y:scroll;width:100%;top:0; z-index:9999999">
+
+
+                <div class="mobilenav bg-blue hidden"
+                  style="position:fixed;height:100vh;overflow-y:scroll;width:100%;top:0; z-index:9999999">
                   <section id="block-superfish-1" class="">
                     <ul id="superfish-1" class="p-4 md:flex justify-between text-white" style="background:#285690">
                       <li id="menu-218-1" class="w-full flex justify-end"><a onclick="toggleNav()"> X </a></li>
-                    
+
                       <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">`Home</a></li>
                       <li id="menu-1131-1" class="main-nav">
                         <a href="/about/history" class="sf-depth-1 menuparent">About KEC</a>
@@ -684,11 +732,11 @@
 
                             <ul class="submenu2">
                               <li id="menu-1321-12" class="submenubar middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
-                                <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
+                                  href="/department/civil/about" class="sf-depth-2">Civil Engineering</a>
+                              <li id="menu-1462-13" class="submenubar  first odd sf-item-1 sf-depth-2 sf-no-children"><a
                                   href="/department/mechanical/mech" class="sf-depth-2">Mechanical Engineering</a>
-    
-    
+
+
                               <li id="menu-1282-14" class="middle even sf-item-2 sf-depth-2 sf-no-children"><a
                                   href="/department/ece/about" class="sf-depth-2">Electronics Engineering (VLSI Design
                                   and Technology) </a></li>
@@ -820,26 +868,26 @@
 
                         </ul>
                         <ul class="submenu">
-                                                  <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                      href="/gallery/photogallery" class="sf-depth-2">Photo Gallery</a></li>
-                                                         <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
-                                                                                      href="/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
-                                                </ul>
+                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                              href="/gallery/photogallery" class="sf-depth-2">Photo Gallery</a></li>
+                          <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
+                              href="/gallery/mediagallery" class="sf-depth-2">Media Gallery</a></li>
+                        </ul>
                       </li>
                       <li id="menu-218-1" class="main-nav">
                         <a href="/facilities/downloads" class="sf-depth-1 ">
                           Downloads</a>
                       </li>
 
-                     <c:forEach var="item" items="${Role}">
+                      <c:forEach var="item" items="${Role}">
                         <c:if test="${'Admin' eq item}">
                           <li id="menu-218-1" class="main-nav">
                             <a href="/auth/uploadDashboard" class="sf-depth-1 ">
-                               Dashboard
-                           </a>
-                         </li>
-                      </c:if>
-                                  </c:forEach>
+                              Dashboard
+                            </a>
+                          </li>
+                        </c:if>
+                      </c:forEach>
                       <sec:authorize access="!isAuthenticated()">
                         <li class="main-nav">
                           <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>

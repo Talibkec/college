@@ -12,7 +12,7 @@ public class TpoDTO {
     private Long departmentId;
     private Long registrationNo;
 
-    // Getters and Setters
+
     public Long getCoordinatorId() {
         return coordinatorId;
     }

@@ -1,9 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/jsp/header.jsp"/>
 
-<div class="flex p-4 bg-gray-200 text-3xl p-5 w-full">
-    AICTE Approval
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <!-- Social Media Icons Section -->
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">AICTE Approval</h3>
+            </div>
 
+        </div>
+    </div>
 </div>
 <style>
     td {

@@ -755,7 +755,7 @@ public class CommonResourceController {
 
         mv.addObject("coordinators", coordinators);
 
-
+        mv.addObject("Role", ControllerUtility.getRole());
         mv.setViewName("trainingplacement/studentplacementcoordinator.jsp");
 
         return mv;

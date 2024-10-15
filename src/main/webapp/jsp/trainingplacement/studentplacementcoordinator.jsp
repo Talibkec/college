@@ -7,6 +7,7 @@
         <div class="flex items-center justify-between">
             <!-- Title Section -->
             <div class="flex-grow text-center">
+
                 <h3 class="text-2xl font-semibold">Students Placement Coordinator</h3>
             </div>
         </div>

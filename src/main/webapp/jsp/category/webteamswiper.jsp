@@ -5,7 +5,9 @@
 <style>
   .custom-swiper-container {
     width: 100%;
-    height: 450px;
+    height: 500px;
+    overflow:hidden;
+   
   }
 
   .container {
@@ -21,7 +23,8 @@
       }
 
     }
-</style>>
+  }
+</style>
 
 
 <div class="bg-gray-300 p-2">
@@ -37,7 +40,7 @@
       <!-- Team Member 1 -->
       <!-- Faculty Card 1 -->
       <div
-        class="swiper-slide bg-white shadow-lg rounded-lg mb-6 flex flex-col justify-between h-full transition-transform transform hover:scale-105">
+        class="swiper-slide bg-white shadow-lg rounded-lg mb-6 flex flex-col justify-between h-full ">
         <div class="flex flex-col items-center p-4">
           <div
             class="bg-gradient-to-r from-blue-200 to-blue-300 mb-2 rounded-t-lg text-2xl font-bold text-center text-black w-full">
@@ -45,7 +48,7 @@
           </div>
           <div class="mb-4">
             <img alt="Md Talib Ahmad" src="/jsp/category/Talibsir.JPG"
-              class="w-36 h-36 rounded-full object-cover shadow-lg border-4 border-white" />
+              class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-white" />
           </div>
           <div class="text-center mb-4 flex-grow">
             <p class="mb-2 text-lg"><strong><i class="fa fa-building"></i> Department:</strong> Computer Science and
@@ -60,7 +63,7 @@
         </div>
         <div class="lg:w-1/2 w-full mt-auto p-4">
           <a href="/department/cse/mta"
-            class="bg-blue-600 text-white w-full block text-center py-2 rounded-lg hover:bg-blue-700 transition text-lg flex items-center justify-center">
+            class="bg-blue-500 text-white w-full block text-center py-2 rounded-lg hover:bg-blue-600 transition text-lg">
             <i class="fa fa-link mr-2"></i> Visit Profile Page
           </a>
         </div>
@@ -68,10 +71,10 @@
 
       <!-- Faculty Card 2 -->
       <div
-        class="swiper-slide bg-white shadow-lg rounded-lg mb-6 flex flex-col justify-between h-full transition-transform transform hover:scale-105">
+        class="swiper-slide bg-white shadow-lg rounded-lg mb-6 flex flex-col justify-between h-full ">
         <div class="flex flex-col items-center p-4">
           <div
-            class="bg-gradient-to-r from-green-200 to-green-300 mb-2 rounded-t-lg text-2xl font-bold text-center text-black w-full">
+            class="bg-gradient-to-r from-blue-200 to-blue-300 mb-2 rounded-t-lg text-2xl font-bold text-center text-black w-full">
             Sinjan Kumar
           </div>
           <div class="mb-4">
@@ -83,7 +86,6 @@
               Engineering</p>
             <p class="mb-2 text-lg"><strong><i class="fa fa-user-tie"></i> Designation:</strong> Assistant Professor &
               Content Head</p>
-            <p class="mb-2 text-lg"><strong><i class="fa fa-phone"></i> Phone Number:</strong> +91-9871634888</p>
             <p>
               <strong><i class="fa fa-envelope"></i> Email Address:</strong>
               <a href="mailto:sinjan.dtu@gmail.com"
@@ -93,7 +95,7 @@
         </div>
         <div class="lg:w-1/2 w-full mt-auto p-4">
           <a href="/department/cse/snjk"
-            class="bg-green-600 text-white w-full block text-center py-2 rounded-lg hover:bg-green-700 transition text-lg flex items-center justify-center">
+            class="bg-blue-500 text-white w-full block text-center py-2 rounded-lg hover:bg-blue-600 transition text-lg">
             <i class="fa fa-link mr-2"></i> Visit Profile Page
           </a>
         </div>
@@ -340,9 +342,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
-  var customSwiper = new Swiper('.custom-swiper-container', {
+   var customSwiper = new Swiper('.custom-swiper-container', {
     slidesPerView: 1,
     spaceBetween: 10,
+    freeMode:false,
     breakpoints: {
       640: {
         slidesPerView: 1,

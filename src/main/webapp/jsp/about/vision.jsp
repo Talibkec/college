@@ -40,9 +40,9 @@
                 </div>
                 <div class="font-sans text-base text-justify text-gray-700">
                     <ul class="list-disc pl-8 space-y-2">
-                        <li>To provide education in Engineering with excellence and ethics and to reach the unreached.</li>
-                        <li>To serve the nation and society by providing skilled and well-developed human resources through excellence in technical education and research.</li>
-                        <li>To be a leading institution of engineering education and research.</li>
+                        <li>To establish an exclusive profile as a premier global technical institute which nurtures proficient technical professionals and resources, and consequently, drives the economic and social development of the nation and region.
+                        </li>
+                        
                     </ul>
                 </div>
                 <hr class="my-4"/>
@@ -51,9 +51,9 @@
                 </div>
                 <div class="font-sans text-base text-justify text-gray-700">
                     <ul class="list-disc pl-8 space-y-2">
-                        <li>To build across the institute a culture of excellence in teaching and learning with needed performance and accountability from all support activities.</li>
-                        <li>To become a center of excellence in technical education and research and to occupy a place amongst eminent institutions of the nation.</li>
-                        <li>To create innovative and vibrant young leaders and entrepreneurs in Engineering and Technology for building India as a super knowledge power and blossom into a University of excellence recognized globally.</li>
+                        <li>To promote academic excellence in technical education with enhanced teaching-learning practices.</li>
+                        <li>To cultivate an atmosphere of research and lead in technological advancement through collaboration with industry and academia.</li>
+                        <li> To create ethically-sound, future leaders who lead the inclusive and sustainable development of the state, nation and society at large.</li>
                     </ul>
                 </div>
             </div>

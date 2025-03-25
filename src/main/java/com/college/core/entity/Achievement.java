@@ -10,6 +10,15 @@ public class Achievement {
     private byte[] achievementImage;
     private String fileName;
     private String fileType;
+    private int displayFlag;
+
+    // Getter and setter
+    public int getDisplayFlag() {
+        return displayFlag;
+    }
+    public void setDisplayFlag(int displayFlag) {
+        this.displayFlag = displayFlag;
+    }
     @Lob
     public String getFileName() { return fileName; }
     public void setFileName(String fileName) { this.fileName = fileName; }

@@ -20,7 +20,10 @@
                 </div>
 
                 <div id="msg" class="text-red-500 hidden">*Please Select a file</div>
-
+                <select name="displayFlag" required>
+                    <option value="0">Desktop (6000x4000)</option>
+                    <option value="1">Mobile (1080x1920)</option>
+                </select>
                 <div class="text-center">
                     <button type="submit" id="btnSubmit" class="bg-blue-500 text-white font-bold w-full py-2 rounded-md hover:bg-gray-600 transition duration-300">
                         Submit

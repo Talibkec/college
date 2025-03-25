@@ -13,6 +13,6 @@ public interface AchievementSlideService {
     AchievementDTO getImages(Long id);
 
     List<AchievementDTO> getAllImages();
-
+    List<AchievementDTO> getByDisplayFlag(int flag);
     void deleteAchievementImage(Long id);
 }

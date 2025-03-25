@@ -9,6 +9,17 @@ public class AchievementDTO {
     private String fileType;
     @Lob
     private byte[] achievementImage;
+
+    private int displayFlag;
+
+    // Getter and setter
+    public int getDisplayFlag() {
+        return displayFlag;
+    }
+
+    public void setDisplayFlag(int displayFlag) {
+        this.displayFlag = displayFlag;
+    }
     public Long getAchievementSlideId() {
         return achievementSlideId;
     }

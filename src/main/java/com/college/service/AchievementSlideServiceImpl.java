@@ -43,7 +43,6 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Override
     //@Cacheable(value = "achievementSlideImageCache")
     public List<AchievementDTO> getAllImages() {
-
         List<Achievement> achievements = achievementRepository.getAllImages();
         Type targetListType = new TypeToken<List<AchievementDTO>>() {
         }.getType();
@@ -51,6 +50,12 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
         return modelMapper.map(achievements, targetListType);
     }
 
+    @Override
+    public List<AchievementDTO> getByDisplayFlag(int flag) {
+        List<Achievement> achievements = achievementRepository.findByDisplayFlag(flag);
+        Type targetListType = new TypeToken<List<AchievementDTO>>() {}.getType();
+        return modelMapper.map(achievements, targetListType);
+    }
     @Override
    // @CacheEvict(value="deleteAchievementCache",allEntries = true)
     public  void deleteAchievementImage(Long id){

@@ -565,10 +565,6 @@
                   <li id="menu-1131-1" class="main-nav">
                     <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery &#9660; </a>
                     <ul class="submenu">
-
-
-                    </ul>
-                    <ul class="submenu">
                       <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                           href="/gallery/photogallery" class="sf-depth-2">photo Gallery </a></li>
                       <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
@@ -621,26 +617,7 @@
                   </path>
                 </svg>
               </button>
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="mobilenav bg-blue hidden"
               style="position:fixed;height:100vh;overflow-y:scroll;width:100%;top:0; z-index:9999999">
@@ -648,7 +625,7 @@
                 <ul id="superfish-1" class="p-4 md:flex justify-between text-white" style="background:#285690">
                   <li id="menu-218-1" class="w-full flex justify-end"><a onclick="toggleNav()"> X </a></li>
 
-                  <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">`Home</a></li>
+                  <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
                   <li id="menu-1131-1" class="main-nav">
                     <a href="/about/history" class="sf-depth-1 menuparent">About KEC</a>
                     <ul class="submenu">
@@ -835,10 +812,6 @@
                   </li>
                   <li id="menu-1131-1" class="main-nav">
                     <a href="/gallery/mediagallery" class="sf-depth-1 menuparent">Gallery</a>
-                    <ul class="submenu">
-
-
-                    </ul>
                     <ul class="submenu">
                       <li id="menu-1321-12" cl ass="middle odd sf-item-5 sf-depth-2 sf-no-children"><a
                           href="/gallery/photogallery" class="sf-depth-2">Photo Gallery</a></li>

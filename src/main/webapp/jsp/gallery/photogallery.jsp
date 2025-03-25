@@ -25,6 +25,9 @@
   }
 </style>
 
+  
+  
+  
 <div class="bg-gray-200 py-4 mt-4">
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between">
@@ -37,7 +40,22 @@
     </div>
   </div>
 </div>
-
+<div class="flex justify-center items-center px-4 mt-5">
+    <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-lg border border-gray-300">
+      <h2 class="text-xl font-semibold text-gray-800 text-center mb-4">Photo Gallery</h2>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/gallery/photogallery"
+          class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 font-medium text-lg rounded-lg shadow hover:bg-blue-500 hover:text-white transition duration-300 text-center">
+         Photo Gallery
+        </a>
+        <a href="/gallery/mediagallery"
+          class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 font-medium text-lg rounded-lg shadow hover:bg-blue-500 hover:text-white transition duration-300 text-center">
+       Media Gallery
+        </a>
+      </div>
+    </div>
+  </div>
 <div class="container mx-auto mt-4 px-4">
   <div class="mb-4 flex items-center gap-5">
     <label for="gallery-select" class="text-lg font-medium">Select Image Gallery:</label>

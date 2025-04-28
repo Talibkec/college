@@ -35,20 +35,24 @@
                  <h3 class="text-2xl font-semibold">About Mechanical and Smart Manufacturing </h3>
              </div>
               <div class="flex space-x-4">
-                             <a
-                                 href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
-                                 target="_blank"
-                                 class="text-gray-800 hover:text-blue-600"
-                             >
-                                 <i class="fab fa-facebook"></i>
-                             </a>
-                             <a
-                                 href="https://twitter.com/home?status=About+Civil+Engg.+-+https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
-                                 target="_blank"
-                                 class="text-gray-800 hover:text-blue-400"
-                             >
-                                 <i class="fab fa-twitter"></i>
-                             </a>
+                             <a href="https://www.facebook.com/profile.php?id=61564963783682" target="_blank" class="text-gray-800 hover:text-blue-600">
+                                              <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a href="https://x.com/keckatihar" target="_blank" class="text-gray-800 hover:text-blue-400">
+                                              <i class="fab fa-twitter"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/keckatiharofficial/" target="_blank" class="text-gray-800 hover:text-pink-600">
+                                              <i class="fab fa-instagram"></i>
+                                            </a>
+                                            <a href="https://whatsapp.com/channel/0029VaeIPrnFHWptfQRrpo0Q" target="_blank" class="text-gray-800 hover:text-green-500">
+                                              <i class="fab fa-whatsapp"></i>
+                                            </a>
+                                            <a href="https://www.youtube.com/channel/UCJu8sFs4jAp6sZIPsa8Qs5g" target="_blank" class="text-gray-800 hover:text-red-600">
+                                              <i class="fab fa-youtube"></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/katihar-engineering-college-dstte-govt-of-bihar-327aaa326/" target="_blank" class="text-gray-800 hover:text-blue-700">
+                                              <i class="fab fa-linkedin"></i>
+                                            </a>
               </div>
          </div>
      </div>

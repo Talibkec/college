@@ -142,16 +142,26 @@
               </ul>
         
               <div class="flex justify-center sm:justify-end space-x-8 pr-4 sm:pr-8">
-                <a href="https://www.facebook.com/" target="_blank" class="text-gray-800 hover:text-blue-600">
+                <a href="https://www.facebook.com/profile.php?id=61564963783682" target="_blank" class="text-gray-800 hover:text-blue-600">
                   <i class="fab fa-facebook"></i>
                 </a>
-                <a href="https://www.twitter.com/" target="_blank" class="text-gray-800 hover:text-blue-400">
+                <a href="https://x.com/keckatihar" target="_blank" class="text-gray-800 hover:text-blue-400">
                   <i class="fab fa-twitter"></i>
                 </a>
-                <a href="https://www.instagram.com/" target="_blank" class="text-gray-800 hover:text-pink-600">
+                <a href="https://www.instagram.com/keckatiharofficial/" target="_blank" class="text-gray-800 hover:text-pink-600">
                   <i class="fab fa-instagram"></i>
                 </a>
+                <a href="https://whatsapp.com/channel/0029VaeIPrnFHWptfQRrpo0Q" target="_blank" class="text-gray-800 hover:text-green-500">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCJu8sFs4jAp6sZIPsa8Qs5g" target="_blank" class="text-gray-800 hover:text-red-600">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/katihar-engineering-college-dstte-govt-of-bihar-327aaa326/" target="_blank" class="text-gray-800 hover:text-blue-700">
+                  <i class="fab fa-linkedin"></i>
+                </a>
               </div>
+
       
               <form class="w-full max-w-md sm:self-end">
                 <div class="relative flex items-center border border-gray-300 rounded-lg">

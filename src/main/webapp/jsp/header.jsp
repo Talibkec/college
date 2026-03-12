@@ -12,7 +12,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <link rel="shortcut icon" href="/images/logo1.jpeg" type="image/vnd.microsoft.icon" />
       <meta name="description" content="Katihar Engineering College, Katihar" />
-      <meta name="robots" content="follow, index" / <link rel="canonical" href="http://www.keck.ac.in" />
+      <meta name="robots" content="follow, index" /> <link rel="canonical" href="http://www.keck.ac.in" />
       <link rel="shortlink" href="http://www.keck.ac.in" />
       <meta property="og:site_name" content="KEC Katihar" />
       <meta property="og:type" content="website" />
@@ -130,9 +130,9 @@
             <div class="">
               <img src="/images/logo.png" class="" />
             </div>
-        
+
             <div class="w-full sm:w-auto flex flex-col sm:items-end space-y-4">
-     
+
               <ul class="flex flex-wrap justify-center sm:justify-end space-x-4">
                 <li class="quicknav"><a href="/"> &raquo; Home</a></li>
                 <li class="quicknav"><a href="/academic/antiragging"> &raquo; Anti Ragging</a></li>
@@ -140,7 +140,7 @@
                 <li class="quicknav"><a href="/approval/aicteapproval" target="_blank"> &raquo; AICTE</a></li>
                 <li class="quicknav"><a href="/category/kecwebteam" target="_blank"> &raquo; KEC Web Team</a></li>
               </ul>
-        
+
               <div class="flex justify-center sm:justify-end space-x-8 pr-4 sm:pr-8">
                 <a href="https://www.facebook.com/profile.php?id=61564963783682" target="_blank" class="text-gray-800 hover:text-blue-600">
                   <i class="fab fa-facebook"></i>
@@ -162,7 +162,7 @@
                 </a>
               </div>
 
-      
+
               <form class="w-full max-w-md sm:self-end">
                 <div class="relative flex items-center border border-gray-300 rounded-lg">
                   <input type="text" placeholder="Search Faculty" name="facultyName" id="facultyNames"
@@ -172,7 +172,7 @@
                   </button>
                 </div>
               </form>
-        
+
             </div>
           </div>
         </header>
@@ -581,6 +581,12 @@
                           href="/gallery/mediagallery" class="sf-depth-2">Media Gallery </a></li>
                     </ul>
                   </li>
+
+                  <li id="menu-218-1" class="main-nav">
+                    <a href="/nba/nba" class="sf-depth-1 ">
+                      NBA</a>
+                  </li>
+
                   <li id="menu-218-1" class="main-nav">
                     <a href="/facilities/downloads" class="sf-depth-1 ">
                       Downloads</a>

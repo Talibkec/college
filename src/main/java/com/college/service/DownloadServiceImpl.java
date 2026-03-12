@@ -23,6 +23,11 @@ public class DownloadServiceImpl implements DownloadService{
     }
 
     @Override
+    public List<Download> getAllNBADocuments() {
+        return downloadRepository.getAllNBADocuments();
+    }
+
+    @Override
     public DownloadDTO getDownloadDocument(Long id) {
         DownloadDTO downloadDTO = null;
         Download download = downloadRepository.findOne(id);

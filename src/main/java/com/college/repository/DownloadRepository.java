@@ -15,7 +15,9 @@ import java.util.List;
 @Repository
 public interface DownloadRepository extends JpaRepository<Download, Long> {
 
-    @Query(value = "select * from download", nativeQuery = true)
+    @Query(value = "select * from download where doc_type='download'", nativeQuery = true)
     List<Download> getAllDocuments();
+    @Query(value = "select * from download where doc_type='nba'", nativeQuery = true)
+    List<Download> getAllNBADocuments();
 
 }

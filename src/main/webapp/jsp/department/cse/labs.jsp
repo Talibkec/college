@@ -28,5 +28,8 @@
             </div>
         </div>
     </div>
+<div class="row">
+    <iframe src="${pageContext.request.contextPath}/academic/lab?dept_id=1" width="600" height="500"></iframe>
+</div>
 
 <jsp:include page="/jsp/footer.jsp"/>

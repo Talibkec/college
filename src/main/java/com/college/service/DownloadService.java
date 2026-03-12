@@ -10,6 +10,8 @@ import java.util.List;
 public interface DownloadService {
     List<Download> getAllDownload();
 
+    public List<Download> getAllNBADocuments();
+
     DownloadDTO getDownloadDocument(Long id);
 
 

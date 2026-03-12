@@ -271,6 +271,7 @@ public class SlideImageController {
         }
         DownloadDTO downloadDTO = new DownloadDTO();
         downloadDTO.setFileName(caption);
+        downloadDTO.setDocType("download");
 
         String username = authentication.getName();
         downloadDTO.setUploadedBy(authentication.getName());

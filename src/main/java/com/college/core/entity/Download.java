@@ -12,6 +12,8 @@ public class Download {
     private Date date;
     private String fileType;
 
+    private String docType;
+
     public String getFileType() {
         return fileType;
     }
@@ -74,5 +76,14 @@ public class Download {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setDocType(String docType) {
+        this.docType = docType;
+    }
+
+    @Column(name="doc_type")
+    public String getDocType() {
+        return docType;
     }
 }

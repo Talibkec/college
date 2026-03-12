@@ -7,6 +7,7 @@ public class DownloadDTO {
     private long id;
     private String fileName;
     private String fileType;
+    private String docType;
 
     public DownloadDTO(long id, String fileName, String uploadedBy, Date date, byte[] uploadedFile) {
         this.id = id;
@@ -69,5 +70,13 @@ public class DownloadDTO {
 
     public String getFileType() {
         return fileType;
+    }
+
+    public void setDocType(String docType) {
+        this.docType = docType;
+    }
+
+    public String getDocType() {
+        return docType;
     }
 }

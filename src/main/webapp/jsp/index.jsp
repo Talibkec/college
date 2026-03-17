@@ -281,7 +281,7 @@
       <div class=" headers linkheader" style="background: url(/images/home-c-bg-title.png) no-repeat top center;">
         Latest Notices
       </div>
-      <marquee direction="up" loop="infinite" onmouseover="this.pause();" onmouseout="this.resume();" scrollamount="2">
+      <marquee direction="up" loop="infinite" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="2">
 
 
         <c:forEach items="${noticeList}" var="notice">
@@ -459,7 +459,7 @@
 
 
 
-    
+
   </div>
 
 

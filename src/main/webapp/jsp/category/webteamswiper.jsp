@@ -146,7 +146,6 @@
             <p class="mb-2 text-lg"><strong><i class="fa fa-building"></i> Department:</strong> Computer Science and
               Engineering</p>
             <p class="mb-2 text-lg"><strong><i class="fa fa-user-tie"></i> Designation:</strong> Web Developer</p>
-            <p class="mb-2 text-lg"><strong><i class="fa fa-phone"></i> Phone Number:</strong> +91-8178572536</p>
             <p>
               <strong><i class="fa fa-envelope"></i> Email Address:</strong>
               <a href="mailto:vishalkrsinghmsk@gmail.com"
@@ -176,7 +175,6 @@
             <p class="mb-2 text-lg"><strong><i class="fa fa-building"></i> Department:</strong> Computer Science and
               Engineering</p>
             <p class="mb-2 text-lg"><strong><i class="fa fa-user-tie"></i> Designation:</strong> Web Developer</p>
-            <p class="mb-2 text-lg"><strong><i class="fa fa-phone"></i> Phone Number:</strong> +91-9835037718</p>
             <p>
               <strong><i class="fa fa-envelope"></i> Email Address:</strong>
               <a href="mailto:abhisinghal276@gmail.com"

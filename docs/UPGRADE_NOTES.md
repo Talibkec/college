@@ -1,6 +1,6 @@
 # Upgrade notes – branch `kec_claude`
 
-Upgrade of the college website/ERP from Spring Boot 1.3.3 / Java 8 to Spring Boot 4.1.1 / Java 21 (target Java 25).
+Upgrade of the college website/ERP from Spring Boot 1.3.3 / Java 8 to Spring Boot 4.1.1 / Java 25 (LTS).
 Only Java, Spring and libraries were upgraded. There was no refactoring, no "making pages dynamic", and no
 schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 
@@ -8,7 +8,7 @@ schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 
 | Component | Before | After |
 |---|---|---|
-| Java | 8 | **21** (Java 25 LTS as soon as the JDK is installed, see §6) |
+| Java | 8 | **25** (LTS; JDK 25.0.4.1) |
 | Spring Boot | 1.3.3.RELEASE | **4.1.1** |
 | Spring Framework | 4.2.5 | 7.0.9 |
 | Spring Security | 4.0.3 (taglibs 5.2.2) | 7.1.1 |
@@ -26,8 +26,8 @@ schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 | modelmapper | 2.3.0 | 3.2.7 |
 | mysql-backup4j | 1.0.1 | 1.3.0 |
 | commons-io | transitive | 2.22.0 (explicit, used directly) |
-| iText | 5.5.6 (+ unused iText 7.0.2) | **unchanged – decision pending (§6.2)** |
-| jQuery webjar | 2.2.4 (unused) | **unchanged – decision pending (§6.3)** |
+| PDF library | iText 5.5.6, AGPL (+ unused iText 7.0.2) | **OpenPDF 3.0.5** (LGPL/MPL) – approved |
+| jQuery webjar | 2.2.4 (unused) | removed – approved |
 
 ## 2. Commits (oldest first)
 
@@ -45,7 +45,11 @@ schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 | `a9193bb` | 3c: Boot 3.5.16, Java 21, javax → jakarta |
 | `5abb5bc` | 3d: Boot 4.1.1 (Spring 7, Security 7, Hibernate 7, Tomcat 11) |
 | `5da417d` | 3e: third-party libraries |
-| (this file) | Upgrade notes |
+| `a3bebf1` | Upgrade notes |
+| `405f1c9` | Java 21 → 25 |
+| `fed5427` | iText 5 (AGPL) → OpenPDF 3.0.5 (approved) |
+| `d382434` | Remove unused jQuery webjar (approved) |
+| (latest) | Notes updated |
 
 Nothing has been pushed. Push the branch yourself: `git push -u origin kec_claude`.
 
@@ -57,7 +61,7 @@ Each one was found or confirmed by the tests (§5).
 * **Credentials** are no longer in `application.properties`. Production needs `DB_URL`, `DB_USERNAME`,
   `DB_PASSWORD`, `MAIL_USERNAME`, `MAIL_PASSWORD` (or its own `application-local.properties` + `local` profile).
 * **`spring.jpa.hibernate.ddl-auto=none`**: Hibernate no longer tries to alter the schema at startup.
-* **Java 21+ is required to run the app.** If production deploys the WAR into an external Tomcat, that Tomcat
+* **Java 25 is required to run the app** (the WAR is compiled for Java 25). If production deploys the WAR into an external Tomcat, that Tomcat
   must be **11.x** (Jakarta EE 11). Tomcat 8/9 can no longer run this WAR. `java -jar` on the WAR (embedded
   Tomcat) works as before.
 * **Upload limit**: before there was no limit; now 20 MB per file and 25 MB per request (approved).
@@ -97,6 +101,9 @@ Each one was found or confirmed by the tests (§5).
   data URLs).
 
 **Integrations**
+* PDFs (attendance report, leave application): iText 5 → **OpenPDF 3.0.5**. Only the package changed
+  (`com.itextpdf.text` → `org.openpdf.text`); same API calls. PDF content test green; logo embedding from an
+  absolute path checked separately.
 * Calendar client: `JacksonFactory` → `GsonFactory`; `GoogleCredential` with the P12 key is kept (deprecated but
   supported). Firebase initialisation unchanged.
 
@@ -118,20 +125,15 @@ Each one was found or confirmed by the tests (§5).
 `src/test/java/com/college/upgradetest` – 36 tests that start the real app against the local MySQL copy (see
 CLAUDE.md "Tests"). They were written and the baselines recorded on the **original** version, then kept
 unchanged through all stages (only the Boot-specific wiring in `AbstractAppTest` moved).
-Result on Boot 4.1.1 / Java 21: **36 run, 0 failures, 1 skipped** (`leaveRequestEndpointMailsPdf`, see §6.6).
+Result on Boot 4.1.1 / Java 25: **36 run, 0 failures, 1 skipped** (`leaveRequestEndpointMailsPdf`, see §6.6).
 
 ## 6. Open issues / decisions for you
 
-1. **Install JDK 25** and switch the build to it:
-   `sudo apt install openjdk-25-jdk`, then set `<java.version>25</java.version>` in `pom.xml` and use
-   `JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64`. Re-run `mvn clean package`.
-2. **iText licensing (⏸ your decision).** The PDF code uses iText 5.5.6 (`com.itextpdf.text.*`, **AGPL-3.0**)
-   through the `com.lowagie:itext:4.2.2` relocation. iText 7.0.2 `kernel`/`layout` (also AGPL) are declared but
-   unused. Running AGPL iText in a public web app without a commercial licence brings AGPL obligations.
-   Options: (a) OpenPDF 3.0.5 (LGPL/MPL, iText-4-style API, package rename `com.itextpdf.text` → `org.openpdf`
-   style changes in `DocUtils`/`FirebaseDocumentHelper`), (b) keep iText 5 / move to iText 9 with a commercial
-   licence or AGPL compliance, (c) Apache PDFBox (rewrite). In every case the unused iText 7.0.2 can be removed.
-3. **jQuery webjar 2.2.4** is unused (pages load jQuery from a CDN). Keep, bump, or remove – your call.
+1. **Done (approved):** Java 25, OpenPDF instead of iText, jQuery webjar removed.
+2. **modelmapper 3.2.7** prints a JDK 25 warning (`sun.misc.Unsafe::staticFieldOffset will be removed`). It works
+   today; watch for a modelmapper release that drops `Unsafe` before a future JDK removes it.
+3. **Maven 3.6.3** (system package) also prints `sun.misc.Unsafe` warnings on JDK 25 (its own Guava). Harmless;
+   a newer Maven (3.9.x) or the Maven wrapper would remove them.
 4. **Junk rows in the local DB** – `/approval/addFaculty` is an **anonymous GET that inserts a blank faculty row**
    (+ "Administrative Responsibilities" key properties) on every call. Early test runs called it; 8 rows
    (faculty_id 78–102) are in the local `keckacin_college2`. Delete them with:
@@ -165,7 +167,7 @@ Result on Boot 4.1.1 / Java 21: **36 run, 0 failures, 1 skipped** (`leaveRequest
 ```bash
 cd ~/college            # or the project path
 git checkout kec_claude
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64   # java-25-openjdk-amd64 once installed
+export JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 
 # build + all tests (needs local MySQL and ./application-local.properties)
@@ -180,4 +182,4 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local "-Dspring-boot.run.argument
 # or run the built WAR
 java -jar target/spring-boot-example-1.0-SNAPSHOT.war --spring.profiles.active=local
 ```
-IntelliJ: set the project SDK to JDK 21 (or 25) and add `local` to the run configuration's active profiles.
+IntelliJ: set the project SDK to JDK 25 and add `local` to the run configuration's active profiles.

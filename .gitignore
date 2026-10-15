@@ -199,3 +199,6 @@ README.html
 *.iml
 .idea
 .exercism
+### Local secrets / config (never commit)
+application-local.properties
+*.sql

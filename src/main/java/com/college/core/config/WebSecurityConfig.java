@@ -14,7 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
+import static org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher.pathPattern;
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +38,7 @@ public class WebSecurityConfig {
         return new KECUrlAuthenticationSuccessHandler();
     }
 
-    // Same rules and order as the former WebSecurityConfigurerAdapter. Ant matchers keep the old matching semantics;
+    // Same rules and order as the former WebSecurityConfigurerAdapter (path patterns: same meaning as the old ant patterns);
     // forwards/includes (JSP views) and error dispatches were never authorized before, so they stay permitted.
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -49,19 +49,19 @@ public class WebSecurityConfig {
                 .securityContext(sc -> sc.requireExplicitSave(false))
                 .authorizeHttpRequests(auth -> auth
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ERROR).permitAll()
-                        .requestMatchers(antMatcher("/user/updatePassword*"), antMatcher("/user/savePassword*"), antMatcher("/updatePassword*"))
+                        .requestMatchers(pathPattern("/user/updatePassword*"), pathPattern("/user/savePassword*"), pathPattern("/updatePassword*"))
                         .hasAuthority("CHANGE_PASSWORD_PRIVILEGE")
-                        .requestMatchers(antMatcher("/user/resetPassword"), antMatcher("/user/changePassword*")).permitAll()
-                        .requestMatchers(antMatcher("/fstore/**")).hasAuthority("Faculty")
-                        .requestMatchers(antMatcher("/store/**")).hasAuthority("SM")
-                        .requestMatchers(antMatcher("/hod/**")).hasAuthority("HOD")
-                        .requestMatchers(antMatcher("/sk/**")).hasAnyAuthority("SK", "SM")
-                        .requestMatchers(antMatcher("/common/**")).hasAnyAuthority("SM", "Faculty")
-                        .requestMatchers(antMatcher("/uploadfile/**")).hasAnyAuthority("Admin", "Faculty", "SM", "SK", "HOD")
-                        .requestMatchers(antMatcher("/auth/uploadLabDoc/**")).hasAnyAuthority("Admin", "HOD")
-                        .requestMatchers(antMatcher("/auth/api/uploadLabDoc/**")).hasAnyAuthority("Admin", "HOD")
-                        .requestMatchers(antMatcher("/auth/**")).hasAnyAuthority("Admin")
-                        .requestMatchers(antMatcher("/user/**")).hasAnyAuthority("Faculty")
+                        .requestMatchers(pathPattern("/user/resetPassword"), pathPattern("/user/changePassword*")).permitAll()
+                        .requestMatchers(pathPattern("/fstore/**")).hasAuthority("Faculty")
+                        .requestMatchers(pathPattern("/store/**")).hasAuthority("SM")
+                        .requestMatchers(pathPattern("/hod/**")).hasAuthority("HOD")
+                        .requestMatchers(pathPattern("/sk/**")).hasAnyAuthority("SK", "SM")
+                        .requestMatchers(pathPattern("/common/**")).hasAnyAuthority("SM", "Faculty")
+                        .requestMatchers(pathPattern("/uploadfile/**")).hasAnyAuthority("Admin", "Faculty", "SM", "SK", "HOD")
+                        .requestMatchers(pathPattern("/auth/uploadLabDoc/**")).hasAnyAuthority("Admin", "HOD")
+                        .requestMatchers(pathPattern("/auth/api/uploadLabDoc/**")).hasAnyAuthority("Admin", "HOD")
+                        .requestMatchers(pathPattern("/auth/**")).hasAnyAuthority("Admin")
+                        .requestMatchers(pathPattern("/user/**")).hasAnyAuthority("Faculty")
                         .anyRequest().permitAll())
                 .formLogin(form -> form
                         .loginPage("/login").successHandler(kecAuthenticationSuccessHandler()))

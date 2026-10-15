@@ -19,14 +19,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.16</version>
+        <version>4.1.1</version>
     </parent>
 
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-webmvc</artifactId>
         </dependency>
         <!--
         <dependency>
@@ -114,6 +114,16 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <!-- Boot 4 moved the Gson auto-configuration (Gson bean used by CommonResourceController) to its own module -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-gson</artifactId>
+        </dependency>
+        <dependency>
+            <!-- Boot 4 moved the cache auto-configuration (simple CacheManager for @EnableCaching) to its own module -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-cache</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

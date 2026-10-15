@@ -11,7 +11,7 @@
 
     <properties>
         <tomcat.version>8.0.3</tomcat.version>
-        <start-class>spring-boot-example.Application</start-class>
+        <start-class>com.college.Application</start-class>
         <google.version>1.19.0</google.version>
     </properties>
 
@@ -195,6 +195,10 @@
                     <source>8</source>
                     <target>8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
         <!--<resources>

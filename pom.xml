@@ -11,8 +11,8 @@
 
     <properties>
         <start-class>com.college.Application</start-class>
-        <!-- target is Java 25 (LTS); 21 until JDK 25 is installed on the build machine -->
-        <java.version>21</java.version>
+        <!-- Java 25 (LTS) -->
+        <java.version>25</java.version>
     </properties>
 
     <parent>

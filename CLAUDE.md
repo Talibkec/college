@@ -39,15 +39,15 @@ The plan and progress are in `docs/PROJECT_ANALYSIS.md` and `docs/UPGRADE_NOTES.
 - No refactoring and no "making pages dynamic" until the user explicitly starts that phase.
 
 ## Environment (WSL Ubuntu 22.04)
-- JDKs: `/usr/lib/jvm/java-8-openjdk-amd64`, `/usr/lib/jvm/java-11-openjdk-amd64`, `/usr/lib/jvm/java-21-openjdk-amd64`.
+- JDKs: `/usr/lib/jvm/java-8-openjdk-amd64`, `/usr/lib/jvm/java-11-openjdk-amd64`, `/usr/lib/jvm/java-21-openjdk-amd64`, `/usr/lib/jvm/java-25-openjdk-amd64`.
   Don't install JDKs. Tell the user the install command instead.
 - Maven 3.6.3 (system `mvn`, no wrapper).
 - Local DB: MySQL `localhost:3306`, database `keckacin_college2` (copy of production), user `keckacin_system`.
 - Port 8080 is often already used by the user's IntelliJ run. Use another port (e.g. 8099) for verification runs.
 
-## Build / run (current version: Spring Boot 4.1.1, Java 21; target Java 25 once installed)
+## Build / run (current version: Spring Boot 4.1.1, Java 25)
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-25-openjdk-amd64
 mvn clean package                                     # build + tests
 mvn spring-boot:run -Dspring-boot.run.profiles=local  # run with application-local.properties
 # verification run on another port (ddl-auto is already "none"):

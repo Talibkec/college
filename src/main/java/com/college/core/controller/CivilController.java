@@ -37,10 +37,10 @@ public class CivilController {
         ModelAndView modalAndView = new ModelAndView();
         modalAndView.addObject("Role", ControllerUtility.getRole());
         modalAndView.addObject("UserName", ControllerUtility.getUserName());
-        List<NoticeBoardDTO> civilNotices = noticeBoardService.getCivilNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> civilNotices = noticeBoardService.getCivilNotices(PageRequest.of(0, 10));
 
 
-        List<NoticeBoardDTO> blinkingMessage = noticeBoardService.getBlinkingMessage(new PageRequest(0, 10));
+        List<NoticeBoardDTO> blinkingMessage = noticeBoardService.getBlinkingMessage(PageRequest.of(0, 10));
 
 
         modalAndView.addObject("noticeList", civilNotices);
@@ -95,7 +95,7 @@ public class CivilController {
     @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> civilNotices = noticeBoardService.getCivilNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> civilNotices = noticeBoardService.getCivilNotices(PageRequest.of(0, 10));
         mv.addObject("noticeList", civilNotices);
         mv.addObject("pageSize", 0);
         ControllerUtility.getNoticelist(civilNotices);

@@ -33,7 +33,7 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Override
     public AchievementDTO getImages(Long id) {
         AchievementDTO achievementDTO = null;
-        Achievement achievement = achievementRepository.findOne(id);
+        Achievement achievement = achievementRepository.findById(id).orElse(null);
         if (achievement!= null) {
             achievementDTO= modelMapper.map(achievement, AchievementDTO.class);
         }
@@ -59,6 +59,6 @@ public class AchievementSlideServiceImpl implements AchievementSlideService {
     @Override
    // @CacheEvict(value="deleteAchievementCache",allEntries = true)
     public  void deleteAchievementImage(Long id){
-        achievementRepository.delete(id);
+        achievementRepository.deleteById(id);
     }
 }

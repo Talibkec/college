@@ -29,7 +29,7 @@ public class EceController {
             ModelAndView mv = new ModelAndView();
             mv.addObject("Role", ControllerUtility.getRole());
             mv.addObject("UserName", ControllerUtility.getUserName());
-            List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices(new PageRequest(0, 10));
+            List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices(PageRequest.of(0, 10));
             ControllerUtility.getNoticelist(eecNotices);
 
 
@@ -82,7 +82,7 @@ public class EceController {
         @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
         public ModelAndView getNotice() {
             ModelAndView mv = new ModelAndView();
-            List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices(new PageRequest(0, 10));
+            List<NoticeBoardDTO> eecNotices = noticeBoardService.getEecNotices(PageRequest.of(0, 10));
             ControllerUtility.getNoticelist(eecNotices);
             mv.addObject("noticeList", eecNotices);
             mv.addObject("pageSize", 0);

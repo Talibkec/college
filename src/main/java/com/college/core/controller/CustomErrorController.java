@@ -1,6 +1,6 @@
 package com.college.core.controller;
 
-import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +28,7 @@ public class CustomErrorController implements ErrorController {
         return modelAndView;
     }
 
-    @Override
+    // no longer part of ErrorController (Boot 2.5+); the error path stays /error (server.error.path default)
     public String getErrorPath() {
         return "/error";
     }

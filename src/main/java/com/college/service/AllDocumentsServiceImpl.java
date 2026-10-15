@@ -29,7 +29,7 @@ public class AllDocumentsServiceImpl implements AllDocuments {
     @Override
     public AicteDocumentsDTO getAicteDocument(Long id) {
         AicteDocumentsDTO aicteDocumentsDTO = null;
-        AicteDocuments aicteDocuments = aicteDocumentRepository.findOne(id);
+        AicteDocuments aicteDocuments = aicteDocumentRepository.findById(id).orElse(null);
         if (aicteDocuments != null) {
             aicteDocumentsDTO = modelMapper.map(aicteDocuments, AicteDocumentsDTO.class);
         }
@@ -49,6 +49,6 @@ public class AllDocumentsServiceImpl implements AllDocuments {
 
     @Override
     public void deleteAicteDocument(Long id) {
-        aicteDocumentRepository.delete(id);
+        aicteDocumentRepository.deleteById(id);
     }
 }

@@ -33,7 +33,7 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public void saveRequest(RequestDTO requestDTO) {
 
-        Product product = productRepository.findOne(requestDTO.getProduct().getProductId());
+        Product product = productRepository.findById(requestDTO.getProduct().getProductId()).orElse(null);
         Request request = modelMapper.map(requestDTO, Request.class);
         request.setProduct(product);
         requestRepository.save(request);
@@ -50,7 +50,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public RequestDTO getRequest(Long id) {
-        Request request = requestRepository.findOne(id);
+        Request request = requestRepository.findById(id).orElse(null);
         return modelMapper.map(request, RequestDTO.class);
     }
 
@@ -68,6 +68,6 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public void deleteFacultyRequest(Long requestId) {
-        requestRepository.delete(requestId);
+        requestRepository.deleteById(requestId);
     }
 }

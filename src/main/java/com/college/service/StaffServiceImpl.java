@@ -47,7 +47,7 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public StaffDTO getStaffById(Long id) {
         StaffDTO staffDTO = null;
-        Staff staff = staffRepository.findOne(id);
+        Staff staff = staffRepository.findById(id).orElse(null);
         if (staff != null) {
             staffDTO = modelMapper.map(staff, StaffDTO.class);
         }
@@ -110,6 +110,6 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void deleteStaff(long StaffId) {
-        staffRepository.delete(StaffId);
+        staffRepository.deleteById(StaffId);
     }
 }

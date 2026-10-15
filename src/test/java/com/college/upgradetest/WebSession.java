@@ -116,11 +116,19 @@ public class WebSession {
         return new Response(status, c.getHeaderField("Location"), c.getContentType(), bytes);
     }
 
-    private static byte[] readAll(InputStream in) throws IOException {
+    /**
+     * Reads the body like a browser: if the server aborts the response midway (e.g. a JSP throws after the response
+     * was committed; Tomcat 9+ then resets the chunked stream), keep what arrived instead of failing.
+     */
+    private static byte[] readAll(InputStream in) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         byte[] buf = new byte[8192];
         int n;
-        while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+        try {
+            while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+        } catch (IOException truncated) {
+            // partial body; describe() reports it as BODY (no closing </html>)
+        }
         return out.toByteArray();
     }
 

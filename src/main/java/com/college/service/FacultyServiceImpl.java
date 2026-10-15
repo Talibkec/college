@@ -62,7 +62,7 @@ public class FacultyServiceImpl implements FacultyService {
     @Override
     public FacultyDTO getFacultyById(Long id) {
         FacultyDTO facultyDTO = null;
-        Faculty faculty = facultyRepository.findOne(id);
+        Faculty faculty = facultyRepository.findById(id).orElse(null);
         if (faculty != null) {
             facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
         }
@@ -189,7 +189,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public void deleteFaculty(long facultyId) {
-        facultyRepository.delete(facultyId);
+        facultyRepository.deleteById(facultyId);
     }
 
 

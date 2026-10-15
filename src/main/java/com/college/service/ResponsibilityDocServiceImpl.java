@@ -27,7 +27,7 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
     @Override
     public ResponsibilityDocDTO getDownloadDocument(Long id) {
         ResponsibilityDocDTO downloadDTO = null;
-        ResponsibilityDoc responsibilityDoc = responsibilityDocRepository.findOne(id);
+        ResponsibilityDoc responsibilityDoc = responsibilityDocRepository.findById(id).orElse(null);
         if(responsibilityDoc != null){
             downloadDTO = modelMapper.map(responsibilityDoc , ResponsibilityDocDTO.class);
         }
@@ -42,6 +42,6 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
 
     @Override
     public void deleteItem(Long id) {
-        responsibilityDocRepository.delete(id);
+        responsibilityDocRepository.deleteById(id);
     }
 }

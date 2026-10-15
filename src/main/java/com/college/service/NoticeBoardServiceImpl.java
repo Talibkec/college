@@ -40,7 +40,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     public NoticeBoardDTO getNoticeDocument(Long id) {
         NoticeBoardDTO noticeBoardDTO = null;
-        NoticeBoard noticeBoard = noticeBoardRepository.findOne(id);
+        NoticeBoard noticeBoard = noticeBoardRepository.findById(id).orElse(null);
         if(noticeBoard != null){
             noticeBoardDTO = modelMapper.map(noticeBoard, NoticeBoardDTO.class);
         }
@@ -128,7 +128,7 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
     @Override
     @CacheEvict(value = "homepageNoticeCache", allEntries = true)
     public void deleteItem(Long id) {
-        noticeBoardRepository.delete(id);
+        noticeBoardRepository.deleteById(id);
     }
 
     @Override

@@ -30,7 +30,7 @@ public class DownloadServiceImpl implements DownloadService{
     @Override
     public DownloadDTO getDownloadDocument(Long id) {
         DownloadDTO downloadDTO = null;
-        Download download = downloadRepository.findOne(id);
+        Download download = downloadRepository.findById(id).orElse(null);
         if(download != null){
             downloadDTO = modelMapper.map(download , DownloadDTO.class);
         }
@@ -45,6 +45,6 @@ public class DownloadServiceImpl implements DownloadService{
 
     @Override
     public void deleteItem(Long id) {
-       downloadRepository.delete(id);
+       downloadRepository.deleteById(id);
     }
 }

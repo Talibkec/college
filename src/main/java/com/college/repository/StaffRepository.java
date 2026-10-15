@@ -29,7 +29,7 @@ public interface StaffRepository extends JpaRepository<Staff, Long> {
     @Query("select f from Staff f where f.staffName like lower(CONCAT('%',:StaffName,'%'))")
     Staff searchStaffByName(@Param("StaffName") String StaffName);
 
-    @Query("select f from Staff f where f.staffName = :StaffName)")
+    @Query("select f from Staff f where f.staffName = :StaffName")
     List<Staff> getStaffByName(@Param("StaffName") String StaffName);
 
     @Query("select f from Staff f where f.staffOfficialEmail = :userEmail")

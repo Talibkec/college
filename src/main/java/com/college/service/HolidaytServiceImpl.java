@@ -27,7 +27,7 @@ public class HolidaytServiceImpl implements HolidayService{
     @Override
     public HolidayDTO getDownloadDocument(Long id) {
         HolidayDTO downloadDTO = null;
-        Holiday holiday  = holidayRepository.findOne(id);
+        Holiday holiday  = holidayRepository.findById(id).orElse(null);
         if(holiday != null){
             downloadDTO = modelMapper.map(holiday , HolidayDTO.class);
         }
@@ -42,6 +42,6 @@ public class HolidaytServiceImpl implements HolidayService{
 
     @Override
     public void deleteItem(Long id) {
-        holidayRepository.delete(id);
+        holidayRepository.deleteById(id);
     }
 }

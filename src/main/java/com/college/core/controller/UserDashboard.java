@@ -54,7 +54,7 @@ public class UserDashboard {
 
     @RequestMapping(value = "/user/dashboard")
     public ModelAndView getdashboard() {
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", getNoticeList(list, false));
@@ -64,7 +64,7 @@ public class UserDashboard {
     }
     @RequestMapping(value = "/user/addPlacement")
     public ModelAndView addPlacement() {
-        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(new PageRequest(0, 10));
+        List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", getNoticeList(list, false));

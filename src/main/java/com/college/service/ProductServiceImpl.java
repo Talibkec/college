@@ -54,7 +54,7 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDTO> getProductDetails(String prodName, String vendorName, String productId) {
         List<Product> prods = new ArrayList<>();
         if (productId != null && productId != "") {
-            Product prod = productRepository.findOne(Long.parseLong(productId));
+            Product prod = productRepository.findById(Long.parseLong(productId)).orElse(null);
             prods.add(prod);
         } else {
             if (!StringUtils.isEmpty(prodName) && !StringUtils.isEmpty(vendorName)) {
@@ -76,12 +76,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO getProduct(Long productId) {
-        Product product = productRepository.findOne(productId);
+        Product product = productRepository.findById(productId).orElse(null);
         return modelMapper.map(product, ProductDTO.class);
     }
 
     @Override
     public void deleteProduct(Long id) {
-        productRepository.delete(id);
+        productRepository.deleteById(id);
     }
 }

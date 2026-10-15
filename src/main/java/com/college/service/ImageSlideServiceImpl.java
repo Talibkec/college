@@ -35,7 +35,7 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     @Override
     public ImageSlideDTO getImages(Long id) {
         ImageSlideDTO imageSlideDTO = null;
-        ImageSlide imageSlide = imageSlideRepository.findOne(id);
+        ImageSlide imageSlide = imageSlideRepository.findById(id).orElse(null);
         if (imageSlide != null) {
             imageSlideDTO = modelMapper.map(imageSlide, ImageSlideDTO.class);
         }
@@ -57,7 +57,7 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     @Override
     @CacheEvict(value = "homepageSlideImageCache", allEntries = true)
     public void deleteSlideImage(Long id) {
-        imageSlideRepository.delete(id);
+        imageSlideRepository.deleteById(id);
     }
 
 }

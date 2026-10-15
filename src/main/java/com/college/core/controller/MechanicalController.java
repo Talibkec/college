@@ -29,7 +29,7 @@ public class MechanicalController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("UserName", ControllerUtility.getUserName());
-        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(PageRequest.of(0, 10));
 
         mv.addObject("noticeList", mechNotices);
         ControllerUtility.getNoticelist(mechNotices);
@@ -66,7 +66,7 @@ public class MechanicalController {
     @RequestMapping(value = {"notice"}, method = RequestMethod.GET)
     public ModelAndView getNotice() {
         ModelAndView mv = new ModelAndView();
-        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(new PageRequest(0, 10));
+        List<NoticeBoardDTO> mechNotices = noticeBoardService.getMechNotices(PageRequest.of(0, 10));
         ControllerUtility.getNoticelist(mechNotices);
         mv.addObject("pageSize", 0);
         mv.addObject("noticeList", mechNotices);

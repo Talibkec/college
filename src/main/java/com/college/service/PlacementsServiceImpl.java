@@ -98,6 +98,6 @@ public class PlacementsServiceImpl implements PlacementsService {
 
     @Override
     public void deletePlacements(long PlacementsId) {
-        placementsRepository.delete(PlacementsId);
+        placementsRepository.deleteById(PlacementsId);
     }
 }

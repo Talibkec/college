@@ -51,13 +51,13 @@ public class PurchaseServiceImpl implements PurchaseService {
 
     @Override
     public PurchaseDTO getPurchase(Long purchaseId) {
-        Purchase purchase = purchaseRepository.findOne(purchaseId);
+        Purchase purchase = purchaseRepository.findById(purchaseId).orElse(null);
         return modelMapper.map(purchase, PurchaseDTO.class);
     }
 
     @Override
     public void deletePurchase(Long purchaseId) {
-        purchaseRepository.delete(purchaseId);
+        purchaseRepository.deleteById(purchaseId);
     }
 
     @Override
@@ -74,7 +74,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     private Product updateProduct(PurchaseDTO purchaseDTO) {
-        Product product = productRepository.findOne(purchaseDTO.getProduct().getProductId());
+        Product product = productRepository.findById(purchaseDTO.getProduct().getProductId()).orElse(null);
         if (product.getAvailableQuantity() != null) {
             product.setAvailableQuantity(product.getAvailableQuantity() + purchaseDTO.getQuantity());
         } else {

@@ -2,6 +2,7 @@
 # kind: PAGE = complete HTML page (contains </html>), BODY = non-empty other content, EMPTY = empty body,
 #       REDIRECT:<target> for 3xx. Baseline recorded on Spring Boot 1.3.3 / Java 8 (pre-upgrade).
 # Lines marked 'BROKEN-BEFORE-UPGRADE' already fail today (see docs/PROJECT_ANALYSIS.md section 3).
+# Deliberately NOT listed: /approval/addFaculty (anonymous GET that inserts a blank faculty row on every call).
 /                                                       200 PAGE
 /2                                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
 /about/administration                                   200 PAGE
@@ -25,7 +26,6 @@
 /academic/rules                                         200 PAGE
 /academic/syllabus                                      200 PAGE
 /academic/universityresults                             200 PAGE
-/approval/addFaculty                                    404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
 /approval/aicteapproval                                 200 PAGE
 /approval/akuapproval                                   200 PAGE
 /approval/grievance                                     200 PAGE

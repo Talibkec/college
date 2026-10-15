@@ -37,7 +37,7 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     @Override
     public FacultyDocumentsDTO getFacultyDocument(Long id) {
         FacultyDocumentsDTO facultyDocumentsDTO = null;
-        FacultyDocuments facultyDocuments = facultyDocumentsRepository.findOne(id);
+        FacultyDocuments facultyDocuments = facultyDocumentsRepository.findById(id).orElse(null);
         if (facultyDocuments != null) {
             facultyDocumentsDTO = modelMapper.map(facultyDocuments, FacultyDocumentsDTO.class);
         }
@@ -46,7 +46,7 @@ public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
 
     @Override
     public void deleteFacultyDoc(Long id) {
-        facultyDocumentsRepository.delete(id);
+        facultyDocumentsRepository.deleteById(id);
     }
 
 }

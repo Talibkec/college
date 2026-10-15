@@ -97,6 +97,6 @@ public class TpoCoordinatorServiceImpl implements TpoCoordinatorService {
 
     @Override
     public void deleteTpoCoordinator(Long id) {
-        tpoRepository.delete(id);
+        tpoRepository.deleteById(id);
     }
 }

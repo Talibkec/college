@@ -26,7 +26,7 @@ public class LabDocumentServiceImpl implements LabDocumentService{
     @Override
     public LabDocumentDTO getDownloadDocument(Long id) {
         LabDocumentDTO downloadDTO = null;
-        LabDocument holiday  = labDocumentRepository.findOne(id);
+        LabDocument holiday  = labDocumentRepository.findById(id).orElse(null);
         if(holiday != null){
             downloadDTO = modelMapper.map(holiday , LabDocumentDTO.class);
         }
@@ -41,7 +41,7 @@ public class LabDocumentServiceImpl implements LabDocumentService{
 
     @Override
     public void deleteItem(Long id) {
-        labDocumentRepository.delete(id);
+        labDocumentRepository.deleteById(id);
     }
 
     @Override

@@ -44,7 +44,7 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     public GalleryImageDTO getImages(Long id)
     {
         GalleryImageDTO galleryImageDTO = null;
-        GalleryImage galleryImage = galleryImageRepository.findOne(id);
+        GalleryImage galleryImage = galleryImageRepository.findById(id).orElse(null);
         if(galleryImage != null){
             galleryImageDTO = modelMapper.map(galleryImage, GalleryImageDTO.class);
         }
@@ -55,6 +55,6 @@ public class GalleryImageServiceImpl implements GalleryImageService{
     @Override
     @CacheEvict(value = "GalleryImageCache", allEntries = true)
     public void deleteGalleryImage(Long id) {
-        galleryImageRepository.delete(id);
+        galleryImageRepository.deleteById(id);
     }
 }

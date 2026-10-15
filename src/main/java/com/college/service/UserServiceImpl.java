@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
 
         if (!StringUtils.isEmpty(user.getRole())) {
-            Role role = roleRepository.findOne(Long.parseLong(user.getRole()));
+            Role role = roleRepository.findById(Long.parseLong(user.getRole())).orElse(null);
             if (user.getRoles() == null) {
                 user.setRoles(new HashSet<>());
             }
@@ -48,8 +48,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void saveUserRole(UserRoleDTO userRoleDTO) {
         Set<Role> roles = new HashSet<>();
-        User user = userRepository.findOne(userRoleDTO.getUserId());
-        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
+        User user = userRepository.findById(userRoleDTO.getUserId()).orElse(null);
+        Role role = roleRepository.findById(userRoleDTO.getRoleId()).orElse(null);
         Role newRole = new Role();
         newRole.setId(userRoleDTO.getRoleId());
         newRole.setName(role.getName());
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserRole(UserRoleDTO userRoleDTO) {
         Long id = userRoleDTO.getRoleId();
-        User user = userRepository.findOne(userRoleDTO.getUserId());
-        Role role = roleRepository.findOne(userRoleDTO.getRoleId());
+        User user = userRepository.findById(userRoleDTO.getUserId()).orElse(null);
+        Role role = roleRepository.findById(userRoleDTO.getRoleId()).orElse(null);
         Set<Role> roles = user.getRoles();
         Iterator<Role> it = roles.iterator();
         while (it.hasNext()) {

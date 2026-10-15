@@ -45,16 +45,15 @@ The plan and progress are in `docs/PROJECT_ANALYSIS.md` and `docs/UPGRADE_NOTES.
 - Local DB: MySQL `localhost:3306`, database `keckacin_college2` (copy of production), user `keckacin_system`.
 - Port 8080 is often already used by the user's IntelliJ run. Use another port (e.g. 8099) for verification runs.
 
-## Build / run (current version: Spring Boot 1.3.3, Java 8)
+## Build / run (current version: Spring Boot 2.7.18, Java 8)
 ```bash
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-mvn clean package                         # build + tests
-mvn spring-boot:run -Drun.profiles=local  # run with application-local.properties
-# verification run without touching the schema, on another port:
-mvn spring-boot:run -Drun.profiles=local "-Drun.arguments=--server.port=8099,--spring.jpa.hibernate.ddl-auto=none"
+mvn clean package                                     # build + tests
+mvn spring-boot:run -Dspring-boot.run.profiles=local  # run with application-local.properties
+# verification run on another port (ddl-auto is already "none"):
+mvn spring-boot:run -Dspring-boot.run.profiles=local "-Dspring-boot.run.arguments=--server.port=8099"
 ```
-(From Spring Boot 2.x the flags become `-Dspring-boot.run.profiles=local` and `-Dspring-boot.run.arguments=...`.
-Keep this section updated after each upgrade stage.)
+(Keep this section updated after each upgrade stage.)
 
 ## Tests (upgrade safety net, `src/test/java/com/college/upgradetest`)
 - They start the real app (embedded Tomcat + JSPs + Security) on a random port with the `local` profile, so they need

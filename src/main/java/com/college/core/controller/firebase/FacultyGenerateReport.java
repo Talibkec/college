@@ -3,7 +3,7 @@ package com.college.core.controller.firebase;
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
 import com.google.gson.Gson;
-import com.itextpdf.text.DocumentException;
+import org.openpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;

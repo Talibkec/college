@@ -4,11 +4,10 @@ import com.college.core.controller.firebase.DocUtils;
 import com.college.core.controller.firebase.FacultyReportDetail;
 import com.college.core.controller.firebase.LeaveRequestDetail;
 import com.google.firebase.database.DataSnapshot;
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.StringUtils;
+import org.openpdf.text.*;
+import org.openpdf.text.pdf.PdfPCell;
+import org.openpdf.text.pdf.PdfPTable;
+import org.openpdf.text.pdf.PdfWriter;
 import io.grpc.netty.shaded.io.netty.util.internal.StringUtil;
 import org.springframework.context.annotation.Configuration;
 

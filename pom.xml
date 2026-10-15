@@ -147,20 +147,11 @@
             <version>9.11.0</version>
         </dependency>
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-            <version>7.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-            <version>7.0.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.lowagie</groupId>
-            <artifactId>itext</artifactId>
-            <version>4.2.2</version>
+            <!-- PDF generation (attendance report, leave application). Replaces AGPL iText 5.5.6
+                 (com.lowagie:itext:4.2.2 relocation) and the unused iText 7.0.2; OpenPDF is LGPL/MPL. -->
+            <groupId>com.github.librepdf</groupId>
+            <artifactId>openpdf</artifactId>
+            <version>3.0.5</version>
         </dependency>
         <dependency>
             <groupId>com.google.api-client</groupId>

@@ -1,8 +1,8 @@
 package com.college.core.controller.firebase;
 
 
-import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.draw.VerticalPositionMark;
+import org.openpdf.text.*;
+import org.openpdf.text.pdf.draw.VerticalPositionMark;
 
 import java.io.IOException;
 

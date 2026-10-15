@@ -6,13 +6,13 @@ import com.college.core.controller.firebase.FacultyReportDetail;
 import com.college.core.controller.firebase.LeaveRequestDetail;
 import com.google.api.services.calendar.Calendar;
 import com.google.firebase.FirebaseApp;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import org.openpdf.text.Document;
+import org.openpdf.text.Phrase;
+import org.openpdf.text.pdf.PdfPCell;
+import org.openpdf.text.pdf.PdfPTable;
+import org.openpdf.text.pdf.PdfReader;
+import org.openpdf.text.pdf.PdfWriter;
+import org.openpdf.text.pdf.parser.PdfTextExtractor;
 import org.junit.Assume;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +51,9 @@ public class IntegrationsTest extends AbstractAppTest {
         assertFalse("FirebaseSetup initialised the Firebase app from the service-account JSON", FirebaseApp.getApps().isEmpty());
     }
 
-    /** Same iText calls as the attendance report / leave application, without the logo (see {@link #KEC_LOGO}). */
+    /** Same PDF calls (OpenPDF, formerly iText) as the attendance report / leave application, without the logo (see {@link #KEC_LOGO}). */
     @Test
-    public void pdfGenerationWithITextProducesReadablePdf() throws Exception {
+    public void pdfGenerationProducesReadablePdf() throws Exception {
         FacultyReportDetail report = new com.google.gson.Gson().fromJson(
                 "{\"startDate\":\"2099-01-01\",\"endDate\":\"2099-01-31\",\"dept\":\"Computer Sc. & Engineering\","
                         + "\"semester\":\"7\",\"subject\":\"Upgrade Testing\",\"facultyName\":\"Test Faculty\"}",
@@ -87,8 +87,8 @@ public class IntegrationsTest extends AbstractAppTest {
 
         PdfReader reader = new PdfReader(out.toByteArray());
         assertEquals(2, reader.getNumberOfPages());
-        String page1 = PdfTextExtractor.getTextFromPage(reader, 1);
-        String page2 = PdfTextExtractor.getTextFromPage(reader, 2);
+        String page1 = new PdfTextExtractor(reader).getTextFromPage(1);
+        String page2 = new PdfTextExtractor(reader).getTextFromPage(2);
         reader.close();
         assertTrue(page1, page1.contains("Attendance Report"));
         assertTrue(page1, page1.contains("Computer Sc. & Engineering"));

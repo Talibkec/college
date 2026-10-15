@@ -429,6 +429,8 @@ Run on the local DB, after each stage and finally on the end result. Use one acc
 
 ## 10. Decisions needed from you (⏸)
 
+> 2026-10-15: the user answered "yes" to items 1–4 below (proposals accepted). Item 5 is pending the JDK install.
+
 1. **Store files and compile-only changes.** From stage 3b/3c, store code won't compile without mechanical changes: `javax`→`jakarta` imports, `findOne`→`findById`, `new PageRequest`→`PageRequest.of`. Commenting it out would **break store management**, which violates "no functionality may break". **Proposal:** allow *purely mechanical, compile-required* edits in store files (imports and renamed API calls only, no logic, no refactoring), each listed in `UPGRADE_NOTES.md`. Also allow `CommonResourceController`'s **non-store** endpoints to be treated as in scope.
 2. **`ddl-auto`.** Switch from `update` to `none` (recommended; `validate` fails on existing column types). This stops automatic schema changes on production.
 3. **Production deployment.** Credentials now come from env vars. The production server needs `DB_URL`, `DB_USERNAME`, `DB_PASSWORD`, `MAIL_USERNAME`, `MAIL_PASSWORD` (or its own `application-local.properties` with the `local` profile) **before** the next deploy.

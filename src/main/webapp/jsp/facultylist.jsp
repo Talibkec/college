@@ -3,7 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="org.springframework.http.converter.json.GsonBuilderUtils" %>
 <jsp:include page="/jsp/header.jsp"/>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <%!
     String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)" ,  "Food Processing"};

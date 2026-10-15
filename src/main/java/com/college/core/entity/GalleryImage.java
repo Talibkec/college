@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="gallery_image")
@@ -33,7 +33,7 @@ public class GalleryImage {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "galleryImageId", sequenceName = "galleryImageId")
     public Long getGalleryImageId() {
         return galleryImageId;

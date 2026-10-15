@@ -19,8 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import javax.mail.Multipart;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.Multipart;
+import jakarta.mail.internet.MimeMessage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.net.URLEncoder;

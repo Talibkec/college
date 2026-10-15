@@ -1,5 +1,5 @@
 <jsp:include page="header.jsp"/>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
 <div style="margin-left:50px" ><h3>Upload File</h3></div>
 </div></div><div class="container"> <br /><br /><div class="row"><div class="col-sm-offset-4 col-sm-4">

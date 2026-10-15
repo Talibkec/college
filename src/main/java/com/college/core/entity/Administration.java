@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Blob;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +17,7 @@ public class Administration {
     private String dutyAssigned;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "adminRoleId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "adminRoleId", sequenceName = "adminRoleId")
     public Long getAdminRoleId() { return adminRoleId; }
 

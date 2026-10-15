@@ -2,7 +2,7 @@ package com.college.core.entity;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -17,7 +17,7 @@ public class FacultyKeyProps {
     private Integer keyPropsOrder;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getKeyPropertyId() {return keyPropertyId;}
     public void setKeyPropertyId(Long keyPropertyId) {this.keyPropertyId = keyPropertyId;}
 

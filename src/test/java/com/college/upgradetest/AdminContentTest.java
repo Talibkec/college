@@ -129,6 +129,21 @@ public class AdminContentTest extends AbstractAppTest {
         assertEquals(null, id("select id from holiday where id = ?", id));
     }
 
+    /** commons-fileupload had no size limit; servlet multipart defaults to 1MB, so the app sets 20MB/25MB. */
+    @Test
+    public void largeUploadAboveOneMegabyteIsAccepted() throws Exception {
+        WebSession admin = loginAs(TestData.ADMIN);
+        String fileName = TestData.MARK + "-large-" + System.currentTimeMillis();
+        byte[] big = new byte[5 * 1024 * 1024];
+        java.util.Arrays.fill(big, (byte) 'x');
+        WebSession.Response up = admin.postMultipart("/auth/api/uploadHoliday",
+                fields("caption", fileName), file("slideImage", "big.pdf", "application/pdf", big));
+        assertEquals("5MB upload: " + up, 200, up.status);
+        Long id = id("select id from holiday where file_name = ?", fileName);
+        assertTrue("holiday row", id != null);
+        assertEquals(big.length, anonymous().get("/approval/holiday/" + id).bytes.length);
+    }
+
     @Test
     public void courseSeatsCreateListDelete() throws Exception {
         WebSession admin = loginAs(TestData.ADMIN);

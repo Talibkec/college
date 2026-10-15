@@ -4,7 +4,7 @@ package com.college.core.entity;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Staff {
 //    private List<FacultyKeyProps> facultyKeyProps = new ArrayList<>(0);
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "staffId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "staffId", sequenceName = "staffId")
     public Long getStaffId() {
         return staffId;

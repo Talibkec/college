@@ -1,6 +1,6 @@
 package com.college.core.model;
 
-import javax.persistence.Column;
+import jakarta.persistence.Column;
 
 public class CourseDTO {
     private Long courseId;

@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,7 +17,7 @@ public class Order {
     private String facultyName;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "orderId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "orderId", sequenceName = "orderId")
     public Long getOrderId() {
         return orderId;

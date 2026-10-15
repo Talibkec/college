@@ -1,6 +1,6 @@
 /*
 package com.college.core.entity;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +14,7 @@ public class Property {
     private Set<Faculty> facultyies = new HashSet<>(0);
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getPropertyId() {return propertyId;}
     public void setPropertyId(Long propertyId) {this.propertyId = propertyId;}
 

@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,7 +17,7 @@ public class Purchase {
     private Product product;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "purchaseId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "purchaseId", sequenceName = "purchaseId")
     @Column(name = "purchase_Id")
     public Long getPurchaseId() {

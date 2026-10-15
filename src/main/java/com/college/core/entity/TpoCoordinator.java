@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "TpoCoordinator")
@@ -15,7 +15,7 @@ public class TpoCoordinator {
     private Long registrationNo;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "coordinatorId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "coordinatorId", sequenceName = "coordinatorId")
     public Long getCoordinatorId() {
         return coordinatorId;

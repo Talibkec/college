@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -26,7 +26,7 @@ public class Request {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "requestId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "requestId", sequenceName = "requestId")
     @Column(name = "request_Id")
     public Long getRequestId() {

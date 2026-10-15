@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Set;
 
 
@@ -16,7 +16,7 @@ public class Product {
     private String productType;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "productId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "productId", sequenceName = "productId")
     @Column(name = "P_ID")
     public Long getProductId() {

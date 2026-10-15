@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 
 @Entity
@@ -19,7 +19,7 @@ public class Department {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "departmentId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "departmentId", sequenceName = "departmentId")
     @Column(name = "dept_Id")
     public Long getDepartmentId() {

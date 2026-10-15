@@ -2,7 +2,7 @@ package com.college.core.entity;
 
 import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "aicte_documents")
@@ -40,10 +40,10 @@ public class AicteDocuments {
     }
 
 
-    @javax.persistence.Id
+    @jakarta.persistence.Id
     @Id
     @SequenceGenerator(name = "aicteDocumentsId", sequenceName = "aicteDocumentsId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }

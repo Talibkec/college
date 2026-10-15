@@ -45,9 +45,9 @@ The plan and progress are in `docs/PROJECT_ANALYSIS.md` and `docs/UPGRADE_NOTES.
 - Local DB: MySQL `localhost:3306`, database `keckacin_college2` (copy of production), user `keckacin_system`.
 - Port 8080 is often already used by the user's IntelliJ run. Use another port (e.g. 8099) for verification runs.
 
-## Build / run (current version: Spring Boot 2.7.18, Java 8)
+## Build / run (current version: Spring Boot 3.5.16, Java 21; target Java 25 once installed)
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 mvn clean package                                     # build + tests
 mvn spring-boot:run -Dspring-boot.run.profiles=local  # run with application-local.properties
 # verification run on another port (ddl-auto is already "none"):

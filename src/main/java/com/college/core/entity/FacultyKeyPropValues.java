@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity(name = "FACULTY_KEYPROP_VALUES")
 public class FacultyKeyPropValues {
@@ -10,7 +10,7 @@ public class FacultyKeyPropValues {
     private Integer keyValueOrder;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getKeyPropValuesId() {return keyPropValuesId;}
     public void setKeyPropValuesId(Long keyPropValuesId) {this.keyPropValuesId = keyPropValuesId;}
 

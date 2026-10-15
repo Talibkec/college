@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page import="com.college.service.UserService" %>
 <%@ page import="com.college.core.model.PlacementsDTO" %>
 <%@ page import="java.util.List" %>

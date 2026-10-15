@@ -1,6 +1,6 @@
 package com.college.core.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "achievement_slide")
@@ -27,7 +27,7 @@ public class Achievement {
     public void setFileType(String fileType) { this.fileType = fileType; }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @SequenceGenerator(name = "achievementSlideId", sequenceName = "achievementSlideId")
     public Long getAchievementSlideId() {return achievementSlideId;}
 

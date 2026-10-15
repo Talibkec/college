@@ -22,7 +22,9 @@ The plan and progress are in `docs/PROJECT_ANALYSIS.md` and `docs/UPGRADE_NOTES.
   - `ProductRepository`, `PurchaseRepository`, `OrderRepository` and `Product*`/`Purchase*`/`Order*` services
   - `ProductTransformer`
   - `webapp/jsp/store/**` and `webapp/js/store/**`
-  - the full list is in `docs/PROJECT_ANALYSIS.md`
+  - the full list is in `docs/PROJECT_ANALYSIS.md` §5
+  - Exception: `core/controller/store/CommonResourceController.java` also hosts core faculty/staff/placement endpoints.
+    Only its `/common/store/**` endpoints are store. See the decision in `docs/PROJECT_ANALYSIS.md` §10.
 - Only if it blocks compiling or startup: comment out the smallest piece, mark it
   `// TODO(store-management): disabled during upgrade – <reason>`, and record it in `docs/UPGRADE_NOTES.md`.
 

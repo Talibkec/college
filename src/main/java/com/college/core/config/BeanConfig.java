@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
@@ -15,7 +16,16 @@ public class BeanConfig {
 
     @Bean
     public InternalResourceViewResolver setupViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver() {
+            // Many controllers return "/x.jsp" on top of the "/jsp/" prefix. Tomcat 8.0 collapsed the resulting "//",
+            // Tomcat 8.5+ answers 404, so collapse it here (upgrade fix, no behaviour change).
+            @Override
+            protected AbstractUrlBasedView buildView(String viewName) throws Exception {
+                AbstractUrlBasedView view = super.buildView(viewName);
+                view.setUrl(view.getUrl().replaceAll("/{2,}", "/"));
+                return view;
+            }
+        };
         resolver.setPrefix("/jsp/");
         //resolver.setSuffix (".jsp");
         resolver.setViewClass(JstlView.class);

@@ -4,14 +4,13 @@ import com.college.Application;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.boot.test.WebIntegrationTest;
+import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -30,16 +29,17 @@ import static org.junit.Assert.fail;
  *
  * <p>All Spring-Boot-version-specific test wiring is in this class only.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = {Application.class, TestDoublesConfig.class})
-@WebIntegrationTest(randomPort = true, value = {
-        "spring.jpa.hibernate.ddl-auto=none",
-        "logging.level.org.hibernate.SQL=WARN"
-})
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = {Application.class, TestDoublesConfig.class},
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = {
+                "spring.jpa.hibernate.ddl-auto=none",
+                "logging.level.org.hibernate.SQL=WARN"
+        })
 @ActiveProfiles("local")
 public abstract class AbstractAppTest {
 
-    @Value("${local.server.port}")
+    @LocalServerPort
     protected int port;
 
     @Autowired

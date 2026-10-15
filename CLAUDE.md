@@ -55,3 +55,13 @@ mvn spring-boot:run -Drun.profiles=local "-Drun.arguments=--server.port=8099,--s
 ```
 (From Spring Boot 2.x the flags become `-Dspring-boot.run.profiles=local` and `-Dspring-boot.run.arguments=...`.
 Keep this section updated after each upgrade stage.)
+
+## Tests (upgrade safety net, `src/test/java/com/college/upgradetest`)
+- They start the real app (embedded Tomcat + JSPs + Security) on a random port with the `local` profile, so they need
+  the local MySQL and `application-local.properties`. They refuse to run against a non-localhost DB.
+- They write test rows (all names start with `zzupgtest`) and delete them afterwards. `ddl-auto=none`.
+- Mail and SMS are replaced by recorders (`TestDoublesConfig`); `/rn` (Firebase query) and `/rs` (Google Calendar) are never called.
+- `PagesBaselineTest` compares ~370 URLs against baselines recorded on the pre-upgrade version
+  (`src/test/resources/upgradetest/*.txt`). A baseline may only be changed for an approved behaviour change.
+- Boot-version-specific test wiring lives only in `AbstractAppTest`.
+- `leaveRequestEndpointMailsPdf` is skipped unless `/sites/default/files/compressed/logo.png` exists (path is hard-coded in `DocUtils`).

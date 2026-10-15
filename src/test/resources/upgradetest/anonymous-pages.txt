@@ -1,0 +1,293 @@
+# Anonymous GET pages: <path> <expected status> <expected kind>
+# kind: PAGE = complete HTML page (contains </html>), BODY = non-empty other content, EMPTY = empty body,
+#       REDIRECT:<target> for 3xx. Baseline recorded on Spring Boot 1.3.3 / Java 8 (pre-upgrade).
+# Lines marked 'BROKEN-BEFORE-UPGRADE' already fail today (see docs/PROJECT_ANALYSIS.md section 3).
+/                                                       200 PAGE
+/2                                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/about/administration                                   200 PAGE
+/about/affiliation                                      200 PAGE
+/about/allotment                                        200 PAGE
+/about/history                                          200 PAGE
+/about/principal                                        200 PAGE
+/about/staff                                            200 PAGE
+/about/vision                                           200 PAGE
+/academic/academiccouncil                               200 PAGE
+/academic/adminsValue                                   200 PAGE
+/academic/admission                                     200 PAGE
+/academic/antiragging                                   200 PAGE
+/academic/attendance                                    200 PAGE
+/academic/calender                                      200 PAGE
+/academic/holidays                                      200 PAGE
+/academic/mentors                                       200 PAGE
+/academic/notice                                        200 PAGE
+/academic/paymenttutorial                               200 PAGE
+/academic/regulations                                   200 PAGE
+/academic/rules                                         200 PAGE
+/academic/syllabus                                      200 PAGE
+/academic/universityresults                             200 PAGE
+/approval/addFaculty                                    404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/approval/aicteapproval                                 200 PAGE
+/approval/akuapproval                                   200 PAGE
+/approval/grievance                                     200 PAGE
+/approval/mandatorydisclosure                           200 PAGE
+/category/department                                    200 PAGE
+/category/kecwebteam                                    200 PAGE
+/category/notices                                       200 PAGE
+/category/tenders                                       200 PAGE
+/dashboard                                              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ash/about                                   200 PAGE
+/department/ash/attendance                              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ash/awards                                  200 PAGE
+/department/ash/bnm                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ash/course                                  200 PAGE
+/department/ash/labs                                    200 PAGE
+/department/ash/notice                                  200 PAGE
+/department/ash/pk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ash/programs                                200 PAGE
+/department/ash/question                                200 PAGE
+/department/ash/snk                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ash/students                                200 PAGE
+/department/ash/vision                                  200 PAGE
+/department/ash/vk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ash/weekly                                  200 PAGE
+/department/civil/abhi                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/civil/about                                 200 PAGE
+/department/civil/akg                                   404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/civil/ar                                    200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/civil/attendance                            200 PAGE
+/department/civil/awards                                200 PAGE
+/department/civil/course                                200 PAGE
+/department/civil/kkk                                   200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/civil/labs                                  200 PAGE
+/department/civil/notice                                200 PAGE
+/department/civil/programs                              200 PAGE
+/department/civil/question                              200 PAGE
+/department/civil/rm                                    404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/civil/rps                                   200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/civil/sss                                   200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/civil/students                              200 PAGE
+/department/civil/vision                                200 PAGE
+/department/civil/weekly                                200 PAGE
+/department/cse/about                                   200 PAGE
+/department/cse/attendance                              200 PAGE
+/department/cse/awards                                  200 PAGE
+/department/cse/cmm                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/cse/course                                  200 PAGE
+/department/cse/dky                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/labs                                    200 PAGE
+/department/cse/mta                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/notice                                  200 PAGE
+/department/cse/pks                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/programs                                200 PAGE
+/department/cse/question                                200 PAGE
+/department/cse/shk                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/cse/shweta                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/cse/sjk                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/snehakumari                             404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/snjk                                    200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/cse/students                                200 PAGE
+/department/cse/subodh                                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/cse/vision                                  200 PAGE
+/department/cse/weekly                                  200 PAGE
+/department/ece/aa                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ece/about                                   200 PAGE
+/department/ece/ak                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ece/aks                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ece/attendance                              200 PAGE
+/department/ece/awards                                  200 PAGE
+/department/ece/course                                  200 PAGE
+/department/ece/labs                                    200 PAGE
+/department/ece/nk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ece/notice                                  200 PAGE
+/department/ece/principal                               200 PAGE
+/department/ece/programs                                200 PAGE
+/department/ece/question                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/ece/rdr                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ece/rk                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ece/sa                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ece/ss                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ece/students                                200 PAGE
+/department/ece/tr                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ece/vision                                  200 PAGE
+/department/ece/weekly                                  200 PAGE
+/department/ecevlsi/aa                                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ecevlsi/about                               200 PAGE
+/department/ecevlsi/ak                                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ecevlsi/aks                                 404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ecevlsi/attendance                          200 PAGE
+/department/ecevlsi/awards                              200 PAGE
+/department/ecevlsi/course                              200 PAGE
+/department/ecevlsi/labs                                200 PAGE
+/department/ecevlsi/nk                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ecevlsi/notice                              200 PAGE
+/department/ecevlsi/principal                           200 PAGE
+/department/ecevlsi/programs                            200 PAGE
+/department/ecevlsi/question                            200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/ecevlsi/rdr                                 200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ecevlsi/rk                                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/ecevlsi/sa                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ecevlsi/ss                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ecevlsi/students                            200 PAGE
+/department/ecevlsi/tr                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/ecevlsi/vision                              200 PAGE
+/department/ecevlsi/weekly                              200 PAGE
+/department/eee/aa                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/eee/about                                   200 PAGE
+/department/eee/ak                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/eee/aks                                     404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/eee/attendance                              200 PAGE
+/department/eee/awards                                  200 PAGE
+/department/eee/course                                  200 PAGE
+/department/eee/labs                                    200 PAGE
+/department/eee/nk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/eee/notice                                  200 PAGE
+/department/eee/principal                               200 PAGE
+/department/eee/programs                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/eee/question                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/eee/rdr                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/eee/rk                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/eee/sa                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/eee/ss                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/eee/students                                200 PAGE
+/department/eee/tr                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/eee/vision                                  200 PAGE
+/department/eee/weekly                                  200 PAGE
+/department/fp/about                                    200 PAGE
+/department/fp/attendance                               200 PAGE
+/department/fp/awards                                   200 PAGE
+/department/fp/cmm                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/fp/course                                   200 PAGE
+/department/fp/dky                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/fp/labs                                     200 PAGE
+/department/fp/mta                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/fp/notice                                   200 PAGE
+/department/fp/pks                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/fp/programs                                 200 PAGE
+/department/fp/question                                 200 PAGE
+/department/fp/shk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/fp/shweta                                   200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/fp/sjk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/fp/snehakumari                              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/fp/snjk                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/fp/students                                 200 PAGE
+/department/fp/subodh                                   404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/fp/vision                                   200 PAGE
+/department/fp/weekly                                   200 PAGE
+/department/manufacturing/about                         200 PAGE
+/department/manufacturing/ajk                           404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/ap                            404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/attendance                    200 PAGE
+/department/manufacturing/awards                        200 PAGE
+/department/manufacturing/course                        200 PAGE
+/department/manufacturing/faculty                       200 PAGE
+/department/manufacturing/jk                            404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/kks                           200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/manufacturing/labs                          200 PAGE
+/department/manufacturing/mk                            200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/manufacturing/notice                        200 PAGE
+/department/manufacturing/programs                      200 PAGE
+/department/manufacturing/question                      200 PAGE
+/department/manufacturing/smnk                          404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/srk                           404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/staff                         404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/manufacturing/students                      200 PAGE
+/department/manufacturing/vision                        200 PAGE
+/department/manufacturing/weekly                        200 PAGE
+/department/mechandsmartmanufacturing/about             200 PAGE
+/department/mechandsmartmanufacturing/ajk               404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/ap                404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/attendance        200 PAGE
+/department/mechandsmartmanufacturing/awards            200 PAGE
+/department/mechandsmartmanufacturing/course            200 PAGE
+/department/mechandsmartmanufacturing/faculty           200 PAGE
+/department/mechandsmartmanufacturing/jk                404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/kks               200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/mechandsmartmanufacturing/labs              200 PAGE
+/department/mechandsmartmanufacturing/mk                200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/mechandsmartmanufacturing/notice            200 PAGE
+/department/mechandsmartmanufacturing/programs          200 PAGE
+/department/mechandsmartmanufacturing/question          200 PAGE
+/department/mechandsmartmanufacturing/smnk              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/srk               404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/staff             404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechandsmartmanufacturing/students          200 PAGE
+/department/mechandsmartmanufacturing/vision            200 PAGE
+/department/mechandsmartmanufacturing/weekly            200 PAGE
+/department/mechanical/ajk                              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/ap                               404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/attendance                       200 PAGE
+/department/mechanical/awards                           200 PAGE
+/department/mechanical/course                           200 PAGE
+/department/mechanical/faculty                          200 PAGE
+/department/mechanical/jk                               404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/kks                              200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/mechanical/labs                             200 PAGE
+/department/mechanical/mech                             200 PAGE
+/department/mechanical/mk                               200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
+/department/mechanical/notice                           200 PAGE
+/department/mechanical/programs                         200 PAGE
+/department/mechanical/question                         200 PAGE
+/department/mechanical/smnk                             404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/srk                              404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/staff                            404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/department/mechanical/students                         200 PAGE
+/department/mechanical/vision                           200 PAGE
+/department/mechanical/weekly                           200 PAGE
+/facilities/bank                                        200 PAGE
+/facilities/centrallibrary                              200 PAGE
+/facilities/club                                        200 PAGE
+/facilities/contactus                                   200 PAGE
+/facilities/csecenter                                   200 PAGE
+/facilities/downloads                                   200 PAGE
+/facilities/guesthouse                                  200 PAGE
+/facilities/gymnasium                                   200 PAGE
+/facilities/healthcenter                                200 PAGE
+/facilities/hostels                                     200 PAGE
+/facilities/medicalfacilities                           200 PAGE
+/facilities/placementbrochure                           200 PAGE
+/facilities/sportsfacilities                            200 PAGE
+/facilities/startupcell                                 200 PAGE
+/facilities/usefulllink                                 200 PAGE
+/facilities/wifi                                        200 PAGE
+/forgotPassword                                         200 PAGE
+/gallery/mediagallery                                   200 PAGE
+/gallery/photogallery                                   200 PAGE
+/legal/contactus                                        200 PAGE
+/legal/feestructure                                     200 BODY
+/legal/privacypolicy                                    200 PAGE
+/legal/productandservices                               200 PAGE
+/legal/refundandcancellation                            200 PAGE
+/legal/termandcondition                                 200 PAGE
+/login                                                  200 PAGE
+/nba/nba                                                200 PAGE
+/rti/publicinformationcell                              200 PAGE
+/rti/rtiact                                             200 PAGE
+/rti/rtiapplication                                     200 PAGE
+/rti/rtistatus                                          200 PAGE
+/trainingplacement/aboutplacement                       200 PAGE
+/trainingplacement/placedstudent                        200 PAGE
+/trainingplacement/placementbrochure                    200 PAGE
+/trainingplacement/rulesoftrainingplacement             200 PAGE
+/trainingplacement/studentplacementcoordinator          200 PAGE
+/trainingplacement/tipsforresume                        200 PAGE
+/uploadNoticeFaculty                                    200 PAGE
+/welcome                                                200 PAGE
+/welcome2                                               404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/wp-content/themes/kec/admin/homepage                   404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/wp-content/themes/kec/rti-kec/rti-act                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/academic/lab?dept_id=1                                 200 PAGE
+/academic/lab?id=1                                      400 -          # BROKEN-BEFORE-UPGRADE: header menu link uses wrong parameter name (expects dept_id)
+/faculty?deptno=1                                       200 PAGE
+/faculty?deptno=2                                       200 PAGE
+/faculty?deptno=3                                       200 PAGE
+/faculty?deptno=4                                       200 PAGE
+/faculty?deptno=5                                       200 PAGE
+/faculty?deptno=6                                       200 PAGE
+/faculty?deptno=7                                       200 BODY       # BROKEN-BEFORE-UPGRADE: department has no faculty -> facultylist.jsp IndexOutOfBounds, page truncated
+/pagination/next/getNotices?deptno=1&pageSize=10        200 PAGE
+/pagination/prev/getNotices?deptno=1&pageSize=10        200 PAGE
+/pagination/next/getTenders?pageSize=10                 200 PAGE
+/pagination/prev/getTenders?pageSize=10                 200 PAGE
+/thymeleaf?name=test                                    404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
+/api/achievements/flag/1                                200 BODY
+/no/such/page                                           404 -

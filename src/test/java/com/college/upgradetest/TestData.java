@@ -1,0 +1,83 @@
+package com.college.upgradetest;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+/**
+ * Creates and removes the test rows. Everything the tests create starts with {@link #MARK}
+ * (user names, faculty names, notice headlines, course names, ...), so cleanup can never hit real data.
+ */
+public class TestData {
+
+    public static final String MARK = "zzupgtest";
+    public static final String PASSWORD = "Upgrade#Test1";
+    /** Department used for test faculty (CSE). */
+    public static final long DEPT_ID = 1L;
+
+    public static final TestUser ADMIN = new TestUser(MARK + "_admin", 1L);
+    public static final TestUser FACULTY = new TestUser(MARK + "_faculty", 2L);
+    public static final TestUser SM = new TestUser(MARK + "_sm", 3L);
+    public static final TestUser HOD = new TestUser(MARK + "_hod", 4L);
+    public static final TestUser SK = new TestUser(MARK + "_sk", 5L);
+    public static final TestUser[] ALL = {ADMIN, FACULTY, SM, HOD, SK};
+
+    /** Official e-mail of the test faculty (used by the password-reset flow). */
+    public static final String FACULTY_EMAIL = MARK + "_faculty@keck.ac.in";
+
+    private final JdbcTemplate jdbc;
+
+    public TestData(JdbcTemplate jdbc) {
+        this.jdbc = jdbc;
+    }
+
+    public void createUsers() {
+        String hash = new BCryptPasswordEncoder().encode(PASSWORD);
+        for (TestUser u : ALL) {
+            jdbc.update("insert into test_user (username, password) values (?, ?)", u.username, hash);
+            long id = jdbc.queryForObject("select id from test_user where username = ?", Long.class, u.username);
+            jdbc.update("insert into user_role (user_id, role_id) values (?, ?)", id, u.roleId);
+        }
+        jdbc.update("insert into faculty (dept_id, f_mnumber, f_name, f_officialemail, f_personalemail, username) "
+                        + "values (?, ?, ?, ?, ?, ?)",
+                DEPT_ID, 9000000001L, MARK + " Faculty Member", FACULTY_EMAIL, MARK + "_faculty@example.com", FACULTY.username);
+    }
+
+    public long userId(String username) {
+        return jdbc.queryForObject("select id from test_user where username = ?", Long.class, username);
+    }
+
+    public long facultyId(String username) {
+        return jdbc.queryForObject("select faculty_id from faculty where username = ?", Long.class, username);
+    }
+
+    /** Removes every row created by the tests. Safe to run repeatedly. */
+    public void cleanup() {
+        String like = MARK + "%";
+        jdbc.update("delete from password_reset_token where user_id in (select id from test_user where username like ?)", like);
+        jdbc.update("delete from faculty_keyprop_values where key_property_id in (select key_property_id from faculty_key_props "
+                + "where faculty_id in (select faculty_id from faculty where username like ?))", like);
+        jdbc.update("delete from faculty_key_props where faculty_id in (select faculty_id from faculty where username like ?)", like);
+        jdbc.update("delete from facultydocuments where f_uploadedby like ?", like);
+        jdbc.update("delete from faculty where username like ? or f_name like ?", like, like);
+        jdbc.update("delete from user_role where user_id in (select id from test_user where username like ?)", like);
+        jdbc.update("delete from test_user where username like ?", like);
+        jdbc.update("delete from noticeboard where nb_headline like ? or nb_username like ?", like, like);
+        jdbc.update("delete from no_of_seat where branch_name like ?", like);
+        jdbc.update("delete from placements where student_name like ?", like);
+        jdbc.update("delete from tpo_coordinator where student_name like ?", like);
+        jdbc.update("delete from staff where name like ? or username like ?", like, like);
+        jdbc.update("delete from holiday where file_name like ?", like);
+        jdbc.update("delete from download where file_name like ?", like);
+        jdbc.update("delete from image_slide where caption like ?", like);
+    }
+
+    public static class TestUser {
+        public final String username;
+        public final long roleId;
+
+        TestUser(String username, long roleId) {
+            this.username = username;
+            this.roleId = roleId;
+        }
+    }
+}

@@ -147,8 +147,9 @@ Result on Boot 4.1.1 / Java 25: **37 run, 0 failures, 1 skipped** (`leaveRequest
 3. **Maven 3.6.3** (system package) also prints `sun.misc.Unsafe` warnings on JDK 25 (its own Guava). Harmless;
    a newer Maven (3.9.x) or the Maven wrapper would remove them.
 4. **Junk rows in the local DB** – `/approval/addFaculty` is an **anonymous GET that inserts a blank faculty row**
-   (+ "Administrative Responsibilities" key properties) on every call. Early test runs called it; 8 rows
-   (faculty_id 78–102) are in the local `keckacin_college2`. Delete them with:
+   (+ "Administrative Responsibilities" key properties) on every call. Early test runs called it; the 8 rows
+   (faculty_id 78–102) they left in the local `keckacin_college2` are gone (checked 2026-10-16: no blank faculty
+   rows left). If it happens again, delete them with:
    ```sql
    DELETE v FROM faculty_keyprop_values v JOIN faculty_key_props p ON p.key_property_id=v.key_property_id
      JOIN faculty f ON f.faculty_id=p.faculty_id

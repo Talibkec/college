@@ -2,6 +2,7 @@ package com.college.core.controller;
 
 import com.college.FacultyHelper;
 import com.college.core.model.FacultyDTO;
+import com.college.core.model.FacultyListView;
 import com.college.service.AccessService;
 import com.college.service.DepartmentService;
 import com.college.service.FacultyProfileService;
@@ -76,7 +77,9 @@ public class FacultyProfileController {
         }
         // 0 = normal user, 1 = HOD of this department, 2 = Admin
         int userType = accessService.facultyPageUserType(authentication, deptno);
-        mv.addObject("facultyList", facultyProfileService.getFacultyList(deptno, hodName));
+        List<FacultyDTO> facultyList = facultyProfileService.getFacultyList(deptno, hodName);
+        mv.addObject("facultyList", facultyList);
+        mv.addObject("facultyListView", new FacultyListView(facultyList));
         mv.addObject("userType", userType);
         mv.setViewName("facultylist.jsp");
         return mv;

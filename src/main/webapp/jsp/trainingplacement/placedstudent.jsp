@@ -1,8 +1,4 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ page import="com.college.service.UserService" %>
-<%@ page import="com.college.core.model.PlacementsDTO" %>
-<%@ page import="java.util.List" %>
-<%@ page import="org.springframework.http.converter.json.GsonBuilderUtils" %>
 
 <jsp:include page="/jsp/header.jsp"/>
 <style>

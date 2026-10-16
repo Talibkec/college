@@ -71,7 +71,10 @@ public class HtmlSnapshotTest extends AbstractAppTest {
                 mismatches.add(role + " " + path + ": no snapshot recorded");
             } else {
                 String before = Files.readString(file);
-                if (!before.equals(snapshot) && !(UNORDERED_PAGES.matcher(path).find() && sameLines(before, snapshot))) {
+                boolean same = before.equals(snapshot)
+                        || (UNORDERED_PAGES.matcher(path).find() && sameLines(before, snapshot))
+                        || (IGNORE_WHITESPACE && withoutWhitespace(before).equals(withoutWhitespace(snapshot)));
+                if (!same) {
                     mismatches.add(role + " " + path + ": " + firstDifference(before, snapshot));
                     Files.writeString(Paths.get(file + ".actual"), snapshot);
                 }
@@ -89,6 +92,16 @@ public class HtmlSnapshotTest extends AbstractAppTest {
      * on every run and may land in another slot, so on these pages only the order of the lines may differ.
      */
     private static final java.util.regex.Pattern UNORDERED_PAGES = java.util.regex.Pattern.compile("^/(faculty\\?|facultyDetails\\?)");
+
+    /**
+     * {@code -Dupgradetest.snapshot.ignoreWhitespace=true}: accept differences in whitespace only (used once, for
+     * the JSP clean-up that removed import directives and scriptlets; the differences were reviewed by hand).
+     */
+    private static final boolean IGNORE_WHITESPACE = Boolean.getBoolean("upgradetest.snapshot.ignoreWhitespace");
+
+    private static String withoutWhitespace(String s) {
+        return s.replaceAll("\\s+", "");
+    }
 
     private static boolean sameLines(String a, String b) {
         List<String> la = new ArrayList<>(List.of(a.split("\n", -1)));

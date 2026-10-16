@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="/jsp/header.jsp" />
 
 <style>
@@ -77,33 +78,17 @@
   </div>
 
   <div id="gallery-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <% 
-      String[] images = {
-        "img1.JPG", "img2.JPG", "img3.JPG", "img4.JPG",
-        "img5.JPG", "img6.JPG", "img7.JPG", "img8.JPG",
-        "img9.JPG", "img10.JPG", "img11.JPG", "img12.JPG",
-        "img13.JPG"
-      };
-      
-      String[] captions = {
-        "Campus View", "Library", "Event Hall", "Hostel Building",
-        "Lab", "Workshop", "Sports Ground", "Conference Hall",
-        "Canteen", "Placement Cell", "Auditorium", "Garden Area",
-        "Main Gate"
-      };
-
-      for (int i = 0; i < images.length; i++) {
-    %>
+    <c:forEach items="${photos}" var="photo">
     <div class="gallery-item bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden transition-transform transform hover:scale-105"
-      data-title="<%= captions[i] %>">
-      <a href="/wp-content/uploads/2018/<%= images[i] %>" target="_blank">
-        <img src="/wp-content/uploads/2018/<%= images[i] %>" alt="<%= captions[i] %>" class="w-full h-48 object-cover">
+      data-title="${photo.caption}">
+      <a href="/wp-content/uploads/2018/${photo.fileName}" target="_blank">
+        <img src="/wp-content/uploads/2018/${photo.fileName}" alt="${photo.caption}" class="w-full h-48 object-cover">
       </a>
       <div class="p-4 text-center text-gray-700">
-        <%= captions[i] %>
+        ${photo.caption}
       </div>
     </div>
-    <% } %>
+    </c:forEach>
   </div>
 </div>
 

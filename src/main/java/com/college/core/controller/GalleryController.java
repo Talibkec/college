@@ -1,6 +1,7 @@
 package com.college.core.controller;
 
 import com.college.core.model.GalleryImageDTO;
+import com.college.core.model.GalleryPhotoDTO;
 import com.college.service.GalleryImageService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -29,9 +30,20 @@ public class GalleryController {
         this.galleryImageService = galleryImageService;
     }
 
+    /** Photos of the static photo gallery (formerly a scriptlet array in photogallery.jsp). */
+    private static final List<GalleryPhotoDTO> PHOTOS = List.of(
+            new GalleryPhotoDTO("img1.JPG", "Campus View"), new GalleryPhotoDTO("img2.JPG", "Library"),
+            new GalleryPhotoDTO("img3.JPG", "Event Hall"), new GalleryPhotoDTO("img4.JPG", "Hostel Building"),
+            new GalleryPhotoDTO("img5.JPG", "Lab"), new GalleryPhotoDTO("img6.JPG", "Workshop"),
+            new GalleryPhotoDTO("img7.JPG", "Sports Ground"), new GalleryPhotoDTO("img8.JPG", "Conference Hall"),
+            new GalleryPhotoDTO("img9.JPG", "Canteen"), new GalleryPhotoDTO("img10.JPG", "Placement Cell"),
+            new GalleryPhotoDTO("img11.JPG", "Auditorium"), new GalleryPhotoDTO("img12.JPG", "Garden Area"),
+            new GalleryPhotoDTO("img13.JPG", "Main Gate"));
+
     @RequestMapping(value = "photogallery")
     public ModelAndView getPhotoGallery(){
         ModelAndView mv=new ModelAndView();
+        mv.addObject("photos", PHOTOS);
         mv.setViewName("/gallery/photogallery.jsp");
         return mv;
     }

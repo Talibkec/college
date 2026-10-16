@@ -1,21 +1,8 @@
-<%@ page import="com.college.service.UserService" %>
-<%@ page import="com.college.core.model.FacultyDTO" %>
-<%@ page import="java.util.List" %>
-<%@ page import="org.springframework.http.converter.json.GsonBuilderUtils" %>
 <jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<%!
-    String[] branchList = new String[]{"Computer Sc. & Engineering", " Civil Engineering", "Mechanical Engineering", " Electronics & Electrical Engineering", "Applied Sc. & Humanities", "Electronics Engineering (VLSI Design and Technology)" ,  "Food Processing"};
-    String[] sidebarList = new String[]{"csesidebar.jsp", "cesidebar.jsp", "mesidebar.jsp", "eeesidebar.jsp", "ashsidebar.jsp", "ecesidebar.jsp" , "fpsidebar.jsp"};
-%>
-<%
-
-    int depIndex;
-    depIndex = Math.toIntExact(((List<FacultyDTO>) request.getAttribute("facultyList")).get(0).getDepartmentId() - 1L);
-    String branchName = branchList[depIndex];
-
-%>
+<%-- department name of the list (FacultyListView); fails for an empty list, like the former scriptlet --%>
+<c:set var="branchName" value="${facultyListView.branchName}"/>
 
 <style>
     .page-content {
@@ -59,9 +46,9 @@
                 </a>
             </c:if>
 
-            <% int hod = 1; %>
+            <%-- the first entry is the HOD (FacultyProfileService puts the HOD first) --%>
             <!-- Faculty List -->
-            <c:forEach items="${facultyList}" var="faculty">
+            <c:forEach items="${facultyList}" var="faculty" varStatus="status">
                 <div class="bg-gray-100 border border-gray-200 rounded-lg p-4 mb-4">
                     <div class="flex flex-col md:flex-row justify-between">
                         <!-- Faculty Image -->
@@ -72,12 +59,9 @@
                         <div class="flex-grow md:pl-4">
                             <h4 class="text-lg font-semibold text-gray-800">
                                 ${faculty.facultyName}
-                                <% if (hod == 1) {
-                                    out.write(" ( HOD  " + branchName + " )");
-                                    hod = 0;
-                                } %>
+                                <c:if test="${status.first}"> ( HOD  ${branchName} )</c:if>
                             </h4>
-                            <p class="text-sm text-gray-600"><strong>Department:</strong> <%=branchName%></p>
+                            <p class="text-sm text-gray-600"><strong>Department:</strong> ${branchName}</p>
                             <p class="text-sm text-gray-600"><strong>Designation:</strong> Assistant Professor</p>
                             <p class="text-sm text-gray-600"><strong>Phone Number:</strong> ${faculty.facultyMobNo}</p>
                             <p class="text-sm text-gray-600"><strong>Email Address:</strong> <a href="mailto:${faculty.facultyOfficialEmail}" class="text-blue-500">${faculty.facultyOfficialEmail}</a></p>

@@ -1,18 +1,19 @@
 package com.college.core.controller;
 
 import com.college.core.model.PlacementsDTO;
-import com.college.core.model.StaffDTO;
+import com.college.core.model.TpoDTO;
 import com.college.service.PlacementsService;
+import com.college.service.TpoCoordinatorService;
 import com.college.service.AccessService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -20,10 +21,23 @@ import java.util.List;
 public class TrainingPlacementController {
     private final AccessService accessService;
     private final PlacementsService placementsService;
+    private final TpoCoordinatorService tpoCoordinatorService;
 
-    public TrainingPlacementController(AccessService accessService, PlacementsService placementsService) {
+    public TrainingPlacementController(AccessService accessService, PlacementsService placementsService,
+                                       TpoCoordinatorService tpoCoordinatorService) {
         this.accessService = accessService;
         this.placementsService = placementsService;
+        this.tpoCoordinatorService = tpoCoordinatorService;
+    }
+
+    @RequestMapping(value = "studentplacementcoordinator", method = RequestMethod.GET)
+    public ModelAndView getTpoCoordinators() {
+        List<TpoDTO> coordinators = tpoCoordinatorService.getAllTpoCoordinators();
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("coordinators", coordinators);
+        mv.addObject("Role", ControllerUtility.getRole());
+        mv.setViewName("trainingplacement/studentplacementcoordinator.jsp");
+        return mv;
     }
 
     @RequestMapping(value = "placementbrochure")

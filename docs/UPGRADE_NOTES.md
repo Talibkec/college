@@ -50,9 +50,10 @@ schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 | `fed5427` | iText 5 (AGPL) → OpenPDF 3.0.5 (approved) |
 | `d382434` | Remove unused jQuery webjar (approved) |
 | `27d2817` | Notes updated |
-| (latest) | Embed the site's own PDFs instead of the Google viewer on keck.ac.in (approved) |
+| `5f4caf5` | Embed the site's own PDFs instead of the Google viewer on keck.ac.in (approved) |
+| (latest) | Production deployment guide |
 
-Pushed to `origin/kec_claude` up to `27d2817` (at your request); later commits are local until pushed.
+Pushed to `origin/kec_claude` up to `5f4caf5` (at your request). Not merged into `master`; no pull request.
 
 ## 3. Changes that matter (and how the old behaviour was kept)
 
@@ -194,3 +195,8 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local "-Dspring-boot.run.argument
 java -jar target/spring-boot-example-1.0-SNAPSHOT.war --spring.profiles.active=local
 ```
 IntelliJ: set the project SDK to JDK 25 and add `local` to the run configuration's active profiles.
+
+## 8. Production deployment
+
+Step-by-step guide for the Ubuntu VPS (Java 25, Tomcat 11.0.x ≥ 11.0.24, MySQL 8.0, nginx, `setenv.sh`,
+systemd, deploy/rollback commands): **`docs/PRODUCTION_DEPLOYMENT.md`**.

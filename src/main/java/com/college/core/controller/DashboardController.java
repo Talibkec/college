@@ -1,6 +1,6 @@
 package com.college.core.controller;
 
-import com.college.core.entity.Department;
+import com.college.core.model.DepartmentDTO;
 import com.college.core.entity.Role;
 import com.college.core.model.UserRoleDTO;
 import com.college.service.*;
@@ -148,7 +148,7 @@ public class DashboardController {
     @RequestMapping(value = "/auth/hodincharge")
     public ModelAndView hodIncharge() {
         ModelAndView model = new ModelAndView();
-        List<Department> departmentList = departmentService.getAllDepartments();
+        List<DepartmentDTO> departmentList = departmentService.getAllDepartments();
         model.addObject("departments", departmentList);
         model.setViewName("hodincharge.jsp");
         return model;

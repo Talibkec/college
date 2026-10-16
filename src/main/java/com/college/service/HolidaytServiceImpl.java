@@ -1,10 +1,7 @@
 package com.college.service;
 import com.college.core.entity.Holiday;
-import com.college.core.entity.ResponsibilityDoc;
 import com.college.core.model.HolidayDTO;
-import com.college.core.model.ResponsibilityDocDTO;
 import com.college.repository.HolidayRepository;
-import com.college.repository.ResponsibilityDocRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +20,8 @@ public class HolidaytServiceImpl implements HolidayService{
     }
 
     @Override
-    public List<Holiday> getAllDownload() {
-        return holidayRepository.getAllDocuments();
+    public List<HolidayDTO> getAllDownload() {
+        return holidayRepository.getAllDocuments().stream().map(HolidaytServiceImpl::toListItem).toList();
     }
 
     @Override
@@ -46,5 +43,16 @@ public class HolidaytServiceImpl implements HolidayService{
     @Override
     public void deleteItem(Long id) {
         holidayRepository.deleteById(id);
+    }
+
+    /** List item for the views: same values as the entity, without the file content. */
+    private static HolidayDTO toListItem(Holiday entity) {
+        HolidayDTO dto = new HolidayDTO();
+        dto.setId(entity.getId());
+        dto.setFileName(entity.getFileName());
+        dto.setFileType(entity.getFileType());
+        dto.setUploadedBy(entity.getUploadedBy());
+        dto.setDate(entity.getDate());
+        return dto;
     }
 }

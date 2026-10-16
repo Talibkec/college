@@ -54,10 +54,10 @@ public class FacilitiesController {
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
-        List<Download> allDocumentList = downloadService.getAllDownload();
+        List<DownloadDTO> allDocumentList = downloadService.getAllDownload();
         mv.setViewName("facilities/downloads.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
-        for (Download download : allDocumentList) {
+        for (DownloadDTO download : allDocumentList) {
             logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);

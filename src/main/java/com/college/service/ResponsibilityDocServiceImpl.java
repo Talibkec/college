@@ -1,9 +1,6 @@
 package com.college.service;
-import com.college.core.entity.Download;
 import com.college.core.entity.ResponsibilityDoc;
-import com.college.core.model.DownloadDTO;
 import com.college.core.model.ResponsibilityDocDTO;
-import com.college.repository.DownloadRepository;
 import com.college.repository.ResponsibilityDocRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -23,8 +20,8 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
     }
 
     @Override
-    public List<ResponsibilityDoc> getAllDownload() {
-        return responsibilityDocRepository.getAllDocuments();
+    public List<ResponsibilityDocDTO> getAllDownload() {
+        return responsibilityDocRepository.getAllDocuments().stream().map(ResponsibilityDocServiceImpl::toListItem).toList();
     }
 
     @Override
@@ -46,5 +43,16 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
     @Override
     public void deleteItem(Long id) {
         responsibilityDocRepository.deleteById(id);
+    }
+
+    /** List item for the views: same values as the entity, without the file content. */
+    private static ResponsibilityDocDTO toListItem(ResponsibilityDoc entity) {
+        ResponsibilityDocDTO dto = new ResponsibilityDocDTO();
+        dto.setId(entity.getId());
+        dto.setFileName(entity.getFileName());
+        dto.setFileType(entity.getFileType());
+        dto.setUploadedBy(entity.getUploadedBy());
+        dto.setDate(entity.getDate());
+        return dto;
     }
 }

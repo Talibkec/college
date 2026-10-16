@@ -3,7 +3,6 @@ package com.college.core.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.college.core.entity.Download;
 import com.college.core.model.DownloadDTO;
 import com.college.service.DownloadService;
 import com.college.service.AccessService;
@@ -42,9 +41,9 @@ public class NBAController {
     boolean accessAllow = accessService.isAdminOrHod(authentication);
 
     ModelAndView mv = new ModelAndView();
-    List<Download> allDocumentList = downloadService.getAllNBADocuments();
+    List<DownloadDTO> allDocumentList = downloadService.getAllNBADocuments();
     mv.setViewName("nba/nba.jsp");
-    for (Download download : allDocumentList) {
+    for (DownloadDTO download : allDocumentList) {
       logger.debug("Document: {}", download.getFileName());
     }
     mv.addObject("allDocuments" , allDocumentList);

@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -22,8 +21,8 @@ public class LabDocumentServiceImpl implements LabDocumentService{
     }
 
     @Override
-    public List<LabDocument> getAllDownload() {
-        return labDocumentRepository.getAllDocuments();
+    public List<LabDocumentDTO> getAllDownload() {
+        return labDocumentRepository.getAllDocuments().stream().map(LabDocumentServiceImpl::toListItem).toList();
     }
 
     @Override
@@ -48,8 +47,19 @@ public class LabDocumentServiceImpl implements LabDocumentService{
     }
 
     @Override
-    public List<LabDocument> getAllLabDocByDepId(Integer deptId) {
-        return labDocumentRepository.getLabByDeptId(deptId);
+    public List<LabDocumentDTO> getAllLabDocByDepId(Integer deptId) {
+        return labDocumentRepository.getLabByDeptId(deptId).stream().map(LabDocumentServiceImpl::toListItem).toList();
+    }
 
+    /** List item for the views: same values as the entity, without the file content. */
+    private static LabDocumentDTO toListItem(LabDocument entity) {
+        LabDocumentDTO dto = new LabDocumentDTO();
+        dto.setId(entity.getId());
+        dto.setFileName(entity.getFileName());
+        dto.setFileType(entity.getFileType());
+        dto.setUploadedBy(entity.getUploadedBy());
+        dto.setDate(entity.getDate());
+        dto.setDepId(entity.getDepId());
+        return dto;
     }
 }

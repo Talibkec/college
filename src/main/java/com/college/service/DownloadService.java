@@ -1,16 +1,14 @@
 package com.college.service;
 
-import com.college.core.entity.Download;
 import com.college.core.model.DownloadDTO;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public interface DownloadService {
-    List<Download> getAllDownload();
+    List<DownloadDTO> getAllDownload();
 
-    public List<Download> getAllNBADocuments();
+    List<DownloadDTO> getAllNBADocuments();
 
     DownloadDTO getDownloadDocument(Long id);
 

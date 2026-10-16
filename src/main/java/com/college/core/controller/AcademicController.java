@@ -1,9 +1,10 @@
 package com.college.core.controller;
 
+import com.college.core.model.LabDocumentDTO;
+import com.college.core.model.HolidayDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.college.core.entity.*;
 import com.college.service.HolidayService;
 import com.college.service.LabDocumentService;
 import com.college.service.AccessService;
@@ -66,10 +67,10 @@ public class AcademicController {
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
-        List<Holiday> allDocumentList = holidayService.getAllDownload();
+        List<HolidayDTO> allDocumentList = holidayService.getAllDownload();
         mv.setViewName("academic/holidays.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
-        for (Holiday download : allDocumentList) {
+        for (HolidayDTO download : allDocumentList) {
             logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);
@@ -89,10 +90,10 @@ public class AcademicController {
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
-        List<LabDocument> allDocumentList = labDocumentService.getAllLabDocByDepId(deptId);
+        List<LabDocumentDTO> allDocumentList = labDocumentService.getAllLabDocByDepId(deptId);
         mv.setViewName("academic/labs.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
-        for (LabDocument download : allDocumentList) {
+        for (LabDocumentDTO download : allDocumentList) {
             logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);

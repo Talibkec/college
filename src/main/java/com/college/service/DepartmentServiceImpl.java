@@ -4,10 +4,8 @@ import com.college.core.entity.Department;
 import com.college.core.model.DepartmentDTO;
 import com.college.repository.DepartmentRepository;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Type;
 import java.util.List;
 
 @Service
@@ -20,16 +18,14 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public List<DepartmentDTO> getAllDepartment() {
-        List<Department> departments = departmentRepository.findAll();
-        Type targetListType = new TypeToken<List<DepartmentRepository>>() {
-        }.getType();
-        return modelMapper.map(departments, targetListType);
-    }
-
-    @Override
-    public List<Department> getAllDepartments(){
-        return departmentRepository.findAll();
+    public List<DepartmentDTO> getAllDepartments(){
+        return departmentRepository.findAll().stream().map(d -> {
+            DepartmentDTO dto = new DepartmentDTO();
+            dto.setDepartmentId(d.getDepartmentId());
+            dto.setDepartmentName(d.getDepartmentName());
+            dto.setDepartmentHod(d.getDepartmentHod());
+            return dto;
+        }).toList();
     }
 
     @Override

@@ -1,13 +1,10 @@
 package com.college.core.controller;
 
+import com.college.core.model.ResponsibilityDocDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-import com.college.core.entity.ResponsibilityDoc;
-import com.college.core.entity.Staff;
-import com.college.core.model.FacultyDTO;
-import com.college.core.model.StaffDTO;
 import com.college.core.model.StaffDTO;
 import com.college.service.AdministrationService;
 import com.college.service.ResponsibilityDocService;
@@ -88,10 +85,10 @@ public class AboutController {
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
-        List<ResponsibilityDoc> allDocumentList = responsibilityDocService.getAllDownload();
+        List<ResponsibilityDocDTO> allDocumentList = responsibilityDocService.getAllDownload();
         mv.setViewName("facilities/responsibilityDoc.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
-        for (ResponsibilityDoc download : allDocumentList) {
+        for (ResponsibilityDocDTO download : allDocumentList) {
             logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);

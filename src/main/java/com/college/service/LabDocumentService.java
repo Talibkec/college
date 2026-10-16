@@ -1,6 +1,5 @@
 package com.college.service;
 
-import com.college.core.entity.LabDocument;
 import com.college.core.model.LabDocumentDTO;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +7,7 @@ import java.util.List;
 
 @Service
 public interface LabDocumentService {
-    List<LabDocument> getAllDownload();
+    List<LabDocumentDTO> getAllDownload();
 
     LabDocumentDTO getDownloadDocument(Long id);
 
@@ -17,5 +16,5 @@ public interface LabDocumentService {
 
     void deleteItem(Long id);
 
-    List<LabDocument> getAllLabDocByDepId(Integer deptId);
+    List<LabDocumentDTO> getAllLabDocByDepId(Integer deptId);
 }

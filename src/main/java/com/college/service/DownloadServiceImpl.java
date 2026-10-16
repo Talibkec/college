@@ -5,7 +5,6 @@ import com.college.repository.DownloadRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,13 +20,13 @@ public class DownloadServiceImpl implements DownloadService{
     }
 
     @Override
-    public List<Download> getAllDownload() {
-        return downloadRepository.getAllDocuments();
+    public List<DownloadDTO> getAllDownload() {
+        return downloadRepository.getAllDocuments().stream().map(DownloadServiceImpl::toListItem).toList();
     }
 
     @Override
-    public List<Download> getAllNBADocuments() {
-        return downloadRepository.getAllNBADocuments();
+    public List<DownloadDTO> getAllNBADocuments() {
+        return downloadRepository.getAllNBADocuments().stream().map(DownloadServiceImpl::toListItem).toList();
     }
 
     @Override
@@ -49,5 +48,17 @@ public class DownloadServiceImpl implements DownloadService{
     @Override
     public void deleteItem(Long id) {
        downloadRepository.deleteById(id);
+    }
+
+    /** List item for the views: same values as the entity, without the file content. */
+    private static DownloadDTO toListItem(Download entity) {
+        DownloadDTO dto = new DownloadDTO();
+        dto.setId(entity.getId());
+        dto.setFileName(entity.getFileName());
+        dto.setFileType(entity.getFileType());
+        dto.setUploadedBy(entity.getUploadedBy());
+        dto.setDate(entity.getDate());
+        dto.setDocType(entity.getDocType());
+        return dto;
     }
 }

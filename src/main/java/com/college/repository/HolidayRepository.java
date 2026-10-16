@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface HolidayRepository extends JpaRepository<Holiday, Long> {
 
-    @Query(value = "select * from holiday order by id desc", nativeQuery = true)
+    // list page: without the file content
+    @Query("select new com.college.core.entity.Holiday(h.id, h.fileName, h.uploadedBy, h.date, h.fileType) from Holiday h order by h.id desc")
     List<Holiday> getAllDocuments();
 
 }

@@ -50,7 +50,7 @@ public class DownloadServiceImpl implements DownloadService{
        downloadRepository.deleteById(id);
     }
 
-    /** List item for the views: same values as the entity, without the file content. */
+    /** List item for the views (the list queries select only these columns, not the file content). */
     private static DownloadDTO toListItem(Download entity) {
         DownloadDTO dto = new DownloadDTO();
         dto.setId(entity.getId());
@@ -58,7 +58,6 @@ public class DownloadServiceImpl implements DownloadService{
         dto.setFileType(entity.getFileType());
         dto.setUploadedBy(entity.getUploadedBy());
         dto.setDate(entity.getDate());
-        dto.setDocType(entity.getDocType());
         return dto;
     }
 }

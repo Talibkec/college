@@ -45,7 +45,7 @@ public class HolidaytServiceImpl implements HolidayService{
         holidayRepository.deleteById(id);
     }
 
-    /** List item for the views: same values as the entity, without the file content. */
+    /** List item for the views (the list queries select only these columns, not the file content). */
     private static HolidayDTO toListItem(Holiday entity) {
         HolidayDTO dto = new HolidayDTO();
         dto.setId(entity.getId());

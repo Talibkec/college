@@ -1,9 +1,7 @@
 package com.college.repository;
 
 import com.college.core.entity.Faculty;
-import com.college.core.entity.Request;
 
-import com.college.core.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -13,8 +11,6 @@ import java.util.List;
 
 @Repository
 public interface FacultyRepository extends JpaRepository<Faculty, Long> {
-    @Query(value = "select * from Faculty", nativeQuery = true)
-    public List<Request> getAllFaculty();
 
     @Query("select f from Faculty f where f.user.username = :userName")
     Faculty findFacltyByUserName(@Param("userName") String userName);

@@ -10,8 +10,7 @@ import java.util.List;
 @Repository
 public interface AicteDocumentRepository extends  JpaRepository<AicteDocuments , Long> {
 
-        @Query(value = "select * from aicte_documents", nativeQuery = true)
-            //@Query("select ims from ImageSlide ims")
+        @Query("select a from AicteDocuments a")
         List<AicteDocuments> getAllDocuments();
 
     }

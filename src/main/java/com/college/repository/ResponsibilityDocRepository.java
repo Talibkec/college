@@ -11,7 +11,8 @@ import java.util.List;
 @Repository
 public interface ResponsibilityDocRepository extends JpaRepository<ResponsibilityDoc, Long> {
 
-    @Query(value = "select * from responsibility_doc", nativeQuery = true)
+    // list page: without the file content
+    @Query("select new com.college.core.entity.ResponsibilityDoc(r.id, r.fileName, r.uploadedBy, r.date, r.fileType) from ResponsibilityDoc r")
     List<ResponsibilityDoc> getAllDocuments();
 
 }

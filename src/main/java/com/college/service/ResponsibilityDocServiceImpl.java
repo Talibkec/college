@@ -45,7 +45,7 @@ public class ResponsibilityDocServiceImpl implements ResponsibilityDocService{
         responsibilityDocRepository.deleteById(id);
     }
 
-    /** List item for the views: same values as the entity, without the file content. */
+    /** List item for the views (the list queries select only these columns, not the file content). */
     private static ResponsibilityDocDTO toListItem(ResponsibilityDoc entity) {
         ResponsibilityDocDTO dto = new ResponsibilityDocDTO();
         dto.setId(entity.getId());

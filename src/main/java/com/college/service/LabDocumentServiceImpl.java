@@ -51,7 +51,7 @@ public class LabDocumentServiceImpl implements LabDocumentService{
         return labDocumentRepository.getLabByDeptId(deptId).stream().map(LabDocumentServiceImpl::toListItem).toList();
     }
 
-    /** List item for the views: same values as the entity, without the file content. */
+    /** List item for the views (the list queries select only these columns, not the file content). */
     private static LabDocumentDTO toListItem(LabDocument entity) {
         LabDocumentDTO dto = new LabDocumentDTO();
         dto.setId(entity.getId());
@@ -59,7 +59,6 @@ public class LabDocumentServiceImpl implements LabDocumentService{
         dto.setFileType(entity.getFileType());
         dto.setUploadedBy(entity.getUploadedBy());
         dto.setDate(entity.getDate());
-        dto.setDepId(entity.getDepId());
         return dto;
     }
 }

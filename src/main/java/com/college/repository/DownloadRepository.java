@@ -15,9 +15,10 @@ import java.util.List;
 @Repository
 public interface DownloadRepository extends JpaRepository<Download, Long> {
 
-    @Query(value = "select * from download where doc_type='download'", nativeQuery = true)
+    // list pages: without the file content
+    @Query("select new com.college.core.entity.Download(d.id, d.fileName, d.uploadedBy, d.date, d.fileType) from Download d where d.docType = 'download'")
     List<Download> getAllDocuments();
-    @Query(value = "select * from download where doc_type='nba'", nativeQuery = true)
+    @Query("select new com.college.core.entity.Download(d.id, d.fileName, d.uploadedBy, d.date, d.fileType) from Download d where d.docType = 'nba'")
     List<Download> getAllNBADocuments();
 
 }

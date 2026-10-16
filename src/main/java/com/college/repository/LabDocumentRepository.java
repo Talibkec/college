@@ -12,8 +12,9 @@
     @Repository
     public interface LabDocumentRepository extends JpaRepository<LabDocument, Long> {
 
-        @Query(value = "select * from lab_document order by id desc", nativeQuery = true)
+        // list pages: without the file content
+        @Query("select new com.college.core.entity.LabDocument(l.id, l.fileName, l.uploadedBy, l.date, l.fileType) from LabDocument l order by l.id desc")
         List<LabDocument> getAllDocuments();
-        @Query(value = "select l from LabDocument l where l.depId = :deptId order by l.id desc")
+        @Query("select new com.college.core.entity.LabDocument(l.id, l.fileName, l.uploadedBy, l.date, l.fileType) from LabDocument l where l.depId = :deptId order by l.id desc")
         List<LabDocument> getLabByDeptId(@Param("deptId") Integer deptId);
     }

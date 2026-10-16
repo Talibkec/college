@@ -49,7 +49,7 @@ public class ImageSlideServiceImpl implements ImageSlideService {
     public List<ImageSlideDTO> getAllImages() {
         logger.info("ff Query is being served from database for image slide.");
 
-        List<ImageSlide> imageSlides = imageSlideRepository.getAllImages();
+        List<ImageSlide> imageSlides = imageSlideRepository.findTop6ByOrderByImageSlideIdDesc();
         Type targetListType = new TypeToken<List<ImageSlideDTO>>() {
         }.getType();
 

@@ -63,4 +63,7 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local "-Dspring-boot.run.argument
 - `PagesBaselineTest` compares ~370 URLs against baselines recorded on the pre-upgrade version
   (`src/test/resources/upgradetest/*.txt`). A baseline may only be changed for an approved behaviour change.
 - Boot-version-specific test wiring lives only in `AbstractAppTest`.
-- `leaveRequestEndpointMailsPdf` is skipped unless `/sites/default/files/compressed/logo.png` exists (path is hard-coded in `DocUtils`).
+- The PDF logo path is `kec.paths.pdf-logo`; the tests set it to the repository's logo, so the `/rl` test runs locally.
+- `RefactoringSafetyTest` pins the responses of the upload/save endpoints. `HtmlSnapshotTest` (opt-in,
+  `-Dupgradetest.snapshot=record|compare`, run it alone) compares full page bodies with untracked snapshots in
+  `html-snapshots/` (real DB data, never commit them). See `docs/UPGRADE_NOTES.md` §9.1.

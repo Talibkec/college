@@ -45,7 +45,7 @@ sudo rm -rf /opt/tomcat/latest/webapps/*          # remove the demo apps (ROOT, 
 sudo chown -R tomcat:tomcat /opt/tomcat
 ```
 
-Logo used in the attendance-report and leave PDFs (absolute path in `DocUtils`; skip if it already exists on the server):
+Logo used in the attendance-report and leave PDFs (`kec.paths.pdf-logo`, default below; skip if it already exists on the server):
 ```bash
 sudo mkdir -p /sites/default/files/compressed
 sudo cp <logo.png from src/main/webapp/sites/default/files/compressed/> /sites/default/files/compressed/logo.png

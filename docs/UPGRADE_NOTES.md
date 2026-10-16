@@ -1,8 +1,9 @@
 # Upgrade notes – branch `kec_claude`
 
 Upgrade of the college website/ERP from Spring Boot 1.3.3 / Java 8 to Spring Boot 4.1.1 / Java 25 (LTS).
-Only Java, Spring and libraries were upgraded. There was no refactoring, no "making pages dynamic", and no
-schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
+Sections 1-8: the upgrade (only Java, Spring and libraries). Section 9: the refactoring phase that followed
+(code structure only; no "making pages dynamic", no schema change). Analysis and decisions:
+`docs/PROJECT_ANALYSIS.md`.
 
 ## 1. Final versions
 
@@ -138,6 +139,7 @@ Each one was found or confirmed by the tests (§5).
 CLAUDE.md "Tests"). They were written and the baselines recorded on the **original** version, then kept
 unchanged through all stages (only the Boot-specific wiring in `AbstractAppTest` moved).
 Result on Boot 4.1.1 / Java 25: **37 run, 0 failures, 1 skipped** (`leaveRequestEndpointMailsPdf`, see §6.6).
+After the refactoring (§9): **58 run, 0 failures, 1 skipped** (the opt-in `HtmlSnapshotTest`); the /rl test now runs.
 
 ## 6. Open issues / decisions for you
 
@@ -162,9 +164,9 @@ Result on Boot 4.1.1 / Java 25: **37 run, 0 failures, 1 skipped** (`leaveRequest
    removing it changes behaviour – decide in the security follow-up.
 5. **Not covered automatically:** `/rn` (live Firebase query + report mail) and `/rs` (live Google Calendar insert;
    `CalendarService` calls `System.exit(1)` on failure). Test them manually (checklist in the analysis).
-6. **Logo path**: `DocUtils.kecLogo()` reads `/sites/default/files/compressed/logo.png` (absolute path). On machines
-   without it, attendance-report and leave PDFs fail (already the case before the upgrade). To run the skipped
-   test locally: `sudo mkdir -p /sites/default/files/compressed && sudo cp src/main/webapp/sites/default/files/compressed/logo.png /sites/default/files/compressed/`.
+6. **Logo path**: the attendance-report and leave PDFs read the logo from `kec.paths.pdf-logo`
+   (default `/sites/default/files/compressed/logo.png`, absolute path). On servers without it these PDFs fail
+   (already the case before the upgrade). The tests point the property at the repository's logo (§9).
 7. **Deprecated but working** (clean up in a later phase): `GoogleCredential` (P12), `new FirebaseOptions.Builder()`,
    `@Temporal` on 7 date fields (Hibernate 7 logs a deprecation), `requireExplicitSave(false)`, JUnit 4 tests run via
    the vintage engine.
@@ -201,3 +203,101 @@ IntelliJ: set the project SDK to JDK 25 and add `local` to the run configuration
 
 Step-by-step guide for the Ubuntu VPS (Java 25, Tomcat 11.0.x ≥ 11.0.24, MySQL 8.0, nginx, `setenv.sh`,
 systemd, deploy/rollback commands): **`docs/PRODUCTION_DEPLOYMENT.md`**.
+
+## 9. Refactoring (after the upgrade)
+
+Approved plan (2026-10-16): refactor the non-standard/risky code of `PROJECT_ANALYSIS.md` §7, **excluding store
+management**, one area per commit, behaviour/URLs/parameters/form fields/page look unchanged. Decisions:
+1a (exception responses unchanged), 2a (validation only where invalid input already failed), 3a (delete
+unreferenced duplicate JSPs), 4 (SMS key and backup credentials from environment variables).
+Result: 121 main files changed, about 7,400 lines removed and 2,800 added.
+
+### 9.1 Safety net (added first, recorded on the unrefactored code)
+* **`HtmlSnapshotTest`** (opt-in): compares the full response body, status, Content-Type and Content-Disposition
+  of every baseline URL plus `refactor-pages.txt` (role-specific views, delete endpoints per role) with snapshots.
+  The snapshots contain real data of the local DB copy and live in the untracked `html-snapshots/` directory.
+  ```bash
+  mvn test -Dtest=HtmlSnapshotTest -Dupgradetest.snapshot=record    # on the reference code
+  mvn test -Dtest=HtmlSnapshotTest -Dupgradetest.snapshot=compare   # after a change
+  ```
+  Run it on its own (other tests leave rows that show up in pages). Snapshots were recorded on `5c8990e` and,
+  after the whitespace-only JSP change (§9.3), re-recorded on `eb7823b`; every later commit is byte-identical.
+  To re-record: check out the reference commit in a worktree, copy `application-local.properties` and the current
+  `HtmlSnapshotTest`/`WebSession`/`upgradetest/*.txt` into it and run `record` with
+  `-Dupgradetest.snapshot.dir=<repo>/html-snapshots`.
+* **`RefactoringSafetyTest`**: exact responses and stored rows of every upload/save endpoint touched (notice, slide,
+  gallery, AICTE, downloads, NBA, responsibility, holiday, lab docs, administration roles, staff, HOD add faculty,
+  HOD in-charge, registration, password-reset tokens, `/approval/addFaculty`, lenient notice dates, department URL
+  and method edge cases). New tests were also run against the code before the respective commit.
+
+### 9.2 Commits
+| Commit | Area |
+|---|---|
+| `5c8990e`, `6504567`, `57fef94` | Safety net (snapshot test, endpoint tests) |
+| `4b9f199` | SLF4J logging instead of `System.out`/`printStackTrace` |
+| `079fa27` | One global exception handler with request-aware logging (responses unchanged) |
+| `98bdd68` | `KecProperties` (`kec.*`); SMS API key and backup credentials from environment variables |
+| `f9b7819` | Constructor injection (61 classes) |
+| `348e982` | `AccessService` instead of 13 copy-pasted role checks |
+| `b9e65b8` | Layering: `PasswordResetService`, `GrievanceService`, `FacultyService.addPlaceholderFaculty`, `UserService.assignHodRole` |
+| `3703c8e` | DTOs instead of entities in the document-list and department views |
+| `a77967b`, `dd69b17` | Shared notice filter (13 copies); one `DepartmentController` instead of ten (1,871 -> 137 lines) |
+| `03c403f` | One `UploadService` instead of 14 copy-pasted upload handlers |
+| `30f52a9` | Attendance/leave integration: stateless services, per-request temp files, no `System.exit` |
+| `749d7ed` | Core endpoints moved out of `store/CommonResourceController` (`FacultyProfileController`, `PeopleAdminController`) |
+| `eb7823b` | JSPs without scriptlets/Java imports; 11 unreferenced duplicate JSPs deleted |
+| `993f702` | JPQL/derived queries instead of native SQL; list queries no longer load the file BLOBs |
+| `4b3e403` | Bean Validation for the registration form |
+| `6a6c917` | Renames (`NoticeUploadController`, `NoticeController`, `HolidayServiceImpl`, `com.college.firebase.FirebaseSetup`) |
+
+### 9.3 Behaviour changes (all approved)
+* **Registration with invalid input** shows the form again with the messages (was a 404: the controller returned
+  a view that does not exist). Rules and messages unchanged.
+* **Calendar misconfiguration** (`/rs`) fails that request instead of `System.exit(1)` stopping the whole server.
+* **SMS** needs the environment variable **`SMS_API_KEY`** (or `kec.sms.api-key` in `application-local.properties`).
+  The key was in `MessageSender.java`; it is still in git history, so rotate it at Textlocal. Without it a warning is
+  logged at startup and Textlocal rejects the messages. Added to `PRODUCTION_DEPLOYMENT.md`.
+* **Deleted JSPs** (unreferenced, but they could be opened directly under `/jsp/...`): `admin/HeaderDashboard copy`,
+  `admin/UploadDashboard copy`, `footer copy`, `footer2`, `header2`, `old/login-old`, `old/registration-old`,
+  `old/sms-old`, `old/uploadfile-old`, `user/HeaderDashboard copy`, `user/HodDashboard copy`, and the fully
+  commented-out `FacultyController.java`.
+* **Whitespace only**: `/faculty`, `/about/staff`, `/trainingplacement/placedstudent` and `invalidDeptId.jsp` start
+  with 4 fewer blank lines (removed `<%@ page import %>` directives); the photo gallery has one more.
+* Kept on purpose (not behaviour changes): a controller exception still gives an empty HTTP 200 (decision 1a);
+  notice dates keep `SimpleDateFormat`'s lenient parsing (a new formatter per call: the shared one was not
+  thread-safe); the known broken pages stay broken (e.g. `/faculty?deptno=7` truncated, per-faculty shortcuts).
+
+### 9.4 New settings (`application.properties`, values = the former hard-coded ones)
+`kec.mail.from`, `kec.mail.grievance-to`, `kec.paths.notice-upload-dir`, `kec.paths.home-page-image-dir`,
+`kec.paths.pdf-logo`, `kec.sms.url`, `kec.sms.sender`, `kec.sms.api-key` (= `${SMS_API_KEY}`),
+`kec.firebase.database-url`, `kec.firebase.credentials`, `kec.calendar.service-account`, `kec.calendar.p12-key`,
+`kec.calendar.calendar-id`, `kec.report.attendance-mail-to`. `KECDBBackup` (standalone `main`) reads `DB_USERNAME`,
+`DB_PASSWORD`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `BACKUP_DB_NAME`, `BACKUP_MAIL_TO`.
+
+### 9.5 Not changed (out of scope or needs a decision)
+* Store management (only the core endpoints left `CommonResourceController`; its `/common/store/**` code is
+  unchanged). Store classes keep field injection, `System.out`, native queries.
+* Security items of `PROJECT_ANALYSIS.md` §7 (anonymous `/rn` `/rl` `/rs` `/api/uploadAdministration`
+  `/approval/addFaculty`, GET deletes, CSRF off, JSPs outside `WEB-INF`, path traversal in `/hod/{fileName}/{id}`,
+  new faculty password = user name, unchecked upload types).
+* Known bugs kept: calendar events use `-07:00` instead of IST; every attendance report goes to
+  `kec.report.attendance-mail-to`, not to the requesting faculty member; `/approval/addFaculty` inserts blank rows.
+* Remaining naming oddities: `FileUploadFacultycontroller`, `RoleserviceImpl`, `AchievementImageSlider`
+  (a controller), `FacultyKeyPrpsValueRepository`, `UserDashboard` (a controller). `UserServiceImpl` still uses
+  the store's `ProductTransformer` for two user-name lists.
+* Hard-coded page content (header/footer menus, contacts, fee table, ...) - the "make pages dynamic" phase.
+
+### 9.6 Manual re-test after the refactoring
+Items of the checklist in `PROJECT_ANALYSIS.md` §9 whose code changed (the rest is covered by the page baseline
+and the snapshots):
+* Faculty list `/faculty?deptno=1..8` and profile; HOD deletes faculty of own department (other department refused).
+* Each department site: about (notices, scrolling notices, civil blinking message), notice, static pages.
+* All uploads with real files: admin notice/slide/gallery/AICTE/download/NBA/responsibility/holiday/lab doc,
+  HOD notice and lab doc, faculty notice and slide, faculty profile photo, document and link; open and delete them.
+* Admin: add faculty and staff, placements, TPO coordinators; HOD in-charge; registration (also with invalid input);
+  bulk SMS with `SMS_API_KEY` set.
+* Forgot password (mail, link, expired/invalid token, new password); grievance mail.
+* Photo gallery page.
+* Integrations: `/rn` (attendance report from Firebase), `/rl`, `/rs` (calendar event); app keeps running when the
+  calendar key is wrong.
+* Store regression: the faculty/product autocompletes on the SM and faculty store pages (`/common/store/**`).

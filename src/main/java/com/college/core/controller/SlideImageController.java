@@ -1,7 +1,6 @@
 package com.college.core.controller;
-import com.college.core.model.*;
-import com.college.service.*;
-import org.apache.commons.io.FilenameUtils;
+
+import com.college.service.UploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -9,367 +8,143 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+
+/** Admin uploads: home page slides, gallery images and the downloadable documents. */
 @Controller
 public class SlideImageController {
-    private final ImageSlideService imageSlideService;
-    private final AllDocuments allDocuments;
-    private final DownloadService downloadService;
-    private final ResponsibilityDocService responsibilityDocService;
-    private final HolidayService holidayService;
-    private final GalleryImageService galleryImageService;
-    private final LabDocumentService labDocumentService;
 
-    public SlideImageController(ImageSlideService imageSlideService,
-            AllDocuments allDocuments,
-            DownloadService downloadService,
-            ResponsibilityDocService responsibilityDocService,
-            HolidayService holidayService,
-            GalleryImageService galleryImageService,
-            LabDocumentService labDocumentService) {
-        this.imageSlideService = imageSlideService;
-        this.allDocuments = allDocuments;
-        this.downloadService = downloadService;
-        this.responsibilityDocService = responsibilityDocService;
-        this.holidayService = holidayService;
-        this.galleryImageService = galleryImageService;
-        this.labDocumentService = labDocumentService;
+    private static final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
+
+    private final UploadService uploadService;
+
+    public SlideImageController(UploadService uploadService) {
+        this.uploadService = uploadService;
     }
 
-    private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
-
-    //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadslideimage", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadFile(
+    public ResponseEntity<String> uploadFile(
             @RequestParam("slideImage") MultipartFile uploadfile,
             @RequestParam("caption") String caption,
             @RequestParam("flag") int flag) {
         logger.debug("Single file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please give a proper caption";
-            }
-            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = uploadService.slideImageProblem(uploadfile, caption, flag);
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-        try {
-            String msg;
-            BufferedImage image = ImageIO.read(uploadfile.getInputStream());
-            int h = image.getHeight();
-            int b = image.getWidth();
-            logger.info("Image resolution is " + h + "  " + b);
-            if ((flag == 0 && (b != 2000 || h != 550)) || (flag == 1 && (b != 1080 || h != 1920))){
-                msg = "Kindly Resize Your image in " + (flag == 0 ? "2000 * 550" : "1080 * 1920") + " format";
-                return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveImageSlide(uploadfile, caption, fileName, fileType, flag);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
+        uploadService.saveSlideImage(uploadfile, caption, flag);
+        return ok("Document uploaded successfully");
     }
+
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadAICTEapproval", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadAICTEapproval(
+    public ResponseEntity<String> uploadAICTEapproval(
             @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
         logger.debug("Single aicte file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please provide a year";
-            }
-            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a year");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveAicteDocument(uploadfile, caption, fileName, fileType);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
+        uploadService.saveAicteDocument(uploadfile, caption);
+        return ok("Document uploaded successfully");
     }
+
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadDownload", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadDownload(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+    public ResponseEntity<String> uploadDownload(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
+            Authentication authentication) {
         logger.debug("Single download file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please provide a caption";
-            }
-            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a caption");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveDownloadFile(uploadfile, caption, fileName, fileType , authentication);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
+        if (authentication.isAuthenticated()) {
+            uploadService.saveDownload(uploadfile, caption, "download", authentication.getName());
+        }
+        return ok("Document uploaded successfully");
     }
-
 
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadResponsibilityDoc", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadResponsibilityDoc(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
+    public ResponseEntity<String> uploadResponsibilityDoc(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
+            Authentication authentication) {
         logger.debug("Single responsibility file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please provide a session";
-            }
-            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a session");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveResponsibilityDoc(uploadfile, caption, fileName, fileType , authentication);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Responsibility Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
+        if (authentication.isAuthenticated()) {
+            uploadService.saveResponsibilityDoc(uploadfile, caption, authentication.getName());
+        }
+        return ok("Responsibility Doc uploaded successfully");
     }
 
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadHoliday", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadHoliday(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
-        logger.debug("Single responsibility file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please provide a year";
-            }
-            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> uploadHoliday(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
+            Authentication authentication) {
+        logger.debug("Single holiday file upload!");
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a year");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveHolidayDoc(uploadfile, caption, fileName, fileType , authentication);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Holiday Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
+        if (authentication.isAuthenticated()) {
+            uploadService.saveHoliday(uploadfile, caption, authentication.getName());
+        }
+        return ok("Holiday Doc uploaded successfully");
     }
-
 
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadLabDoc", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadLabDoc(
-            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption ,@RequestParam("deptId") Integer depId , Authentication authentication) {
+    public ResponseEntity<String> uploadLabDoc(
+            @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
+            @RequestParam("deptId") Integer depId, Authentication authentication) {
         logger.debug("Single lab file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please provide a year";
-            }
-            return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a year");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveLabDoc(uploadfile, caption , depId, fileName,  fileType , authentication);
-        //return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
-
-
-        return new ResponseEntity("Lab Doc uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
-    }
-    private void saveLabDoc(MultipartFile uploadfile, String caption , Integer deptId, String fileName, String fileType , Authentication authentication) {
-        if(!authentication.isAuthenticated()){
-            return ;
+        if (authentication.isAuthenticated()) {
+            uploadService.saveLabDoc(uploadfile, caption, depId, authentication.getName());
         }
-        LabDocumentDTO holidayDTO = new LabDocumentDTO();
-        holidayDTO.setFileName(caption);
-        holidayDTO.setDepId(deptId);
-        String username = authentication.getName();
-        holidayDTO.setUploadedBy(authentication.getName());
-        try {
-            holidayDTO.setUploadedFile(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded lab document {}", fileName, e);
-        }
-        holidayDTO.setFileType(FilenameUtils.getExtension(fileName));
-        labDocumentService.saveDownloadBoard(holidayDTO);
-    }
-
-
-    private void saveHolidayDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
-        if(!authentication.isAuthenticated()){
-            return ;
-        }
-        HolidayDTO holidayDTO = new HolidayDTO();
-        holidayDTO.setFileName(caption);
-
-        String username = authentication.getName();
-        holidayDTO.setUploadedBy(authentication.getName());
-        try {
-            holidayDTO.setUploadedFile(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded holiday document {}", fileName, e);
-        }
-        holidayDTO.setFileType(FilenameUtils.getExtension(fileName));
-        holidayService.saveDownloadBoard(holidayDTO);
-    }
-    private void saveResponsibilityDoc(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
-        if(!authentication.isAuthenticated()){
-            return ;
-        }
-        ResponsibilityDocDTO responsibilityDocDTO = new ResponsibilityDocDTO();
-        responsibilityDocDTO.setFileName(caption);
-
-        String username = authentication.getName();
-        responsibilityDocDTO.setUploadedBy(authentication.getName());
-        try {
-            responsibilityDocDTO.setUploadedFile(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded responsibility document {}", fileName, e);
-        }
-        responsibilityDocDTO.setFileType(FilenameUtils.getExtension(fileName));
-        responsibilityDocService.saveDownloadBoard(responsibilityDocDTO);
-    }
-    private void saveDownloadFile(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
-        if(!authentication.isAuthenticated()){
-                return ;
-        }
-        DownloadDTO downloadDTO = new DownloadDTO();
-        downloadDTO.setFileName(caption);
-        downloadDTO.setDocType("download");
-
-        String username = authentication.getName();
-        downloadDTO.setUploadedBy(authentication.getName());
-        try {
-            downloadDTO.setUploadedFile(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded download document {}", fileName, e);
-        }
-        downloadDTO.setFileType(FilenameUtils.getExtension(fileName));
-        downloadService.saveDownloadBoard(downloadDTO);
+        return ok("Lab Doc uploaded successfully");
     }
 
     @ResponseBody
     @RequestMapping(value = "/auth/api/uploadgalleryimage", method = RequestMethod.POST)
-    public ResponseEntity<?> uploadFiles(
+    public ResponseEntity<String> uploadFiles(
             @RequestParam("galleryImage") MultipartFile uploadfile, @RequestParam("caption") String caption) {
         logger.debug("Single file upload!");
-        String fileName = uploadfile.getOriginalFilename();
-        String fileType = uploadfile.getContentType();
-        if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-            String msg = "";
-            if (uploadfile.isEmpty()) {
-                msg = "Please select a file.";
-            } else {
-                msg = "Please give a proper caption";
-            }
-            return new ResponseEntity(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please give a proper caption");
+        if (problem != null) {
+            return badRequest(problem);
         }
-
-
-        //fileName = UploadFileUtility.saveUploadedFiles(Arrays.asList(uploadfile), UPLOADED_FOLDER);
-        saveImageGallery(uploadfile, caption, fileName, fileType);
-
-
-        String notice = "/wp-content/uploads/notice/" + fileName;
-        notice = notice + "," + caption;
-        notice = notice + "," + uploadfile;
-        return new ResponseEntity(notice, new HttpHeaders(), HttpStatus.OK);
-
+        uploadService.saveGalleryImage(uploadfile, caption);
+        // response kept from the original code (including the MultipartFile's toString)
+        return ok("/wp-content/uploads/notice/" + uploadfile.getOriginalFilename() + "," + caption + "," + uploadfile);
     }
 
     @RequestMapping(value = "/auth/uploadfile/uploadslideimage", method = RequestMethod.GET)
     public ModelAndView displaySlideImage() {
         ModelAndView model = new ModelAndView();
-        //model.addObject("users", getUsers());
         model.setViewName("uploadslideimage.jsp");
         return model;
     }
 
-    private void saveImageSlide(MultipartFile uploadfile, String caption, String fileName, String fileType, int flag) {
-        ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
-        imageSlideDTO.setCaption(caption);
-        imageSlideDTO.setFileName(fileName);
-        imageSlideDTO.setFileType(fileType);
-        imageSlideDTO.setFlag(flag);
-        try {
-            imageSlideDTO.setImage(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded slide image {}", fileName, e);
-        }
-        imageSlideDTO.setFileType(FilenameUtils.getExtension(fileName));
-        imageSlideService.saveImageSlide(imageSlideDTO);
+    static ResponseEntity<String> ok(String body) {
+        return new ResponseEntity<>(body, new HttpHeaders(), HttpStatus.OK);
     }
-    private void saveAicteDocument(MultipartFile uploadfile, String caption, String fileName, String fileType) {
-        AicteDocumentsDTO aicteDocumentsDTO = new AicteDocumentsDTO();
-        aicteDocumentsDTO.setTitle(caption);
-        aicteDocumentsDTO.setFileName(fileName);
-        aicteDocumentsDTO.setFileType(fileType);
-        try {
-            aicteDocumentsDTO.setImage(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded AICTE document {}", fileName, e);
-        }
-        aicteDocumentsDTO.setFileType(FilenameUtils.getExtension(fileName));
-        allDocuments.saveAicteDocument(aicteDocumentsDTO);
-    }
-        private void saveImageGallery(MultipartFile uploadfile, String caption, String fileName, String fileType) {
-        GalleryImageDTO galleryImageDTO = new GalleryImageDTO();
-        galleryImageDTO.setCaption(caption);
-        galleryImageDTO.setFileName(fileName);
-        galleryImageDTO.setFileType(fileType);
-        galleryImageDTO.getCaption();
-        try {
-            galleryImageDTO.setImage(uploadfile.getBytes());
-        } catch (IOException e) {
-            logger.error("Could not read the uploaded gallery image {}", fileName, e);
-        }
-        galleryImageDTO.setFileType(FilenameUtils.getExtension(fileName));
-        galleryImageService.saveImageSlide(galleryImageDTO);
+
+    static ResponseEntity<String> badRequest(String body) {
+        return new ResponseEntity<>(body, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 }
-
-

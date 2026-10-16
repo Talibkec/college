@@ -95,6 +95,21 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         assertEquals("http://example.com/x", jdbc.queryForObject("select link from noticeboard where id = ?", String.class, id));
     }
 
+    /** Notice dates are parsed leniently (SimpleDateFormat default): days roll over, trailing text is ignored. */
+    @Test
+    public void noticeDateParsingIsLenient() throws Exception {
+        WebSession admin = loginAs(TestData.ADMIN);
+        String[][] cases = {{"31/02/2099", "2099-03-03"}, {"1/2/2099xyz", "2099-02-01"}};
+        for (String[] c : cases) {
+            String headline = TestData.MARK + " date " + c[0] + " " + System.nanoTime();
+            admin.postMultipart("/auth/api/upload",
+                    fields("noticeHeader", headline, "noticeType", "Notice", "link", "", "isScrollable", "false", "date", c[0]),
+                    file("noticeFile", "d.pdf", "application/pdf", PDF));
+            assertEquals(c[0], c[1], jdbc.queryForObject(
+                    "select date_format(nb_uploaddate, '%Y-%m-%d') from noticeboard where nb_headline = ?", String.class, headline));
+        }
+    }
+
     @Test
     public void hodNoticeResponseAndDepartmentPage() throws Exception {
         WebSession hod = loginAs(TestData.HOD);

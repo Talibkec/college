@@ -5,14 +5,11 @@ import org.slf4j.LoggerFactory;
 
 import com.college.core.model.DownloadDTO;
 import com.college.service.DownloadService;
+import com.college.service.UploadService;
 import com.college.service.AccessService;
-import org.apache.commons.io.FilenameUtils;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -29,10 +25,12 @@ public class NBAController {
     private static final Logger logger = LoggerFactory.getLogger(NBAController.class);
   private final AccessService accessService;
   private final DownloadService downloadService;
+  private final UploadService uploadService;
 
-  public NBAController(AccessService accessService, DownloadService downloadService) {
+  public NBAController(AccessService accessService, DownloadService downloadService, UploadService uploadService) {
       this.accessService = accessService;
       this.downloadService = downloadService;
+      this.uploadService = uploadService;
   }
 
   @RequestMapping(value = "nba/nba")
@@ -63,45 +61,17 @@ public class NBAController {
 
   @ResponseBody
   @RequestMapping(value = "/auth/api/nba/uploadNBA", method = RequestMethod.POST)
-  public ResponseEntity<?> uploadDownload(
-          @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption , Authentication authentication) {
-    String fileName = uploadfile.getOriginalFilename();
-    String fileType = uploadfile.getContentType();
-    if (uploadfile.isEmpty() || StringUtils.isEmpty(caption)) {
-      String msg = "";
-      if (uploadfile.isEmpty()) {
-        msg = "Please select a file.";
-      } else {
-        msg = "Please provide a caption";
-      }
-      return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+  public ResponseEntity<String> uploadDownload(
+          @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
+          Authentication authentication) {
+    String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a caption");
+    if (problem != null) {
+      return SlideImageController.badRequest(problem);
     }
-
-
-    saveDownloadFile(uploadfile, caption, fileName, fileType , authentication);
-
-
-    return new ResponseEntity("Document uploaded successfully", new HttpHeaders(), HttpStatus.OK);
-
-  }
-
-  private void saveDownloadFile(MultipartFile uploadfile, String caption, String fileName, String fileType , Authentication authentication) {
-    if(!authentication.isAuthenticated()){
-      return ;
+    if (authentication.isAuthenticated()) {
+      uploadService.saveDownload(uploadfile, caption, "nba", authentication.getName());
     }
-    DownloadDTO downloadDTO = new DownloadDTO();
-    downloadDTO.setFileName(caption);
-    downloadDTO.setDocType("nba");
-
-    String username = authentication.getName();
-    downloadDTO.setUploadedBy(authentication.getName());
-    try {
-      downloadDTO.setUploadedFile(uploadfile.getBytes());
-    } catch (IOException e) {
-      logger.error("Could not read the uploaded NBA document {}", fileName, e);
-    }
-    downloadDTO.setFileType(FilenameUtils.getExtension(fileName));
-    downloadService.saveDownloadBoard(downloadDTO);
+    return SlideImageController.ok("Document uploaded successfully");
   }
 
 }

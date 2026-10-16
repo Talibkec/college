@@ -61,4 +61,18 @@ public class ControllerUtility {
         }
         return result;
     }
+
+    /** User name of the logged-in user, or the principal's text (e.g. "anonymousUser") as the upload handlers did. */
+    public static String getPrincipalName() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            return ((UserDetails) principal).getUsername();
+        }
+        return principal.toString();
+    }
+
+    /** Response body of the notice upload endpoints (kept from the original code; the path is not a real file). */
+    public static String noticeUploadResponse(String fileName, String noticeHeader, String noticeType) {
+        return "/wp-content/uploads/notice/" + fileName + "," + noticeHeader + "," + noticeType;
+    }
 }

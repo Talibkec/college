@@ -1,5 +1,8 @@
 package com.college.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.core.entity.Download;
 import com.college.core.entity.ResponsibilityDoc;
 import com.college.core.entity.Role;
@@ -34,6 +37,8 @@ import java.util.Set;
 @RequestMapping(value = "facilities")
 
 public class FacilitiesController {
+    private static final Logger logger = LoggerFactory.getLogger(FacilitiesController.class);
+
     @Autowired
     UserService userService;
     @Autowired
@@ -56,7 +61,7 @@ public class FacilitiesController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -64,13 +69,13 @@ public class FacilitiesController {
 
         }
 
-        System.out.println("in download method");
+        logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
         List<Download> allDocumentList = downloadService.getAllDownload();
         mv.setViewName("facilities/downloads.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
         for (Download download : allDocumentList) {
-            System.out.println(download.getFileName());
+            logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);
         mv.addObject("showDeleteBtn" , accessAllow);
@@ -80,7 +85,7 @@ public class FacilitiesController {
 
     @RequestMapping(value = "document/{id}")
     public ResponseEntity<byte[]> getDocument(@PathVariable("id") Long documentId) throws IOException {
-        System.out.println("User tried to download document with id :- " + documentId);
+        logger.debug("Download of document {}", documentId);
         DownloadDTO downloadDTO = downloadService.getDownloadDocument(documentId);
         String filename = downloadDTO.getFileName();
         HttpHeaders headers = new HttpHeaders();
@@ -103,7 +108,7 @@ public class FacilitiesController {
             Set<Role> role = loggedInUser.getRoles();
 
             for (Role r : role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if (Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")) {
                     accessAllow = true;
                 }
@@ -112,7 +117,7 @@ public class FacilitiesController {
             if (!accessAllow) {
                 return new ResponseEntity<>("Authorities required", new HttpHeaders(), HttpStatus.OK);
             }
-            System.out.println("User tried to delete download document with id :- " + documentId);
+            logger.info("Deleting download document {}", documentId);
             downloadService.deleteItem(documentId);
             HttpHeaders headers = new HttpHeaders();
             return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/facilities/downloads';</script>", headers, HttpStatus.OK);

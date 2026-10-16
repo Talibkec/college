@@ -224,7 +224,7 @@ public class SlideImageController {
         try {
             holidayDTO.setUploadedFile(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded lab document {}", fileName, e);
         }
         holidayDTO.setFileType(FilenameUtils.getExtension(fileName));
         labDocumentService.saveDownloadBoard(holidayDTO);
@@ -243,7 +243,7 @@ public class SlideImageController {
         try {
             holidayDTO.setUploadedFile(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded holiday document {}", fileName, e);
         }
         holidayDTO.setFileType(FilenameUtils.getExtension(fileName));
         holidayService.saveDownloadBoard(holidayDTO);
@@ -260,7 +260,7 @@ public class SlideImageController {
         try {
             responsibilityDocDTO.setUploadedFile(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded responsibility document {}", fileName, e);
         }
         responsibilityDocDTO.setFileType(FilenameUtils.getExtension(fileName));
         responsibilityDocService.saveDownloadBoard(responsibilityDocDTO);
@@ -278,7 +278,7 @@ public class SlideImageController {
         try {
             downloadDTO.setUploadedFile(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded download document {}", fileName, e);
         }
         downloadDTO.setFileType(FilenameUtils.getExtension(fileName));
         downloadService.saveDownloadBoard(downloadDTO);
@@ -330,7 +330,7 @@ public class SlideImageController {
         try {
             imageSlideDTO.setImage(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded slide image {}", fileName, e);
         }
         imageSlideDTO.setFileType(FilenameUtils.getExtension(fileName));
         imageSlideService.saveImageSlide(imageSlideDTO);
@@ -343,7 +343,7 @@ public class SlideImageController {
         try {
             aicteDocumentsDTO.setImage(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded AICTE document {}", fileName, e);
         }
         aicteDocumentsDTO.setFileType(FilenameUtils.getExtension(fileName));
         allDocuments.saveAicteDocument(aicteDocumentsDTO);
@@ -357,7 +357,7 @@ public class SlideImageController {
         try {
             galleryImageDTO.setImage(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded gallery image {}", fileName, e);
         }
         galleryImageDTO.setFileType(FilenameUtils.getExtension(fileName));
         galleryImageService.saveImageSlide(galleryImageDTO);

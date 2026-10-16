@@ -93,7 +93,7 @@ public class DashboardController {
         ModelAndView model = new ModelAndView();
         Boolean isauth = SecurityContextHolder.getContext().getAuthentication().isAuthenticated();
         if (isauth) {
-            System.out.println("I am already authenticated.");
+            logger.debug("Already authenticated");
         }
         //model.addObject("users", getUsers());
         model.setViewName("dashboard.jsp");

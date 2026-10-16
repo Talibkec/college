@@ -1,5 +1,8 @@
 package com.college.core.controller.store;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.FacultyHelper;
 import com.college.core.controller.ControllerUtility;
 import com.college.core.entity.Role;
@@ -37,6 +40,8 @@ import java.util.*;
 
 @Controller
 public class CommonResourceController {
+    private static final Logger logger = LoggerFactory.getLogger(CommonResourceController.class);
+
 
     @Autowired
     ProductService productService;
@@ -186,8 +191,8 @@ public class CommonResourceController {
             @RequestParam("facultyDetails") String facultyDetails) {
 
 
-        System.out.println("oldKeyOrder = " + oldKeyOrder);
-        System.out.println("newKeyOrder = " + newKeyOrder);
+        logger.debug("oldKeyOrder = {}", oldKeyOrder);
+        logger.debug("newKeyOrder = {}", newKeyOrder);
         FacultyDTO newFacultyDTO = new FacultyDTO();
         FacultyDTO gsonFacultyObject = gson.fromJson(facultyDetails, FacultyDTO.class);
         FacultyKeyPropsDTO newFacultyKeyPropsDTO = new FacultyKeyPropsDTO();
@@ -237,7 +242,7 @@ public class CommonResourceController {
 
                     valueDTO.setFacultyKeyProps(keyDTO);
                     valDTOs.add(valueDTO);
-                    System.out.println("Print Property Value in controller layer" + valueDTO.getKeyPropVal());
+                    logger.debug("Key property value: {}", valueDTO.getKeyPropVal());
                 }
                 keyDTO.getKeyPropVals().addAll(valDTOs);
 
@@ -280,7 +285,7 @@ public class CommonResourceController {
             try {
                 facultyDTO.setFacultyPhoto(uploadfile.getBytes());
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error("Could not read the uploaded profile photo {}", fileName, e);
             }
             facultyDTO.setFileType(FilenameUtils.getExtension(fileName));
             if (StringUtils.isEmpty(facultyOfficialEmail)) {
@@ -328,7 +333,7 @@ public class CommonResourceController {
         try {
             facultyDocumentsDTO.setDocument(uploadFile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded faculty document {}", fileName, e);
         }
         facultyDocumentsService.saveFacultydocumentsDetails(facultyDocumentsDTO);
     }
@@ -431,7 +436,7 @@ public class CommonResourceController {
         }
 
         long l1 = System.currentTimeMillis();
-        System.out.println("Time = " + (l1 - l) / 1000);
+        logger.debug("Built the list in {} s", (l1 - l) / 1000);
         if (hod != null) {
             facultyList.add(0, hod);
         }
@@ -638,7 +643,7 @@ public class CommonResourceController {
             staffDTO.setFileType(FilenameUtils.getExtension(fileName));
             staffDTO.setStaffPhoto(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded staff photo {}", fileName, e);
         }
 
 

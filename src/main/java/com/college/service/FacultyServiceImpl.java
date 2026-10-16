@@ -1,5 +1,8 @@
 package com.college.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.ProductTransformer;
 import com.college.core.entity.Department;
 import com.college.core.entity.Faculty;
@@ -25,6 +28,8 @@ import java.util.Map;
 
 @Service
 public class FacultyServiceImpl implements FacultyService {
+    private static final Logger logger = LoggerFactory.getLogger(FacultyServiceImpl.class);
+
     ModelMapper modelMapper = new ModelMapper();
     @Autowired
     FacultyRepository facultyRepository;
@@ -50,10 +55,8 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public void saveFaculty(FacultyDTO facultyDTO) {
-
-        System.out.println("Insertion Order inservice layer saveFaculty method ");
         for(FacultyKeyPropsDTO keyPropsDTO:facultyDTO.getFacultyKeyProps()){
-            System.out.println(keyPropsDTO.getKeyPropertyName());
+            logger.debug("Key property: {}", keyPropsDTO.getKeyPropertyName());
         }
         Faculty faculty = modelMapper.map(facultyDTO, Faculty.class);
         facultyRepository.save(faculty);
@@ -66,9 +69,8 @@ public class FacultyServiceImpl implements FacultyService {
         if (faculty != null) {
             facultyDTO = modelMapper.map(faculty, FacultyDTO.class);
         }
-        System.out.println("Fetching Order inservice layer method ");
         for(FacultyKeyPropsDTO keyPropsDTO:facultyDTO.getFacultyKeyProps()){
-            System.out.println(keyPropsDTO.getKeyPropertyName());
+            logger.debug("Key property: {}", keyPropsDTO.getKeyPropertyName());
         }
         return facultyDTO;
     }

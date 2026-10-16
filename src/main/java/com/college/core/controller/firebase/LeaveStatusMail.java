@@ -1,5 +1,8 @@
 package com.college.core.controller.firebase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
 import com.google.gson.Gson;
@@ -43,6 +46,8 @@ import java.io.IOException;
 
 @Controller
 public class LeaveStatusMail {
+    private static final Logger logger = LoggerFactory.getLogger(LeaveStatusMail.class);
+
     public String leaveId = "";
     public String startDate = "";
     public String endDate = "";
@@ -68,7 +73,7 @@ public class LeaveStatusMail {
         email = leaveStatusDetail.getEmail();
         status = leaveStatusDetail.getStatus();
         requestDate = leaveStatusDetail.getRequestDate();
-        System.out.println("Leave Status is being called with following parameters. " + params );
+        logger.debug("Leave status mail requested with parameters {}", params);
         File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
         String email = leaveStatusDetail.getEmail();
         sendLeaveStatusMail(email,leaveStatusDetail);
@@ -106,9 +111,9 @@ public class LeaveStatusMail {
                 event = service.events().insert(calendarId, event).execute();
         }
         catch (SocketTimeoutException e){
-            System.out.print(e.getStackTrace());
+            logger.error("Timeout while creating the calendar event", e);
         }
-        System.out.printf("Event created: %s\n", event.getHtmlLink());
+        logger.info("Calendar event created: {}", event.getHtmlLink());
     }
     
     private void  sendLeaveStatusMail(String email, LeaveStatusDetail leaveStatusDetail){
@@ -117,7 +122,7 @@ public class LeaveStatusMail {
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
             @Override
             public void prepare(MimeMessage mimeMessage) throws Exception {
-                System.out.println("send Mail with Status method being called");
+                logger.debug("Preparing the leave status mail");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
@@ -131,12 +136,12 @@ public class LeaveStatusMail {
         };
         try {
             mailSender.send(preparator);
-            System.out.println("Message sent");
+            logger.info("Leave status mail sent");
            
         }
         catch (MailException ex) {
             // simply log it and go on...
-            System.err.println(ex.getMessage());
+            logger.error("Could not send the leave status mail", ex);
             //fileWithAbsolutePath.delete();
         }
     }

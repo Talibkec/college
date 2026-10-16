@@ -1,5 +1,8 @@
 package com.college.core.controller.firebase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.gson.Gson;
 import org.openpdf.text.DocumentException;
@@ -27,6 +30,8 @@ import java.io.IOException;
 
 @Controller
 public class LeaveMail {
+    private static final Logger logger = LoggerFactory.getLogger(LeaveMail.class);
+
     public String email = "";
     public String department = "";
     public String startDate = "";
@@ -56,17 +61,15 @@ public class LeaveMail {
         leaveType = leaveRequestDetail.getLeaveType();
         subject = leaveRequestDetail.getSubject();
         emailContent = leaveRequestDetail.getEmailContent();
-        System.out.println("Leave Application is being called with following parameters. " + params );
+        logger.debug("Leave application requested with parameters {}", params);
         File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
         File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/RequestLeave.pdf");
         try {
             firebaseDocumentHelper.getLeaveInfo(fileWithAbsolutePath,leaveRequestDetail);
         } catch (DocumentException e) {
-            System.out.println("Unable to Generate the report.");
-            e.printStackTrace();
+            logger.error("Unable to generate the leave application PDF", e);
         } catch (IOException e) {
-            System.out.println("Unable to write into file.");
-            e.printStackTrace();
+            logger.error("Unable to write the leave application PDF", e);
         }
         String email = leaveRequestDetail.getEmail();
         sendMailWithAttachments(email, fileWithAbsolutePath);
@@ -77,7 +80,7 @@ public class LeaveMail {
         {
             public void prepare(MimeMessage mimeMessage) throws Exception
             {
-                System.out.println("send Mail with Attachment method being called");
+                logger.debug("Preparing the leave application mail");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
@@ -94,14 +97,14 @@ public class LeaveMail {
         };
         try {
             mailSender.send(preparator);
-            System.out.println("Message sent");
+            logger.info("Leave application mail sent");
             if(FileSystemUtils.deleteRecursively(fileWithAbsolutePath)){
-                System.out.println("Report deleted.");
+                logger.debug("Leave application file deleted");
             }
         }
         catch (MailException ex) {
             // simply log it and go on...
-            System.err.println(ex.getMessage());
+            logger.error("Could not send the leave application mail", ex);
             //fileWithAbsolutePath.delete();
         }
     }

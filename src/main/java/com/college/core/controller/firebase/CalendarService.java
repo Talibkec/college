@@ -1,5 +1,8 @@
 package com.college.core.controller.firebase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +34,8 @@ import com.google.api.client.util.DateTime;
 
 
 public class CalendarService {
+    private static final Logger logger = LoggerFactory.getLogger(CalendarService.class);
+
     private static final String APPLICATION_NAME = "Google Calendar API";
 
     /** E-mail address of the service account. */
@@ -75,7 +80,7 @@ public class CalendarService {
                 };
                 // check for valid setup
                 if (SERVICE_ACCOUNT_EMAIL.startsWith("Enter ")) {
-                    System.err.println(SERVICE_ACCOUNT_EMAIL);
+                    logger.error("Google Calendar service account is not configured");
                     System.exit(1);
                 }
                 
@@ -85,7 +90,7 @@ public class CalendarService {
                 File file = new File(path);
                 String p12Content = Files.readFirstLine(file, Charset.defaultCharset());
                 if (p12Content.startsWith("Please")) {
-                    System.err.println(p12Content);
+                    logger.error("Google Calendar P12 key file is a placeholder");
                     System.exit(1);
                 }
                 
@@ -102,14 +107,14 @@ public class CalendarService {
                 Calendar   client = new com.google.api.services.calendar.Calendar.Builder(
                         httpTransport, JSON_FACTORY, credential)
                         .setApplicationName(APPLICATION_NAME).build();
-                System.out.println("Client : "+client);
+                logger.debug("Google Calendar client created");
                 return client;
 
             } catch (IOException e) {
-                System.err.println(e.getMessage());
+                logger.error("Could not configure the Google Calendar client", e);
             }
         } catch (Throwable t) {
-            t.printStackTrace();
+            logger.error("Could not configure the Google Calendar client", t);
         }
         System.exit(1);
         return null;

@@ -1,5 +1,8 @@
 package firebase.bean;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -11,6 +14,8 @@ import jakarta.annotation.PostConstruct;
 import java.io.InputStream;
 
 public class FirebaseSetup {
+    private static final Logger logger = LoggerFactory.getLogger(FirebaseSetup.class);
+
 
 
     @Autowired
@@ -29,7 +34,7 @@ public class FirebaseSetup {
 
             FirebaseApp.initializeApp(options);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Firebase initialisation failed", e);
         }
 
     }

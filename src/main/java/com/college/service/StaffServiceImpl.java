@@ -39,7 +39,6 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public void saveStaff(StaffDTO StaffDTO) {
-        System.out.println("Insertion Order inservice layer saveFaculty method ");
         Staff staff = modelMapper.map(StaffDTO, Staff.class);
         staffRepository.save(staff);
     }
@@ -51,7 +50,6 @@ public class StaffServiceImpl implements StaffService {
         if (staff != null) {
             staffDTO = modelMapper.map(staff, StaffDTO.class);
         }
-        System.out.println("Fetching Order inservice layer method ");
 //        for(FacultyKeyPropsDTO keyPropsDTO:StaffDTO.getFacultyKeyProps()){
 //            System.out.println(keyPropsDTO.getKeyPropertyName());
 //        }

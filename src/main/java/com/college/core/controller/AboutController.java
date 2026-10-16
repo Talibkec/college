@@ -1,5 +1,8 @@
 package com.college.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import com.college.core.entity.ResponsibilityDoc;
 import com.college.core.entity.Role;
@@ -31,6 +34,8 @@ import java.util.Set;
 @Controller
 @RequestMapping("about")
 public class AboutController {
+    private static final Logger logger = LoggerFactory.getLogger(AboutController.class);
+
     @Autowired
     UserService userService;
     @Autowired
@@ -85,7 +90,7 @@ public class AboutController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -93,13 +98,13 @@ public class AboutController {
 
         }
 
-        System.out.println("in download method");
+        logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
         List<ResponsibilityDoc> allDocumentList = responsibilityDocService.getAllDownload();
         mv.setViewName("facilities/responsibilityDoc.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
         for (ResponsibilityDoc download : allDocumentList) {
-            System.out.println(download.getFileName());
+            logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);
         mv.addObject("showDeleteBtn" , accessAllow);
@@ -157,7 +162,7 @@ public class AboutController {
         }
 
         long l1 = System.currentTimeMillis();
-        System.out.println("Time = " + (l1 - l) / 1000);
+        logger.debug("Built the list in {} s", (l1 - l) / 1000);
 
         mv.addObject("staffList", staffList);
         mv.addObject("userType", userType);

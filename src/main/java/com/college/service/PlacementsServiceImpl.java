@@ -36,7 +36,6 @@ public class PlacementsServiceImpl implements PlacementsService {
 
     @Override
     public void savePlacements(PlacementsDTO placementsDTO) {
-        System.out.println("Insertion Order inservice layer saveFaculty method ");
         Placements placements = modelMapper.map(placementsDTO, Placements.class);
         placementsRepository.save(placements);
     }

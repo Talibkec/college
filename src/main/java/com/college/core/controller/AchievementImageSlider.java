@@ -123,7 +123,7 @@ public class AchievementImageSlider {
         try {
             achievementDTO.setAchievementImage(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded achievement image {}", fileName, e);
         }
         achievementDTO.setFileType(FilenameUtils.getExtension(fileName));
         achievementSlideService.saveAchievementSlide(achievementDTO);

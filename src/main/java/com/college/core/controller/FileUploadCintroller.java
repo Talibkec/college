@@ -84,7 +84,7 @@ public class FileUploadCintroller {
         try {
             noticeBoardDTO.setNotice(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded notice file {}", fileName, e);
         }
         noticeBoardDTO.setFileType(FilenameUtils.getExtension(fileName));
         noticeBoardService.saveNoticeBoard(noticeBoardDTO);

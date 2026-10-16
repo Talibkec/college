@@ -1,5 +1,8 @@
 package com.college.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.core.entity.*;
 import com.college.service.HolidayService;
 import com.college.service.LabDocumentService;
@@ -17,6 +20,8 @@ import java.util.Set;
 @Controller
 @RequestMapping(value = "academic")
 public class AcademicController {
+    private static final Logger logger = LoggerFactory.getLogger(AcademicController.class);
+
     @Autowired
     HolidayService holidayService;
     @Autowired
@@ -61,7 +66,7 @@ public class AcademicController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -69,13 +74,13 @@ public class AcademicController {
 
         }
 
-        System.out.println("in download method");
+        logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
         List<Holiday> allDocumentList = holidayService.getAllDownload();
         mv.setViewName("academic/holidays.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
         for (Holiday download : allDocumentList) {
-            System.out.println(download.getFileName());
+            logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);
         mv.addObject("showDeleteBtn" , accessAllow);
@@ -97,7 +102,7 @@ public class AcademicController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -105,13 +110,13 @@ public class AcademicController {
 
         }
 
-        System.out.println("in download method");
+        logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
         List<LabDocument> allDocumentList = labDocumentService.getAllLabDocByDepId(deptId);
         mv.setViewName("academic/labs.jsp");
         //System.out.println(" document list id " + allDocumentList.get(0).getId());
         for (LabDocument download : allDocumentList) {
-            System.out.println(download.getFileName());
+            logger.debug("Document: {}", download.getFileName());
         }
         mv.addObject("allDocuments" , allDocumentList);
         mv.addObject("showDeleteBtn" , accessAllow);

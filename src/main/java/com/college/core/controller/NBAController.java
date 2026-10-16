@@ -1,5 +1,8 @@
 package com.college.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.core.entity.Download;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
@@ -29,6 +32,8 @@ import java.util.Set;
 @Controller
 
 public class NBAController {
+    private static final Logger logger = LoggerFactory.getLogger(NBAController.class);
+
 
   @Autowired
   UserService userService;
@@ -46,7 +51,7 @@ public class NBAController {
       Set<Role> role = loggedInUser.getRoles();
 
       for ( Role r: role) {
-        System.out.println(r.getName());
+        logger.debug("Role of the logged-in user: {}", r.getName());
         if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
           accessAllow = true;
         }
@@ -58,7 +63,7 @@ public class NBAController {
     List<Download> allDocumentList = downloadService.getAllNBADocuments();
     mv.setViewName("nba/nba.jsp");
     for (Download download : allDocumentList) {
-      System.out.println(download.getFileName());
+      logger.debug("Document: {}", download.getFileName());
     }
     mv.addObject("allDocuments" , allDocumentList);
     mv.addObject("showDeleteBtn" , accessAllow);
@@ -112,7 +117,7 @@ public class NBAController {
     try {
       downloadDTO.setUploadedFile(uploadfile.getBytes());
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error("Could not read the uploaded NBA document {}", fileName, e);
     }
     downloadDTO.setFileType(FilenameUtils.getExtension(fileName));
     downloadService.saveDownloadBoard(downloadDTO);

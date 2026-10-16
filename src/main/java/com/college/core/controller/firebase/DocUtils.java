@@ -1,5 +1,8 @@
 package com.college.core.controller.firebase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import org.openpdf.text.*;
 import org.openpdf.text.pdf.draw.VerticalPositionMark;
@@ -7,6 +10,8 @@ import org.openpdf.text.pdf.draw.VerticalPositionMark;
 import java.io.IOException;
 
 public class DocUtils {
+    private static final Logger logger = LoggerFactory.getLogger(DocUtils.class);
+
 
 
     public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail) throws DocumentException {
@@ -24,14 +29,14 @@ public class DocUtils {
 public  static Paragraph kecLogo(){
         System.setProperty("http.agent","Chrome");
     String attString = "/sites/default/files/compressed/logo.png";
-    System.out.println("Image string found = " + attString);
+    logger.debug("Logo path: {}", attString);
     Image image=null;
     try {
         image =  Image.getInstance(attString);
     } catch (BadElementException e) {
-        e.printStackTrace();
+        logger.error("Could not read the logo {}", attString, e);
     } catch (IOException e) {
-        e.printStackTrace();
+        logger.error("Could not read the logo {}", attString, e);
     }
     image.setAlignment(Element.ALIGN_CENTER);
     Paragraph kecLogo = new Paragraph(32F);

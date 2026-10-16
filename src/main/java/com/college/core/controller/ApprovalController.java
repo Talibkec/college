@@ -1,5 +1,8 @@
 package com.college.core.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.core.entity.*;
 import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.HolidayDTO;
@@ -35,6 +38,8 @@ import java.util.Set;
 @Controller
 @RequestMapping(value = "approval")
 public class ApprovalController {
+    private static final Logger logger = LoggerFactory.getLogger(ApprovalController.class);
+
     @Autowired
     AllDocuments allDocuments;
     @Autowired
@@ -81,7 +86,7 @@ public class ApprovalController {
         try{
             mailSender.send(emailObj);
         }catch(Exception e){
-
+            logger.error("Could not send the grievance mail", e);
         }
 
         return ResponseEntity.ok("<script>window.location.href='./grievance'</script>");
@@ -104,7 +109,7 @@ public class ApprovalController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -112,7 +117,7 @@ public class ApprovalController {
 
         }
 
-        System.out.println("in aicte approval method");
+        logger.debug("Listing AICTE documents");
         ModelAndView mv = new ModelAndView();
         List<AicteDocumentsDTO> allDocumentList = allDocuments.getAllDocuments();
         mv.addObject("allDocuments" , allDocumentList);
@@ -122,7 +127,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "document/{id}")
     public ResponseEntity<byte[]> getDocument(@PathVariable("id") Long documentId) throws IOException {
-        System.out.println("User tried to download document with id :- " + documentId);
+        logger.debug("Download of document {}", documentId);
         AicteDocumentsDTO aicteDocumentsDTO = allDocuments.getAicteDocument(documentId);
         String filename = aicteDocumentsDTO.getFileName();
         HttpHeaders headers = new HttpHeaders();
@@ -138,7 +143,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "holiday/{id}")
     public ResponseEntity<byte[]> getHoliday(@PathVariable("id") Long documentId) throws IOException {
-        System.out.println("User tried to download document with id :- " + documentId);
+        logger.debug("Download of document {}", documentId);
         HolidayDTO holidayDTO = holidayService.getDownloadDocument(documentId);
         String filename = holidayDTO.getFileName();
         HttpHeaders headers = new HttpHeaders();
@@ -158,7 +163,7 @@ public class ApprovalController {
     LabDocumentService labDocumentService;
     @RequestMapping(value = "lab/{id}")
     public ResponseEntity<byte[]> getLab(@PathVariable("id") Long documentId) throws IOException {
-        System.out.println("User tried to download document with id :- " + documentId);
+        logger.debug("Download of document {}", documentId);
         LabDocumentDTO labDocumentDTO = labDocumentService.getDownloadDocument(documentId);
         String filename = labDocumentDTO.getFileName();
         HttpHeaders headers = new HttpHeaders();
@@ -182,7 +187,7 @@ public class ApprovalController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -190,7 +195,7 @@ public class ApprovalController {
 
         }
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
-        System.out.println("User tried to delete document with id :- " + documentId);
+        logger.info("Deleting document {}", documentId);
         holidayService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/academic/holidays';</script>" , headers , HttpStatus.OK);
@@ -208,7 +213,7 @@ public class ApprovalController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -216,7 +221,7 @@ public class ApprovalController {
 
         }
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
-        System.out.println("User tried to delete document with id :- " + documentId);
+        logger.info("Deleting document {}", documentId);
         labDocumentService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/academic/holidays';</script>" , headers , HttpStatus.OK);
@@ -224,7 +229,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "responsibilityDoc/{id}")
     public ResponseEntity<byte[]> getResponsiilityDoc(@PathVariable("id") Long documentId) throws IOException {
-        System.out.println("User tried to responsibility document with id :- " + documentId);
+        logger.debug("Download of responsibility document {}", documentId);
         ResponsibilityDocDTO responsibilityDocDTO = responsibilityDocService.getDownloadDocument(documentId);
         String filename = responsibilityDocDTO.getFileName();
         HttpHeaders headers = new HttpHeaders();
@@ -247,7 +252,7 @@ public class ApprovalController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -255,7 +260,7 @@ public class ApprovalController {
 
         }
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
-        System.out.println("User tried to delete document with id :- " + documentId);
+        logger.info("Deleting document {}", documentId);
         responsibilityDocService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/about/administration';</script>" , headers , HttpStatus.OK);
@@ -270,7 +275,7 @@ public class ApprovalController {
             Set<Role> role = loggedInUser.getRoles();
 
             for ( Role r: role) {
-                System.out.println(r.getName());
+                logger.debug("Role of the logged-in user: {}", r.getName());
                 if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
                     accessAllow = true;
                 }
@@ -278,7 +283,7 @@ public class ApprovalController {
 
         }
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
-        System.out.println("User tried to delete document with id :- " + documentId);
+        logger.info("Deleting document {}", documentId);
         allDocuments.deleteAicteDocument(documentId);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/approval/aicteapproval';</script>" , headers , HttpStatus.OK);
@@ -302,7 +307,6 @@ public class ApprovalController {
        // faculty.setFacultyName("fname");
         facultyRepository.save(faculty);
         facultyRepository.findById(1l).orElse(null);
-        System.out.println();
     }
 
 }

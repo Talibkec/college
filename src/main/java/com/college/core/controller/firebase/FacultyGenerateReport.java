@@ -1,5 +1,8 @@
 package com.college.core.controller.firebase;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.college.firebase.FirebaseDocumentHelper;
 import com.google.firebase.database.*;
 import com.google.gson.Gson;
@@ -35,6 +38,8 @@ import java.util.stream.Stream;
 
 @Controller
 public class FacultyGenerateReport {
+    private static final Logger logger = LoggerFactory.getLogger(FacultyGenerateReport.class);
+
 
    public String dept = "";
     public String sub = "";
@@ -60,28 +65,25 @@ public class FacultyGenerateReport {
         endDate=facultyReportDetail.getEndDate();
         facultyName = facultyReportDetail.getFacultyName();
         dept = facultyReportDetail.getDept();
-        System.out.println("Report Generation is being called with following parameters. " + params );
+        logger.debug("Attendance report requested with parameters {}", params);
         Query query = FirebaseDatabase.getInstance()
                 .getReference("attendance").orderByChild("date").startAt(startDate).endAt(endDate);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println("Firebase Data received : " + dataSnapshot.getChildren());
+                logger.debug("Firebase data received: {} entries", dataSnapshot.getChildrenCount());
                 Map<String, Map<String, Boolean>> reportInfo = null;
                 File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
                 File fileWithAbsolutePath = new File(tempDirectory.getAbsolutePath() + "/AttendanceReport.pdf");
                 try {
                     reportInfo = firebaseDocumentHelper.getReportInfo(dataSnapshot,fileWithAbsolutePath, facultyReportDetail);
                 } catch (DocumentException e) {
-                    System.out.println("Unable to Generate the report.");
-                    e.printStackTrace();
+                    logger.error("Unable to generate the attendance report", e);
                 } catch (IOException e) {
-                    System.out.println("Unable to write into file.");
-                    e.printStackTrace();
+                    logger.error("Unable to write the attendance report file", e);
                 }
                 catch(Exception ex){
-                    System.out.println("Error while generating report");
-                    ex.printStackTrace();
+                    logger.error("Error while generating the attendance report", ex);
                 }
                 String email ="mdtalibahmad@gmail.com";//facultyReportDetail.getFacultyEmail();
                 sendMailWithAttachments(email, fileWithAbsolutePath, reportInfo);
@@ -89,7 +91,7 @@ public class FacultyGenerateReport {
 
             @Override
             public void onCancelled(DatabaseError error) {
-                System.out.println("Firebase call failed , did not received response." + error.getMessage() + error.getDetails());
+                logger.error("Firebase query failed: {} {}", error.getMessage(), error.getDetails());
             }
         });
         return "";
@@ -100,7 +102,7 @@ public class FacultyGenerateReport {
         {
             public void prepare(MimeMessage mimeMessage) throws Exception
             {
-                System.out.println("sendMailwithAttachment method being called");
+                logger.debug("Preparing the attendance report mail");
                 mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
                 mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
                 mimeMessage.setSubject("KEC, Attendance Report.");
@@ -117,14 +119,14 @@ public class FacultyGenerateReport {
         };
         try {
             mailSender.send(preparator);
-            System.out.println("Message sent");
+            logger.info("Attendance report mail sent");
             if(FileSystemUtils.deleteRecursively(fileWithAbsolutePath)){
-                System.out.println("Report deleted.");
+                logger.debug("Report file deleted");
             }
         }
         catch (MailException ex) {
             // simply log it and go on...
-            System.err.println(ex.getMessage());
+            logger.error("Could not send the attendance report mail", ex);
                 //fileWithAbsolutePath.delete();
         }
     }

@@ -207,7 +207,7 @@ public class UserController {
         headers.setContentType(MediaType.parseMediaType("application/"+ext));
 
         headers.add("content-disposition", "inline;filename="+filename);
-        System.out.println(filename);
+        logger.debug("Download of notice file {}", filename);
         if (noticeBoardDTO.getNotice() != null) {
             InputStream in = new ByteArrayInputStream(noticeBoardDTO.getNotice());
             return  new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.OK);

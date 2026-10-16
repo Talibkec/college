@@ -141,7 +141,7 @@ public class UserDashboard {
 
     }
 
-    private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDashboard.class);
     @ResponseBody
     @RequestMapping(value = "/user/api/upload", method = RequestMethod.POST)
     public ResponseEntity<?> uploadFile(
@@ -194,7 +194,7 @@ public class UserDashboard {
         try {
             noticeBoardDTO.setNotice(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded notice file {}", fileName, e);
         }
         noticeBoardDTO.setFileType(FilenameUtils.getExtension(fileName));
         noticeBoardService.saveNoticeBoard(noticeBoardDTO);
@@ -262,7 +262,7 @@ public class UserDashboard {
         try {
             imageSlideDTO.setImage(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded slide image {}", fileName, e);
         }
         imageSlideDTO.setFileType(FilenameUtils.getExtension(fileName));
         imageSlideService.saveImageSlide(imageSlideDTO);

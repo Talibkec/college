@@ -1,5 +1,8 @@
 package com.college.backup;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.smattme.MysqlExportService;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -11,6 +14,8 @@ import java.util.Properties;
 
 @EnableScheduling
 public class KECDBBackup {
+    private static final Logger logger = LoggerFactory.getLogger(KECDBBackup.class);
+
 
     public void setupBackupPropperties() {
 
@@ -34,12 +39,8 @@ public class KECDBBackup {
         MysqlExportService mysqlExportService = new MysqlExportService(properties);
         try {
             mysqlExportService.export();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            logger.error("Database backup failed", e);
         }
 
     }

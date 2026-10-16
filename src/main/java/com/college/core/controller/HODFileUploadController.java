@@ -28,7 +28,7 @@ import java.util.Date;
 public class HODFileUploadController {
     @Autowired
     NoticeBoardService noticeBoardService;
-    private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
+    private final Logger logger = LoggerFactory.getLogger(HODFileUploadController.class);
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 
     //private final String UPLOADED_FOLDER = getPath();
@@ -84,7 +84,7 @@ public class HODFileUploadController {
         try {
             noticeBoardDTO.setNotice(uploadfile.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Could not read the uploaded notice file {}", fileName, e);
         }
         noticeBoardDTO.setFileType(FilenameUtils.getExtension(fileName));
         noticeBoardService.saveNoticeBoard(noticeBoardDTO);

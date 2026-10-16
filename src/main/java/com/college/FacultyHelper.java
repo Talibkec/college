@@ -8,7 +8,6 @@ import com.college.core.model.RequestDTO;
 import com.college.service.FacultyDocumentsService;
 import com.college.service.FacultyService;
 import com.college.service.RequestService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -18,13 +17,17 @@ import java.util.Map;
 
 public class FacultyHelper {
 
-    @Autowired
-    FacultyService facultyService;
-    @Autowired
-    FacultyDocumentsService facultyDocumentsService;
+    private final FacultyService facultyService;
+    private final FacultyDocumentsService facultyDocumentsService;
+    private final RequestService requestService;
 
-    @Autowired
-    RequestService requestService;
+    public FacultyHelper(FacultyService facultyService,
+            FacultyDocumentsService facultyDocumentsService,
+            RequestService requestService) {
+        this.facultyService = facultyService;
+        this.facultyDocumentsService = facultyDocumentsService;
+        this.requestService = requestService;
+    }
 
     public List<FacultyDTO> getFacultyByDeptNo(Long deptno) {
         return facultyService.getFacultyByDeptNo(deptno);

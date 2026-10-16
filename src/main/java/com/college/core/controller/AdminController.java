@@ -9,7 +9,6 @@ import com.college.service.FacultyService;
 import com.college.service.NoticeBoardService;
 import com.college.service.UserService;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -29,12 +28,18 @@ import java.util.regex.Pattern;
 @Controller
 //@RequestMapping("admin")
 public class AdminController {
-    @Autowired
-    FacultyService facultyService;
-    @Autowired
-    UserService userService;
-    @Autowired
-    NoticeBoardService noticeBoardService;
+    private final FacultyService facultyService;
+    private final UserService userService;
+    private final NoticeBoardService noticeBoardService;
+
+    public AdminController(FacultyService facultyService,
+            UserService userService,
+            NoticeBoardService noticeBoardService) {
+        this.facultyService = facultyService;
+        this.userService = userService;
+        this.noticeBoardService = noticeBoardService;
+    }
+
     @RequestMapping(value = "/auth/uploadDashboard")
     public ModelAndView getUploadDashboard() {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));

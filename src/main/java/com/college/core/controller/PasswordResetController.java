@@ -8,7 +8,6 @@ import com.college.repository.PasswordResetTokenRepository;
 import com.college.service.FacultyService;
 import com.college.service.UserService;
 import com.college.core.config.KecProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
@@ -33,20 +32,29 @@ import java.util.UUID;
 @Controller
 public class PasswordResetController {
 
-    @Autowired
-    FacultyService facultyService;
-    @Autowired
-    UserService userService;
-    @Autowired
-    private JavaMailSender mailSender;
-    @Autowired
-    private KecProperties kecProperties;
-    @Autowired
-    private MessageSource messages;
-    @Autowired
-    private Environment env;
-    @Autowired
-    PasswordResetTokenRepository passwordResetTokenRepository;
+    private final FacultyService facultyService;
+    private final UserService userService;
+    private final JavaMailSender mailSender;
+    private final KecProperties kecProperties;
+    private final MessageSource messages;
+    private final Environment env;
+    private final PasswordResetTokenRepository passwordResetTokenRepository;
+
+    public PasswordResetController(FacultyService facultyService,
+            UserService userService,
+            JavaMailSender mailSender,
+            KecProperties kecProperties,
+            MessageSource messages,
+            Environment env,
+            PasswordResetTokenRepository passwordResetTokenRepository) {
+        this.facultyService = facultyService;
+        this.userService = userService;
+        this.mailSender = mailSender;
+        this.kecProperties = kecProperties;
+        this.messages = messages;
+        this.env = env;
+        this.passwordResetTokenRepository = passwordResetTokenRepository;
+    }
 
 
     @RequestMapping(value = "/user/resetPassword",

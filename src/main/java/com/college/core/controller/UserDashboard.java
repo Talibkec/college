@@ -13,7 +13,6 @@ import com.college.service.UserService;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -43,14 +42,20 @@ import java.util.regex.Pattern;
 @Controller
 //@RequestMapping("user")
 public class UserDashboard {
-    @Autowired
-    FacultyService facultyService;
-    @Autowired
-    UserService userService;
-    @Autowired
-    NoticeBoardService noticeBoardService;
-    @Autowired
-    ImageSlideService imageSlideService;
+    private final FacultyService facultyService;
+    private final UserService userService;
+    private final NoticeBoardService noticeBoardService;
+    private final ImageSlideService imageSlideService;
+
+    public UserDashboard(FacultyService facultyService,
+            UserService userService,
+            NoticeBoardService noticeBoardService,
+            ImageSlideService imageSlideService) {
+        this.facultyService = facultyService;
+        this.userService = userService;
+        this.noticeBoardService = noticeBoardService;
+        this.imageSlideService = imageSlideService;
+    }
 
     @RequestMapping(value = "/user/dashboard")
     public ModelAndView getdashboard() {

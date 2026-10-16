@@ -14,7 +14,6 @@ import com.college.service.DownloadService;
 import com.college.service.ResponsibilityDocService;
 import com.college.service.UserService;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -39,12 +38,18 @@ import java.util.Set;
 public class FacilitiesController {
     private static final Logger logger = LoggerFactory.getLogger(FacilitiesController.class);
 
-    @Autowired
-    UserService userService;
-    @Autowired
-    DownloadService downloadService;
-    @Autowired
-    ResponsibilityDocService responsibilityDocService;
+    private final UserService userService;
+    private final DownloadService downloadService;
+    private final ResponsibilityDocService responsibilityDocService;
+
+    public FacilitiesController(UserService userService,
+            DownloadService downloadService,
+            ResponsibilityDocService responsibilityDocService) {
+        this.userService = userService;
+        this.downloadService = downloadService;
+        this.responsibilityDocService = responsibilityDocService;
+    }
+
     @RequestMapping(value = "bank")
     public ModelAndView getBank() {
         ModelAndView mv = new ModelAndView();

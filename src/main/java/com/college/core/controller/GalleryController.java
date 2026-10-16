@@ -4,7 +4,6 @@ import com.college.core.model.GalleryImageDTO;
 import com.college.service.GalleryImageService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +23,11 @@ import java.util.List;
 
 public class GalleryController {
 
-    @Autowired
-    GalleryImageService galleryImageService;
+    private final GalleryImageService galleryImageService;
+
+    public GalleryController(GalleryImageService galleryImageService) {
+        this.galleryImageService = galleryImageService;
+    }
 
     @RequestMapping(value = "photogallery")
     public ModelAndView getPhotoGallery(){

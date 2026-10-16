@@ -12,7 +12,6 @@ import com.college.repository.FacultyRepository;
 import com.college.service.*;
 import org.apache.commons.io.IOUtils;
 import com.college.core.config.KecProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -41,22 +40,35 @@ import java.util.Set;
 public class ApprovalController {
     private static final Logger logger = LoggerFactory.getLogger(ApprovalController.class);
 
-    @Autowired
-    AllDocuments allDocuments;
-    @Autowired
-    HolidayService holidayService;
-    @Autowired
-    ResponsibilityDocService responsibilityDocService;
-    @Autowired
-    FacultyRepository facultyRepository;
-    @Autowired
-    UserService userService;
-    @Autowired
-    private MessageSource messages;
-    @Autowired
-    private JavaMailSender mailSender;
-    @Autowired
-    private KecProperties kecProperties;
+    private final AllDocuments allDocuments;
+    private final HolidayService holidayService;
+    private final ResponsibilityDocService responsibilityDocService;
+    private final FacultyRepository facultyRepository;
+    private final UserService userService;
+    private final MessageSource messages;
+    private final JavaMailSender mailSender;
+    private final KecProperties kecProperties;
+    private final LabDocumentService labDocumentService;
+
+    public ApprovalController(AllDocuments allDocuments,
+            HolidayService holidayService,
+            ResponsibilityDocService responsibilityDocService,
+            FacultyRepository facultyRepository,
+            UserService userService,
+            MessageSource messages,
+            JavaMailSender mailSender,
+            KecProperties kecProperties,
+            LabDocumentService labDocumentService) {
+        this.allDocuments = allDocuments;
+        this.holidayService = holidayService;
+        this.responsibilityDocService = responsibilityDocService;
+        this.facultyRepository = facultyRepository;
+        this.userService = userService;
+        this.messages = messages;
+        this.mailSender = mailSender;
+        this.kecProperties = kecProperties;
+        this.labDocumentService = labDocumentService;
+    }
 
     @RequestMapping(value = "akuapproval")
     public ModelAndView getAkuApproval() {
@@ -162,8 +174,6 @@ public class ApprovalController {
     }
 
 
-    @Autowired
-    LabDocumentService labDocumentService;
     @RequestMapping(value = "lab/{id}")
     public ResponseEntity<byte[]> getLab(@PathVariable("id") Long documentId) throws IOException {
         logger.debug("Download of document {}", documentId);

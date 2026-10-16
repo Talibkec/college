@@ -4,7 +4,6 @@ import com.college.service.*;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,22 +18,31 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 @Controller
 public class SlideImageController {
-    @Autowired
-    ImageSlideService imageSlideService;
+    private final ImageSlideService imageSlideService;
+    private final AllDocuments allDocuments;
+    private final DownloadService downloadService;
+    private final ResponsibilityDocService responsibilityDocService;
+    private final HolidayService holidayService;
+    private final GalleryImageService galleryImageService;
+    private final LabDocumentService labDocumentService;
 
-    @Autowired
-    AllDocuments allDocuments;
-    @Autowired
-    DownloadService downloadService;
-    @Autowired
-    ResponsibilityDocService responsibilityDocService;
-    @Autowired
-    HolidayService holidayService;
-    @Autowired
-    GalleryImageService galleryImageService;
+    public SlideImageController(ImageSlideService imageSlideService,
+            AllDocuments allDocuments,
+            DownloadService downloadService,
+            ResponsibilityDocService responsibilityDocService,
+            HolidayService holidayService,
+            GalleryImageService galleryImageService,
+            LabDocumentService labDocumentService) {
+        this.imageSlideService = imageSlideService;
+        this.allDocuments = allDocuments;
+        this.downloadService = downloadService;
+        this.responsibilityDocService = responsibilityDocService;
+        this.holidayService = holidayService;
+        this.galleryImageService = galleryImageService;
+        this.labDocumentService = labDocumentService;
+    }
+
     private final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
-    @Autowired
-    LabDocumentService labDocumentService;
 
     //private final String UPLOADED_FOLDER = getPath();
     @ResponseBody

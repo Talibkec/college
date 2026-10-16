@@ -2,12 +2,10 @@ package com.college.sms;
 
 import com.college.core.config.KecProperties;
 import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
@@ -23,25 +21,27 @@ import java.util.regex.Pattern;
 
 @Component
 @PropertySource("classpath:SMS.properties")
-@ConfigurationProperties
 public class MessageSender {
 
     private final Logger logger = LoggerFactory.getLogger(MessageSender.class);
 
-    @Autowired
-    private KecProperties kecProperties;
+    private final KecProperties kecProperties;
+    private final String kecWebTeam;
+    private final String allStudents;
+    private final String allParents;
+    private final String allFaculties;
 
-    @Value("${KEC_WEB_TEAM}")
-    private String kecWebTeam;
-
-    @Value("${ALL_STUDENTS}")
-    private String allStudents;
-
-    @Value("${ALL_PARENTS}")
-    private String allParents;
-
-    @Value("${ALL_FACULTIES}")
-    private String allFaculties;
+    public MessageSender(KecProperties kecProperties,
+                         @Value("${KEC_WEB_TEAM}") String kecWebTeam,
+                         @Value("${ALL_STUDENTS}") String allStudents,
+                         @Value("${ALL_PARENTS}") String allParents,
+                         @Value("${ALL_FACULTIES}") String allFaculties) {
+        this.kecProperties = kecProperties;
+        this.kecWebTeam = kecWebTeam;
+        this.allStudents = allStudents;
+        this.allParents = allParents;
+        this.allFaculties = allFaculties;
+    }
 
     @PostConstruct
     void warnIfNotConfigured() {

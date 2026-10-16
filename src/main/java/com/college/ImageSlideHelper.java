@@ -6,15 +6,17 @@ import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.ImageSlideDTO;
 import com.college.core.model.RequestDTO;
 import com.college.service.ImageSlideService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ImageSlideHelper {
-    @Autowired
-    ImageSlideService imageSlideService;
+    private final ImageSlideService imageSlideService;
+
+    public ImageSlideHelper(ImageSlideService imageSlideService) {
+        this.imageSlideService = imageSlideService;
+    }
 
     public ModelAndView getSlideImages(Long id) {
         ModelAndView mv = new ModelAndView();

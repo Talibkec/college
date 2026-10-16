@@ -2,7 +2,6 @@ package com.college;
 
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
@@ -11,8 +10,11 @@ import java.util.List;
 public class NoticeBoardHelper {
 
     private Integer pazeSize = 10;
-    @Autowired
-    NoticeBoardService noticeBoardService;
+    private final NoticeBoardService noticeBoardService;
+
+    public NoticeBoardHelper(NoticeBoardService noticeBoardService) {
+        this.noticeBoardService = noticeBoardService;
+    }
 
     public List<NoticeBoardDTO> getNotices(String deptno, Integer pageNo) {
         List<NoticeBoardDTO> noticeBoardDTOS = null;

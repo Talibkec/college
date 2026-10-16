@@ -6,7 +6,6 @@ import com.college.service.CourseService;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +20,11 @@ import java.util.List;
 
 @Controller
 public class CourseController {
-    @Autowired
-    CourseService courseService;
+    private final CourseService courseService;
+
+    public CourseController(CourseService courseService) {
+        this.courseService = courseService;
+    }
 
     @RequestMapping(value = "/auth/course", method = RequestMethod.GET)
     public ModelAndView Courses() {

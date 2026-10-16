@@ -5,7 +5,6 @@ import com.college.core.model.DepartmentDTO;
 import com.college.repository.DepartmentRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -14,8 +13,11 @@ import java.util.List;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    DepartmentRepository departmentRepository;
+    private final DepartmentRepository departmentRepository;
+
+    public DepartmentServiceImpl(DepartmentRepository departmentRepository) {
+        this.departmentRepository = departmentRepository;
+    }
 
     @Override
     public List<DepartmentDTO> getAllDepartment() {

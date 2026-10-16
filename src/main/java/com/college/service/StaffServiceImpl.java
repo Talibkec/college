@@ -10,7 +10,6 @@ import com.college.repository.FacultyRepository;
 import com.college.repository.StaffRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -18,11 +17,13 @@ import java.util.List;
 import java.util.Map;
 @Service
 public class StaffServiceImpl implements StaffService {
-    @Autowired
-    StaffRepository staffRepository;
+    private final StaffRepository staffRepository;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    ModelMapper modelMapper;
+    public StaffServiceImpl(StaffRepository staffRepository, ModelMapper modelMapper) {
+        this.staffRepository = staffRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public List<StaffDTO> getAllStaff() {

@@ -9,7 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
@@ -22,8 +21,11 @@ import java.util.List;
 public class ImageSlideServiceImpl implements ImageSlideService {
     Logger logger = LoggerFactory.getLogger(ImageSlideServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    ImageSlideRepository imageSlideRepository;
+    private final ImageSlideRepository imageSlideRepository;
+
+    public ImageSlideServiceImpl(ImageSlideRepository imageSlideRepository) {
+        this.imageSlideRepository = imageSlideRepository;
+    }
 
     @Override
     @CacheEvict(value = "homepageSlideImageCache", allEntries = true)

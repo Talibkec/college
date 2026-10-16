@@ -8,7 +8,6 @@ import com.college.repository.ResponsibilityDocRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +16,12 @@ import java.util.List;
 public class HolidaytServiceImpl implements HolidayService{
     Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    HolidayRepository holidayRepository;
+    private final HolidayRepository holidayRepository;
+
+    public HolidaytServiceImpl(HolidayRepository holidayRepository) {
+        this.holidayRepository = holidayRepository;
+    }
+
     @Override
     public List<Holiday> getAllDownload() {
         return holidayRepository.getAllDocuments();

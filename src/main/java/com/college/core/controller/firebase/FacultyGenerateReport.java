@@ -8,7 +8,6 @@ import com.google.firebase.database.*;
 import com.google.gson.Gson;
 import org.openpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -47,11 +46,13 @@ public class FacultyGenerateReport {
     public String semester ="";
     public String endDate = "";
     public  String facultyName="";
-    @Autowired
-    FirebaseDocumentHelper firebaseDocumentHelper;
+    private final FirebaseDocumentHelper firebaseDocumentHelper;
+    private final JavaMailSender mailSender;
 
-    @Autowired
-    private JavaMailSender mailSender;
+    public FacultyGenerateReport(FirebaseDocumentHelper firebaseDocumentHelper, JavaMailSender mailSender) {
+        this.firebaseDocumentHelper = firebaseDocumentHelper;
+        this.mailSender = mailSender;
+    }
 
     @ResponseBody
     @RequestMapping(value = "/rn", method = RequestMethod.GET)

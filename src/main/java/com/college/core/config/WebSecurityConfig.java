@@ -1,6 +1,7 @@
 package com.college.core.config;
 
 import jakarta.servlet.DispatcherType;
+import com.college.service.FacultyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,11 @@ import static org.springframework.security.web.servlet.util.matcher.PathPatternR
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-    @Autowired
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+
+    public WebSecurityConfig(UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Bean
     public static BCryptPasswordEncoder bCryptPasswordEncoder() { // static: breaks the bean cycle via the success handler (Boot 2.6+)
@@ -34,14 +38,14 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler() {
-        return new KECUrlAuthenticationSuccessHandler();
+    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler(FacultyService facultyService) {
+        return new KECUrlAuthenticationSuccessHandler(facultyService);
     }
 
     // Same rules and order as the former WebSecurityConfigurerAdapter (path patterns: same meaning as the old ant patterns);
     // forwards/includes (JSP views) and error dispatches were never authorized before, so they stay permitted.
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, AuthenticationSuccessHandler kecAuthenticationSuccessHandler) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
                 // PasswordResetController and SecurityServiceImpl set the SecurityContext by hand and rely on it
@@ -66,7 +70,7 @@ public class WebSecurityConfig {
                         .requestMatchers(pathPattern("/user/**")).hasAnyAuthority("Faculty")
                         .anyRequest().permitAll())
                 .formLogin(form -> form
-                        .loginPage("/login").successHandler(kecAuthenticationSuccessHandler()))
+                        .loginPage("/login").successHandler(kecAuthenticationSuccessHandler))
                 .logout(logout -> logout
                         .logoutSuccessUrl("/")
                         .permitAll());

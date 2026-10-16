@@ -5,7 +5,6 @@ import com.college.repository.LabDocumentRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -16,8 +15,12 @@ public class LabDocumentServiceImpl implements LabDocumentService{
 
     Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    LabDocumentRepository labDocumentRepository;
+    private final LabDocumentRepository labDocumentRepository;
+
+    public LabDocumentServiceImpl(LabDocumentRepository labDocumentRepository) {
+        this.labDocumentRepository = labDocumentRepository;
+    }
+
     @Override
     public List<LabDocument> getAllDownload() {
         return labDocumentRepository.getAllDocuments();

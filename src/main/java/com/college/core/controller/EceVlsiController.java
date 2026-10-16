@@ -5,7 +5,6 @@ import com.college.KECDateHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +18,13 @@ import java.util.List;
 @RequestMapping(value = "department/ecevlsi")
 public class EceVlsiController {
 
-        @Autowired
-        NoticeBoardService noticeBoardService;
-        @Autowired
-        FacultyHelper facultyHelper;
+        private final NoticeBoardService noticeBoardService;
+        private final FacultyHelper facultyHelper;
+
+        public EceVlsiController(NoticeBoardService noticeBoardService, FacultyHelper facultyHelper) {
+            this.noticeBoardService = noticeBoardService;
+            this.facultyHelper = facultyHelper;
+        }
 
         @RequestMapping(value = {"about"}, method = RequestMethod.GET)
 

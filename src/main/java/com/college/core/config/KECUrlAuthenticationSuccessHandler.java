@@ -5,7 +5,6 @@ import com.college.service.FacultyService;
 import com.college.service.UserService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
@@ -22,8 +21,12 @@ import java.util.Collection;
 
 public class KECUrlAuthenticationSuccessHandler
         implements AuthenticationSuccessHandler {
-    @Autowired
-    FacultyService facultyService;
+    private final FacultyService facultyService;
+
+    public KECUrlAuthenticationSuccessHandler(FacultyService facultyService) {
+        this.facultyService = facultyService;
+    }
+
     protected Log logger = LogFactory.getLog(this.getClass());
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();

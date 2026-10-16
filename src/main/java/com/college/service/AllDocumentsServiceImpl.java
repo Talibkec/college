@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -18,8 +17,12 @@ public class AllDocumentsServiceImpl implements AllDocuments {
 
     Logger logger = LoggerFactory.getLogger(ImageSlideServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    AicteDocumentRepository aicteDocumentRepository;
+    private final AicteDocumentRepository aicteDocumentRepository;
+
+    public AllDocumentsServiceImpl(AicteDocumentRepository aicteDocumentRepository) {
+        this.aicteDocumentRepository = aicteDocumentRepository;
+    }
+
     @Override
     public void saveAicteDocument(AicteDocumentsDTO aicteDocumentsDTO) {
          AicteDocuments aicteDocuments= modelMapper.map(aicteDocumentsDTO, AicteDocuments.class);

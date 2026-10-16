@@ -6,7 +6,6 @@ import org.slf4j.LoggerFactory;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 
@@ -18,8 +17,11 @@ public class FirebaseSetup {
 
 
 
-    @Autowired
-    ResourceLoader resourceLoader;
+    private final ResourceLoader resourceLoader;
+
+    public FirebaseSetup(ResourceLoader resourceLoader) {
+        this.resourceLoader = resourceLoader;
+    }
 
     @PostConstruct
     public void initialize() {

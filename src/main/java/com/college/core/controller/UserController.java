@@ -14,7 +14,6 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.college.core.config.KecProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -37,33 +36,39 @@ import java.util.List;
 
 @Controller
 public class UserController {
-    @Autowired
-    private KecProperties kecProperties;
-    @Autowired
-    private UserService userService;
+    private final KecProperties kecProperties;
+    private final UserService userService;
+    private final SecurityService securityService;
+    private final UserValidator userValidator;
+    private final NoticeBoardService noticeBoardService;
+    private final RoleService roleService;
+    private final NoticeBoardHelper noticeBoardHelper;
+    private final ImageSlideService imageSlideService;
+    private final GalleryImageService galleryImageService;
+    private final AchievementSlideService achievementSlideService;
 
-    @Autowired
-    private SecurityService securityService;
+    public UserController(KecProperties kecProperties,
+            UserService userService,
+            SecurityService securityService,
+            UserValidator userValidator,
+            NoticeBoardService noticeBoardService,
+            RoleService roleService,
+            NoticeBoardHelper noticeBoardHelper,
+            ImageSlideService imageSlideService,
+            GalleryImageService galleryImageService,
+            AchievementSlideService achievementSlideService) {
+        this.kecProperties = kecProperties;
+        this.userService = userService;
+        this.securityService = securityService;
+        this.userValidator = userValidator;
+        this.noticeBoardService = noticeBoardService;
+        this.roleService = roleService;
+        this.noticeBoardHelper = noticeBoardHelper;
+        this.imageSlideService = imageSlideService;
+        this.galleryImageService = galleryImageService;
+        this.achievementSlideService = achievementSlideService;
+    }
 
-    @Autowired
-    private UserValidator userValidator;
-
-    @Autowired
-    NoticeBoardService noticeBoardService;
-
-    @Autowired
-    RoleService roleService;
-
-    @Autowired
-    NoticeBoardHelper noticeBoardHelper;
-
-    @Autowired
-    ImageSlideService imageSlideService;
-
-    @Autowired
-    GalleryImageService galleryImageService;
-    @Autowired
-    AchievementSlideService achievementSlideService;
     private final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)

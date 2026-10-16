@@ -5,7 +5,6 @@ import com.college.service.NoticeBoardService;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +24,12 @@ import java.util.Date;
 @Controller
 public class FileUploadCintroller {
 
-    @Autowired
-    NoticeBoardService noticeBoardService;
+    private final NoticeBoardService noticeBoardService;
+
+    public FileUploadCintroller(NoticeBoardService noticeBoardService) {
+        this.noticeBoardService = noticeBoardService;
+    }
+
     private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 

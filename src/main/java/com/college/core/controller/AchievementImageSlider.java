@@ -6,7 +6,6 @@ import com.college.service.ImageSlideService;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +22,12 @@ import java.util.List;
 
 @Controller
 public class AchievementImageSlider {
-    @Autowired
-    AchievementSlideService achievementSlideService;
+    private final AchievementSlideService achievementSlideService;
+
+    public AchievementImageSlider(AchievementSlideService achievementSlideService) {
+        this.achievementSlideService = achievementSlideService;
+    }
+
     private final Logger logger = LoggerFactory.getLogger(AchievementImageSlider.class);
 
     private static final int DESKTOP_WIDTH = 6000;

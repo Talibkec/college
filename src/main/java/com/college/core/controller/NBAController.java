@@ -10,7 +10,6 @@ import com.college.core.model.DownloadDTO;
 import com.college.service.DownloadService;
 import com.college.service.UserService;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,11 +34,13 @@ public class NBAController {
     private static final Logger logger = LoggerFactory.getLogger(NBAController.class);
 
 
-  @Autowired
-  UserService userService;
+  private final UserService userService;
+  private final DownloadService downloadService;
 
-  @Autowired
-  DownloadService downloadService;
+  public NBAController(UserService userService, DownloadService downloadService) {
+      this.userService = userService;
+      this.downloadService = downloadService;
+  }
 
   @RequestMapping(value = "nba/nba")
   public ModelAndView getNBA(Authentication authentication) {

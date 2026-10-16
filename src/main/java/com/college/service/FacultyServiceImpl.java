@@ -15,7 +15,6 @@ import com.college.repository.PasswordResetTokenRepository;
 import com.college.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
@@ -31,11 +30,14 @@ public class FacultyServiceImpl implements FacultyService {
     private static final Logger logger = LoggerFactory.getLogger(FacultyServiceImpl.class);
 
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    FacultyRepository facultyRepository;
+    private final FacultyRepository facultyRepository;
+    private final PasswordResetTokenRepository passwordTokenRepository;
 
-    @Autowired
-    PasswordResetTokenRepository passwordTokenRepository;
+    public FacultyServiceImpl(FacultyRepository facultyRepository,
+            PasswordResetTokenRepository passwordTokenRepository) {
+        this.facultyRepository = facultyRepository;
+        this.passwordTokenRepository = passwordTokenRepository;
+    }
 
     @Override
     public List<FacultyDTO> getAllFaculty() {

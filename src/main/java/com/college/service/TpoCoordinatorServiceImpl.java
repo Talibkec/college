@@ -6,7 +6,6 @@ import com.college.core.model.TpoDTO;
 import com.college.repository.TpoRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -16,11 +15,13 @@ import java.util.Map;
 @Service
 public class TpoCoordinatorServiceImpl implements TpoCoordinatorService {
 
-    @Autowired
-     TpoRepository tpoRepository;
+     private final TpoRepository tpoRepository;
+     private final ModelMapper modelMapper;
 
-    @Autowired
-     ModelMapper modelMapper;
+     public TpoCoordinatorServiceImpl(TpoRepository tpoRepository, ModelMapper modelMapper) {
+         this.tpoRepository = tpoRepository;
+         this.modelMapper = modelMapper;
+     }
 
     @Override
     public List<TpoDTO> getAllTpoCoordinators() {

@@ -7,7 +7,6 @@ import com.college.core.entity.*;
 import com.college.service.HolidayService;
 import com.college.service.LabDocumentService;
 import com.college.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +21,18 @@ import java.util.Set;
 public class AcademicController {
     private static final Logger logger = LoggerFactory.getLogger(AcademicController.class);
 
-    @Autowired
-    HolidayService holidayService;
-    @Autowired
-    LabDocumentService labDocumentService;
-    @Autowired
-    UserService userService;
+    private final HolidayService holidayService;
+    private final LabDocumentService labDocumentService;
+    private final UserService userService;
+
+    public AcademicController(HolidayService holidayService,
+            LabDocumentService labDocumentService,
+            UserService userService) {
+        this.holidayService = holidayService;
+        this.labDocumentService = labDocumentService;
+        this.userService = userService;
+    }
+
     @RequestMapping(value = "admission")
     public ModelAndView getAdmission() {
         ModelAndView mv = new ModelAndView();

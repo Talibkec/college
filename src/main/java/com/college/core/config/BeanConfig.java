@@ -3,7 +3,12 @@ package com.college.core.config;
 import com.college.FacultyHelper;
 import firebase.bean.FirebaseSetup;
 import com.college.NoticeBoardHelper;
+import com.college.service.FacultyDocumentsService;
+import com.college.service.FacultyService;
+import com.college.service.NoticeBoardService;
+import com.college.service.RequestService;
 import org.modelmapper.ModelMapper;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,21 +39,19 @@ public class BeanConfig {
     }
 
     @Bean(name = "facultyHelper")
-    public FacultyHelper facultyHelper() {
-        FacultyHelper facultyHelper = new FacultyHelper();
-        return facultyHelper;
+    public FacultyHelper facultyHelper(FacultyService facultyService, FacultyDocumentsService facultyDocumentsService,
+                                       RequestService requestService) {
+        return new FacultyHelper(facultyService, facultyDocumentsService, requestService);
     }
 
     @Bean(name = "noticeBoardHelper")
-    public NoticeBoardHelper noticeBoardHelper() {
-        NoticeBoardHelper noticeBoardHelper = new NoticeBoardHelper();
-        return noticeBoardHelper;
+    public NoticeBoardHelper noticeBoardHelper(NoticeBoardService noticeBoardService) {
+        return new NoticeBoardHelper(noticeBoardService);
     }
 
     @Bean(name = "FirebaseAPI")
-    public FirebaseSetup setupFireBase() {
-        FirebaseSetup firebaseSetup = new FirebaseSetup();
-        return firebaseSetup;
+    public FirebaseSetup setupFireBase(ResourceLoader resourceLoader) {
+        return new FirebaseSetup(resourceLoader);
     }
 
     @Bean(name = "modelMapper")

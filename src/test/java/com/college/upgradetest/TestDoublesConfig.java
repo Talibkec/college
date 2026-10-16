@@ -1,6 +1,8 @@
 package com.college.upgradetest;
 
+import com.college.core.config.KecProperties;
 import com.college.sms.MessageSender;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -30,8 +32,12 @@ public class TestDoublesConfig {
 
     @Bean
     @Primary
-    public RecordingMessageSender recordingMessageSender() {
-        return new RecordingMessageSender();
+    public RecordingMessageSender recordingMessageSender(KecProperties kecProperties,
+                                                         @Value("${KEC_WEB_TEAM}") String kecWebTeam,
+                                                         @Value("${ALL_STUDENTS}") String allStudents,
+                                                         @Value("${ALL_PARENTS}") String allParents,
+                                                         @Value("${ALL_FACULTIES}") String allFaculties) {
+        return new RecordingMessageSender(kecProperties, kecWebTeam, allStudents, allParents, allFaculties);
     }
 
     /** JavaMailSender that keeps sent messages instead of talking to SMTP. */
@@ -58,6 +64,11 @@ public class TestDoublesConfig {
     /** MessageSender that runs the group logic but records SMS instead of calling the Textlocal API. */
     public static class RecordingMessageSender extends MessageSender {
         public final List<String> sent = Collections.synchronizedList(new ArrayList<String>());
+
+        public RecordingMessageSender(KecProperties kecProperties, String kecWebTeam, String allStudents,
+                                      String allParents, String allFaculties) {
+            super(kecProperties, kecWebTeam, allStudents, allParents, allFaculties);
+        }
 
         @Override
         public String sendSMS(List<String> nums, String template, String msg) {

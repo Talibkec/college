@@ -7,7 +7,6 @@ import com.college.service.FacultyService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,11 +27,14 @@ import java.util.Date;
 
 @Controller
 public class FileUploadFacultycontroller {
-    @Autowired
-    FacultyDocumentsService facultyDocumentsService;
+    private final FacultyDocumentsService facultyDocumentsService;
+    private final FacultyService facultyService;
 
-    @Autowired
-    FacultyService facultyService;
+    public FileUploadFacultycontroller(FacultyDocumentsService facultyDocumentsService, FacultyService facultyService) {
+        this.facultyDocumentsService = facultyDocumentsService;
+        this.facultyService = facultyService;
+    }
+
     private final Logger logger = LoggerFactory.getLogger(FileUploadFacultycontroller.class);
     // private final String UPLOADED_FOLDER = getPath();
 

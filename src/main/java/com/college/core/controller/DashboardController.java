@@ -14,7 +14,6 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.college.core.config.KecProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -33,24 +32,33 @@ import java.util.List;
 
 @Controller
 public class DashboardController {
-    @Autowired
-    private KecProperties kecProperties;
+    private final KecProperties kecProperties;
+    private final NoticeBoardService noticeBoardService;
+    private final RoleService roleService;
+    private final UserService userService;
+    private final FacultyService facultyService;
+    private final DepartmentService departmentService;
+    private final MessageSender messageSender;
+
+    public DashboardController(KecProperties kecProperties,
+            NoticeBoardService noticeBoardService,
+            RoleService roleService,
+            UserService userService,
+            FacultyService facultyService,
+            DepartmentService departmentService,
+            MessageSender messageSender) {
+        this.kecProperties = kecProperties;
+        this.noticeBoardService = noticeBoardService;
+        this.roleService = roleService;
+        this.userService = userService;
+        this.facultyService = facultyService;
+        this.departmentService = departmentService;
+        this.messageSender = messageSender;
+    }
 
     Logger logger = LoggerFactory.getLogger(DashboardController.class);
-    @Autowired
-    NoticeBoardService noticeBoardService;
-    @Autowired
-    RoleService roleService;
-    @Autowired
-    UserService userService;
-    @Autowired
-    FacultyService facultyService;
-    @Autowired
-    DepartmentService departmentService;
 
 
-    @Autowired
-    MessageSender messageSender;
     Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
     private static final SimpleDateFormat DATE_TIME_FORMATTER = new SimpleDateFormat("dd/MM/yyyy");
 

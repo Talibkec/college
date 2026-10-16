@@ -8,7 +8,6 @@ import com.google.firebase.database.*;
 import com.google.gson.Gson;
 import org.openpdf.text.DocumentException;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
@@ -57,8 +56,11 @@ public class LeaveStatusMail {
     public String email = "";
     public String requestDate = "";
     
-    @Autowired
-    private JavaMailSender mailSender;
+    private final JavaMailSender mailSender;
+
+    public LeaveStatusMail(JavaMailSender mailSender) {
+        this.mailSender = mailSender;
+    }
     
     @ResponseBody
     @RequestMapping(value = "/rs", method = RequestMethod.GET)

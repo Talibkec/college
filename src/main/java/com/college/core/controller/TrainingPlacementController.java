@@ -6,7 +6,6 @@ import com.college.core.model.PlacementsDTO;
 import com.college.core.model.StaffDTO;
 import com.college.service.PlacementsService;
 import com.college.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +21,14 @@ import java.util.Set;
 @Controller
 @RequestMapping(value = "trainingplacement")
 public class TrainingPlacementController {
-    @Autowired
-    UserService userService;
-    @Autowired
-    PlacementsService placementsService;
+    private final UserService userService;
+    private final PlacementsService placementsService;
+
+    public TrainingPlacementController(UserService userService, PlacementsService placementsService) {
+        this.userService = userService;
+        this.placementsService = placementsService;
+    }
+
     @RequestMapping(value = "placementbrochure")
     public ModelAndView getplacementbrochure() {
         ModelAndView mv = new ModelAndView();

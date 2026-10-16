@@ -8,7 +8,6 @@ import com.college.core.model.StaffDTO;
 import com.college.repository.PlacementsRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -16,11 +15,14 @@ import java.util.List;
 import java.util.Map;
 @Service
 public class PlacementsServiceImpl implements PlacementsService {
-    @Autowired
-    PlacementsRepository placementsRepository;
+    private final PlacementsRepository placementsRepository;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    ModelMapper modelMapper;
+    public PlacementsServiceImpl(PlacementsRepository placementsRepository, ModelMapper modelMapper) {
+        this.placementsRepository = placementsRepository;
+        this.modelMapper = modelMapper;
+    }
+
     @Override
     public List<PlacementsDTO> getAllPlacements() {
         List<Placements> placements = placementsRepository.findAll();

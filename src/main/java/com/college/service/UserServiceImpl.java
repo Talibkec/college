@@ -6,7 +6,6 @@ import com.college.core.model.UserRoleDTO;
 import com.college.repository.DepartmentRepository;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -17,14 +16,20 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
-    DepartmentRepository departmentRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final DepartmentRepository departmentRepository;
+
+    public UserServiceImpl(UserRepository userRepository,
+            RoleRepository roleRepository,
+            BCryptPasswordEncoder bCryptPasswordEncoder,
+            DepartmentRepository departmentRepository) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.departmentRepository = departmentRepository;
+    }
 
     @Override
     public void save(User user) {

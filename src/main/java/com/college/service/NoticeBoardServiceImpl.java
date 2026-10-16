@@ -7,7 +7,6 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
@@ -22,8 +21,11 @@ public class NoticeBoardServiceImpl implements NoticeBoardService{
 
     Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    NoticeBoardRepository noticeBoardRepository;
+    private final NoticeBoardRepository noticeBoardRepository;
+
+    public NoticeBoardServiceImpl(NoticeBoardRepository noticeBoardRepository) {
+        this.noticeBoardRepository = noticeBoardRepository;
+    }
 
     @Override
     @Cacheable(value = "homepageNoticeCache")

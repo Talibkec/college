@@ -5,7 +5,6 @@ import com.college.repository.DownloadRepository;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,12 @@ import java.util.List;
 public class DownloadServiceImpl implements DownloadService{
     Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    DownloadRepository downloadRepository;
+    private final DownloadRepository downloadRepository;
+
+    public DownloadServiceImpl(DownloadRepository downloadRepository) {
+        this.downloadRepository = downloadRepository;
+    }
+
     @Override
     public List<Download> getAllDownload() {
         return downloadRepository.getAllDocuments();

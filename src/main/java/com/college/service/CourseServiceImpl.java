@@ -3,7 +3,6 @@ package com.college.service;
 import com.college.core.entity.Course;
 import com.college.core.model.CourseDTO;
 import com.college.repository.CourseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -15,11 +14,13 @@ import java.util.Optional;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    @Autowired
-    private CourseRepository courseRepository;
+    private final CourseRepository courseRepository;
+    private final ModelMapper modelMapper;
 
-    @Autowired
-    ModelMapper modelMapper;
+    public CourseServiceImpl(CourseRepository courseRepository, ModelMapper modelMapper) {
+        this.courseRepository = courseRepository;
+        this.modelMapper = modelMapper;
+    }
 
     @Override
     public void saveCourse(CourseDTO courseDTO) {

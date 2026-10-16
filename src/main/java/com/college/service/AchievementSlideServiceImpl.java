@@ -7,7 +7,6 @@ import com.college.repository.AchievementRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,12 @@ import java.util.logging.Logger;
 public class AchievementSlideServiceImpl implements AchievementSlideService {
 
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    AchievementRepository achievementRepository;
+    private final AchievementRepository achievementRepository;
+
+    public AchievementSlideServiceImpl(AchievementRepository achievementRepository) {
+        this.achievementRepository = achievementRepository;
+    }
+
     @Override
     //@CacheEvict(value="achievementSlideImageCache",allEntries = true)
     public  void saveAchievementSlide(AchievementDTO achievementDTO){

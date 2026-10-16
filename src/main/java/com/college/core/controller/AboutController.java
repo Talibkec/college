@@ -15,7 +15,6 @@ import com.college.service.AdministrationService;
 import com.college.service.ResponsibilityDocService;
 import com.college.service.StaffService;
 import com.college.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import java.util.Base64;
 import org.springframework.stereotype.Controller;
@@ -36,14 +35,21 @@ import java.util.Set;
 public class AboutController {
     private static final Logger logger = LoggerFactory.getLogger(AboutController.class);
 
-    @Autowired
-    UserService userService;
-    @Autowired
-    ResponsibilityDocService responsibilityDocService;
-    @Autowired
-    StaffService staffService;
-    @Autowired
-    AdministrationService administrationService;
+    private final UserService userService;
+    private final ResponsibilityDocService responsibilityDocService;
+    private final StaffService staffService;
+    private final AdministrationService administrationService;
+
+    public AboutController(UserService userService,
+            ResponsibilityDocService responsibilityDocService,
+            StaffService staffService,
+            AdministrationService administrationService) {
+        this.userService = userService;
+        this.responsibilityDocService = responsibilityDocService;
+        this.staffService = staffService;
+        this.administrationService = administrationService;
+    }
+
     @RequestMapping(value = "history")
     public ModelAndView getHistory() {
         ModelAndView mv = new ModelAndView();

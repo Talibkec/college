@@ -6,7 +6,6 @@ import com.college.core.model.FacultyDocumentsDTO;
 import com.college.repository.FacultyDocumentsRepository;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;
@@ -15,8 +14,11 @@ import java.util.List;
 @Service
 public class FacultyDocumentsServiceImpl implements FacultyDocumentsService {
     ModelMapper modelMapper = new ModelMapper();
-    @Autowired
-    FacultyDocumentsRepository facultyDocumentsRepository;
+    private final FacultyDocumentsRepository facultyDocumentsRepository;
+
+    public FacultyDocumentsServiceImpl(FacultyDocumentsRepository facultyDocumentsRepository) {
+        this.facultyDocumentsRepository = facultyDocumentsRepository;
+    }
 
     @Override
     public List<FacultyDocumentsDTO> getFacultyDocuments(String userName) {

@@ -5,7 +5,6 @@ import com.college.KECDateHelper;
 import com.college.core.model.FacultyDTO;
 import com.college.service.FacultyService;
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.data.domain.PageRequest;
@@ -25,12 +24,17 @@ import java.util.List;
 
 public class CivilController {
 
-    @Autowired
-    public NoticeBoardService noticeBoardService;
-    @Autowired
-    public FacultyHelper facultyHelper;
-    @Autowired
-    public FacultyService facultyService;
+    private final NoticeBoardService noticeBoardService;
+    private final FacultyHelper facultyHelper;
+    private final FacultyService facultyService;
+
+    public CivilController(NoticeBoardService noticeBoardService,
+            FacultyHelper facultyHelper,
+            FacultyService facultyService) {
+        this.noticeBoardService = noticeBoardService;
+        this.facultyHelper = facultyHelper;
+        this.facultyService = facultyService;
+    }
 
     @RequestMapping(value = {"about"}, method = RequestMethod.GET)
     public ModelAndView getAbout() {

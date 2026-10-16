@@ -34,8 +34,8 @@
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <p>
                     <div>
-                        <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/sample.pdf" type="application/pdf" width="700" height="1000">
-                            <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/sample.pdf" type="application/pdf">
+                        <object data="/jsp/trainingplacement/sample.pdf" type="application/pdf" width="700" height="1000">
+                            <embed src="/jsp/trainingplacement/sample.pdf" type="application/pdf">
                         </object>
                     </div>
                     </p>

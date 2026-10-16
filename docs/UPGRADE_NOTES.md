@@ -49,9 +49,10 @@ schema change. Analysis and decisions: `docs/PROJECT_ANALYSIS.md`.
 | `405f1c9` | Java 21 → 25 |
 | `fed5427` | iText 5 (AGPL) → OpenPDF 3.0.5 (approved) |
 | `d382434` | Remove unused jQuery webjar (approved) |
-| (latest) | Notes updated |
+| `27d2817` | Notes updated |
+| (latest) | Embed the site's own PDFs instead of the Google viewer on keck.ac.in (approved) |
 
-Nothing has been pushed. Push the branch yourself: `git push -u origin kec_claude`.
+Pushed to `origin/kec_claude` up to `27d2817` (at your request); later commits are local until pushed.
 
 ## 3. Changes that matter (and how the old behaviour was kept)
 
@@ -104,6 +105,16 @@ Each one was found or confirmed by the tests (§5).
 * PDFs (attendance report, leave application): iText 5 → **OpenPDF 3.0.5**. Only the package changed
   (`com.itextpdf.text` → `org.openpdf.text`); same API calls. PDF content test green; logo embedding from an
   absolute path checked separately.
+* **Embedded PDFs (approved, found in the manual check):** 13 pages showed PDFs through
+  `drive.google.com/viewerng/viewer?url=http://keck.ac.in/...`, so they always showed (and linked to) the
+  production file and could not work locally. They now embed the same file by relative path
+  (`<object data="/approval/holiday/${document.id}">`, `/jsp/approval/aku.pdf`, ...), shown by the browser's PDF
+  viewer. URLs and parameters unchanged. `rtiact.jsp`'s fallback `<embed>` had a typo (`keck.ac.i`, wrong file) and
+  now points to the same file as its `<object>`. Spring Security's `X-Frame-Options` changed from `DENY` to
+  `SAMEORIGIN` so the site may embed its own files (other sites still cannot frame it).
+  `/jsp/academic/regulation.pdf` (regulations page) is not in the repository – it 404s locally; on the server it
+  works only if the file was copied there by hand. Canonical/`og:url` meta tags still name `http://www.keck.ac.in`
+  (correct for production). 5 `facultydocuments` and 2 `noticeboard` rows contain absolute keck.ac.in links (data).
 * Calendar client: `JacksonFactory` → `GsonFactory`; `GoogleCredential` with the P12 key is kept (deprecated but
   supported). Firebase initialisation unchanged.
 
@@ -122,10 +133,10 @@ Each one was found or confirmed by the tests (§5).
 
 ## 5. Tests
 
-`src/test/java/com/college/upgradetest` – 36 tests that start the real app against the local MySQL copy (see
+`src/test/java/com/college/upgradetest` – 37 tests that start the real app against the local MySQL copy (see
 CLAUDE.md "Tests"). They were written and the baselines recorded on the **original** version, then kept
 unchanged through all stages (only the Boot-specific wiring in `AbstractAppTest` moved).
-Result on Boot 4.1.1 / Java 25: **36 run, 0 failures, 1 skipped** (`leaveRequestEndpointMailsPdf`, see §6.6).
+Result on Boot 4.1.1 / Java 25: **37 run, 0 failures, 1 skipped** (`leaveRequestEndpointMailsPdf`, see §6.6).
 
 ## 6. Open issues / decisions for you
 

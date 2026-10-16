@@ -42,8 +42,8 @@
                             <c:if test="${embedpdf}">
 
                                 <div>
-                                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/responsibilityDoc/${document.id}" type="application/pdf" width="700" height="1000">
-                                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/responsibilityDoc/${document.id}" type="application/pdf">
+                                    <object data="/approval/responsibilityDoc/${document.id}" type="application/pdf" width="700" height="1000">
+                                        <embed src="/approval/responsibilityDoc/${document.id}" type="application/pdf">
                                     </object>
                                 </div>
 

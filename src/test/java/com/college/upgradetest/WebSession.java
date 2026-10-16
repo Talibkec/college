@@ -113,7 +113,9 @@ public class WebSession {
         try (InputStream in = status >= 400 ? c.getErrorStream() : c.getInputStream()) {
             bytes = in == null ? new byte[0] : readAll(in);
         }
-        return new Response(status, c.getHeaderField("Location"), c.getContentType(), bytes);
+        Response r = new Response(status, c.getHeaderField("Location"), c.getContentType(), bytes);
+        r.frameOptions = c.getHeaderField("X-Frame-Options");
+        return r;
     }
 
     /**
@@ -149,6 +151,7 @@ public class WebSession {
         public final String location;
         public final String contentType;
         public final byte[] bytes;
+        public String frameOptions;
 
         Response(int status, String location, String contentType, byte[] bytes) {
             this.status = status;

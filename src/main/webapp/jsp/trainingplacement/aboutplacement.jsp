@@ -42,9 +42,9 @@
             <div class="bg-white shadow rounded-lg p-6">
                 <h4 class="text-xl font-semibold mb-4">Placement Brochure</h4>
                 <div class="w-full overflow-hidden">
-                    <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
+                    <object data="/jsp/trainingplacement/brochure.pdf"
                             type="application/pdf" class="w-full h-96">
-                        <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/trainingplacement/brochure.pdf"
+                        <embed src="/jsp/trainingplacement/brochure.pdf"
                                type="application/pdf" class="w-full h-96">
                     </object>
                 </div>

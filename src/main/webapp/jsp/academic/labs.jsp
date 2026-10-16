@@ -61,9 +61,9 @@
                                 <tr>
                                     <td colspan="4">
                                         <div class="mb-4">
-                                            <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/lab/${document.id}"
+                                            <object data="/approval/lab/${document.id}"
                                                 type="application/pdf" width="100%" height="500">
-                                                <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/approval/lab/${document.id}"
+                                                <embed src="/approval/lab/${document.id}"
                                                     type="application/pdf">
                                             </object>
                                         </div>

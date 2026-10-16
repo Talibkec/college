@@ -33,8 +33,8 @@
 
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; margin-left:700 ">
 
-                <object data="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/approval/aku.pdf" type="application/pdf" width="700" height="1000">
-                    <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://keck.ac.in/jsp/approval/aku.pdf" type="application/pdf">
+                <object data="/jsp/approval/aku.pdf" type="application/pdf" width="700" height="1000">
+                    <embed src="/jsp/approval/aku.pdf" type="application/pdf">
                 </object>
                 <p><strong>AKU Regulation &#8212;-</strong></p>
                 <i class="fa fa-download"></i>

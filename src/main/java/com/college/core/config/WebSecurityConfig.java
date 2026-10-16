@@ -47,6 +47,8 @@ public class WebSecurityConfig {
                 // PasswordResetController and SecurityServiceImpl set the SecurityContext by hand and rely on it
                 // being stored in the session automatically (pre-Security-6 behaviour).
                 .securityContext(sc -> sc.requireExplicitSave(false))
+                // pages embed the site's own PDFs with <object>/<embed>; DENY (the default) would block them
+                .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
                 .authorizeHttpRequests(auth -> auth
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE, DispatcherType.ERROR).permitAll()
                         .requestMatchers(pathPattern("/user/updatePassword*"), pathPattern("/user/savePassword*"), pathPattern("/updatePassword*"))

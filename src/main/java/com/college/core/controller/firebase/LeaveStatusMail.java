@@ -1,150 +1,36 @@
 package com.college.core.controller.firebase;
 
+import com.college.firebase.LeaveMailService;
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.college.firebase.FirebaseDocumentHelper;
-import com.google.firebase.database.*;
-import com.google.gson.Gson;
-import org.openpdf.text.DocumentException;
-import org.apache.commons.io.IOUtils;
-import org.springframework.core.io.ByteArrayResource;
-import org.springframework.core.io.FileSystemResource;
-import org.springframework.mail.MailException;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileSystemUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.net.SocketTimeoutException;
-import java.security.GeneralSecurityException;
-
-import com.google.api.client.util.DateTime;
-import com.google.api.services.calendar.Calendar;
-import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.Events;
-import com.google.api.services.calendar.model.EventDateTime;
-import com.google.api.services.calendar.model.EventReminder;
-import com.google.api.services.calendar.model.EventAttendee;
-
-import jakarta.mail.Message;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
-import jakarta.mail.internet.MimeUtility;
-import java.text.ParseException;
-import java.util.*;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
-        
-
-import java.io.File;
 import java.io.IOException;
 
+/** Leave status from the attendance app: mails the status and adds the leave to the college calendar. */
 @Controller
 public class LeaveStatusMail {
+
     private static final Logger logger = LoggerFactory.getLogger(LeaveStatusMail.class);
 
-    public String leaveId = "";
-    public String startDate = "";
-    public String endDate = "";
-    public String leaveType = "";
-    public String name = "";
-    public String status = "";
-    public String email = "";
-    public String requestDate = "";
-    
-    private final JavaMailSender mailSender;
+    private final LeaveMailService leaveMailService;
 
-    public LeaveStatusMail(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
+    public LeaveStatusMail(LeaveMailService leaveMailService) {
+        this.leaveMailService = leaveMailService;
     }
-    
+
     @ResponseBody
     @RequestMapping(value = "/rs", method = RequestMethod.GET)
-    public String LeaveStatusMailController(@RequestParam("params") String params ) throws  IOException{
-        Gson gson= new Gson();
-        LeaveStatusDetail leaveStatusDetail = gson.fromJson(params,LeaveStatusDetail.class);
-        leaveId = leaveStatusDetail.getLeaveId();
-        startDate = leaveStatusDetail.getStartDate();
-        endDate = leaveStatusDetail.getEndDate();
-        leaveType = leaveStatusDetail.getLeaveType();
-        name = leaveStatusDetail.getName();
-        email = leaveStatusDetail.getEmail();
-        status = leaveStatusDetail.getStatus();
-        requestDate = leaveStatusDetail.getRequestDate();
+    public String LeaveStatusMailController(@RequestParam("params") String params) throws IOException {
+        LeaveStatusDetail detail = new Gson().fromJson(params, LeaveStatusDetail.class);
         logger.debug("Leave status mail requested with parameters {}", params);
-        File tempDirectory = new File(System.getProperty("java.io.tmpdir"));
-        String email = leaveStatusDetail.getEmail();
-        sendLeaveStatusMail(email,leaveStatusDetail);
-        
-        addEventToCalendar(leaveStatusDetail);
-        
+        leaveMailService.sendLeaveStatus(detail);
+        leaveMailService.addEventToCalendar(detail);
         return "";
-    }
-    @ExceptionHandler(IOException.class)
-    public void addEventToCalendar(LeaveStatusDetail leaveStatusDetail) throws IOException
-    {
-        String summary = leaveStatusDetail.getName()+" is on Leave today";
-        String description = leaveStatusDetail.getName()+ " is on leave from "+leaveStatusDetail.getStartDate()+" to "+leaveStatusDetail.getEndDate();
-        Event event = new Event()
-                .setSummary(summary)
-                .setLocation("Katihar, Bihar, India")
-                .setDescription(description);
-
-        DateTime startDateTime = new DateTime(leaveStatusDetail.getStartDate()+"T09:00:00-07:00");
-        EventDateTime start = new EventDateTime()
-                .setDateTime(startDateTime);
-                
-        event.setStart(start);
-
-        DateTime endDateTime = new DateTime(leaveStatusDetail.getEndDate()+"T17:00:00-07:00");
-        EventDateTime end = new EventDateTime()
-                .setDateTime(endDateTime);
-                
-        event.setEnd(end);
-        
-        Calendar service = null;
-        service = new CalendarService().configure();
-        String calendarId = "onlineattendance@keck.ac.in";
-        try {
-                event = service.events().insert(calendarId, event).execute();
-        }
-        catch (SocketTimeoutException e){
-            logger.error("Timeout while creating the calendar event", e);
-        }
-        logger.info("Calendar event created: {}", event.getHtmlLink());
-    }
-    
-    private void  sendLeaveStatusMail(String email, LeaveStatusDetail leaveStatusDetail){
-        String subject = "Leave Request Status";
-        String mailBody = "Sir,"+"\n\n"+"The "+leaveStatusDetail.getLeaveType()+" which you have requested on "+leaveStatusDetail.getRequestDate()+" ,between "+leaveStatusDetail.getStartDate()+" and "+leaveStatusDetail.getEndDate()+" has been "+leaveStatusDetail.getStatus();
-        MimeMessagePreparator preparator = new MimeMessagePreparator() {
-            @Override
-            public void prepare(MimeMessage mimeMessage) throws Exception {
-                logger.debug("Preparing the leave status mail");
-                mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-
-                mimeMessage.setFrom(new InternetAddress("test@keck.ac.in"));
-                mimeMessage.setSubject(subject);
-                mimeMessage.setText(mailBody);
-
-                MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-                
-                helper.setText(mailBody, true);
-            }
-        };
-        try {
-            mailSender.send(preparator);
-            logger.info("Leave status mail sent");
-           
-        }
-        catch (MailException ex) {
-            // simply log it and go on...
-            logger.error("Could not send the leave status mail", ex);
-            //fileWithAbsolutePath.delete();
-        }
     }
 }

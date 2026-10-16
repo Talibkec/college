@@ -1,23 +1,7 @@
 package com.college.core.controller.firebase;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
-import java.util.Collections;
-import java.util.List;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.security.GeneralSecurityException;
-import java.lang.Override;
-
+import com.college.core.config.KecProperties;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
@@ -25,98 +9,69 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.common.io.Files;
-import com.google.api.client.util.store.FileDataStoreFactory;
-import com.google.api.services.calendar.model.Event;
-import com.google.api.services.calendar.model.Events;
-import com.google.api.client.util.DateTime;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.Collections;
 
+/**
+ * Google Calendar client for the leave events (service account with a P12 key, settings under kec.calendar.*).
+ *
+ * <p>A configuration problem used to call {@code System.exit(1)} and stop the whole server; now
+ * {@link #configure()} throws an {@link IllegalStateException}, so only the request that needs the calendar fails.
+ */
+@Component
 public class CalendarService {
+
     private static final Logger logger = LoggerFactory.getLogger(CalendarService.class);
 
     private static final String APPLICATION_NAME = "Google Calendar API";
-
-    /** E-mail address of the service account. */
-    private static final String SERVICE_ACCOUNT_EMAIL = "online-attendance-7e3c3@appspot.gserviceaccount.com";
-
-    /** Global instance of the HTTP transport. */
-    private static HttpTransport httpTransport;
-     private HttpRequestInitializer setHttpTimeout;
-    private static final String TOKENS_DIRECTORY_PATH = "tokens";
-    
-
-    /** Global instance of the JSON factory. */
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
-    /**
-     * Global instance of the scopes required by this quickstart.
-     * If modifying these scopes, delete your previously saved tokens/ folder.
-     */
-    private static final List<String> SCOPES = Collections.singletonList(CalendarScopes.CALENDAR);
-    private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
-    /*private static final HttpRequestInitializer setHttpTimeout(final HttpRequestInitializer requestInitializer) {
-        return new HttpRequestInitializer() {
-            @Override
-            public void initialize(HttpRequest httpRequest) throws IOException {
-                requestInitializer.initialize(httpRequest);
+    private final KecProperties.GoogleCalendar settings;
+
+    public CalendarService(KecProperties kecProperties) {
+        this.settings = kecProperties.calendar();
+    }
+
+    public Calendar configure() {
+        if (settings.serviceAccount().startsWith("Enter ")) {
+            throw new IllegalStateException("Google Calendar service account is not configured");
+        }
+        try {
+            HttpTransport httpTransport = new NetHttpTransport();
+            HttpRequestInitializer setHttpTimeout = httpRequest -> {
                 httpRequest.setConnectTimeout(3 * 60000);  // 3 minutes connect timeout
                 httpRequest.setReadTimeout(3 * 60000);  // 3 minutes read timeout
+            };
+            URL loc = this.getClass().getResource(settings.p12Key());
+            File file = new File(loc.getPath());
+            String p12Content = Files.readFirstLine(file, Charset.defaultCharset());
+            if (p12Content.startsWith("Please")) {
+                throw new IllegalStateException("Google Calendar P12 key file is a placeholder");
             }
-        };*/
-    public  Calendar configure() {
-        
-        try {
-            try {
-                httpTransport = new NetHttpTransport();
-                setHttpTimeout = new HttpRequestInitializer() {
-                    @Override
-                    public void initialize(HttpRequest httpRequest) throws IOException {
-                        
-                        httpRequest.setConnectTimeout(3 * 60000);  // 3 minutes connect timeout
-                        httpRequest.setReadTimeout(3 * 60000);  // 3 minutes read timeout
-                    }
-                };
-                // check for valid setup
-                if (SERVICE_ACCOUNT_EMAIL.startsWith("Enter ")) {
-                    logger.error("Google Calendar service account is not configured");
-                    System.exit(1);
-                }
-                
-                    
-                URL loc = this.getClass().getResource("/online-attendance-7e3c3-8252f7614e5e.p12");
-                String path = loc.getPath();
-                File file = new File(path);
-                String p12Content = Files.readFirstLine(file, Charset.defaultCharset());
-                if (p12Content.startsWith("Please")) {
-                    logger.error("Google Calendar P12 key file is a placeholder");
-                    System.exit(1);
-                }
-                
-               
-                // service account credential (uncomment setServiceAccountUser for domain-wide delegation)
-                GoogleCredential credential = new GoogleCredential.Builder()
-                        .setTransport(httpTransport)
-                        .setJsonFactory(JSON_FACTORY)
-                        .setServiceAccountId(SERVICE_ACCOUNT_EMAIL)
-                        .setServiceAccountScopes(Collections.singleton(CalendarScopes.CALENDAR))
-                        .setRequestInitializer(setHttpTimeout)
-                        .setServiceAccountPrivateKeyFromP12File(file)
-                        .build();
-                Calendar   client = new com.google.api.services.calendar.Calendar.Builder(
-                        httpTransport, JSON_FACTORY, credential)
-                        .setApplicationName(APPLICATION_NAME).build();
-                logger.debug("Google Calendar client created");
-                return client;
-
-            } catch (IOException e) {
-                logger.error("Could not configure the Google Calendar client", e);
-            }
-        } catch (Throwable t) {
-            logger.error("Could not configure the Google Calendar client", t);
+            // service account credential (uncomment setServiceAccountUser for domain-wide delegation)
+            GoogleCredential credential = new GoogleCredential.Builder()
+                    .setTransport(httpTransport)
+                    .setJsonFactory(JSON_FACTORY)
+                    .setServiceAccountId(settings.serviceAccount())
+                    .setServiceAccountScopes(Collections.singleton(CalendarScopes.CALENDAR))
+                    .setRequestInitializer(setHttpTimeout)
+                    .setServiceAccountPrivateKeyFromP12File(file)
+                    .build();
+            Calendar client = new Calendar.Builder(httpTransport, JSON_FACTORY, credential)
+                    .setApplicationName(APPLICATION_NAME).build();
+            logger.debug("Google Calendar client created");
+            return client;
+        } catch (IllegalStateException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new IllegalStateException("Could not configure the Google Calendar client", e);
         }
-        System.exit(1);
-        return null;
     }
 }

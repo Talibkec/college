@@ -9,7 +9,8 @@ import org.openpdf.text.pdf.PdfPCell;
 import org.openpdf.text.pdf.PdfPTable;
 import org.openpdf.text.pdf.PdfWriter;
 import io.grpc.netty.shaded.io.netty.util.internal.StringUtil;
-import org.springframework.context.annotation.Configuration;
+import com.college.core.config.KecProperties;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.util.*;
@@ -17,8 +18,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-@Configuration
+/** Builds the attendance-report and leave-application PDFs. */
+@Component
 public class FirebaseDocumentHelper {
+
+    private final KecProperties kecProperties;
+
+    public FirebaseDocumentHelper(KecProperties kecProperties) {
+        this.kecProperties = kecProperties;
+    }
 
     public Map<String, Map<String, Boolean>> getReportInfo(DataSnapshot document, File fileWithAbsolutePath, FacultyReportDetail facultyReportDetail) throws DocumentException, IOException {
         Map<String, Map<String, Boolean>> reportInfo = new TreeMap<>();
@@ -53,7 +61,7 @@ public class FirebaseDocumentHelper {
         Integer columnPerPage = 10;
         Integer pageSize = noOfDays / columnPerPage;
         doc.open();
-        DocUtils.setDocumentHeader(doc, facultyReportDetail);
+        DocUtils.setDocumentHeader(doc, facultyReportDetail, kecProperties.paths().pdfLogo());
         getPdfPTable(facultyReportDetail, reportInfo, doc, columnPerPage, pageSize );
         doc.add(DocUtils.facultySign());
 
@@ -77,10 +85,10 @@ public class FirebaseDocumentHelper {
         PdfWriter.getInstance(doc, out);
         doc.open();
         if(leaveRequestDetail.getSubject().isEmpty() || leaveRequestDetail.getEmailContent().isEmpty()) {
-            DocUtils.setDefaultLeaveApplication(doc, leaveRequestDetail);
+            DocUtils.setDefaultLeaveApplication(doc, leaveRequestDetail, kecProperties.paths().pdfLogo());
         }
         else{
-            DocUtils.setCustomLeaveApplication(doc,leaveRequestDetail);
+            DocUtils.setCustomLeaveApplication(doc, leaveRequestDetail, kecProperties.paths().pdfLogo());
         }
         if(doc.isOpen()){
             doc.close();

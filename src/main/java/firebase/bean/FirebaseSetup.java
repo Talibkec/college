@@ -1,5 +1,7 @@
 package firebase.bean;
 
+import com.college.core.config.KecProperties;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,20 +20,22 @@ public class FirebaseSetup {
 
 
     private final ResourceLoader resourceLoader;
+    private final KecProperties.Firebase settings;
 
-    public FirebaseSetup(ResourceLoader resourceLoader) {
+    public FirebaseSetup(ResourceLoader resourceLoader, KecProperties kecProperties) {
         this.resourceLoader = resourceLoader;
+        this.settings = kecProperties.firebase();
     }
 
     @PostConstruct
     public void initialize() {
         try {
 
-            Resource resource = resourceLoader.getResource("classpath:kecattendance-account-info.json");
+            Resource resource = resourceLoader.getResource(settings.credentials());
             InputStream serviceAccount = resource.getInputStream();
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .setDatabaseUrl("https://kecattendance.firebaseio.com/")
+                    .setDatabaseUrl(settings.databaseUrl())
                     .build();
 
             FirebaseApp.initializeApp(options);

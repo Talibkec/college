@@ -34,7 +34,9 @@ import static org.junit.Assert.fail;
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
                 "spring.jpa.hibernate.ddl-auto=none",
-                "logging.level.org.hibernate.SQL=WARN"
+                "logging.level.org.hibernate.SQL=WARN",
+                // the PDF logo of the repository (production: /sites/default/files/compressed/logo.png)
+                "kec.paths.pdf-logo=src/main/webapp/sites/default/files/compressed/logo.png"
         })
 @ActiveProfiles("local")
 public abstract class AbstractAppTest {

@@ -14,10 +14,10 @@ public class DocUtils {
 
 
 
-    public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail) throws DocumentException {
+    public static void setDocumentHeader(Document doc, FacultyReportDetail facultyReportDetail, String logoPath) throws DocumentException {
 
 
-        doc.add(new Paragraph(kecLogo()));
+        doc.add(new Paragraph(kecLogo(logoPath)));
         doc.add(new Paragraph(attTitle()));
         doc.add(new Paragraph(deptTitle(facultyReportDetail)));
         doc.add(new Paragraph(semTitle(facultyReportDetail)));
@@ -25,10 +25,10 @@ public class DocUtils {
 
     }
 
-    //Print KEC Logo
-public  static Paragraph kecLogo(){
+    //Print KEC Logo (logoPath: kec.paths.pdf-logo)
+public  static Paragraph kecLogo(String logoPath){
         System.setProperty("http.agent","Chrome");
-    String attString = "/sites/default/files/compressed/logo.png";
+    String attString = logoPath;
     logger.debug("Logo path: {}", attString);
     Image image=null;
     try {
@@ -100,10 +100,10 @@ public static Paragraph attTitle(){
 
     }
 
-    public static void setDefaultLeaveApplication(Document doc, LeaveRequestDetail leaveRequestDetail) throws DocumentException {
+    public static void setDefaultLeaveApplication(Document doc, LeaveRequestDetail leaveRequestDetail, String logoPath) throws DocumentException {
 
 
-        doc.add(new Paragraph(kecLogo()));
+        doc.add(new Paragraph(kecLogo(logoPath)));
         doc.add(new Paragraph(addContent()));
         doc.add(new Paragraph(addSubject(leaveRequestDetail)));
         doc.add(new Paragraph(addGreet()));
@@ -112,8 +112,8 @@ public static Paragraph attTitle(){
 
 
     }
-    public static void setCustomLeaveApplication(Document doc,LeaveRequestDetail leaveRequestDetail) throws DocumentException {
-        doc.add(new Paragraph(kecLogo()));
+    public static void setCustomLeaveApplication(Document doc, LeaveRequestDetail leaveRequestDetail, String logoPath) throws DocumentException {
+        doc.add(new Paragraph(kecLogo(logoPath)));
         doc.add(new Paragraph(addContent()));
         doc.add(new Paragraph(addCustomSubject(leaveRequestDetail)));
         doc.add(new Paragraph(addGreet()));

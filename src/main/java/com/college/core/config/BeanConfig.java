@@ -50,8 +50,8 @@ public class BeanConfig {
     }
 
     @Bean(name = "FirebaseAPI")
-    public FirebaseSetup setupFireBase(ResourceLoader resourceLoader) {
-        return new FirebaseSetup(resourceLoader);
+    public FirebaseSetup setupFireBase(ResourceLoader resourceLoader, KecProperties kecProperties) {
+        return new FirebaseSetup(resourceLoader, kecProperties);
     }
 
     @Bean(name = "modelMapper")

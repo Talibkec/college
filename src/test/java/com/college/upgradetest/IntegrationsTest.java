@@ -38,8 +38,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class IntegrationsTest extends AbstractAppTest {
 
-    /** Hard-coded in DocUtils.kecLogo(); PDFs with the logo can only be built where this file exists. */
-    private static final File KEC_LOGO = new File("/sites/default/files/compressed/logo.png");
+    /** kec.paths.pdf-logo of the tests (AbstractAppTest); PDFs with the logo can only be built where it exists. */
+    private static final File KEC_LOGO = new File("src/main/webapp/sites/default/files/compressed/logo.png");
+
+    @Autowired
+    private CalendarService calendarService;
 
     @Autowired
     private ApplicationContext context;
@@ -120,8 +123,81 @@ public class IntegrationsTest extends AbstractAppTest {
     /** Builds the Google Calendar client from the P12 service-account key (no network call). */
     @Test
     public void googleCalendarClientCanBeConfigured() {
-        Calendar client = new CalendarService().configure();
+        Calendar client = calendarService.configure();
         assertNotNull(client);
         assertEquals("Google Calendar API", client.getApplicationName());
     }
+
+    /** A calendar misconfiguration fails the request instead of stopping the server (was System.exit(1)). */
+    @Test
+    public void calendarMisconfigurationThrowsInsteadOfExiting() {
+        com.college.core.config.KecProperties p = kecProperties;
+        com.college.core.config.KecProperties broken = new com.college.core.config.KecProperties(p.mail(), p.paths(), p.sms(),
+                p.firebase(), new com.college.core.config.KecProperties.GoogleCalendar(p.calendar().serviceAccount(),
+                "/no-such-key.p12", p.calendar().calendarId()), p.report());
+        try {
+            new CalendarService(broken).configure();
+            org.junit.Assert.fail("expected IllegalStateException");
+        } catch (IllegalStateException expected) {
+            assertTrue(expected.getMessage(), expected.getMessage().contains("Google Calendar"));
+        }
+    }
+
+    /** CSV attachment of the attendance report: same layout as the former test.csv file. */
+    @Test
+    public void attendanceCsvLayout() {
+        java.util.Map<String, java.util.Map<String, Boolean>> report = new java.util.TreeMap<>();
+        report.put("2099-01-02", new java.util.TreeMap<>(java.util.Map.of("R1", true, "R2,x", false)));
+        report.put("2099-01-01", new java.util.TreeMap<>(java.util.Map.of("R1", false, "R2,x", true)));
+        String nl = System.lineSeparator();
+        String expected = ",2099-01-01,2099-01-02" + nl
+                + "R1,A,P,1" + nl
+                + "\"R2,x\",P,A,1" + nl
+                + ",1,1" + nl;
+        assertEquals(expected, new String(attendanceReportService.getCsv(report), java.nio.charset.Charset.defaultCharset()));
+    }
+
+    /** Concurrent leave applications each get their own PDF (shared fields and a fixed temp file mixed them up). */
+    @Test
+    public void concurrentLeaveApplicationsGetTheirOwnPdf() throws Exception {
+        Assume.assumeTrue("skipped: " + KEC_LOGO + " missing", KEC_LOGO.isFile());
+        java.util.List<Thread> threads = new java.util.ArrayList<>();
+        for (String name : new String[]{"Alpha Applicant", "Beta Applicant", "Gamma Applicant", "Delta Applicant"}) {
+            String params = "{\"email\":\"" + TestData.MARK + "@example.com\",\"department\":\"CSE\",\"startDate\":\"2099-02-01\","
+                    + "\"endDate\":\"2099-02-02\",\"requestDate\":\"2099-01-30\",\"name\":\"" + name + "\",\"leaveType\":\"Casual Leave\","
+                    + "\"subject\":\"\",\"emailContent\":\"\"}";
+            Thread t = new Thread(() -> {
+                try {
+                    anonymous().get("/rl?params=" + URLEncoder.encode(params, "UTF-8"));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            });
+            threads.add(t);
+            t.start();
+        }
+        for (Thread t : threads) t.join();
+        assertEquals(4, mail.mimeMessages.size());
+        java.util.Set<String> names = new java.util.HashSet<>();
+        for (MimeMessage m : mail.mimeMessages) {
+            Multipart mp = (Multipart) m.getContent();
+            for (int i = 0; i < mp.getCount(); i++) {
+                if ("LeaveMail.pdf".equals(mp.getBodyPart(i).getFileName())) {
+                    PdfReader reader = new PdfReader(mp.getBodyPart(i).getInputStream());
+                    String text = new PdfTextExtractor(reader).getTextFromPage(1);
+                    reader.close();
+                    for (String n : new String[]{"Alpha", "Beta", "Gamma", "Delta"}) {
+                        if (text.contains(n + " Applicant")) names.add(n);
+                    }
+                }
+            }
+        }
+        assertEquals("each mail carries its own applicant's PDF", 4, names.size());
+    }
+
+    @Autowired
+    private com.college.core.config.KecProperties kecProperties;
+
+    @Autowired
+    private com.college.firebase.AttendanceReportService attendanceReportService;
 }

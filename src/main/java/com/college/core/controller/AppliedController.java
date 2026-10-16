@@ -1,17 +1,14 @@
 package com.college.core.controller;
 
 import com.college.FacultyHelper;
-import com.college.KECDateHelper;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -37,8 +34,8 @@ public class AppliedController {
 
         mv.addObject("noticeList", appliedScienceNotices);
 
-        mv.addObject("noticeList", getNoticeList(appliedScienceNotices, false));
-        mv.addObject("scrollingNoticeList", getNoticeList(appliedScienceNotices, true));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(appliedScienceNotices, false));
+        mv.addObject("scrollingNoticeList", ControllerUtility.filterNotices(appliedScienceNotices, true));
 
 
         mv.setViewName("department/ash/about.jsp");
@@ -46,24 +43,6 @@ public class AppliedController {
     }
 
 
-    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
-        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-
-        for (NoticeBoardDTO dto : list) {
-            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if (scrollable) {
-                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
-                    scrollingNotices.add(dto);
-            } else if (!scrollable) {
-                if (dto.getIsScrollable() == null)
-                    scrollingNotices.add(dto);
-
-            }
-        }
-
-        return scrollingNotices;
-    }
 
 
     @RequestMapping(value = "vision")

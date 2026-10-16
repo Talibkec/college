@@ -1,11 +1,7 @@
 package com.college.core.controller;
 
-import com.college.KECDateHelper;
-import com.college.core.entity.User;
-import com.college.core.model.FacultyDTO;
 import com.college.core.model.ImageSlideDTO;
 import com.college.core.model.NoticeBoardDTO;
-import com.college.core.model.UserRoleDTO;
 import com.college.service.FacultyService;
 import com.college.service.ImageSlideService;
 import com.college.service.NoticeBoardService;
@@ -33,11 +29,8 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Controller
 //@RequestMapping("user")
@@ -62,7 +55,7 @@ public class UserDashboard {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
         mv.setViewName("user/dashboard.jsp");
         return mv;
 
@@ -72,7 +65,7 @@ public class UserDashboard {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
         mv.setViewName("addPlacement.jsp");
         return mv;
 
@@ -83,24 +76,6 @@ public class UserDashboard {
         //model.addObject("users", getUsers());
         model.setViewName("uploadfileByFaculty.jsp");
         return model;
-    }
-    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
-        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-
-        for (NoticeBoardDTO dto : list) {
-            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if (scrollable) {
-                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
-                    scrollingNotices.add(dto);
-            } else if (!scrollable) {
-                if (dto.getIsScrollable() == null)
-                    scrollingNotices.add(dto);
-
-            }
-        }
-
-        return scrollingNotices;
     }
 
 

@@ -1,6 +1,5 @@
 package com.college.core.controller;
 
-import com.college.KECDateHelper;
 import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.NoticeBoardDTO;
@@ -8,11 +7,7 @@ import com.college.core.model.UserRoleDTO;
 import com.college.service.FacultyService;
 import com.college.service.NoticeBoardService;
 import com.college.service.UserService;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -45,7 +39,7 @@ public class AdminController {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
         mv.setViewName("admin/UploadDashboard.jsp");
         return mv;
 
@@ -56,7 +50,7 @@ public class AdminController {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
         mv.setViewName("admin/uploadLabDoc.jsp");
         return mv;
 
@@ -67,28 +61,10 @@ public class AdminController {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
-        mv.addObject("noticeList", getNoticeList(list, false));
+        mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
         mv.setViewName("addPlacement.jsp");
         return mv;
 
-    }
-    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
-        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-
-        for (NoticeBoardDTO dto : list) {
-            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if (scrollable) {
-                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
-                    scrollingNotices.add(dto);
-            } else if (!scrollable) {
-                if (dto.getIsScrollable() == null)
-                    scrollingNotices.add(dto);
-
-            }
-        }
-
-        return scrollingNotices;
     }
 
     @RequestMapping(value = "/hod/hodDashboard")

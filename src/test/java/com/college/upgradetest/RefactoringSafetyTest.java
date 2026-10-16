@@ -347,6 +347,24 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         }
     }
 
+    /** Department sites: only the listed pages exist, about/notice are GET-only, static pages accept any method. */
+    @Test
+    public void departmentUrlsAndMethods() throws Exception {
+        WebSession anon = anonymous();
+        assertEquals(404, anon.get("/department/cse/nosuchpage").status);
+        assertEquals(404, anon.get("/department/cse/faculty").status);       // "faculty" page exists for mechanical only
+        assertEquals(404, anon.get("/department/civil/subodh").status);      // faculty shortcut of another department
+        assertEquals(404, anon.get("/department/mechanical/about").status);  // mechanical's about page is /mech
+        assertEquals(404, anon.get("/department/nosuchdept/vision").status);
+        assertEquals(405, anon.postForm("/department/cse/about").status);
+        assertEquals(405, anon.postForm("/department/mechanical/mech").status);
+        assertEquals(405, anon.postForm("/department/ece/notice").status);
+        assertCompletePage("POST static page", anon.postForm("/department/cse/vision"));
+        assertCompletePage("POST mechanical faculty page", anon.postForm("/department/mechanical/faculty"));
+        assertCompletePage("trailing slash", anon.get("/department/eee/labs/"));
+        assertEquals(404, anon.postForm("/department/cse/dky").status);       // faculty shortcut view is missing (broken today)
+    }
+
     @Test
     public void userNameAutocompleteFindsTestUsers() throws Exception {
         WebSession.Response r = loginAs(TestData.FACULTY).get("/user/userNameAutocomplete?userName=" + TestData.MARK);

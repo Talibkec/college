@@ -1,6 +1,5 @@
 package com.college.core.controller;
 
-import com.college.KECDateHelper;
 import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
 import com.college.core.model.AchievementDTO;
@@ -115,8 +114,8 @@ public class UserController {
         modelAndView.addObject("achievementImageList", getAllAchievementImage(achievementImageList));
         modelAndView.addObject("imageList", getImageList(imageList));
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
-        modelAndView.addObject("noticeList", getNoticeList(list, false));
-        modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
+        modelAndView.addObject("noticeList", ControllerUtility.filterNotices(list, false));
+        modelAndView.addObject("scrollingNoticeList", ControllerUtility.filterNotices(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
         if (imageSlideDTO.getFileType() != null)
             modelAndView.addObject("fileExtension", "." + imageSlideDTO.getFileType());
@@ -137,8 +136,8 @@ public class UserController {
         modelAndView.addObject("achievementImageList", getAllAchievementImage(achievementImageList));
         modelAndView.addObject("imageList", getImageList(imageList));
         ImageSlideDTO imageSlideDTO = new ImageSlideDTO();
-        modelAndView.addObject("noticeList", getNoticeList(list, false));
-        modelAndView.addObject("scrollingNoticeList", getNoticeList(list, true));
+        modelAndView.addObject("noticeList", ControllerUtility.filterNotices(list, false));
+        modelAndView.addObject("scrollingNoticeList", ControllerUtility.filterNotices(list, true));
         modelAndView.addObject("Role", ControllerUtility.getRole());
         if (imageSlideDTO.getFileType() != null)
             modelAndView.addObject("fileExtension", "." + imageSlideDTO.getFileType());
@@ -165,24 +164,6 @@ public class UserController {
     }
 
 
-    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
-        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-
-        for (NoticeBoardDTO dto : list) {
-            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if (scrollable) {
-                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
-                    scrollingNotices.add(dto);
-            } else if (!scrollable) {
-                if (dto.getIsScrollable() == null)
-                    scrollingNotices.add(dto);
-
-            }
-        }
-
-        return scrollingNotices;
-    }
 
     private List<ImageSlideDTO> getImageList(List<ImageSlideDTO> imageList) {
         List<ImageSlideDTO> slidingImage = new ArrayList<>();

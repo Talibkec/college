@@ -1,20 +1,15 @@
 package com.college.core.controller;
 
 import com.college.FacultyHelper;
-import com.college.KECDateHelper;
-import com.college.core.model.FacultyDTO;
 import com.college.service.FacultyService;
-import org.apache.commons.io.FilenameUtils;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.NoticeBoardService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -50,8 +45,8 @@ public class CivilController {
         modalAndView.addObject("noticeList", civilNotices);
         ControllerUtility.getNoticelist(civilNotices);
 
-        modalAndView.addObject("noticeList", getNoticeList(civilNotices, false));
-        modalAndView.addObject("scrollingNoticeList", getNoticeList(civilNotices, true));
+        modalAndView.addObject("noticeList", ControllerUtility.filterNotices(civilNotices, false));
+        modalAndView.addObject("scrollingNoticeList", ControllerUtility.filterNotices(civilNotices, true));
 
         modalAndView.addObject("blinkMessage", blinkingMessage);
 
@@ -61,24 +56,6 @@ public class CivilController {
     }
 
 
-    private List<NoticeBoardDTO> getNoticeList(List<NoticeBoardDTO> list, boolean scrollable) {
-        List<NoticeBoardDTO> scrollingNotices = new ArrayList<>();
-
-        for (NoticeBoardDTO dto : list) {
-            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
-            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
-            if (scrollable) {
-                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
-                    scrollingNotices.add(dto);
-            } else if (!scrollable) {
-                if (dto.getIsScrollable() == null)
-                    scrollingNotices.add(dto);
-
-            }
-        }
-
-        return scrollingNotices;
-    }
 
 
     @RequestMapping(value = "vision")

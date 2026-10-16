@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.KECDateHelper;
 import com.college.core.model.NoticeBoardDTO;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.security.core.GrantedAuthority;
@@ -39,5 +40,25 @@ public class ControllerUtility {
             dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
         }
         return noticeList;
+    }
+
+    /**
+     * Prepares notices for display (file type with dot, notice age) and returns either the scrolling notices
+     * ({@code isScrollable == 1}) or the normal ones ({@code isScrollable == null}).
+     */
+    public static List<NoticeBoardDTO> filterNotices(List<NoticeBoardDTO> list, boolean scrollable) {
+        List<NoticeBoardDTO> result = new ArrayList<>();
+        for (NoticeBoardDTO dto : list) {
+            dto.setFileType(("." + FilenameUtils.getExtension(dto.getUploadedFileName())));
+            dto.setNoticeAge(KECDateHelper.getNoticeAge(dto));
+            if (scrollable) {
+                if (dto.getIsScrollable() != null && dto.getIsScrollable() == 1)
+                    result.add(dto);
+            } else {
+                if (dto.getIsScrollable() == null)
+                    result.add(dto);
+            }
+        }
+        return result;
     }
 }

@@ -110,8 +110,11 @@ public class HtmlSnapshotTest extends AbstractAppTest {
         }
         return r.body()
                 .replaceAll(";jsessionid=[0-9A-Fa-f]+", "")
-                // only where an id can stand (facultyId=157, /157/image, "157"), not inside numbers such as SVG paths
-                .replaceAll("(?<=[=/\"':])" + facultyId + "(?![\\d.])", "{facultyId}");
+                // only where the test faculty id appears (facultyId=157, value="157", "/157/image"); a looser pattern
+                // also matches inside SVG paths and base64 image data
+                .replaceAll("(?<=facultyId=)" + facultyId + "(?!\\d)", "{facultyId}")
+                .replaceAll("(?<=value=\")" + facultyId + "(?=\")", "{facultyId}")
+                .replaceAll("(?<=\"/)" + facultyId + "(?=/(image|documents)\")", "{facultyId}");
     }
 
     private static String firstDifference(String a, String b) {

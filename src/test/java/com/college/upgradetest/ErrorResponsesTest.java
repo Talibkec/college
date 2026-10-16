@@ -36,6 +36,17 @@ public class ErrorResponsesTest extends AbstractAppTest {
     }
 
     @Test
+    public void controllerExceptionGivesEmpty200() throws Exception {
+        // CustomExceptionHandler handles every controller exception without writing a response (original behaviour)
+        WebSession.Response missingNotice = anonymous().get("/notice/999999999");
+        assertEquals(200, missingNotice.status);
+        assertTrue("empty body: " + missingNotice, missingNotice.body().isEmpty());
+        WebSession.Response clientAbort = anonymous().get("/exception");
+        assertEquals(200, clientAbort.status);
+        assertTrue("empty body: " + clientAbort, clientAbort.body().isEmpty());
+    }
+
+    @Test
     public void accessDeniedShowsThe403Status() throws Exception {
         assertEquals(403, loginAs(TestData.FACULTY).get("/auth/uploadDashboard").status);
     }

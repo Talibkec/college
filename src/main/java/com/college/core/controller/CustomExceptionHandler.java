@@ -2,8 +2,6 @@ package com.college.core.controller;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.catalina.connector.ClientAbortException;
 import org.slf4j.Logger;
@@ -12,57 +10,51 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
+import jakarta.servlet.http.HttpServletRequest;
+
+/**
+ * Global exception handler for all controllers.
+ *
+ * <p>Behaviour kept from the original application: an exception thrown by a controller ends the request with
+ * whatever was already written, i.e. usually an empty HTTP 200 page (the handler returns {@code void} and writes
+ * nothing). Only the logging is done here: aborted client connections are logged briefly, everything else with the
+ * request and the stack trace.
+ */
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(SocketTimeoutException.class)
-    public final void SocketTimeException(Exception ex, WebRequest request) {
-        List<String> details = new ArrayList<>();
-        details.add(ex.getLocalizedMessage());
-        logger.error("SocketTimeOutException has Occured");
-    }
-
-
-    @ExceptionHandler(IOException.class)
-    public final void handleIOException(Exception ex, WebRequest request) {
-        List<String> details = new ArrayList<>();
-        details.add(ex.getLocalizedMessage());
-        if (ex.getMessage() != null && ex.getMessage().contains("Broken pipe")) {
-            logger.error("Broken Pipe exception has occured");
-        } else {
-            logger.error("Looks like pipe broken exception");
-        }
-    }
-
-
-    @ExceptionHandler(ClientAbortException.class)
-    public final void ClientAbortionException(Exception ex, WebRequest request) {
-        List<String> details = new ArrayList<>();
-        details.add(ex.getLocalizedMessage());
-        logger.error("ClientAbortException exception");
-    }
-
-
-    final Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
     @ExceptionHandler(Exception.class)
-    public final void handleAllExceptions(Exception ex, WebRequest request) {
-        List<String> details = new ArrayList<>();
-        details.add(ex.getLocalizedMessage());
-        if (ex.getMessage() != null && ex.getMessage().contains("Broken pipe")) {
-            logger.error("Broken Pipe exception has occured");
+    public void handleException(Exception ex, NativeWebRequest request) {
+        if (isClientAbort(ex)) {
+            log.warn("Client aborted the connection: {} {}", describe(request), ex.getClass().getSimpleName());
+        } else if (ex instanceof SocketTimeoutException) {
+            log.error("Socket timeout while handling {}", describe(request), ex);
         } else {
-            logger.error("Something went wrong", ex);
+            log.error("Unhandled exception while handling {}", describe(request), ex);
         }
+    }
+
+    private static boolean isClientAbort(Throwable ex) {
+        if (ex instanceof ClientAbortException) {
+            return true;
+        }
+        return ex instanceof IOException && ex.getMessage() != null && ex.getMessage().contains("Broken pipe");
+    }
+
+    private static String describe(NativeWebRequest request) {
+        HttpServletRequest servletRequest = request.getNativeRequest(HttpServletRequest.class);
+        return servletRequest == null ? request.getDescription(false)
+                : servletRequest.getMethod() + " " + servletRequest.getRequestURI();
     }
 
     // Upgrade compatibility (Spring 6): standard MVC exceptions (missing parameter, wrong method, ...) now get an
@@ -81,7 +73,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
         try {
             ((ServletWebRequest) request).getResponse().sendError(HttpStatus.NOT_FOUND.value());
         } catch (IOException e) {
-            logger.error("Could not send 404", e);
+            log.error("Could not send 404", e);
         }
         return null;
     }

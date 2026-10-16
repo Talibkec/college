@@ -32,8 +32,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
-import java.util.Set;
 
 @Controller
 @RequestMapping(value = "approval")
@@ -44,7 +42,7 @@ public class ApprovalController {
     private final HolidayService holidayService;
     private final ResponsibilityDocService responsibilityDocService;
     private final FacultyRepository facultyRepository;
-    private final UserService userService;
+    private final AccessService accessService;
     private final MessageSource messages;
     private final JavaMailSender mailSender;
     private final KecProperties kecProperties;
@@ -54,7 +52,7 @@ public class ApprovalController {
             HolidayService holidayService,
             ResponsibilityDocService responsibilityDocService,
             FacultyRepository facultyRepository,
-            UserService userService,
+            AccessService accessService,
             MessageSource messages,
             JavaMailSender mailSender,
             KecProperties kecProperties,
@@ -63,7 +61,7 @@ public class ApprovalController {
         this.holidayService = holidayService;
         this.responsibilityDocService = responsibilityDocService;
         this.facultyRepository = facultyRepository;
-        this.userService = userService;
+        this.accessService = accessService;
         this.messages = messages;
         this.mailSender = mailSender;
         this.kecProperties = kecProperties;
@@ -117,20 +115,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "aicteapproval")
     public ModelAndView getAicteApproval(Authentication authentication) {
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
 
         logger.debug("Listing AICTE documents");
         ModelAndView mv = new ModelAndView();
@@ -193,20 +178,7 @@ public class ApprovalController {
 
     @RequestMapping(value = "deleteHoliday/{id}")
     public ResponseEntity<?> deleteHoliday(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
         holidayService.deleteItem(documentId);
@@ -219,20 +191,7 @@ public class ApprovalController {
 
     @RequestMapping(value = "deleteLab/{id}")
     public ResponseEntity<?> deleteLab(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
         labDocumentService.deleteItem(documentId);
@@ -258,20 +217,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "deleteResponsibilityDoc/{id}")
     public ResponseEntity<?> deleteResponsibilityDoc(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
         responsibilityDocService.deleteItem(documentId);
@@ -281,20 +227,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "deletedocument/{id}")
     public ResponseEntity<?> deleteDocument(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
         allDocuments.deleteAicteDocument(documentId);

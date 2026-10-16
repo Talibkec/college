@@ -5,16 +5,14 @@ import org.slf4j.LoggerFactory;
 
 
 import com.college.core.entity.ResponsibilityDoc;
-import com.college.core.entity.Role;
 import com.college.core.entity.Staff;
-import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.StaffDTO;
 import com.college.core.model.StaffDTO;
 import com.college.service.AdministrationService;
 import com.college.service.ResponsibilityDocService;
 import com.college.service.StaffService;
-import com.college.service.UserService;
+import com.college.service.AccessService;
 import org.springframework.security.core.Authentication;
 import java.util.Base64;
 import org.springframework.stereotype.Controller;
@@ -26,25 +24,22 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 
 @Controller
 @RequestMapping("about")
 public class AboutController {
     private static final Logger logger = LoggerFactory.getLogger(AboutController.class);
-
-    private final UserService userService;
+    private final AccessService accessService;
     private final ResponsibilityDocService responsibilityDocService;
     private final StaffService staffService;
     private final AdministrationService administrationService;
 
-    public AboutController(UserService userService,
+    public AboutController(AccessService accessService,
             ResponsibilityDocService responsibilityDocService,
             StaffService staffService,
             AdministrationService administrationService) {
-        this.userService = userService;
+        this.accessService = accessService;
         this.responsibilityDocService = responsibilityDocService;
         this.staffService = staffService;
         this.administrationService = administrationService;
@@ -89,20 +84,7 @@ public class AboutController {
     @RequestMapping(value = "administration")
     public ModelAndView getResponsibilityDoc(Authentication authentication) {
 
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
@@ -118,16 +100,6 @@ public class AboutController {
         return mv;
     }
 
-    private int getUserType(String loggedInusername) {
-        User loggedInUser = userService.findByUsername(loggedInusername);
-        Set<Role> role = loggedInUser.getRoles();
-        for (Role r : role) {
-            if("Admin".equalsIgnoreCase(r.getName())){
-                return 1;
-            }
-        }
-        return 0;
-    }
 
     @RequestMapping(value = "staff")
     public ModelAndView getStaff(Authentication authentication) {
@@ -135,12 +107,7 @@ public class AboutController {
         // userType will be
         // 0 :- Normal User
         //1:- Admin
-        int userType = 0;
-
-        if (authentication != null) {
-            String loggedInusername = authentication.getName();
-            userType = getUserType(loggedInusername);
-        }
+        int userType = accessService.isAdmin(authentication) ? 1 : 0;
 
         long l = System.currentTimeMillis();
 
@@ -177,12 +144,7 @@ public class AboutController {
     }
     @RequestMapping(value = "deleteStaff")
     public void deleteStaff(@RequestParam("staffId") Long staffId, Authentication authentication, HttpServletResponse res) {
-        int accessAllow = 0;
-        String loggedInusername = "";
-        if (authentication != null) {
-            loggedInusername = authentication.getName();
-            accessAllow = getUserType(loggedInusername);
-        }
+        int accessAllow = accessService.isAdmin(authentication) ? 1 : 0;
         StaffDTO staffDTO = staffService.getStaffById(staffId);
         if (accessAllow > 0 ) {
             staffService.deleteStaff(staffId);

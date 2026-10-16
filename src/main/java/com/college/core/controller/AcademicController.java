@@ -6,15 +6,13 @@ import org.slf4j.LoggerFactory;
 import com.college.core.entity.*;
 import com.college.service.HolidayService;
 import com.college.service.LabDocumentService;
-import com.college.service.UserService;
+import com.college.service.AccessService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @Controller
 @RequestMapping(value = "academic")
@@ -23,14 +21,14 @@ public class AcademicController {
 
     private final HolidayService holidayService;
     private final LabDocumentService labDocumentService;
-    private final UserService userService;
+    private final AccessService accessService;
 
     public AcademicController(HolidayService holidayService,
             LabDocumentService labDocumentService,
-            UserService userService) {
+            AccessService accessService) {
         this.holidayService = holidayService;
         this.labDocumentService = labDocumentService;
-        this.userService = userService;
+        this.accessService = accessService;
     }
 
     @RequestMapping(value = "admission")
@@ -64,20 +62,7 @@ public class AcademicController {
     public ModelAndView getHolidays(Authentication authentication) {
 
 
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
@@ -100,20 +85,7 @@ public class AcademicController {
     @RequestMapping(value = "lab")
     public ModelAndView getLabDocuments(@RequestParam("dept_id") Integer deptId, Authentication authentication) {
 
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();

@@ -5,14 +5,12 @@ import org.slf4j.LoggerFactory;
 
 import com.college.core.entity.Download;
 import com.college.core.entity.ResponsibilityDoc;
-import com.college.core.entity.Role;
-import com.college.core.entity.User;
 import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.DownloadDTO;
 import com.college.repository.DownloadRepository;
 import com.college.service.DownloadService;
 import com.college.service.ResponsibilityDocService;
-import com.college.service.UserService;
+import com.college.service.AccessService;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
@@ -29,23 +27,20 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
 @Controller
 @RequestMapping(value = "facilities")
 
 public class FacilitiesController {
     private static final Logger logger = LoggerFactory.getLogger(FacilitiesController.class);
-
-    private final UserService userService;
+    private final AccessService accessService;
     private final DownloadService downloadService;
     private final ResponsibilityDocService responsibilityDocService;
 
-    public FacilitiesController(UserService userService,
+    public FacilitiesController(AccessService accessService,
             DownloadService downloadService,
             ResponsibilityDocService responsibilityDocService) {
-        this.userService = userService;
+        this.accessService = accessService;
         this.downloadService = downloadService;
         this.responsibilityDocService = responsibilityDocService;
     }
@@ -59,20 +54,7 @@ public class FacilitiesController {
     @RequestMapping(value = "downloads")
     public ModelAndView getdownloads(Authentication authentication) {
 
-        boolean accessAllow = false;
-        if(authentication != null){
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for ( Role r: role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if(Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")){
-                    accessAllow = true;
-                }
-            }
-
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();
@@ -106,19 +88,7 @@ public class FacilitiesController {
     }
     @RequestMapping(value = "deletedocument/{id}")
     public ResponseEntity<?> deleteDocument(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = false;
-        if (authentication != null) {
-            String loggedInusername = authentication.getName();
-            User loggedInUser = userService.findByUsername(loggedInusername);
-            Set<Role> role = loggedInUser.getRoles();
-
-            for (Role r : role) {
-                logger.debug("Role of the logged-in user: {}", r.getName());
-                if (Objects.equals(r.getName(), "Admin") || Objects.equals(r.getName(), "HOD")) {
-                    accessAllow = true;
-                }
-            }
-        }
+        boolean accessAllow = accessService.isAdminOrHod(authentication);
             if (!accessAllow) {
                 return new ResponseEntity<>("Authorities required", new HttpHeaders(), HttpStatus.OK);
             }

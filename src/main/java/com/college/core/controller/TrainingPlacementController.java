@@ -1,11 +1,9 @@
 package com.college.core.controller;
 
-import com.college.core.entity.Role;
-import com.college.core.entity.User;
 import com.college.core.model.PlacementsDTO;
 import com.college.core.model.StaffDTO;
 import com.college.service.PlacementsService;
-import com.college.service.UserService;
+import com.college.service.AccessService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,16 +14,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Controller
 @RequestMapping(value = "trainingplacement")
 public class TrainingPlacementController {
-    private final UserService userService;
+    private final AccessService accessService;
     private final PlacementsService placementsService;
 
-    public TrainingPlacementController(UserService userService, PlacementsService placementsService) {
-        this.userService = userService;
+    public TrainingPlacementController(AccessService accessService, PlacementsService placementsService) {
+        this.accessService = accessService;
         this.placementsService = placementsService;
     }
 
@@ -35,26 +32,11 @@ public class TrainingPlacementController {
         mv.setViewName("/trainingplacement/placementbrochure.jsp");
         return mv;
     }
-    private int getUserType(String loggedInusername) {
-        User loggedInUser = userService.findByUsername(loggedInusername);
-        Set<Role> role = loggedInUser.getRoles();
-        for (Role r : role) {
-            if("Admin".equalsIgnoreCase(r.getName())){
-                return 1;
-            }
-        }
-        return 0;
-    }
     @RequestMapping(value = "placedstudent")
     public ModelAndView getPlacedStudent(Authentication authentication) {
         ModelAndView mv = new ModelAndView();
         List<PlacementsDTO> placementsDTOList =  placementsService.getAllPlacements();
-        int userType = 0;
-
-        if (authentication != null) {
-            String loggedInusername = authentication.getName();
-            userType = getUserType(loggedInusername);
-        }
+        int userType = accessService.isAdmin(authentication) ? 1 : 0;
 
         mv.addObject("placementList", placementsDTOList);
         mv.addObject("userType", userType);
@@ -64,12 +46,7 @@ public class TrainingPlacementController {
 
     @RequestMapping(value = "deletePlacement")
     public void deleteStaff(@RequestParam("placementId") Long placementId , Authentication authentication , HttpServletResponse res) {
-        int accessAllow = 0;
-        String loggedInusername = "";
-        if (authentication != null) {
-            loggedInusername = authentication.getName();
-            accessAllow = getUserType(loggedInusername);
-        }
+        int accessAllow = accessService.isAdmin(authentication) ? 1 : 0;
         PlacementsDTO placementsDTO = placementsService.getPlacementsById(placementId);
         if (accessAllow > 0 ) {
             placementsService.deletePlacements(placementId);

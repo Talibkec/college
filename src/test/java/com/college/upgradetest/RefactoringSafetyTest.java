@@ -283,9 +283,20 @@ public class RefactoringSafetyTest extends AbstractAppTest {
     public void registrationCreatesUserAndRejectsInvalidInput() throws Exception {
         WebSession admin = loginAs(TestData.ADMIN);
         String username = TestData.MARK + "_reg";
+        // invalid input: the form is shown again with messages (approved change, commit 14: it used to answer 404)
         WebSession.Response invalid = admin.postForm("/auth/registration", "username", username, "password", "short", "passwordConfirm", "short", "role", "2");
-        assertEquals("invalid registration: " + invalid, 404, invalid.status); // returns the view "registration", which has no JSP
+        assertCompletePage("invalid registration", invalid);
+        assertContains("password too short", invalid, "Try one with at least 8 characters.");
+        assertContains("entered user name kept", invalid, "value=\"" + username + "\"");
         assertNull(id("select id from test_user where username = ?", username));
+
+        WebSession.Response blank = admin.postForm("/auth/registration", "username", "  ", "password", "Long#Password1", "passwordConfirm", "Other#Password1", "role", "2");
+        assertCompletePage("blank user name", blank);
+        assertContains("user name required", blank, "This field is required.");
+        assertContains("confirmation differs", blank, "These passwords don&#39;t match.");
+
+        WebSession.Response duplicate = admin.postForm("/auth/registration", "username", TestData.ADMIN.username, "password", "Long#Password1", "passwordConfirm", "Long#Password1", "role", "2");
+        assertContains("duplicate user name", duplicate, "Someone already has that username.");
 
         WebSession.Response ok = admin.postForm("/auth/registration", "username", username, "password", "Long#Password1",
                 "passwordConfirm", "Long#Password1", "role", "1");

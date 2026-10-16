@@ -1,12 +1,17 @@
 package com.college.validator;
 
-import com.college.core.entity.User;
+import com.college.core.model.RegistrationForm;
 import com.college.service.UserService;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import java.util.Objects;
+
+/**
+ * Checks of the registration form that Bean Validation cannot express: the user name must be free and the
+ * password confirmation must match. (The field checks are constraints on {@link RegistrationForm}.)
+ */
 @Component
 public class UserValidator implements Validator {
     private final UserService userService;
@@ -17,27 +22,16 @@ public class UserValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return User.class.equals(aClass);
+        return RegistrationForm.class.equals(aClass);
     }
 
     @Override
     public void validate(Object o, Errors errors) {
-        User user = (User) o;
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        if (user.getUsername().length() < 3 || user.getUsername().length() > 32) {
-            errors.rejectValue("username", "Size.userForm.username");
-        }
-        if (userService.findByUsername(user.getUsername()) != null) {
+        RegistrationForm form = (RegistrationForm) o;
+        if (userService.findByUsername(form.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
-        }
-
-        if (!user.getPasswordConfirm().equals(user.getPassword())) {
+        if (!Objects.equals(form.getPasswordConfirm(), form.getPassword())) {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
     }

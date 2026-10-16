@@ -2,6 +2,8 @@ package com.college.core.controller;
 
 import com.college.NoticeBoardHelper;
 import com.college.core.entity.User;
+import com.college.core.model.RegistrationForm;
+import jakarta.validation.Valid;
 import com.college.core.model.AchievementDTO;
 import com.college.core.model.GalleryImageDTO;
 import com.college.core.model.ImageSlideDTO;
@@ -72,20 +74,28 @@ public class UserController {
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("userForm", new User());
+        model.addAttribute("userForm", new RegistrationForm());
         model.addAttribute("roles", roleService.getALLRoles());
         return "registration.jsp";
     }
 
     @RequestMapping(value = "/auth/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+    public String registration(@Valid @ModelAttribute("userForm") RegistrationForm userForm,
+                               BindingResult bindingResult, Model model) {
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            // re-show the form with the messages (it used to return the view "registration", which does not exist: 404)
+            model.addAttribute("roles", roleService.getALLRoles());
+            return "registration.jsp";
         }
 
-        userService.save(userForm);
+        User user = new User();
+        user.setUsername(userForm.getUsername());
+        user.setPassword(userForm.getPassword());
+        user.setPasswordConfirm(userForm.getPasswordConfirm());
+        user.setRole(userForm.getRole());
+        userService.save(user);
         securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
 
         return "redirect:/";

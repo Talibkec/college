@@ -88,6 +88,11 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+            <!-- Bean Validation (registration form). Hibernate Validator came with the web starter in Boot 1.x. -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
             <!-- used directly (FilenameUtils, IOUtils); came transitively via commons-fileupload before -->
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

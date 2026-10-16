@@ -302,6 +302,52 @@ public class RefactoringSafetyTest extends AbstractAppTest {
     }
 
     @Test
+    public void passwordResetLinkWithExpiredOrForeignTokenIsRejected() throws Exception {
+        long facultyUser = data.userId(TestData.FACULTY.username);
+        long adminUser = data.userId(TestData.ADMIN.username);
+        jdbc.update("insert into password_reset_token (expiry_date, token, user_id) values (date_sub(now(), interval 1 day), ?, ?)",
+                TestData.MARK + "-expired", facultyUser);
+        jdbc.update("insert into password_reset_token (expiry_date, token, user_id) values (date_add(now(), interval 1 day), ?, ?)",
+                TestData.MARK + "-valid", facultyUser);
+
+        WebSession.Response expired = anonymous().get("/user/changePassword?id=" + facultyUser + "&token=" + TestData.MARK + "-expired");
+        assertEquals(302, expired.status);
+        assertEquals("/login?lang=en", expired.redirectPath());
+
+        WebSession.Response foreign = anonymous().get("/user/changePassword?id=" + adminUser + "&token=" + TestData.MARK + "-valid");
+        assertEquals(302, foreign.status);
+        assertEquals("/login?lang=en", foreign.redirectPath());
+
+        WebSession.Response valid = anonymous().get("/user/changePassword?id=" + facultyUser + "&token=" + TestData.MARK + "-valid");
+        assertEquals(302, valid.status);
+        assertEquals("/jsp/updatePassword.jsp?lang=en", valid.redirectPath());
+    }
+
+    /** Anonymous GET that inserts a blank faculty row (security problem, kept until the security follow-up). */
+    @Test
+    public void approvalAddFacultyInsertsPlaceholderRow() throws Exception {
+        long maxBefore = jdbc.queryForObject("select coalesce(max(faculty_id), 0) from faculty", Long.class);
+        try {
+            WebSession.Response r = anonymous().get("/approval/addFaculty");
+            assertEquals("response: " + r, 404, r.status);
+            List<Long> ids = jdbc.queryForList("select faculty_id from faculty where faculty_id > ? and f_name is null and username is null", Long.class, maxBefore);
+            assertEquals(1, ids.size());
+            List<Map<String, Object>> props = jdbc.queryForList(
+                    "select p.key_property_name, v.key_prop_val from faculty_key_props p join faculty_keyprop_values v on v.key_property_id = p.key_property_id "
+                            + "where p.faculty_id = ? order by v.key_prop_values_id", ids.get(0));
+            assertEquals(2, props.size());
+            assertEquals("Administrative Responsibilities", props.get(0).get("key_property_name"));
+            assertEquals("Design and Development of College Website", props.get(0).get("key_prop_val"));
+            assertEquals("Cultural & Sports", props.get(1).get("key_prop_val"));
+        } finally {
+            String blank = "select faculty_id from faculty where faculty_id > " + maxBefore + " and f_name is null and username is null and dept_id is null";
+            jdbc.update("delete from faculty_keyprop_values where key_property_id in (select key_property_id from faculty_key_props where faculty_id in (" + blank + "))");
+            jdbc.update("delete from faculty_key_props where faculty_id in (" + blank + ")");
+            jdbc.update("delete from faculty where faculty_id in (select * from (" + blank + ") t)");
+        }
+    }
+
+    @Test
     public void userNameAutocompleteFindsTestUsers() throws Exception {
         WebSession.Response r = loginAs(TestData.FACULTY).get("/user/userNameAutocomplete?userName=" + TestData.MARK);
         assertEquals(200, r.status);

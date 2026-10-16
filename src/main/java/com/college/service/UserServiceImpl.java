@@ -70,6 +70,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void assignHodRole(UserRoleDTO userRoleDTO) {
+        Role role = roleRepository.getHodRoleByName("HOD");
+        userRoleDTO.setRoleId(role.getId());
+        saveUserRole(userRoleDTO);
+    }
+
+    @Override
     public void deleteUserRole(UserRoleDTO userRoleDTO) {
         Long id = userRoleDTO.getRoleId();
         User user = userRepository.findById(userRoleDTO.getUserId()).orElse(null);

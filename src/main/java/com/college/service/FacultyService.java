@@ -39,4 +39,10 @@ public interface FacultyService {
     Faculty searchByEmail(String facultyEmail);
 
     void deleteFaculty(long facultyId);
+
+    /**
+     * Inserts a faculty row without name/user plus the "Administrative Responsibilities" key properties
+     * (behaviour of the anonymous GET /approval/addFaculty, kept as it is).
+     */
+    void addPlaceholderFaculty();
 }

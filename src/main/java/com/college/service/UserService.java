@@ -13,6 +13,9 @@ public interface UserService {
 
     void saveUserRole(UserRoleDTO userRoleDTO);
 
+    /** Gives the user the HOD role and makes the faculty member the HOD of the department. */
+    void assignHodRole(UserRoleDTO userRoleDTO);
+
     List<String> searchUserName(String userName);
 
     void deleteUserRole(UserRoleDTO userRoleDTO);

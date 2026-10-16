@@ -8,17 +8,12 @@ import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.HolidayDTO;
 import com.college.core.model.LabDocumentDTO;
 import com.college.core.model.ResponsibilityDocDTO;
-import com.college.repository.FacultyRepository;
 import com.college.service.*;
 import org.apache.commons.io.IOUtils;
-import com.college.core.config.KecProperties;
-import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +26,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Locale;
 
 @Controller
 @RequestMapping(value = "approval")
@@ -41,30 +35,24 @@ public class ApprovalController {
     private final AllDocuments allDocuments;
     private final HolidayService holidayService;
     private final ResponsibilityDocService responsibilityDocService;
-    private final FacultyRepository facultyRepository;
     private final AccessService accessService;
-    private final MessageSource messages;
-    private final JavaMailSender mailSender;
-    private final KecProperties kecProperties;
     private final LabDocumentService labDocumentService;
+    private final GrievanceService grievanceService;
+    private final FacultyService facultyService;
 
-    public ApprovalController(AllDocuments allDocuments,
+    public ApprovalController(FacultyService facultyService,
+            GrievanceService grievanceService,
+            AllDocuments allDocuments,
             HolidayService holidayService,
             ResponsibilityDocService responsibilityDocService,
-            FacultyRepository facultyRepository,
             AccessService accessService,
-            MessageSource messages,
-            JavaMailSender mailSender,
-            KecProperties kecProperties,
             LabDocumentService labDocumentService) {
+        this.facultyService = facultyService;
+        this.grievanceService = grievanceService;
         this.allDocuments = allDocuments;
         this.holidayService = holidayService;
         this.responsibilityDocService = responsibilityDocService;
-        this.facultyRepository = facultyRepository;
         this.accessService = accessService;
-        this.messages = messages;
-        this.mailSender = mailSender;
-        this.kecProperties = kecProperties;
         this.labDocumentService = labDocumentService;
     }
 
@@ -83,25 +71,7 @@ public class ApprovalController {
     @RequestMapping(value = "raisequery")
     public ResponseEntity raiseQuery(@RequestParam("name") String name ,@RequestParam("email") String email,@RequestParam("phone") String phone ,@RequestParam("query") String query
             ,@RequestParam("registration") String registration ) {
-
-
-        SimpleMailMessage emailObj = new SimpleMailMessage();
-        emailObj.setSubject("New Grievence Query Received");
-        emailObj.setText("Grievence details are \n" +
-                "\nName:- " + name +
-                "\nRegistration:- " + registration +
-                "\nPhone no :- " + phone +
-                "Email:- " + email +
-                "\nQuery:-\n " + query
-        );
-        emailObj.setTo(kecProperties.mail().grievanceTo());
-        emailObj.setFrom(kecProperties.mail().from());
-        try{
-            mailSender.send(emailObj);
-        }catch(Exception e){
-            logger.error("Could not send the grievance mail", e);
-        }
-
+        grievanceService.sendQuery(name, email, phone, query, registration);
         return ResponseEntity.ok("<script>window.location.href='./grievance'</script>");
     }
 
@@ -237,22 +207,7 @@ public class ApprovalController {
     }
     @RequestMapping(value = "addFaculty", method = RequestMethod.GET)
     public void addFaculty() {
-        FacultyKeyPropValues facultyKeyPropValues = new FacultyKeyPropValues();
-        FacultyKeyProps facultyKeyProps = new FacultyKeyProps();
-        facultyKeyPropValues.setKeyPropVal("Design and Development of College Website");
-        facultyKeyPropValues.setFacultyKeyProps(facultyKeyProps);
-        facultyKeyProps.getKeyPropVals().add(facultyKeyPropValues);
-        facultyKeyPropValues = new FacultyKeyPropValues();
-        facultyKeyPropValues.setKeyPropVal("Cultural & Sports");
-        facultyKeyPropValues.setFacultyKeyProps(facultyKeyProps);
-        facultyKeyProps.getKeyPropVals().add(facultyKeyPropValues);
-        facultyKeyProps.setKeyPropertyName("Administrative Responsibilities");
-        Faculty faculty = new Faculty();
-        facultyKeyProps.setFaculty(faculty);
-        faculty.getFacultyKeyProps().add(facultyKeyProps);
-       // faculty.setFacultyName("fname");
-        facultyRepository.save(faculty);
-        facultyRepository.findById(1l).orElse(null);
+        facultyService.addPlaceholderFaculty();
     }
 
 }

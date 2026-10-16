@@ -4,15 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.college.core.entity.Download;
-import com.college.core.entity.ResponsibilityDoc;
-import com.college.core.model.AicteDocumentsDTO;
 import com.college.core.model.DownloadDTO;
-import com.college.repository.DownloadRepository;
 import com.college.service.DownloadService;
 import com.college.service.ResponsibilityDocService;
 import com.college.service.AccessService;
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

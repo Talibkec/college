@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import com.college.ProductTransformer;
 import com.college.core.entity.Department;
 import com.college.core.entity.Faculty;
+import com.college.core.entity.FacultyKeyPropValues;
+import com.college.core.entity.FacultyKeyProps;
 import com.college.core.entity.PasswordResetToken;
 import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
@@ -201,5 +203,23 @@ public class FacultyServiceImpl implements FacultyService {
     public void createPasswordResetTokenForUser(User user, String token) {
         PasswordResetToken myToken = new PasswordResetToken(token, user);
         passwordTokenRepository.save(myToken);
+    }
+
+    @Override
+    public void addPlaceholderFaculty() {
+        FacultyKeyPropValues facultyKeyPropValues = new FacultyKeyPropValues();
+        FacultyKeyProps facultyKeyProps = new FacultyKeyProps();
+        facultyKeyPropValues.setKeyPropVal("Design and Development of College Website");
+        facultyKeyPropValues.setFacultyKeyProps(facultyKeyProps);
+        facultyKeyProps.getKeyPropVals().add(facultyKeyPropValues);
+        facultyKeyPropValues = new FacultyKeyPropValues();
+        facultyKeyPropValues.setKeyPropVal("Cultural & Sports");
+        facultyKeyPropValues.setFacultyKeyProps(facultyKeyProps);
+        facultyKeyProps.getKeyPropVals().add(facultyKeyPropValues);
+        facultyKeyProps.setKeyPropertyName("Administrative Responsibilities");
+        Faculty faculty = new Faculty();
+        facultyKeyProps.setFaculty(faculty);
+        faculty.getFacultyKeyProps().add(facultyKeyProps);
+        facultyRepository.save(faculty);
     }
 }

@@ -1,10 +1,9 @@
 package com.college.core.controller;
 
 import com.college.GenericResponse;
-import com.college.core.entity.PasswordResetToken;
 import com.college.core.entity.User;
 import com.college.core.model.FacultyDTO;
-import com.college.repository.PasswordResetTokenRepository;
+import com.college.service.PasswordResetService;
 import com.college.service.FacultyService;
 import com.college.service.UserService;
 import com.college.core.config.KecProperties;
@@ -25,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -38,7 +36,7 @@ public class PasswordResetController {
     private final KecProperties kecProperties;
     private final MessageSource messages;
     private final Environment env;
-    private final PasswordResetTokenRepository passwordResetTokenRepository;
+    private final PasswordResetService passwordResetService;
 
     public PasswordResetController(FacultyService facultyService,
             UserService userService,
@@ -46,14 +44,14 @@ public class PasswordResetController {
             KecProperties kecProperties,
             MessageSource messages,
             Environment env,
-            PasswordResetTokenRepository passwordResetTokenRepository) {
+            PasswordResetService passwordResetService) {
         this.facultyService = facultyService;
         this.userService = userService;
         this.mailSender = mailSender;
         this.kecProperties = kecProperties;
         this.messages = messages;
         this.env = env;
-        this.passwordResetTokenRepository = passwordResetTokenRepository;
+        this.passwordResetService = passwordResetService;
     }
 
 
@@ -112,23 +110,13 @@ public class PasswordResetController {
     }
 
     private String validatePasswordResetToken(long id, String token) {
-        PasswordResetToken passToken =
-                passwordResetTokenRepository.findByToken(token);
-        if ((passToken == null) || (passToken.getUser()
-                .getId() != id)) {
-            return "invalidToken";
+        PasswordResetService.TokenCheck check = passwordResetService.checkToken(id, token);
+        if (check.error() != null) {
+            return check.error();
         }
-
-        Calendar cal = Calendar.getInstance();
-        if ((passToken.getExpiryDate()
-                .getTime() - cal.getTime()
-                .getTime()) <= 0) {
-            return "expired";
-        }
-
-        User user = passToken.getUser();
+        // temporary login that only allows saving a new password (see WebSecurityConfig)
         Authentication auth = new UsernamePasswordAuthenticationToken(
-                user, null, Arrays.asList(
+                check.user(), null, Arrays.asList(
                 new SimpleGrantedAuthority("CHANGE_PASSWORD_PRIVILEGE")));
         SecurityContextHolder.getContext().setAuthentication(auth);
         return null;

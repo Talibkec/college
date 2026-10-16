@@ -2,7 +2,6 @@ package com.college.core.controller;
 
 import com.college.core.entity.Department;
 import com.college.core.entity.Role;
-import com.college.core.model.FacultyDTO;
 import com.college.core.model.UserRoleDTO;
 import com.college.service.*;
 import com.college.sms.MessageSender;
@@ -36,7 +35,6 @@ public class DashboardController {
     private final NoticeBoardService noticeBoardService;
     private final RoleService roleService;
     private final UserService userService;
-    private final FacultyService facultyService;
     private final DepartmentService departmentService;
     private final MessageSender messageSender;
 
@@ -44,14 +42,12 @@ public class DashboardController {
             NoticeBoardService noticeBoardService,
             RoleService roleService,
             UserService userService,
-            FacultyService facultyService,
             DepartmentService departmentService,
             MessageSender messageSender) {
         this.kecProperties = kecProperties;
         this.noticeBoardService = noticeBoardService;
         this.roleService = roleService;
         this.userService = userService;
-        this.facultyService = facultyService;
         this.departmentService = departmentService;
         this.messageSender = messageSender;
     }
@@ -162,13 +158,8 @@ public class DashboardController {
     @RequestMapping(value = "/auth/hod/saveRole", method = RequestMethod.POST)
     public ResponseEntity<?> setRoles(@RequestParam("facultyDetails") String facultyDetails, HttpServletResponse res) throws IOException {
 
-        UserRoleDTO userRoleDTO = new UserRoleDTO();
-        FacultyDTO facultyDTO = new FacultyDTO();
-
-        Role role = roleService.getHodRole("HOD");
-        userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
-        userRoleDTO.setRoleId(role.getId());
-        userService.saveUserRole(userRoleDTO);
+        UserRoleDTO userRoleDTO = gson.fromJson(facultyDetails, UserRoleDTO.class);
+        userService.assignHodRole(userRoleDTO);
         return new ResponseEntity<>("Successfully assigned the role ", new HttpHeaders(), HttpStatus.OK);
     }
 

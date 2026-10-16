@@ -13,6 +13,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.college.core.config.KecProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
@@ -36,6 +37,8 @@ import java.util.List;
 
 @Controller
 public class UserController {
+    @Autowired
+    private KecProperties kecProperties;
     @Autowired
     private UserService userService;
 
@@ -288,7 +291,7 @@ public class UserController {
     }
 
     private void deleteFileDromDisk(String fileName) {
-        File file = new File("/wp-content/uploads/notice/" + fileName);
+        File file = new File(kecProperties.paths().noticeUploadDir() + fileName);
         file.delete();
     }
 

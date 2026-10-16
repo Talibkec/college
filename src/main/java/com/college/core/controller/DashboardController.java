@@ -13,6 +13,7 @@ import org.apache.catalina.connector.ClientAbortException;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.college.core.config.KecProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
@@ -32,6 +33,8 @@ import java.util.List;
 
 @Controller
 public class DashboardController {
+    @Autowired
+    private KecProperties kecProperties;
 
     Logger logger = LoggerFactory.getLogger(DashboardController.class);
     @Autowired
@@ -132,7 +135,7 @@ public class DashboardController {
     public byte[] image(@PathVariable("imageName") String name, @PathVariable("imageType") String type, HttpServletRequest request) throws IOException {
 
         logger.info("Image is being served from disk");
-        String imagePath = "/sites/default/files/compressed/" + name + "." + type;
+        String imagePath = kecProperties.paths().homePageImageDir() + name + "." + type;
         InputStream is = request.getSession().getServletContext().getResourceAsStream(imagePath);
         return IOUtils.toByteArray(is);
     }

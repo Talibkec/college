@@ -284,6 +284,23 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         assertEquals("/auth/uploadDashboard", login.redirectPath());
     }
 
+    @org.springframework.beans.factory.annotation.Autowired
+    private com.college.core.config.KecProperties kecProperties;
+
+    /** Values that were hard-coded before the refactoring (kec.* properties must keep them). */
+    @Test
+    public void applicationSettingsKeepTheOldValues() throws Exception {
+        assertEquals("test@keck.ac.in", kecProperties.mail().from());
+        assertEquals("principal@keck.ac.in", kecProperties.mail().grievanceTo());
+        assertEquals("/wp-content/uploads/notice/", kecProperties.paths().noticeUploadDir());
+        assertEquals("/sites/default/files/compressed/", kecProperties.paths().homePageImageDir());
+        assertEquals("https://api.textlocal.in/send/?", kecProperties.sms().url());
+        assertEquals("KECTXT", kecProperties.sms().sender());
+
+        anonymous().get("/approval/raisequery?name=" + TestData.MARK + "&email=a%40example.com&phone=1&query=q&registration=1");
+        assertEquals("grievance sender", "test@keck.ac.in", mail.simpleMessages.get(0).getFrom());
+    }
+
     @Test
     public void userNameAutocompleteFindsTestUsers() throws Exception {
         WebSession.Response r = loginAs(TestData.FACULTY).get("/user/userNameAutocomplete?userName=" + TestData.MARK);

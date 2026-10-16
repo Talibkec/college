@@ -4,6 +4,7 @@ import com.college.FacultyHelper;
 import firebase.bean.FirebaseSetup;
 import com.college.NoticeBoardHelper;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
+@EnableConfigurationProperties(KecProperties.class)
 public class BeanConfig {
 
     @Bean

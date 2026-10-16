@@ -1,5 +1,9 @@
 package com.college.sms;
 
+import com.college.core.config.KecProperties;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +28,9 @@ public class MessageSender {
 
     private final Logger logger = LoggerFactory.getLogger(MessageSender.class);
 
+    @Autowired
+    private KecProperties kecProperties;
+
     @Value("${KEC_WEB_TEAM}")
     private String kecWebTeam;
 
@@ -35,6 +42,13 @@ public class MessageSender {
 
     @Value("${ALL_FACULTIES}")
     private String allFaculties;
+
+    @PostConstruct
+    void warnIfNotConfigured() {
+        if (kecProperties.sms().apiKey() == null || kecProperties.sms().apiKey().isBlank()) {
+            logger.warn("SMS_API_KEY is not set: bulk SMS (/auth/sendMessage) will be rejected by Textlocal");
+        }
+    }
 
     public StringBuilder sendSMSGroup(String smsGroup, String msg, String numberInput) {
 
@@ -87,12 +101,12 @@ public class MessageSender {
         for (String number : nums) {
             try {
                 // Construct data
-                String apiKey = "apikey=" + "DQNOrMbdD7g-cJHqexVHwXXxvssb1R1UbxddcccxLz";
+                String apiKey = "apikey=" + kecProperties.sms().apiKey();
                 String message = "&message=" + template + msg;
-                String sender = "&sender=" + "KECTXT";
+                String sender = "&sender=" + kecProperties.sms().sender();
                 String numbers = "&numbers=" + "91" + number;
                 //String test = "&test=" + "true";
-                HttpURLConnection conn = (HttpURLConnection) new URL("https://api.textlocal.in/send/?").openConnection();
+                HttpURLConnection conn = (HttpURLConnection) new URL(kecProperties.sms().url()).openConnection();
                 String data = apiKey + numbers + message + sender /*+test*/;
                 conn.setDoOutput(true);
                 conn.setRequestMethod("POST");

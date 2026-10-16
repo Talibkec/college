@@ -62,6 +62,7 @@ export DB_USERNAME='****'
 export DB_PASSWORD='****'
 export MAIL_USERNAME='****@keck.ac.in'
 export MAIL_PASSWORD='****'          # Gmail app password
+export SMS_API_KEY='****'            # Textlocal API key (bulk SMS); without it /auth/sendMessage sends nothing
 export JAVA_OPTS="-Xms512m -Xmx1536m -Djava.awt.headless=true -Dfile.encoding=UTF-8"
 # keep the server's current time zone; to force IST instead add: -Duser.timezone=Asia/Kolkata
 ```
@@ -69,7 +70,8 @@ export JAVA_OPTS="-Xms512m -Xmx1536m -Djava.awt.headless=true -Dfile.encoding=UT
 sudo chown tomcat:tomcat /opt/tomcat/latest/bin/setenv.sh
 sudo chmod 750 /opt/tomcat/latest/bin/setenv.sh      # contains passwords – not world-readable
 ```
-Use the **rotated** credentials here (the old ones are in git history). Adjust `-Xmx` to the VPS RAM
+Use the **rotated** credentials here (the old ones are in git history). `SMS_API_KEY` is required since the
+refactoring (the key used to be in `MessageSender.java`); rotate it at Textlocal too. Adjust `-Xmx` to the VPS RAM
 (about half of it). Alternative to env vars: a `application-local.properties` file plus
 `-Dspring.profiles.active=local -Dspring.config.additional-location=file:/opt/tomcat/conf/` – env vars are simpler.
 

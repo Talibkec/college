@@ -7,6 +7,7 @@ import com.college.core.model.FacultyDTO;
 import com.college.repository.PasswordResetTokenRepository;
 import com.college.service.FacultyService;
 import com.college.service.UserService;
+import com.college.core.config.KecProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
@@ -38,6 +39,8 @@ public class PasswordResetController {
     UserService userService;
     @Autowired
     private JavaMailSender mailSender;
+    @Autowired
+    private KecProperties kecProperties;
     @Autowired
     private MessageSource messages;
     @Autowired
@@ -80,7 +83,7 @@ public class PasswordResetController {
         email.setSubject(subject);
         email.setText(body);
         email.setTo(sendMail);
-        email.setFrom("test@keck.ac.in");
+        email.setFrom(kecProperties.mail().from());
         return email;
     }
 

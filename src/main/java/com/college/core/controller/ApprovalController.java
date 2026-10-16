@@ -11,6 +11,7 @@ import com.college.core.model.ResponsibilityDocDTO;
 import com.college.repository.FacultyRepository;
 import com.college.service.*;
 import org.apache.commons.io.IOUtils;
+import com.college.core.config.KecProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpHeaders;
@@ -54,6 +55,8 @@ public class ApprovalController {
     private MessageSource messages;
     @Autowired
     private JavaMailSender mailSender;
+    @Autowired
+    private KecProperties kecProperties;
 
     @RequestMapping(value = "akuapproval")
     public ModelAndView getAkuApproval() {
@@ -81,8 +84,8 @@ public class ApprovalController {
                 "Email:- " + email +
                 "\nQuery:-\n " + query
         );
-        emailObj.setTo("principal@keck.ac.in");
-        emailObj.setFrom("test@keck.ac.in");
+        emailObj.setTo(kecProperties.mail().grievanceTo());
+        emailObj.setFrom(kecProperties.mail().from());
         try{
             mailSender.send(emailObj);
         }catch(Exception e){

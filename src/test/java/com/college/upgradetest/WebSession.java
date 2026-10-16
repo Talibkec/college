@@ -115,6 +115,7 @@ public class WebSession {
         }
         Response r = new Response(status, c.getHeaderField("Location"), c.getContentType(), bytes);
         r.frameOptions = c.getHeaderField("X-Frame-Options");
+        r.contentDisposition = c.getHeaderField("Content-Disposition");
         return r;
     }
 
@@ -152,6 +153,7 @@ public class WebSession {
         public final String contentType;
         public final byte[] bytes;
         public String frameOptions;
+        public String contentDisposition;
 
         Response(int status, String location, String contentType, byte[] bytes) {
             this.status = status;

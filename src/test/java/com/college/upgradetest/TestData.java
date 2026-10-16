@@ -69,6 +69,13 @@ public class TestData {
         jdbc.update("delete from holiday where file_name like ?", like);
         jdbc.update("delete from download where file_name like ?", like);
         jdbc.update("delete from image_slide where caption like ?", like);
+        // rows of RefactoringSafetyTest
+        jdbc.update("delete from aicte_documents where title like ?", like);
+        jdbc.update("delete from responsibility_doc where file_name like ?", like);
+        jdbc.update("delete from lab_document where file_name like ?", like);
+        jdbc.update("delete from gallery_image where caption like ?", like);
+        jdbc.update("delete from achievement_slide where achievement_caption like ?", like);
+        jdbc.update("delete from administration where f_dutyassigned like ?", like);
     }
 
     public static class TestUser {

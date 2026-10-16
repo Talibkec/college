@@ -1,4 +1,4 @@
-package firebase.bean;
+package com.college.firebase;
 
 import com.college.core.config.KecProperties;
 

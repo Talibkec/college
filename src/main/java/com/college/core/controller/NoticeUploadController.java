@@ -15,13 +15,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 /** Notice/tender/news upload by the admin. */
 @Controller
-public class FileUploadCintroller {
+public class NoticeUploadController {
 
-    private static final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
+    private static final Logger logger = LoggerFactory.getLogger(NoticeUploadController.class);
 
     private final UploadService uploadService;
 
-    public FileUploadCintroller(UploadService uploadService) {
+    public NoticeUploadController(UploadService uploadService) {
         this.uploadService = uploadService;
     }
 

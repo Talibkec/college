@@ -11,10 +11,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("category")
-public class notice {
+public class NoticeController {
     private final NoticeBoardService noticeBoardService;
 
-    public notice(NoticeBoardService noticeBoardService) {
+    public NoticeController(NoticeBoardService noticeBoardService) {
         this.noticeBoardService = noticeBoardService;
     }
 

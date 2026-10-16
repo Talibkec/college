@@ -35,7 +35,7 @@ public  class AdministrationController {
         this.facultyService = facultyService;
     }
 
-    private final Logger logger = LoggerFactory.getLogger(FileUploadCintroller.class);
+    private final Logger logger = LoggerFactory.getLogger(AdministrationController.class);
     @ResponseBody
     @RequestMapping(value = "/api/uploadAdministration", method = RequestMethod.POST)
     public ResponseEntity<?> uploadAdministration(

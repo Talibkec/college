@@ -1,7 +1,7 @@
 package com.college.core.config;
 
 import com.college.FacultyHelper;
-import firebase.bean.FirebaseSetup;
+import com.college.firebase.FirebaseSetup;
 import com.college.NoticeBoardHelper;
 import com.college.service.FacultyDocumentsService;
 import com.college.service.FacultyService;

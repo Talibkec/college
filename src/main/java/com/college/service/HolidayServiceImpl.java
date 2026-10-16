@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class HolidaytServiceImpl implements HolidayService{
+public class HolidayServiceImpl implements HolidayService{
     Logger logger = LoggerFactory.getLogger(NoticeBoardServiceImpl.class);
     ModelMapper modelMapper = new ModelMapper();
     private final HolidayRepository holidayRepository;
 
-    public HolidaytServiceImpl(HolidayRepository holidayRepository) {
+    public HolidayServiceImpl(HolidayRepository holidayRepository) {
         this.holidayRepository = holidayRepository;
     }
 
     @Override
     public List<HolidayDTO> getAllDownload() {
-        return holidayRepository.getAllDocuments().stream().map(HolidaytServiceImpl::toListItem).toList();
+        return holidayRepository.getAllDocuments().stream().map(HolidayServiceImpl::toListItem).toList();
     }
 
     @Override

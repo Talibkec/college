@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Existing texts of the pages made editable (&lt;kec:section&gt; + docs/sql/dynamic/15_page_section_pages_seed.sql,
- * Academic pages first), the button bar of the content screens and the header's "Website Content" link.
+ * Academic and Facilities pages), the button bar of the content screens and the header's "Website Content" link.
  * Changed texts are restored through the screen afterwards ("restore the original text").
  */
 public class PageTextsTest extends AbstractAppTest {
@@ -45,12 +45,12 @@ public class PageTextsTest extends AbstractAppTest {
             String id = String.valueOf(row.get("entity_id"));
             // only sections this test class changes (PageSectionsTest restores About itself)
             String page = jdbc.queryForObject("select page_key from page_section where section_id = ?", String.class, Long.valueOf(id));
-            if (page.startsWith("academic.")) {
+            if (page.startsWith("academic.") || page.startsWith("facilities.")) {
                 admin.postForm("/manage/sections/restore", "id", id, "logId", String.valueOf(row.get("first_log")), "before", "1");
                 admin.postForm("/manage/sections/save", "id", id, "html", body(Long.parseLong(id)), "visible", "on");
             }
         }
-        jdbc.update("update page_section set updated_by = null, updated_at = null where page_key like 'academic.%'");
+        jdbc.update("update page_section set updated_by = null, updated_at = null where page_key like 'academic.%' or page_key like 'facilities.%'");
     }
 
     /** Every wrapped text has its seed row with exactly the JSP's HTML and the area of PageKeys (who may edit it). */
@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("academic texts found: " + count, count >= 21);
+        assertTrue("academic and facilities texts found: " + count, count >= 40);
     }
 
     @Test
@@ -107,6 +107,31 @@ public class PageTextsTest extends AbstractAppTest {
 
         sub.postForm("/manage/sections/save", "id", String.valueOf(lateral), "html", body(lateral));
         assertFalse("hidden text", anonymous().get("/academic/admission").body().contains("(A) Passed Diploma"));
+    }
+
+    /** Hostel fee table: SubAdmin (hostel area) changes it, the accordion around it stays code; TPO may not, but edits the Startup Cell (tp). */
+    @Test
+    public void facilitiesTextsFollowTheirAreas() throws Exception {
+        long fees = sectionId("facilities.hostels", "fees");
+        assertEquals("hostel", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, fees));
+        String before = anonymous().get("/facilities/hostels").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        sub.postForm("/manage/sections/save", "id", String.valueOf(fees), "html", "<p>" + TestData.MARK + " fees</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/facilities/hostels");
+        assertContains("new fee text", changed, "<p>" + TestData.MARK + " fees</p>");
+        assertContains("accordion kept", changed, "Hostel Fee Structure");
+        assertContains("other table kept", changed, "Hostel In Charges");
+        assertFalse(changed.body().contains("Hostel Admission Charge"));
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(fees));
+        sub.postForm("/manage/sections/restore", "id", String.valueOf(fees), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/facilities/hostels").body());
+
+        WebSession tpo = loginAs(TestData.TPO);
+        assertEquals(403, tpo.get("/manage/sections?id=" + fees).status);
+        long startup = sectionId("facilities.startupcell", "main");
+        assertEquals(200, tpo.get("/manage/sections?id=" + startup).status);
+        assertContains("tpo: startup cell listed", tpo.get("/manage/blocks?page=facilities.startupcell"), "Startup Cell: text");
     }
 
     @Test

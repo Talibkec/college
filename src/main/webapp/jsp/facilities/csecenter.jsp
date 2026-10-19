@@ -37,14 +37,14 @@
                                                   </section>
                                                     </div>
                                                         </aside>
-        <div class="col-md-8 p-3"  style=""><img alt="Central Library" src="../wp-content/uploads/2018/img3.JPG"
-                                                                 class="img-responsive" style="margin: 25px 0; width: 800px"/>
+        <div class="col-md-8 p-3"  style=""><kec:section key="facilities.csecenter/photo" title="Computer Centre: photo"><img alt="Central Library" src="../wp-content/uploads/2018/img3.JPG"
+                                                                 class="img-responsive" style="margin: 25px 0; width: 800px"/></kec:section>
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><span
+                <kec:section key="facilities.csecenter/main" title="Computer Centre: text"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"><span
                         style="font-family: Georgia, Palatino;">Katihar Engineering College is augmented with a total of approax 50 computers in computer centre with centralised power supply. All the machines is enrich with top-notch quality of processors and other hardwares. All the system consists of different softwares from all the fields of Engineering to provide the best facilities to the students and the Professors. The computer centre also consists a smart platform for studies. There is a projector for smart way of learning things. A number of lab such as MATLAB, High level Programming lab, Assembly Language Programming Lab, Implementation on Linux OS, CAD, CAM, DBMS, Language Lab and competetive programming is provided to the students for their overall development.  </span><br/>
                     <span style="font-family: Georgia, Palatino;">All academic buildings, library, administrative blocks, residential buildings, and all the hostels of KEC are provided the Wi-Fi facility with a number of access points. All the members of college is allowed to access the computer systems. All the resources in the centre is utilised very efficiently in order to provide the plethora of knowledge in the respective fields. A number of presentations, exams, classes, lab classes are arranged on regular basis using the resources to provide the best education to the students.</span></p>
 
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@
 
         <div class="col-md-8 p-3"  style="">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p
+                <kec:section key="facilities.sportsfacilities/main" title="Sports Facilities: text and contacts"><div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><p
                         id="ctl00_ContentPlaceHolder1_h4_heading"><span
                         style="font-family: Georgia, Palatino;"><strong>Sports Club</strong></span></p>
                     <div id="ctl00_ContentPlaceHolder1_div_3">The Institution has a rich culture of both outdoor and
@@ -78,7 +78,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

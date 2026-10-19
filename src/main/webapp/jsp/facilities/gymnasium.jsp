@@ -40,11 +40,11 @@
                                                      </div>
                                                          </aside>
         <div class="col-md-8 p-3 "  style="">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>
+            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="facilities.gymnasium/main" title="Gymnasium: text"><p>
 
                Currently Katihar Engineering College doesn't provide any Gymnasium Facility.
 
-            </p>
+            </p></kec:section>
             </div>
         </div>
     </div>

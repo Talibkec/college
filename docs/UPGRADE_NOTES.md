@@ -432,6 +432,18 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   Snapshot compare against `f6295cb`: all anonymous pages byte-identical; logged-in Admin/HOD/Faculty pages show the
   header link and the reworded "Edit this page" link; store users unchanged.
 
+### 10.7a Existing page texts editable (group 2: Facilities)
+* 19 more `page_section` rows (same generated seed, no schema change) on 14 pages: bank, central library (photo, text),
+  clubs, computer centre (photo, text), guest house, gymnasium, health centre, hostels (introduction and the contents of
+  the three accordion panels: in-charges, fees, instructions; the accordion stays code), medical facilities, placement
+  brochure (PDF), sports facilities, startup cell, useful links, Wi-Fi. Areas: bank → `fees`, library → `library`,
+  hostels → `hostel`, clubs/sports/gymnasium → `activities`, placement brochure/startup cell → `tp`, rest → `facilities`.
+* Kept in code: downloads and responsibility documents (database lists), contact us (form; address is decision D9),
+  the unmapped `holiday.jsp`.
+* Wi-Fi page: a raw non-breaking space was printed as "5Â PM" (the JSP is read as ISO-8859-1); it is now `&nbsp;`.
+  That is the only change in the anonymous snapshot compare.
+* Test: `PageTextsTest.facilitiesTextsFollowTheirAreas`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

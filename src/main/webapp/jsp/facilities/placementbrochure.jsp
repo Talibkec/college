@@ -33,7 +33,7 @@
 
             <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <p>
+                    <kec:section key="facilities.placementbrochure/main" title="Placement Brochure: document"><p>
 
 
                     <div>
@@ -41,7 +41,7 @@
                             <embed src="/jsp/trainingplacement/brochure.pdf" type="application/pdf">
                         </object>
                     </div>
-                    </p>
+                    </p></kec:section>
                 </div>
             </div>
         </div>

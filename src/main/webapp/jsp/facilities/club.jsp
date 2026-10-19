@@ -39,7 +39,7 @@
 
         <div class="col-md-8 p-3 "  style="">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <span
+                    <kec:section key="facilities.club/main" title="Clubs: text and contacts"><span
                             style="font-family: Georgia, Palatino;"><strong>Cultural Club</strong></span></p>
                 <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;"> The
                     institution has always shown keen interest in promoting all the cultural activities for not only
@@ -68,7 +68,7 @@
                         </tr>
                         </tbody>
                     </table>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

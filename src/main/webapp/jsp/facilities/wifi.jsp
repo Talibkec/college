@@ -38,7 +38,7 @@
                                                          </aside>
         <div class="col-md-8 p-3"  style="">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
+                <kec:section key="facilities.wifi/main" title="Wi-Fi: text"><div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">
                     Internet
                     nowadays has become even more necessary than the basic necessities (e.g., water, air and food) in
                     our life. It explores huge knowledge, information and entertainment. Presently, everywhere class
@@ -46,13 +46,13 @@
                     for offline studies to prepare for their futures. To help the academic campus friendly, KEC Katihar
                     is well connected for ISP (Internet Service Provider) via broadband network upto data rate nearly
                     4Mbps provided by BSNL Katihar. The LAN services are available during working hours (9:00 AM to
-                    5 PM) daily. Currently, Wi-Fi services are restricted to certain areas like academic buildings and
+                    5&nbsp;PM) daily. Currently, Wi-Fi services are restricted to certain areas like academic buildings and
                     certain departments.
 
                     <br>The current data rate 4Mbps is low in the current campus
                     based on our Internet requirements. But, our institute has planned for high speed data rated
                     LAN as well as Wi-Fi everywhere within the campus in our new campus which is currently under the
-                    construction.</div>
+                    construction.</div></kec:section>
             </div>
         </div>
     </div>

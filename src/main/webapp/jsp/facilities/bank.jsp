@@ -63,7 +63,7 @@
                                                  </aside>
         <div class="col-md-8"  style="">
                                                     <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; ">
-                                                        <p>
+                                                        <kec:section key="facilities.bank/main" title="Bank: payment instructions"><p>
                                                             <table border="1" width="500">
                                                                <tr><td><p>For Detailed Instruction about payment </p></td>
                                                                <td><i class="fa fa-download"></i>
@@ -74,7 +74,7 @@
                                                                </tr>
                                                             </table>                                    
                                                                                                 
-                                                        </p>
+                                                        </p></kec:section>
                                                     </div>
                                                 </div>
                     </div>

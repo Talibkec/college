@@ -41,7 +41,7 @@
                                                          </aside>
 
         <div class="col-md-8 p-3 "  style="">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>Updated Soon&#8230;</p>
+            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="facilities.guesthouse/main" title="Guest House: text"><p>Updated Soon&#8230;</p></kec:section>
             </div>
         </div>
     </div>

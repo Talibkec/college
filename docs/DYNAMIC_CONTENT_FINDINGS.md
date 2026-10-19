@@ -892,8 +892,8 @@ pages stay byte-identical. Database lists, forms and scripts stay in code. No sc
 | Group | Pages | Status |
 |---|---|---|
 | 1 | Academic (12 pages, 16 texts) | ✅ done (holidays, labs = document lists; `adminsValue` = D3) |
-| 2 | Facilities | next |
-| 3 | T&P, Approval, RTI, NBA | |
+| 2 | Facilities (14 pages, 19 texts) | ✅ done (downloads, responsibility documents = document lists; contact us = form + D9; holiday.jsp not mapped) |
+| 3 | T&P, Approval, RTI, NBA | next |
 | 4 | Legal and footer pages | |
 | 5 | Home page (static parts) | |
 | 6 | Departments, one site per commit | |

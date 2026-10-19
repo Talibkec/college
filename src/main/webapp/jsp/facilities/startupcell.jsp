@@ -88,7 +88,7 @@
                     </tbody>
                 </table>
             </div>-->
-        <div class="p-3" style=""><strong>Updated Soon &#8230</strong></div>
+        <div class="p-3" style=""><kec:section key="facilities.startupcell/main" title="Startup Cell: text"><strong>Updated Soon &#8230</strong></kec:section></div>
     </div>
 </div>
 </div>

@@ -38,10 +38,10 @@
                                                    </section>
                                                      </div>
                                                          </aside>
-        <div class="col-md-8 p-3"  style=""><img alt="Central Library" src="/jsp/facilities/central-library.jpeg"
-                                   class="img-responsive" style="margin: 25px 0;"/>
+        <div class="col-md-8 p-3"  style=""><kec:section key="facilities.centrallibrary/photo" title="Central Library: photo"><img alt="Central Library" src="/jsp/facilities/central-library.jpeg"
+                                   class="img-responsive" style="margin: 25px 0;"/></kec:section>
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">The library of the
+                <kec:section key="facilities.centrallibrary/main" title="Central Library: text, links and contacts"><div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;">The library of the
                     institute consists of plethora of books from various sectors of engineering. The well maintained
                     library is embraced with various text books, reference books, magazines and daily newspapers. It is
                     true that the heart of an engineering college lies in laboratory and library, keeping this goal in
@@ -108,7 +108,7 @@
                     </tr>
 
                     </tbody>
-                </table>
+                </table></kec:section>
             </div>
         </div>
     </div>

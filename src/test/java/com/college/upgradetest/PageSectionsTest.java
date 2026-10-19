@@ -128,7 +128,10 @@ public class PageSectionsTest extends AbstractAppTest {
     @Test
     public void onlyEditorsOfTheAreaMayChangeSections() throws Exception {
         WebSession tpo = loginAs(TestData.TPO);
-        assertEquals(403, tpo.get("/manage/sections").status);
+        // TPO edits only its own texts (placement brochure, startup cell), never the About texts
+        WebSession.Response list = tpo.get("/manage/sections");
+        assertEquals(200, list.status);
+        assertFalse(list.body().contains("/manage/sections?id=" + historyId + "\""));
         assertEquals(403, tpo.get("/manage/sections?id=" + historyId).status);
         assertEquals(403, tpo.postForm("/manage/sections/save", "id", String.valueOf(historyId), "html", "<p>x</p>", "visible", "on").status);
         assertEquals(403, tpo.postForm("/manage/sections/preview", "id", String.valueOf(historyId), "html", "<p>x</p>").status);

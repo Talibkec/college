@@ -46,7 +46,7 @@
 
 
 
-                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><h1
+                <div style="font-family: georgia, sans-serif; font-size: 16px; text-align: justify;"><kec:section key="facilities.hostels/intro" title="Hostels: introduction"><h1
                         id="ctl00_ContentPlaceHolder1_h4_heading">Hostels</h1>
 
 
@@ -55,7 +55,7 @@
                     </p>
                     <p><strong>The administration of hostels is under the supervision of following
                         professors in charge:-</strong></p>
-                    <br>     <br>
+                    <br>     <br></kec:section>
 
 
 
@@ -79,7 +79,7 @@
 
 
 
-                                <table class="table">
+                                <kec:section key="facilities.hostels/incharges" title="Hostels: in-charges table"><table class="table">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -108,7 +108,7 @@
                                         <td>Mr.Ramchandra Kumar</td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table></kec:section>
 
 
 
@@ -125,7 +125,7 @@
                         <div id="collapseTwo" class="accordion-collapse show" aria-labelledby="headingTwo">
                             <div class="accordion-body">
 
-                                <table class="table">
+                                <kec:section key="facilities.hostels/fees" title="Hostels: fee structure table"><table class="table">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -151,7 +151,7 @@
                                         <td>3000/- per Month</td>
                                     </tr>
                                     </tbody>
-                                </table>
+                                </table></kec:section>
 
 
                             </div>
@@ -167,7 +167,7 @@
                             <div class="accordion-body">
 
 
-                                <ul>
+                                <kec:section key="facilities.hostels/instructions" title="Hostels: instructions"><ul>
                                     <li><p>Mess charge will be taken for 3 months at the time of admisssion 3 * 3000 = 9000/- </p></li>
                                     <li><p>Total Hostel charge (Maintainance + Mess) to be deposited at the time of Admission  <br>
                                         <ul>
@@ -178,7 +178,7 @@
 
 
                                     </li>
-                                </ul>
+                                </ul></kec:section>
 
 
                             </div>

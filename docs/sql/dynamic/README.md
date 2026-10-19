@@ -71,7 +71,7 @@ SELECT COUNT(*) FROM content_area_role;                              -- 79 (more
 SELECT name FROM test_role ORDER BY id;                              -- Admin, Faculty, SM, HOD, SK + 12 new roles
 SELECT COUNT(*) FROM department_site;                                -- 10
 SELECT COUNT(*) FROM site_setting;                                   -- 15
-SELECT COUNT(*) FROM page_section;                                   -- 56 (5 About + 16 Academic + 19 Facilities + 11 T&P/Approval/RTI + 5 Legal; grows with each group of pages)
+SELECT COUNT(*) FROM page_section;                                   -- 62 (5 About + 16 Academic + 19 Facilities + 11 T&P/Approval/RTI + 5 Legal + 6 Home; grows with each group of pages)
 SELECT list_code, COUNT(*) FROM link_item GROUP BY list_code;        -- 10 lists, 129 entries in total
 SELECT setting_value FROM site_setting WHERE setting_key = 'links.main_menu.enabled';   -- no
 SHOW TABLES LIKE 'page_block'; SHOW TABLES LIKE 'content_file';      -- both exist (empty)
@@ -116,7 +116,7 @@ with the tables.
 | `01_site_setting_seed.sql` | 13 texts of header, footer, contact pages | site settings |
 | `02_page_section_seed.sql` | 5 texts of the About pages + setting `principal.faculty_id` | page texts |
 | `03_link_item_seed.sql` | 10 link lists (129 entries) + switch `links.main_menu.enabled` = no | menus and links |
-| `15_page_section_pages_seed.sql` | existing texts of the pages (today: 16 texts of 12 Academic pages, 19 texts of 14 Facilities pages, 11 texts of 10 T&P, Approval and RTI pages, 5 texts of 5 Legal pages), **generated** | page texts of all pages except About |
+| `15_page_section_pages_seed.sql` | existing texts of the pages (today: 16 texts of 12 Academic pages, 19 texts of 14 Facilities pages, 11 texts of 10 T&P, Approval and RTI pages, 5 texts of 5 Legal pages, 6 texts of the Home page), **generated** | page texts of all pages except About |
 | `apply_production.sh` | runs all of the above in order (backup, tables, data, checks) | production deployment |
 | `tools/page_sections_seed.py` | writes `15_page_section_pages_seed.sql` from the `<kec:section>` tags in the JSPs (`--check`: is it up to date?) | development |
 
@@ -142,7 +142,8 @@ with the tables.
 | 2026-10-19 | existing page texts: Academic (`cab352d`) | 16 new `page_section` rows (12 Academic pages); no schema change | `15_page_section_pages_seed.sql` |
 | 2026-10-19 | existing page texts: Facilities (`2af314b`) | 19 new `page_section` rows (14 Facilities pages); no schema change. Production: run `15_page_section_pages_seed.sql` again (INSERT IGNORE: existing rows untouched) or `apply_production.sh` | `15_page_section_pages_seed.sql` |
 | 2026-10-20 | existing page texts: T&P, Approval, RTI (`1c6f0cb`) | 11 new `page_section` rows (10 pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
-| 2026-10-20 | existing page texts: Legal | 5 new `page_section` rows (5 pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
+| 2026-10-20 | existing page texts: Legal (`27de1c0`) | 5 new `page_section` rows (5 pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
+| 2026-10-20 | existing page texts: Home | 6 new `page_section` rows (home page); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

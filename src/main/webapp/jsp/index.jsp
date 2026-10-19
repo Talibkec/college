@@ -11,7 +11,7 @@
   <div class="py-2 ">
     <marquee behavior="scroll" direction="left" scrollamount="5">
       <div class="flex gap-10 items-center">
-        <div class="flex  items-center">
+        <kec:section key="home/marquee" title="Home: scrolling links before the notices"><div class="flex  items-center">
           <img class="w-8 h-auto" src="/sites/noticeicon.gif" alt="Notice Icon">
           <a href="https://youtu.be/cYMNEnq52p8" target="_blank" class="text-blue-700 hover:underline">
             VIDEO FOR EVC AICTE
@@ -32,7 +32,7 @@
           <a href="https://www.aicte-india.org/feedback/" target="_blank" class="text-blue-700 hover:underline">
             Click here to give feedback to A.I.C.T.E
           </a>
-        </div>
+        </div></kec:section>
 
 
 
@@ -249,7 +249,7 @@
       <div class=" headers linkheader" style="background: url(/images/home-c-bg-title.png) no-repeat top center;">
         Important Links
       </div>
-      <div class="link">
+      <kec:section key="home/importantlinks" title="Home: Important Links"><div class="link">
         &raquo; <a href="http://socialwelfare.bih.nic.in/" target="_blank">Social Welfare Dept. Bhar</a>
       </div>
       <div class="link">
@@ -273,7 +273,7 @@
       </div>
       <div class="link">
         &raquo; <a href="https://jeemain.nic.in/webinfo/Public/Home.aspx" target="_blank">Joint Entrance Examination</a>
-      </div>
+      </div></kec:section>
     </div>
 
 
@@ -426,7 +426,7 @@
             <div class="field field-name-body field-type-text-with-summary field-label-hidden">
               <div class="field-items">
                 <div class="field-item even" property="content:encoded">
-                  <p class="p-3" style=""><strong>Katihar
+                  <kec:section key="home/about" title="Home: About KEC"><p class="p-3" style=""><strong>Katihar
                       Engineering College (KEC), Katihar </strong>with the advent of technology and the
                     emergence of notable education in our society, had decided to adapt the prevailing need
                     of light. In the mission to achieve the eminence in the field, the establishment of
@@ -443,7 +443,7 @@
                     have exhibited their skill at different platform and gathered many awards from premium
                     institutes. It is situated 3 km from Katihar Railway Station and there is a good
                     transportation facility available from there. The college new campus in Hajipur, Katihar near NH 31
-                    has been completed and is now fully operational.<a href="/about/history">more</a>...</p>
+                    has been completed and is now fully operational.<a href="/about/history">more</a>...</p></kec:section>
                 </div>
               </div>
             </div>
@@ -470,7 +470,7 @@
           <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 heading-animated">Gallery</h2>
           <div class="view-content">
             <div class="item-list">
-              <ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
+              <kec:section key="home/gallery" title="Home: Gallery pictures"><ul class="flex flex-col md:flex-row md:space-x-8 space-y-4 md:space-y-0">
                 <li
                   class="views-row views-row-1 views-row-odd views-row-first flex-1 animate-slide-in delay-0 group-hover:animate-slide-in-hover">
                   <div class="views-field views-field-field-image">
@@ -507,7 +507,7 @@
                     </div>
                   </div>
                 </li>
-              </ul>
+              </ul></kec:section>
               <div class="w-full flex justify-center mt-6">
                 <a class="box-link border border-gray-800 px-6 py-2 rounded-md bg-white hover:bg-gray-800 hover:text-white transition-colors duration-300 shadow-lg"
                   href="/gallery/photogallery">
@@ -687,7 +687,7 @@
         <div class="container mx-auto px-4">
           <section id="block-block-20" class="space-y-6">
             <h2 class="text-3xl font-bold text-center text-white">Video Gallery</h2>
-            <ul class="space-y-6">
+            <kec:section key="home/video" title="Home: Video Gallery video"><ul class="space-y-6">
               <li>
                 <div class="p-5">
                   <div class="relative pb-9/16">
@@ -697,7 +697,7 @@
                   </div>
                 </div>
               </li>
-            </ul>
+            </ul></kec:section>
             <div class="flex justify-center mt-6">
               <a class="text-white font-semibold px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition duration-300"
                 href="/gallery/mediagallery">
@@ -710,9 +710,9 @@
 
       <div class="flex-1 bg-gray-200 overflow-hidden">
         <div class="h-full bg-gray-200 rounded-lg">
-          <iframe class="w-full h-full rounded-lg" title="Map"
+          <kec:section key="home/map" title="Home: map"><iframe class="w-full h-full rounded-lg" title="Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3599.068905329472!2d87.53685667484957!3d25.56937421652652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39faaa69a3dfa627%3A0x1199a7446d2476a5!2sKatihar%20Engineering%20College%2C%20Katihar!5e0!3m2!1sen!2sin!4v1721727985690!5m2!1sen!2sin"
-            frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe>
+            frameBorder="0" allowFullScreen="" aria-hidden="false" tabIndex="0"></iframe></kec:section>
         </div>
       </div>
     </div>

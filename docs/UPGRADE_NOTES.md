@@ -463,6 +463,14 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   §4.7) would replace them.
 * Test: `PageTextsTest.legalTextsKeepTheirContactSettings`. Snapshot compare: Legal pages byte-identical.
 
+### 10.7d Existing page texts editable (group 5: Home page)
+* 6 more `page_section` rows (generated seed, no schema change) of `index.jsp`, area `home` (SubAdmin; Admin):
+  scrolling links before the notices, Important Links, About KEC, Gallery pictures, Video Gallery video, map.
+* Kept in code: image slider, notices, achievements, web-team swiper (database data with their own upload screens),
+  the "View All" buttons, styles and scripts. The marquee links and Important Links are edited as HTML (instead of the
+  `link_item` lists planned in findings §4.1), so all home texts are on one screen.
+* Test: `PageTextsTest.homeTextsAreEditableByTheHomeArea`. Snapshot compare: home page byte-identical.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

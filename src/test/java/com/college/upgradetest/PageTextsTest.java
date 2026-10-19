@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Existing texts of the pages made editable (&lt;kec:section&gt; + docs/sql/dynamic/15_page_section_pages_seed.sql,
- * Academic, Facilities, T&amp;P, Approval, RTI and Legal pages), the button bar of the content screens and the header's "Website Content" link.
+ * Academic, Facilities, T&amp;P, Approval, RTI, Legal and Home pages), the button bar of the content screens and the header's "Website Content" link.
  * Changed texts are restored through the screen afterwards ("restore the original text").
  */
 public class PageTextsTest extends AbstractAppTest {
@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 56);
+        assertTrue("page texts found: " + count, count >= 62);
     }
 
     @Test
@@ -172,6 +172,27 @@ public class PageTextsTest extends AbstractAppTest {
         assertEquals("fees", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class,
                 sectionId("legal.feestructure", "main")));
         assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + sectionId("legal.privacypolicy", "main")).status);
+    }
+
+    /** Home page: SubAdmin changes the Important Links; notices and slider (database) stay; TPO may not. */
+    @Test
+    public void homeTextsAreEditableByTheHomeArea() throws Exception {
+        long links = sectionId("home", "importantlinks");
+        assertEquals("home", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, links));
+        String before = anonymous().get("/").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("home texts listed", sub.get("/manage/blocks?page=home"), "Home: Important Links");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(links), "html",
+                "<div class=\"link\">&raquo; <a href=\"https://www.aicte-india.org/\" target=\"_blank\">" + TestData.MARK + "</a></div>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/");
+        assertContains("new link", changed, TestData.MARK + "</a></div>");
+        assertContains("notices still there", changed, "Latest Notices");
+        assertFalse(changed.body().contains("Social Welfare Dept. Bhar"));
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(links));
+        sub.postForm("/manage/sections/restore", "id", String.valueOf(links), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/").body());
+        assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + links).status);
     }
 
     @Test

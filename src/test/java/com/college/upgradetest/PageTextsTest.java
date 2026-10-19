@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Existing texts of the pages made editable (&lt;kec:section&gt; + docs/sql/dynamic/15_page_section_pages_seed.sql,
- * Academic and Facilities pages), the button bar of the content screens and the header's "Website Content" link.
+ * Academic, Facilities, T&amp;P, Approval and RTI pages), the button bar of the content screens and the header's "Website Content" link.
  * Changed texts are restored through the screen afterwards ("restore the original text").
  */
 public class PageTextsTest extends AbstractAppTest {
@@ -45,12 +45,12 @@ public class PageTextsTest extends AbstractAppTest {
             String id = String.valueOf(row.get("entity_id"));
             // only sections this test class changes (PageSectionsTest restores About itself)
             String page = jdbc.queryForObject("select page_key from page_section where section_id = ?", String.class, Long.valueOf(id));
-            if (page.startsWith("academic.") || page.startsWith("facilities.")) {
+            if (!page.startsWith("about.")) {
                 admin.postForm("/manage/sections/restore", "id", id, "logId", String.valueOf(row.get("first_log")), "before", "1");
                 admin.postForm("/manage/sections/save", "id", id, "html", body(Long.parseLong(id)), "visible", "on");
             }
         }
-        jdbc.update("update page_section set updated_by = null, updated_at = null where page_key like 'academic.%' or page_key like 'facilities.%'");
+        jdbc.update("update page_section set updated_by = null, updated_at = null where page_key not like 'about.%'");
     }
 
     /** Every wrapped text has its seed row with exactly the JSP's HTML and the area of PageKeys (who may edit it). */
@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("academic and facilities texts found: " + count, count >= 40);
+        assertTrue("page texts found: " + count, count >= 51);
     }
 
     @Test
@@ -132,6 +132,26 @@ public class PageTextsTest extends AbstractAppTest {
         long startup = sectionId("facilities.startupcell", "main");
         assertEquals(200, tpo.get("/manage/sections?id=" + startup).status);
         assertContains("tpo: startup cell listed", tpo.get("/manage/blocks?page=facilities.startupcell"), "Startup Cell: text");
+    }
+
+    /** T&P texts belong to TPO (area tp), RTI texts to the PIO: TPO changes the resume tips, but not the RTI status. */
+    @Test
+    public void tpoChangesTrainingAndPlacementTextsButNotRti() throws Exception {
+        long tips = sectionId("trainingplacement.tipsforresume", "main");
+        String before = anonymous().get("/trainingplacement/tipsforresume").body();
+        assertTrue("quotes as entities, no mojibake", before.contains("&lsquo;available upon request&rsquo;"));
+        WebSession tpo = loginAs(TestData.TPO);
+        tpo.postForm("/manage/sections/save", "id", String.valueOf(tips), "html", "<p>" + TestData.MARK + " tips</p>", "visible", "on");
+        assertContains("new tips", anonymous().get("/trainingplacement/tipsforresume"), "<p>" + TestData.MARK + " tips</p>");
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(tips));
+        tpo.postForm("/manage/sections/restore", "id", String.valueOf(tips), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/trainingplacement/tipsforresume").body());
+
+        long rti = sectionId("rti.rtistatus", "main");
+        assertEquals("rti", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, rti));
+        assertEquals(403, tpo.get("/manage/sections?id=" + rti).status);
+        assertEquals(200, loginAs(TestData.SUBADMIN).get("/manage/sections?id=" + rti).status);
     }
 
     @Test

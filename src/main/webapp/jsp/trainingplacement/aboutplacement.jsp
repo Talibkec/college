@@ -33,23 +33,23 @@
         <!-- Main Content Section -->
         <div class="w-full md:w-3/4">
             <div class="bg-white shadow rounded-lg p-6 mb-8">
-                <h4 class="text-xl font-semibold mb-4">About T&P Cell</h4>
+                <kec:section key="trainingplacement.aboutplacement/main" title="About T&P Cell: text"><h4 class="text-xl font-semibold mb-4">About T&P Cell</h4>
                 <p class="text-justify text-gray-700 leading-relaxed">
                     The Training and Placement Office provides job opportunities, arranges Campus Interviews by various Companies of National and International repute. Students take the help of this office for their Training and Employment. It also caters to the need of Instructional and Industrial requirements through state of the art facilities, new technologies and human resources in collaboration with all the Department of studies.
                     <br/><br/>
                     The Training & Placement cell attempts to prepare the students for the career opportunities in the area of engineering and technology. The Training & Placement cell arranges training programs to groom the students to their best for the corporate responsibilities and make them employable and industry ready. We strive for mutual industry-institute relationship by involving institute with industry in several activities such as campus placements process, internship hiring, industrial visits, on-site training, expert lectures, workshops and seminars.
-                </p>
+                </p></kec:section>
             </div>
 
             <div class="bg-white shadow rounded-lg p-6">
-                <h4 class="text-xl font-semibold mb-4">Placement Brochure</h4>
+                <kec:section key="trainingplacement.aboutplacement/brochure" title="About T&P Cell: placement brochure"><h4 class="text-xl font-semibold mb-4">Placement Brochure</h4>
                 <div class="w-full overflow-hidden">
                     <object data="/jsp/trainingplacement/brochure.pdf"
                             type="application/pdf" class="w-full h-96">
                         <embed src="/jsp/trainingplacement/brochure.pdf"
                                type="application/pdf" class="w-full h-96">
                     </object>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

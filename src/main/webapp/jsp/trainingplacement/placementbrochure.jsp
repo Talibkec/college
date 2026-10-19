@@ -34,14 +34,14 @@
         <div class="col-md-8 p-3">
             <div class="bg-white shadow-lg rounded-lg p-6">
                 <div class="prose max-w-full">
-                    <object data="/jsp/trainingplacement/brochure.pdf"
+                    <kec:section key="trainingplacement.placementbrochure/main" title="Placement Brochure: document"><object data="/jsp/trainingplacement/brochure.pdf"
                             type="application/pdf"
                             width="100%"
                             height="1000"
                             class="w-full">
                         <embed src="/jsp/trainingplacement/brochure.pdf"
                                type="application/pdf">
-                    </object>
+                    </object></kec:section>
                 </div>
             </div>
         </div>

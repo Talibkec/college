@@ -27,7 +27,7 @@
                           </div>
                        </aside>       
             <div class="col-md-8 p-3"  style="">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
+                <kec:section key="rti.rtiapplication/main" title="RTI Application: format and download"><div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
 
                     <div>
                         <object data="/wp-content/uploads/2018/RTI-application-format.pdf" type="application/pdf" width="700" height="1000">
@@ -38,7 +38,7 @@
                 <i class="fa fa-download"></i>
                       <a href="/wp-content/uploads/2018/RTI-application-format.pdf">
                       <button type="button" class="btn btn-success" data-dismiss="modal">Download the Sample format of RTI
-                      Application </button></a>
+                      Application </button></a></kec:section>
             </div>
         </div>
     </div>

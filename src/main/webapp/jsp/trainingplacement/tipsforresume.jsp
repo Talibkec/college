@@ -34,7 +34,7 @@
 
             <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
+                    <kec:section key="trainingplacement.tipsforresume/main" title="Tips for Resume: text and downloads"><div style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
                         <div id="ctl00_ContentPlaceHolder1_div_1" data-animation="bounceInUp" data-animation-delay="0s">
                             <div data-animation="wobble" data-animation-delay="0s">
                                 <div data-animation="bounceInUp" data-animation-delay="0s"><p
@@ -56,7 +56,7 @@
                                         </li>
                                         <li><strong>Additional Experience :</strong>Use this section to discuss additional work experience and to show some of your work history. Try to touch on convenient skills that would also be beneficial in the job you are seeking.
                                         </li>
-                                        <li><strong>Memberships : </strong>Include organization name and dates of membership. References: Provide only if requested. For now, saying ‘available upon request’ is appropriate.
+                                        <li><strong>Memberships : </strong>Include organization name and dates of membership. References: Provide only if requested. For now, saying &lsquo;available upon request&rsquo; is appropriate.
                                         </li>
                                         <li><strong>Quick tips :</strong>Be sure to proof read, checking for spelling or grammatical errors, formatting, uniformity, neatness and flow. Avoid using templates and update your resume regularly. Also, remember to tailor your resume to the position for which you apply.
                                         </li>
@@ -79,7 +79,7 @@
                                     <p>&nbsp;</p></div>
                             </div>
                         </div>
-                    </div>
+                    </div></kec:section>
                 </div>
             </div>
         </div>

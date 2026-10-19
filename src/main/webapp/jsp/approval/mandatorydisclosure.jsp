@@ -35,13 +35,13 @@
 
       <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300; margin-left:700 ">
 
-        <object data="/jsp/approval/aku.pdf" type="application/pdf" width="700" height="1000">
+        <kec:section key="approval.mandatorydisclosure/main" title="Mandatory Disclosure: document"><object data="/jsp/approval/aku.pdf" type="application/pdf" width="700" height="1000">
           <embed src="/jsp/approval/aku.pdf" type="application/pdf">
         </object>
         <p><strong>AKU Regulation &#8212;-</strong></p>
         <i class="fa fa-download"></i>
         <a href="/jsp/approval/aku.pdf">
-          <button type="button" class="btn btn-success" data-dismiss="modal">Download</button></a>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Download</button></a></kec:section>
       </div>
 
 

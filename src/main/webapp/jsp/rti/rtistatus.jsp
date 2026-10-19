@@ -27,7 +27,7 @@
                           </aside>
         <div class="col-md-8 p-3"  style="">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div class="WordSection1"><p class="MsoNormal"
+                <kec:section key="rti.rtistatus/main" title="RTI Status: text"><div class="WordSection1"><p class="MsoNormal"
                                              style="margin-bottom: .0001pt; text-align: center; page-break-after: avoid;"
                                              align="center"><b><span
                         style="font-size: 12.0pt; line-height: 107%; font-family: 'Times New Roman','serif'; color: #333333;">Katihar<br/> </span></b><b><span
@@ -51,7 +51,7 @@
                                                                                           style="line-height: 107%; font-family: 'Times New Roman','serif';"> </span>
                     </p></div>
                 <p>&nbsp;</p>
-                <p>&nbsp;</p></div>
+                <p>&nbsp;</p></kec:section></div>
         </div>
     </div>
 </div>

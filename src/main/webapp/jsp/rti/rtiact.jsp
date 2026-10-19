@@ -27,7 +27,7 @@
                           </div>
                        </aside>
         <div class="col-md-8 p-3"  style="">
-            <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
+            <kec:section key="rti.rtiact/main" title="RTI Act: document and download"><div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
 
                 <div>
                     <object data="/wp-content/uploads/2018/rti-act-2.pdf" type="application/pdf" width="700" height="1000">
@@ -37,7 +37,7 @@
             </div>
             <i class="fa fa-download"></i>
             <a href="/wp-content/uploads/2018/rti-act-2.pdf">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Download the RTI Act 2005</button></a>
+            <button type="button" class="btn btn-success" data-dismiss="modal">Download the RTI Act 2005</button></a></kec:section>
         </div>
     </div>
 </div>

@@ -444,6 +444,16 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   That is the only change in the anonymous snapshot compare.
 * Test: `PageTextsTest.facilitiesTextsFollowTheirAreas`.
 
+### 10.7b Existing page texts editable (group 3: T&P, Approval, RTI)
+* 11 more `page_section` rows (generated seed, no schema change) on 10 pages: about T&P cell (text, brochure),
+  placement brochure, rules of T&P, tips for resume (area `tp`); AKU approval, mandatory disclosure (`approval`);
+  public information cell, RTI act, RTI application, RTI status (`rti`).
+* Kept in code: NBA documents, AICTE approval documents, placed students, student coordinators (database lists with
+  their own upload screens), grievance (form; contact via settings).
+* Tips for resume: curly quotes were printed as mojibake (JSP read as ISO-8859-1); now `&lsquo;`/`&rsquo;`.
+* Test: `PageTextsTest.tpoChangesTrainingAndPlacementTextsButNotRti`. Snapshot compare: anonymous pages byte-identical
+  except the Wi-Fi and resume-tips encoding fixes.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

@@ -30,12 +30,12 @@
 
         <div class="col-md-8 p-3"  style="">
             <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                <div class="WordSection1">
+                <kec:section key="rti.publicinformationcell/main" title="Public Information Cell: text"><div class="WordSection1">
 
 
                     <p>&nbsp;</p>
                     <p>&nbsp;</p>
-                    <p class="MsoNormal"></div>
+                    <p class="MsoNormal"></div></kec:section>
             </div>
         </div>
     </div>

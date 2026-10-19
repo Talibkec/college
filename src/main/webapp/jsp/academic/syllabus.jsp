@@ -38,10 +38,10 @@
                                                                          </aside>
 
             <div class="col-md-8 p-3"  style="">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><code></p>
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="academic.syllabus/main" title="Syllabus: links"><p><code></p>
                     <li>New Course Curriculum for Engineering & Technology for 1st & 2nd Semester based on AICTE Model Cirriculum to be followed from Session 2018-19 onwards <a href="http://akubihar.ac.in/Academics/Docs/NEW_CURRICULUM_ENGINEERING_TECHNOLOGY.pdf"
                                                                                                                                                                                  rel="attachment wp-att-2593"> Download</a><br/></li>
-               <li>Revised B.tech Syllabus<a href="http://akubihar.ac.in/Academics/Docs/revised%20B%20tech%2019-02-11(revised).pdf">Download</a></li>
+               <li>Revised B.tech Syllabus<a href="http://akubihar.ac.in/Academics/Docs/revised%20B%20tech%2019-02-11(revised).pdf">Download</a></li></kec:section>
                 </div>
             </div>
         </div>

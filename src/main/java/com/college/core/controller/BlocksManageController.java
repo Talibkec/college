@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.core.entity.PageBlock;
 import com.college.core.tags.PageKeys;
 import com.college.service.PageBlockService;
+import com.college.service.PageSectionService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,9 +23,11 @@ import java.util.Set;
 @Controller
 public class BlocksManageController {
     private final PageBlockService pageBlockService;
+    private final PageSectionService pageSectionService;
 
-    public BlocksManageController(PageBlockService pageBlockService) {
+    public BlocksManageController(PageBlockService pageBlockService, PageSectionService pageSectionService) {
         this.pageBlockService = pageBlockService;
+        this.pageSectionService = pageSectionService;
     }
 
     /**
@@ -146,6 +149,8 @@ public class BlocksManageController {
         mv.addObject("pageUrl", PageKeys.url(page));
         mv.addObject("access", access);
         mv.addObject("blocks", blocks);
+        // the page's existing texts (page_section) the user may change: edited in /manage/sections
+        mv.addObject("sections", pageSectionService.editableSectionsOfPage(authentication, page));
         mv.addObject("changeable", changeable);
         mv.addObject("editBlock", editBlock);
         mv.addObject("formType", formType);

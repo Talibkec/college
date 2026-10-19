@@ -47,6 +47,12 @@
             <required>true</required>
             <rtexprvalue>false</rtexprvalue>
         </attribute>
+        <attribute>
+            <description>Name of the text in the edit screen; read only by docs/sql/dynamic/tools/page_sections_seed.py.</description>
+            <name>title</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
     </tag>
 
     <tag>
@@ -54,6 +60,25 @@
         <name>blocks</name>
         <tag-class>com.college.core.tags.BlocksTag</tag-class>
         <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <description>Button bar of the content screens (/manage/**, /auth/roles/**): one button per screen the user may open.</description>
+        <name>manageNav</name>
+        <tag-class>com.college.core.tags.ManageNavTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <description>Sets the request attribute "var" to true if the logged-in user may change any part of the website.</description>
+        <name>canManage</name>
+        <tag-class>com.college.core.tags.CanManageTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
     </tag>
 
     <function>

@@ -38,7 +38,7 @@
                                                                      </div>
                                                                          </aside>
 
-          <div class="p-3" style=""><p><strong>Updated Soon &#8230</strong></p></div>
+          <div class="p-3" style=""><kec:section key="academic.rules/main" title="Rules: text"><p><strong>Updated Soon &#8230</strong></p></kec:section></div>
         </div>
     </div>
 <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

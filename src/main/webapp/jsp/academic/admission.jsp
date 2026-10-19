@@ -68,11 +68,11 @@
                                     data-index="0">
                                     <div class="so-widget-sow-editor so-widget-sow-editor-base">
                                         <div class="siteorigin-widget-tinymce textwidget">
-                                            <h3 id="ctl00_ContentPlaceHolder1_h4_heading">Entrance Test</h3>
+                                            <kec:section key="academic.admission/heading" title="UG Admission: heading"><h3 id="ctl00_ContentPlaceHolder1_h4_heading">Entrance Test</h3></kec:section>
                                             <div
                                                 style="font-family: Gorgia, Helvetica, sans-serif; font-size: 16px; text-align: justify;">
                                                 <div id="ctl00_ContentPlaceHolder1_div_0">
-                                                    <p>Admission in Katihar Engineering College (KEC) for four years
+                                                    <kec:section key="academic.admission/entrance" title="UG Admission: entrance test and first-year qualification"><p>Admission in Katihar Engineering College (KEC) for four years
                                                         B.Tech.
                                                         course is made through Bihar Combined Entrance Competitive
                                                         Examination (B.C.E.C.E.) conducted by Bihar Combined Entrance
@@ -120,8 +120,8 @@
                                                     </div>
                                                     <p id="ctl00_ContentPlaceHolder1_h4_heading"><strong>Minimum
                                                             Qualification for the direct admission in second year of UG
-                                                            programme</strong></p>
-                                                    <div id="ctl00_ContentPlaceHolder1_div_1">(A) Passed Diploma
+                                                            programme</strong></p></kec:section>
+                                                    <div id="ctl00_ContentPlaceHolder1_div_1"><kec:section key="academic.admission/lateral" title="UG Admission: direct admission in second year">(A) Passed Diploma
                                                         examination
                                                         with at least 45% marks (40% in case of candidates belonging to
                                                         reserved category) in appropriate branch of Engineering and
@@ -142,11 +142,11 @@
                                                             shall be
                                                             considered only after filling the supernumerary seats in
                                                             this
-                                                            category with students belonging to the Diploma stream
+                                                            category with students belonging to the Diploma stream</kec:section>
 
 
                                                         <div>
-                                                            <p><strong>The list of qualifying examinations For
+                                                            <kec:section key="academic.admission/qualifying" title="UG Admission: qualifying examinations"><p><strong>The list of qualifying examinations For
                                                                     Engineering
                                                                     Stream</strong></p>
                                                             <ul>
@@ -179,13 +179,13 @@
                                                                 <div id="ctl00_ContentPlaceHolder1_div_2">
                                                                     <strong>Residential</strong>
                                                                 </div>
-                                                            </div>
+                                                            </div></kec:section>
                                                             <div>
                                                                 <div data-animation="bounceInUp"
                                                                     data-animation-delay="0s" class="p-4 md:p-6 lg:p-8">
                                                                     <div id="ctl00_ContentPlaceHolder1_div_3"
                                                                         class="space-y-4">
-                                                                        <p class="text-lg font-medium">Only those
+                                                                        <kec:section key="academic.admission/residential" title="UG Admission: residential rules"><p class="text-lg font-medium">Only those
                                                                             candidates
                                                                             can get admission who are citizens of India
                                                                             and:
@@ -210,7 +210,7 @@
                                                                         </ul>
 
                                                                         <p class="text-xl font-semibold mt-4">List of
-                                                                            courses offered at KEC:</p>
+                                                                            courses offered at KEC:</p></kec:section>
 
                                                                         <div class="w-full  p-4">
                                                                             <div class="">

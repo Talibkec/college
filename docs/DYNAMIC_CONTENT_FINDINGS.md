@@ -879,3 +879,23 @@ Requested after step 6: editors can add their own content to any page. Approved:
 The blocks appear below the page's existing content (full width, above the footer). Who may add them follows §1.3.3
 via the page's content area (`PageKeys.area`); add-only users change only their own blocks. Pages without blocks are
 byte-identical for visitors.
+
+---
+
+## 11. Existing page texts editable, page by page (approved 2026-10-19)
+
+The hard-coded texts of every page become `page_section` rows (treatment T2, same as the About pages in step 6), so
+the "Edit this page" screen can change them. Static parts are wrapped in `<kec:section key title>` with today's HTML as
+fallback; the seed (`15_page_section_pages_seed.sql`) is generated from those tags (`tools/page_sections_seed.py`), so
+pages stay byte-identical. Database lists, forms and scripts stay in code. No schema change.
+
+| Group | Pages | Status |
+|---|---|---|
+| 1 | Academic (12 pages, 16 texts) | ✅ done (holidays, labs = document lists; `adminsValue` = D3) |
+| 2 | Facilities | next |
+| 3 | T&P, Approval, RTI, NBA | |
+| 4 | Legal and footer pages | |
+| 5 | Home page (static parts) | |
+| 6 | Departments, one site per commit | |
+
+Tables of people and fees become editable as HTML first; steps 12–13 (people, fee screens) replace them later.

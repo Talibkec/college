@@ -53,7 +53,7 @@
         <div class="w-full sm:w-3/4 px-4">
             <div class="bg-white shadow-lg rounded-lg p-6">
                 <div class="leading-relaxed text-lg font-light text-gray-700">
-                    <ul class="list-disc pl-5 space-y-4">
+                    <kec:section key="academic.calender/main" title="Academic Calender: links"><ul class="list-disc pl-5 space-y-4">
 
                         <li class="flex items-center hover:bg-blue-50 p-2 rounded transition duration-300 ease-in-out">
                             <div class="flex-shrink-0">
@@ -64,7 +64,7 @@
                                 <a href="http://beu-bih.ac.in/BEUP/Academic_Calendar.aspx" target="_blank" class="text-blue-600 hover:underline">Download</a>
                             </p>
                         </li>
-                    </ul>
+                    </ul></kec:section>
                 </div>
             </div>
         </div>

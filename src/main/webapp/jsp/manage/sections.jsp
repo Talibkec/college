@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<jsp:include page="/jsp/header.jsp"/><kec:manageNav/>
 <link rel="stylesheet" href="/js/vendor/quill-2.0.3/quill.snow.css">
 <div class="py-6">
     <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
@@ -16,10 +16,16 @@
         <div class="flex flex-col md:flex-row gap-6">
             <div class="md:w-1/4">
                 <h4 class="font-semibold mb-2">Texts you can change</h4>
-                <ul class="space-y-1">
+                <input type="search" id="section-filter" placeholder="Find a page or text" class="w-full mb-3 px-2 py-1 border rounded text-sm">
+                <ul class="space-y-1" id="section-list">
+                    <c:set var="lastPage" value=""/>
                     <c:forEach var="s" items="${sections}">
                         <c:if test="${empty area or area eq s.areaCode}">
-                            <li><a class="${section.sectionId == s.sectionId ? 'font-bold' : 'text-blue-600'}" href="/manage/sections?id=${s.sectionId}"><c:out value="${s.title}"/></a>
+                            <c:if test="${s.pageKey ne lastPage}">
+                                <li class="pt-2 text-xs uppercase text-gray-500" data-page="${s.pageKey}">${s.pageUrl}</li>
+                                <c:set var="lastPage" value="${s.pageKey}"/>
+                            </c:if>
+                            <li data-page="${s.pageKey}"><a class="${section.sectionId == s.sectionId ? 'font-bold' : 'text-blue-600'}" href="/manage/sections?id=${s.sectionId}"><c:out value="${s.title}"/></a>
                                 <c:if test="${not s.visible}"><span class="text-sm text-gray-500">(hidden)</span></c:if></li>
                         </c:if>
                     </c:forEach>
@@ -34,6 +40,7 @@
                     <c:otherwise>
                         <h4 class="text-xl font-semibold mb-1"><c:out value="${section.title}"/></h4>
                         <p class="mb-3 text-sm text-gray-600">Shown on <a class="text-blue-600" href="${section.pageUrl}" target="_blank">${section.pageUrl}</a>
+                            &middot; <a class="text-blue-600" href="/manage/blocks?page=${section.pageKey}" id="page-blocks-link">add headings, text, images or documents to this page</a>
                             <c:if test="${not empty section.updatedBy}">&middot; last changed by <c:out value="${section.updatedBy}"/></c:if></p>
 
                         <form method="post" action="/manage/sections/save" id="section-form">
@@ -96,6 +103,18 @@
 </div>
 <script src="/js/vendor/quill-2.0.3/quill.js"></script>
 <script>
+    (function () {
+        var filter = document.getElementById('section-filter');
+        filter.addEventListener('input', function () {
+            var q = filter.value.toLowerCase();
+            document.querySelectorAll('#section-list li').forEach(function (li) {
+                var page = li.getAttribute('data-page') || '';
+                var group = document.querySelectorAll('#section-list li[data-page="' + page + '"]');
+                var text = Array.prototype.map.call(group, function (x) { return x.textContent; }).join(' ').toLowerCase();
+                li.style.display = !q || text.indexOf(q) >= 0 ? '' : 'none';
+            });
+        });
+    })();
     (function () {
         var form = document.getElementById('section-form');
         if (!form) return;

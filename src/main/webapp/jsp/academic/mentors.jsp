@@ -37,7 +37,7 @@
                                                                      </div>
                                                                          </aside>
 
-            <div  style=""><p><strong>Updated Soon&#8230</strong></p></div>
+            <div  style=""><kec:section key="academic.mentors/main" title="Mentors: text"><p><strong>Updated Soon&#8230</strong></p></kec:section></div>
         </div>
     </div>
 

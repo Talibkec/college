@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
+<jsp:include page="/jsp/header.jsp"/><kec:manageNav/>
 <link rel="stylesheet" href="/js/vendor/quill-2.0.3/quill.snow.css">
 <div class="py-6">
     <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
@@ -35,7 +35,22 @@
             </c:choose>
         </c:when>
         <c:otherwise>
-            <p class="mb-4 text-gray-700">Page <a class="text-blue-600" href="${pageUrl}" target="_blank">${pageUrl}</a>.
+            <p class="mb-4 text-gray-700">Page <a class="text-blue-600" href="${pageUrl}" target="_blank">${pageUrl}</a>.</p>
+
+            <c:if test="${not empty sections}">
+                <div class="mb-6 p-4 rounded bg-blue-50" id="page-sections">
+                    <h4 class="font-semibold mb-2">Existing text of this page</h4>
+                    <ul class="list-disc pl-6">
+                        <c:forEach var="s" items="${sections}">
+                            <li><a class="text-blue-600" href="/manage/sections?id=${s.sectionId}"><i class="fa fa-edit"></i> <c:out value="${s.title}"/></a>
+                                <c:if test="${not s.visible}"><span class="text-sm text-gray-500">(hidden)</span></c:if></li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </c:if>
+
+            <h4 class="font-semibold mb-2">Added content</h4>
+            <p class="mb-4 text-gray-700">
                 The content below is shown on the page under its existing text, in this order.
                 <c:if test="${access eq 'A'}"><br><span class="text-sm">You can add content and change or delete what you added.</span></c:if></p>
 

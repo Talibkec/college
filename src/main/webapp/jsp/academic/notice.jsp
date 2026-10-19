@@ -37,7 +37,7 @@
                                                                      </div>
                                                                          </aside>
 
-            <div class="col-md-8" style=""><p><strong>Updated Soon&#8230</strong></p></div>
+            <div class="col-md-8" style=""><kec:section key="academic.notice/main" title="Notice: text"><p><strong>Updated Soon&#8230</strong></p></kec:section></div>
         </div>
     </div>
 

@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
+<jsp:include page="/jsp/header.jsp"/><kec:manageNav/>
 <div class="py-6">
     <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
         <div class="flex space-x-4">

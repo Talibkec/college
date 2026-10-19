@@ -14,6 +14,9 @@ public final class PageHtml {
     private static final Pattern EMBED = Pattern.compile(
             "https://(www\\.)?(youtube\\.com/embed/|youtube-nocookie\\.com/embed/|google\\.com/maps/embed)[^\\s\"'<>]*");
 
+    /** A path on this website ("/jsp/academic/regulation.pdf"), not "//host" and without a scheme. */
+    private static final Pattern LOCAL_URL = Pattern.compile("/(?![/\\\\])[^\\s\"'<>:]*");
+
     private static final PolicyFactory POLICY = new HtmlPolicyBuilder()
             .allowElements("p", "br", "hr", "strong", "b", "em", "i", "u", "s", "sub", "sup", "small", "span", "div",
                     "section", "blockquote", "pre", "code", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li", "dl", "dt",
@@ -28,6 +31,12 @@ public final class PageHtml {
             .allowElements("iframe")
             .allowAttributes("src").matching(EMBED).onElements("iframe")
             .allowAttributes("width", "height", "frameborder", "allow", "allowfullscreen", "loading").onElements("iframe")
+            // PDFs of this website shown inside the page (e.g. /jsp/academic/regulation.pdf): local paths only
+            .allowElements("object", "embed")
+            .allowAttributes("data").matching(LOCAL_URL).onElements("object")
+            .allowAttributes("src").matching(LOCAL_URL).onElements("embed")
+            .allowAttributes("type").matching(Pattern.compile("application/pdf")).onElements("object", "embed")
+            .allowAttributes("width", "height").onElements("object", "embed")
             .toFactory();
 
     private PageHtml() {

@@ -150,6 +150,7 @@ No schema changes. The app user needs `SELECT, INSERT, UPDATE, DELETE` on `kecka
 # 1. backup the DB
 mysqldump -u <user> -p --single-transaction --routines keckacin_college2 | gzip > ~/backup-$(date +%F-%H%M).sql.gz
 # 1a. database changes of the new version (run BEFORE starting it): see docs/sql/dynamic/README.md
+#     one command: bash docs/sql/dynamic/apply_production.sh -u <db user> -d <database>
 #     "Production: SQL to run" - the exact commands, checks and rollback
 # 2. stop, replace the app, start
 sudo systemctl stop tomcat

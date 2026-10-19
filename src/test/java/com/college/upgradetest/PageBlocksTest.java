@@ -1,5 +1,6 @@
 package com.college.upgradetest;
 
+import com.college.core.tags.PageKeys;
 import org.junit.After;
 import org.junit.Test;
 
@@ -72,10 +73,16 @@ public class PageBlocksTest extends AbstractAppTest {
 
     @Test
     public void pagesShowNothingUntilContentIsAdded() throws Exception {
-        assertFalse("anonymous: no added content, no edit link", anonymous().get("/about/vision").body().contains("page-blocks"));
-        WebSession.Response sub = loginAs(TestData.SUBADMIN).get("/about/vision");
-        assertContains("editor sees the edit link", sub, "href=\"/manage/blocks?page=about.vision\"");
-        assertFalse("TPO does not edit About", loginAs(TestData.TPO).get("/about/vision").body().contains("page-blocks"));
+        // an About page without blocks (the local copy may hold content added while verifying by hand)
+        String empty = jdbc.queryForList("select k from (select 'about.history' k union all select 'about.affiliation' "
+                + "union all select 'about.principal' union all select 'about.vision') pages "
+                + "where k not in (select page_key from page_block) order by k", String.class).stream().findFirst()
+                .orElseThrow(() -> new AssertionError("every About page has blocks: remove some in /manage/blocks"));
+        String url = PageKeys.url(empty);
+        assertFalse("anonymous: no added content, no edit link", anonymous().get(url).body().contains("page-blocks"));
+        WebSession.Response sub = loginAs(TestData.SUBADMIN).get(url);
+        assertContains("editor sees the edit link", sub, "href=\"/manage/blocks?page=" + empty + "\"");
+        assertFalse("TPO does not edit About", loginAs(TestData.TPO).get(url).body().contains("page-blocks"));
         assertContains("TPO edits T&P pages", loginAs(TestData.TPO).get("/trainingplacement/aboutplacement"),
                 "href=\"/manage/blocks?page=trainingplacement.aboutplacement\"");
         assertContains("dashboard link", loginAs(TestData.SUBADMIN).get("/manage"), "href=\"/manage/blocks\"");

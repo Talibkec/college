@@ -261,7 +261,10 @@
               <sec:authorize access="isAuthenticated()">
                 <li class="main-nav">
                   <a href="/mydashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
-                </li>
+                </li><c:if test="${empty kecCanManage}"><kec:canManage var="kecCanManage"/></c:if><c:if test="${kecCanManage}">
+                <li class="main-nav">
+                  <a href="/manage" title="" class="sf-depth-1 menuparent" id="website-content-link">Website Content</a>
+                </li></c:if>
               </sec:authorize>
               <li>
                 <sec:authorize access="!isAuthenticated()">
@@ -627,7 +630,10 @@
                   <sec:authorize access="isAuthenticated()">
                     <li id="menu-218-1" class="main-nav">
                       <a href="/mydashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
-                    </li>
+                    </li><c:if test="${empty kecCanManage}"><kec:canManage var="kecCanManage"/></c:if><c:if test="${kecCanManage}">
+                    <li class="main-nav">
+                      <a href="/manage" title="" class="sf-depth-1 menuparent">Website Content</a>
+                    </li></c:if>
                   </sec:authorize>
                   <sec:authorize access="!isAuthenticated()">
                     <li class="main-nav">
@@ -902,7 +908,9 @@
                       <a href="/login" title="" class="sf-depth-1 menuparent">Login</a>
                     </li>
                   </sec:authorize>
-                  <sec:authorize access="isAuthenticated()">
+                  <sec:authorize access="isAuthenticated()"><c:if test="${empty kecCanManage}"><kec:canManage var="kecCanManage"/></c:if><c:if test="${kecCanManage}"><li class="main-nav">
+                      <a href="/manage" title="" class="sf-depth-1 menuparent">Website Content</a>
+                    </li></c:if>
                     <li class="main-nav">
                       <a href="/logout" title="" class="sf-depth-1 menuparent">Logout</a>
                     </li>

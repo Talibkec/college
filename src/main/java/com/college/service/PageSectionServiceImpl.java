@@ -72,6 +72,17 @@ public class PageSectionServiceImpl implements PageSectionService {
     }
 
     @Override
+    public List<PageSection> editableSectionsOfPage(Authentication authentication, String pageKey) {
+        List<PageSection> sections = new ArrayList<>();
+        for (PageSection section : editableSections(authentication)) {
+            if (section.getPageKey().equals(pageKey)) {
+                sections.add(section);
+            }
+        }
+        return sections;
+    }
+
+    @Override
     public PageSection editableSection(Authentication authentication, Long sectionId) {
         for (PageSection section : editableSections(authentication)) {
             if (section.getSectionId().equals(sectionId)) {

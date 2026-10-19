@@ -67,9 +67,9 @@
 
            <!-- Main Content -->
            <div class="md:w-3/4 w-full p-4 bg-white rounded-lg shadow-md">
-               <p class="text-center text-lg font-semibold text-gray-700">
+               <kec:section key="academic.universityresults/main" title="University Results: text"><p class="text-center text-lg font-semibold text-gray-700">
                    <strong>Updated Soon&#8230</strong>
-               </p>
+               </p></kec:section>
            </div>
 
        </div>

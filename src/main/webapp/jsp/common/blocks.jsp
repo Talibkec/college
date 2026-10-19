@@ -9,7 +9,7 @@
         .kec-blocks .kec-text table td, .kec-blocks .kec-text table th { border: 1px solid #d1d5db; padding: .25rem .5rem; }
     </style>
     <c:if test="${pageBlocksEditor}">
-        <div class="text-right mb-2"><a href="/manage/blocks?page=${pageBlocksKey}" class="text-sm text-blue-600 hover:underline" id="edit-page-blocks"><i class="fa fa-edit"></i> Edit this page (add headings, text, images, documents)</a></div>
+        <div class="text-right mb-2"><a href="/manage/blocks?page=${pageBlocksKey}" class="text-sm text-blue-600 hover:underline" id="edit-page-blocks"><i class="fa fa-edit"></i> Edit this page (its text, or add headings, text, images, documents)</a></div>
     </c:if>
     <c:forEach var="b" items="${pageBlocks}">
         <c:choose>

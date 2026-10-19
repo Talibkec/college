@@ -1,0 +1,3 @@
+# scripts run on the Linux server must keep LF line endings (core.autocrlf would add CR)
+docs/sql/dynamic/*.sh text eol=lf
+docs/sql/dynamic/tools/*.py text eol=lf

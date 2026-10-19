@@ -414,7 +414,25 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   attachment for Office files; files of hidden blocks only for the page's editors. Deleting/replacing removes unused files.
 * Tests: `PageBlocksTest`. Snapshot compare: anonymous pages unchanged; logged-in editors' pages show the edit link.
 
-### 10.7 Manual re-test
+### 10.7 Existing page texts editable (group 1: Academic) and navigation
+* No schema change: the texts are `page_section` rows (`15_page_section_pages_seed.sql`, **generated** from the
+  `<kec:section key title>` tags by `docs/sql/dynamic/tools/page_sections_seed.py`). 16 texts on 12 Academic pages
+  (admission ×5, regulations, calender, syllabus, attendance, university results, payment tutorial, rules, academic
+  council, anti ragging, mentors, notice). Area per page = `PageKeys.area` (calender/syllabus/attendance/results →
+  `exam`, payment tutorial → `fees`, the rest → `academic`).
+* Kept in code: database lists (course seats on admission, holiday and lab documents), the unlinked legacy
+  `/academic/adminsValue` (decision D3), page titles in the coloured bar.
+* Sanitiser: additionally allows `<object>`/`<embed>` of type `application/pdf` with a path on this website (regulations).
+* "Edit this page" (`/manage/blocks?page=…`) lists the page's texts with links to `/manage/sections?id=…`;
+  `/manage/sections` groups the texts by page and has a search box.
+* Navigation: `<kec:manageNav/>` button bar on every content screen and on `/auth/roles*` (only the screens the user
+  may open); header menus (desktop, mobile, side) have "Website Content" (`/manage`) for users with any content area.
+* Production: `docs/sql/dynamic/apply_production.sh` runs backup, tables, seeds and checks in one go.
+* Tests: `PageTextsTest` (seed = JSP text, area, edit/restore byte-identical, permissions, PDF embed, buttons).
+  Snapshot compare against `f6295cb`: all anonymous pages byte-identical; logged-in Admin/HOD/Faculty pages show the
+  header link and the reworded "Edit this page" link; store users unchanged.
+
+### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
@@ -427,3 +445,5 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   the original text; hide/show a section.
 * Any page as an editor → "Edit this page": add heading, subheading, text, image, PDF, Word file; reorder, hide, delete;
   as Faculty on an own department page (add, change own only) and on another department (refused).
+* Header "Website Content" → button bar: every button opens its screen, the current one is highlighted.
+* `/academic/admission` as SubAdmin → "Edit this page" → a text → change, save, check the page, restore the original.

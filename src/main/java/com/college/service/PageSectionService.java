@@ -17,6 +17,9 @@ public interface PageSectionService {
     /** Sections the user may edit, by page. */
     List<PageSection> editableSections(Authentication authentication);
 
+    /** Sections of one page ("about.history") the user may edit. */
+    List<PageSection> editableSectionsOfPage(Authentication authentication, String pageKey);
+
     /** The section if the user may edit it, else null. */
     PageSection editableSection(Authentication authentication, Long sectionId);
 

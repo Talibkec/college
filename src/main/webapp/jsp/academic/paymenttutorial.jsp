@@ -68,7 +68,7 @@
                 <div class="w-full md:w-3/4 p-6 bg-white rounded-lg shadow-md">
 
 
-                        <h3 class="text-3xl font-bold mb-6 text-gray-800">Steps To Be Followed For Fee Payment:</h3>
+                        <kec:section key="academic.paymenttutorial/main" title="Fee payment tutorial: steps"><h3 class="text-3xl font-bold mb-6 text-gray-800">Steps To Be Followed For Fee Payment:</h3>
                         <div class="text-lg space-y-6 text-gray-700">
                             <p class="bg-blue-100 p-3 rounded-md"><strong>Step 1:</strong> Open any browser.</p>
                             <p class="bg-blue-100 p-3 rounded-md"><strong>Step 2:</strong> Go to the link <strong>onlinesbi.com/sbicollect</strong>. A page of "terms" will be opened.</p>
@@ -83,7 +83,7 @@
                             <p class="bg-blue-100 p-3 rounded-md"><strong>Step 11:</strong> After completing the payment, you can download the e-Receipt of payment.</p>
                             <p class="bg-blue-100 p-3 rounded-md"><strong>Or you can also download the PDF containing screenshots of the steps for fee payment:</strong> <a href="/jsp/facilities/payment.pdf" target="_blank" class="text-blue-600 hover:underline">Click here to download</a></p>
 
-                </div>
+                </div></kec:section>
 
             </div>
         </div>

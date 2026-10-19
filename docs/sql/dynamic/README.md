@@ -1,6 +1,6 @@
 # Database changes – dynamic-content phase
 
-Approved in `docs/DYNAMIC_CONTENT_FINDINGS.md` §8 (D1, D15–D17) and on 2026-10-19 (page blocks). The application never
+Approved in `docs/DYNAMIC_CONTENT_FINDINGS.md` §8 (D1, D15–D17) and on 2026-10-19 (page blocks, existing page texts). The application never
 changes the schema itself (`spring.jpa.hibernate.ddl-auto=none`): **every change below must be run by hand on the
 production database before the new version is deployed.** Every script is idempotent (`CREATE TABLE IF NOT EXISTS`,
 `INSERT IGNORE`, `WHERE NOT EXISTS`, "seed only if empty"), so running it twice does no harm and never overwrites
@@ -9,9 +9,22 @@ rows changed later in the application. No existing table or column is changed; o
 Only text goes into these files: DDL and values already public on the website. No data dumps, no credentials.
 **Keep this file up to date with every database change** (section "Change log" at the end).
 
-## Production: SQL to run (in this order)
+## Production: one command
 
-Run on the production server from the repository folder `docs/sql/dynamic` (or copy the folder there).
+`apply_production.sh` does everything below in the right order: asks the password once, makes the backup, runs the
+table scripts and the data scripts, and prints the check queries with the expected values.
+
+```bash
+bash docs/sql/dynamic/apply_production.sh -u <db user> -d <database>          # optional: -h <host> -P <port> --no-backup
+```
+
+It asks for confirmation ("yes") before changing anything. It is safe to run again with every later release: new seed
+rows are added, rows that exist (including texts changed on the website) are left alone. Restart the application
+afterwards (the website caches settings, links and texts).
+
+## Production: SQL to run by hand (in this order)
+
+The same steps one by one, if you prefer. Run on the production server from the repository folder `docs/sql/dynamic` (or copy the folder there).
 Replace `<user>` and the database name if they differ; `-p` asks for the password (never put it on the command line).
 
 ```bash
@@ -44,6 +57,7 @@ mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 07_department_site_se
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 01_site_setting_seed.sql
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 02_page_section_seed.sql
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 03_link_item_seed.sql
+mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 15_page_section_pages_seed.sql
 ```
 
 To avoid typing the password 20 times: run `mysql -u <user> -p --default-character-set=utf8mb4 "$DB"` once and enter
@@ -57,7 +71,7 @@ SELECT COUNT(*) FROM content_area_role;                              -- 79 (more
 SELECT name FROM test_role ORDER BY id;                              -- Admin, Faculty, SM, HOD, SK + 12 new roles
 SELECT COUNT(*) FROM department_site;                                -- 10
 SELECT COUNT(*) FROM site_setting;                                   -- 15
-SELECT COUNT(*) FROM page_section;                                   -- 5
+SELECT COUNT(*) FROM page_section;                                   -- 21 (5 About + 16 Academic; grows with each group of pages)
 SELECT list_code, COUNT(*) FROM link_item GROUP BY list_code;        -- 10 lists, 129 entries in total
 SELECT setting_value FROM site_setting WHERE setting_key = 'links.main_menu.enabled';   -- no
 SHOW TABLES LIKE 'page_block'; SHOW TABLES LIKE 'content_file';      -- both exist (empty)
@@ -102,6 +116,19 @@ with the tables.
 | `01_site_setting_seed.sql` | 13 texts of header, footer, contact pages | site settings |
 | `02_page_section_seed.sql` | 5 texts of the About pages + setting `principal.faculty_id` | page texts |
 | `03_link_item_seed.sql` | 10 link lists (129 entries) + switch `links.main_menu.enabled` = no | menus and links |
+| `15_page_section_pages_seed.sql` | existing texts of the pages (today: 16 texts of 12 Academic pages), **generated** | page texts of all pages except About |
+| `apply_production.sh` | runs all of the above in order (backup, tables, data, checks) | production deployment |
+| `tools/page_sections_seed.py` | writes `15_page_section_pages_seed.sql` from the `<kec:section>` tags in the JSPs (`--check`: is it up to date?) | development |
+
+### How the page texts are made editable (for the next groups of pages)
+
+1. In the JSP, put `<kec:section key="<page key>/<name>" title="<Page: what>">…today's HTML…</kec:section>` around a
+   static part of the page (no `${…}`, `<c:…>`, scripts or forms inside; the page key is the URL with dots,
+   `/academic/admission` → `academic.admission`).
+2. `python3 docs/sql/dynamic/tools/page_sections_seed.py` regenerates `15_page_section_pages_seed.sql`.
+3. Apply it locally (`mysql … < 15_page_section_pages_seed.sql`), restart, run `PageTextsTest` (seed = JSP text, area =
+   `PageKeys.area`) and the snapshot comparison (pages byte-identical).
+4. Production: `apply_production.sh` again (or only the `15_…` command); restart.
 
 ## Change log (every database change of this phase)
 
@@ -111,7 +138,8 @@ with the tables.
 | 2026-10-19 | step 2 (`d6db9b1`) | 12 new roles (`test_role` rows), 31 content areas, permission matrix | `10_roles_seed.sql`, `10_content_area_seed.sql` |
 | 2026-10-19 | step 3 (`f59445c`) | 13 site settings | `01_site_setting_seed.sql` |
 | 2026-10-19 | steps 4-6 (`3235fc8`) | `link_item` got column `css_class` (part of `03_link_item.sql`); 129 links; 5 page sections; settings `principal.faculty_id`, `links.main_menu.enabled` | `03_link_item.sql`, `03_link_item_seed.sql`, `02_page_section_seed.sql` |
-| 2026-10-19 | page blocks | new tables `content_file`, `page_block`; 10 department sites | `13_content_file.sql`, `14_page_block.sql`, `07_department_site_seed.sql` |
+| 2026-10-19 | page blocks (`f6295cb`) | new tables `content_file`, `page_block`; 10 department sites | `13_content_file.sql`, `14_page_block.sql`, `07_department_site_seed.sql` |
+| 2026-10-19 | existing page texts: Academic | 16 new `page_section` rows (12 Academic pages); no schema change | `15_page_section_pages_seed.sql` |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

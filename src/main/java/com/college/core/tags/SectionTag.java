@@ -20,6 +20,10 @@ public class SectionTag extends SimpleTagSupport {
         this.key = key;
     }
 
+    /** Only documentation for the seed generator (docs/sql/dynamic/tools/page_sections_seed.py). */
+    public void setTitle(String title) {
+    }
+
     @Override
     public void doTag() throws JspException, IOException {
         PageContext pageContext = (PageContext) getJspContext();

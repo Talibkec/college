@@ -1,5 +1,5 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<jsp:include page="../admin/HeaderDashboard.jsp" />
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
+<jsp:include page="../admin/HeaderDashboard.jsp" /><kec:manageNav/>
 
 <div class="container mx-auto p-6">
     <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">

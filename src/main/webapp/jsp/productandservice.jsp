@@ -14,7 +14,7 @@
 
     <div class="container mx-auto mt-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h3 class="text-xl font-semibold mb-4">Course Offered</h3>
+            <kec:section key="legal.productandservices/main" title="Product and Services: courses table"><h3 class="text-xl font-semibold mb-4">Course Offered</h3>
             <div class="overflow-x-auto">
                 <table class="min-w-full border border-gray-300">
                     <thead class="bg-gray-200">
@@ -62,7 +62,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div></kec:section>
         </div>
     </div>
 </div>

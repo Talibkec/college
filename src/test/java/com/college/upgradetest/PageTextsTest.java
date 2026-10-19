@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Existing texts of the pages made editable (&lt;kec:section&gt; + docs/sql/dynamic/15_page_section_pages_seed.sql,
- * Academic, Facilities, T&amp;P, Approval and RTI pages), the button bar of the content screens and the header's "Website Content" link.
+ * Academic, Facilities, T&amp;P, Approval, RTI and Legal pages), the button bar of the content screens and the header's "Website Content" link.
  * Changed texts are restored through the screen afterwards ("restore the original text").
  */
 public class PageTextsTest extends AbstractAppTest {
@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 51);
+        assertTrue("page texts found: " + count, count >= 56);
     }
 
     @Test
@@ -152,6 +152,26 @@ public class PageTextsTest extends AbstractAppTest {
         assertEquals("rti", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, rti));
         assertEquals(403, tpo.get("/manage/sections?id=" + rti).status);
         assertEquals(200, loginAs(TestData.SUBADMIN).get("/manage/sections?id=" + rti).status);
+    }
+
+    /** Legal pages: the refund text is editable, its phone and e-mail stay contact settings; fee structure is area fees. */
+    @Test
+    public void legalTextsKeepTheirContactSettings() throws Exception {
+        long refund = sectionId("legal.refundandcancellation", "main");
+        String before = anonymous().get("/legal/refundandcancellation").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        sub.postForm("/manage/sections/save", "id", String.valueOf(refund), "html", "<p>" + TestData.MARK + " refund</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/legal/refundandcancellation");
+        assertContains("new refund text", changed, "<p>" + TestData.MARK + " refund</p>");
+        assertContains("phone setting kept", changed, "<li>Phone: ");
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(refund));
+        sub.postForm("/manage/sections/restore", "id", String.valueOf(refund), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/legal/refundandcancellation").body());
+
+        assertEquals("fees", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class,
+                sectionId("legal.feestructure", "main")));
+        assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + sectionId("legal.privacypolicy", "main")).status);
     }
 
     @Test

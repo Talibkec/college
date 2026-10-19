@@ -15,8 +15,8 @@
 
 
     <div class="row"  style="margin:30px">
-    <p></p>
-        All legal affairs to be dealt under Katihar Jurisdiction.
+    <kec:section key="legal.termandcondition/main" title="Terms and Conditions: text"><p></p>
+        All legal affairs to be dealt under Katihar Jurisdiction.</kec:section>
 
     </div>
 </div>

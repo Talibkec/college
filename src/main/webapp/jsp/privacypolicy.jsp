@@ -13,7 +13,7 @@
 
     <div class="container mx-auto mt-8">
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <ul class="list-disc list-inside space-y-4">
+            <kec:section key="legal.privacypolicy/main" title="Privacy Policy: text"><ul class="list-disc list-inside space-y-4">
                 <li>
                     All decisions undertaken by the Management & Governing body are termed to be final.
                 </li>
@@ -23,7 +23,7 @@
                 <li>
                    No documents are to be disclosed or published in public without written directive from the Principal, Katihar Engineering College, Katihar.
                 </li>
-            </ul>
+            </ul></kec:section>
         </div>
     </div>
 </div>

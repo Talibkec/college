@@ -14,7 +14,7 @@
 
     <div class="container mx-auto mt-8 px-6">
         <h3 class="text-center text-xl font-semibold"><kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting> - <kec:setting key="contact.pin">854109</kec:setting></h3>
-        <h3 class="text-center text-xl font-semibold mt-2"><u>Fee Structure for Day Scholars</u></h3>
+        <kec:section key="legal.feestructure/main" title="Fee Structure: heading and fee table"><h3 class="text-center text-xl font-semibold mt-2"><u>Fee Structure for Day Scholars</u></h3>
 
         <div class="overflow-x-auto mt-6">
             <table class="min-w-full border border-gray-300">
@@ -115,5 +115,5 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div></kec:section>
     </div><kec:blocks/>

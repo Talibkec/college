@@ -454,6 +454,15 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
 * Test: `PageTextsTest.tpoChangesTrainingAndPlacementTextsButNotRti`. Snapshot compare: anonymous pages byte-identical
   except the Wi-Fi and resume-tips encoding fixes.
 
+### 10.7c Existing page texts editable (group 4: Legal)
+* 5 more `page_section` rows (generated seed, no schema change): privacy policy, terms and conditions, product and
+  services (courses table) → area `legal`; refund and cancellation (text only, phone and e-mail stay contact
+  settings), fee structure (heading and fee table; college name and PIN above it stay settings) → area `fees`.
+* Kept in code: `/legal/contactus` (form; contact via settings). The footer was made editable in step 3 (settings).
+* The fee and course tables are plain HTML for now; the planned fee and department screens (steps 12–13, findings
+  §4.7) would replace them.
+* Test: `PageTextsTest.legalTextsKeepTheirContactSettings`. Snapshot compare: Legal pages byte-identical.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

@@ -894,8 +894,8 @@ pages stay byte-identical. Database lists, forms and scripts stay in code. No sc
 | 1 | Academic (12 pages, 16 texts) | ✅ done (holidays, labs = document lists; `adminsValue` = D3) |
 | 2 | Facilities (14 pages, 19 texts) | ✅ done (downloads, responsibility documents = document lists; contact us = form + D9; holiday.jsp not mapped) |
 | 3 | T&P, Approval, RTI (10 pages, 11 texts) | ✅ done (NBA, AICTE approval, placed students, coordinators = database lists; grievance = form) |
-| 4 | Legal and footer pages | next |
-| 5 | Home page (static parts) | |
+| 4 | Legal pages (5 pages, 5 texts) | ✅ done (footer = settings since step 3; contact us = form; fee and course tables as HTML until steps 12–13) |
+| 5 | Home page (static parts) | next |
 | 6 | Departments, one site per commit | |
 
 Tables of people and fees become editable as HTML first; steps 12–13 (people, fee screens) replace them later.

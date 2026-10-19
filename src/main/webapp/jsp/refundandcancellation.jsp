@@ -14,7 +14,7 @@
 
     <div class="container mx-auto mt-8 px-6">
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <p class="text-center">For refund or cancellation policy, please contact the college</p>
+            <kec:section key="legal.refundandcancellation/main" title="Refund and Cancellation: text (phone and e-mail are contact settings)"><p class="text-center">For refund or cancellation policy, please contact the college</p></kec:section>
             <ul class="mt-3 text-center">
                 <li>Phone: <kec:setting key="contact.phone">06452-239122</kec:setting></li>
                 <li>E-mail: <kec:setting key="contact.email">principal@keck.ac.in</kec:setting></li>

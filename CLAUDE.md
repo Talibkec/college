@@ -59,6 +59,8 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local "-Dspring-boot.run.argument
 - They start the real app (embedded Tomcat + JSPs + Security) on a random port with the `local` profile, so they need
   the local MySQL and `application-local.properties`. They refuse to run against a non-localhost DB.
 - They write test rows (all names start with `zzupgtest`) and delete them afterwards. `ddl-auto=none`.
+- They need the dynamic-content migrations applied to the local DB (`docs/sql/dynamic/`, see its README); new tables
+  are never created by the app. `ContentRolesTest` covers the website roles and the permission matrix.
 - Mail and SMS are replaced by recorders (`TestDoublesConfig`); `/rn` (Firebase query) and `/rs` (Google Calendar) are never called.
 - `PagesBaselineTest` compares ~370 URLs against baselines recorded on the pre-upgrade version
   (`src/test/resources/upgradetest/*.txt`). A baseline may only be changed for an approved behaviour change.

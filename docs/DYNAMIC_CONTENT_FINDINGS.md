@@ -3,6 +3,9 @@
 _Audit of 2026-10-16, branch `kec_claude` at `f702683`. Updated 2026-10-19: roles and permissions (§1.3), standard
 treatments (§1.2), and in every page table the columns **How I'd address it** and **Who can update**.
 **No code, schema or data was changed for this document.**_
+
+> **Status 2026-10-19:** all recommendations of §8 approved (D9 and D4 still need your input). Steps 1–2 of §9
+> (migrations in `docs/sql/dynamic/`, roles and permissions) are implemented; see `UPGRADE_NOTES.md` §10.
 _Store management is excluded (CLAUDE.md, `PROJECT_ANALYSIS.md` §5). Personal phone numbers and e-mail addresses
 found in templates are deliberately **not** reproduced here; files are referenced instead._
 
@@ -185,7 +188,7 @@ Rules:
 | Permission check | `ContentPermissionService.can(user, area, access, siteCode)` reading `content_area_role` (cached, evicted on change); used by every `/manage/**` controller **and** by the JSPs (`<kec:canEdit area="tp">` shows Edit/Delete links only to permitted users) |
 | URL security (`WebSecurityConfig`) | new rule `/manage/**` → authenticated and holding any content role; the fine-grained check is in the service (method security `@EnableMethodSecurity` + `@PreAuthorize("@perm.can(...)")`). Existing rules for `/auth/**`, `/hod/**`, `/user/**` stay; for existing modules (T8) a path-specific rule is added **before** `/auth/**`, e.g. `/auth/uploadfile/addPlacements`, `/auth/tpoCoordinator/**` → `Admin, SubAdmin, TPO` |
 | Landing page | `KECUrlAuthenticationSuccessHandler`: users holding `Admin`, `HOD`, `Faculty` (or store roles) land exactly where they land today; users holding **only** new roles land on `/manage` |
-| Dashboard | `/manage` shows one tile per content area the user may edit; the Admin, HOD and Faculty dashboards get a "Manage website content" link when the user also holds a new role or may edit an area; the header "Dashboard" link goes to the user's own landing page (fixes B22, approval needed) |
+| Dashboard | `/manage` shows one tile per content area the user may edit; the Admin, HOD and Faculty dashboards get a "Manage website content" link when the user also holds a new role or may edit an area; the header "Dashboard" link goes to `/mydashboard`, which redirects to the user's own landing page (fixes B22) |
 | Tests | a role matrix test: for each role, allowed screens return 200 and everything else 403; department scope (HOD of CSE cannot edit `department.civil`); `A` users cannot delete others' rows; Admin/HOD/Faculty behaviour of today unchanged; `PagesBaselineTest` unchanged |
 
 ### 1.4 Screens, security and rendering
@@ -397,6 +400,7 @@ CREATE TABLE content_change_log (
   entity_id     VARCHAR(100) NOT NULL,
   action        VARCHAR(10)  NOT NULL,                -- 'create' | 'update' | 'delete' | 'restore'
   old_value     MEDIUMTEXT   NULL,                    -- JSON of the row before the change (no file bytes)
+  new_value     MEDIUMTEXT   NULL,                    -- the row after the change
   changed_by    VARCHAR(255) NOT NULL,
   changed_at    DATETIME     NOT NULL,
   KEY ix_change_entity (entity, entity_id, changed_at),
@@ -834,8 +838,8 @@ page touched (or differ only where an approved bug fix applies); new tests per e
 create/edit/delete, other roles and anonymous get 403/redirect, department scope, add-only users cannot delete others'
 rows, POST-only, HTML sanitised, each upload appends a row, change-log row written).
 
-1. Migration framework: `docs/sql/dynamic/` DDL + seed files, a test that the seed reproduces the baseline; entities/repositories for the approved tables.
-2. **Roles and permissions**: role seed (D15/D16), `content_area`/`content_area_role` + seed (§1.3.3), `ContentPermissionService`, `<kec:canEdit>`, `/manage/**` rule, `/manage` dashboard, landing page for new-only roles, `/auth/roles` assignment screen, `content_change_log`; role-matrix tests (Admin/HOD/Faculty unchanged).
+1. ✅ Migration framework: `docs/sql/dynamic/` DDL + seed files, a test that the seed reproduces the baseline; entities/repositories for the approved tables.
+2. ✅ **Roles and permissions**: role seed (D15/D16), `content_area`/`content_area_role` + seed (§1.3.3), `ContentPermissionService`, `<kec:canEdit>`, `/manage/**` rule, `/manage` dashboard, landing page for new-only roles, `/auth/roles` assignment screen, `content_change_log`; role-matrix tests (Admin/HOD/Faculty unchanged).
 3. `site_setting` + model advice + settings screen → header/footer/contact/legal/refund/grievance pages.
 4. `link_item` + links screen → main menu (desktop + mobile), top bar, social, footer.
 5. Page sidebars (about, academic, facilities, T&P, approval, RTI) → `link_item`.

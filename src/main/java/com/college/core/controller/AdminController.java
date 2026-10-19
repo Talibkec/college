@@ -1,8 +1,10 @@
 package com.college.core.controller;
 
 import com.college.core.model.NoticeBoardDTO;
+import com.college.service.ContentPermissionService;
 import com.college.service.FacultyProfileService;
 import com.college.service.NoticeBoardService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +20,13 @@ import java.util.List;
 public class AdminController {
     private final FacultyProfileService facultyProfileService;
     private final NoticeBoardService noticeBoardService;
+    private final ContentPermissionService contentPermissionService;
 
-    public AdminController(FacultyProfileService facultyProfileService, NoticeBoardService noticeBoardService) {
+    public AdminController(FacultyProfileService facultyProfileService, NoticeBoardService noticeBoardService,
+                           ContentPermissionService contentPermissionService) {
         this.facultyProfileService = facultyProfileService;
         this.noticeBoardService = noticeBoardService;
+        this.contentPermissionService = contentPermissionService;
     }
 
     @RequestMapping(value = "/auth/uploadDashboard")
@@ -61,6 +66,8 @@ public class AdminController {
     public ModelAndView getHodDashboard() {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
+        mv.addObject("canManageContent",
+                !contentPermissionService.editableAreas(SecurityContextHolder.getContext().getAuthentication()).isEmpty());
         mv.setViewName("admin/HodDashboard.jsp");
         return mv;
 

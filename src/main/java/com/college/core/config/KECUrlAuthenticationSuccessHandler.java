@@ -58,12 +58,14 @@ public class KECUrlAuthenticationSuccessHandler
         redirectStrategy.sendRedirect(request, response, targetUrl);
     }
 
-    protected String determineTargetUrl(Authentication authentication) {
+    /** Landing page per role. Also used by {@code /mydashboard} (the header's "Dashboard" link). */
+    public String determineTargetUrl(Authentication authentication) {
         boolean isSM = false;
         boolean isSK = false;
         boolean isAdmin=false;
         boolean isFaculty =false;
         boolean isHOD =false;
+        boolean hasOtherRole = false;
         Long facultyId=null;
         String currentUserName= authentication.getName();
        
@@ -88,6 +90,9 @@ public class KECUrlAuthenticationSuccessHandler
             else if(grantedAuthority.getAuthority().equals("HOD")){
                 isHOD=true;
             }
+            else if (!grantedAuthority.getAuthority().equals("CHANGE_PASSWORD_PRIVILEGE")) {
+                hasOtherRole = true; // one of the website roles (TPO, Registrar, ...)
+            }
         }
 
         if (isSM) {
@@ -104,6 +109,9 @@ public class KECUrlAuthenticationSuccessHandler
         }
         else if(isHOD){
             return "/hod/hodDashboard";
+        }
+        else if (hasOtherRole) {
+            return "/manage";
         }
         else {
             return "/";

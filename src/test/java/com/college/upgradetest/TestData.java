@@ -19,7 +19,10 @@ public class TestData {
     public static final TestUser SM = new TestUser(MARK + "_sm", 3L);
     public static final TestUser HOD = new TestUser(MARK + "_hod", 4L);
     public static final TestUser SK = new TestUser(MARK + "_sk", 5L);
-    public static final TestUser[] ALL = {ADMIN, FACULTY, SM, HOD, SK};
+    /** Website roles of the dynamic-content phase (rows from docs/sql/dynamic/10_roles_seed.sql). */
+    public static final TestUser TPO = new TestUser(MARK + "_tpo", "TPO");
+    public static final TestUser SUBADMIN = new TestUser(MARK + "_subadmin", "SubAdmin");
+    public static final TestUser[] ALL = {ADMIN, FACULTY, SM, HOD, SK, TPO, SUBADMIN};
 
     /** Official e-mail of the test faculty (used by the password-reset flow). */
     public static final String FACULTY_EMAIL = MARK + "_faculty@keck.ac.in";
@@ -35,11 +38,23 @@ public class TestData {
         for (TestUser u : ALL) {
             jdbc.update("insert into test_user (username, password) values (?, ?)", u.username, hash);
             long id = jdbc.queryForObject("select id from test_user where username = ?", Long.class, u.username);
-            jdbc.update("insert into user_role (user_id, role_id) values (?, ?)", id, u.roleId);
+            jdbc.update("insert into user_role (user_id, role_id) values (?, ?)", id, roleId(u));
         }
         jdbc.update("insert into faculty (dept_id, f_mnumber, f_name, f_officialemail, f_personalemail, username) "
                         + "values (?, ?, ?, ?, ?, ?)",
                 DEPT_ID, 9000000001L, MARK + " Faculty Member", FACULTY_EMAIL, MARK + "_faculty@example.com", FACULTY.username);
+    }
+
+    private long roleId(TestUser u) {
+        if (u.roleName == null) {
+            return u.roleId;
+        }
+        java.util.List<Long> ids = jdbc.queryForList("select id from test_role where name = ?", Long.class, u.roleName);
+        if (ids.isEmpty()) {
+            throw new IllegalStateException("Role " + u.roleName + " missing: apply docs/sql/dynamic/*.sql to the local database "
+                    + "(see docs/sql/dynamic/README.md)");
+        }
+        return ids.get(0);
     }
 
     public long userId(String username) {
@@ -76,15 +91,30 @@ public class TestData {
         jdbc.update("delete from gallery_image where caption like ?", like);
         jdbc.update("delete from achievement_slide where achievement_caption like ?", like);
         jdbc.update("delete from administration where f_dutyassigned like ?", like);
+        // dynamic-content tables (docs/sql/dynamic)
+        String contains = "%" + MARK + "%"; // e.g. area 'department.zzupgtest_site'
+        jdbc.update("delete from content_change_log where changed_by like ? or entity_id like ?", like, contains);
+        jdbc.update("delete from content_area_role where area_code like ?", contains);
+        jdbc.update("delete from content_area where area_code like ?", contains);
+        jdbc.update("delete from department_site where site_code like ?", like);
     }
 
     public static class TestUser {
         public final String username;
         public final long roleId;
+        /** Set for roles without a fixed id (looked up by name); then {@link #roleId} is unused. */
+        public final String roleName;
 
         TestUser(String username, long roleId) {
             this.username = username;
             this.roleId = roleId;
+            this.roleName = null;
+        }
+
+        TestUser(String username, String roleName) {
+            this.username = username;
+            this.roleId = -1;
+            this.roleName = roleName;
         }
     }
 }

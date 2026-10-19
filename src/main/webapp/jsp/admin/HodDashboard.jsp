@@ -143,6 +143,19 @@
               <a href="/hod/addfaculty" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <c:if test="${canManageContent}">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h4>Website Content</h4>
+              </div>
+              <div class="icon">
+                <i class="ion ion-edit"></i>
+              </div>
+              <a href="/manage" class="small-box-footer">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          </c:if>
           
         <!-- /.row -->
        

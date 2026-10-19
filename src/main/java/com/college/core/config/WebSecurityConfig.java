@@ -38,7 +38,7 @@ public class WebSecurityConfig {
     }
 
     @Bean
-    public AuthenticationSuccessHandler kecAuthenticationSuccessHandler(FacultyService facultyService) {
+    public KECUrlAuthenticationSuccessHandler kecAuthenticationSuccessHandler(FacultyService facultyService) {
         return new KECUrlAuthenticationSuccessHandler(facultyService);
     }
 
@@ -68,6 +68,8 @@ public class WebSecurityConfig {
                         .requestMatchers(pathPattern("/auth/api/uploadLabDoc/**")).hasAnyAuthority("Admin", "HOD")
                         .requestMatchers(pathPattern("/auth/**")).hasAnyAuthority("Admin")
                         .requestMatchers(pathPattern("/user/**")).hasAnyAuthority("Faculty")
+                        // website content editors; which areas a user may edit is checked by ContentPermissionService
+                        .requestMatchers(pathPattern("/manage/**"), pathPattern("/mydashboard")).authenticated()
                         .anyRequest().permitAll())
                 .formLogin(form -> form
                         .loginPage("/login").successHandler(kecAuthenticationSuccessHandler))

@@ -301,3 +301,46 @@ and the snapshots):
 * Integrations: `/rn` (attendance report from Firebase), `/rl`, `/rs` (calendar event); app keeps running when the
   calendar key is wrong.
 * Store regression: the faculty/product autocompletes on the SM and faculty store pages (`/common/store/**`).
+
+## 10. Dynamic content (phase "make pages dynamic")
+
+Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations of its §8 were approved on
+2026-10-19 (D9 PIN and D4 Computer Centre content still need input). Commit plan: findings §9.
+
+### 10.1 Schema migrations (`docs/sql/dynamic/`)
+* New tables 01–12 (`site_setting`, `page_section`, `link_item`, `contact_person`, `site_image`, `fee_item`,
+  `department_site`, `notice_type`, `sms_group`/`sms_group_member`, `content_area`/`content_area_role`,
+  `document_type`, `content_change_log`): InnoDB, `utf8mb4_unicode_ci`, no foreign keys, no change to existing tables.
+* Seeds: `10_roles_seed.sql` (12 new rows in `test_role`), `10_content_area_seed.sql` (31 areas, permission matrix).
+* **Apply them by hand before deploying** (order and rollback: `docs/sql/dynamic/README.md`); `ddl-auto` stays `none`.
+  Applied to the local copy `keckacin_college2` on 2026-10-19. `.gitignore` excludes `*.sql` except this folder.
+* `content_change_log` has a `new_value` column next to `old_value` (not in the first draft of the findings).
+
+### 10.2 Roles and permissions (step 2)
+* New authorities: `SubAdmin`, `Principal`, `Registrar`, `ExamController`, `TPO`, `NBA`, `Accounts`, `Librarian`,
+  `Warden`, `PIO`, `ClubInCharge`, `Staff` (rows in `test_role`, so they also appear in the registration dropdown).
+* `ContentPermissionService`: areas a user may edit (`E` edit / `A` add only), from `content_area_role`. Admin may
+  always edit everything (not a matrix row). Scope `own_department`: HOD → `department_site.hod_username`,
+  Faculty → `department_site.dept_id` = own `faculty.dept_id`. `department_site` is still empty (seeded in the
+  departments step), so HOD/Faculty get no department area yet.
+* New URLs: `/manage` (dashboard for every editor; 403 without any area), `/mydashboard` (redirects to the user's
+  landing page), Admin only: `/auth/roles` (assign the new roles; Admin/Faculty/HOD/SM/SK are never changed there),
+  `/auth/roles/user/{id}` (POST saves), `/auth/roles/areas` (permission matrix, POST saves; the `system` area cannot
+  be given away). Every change is written to `content_change_log`.
+* `WebSecurityConfig`: `/manage/**` and `/mydashboard` require login; all existing rules unchanged.
+* Landing page: unchanged for SM, SK, Admin, Faculty, HOD (also when they hold a new role in addition); users with
+  only new roles land on `/manage`.
+* Approved behaviour change B22: the header's "Dashboard" link (`header.jsp`, desktop and mobile) points to
+  `/mydashboard` instead of `/auth/uploadDashboard`, so HOD/Faculty no longer get access denied.
+* Admin sidebar: "Assign Website Roles", "Website Content". HOD dashboard: "Website Content" tile when the HOD may
+  edit an area (seed: gallery and NBA, add only).
+* No edit screens yet: the `/manage` tiles describe the areas; screens follow area by area (findings §9, steps 3+).
+* Tests: `ContentRolesTest` (landing pages, dashboard per role, 403 for the Admin screens, assigning/removing roles,
+  matrix edit, department scope). Test users `zzupgtest_tpo`, `zzupgtest_subadmin`; the tests need the
+  `docs/sql/dynamic` scripts applied (they fail with a hint otherwise).
+
+### 10.3 Manual re-test
+* Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
+  and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
+* Who may edit what: change one cell, check the account's `/manage`, change it back.
+* As HOD and Faculty: header "Dashboard" opens the own dashboard; landing pages after login unchanged.

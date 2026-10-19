@@ -250,7 +250,7 @@
               </li>
               <sec:authorize access="isAuthenticated()">
                 <li class="main-nav">
-                  <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                  <a href="/mydashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
                 </li>
               </sec:authorize>
               <li>
@@ -600,7 +600,7 @@
 
                   <sec:authorize access="isAuthenticated()">
                     <li id="menu-218-1" class="main-nav">
-                      <a href="/auth/uploadDashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
+                      <a href="/mydashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
                     </li>
                   </sec:authorize>
                   <sec:authorize access="!isAuthenticated()">

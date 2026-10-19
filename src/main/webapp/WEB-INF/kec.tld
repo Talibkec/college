@@ -19,4 +19,40 @@
             <rtexprvalue>false</rtexprvalue>
         </attribute>
     </tag>
+
+    <tag>
+        <description>Puts the visible entries of a link list into a request attribute (removed if the page should show its own links).</description>
+        <name>links</name>
+        <tag-class>com.college.core.tags.LinksTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>var</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>Stored HTML of a page section ("page/section"); the body (today's HTML) is shown when there is no row.</description>
+        <name>section</name>
+        <tag-class>com.college.core.tags.SectionTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>key</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <function>
+        <description>Escapes &lt; &gt; " ' (not &amp;, so character references keep working), see HtmlText.escapeMarkup.</description>
+        <name>text</name>
+        <function-class>com.college.core.tags.HtmlText</function-class>
+        <function-signature>java.lang.String escapeMarkup(java.lang.String)</function-signature>
+    </function>
 </taglib>

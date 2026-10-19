@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
 
 <div class="bg-gray-200 py-4 mt-4">
@@ -22,7 +22,9 @@
                 <section id="block-menu-block-3" class="block block-menu-block clearfix">
                     <h2 class="block-title text-lg font-semibold text-gray-700">About KEC</h2>
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                        <ul class="menu nav space-y-2">
+                        <ul class="menu nav space-y-2"><kec:links list="about_sidebar" var="sidebarLinks"/><c:choose><c:when test="${not empty sidebarLinks}"><c:forEach items="${sidebarLinks}" var="l" varStatus="s">
+                            <li class="${s.first ? 'first leaf' : 'leaf'}"><a href="${kec:text(l.url)}" class="sf-depth-2 text-blue-500 hover:underline${s.first ? ' active' : ''}"${l.openNewTab ? ' target="_blank"' : ''}>${kec:text(l.label)}</a></li></c:forEach>
+                        </c:when><c:otherwise>
                             <li class="first leaf menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active text-blue-500 hover:underline">Principal's Message</a></li>
                             <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2 text-blue-500 hover:underline">Vision & Mission</a></li>
                             <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2 text-blue-500 hover:underline">Allotment & Surrender Report</a></li>
@@ -30,7 +32,7 @@
                             <li class="leaf menu-mlid-1467"><a href="/about/administration" class="sf-depth-2 text-blue-500 hover:underline">Administration</a></li>
                             <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2 text-blue-500 hover:underline">Support Staff</a></li>
                             <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2 text-blue-500 hover:underline">History</a></li>
-                        </ul>
+                        </c:otherwise></c:choose></ul>
                     </div>
                 </section>
             </div>
@@ -38,10 +40,10 @@
        <div class="w-full md:w-1/2">
            <div class="leading-7 text-lg font-light">
                <p class="font-serif text-2xl text-gray-800"><strong>History</strong></p>
-               <div class="font-sans text-base font-semibold text-justify text-gray-700 mt-4">
+               <div class="font-sans text-base font-semibold text-justify text-gray-700 mt-4"><kec:section key="about.history/main">
                    <p><strong>Katihar Engineering College</strong> is one of the seventeen engineering colleges established under the Department of Science and Technology, Govt. of Bihar. It was established in the year 2016 with the goal to foster technical skills in both applied and basic approaches. The establishment was laid as per the demand for technical education in our society today. The college started with three branches including Civil Engineering, Mechanical Engineering, and Computer Science Engineering with an intake of 60 students in each branch.</p>
                    <p>After its establishment, the institution aims at setting high standards of education and excelling as per the demand of the current society. The institution not only aims at the pedantic way of learning but also to meet contemporary industrial requirements and to build human potential to become exemplary professionals.</p>
-               </div>
+               </kec:section></div>
            </div>
        </div>
 

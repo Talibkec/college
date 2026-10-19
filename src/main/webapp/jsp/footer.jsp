@@ -1,4 +1,4 @@
-<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
 <div class="gt-footersection">
     <footer class="footer">
         <div class="region region-footer md:flex w-full justify-between  " id="footer-flex">
@@ -25,7 +25,10 @@
             <section id="block-block-4" class="block block-block clearfix">
 
 
-                <a href="/legal/contactus">
+                <kec:links list="footer" var="footerLinks"/><c:choose><c:when test="${not empty footerLinks}"><c:forEach items="${footerLinks}" var="l" varStatus="s"><a href="${kec:text(l.url)}"${l.openNewTab ? ' target="_blank"' : ''}>
+                    <p class="p-1 block-title"> &raquo; ${kec:text(l.label)}</p>
+                </a><c:if test="${not s.last}">
+                </c:if></c:forEach></c:when><c:otherwise><a href="/legal/contactus">
                     <p class="p-1 block-title"> &raquo; Contact Us</p>
                 </a>
                 <a href="/legal/privacypolicy">
@@ -42,7 +45,7 @@
                 </a>
                 <a href="/legal/feestructure">
                     <p class="p-1 block-title"> &raquo; Fee Structure </p>
-                </a>
+                </a></c:otherwise></c:choose>
                 <p class="p-1 "><kec:setting key="footer.since">Since January, 2019</kec:setting></p>
 
             </section>

@@ -361,10 +361,51 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   Editing a JSP with a tool that writes LF changes the HTML output (line endings) although git shows no change;
   the snapshots catch it.
 
-### 10.4 Manual re-test
+### 10.4 Menus and link lists (steps 4-5)
+* `link_item` (seed `03_link_item_seed.sql`, 10 lists, 129 entries; DDL got a `css_class` column for the social
+  icons' colours), JSP tag `<kec:links list=".." var=".."/>` + `<c:choose>` with today's markup as fallback,
+  EL function `kec:text` (same escaping as settings). Lists are cached; changes made with SQL need a restart.
+* Live from the database: top bar, social icons, footer links (byte-identical) and the page sidebars of About,
+  Academics, Facilities, Training & Placement, Approval, RTI (49 JSPs; same look, the generated markup differs only in
+  whitespace, legacy `menu-mlid-*` classes and an unstyled `active` class). Differences found by the snapshot compare
+  (all intended): B3 fixed (`/academic/ attendance`), one label per list ("Academic Calender" also on the calendar page,
+  "Anti Ragging" also on the labs page, "Allotment & Surrender Report" on `/academic/adminsValue`).
+  Not changed: the sidebar of `/trainingplacement/studentplacementcoordinator` (different markup), department sidebars
+  (departments step).
+* Main menu: one tree (70 entries) for the desktop menu, the mobile drawer and the side menu. **Switched off** by the
+  seed (`links.main_menu.enabled` = no), so the pages keep today's menus. Switching it on in `/manage/links` makes
+  the mobile menu show the same entries as the desktop menu (B2) and generates clean markup (same CSS classes).
+  Login/Logout/Dashboard entries stay in the JSP.
+* `/manage/links` (area `menu`: Admin, SubAdmin): choose a list, add/edit/delete, up/down, visible, new tab, parent and
+  column heading (main menu), icon/classes (social), switch a list on/off, preview (`/manage/links/preview` = home
+  page with every list from the database, also switched-off ones). URLs: `/...`, `#`, `http(s)://`, `mailto:`,
+  `tel:` only. Change log.
+* Tests: `LinksTest`.
+
+### 10.5 Page sections (step 6)
+* `page_section` (seed `02_page_section_seed.sql`): History text, Principal's message (with signature), Vision,
+  Mission, Affiliation; bodies are today's exact HTML incl. line endings, so the pages stay byte-identical.
+  Setting `principal.faculty_id` (11) for the principal's photo.
+* JSP tag `<kec:section key="page/section">today's HTML</kec:section>`: stored HTML, nothing if hidden, body if no row.
+* `/manage/sections` (areas with sections; About: Admin, SubAdmin, Principal): HTML editor (default) and a visual
+  editor (Quill 2.0.3, BSD, served from `/js/vendor/quill-2.0.3/`, checksum checked against npm), preview in a new tab,
+  "show on the page" switch, history with "restore this version" and "restore the original text" (byte-identical).
+  HTML is sanitised on save with the OWASP Java HTML Sanitizer (new dependency
+  `owasp-java-html-sanitizer:20240325.1`): scripts, event handlers, forms and `javascript:` links are removed;
+  classes, inline styles (CSS whitelist), tables, images and YouTube/Google-Maps iframes stay. Unchanged text is not
+  re-sanitised.
+* Tests: `PageSectionsTest`.
+* Snapshot compare after steps 3-6 (reference `d6db9b1`): 355 of 410 pages byte-identical; the 55 others are the
+  sidebar pages, identical after normalising whitespace except the intended differences listed in 10.4.
+
+### 10.6 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
 * As HOD and Faculty: header "Dashboard" opens the own dashboard; landing pages after login unchanged.
 * Website Content → Site settings → "Texts": change the phone, check footer, Contact Us, refund and grievance
   pages; tick "use the page's original text" and check again; set it back.
+* Website Content → Menus and sidebars: add a footer link and a sidebar entry, move, hide, delete; main menu: preview,
+  switch on, check desktop + mobile (narrow window) + side menu, switch off again.
+* Website Content → About KEC → Page texts: change History in HTML and in the visual editor, preview, save, restore
+  the original text; hide/show a section.

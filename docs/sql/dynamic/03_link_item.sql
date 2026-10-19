@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS link_item (
   label         VARCHAR(255)  NOT NULL,
   url           VARCHAR(1000) NOT NULL,
   open_new_tab  TINYINT(1)    NOT NULL DEFAULT 0,
-  icon_class    VARCHAR(100)  NULL,                   -- social icons
+  icon_class    VARCHAR(100)  NULL,                   -- social icons ('fab fa-facebook')
+  css_class     VARCHAR(100)  NULL,                   -- extra CSS classes of the link ('hover:text-blue-600')
   visibility    VARCHAR(20)   NOT NULL DEFAULT 'all', -- 'all' | 'desktop' | 'mobile' | 'anonymous' | 'authenticated'
   sort_order    INT           NOT NULL DEFAULT 0,
   visible       TINYINT(1)    NOT NULL DEFAULT 1,

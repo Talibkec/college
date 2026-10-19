@@ -19,6 +19,8 @@ no credentials (CLAUDE.md).
 | `10_roles_seed.sql` | data: new rows in `test_role` | roles and permissions (step 2) |
 | `10_content_area_seed.sql` | data: areas + permission matrix | roles and permissions (step 2) |
 | `01_site_setting_seed.sql` | data: texts of header, footer, contact pages | site settings (step 3) |
+| `02_page_section_seed.sql` | data: texts of the About pages (+ setting `principal.faculty_id`) | page sections (step 6) |
+| `03_link_item_seed.sql` | data: menus, top bar, social icons, footer links, 6 page sidebars (+ switch `links.main_menu.enabled` = no) | links (steps 4-5) |
 
 Run all DDL files first, then the seeds:
 

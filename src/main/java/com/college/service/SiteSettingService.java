@@ -25,4 +25,10 @@ public interface SiteSettingService {
      * ignored. Returns the validation errors per key; nothing is saved if there is any.
      */
     Map<String, String> save(Authentication authentication, Map<String, String> values);
+
+    /**
+     * Creates or changes an on/off setting (value type "switch", not shown in /manage/settings). The caller checks the
+     * permission.
+     */
+    void setSwitch(String key, String value, String areaCode, String description);
 }

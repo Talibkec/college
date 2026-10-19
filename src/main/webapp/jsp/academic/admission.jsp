@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
     <jsp:include page="/jsp/header.jsp" />
     <div class="bg-gray-200 py-4 mt-4">
@@ -21,7 +21,9 @@
                         <h2 class="block-title">Academics</h2>
 
                         <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                            <ul class="menu nav">
+                            <ul class="menu nav"><kec:links list="academic_sidebar" var="sidebarLinks"/><c:choose><c:when test="${not empty sidebarLinks}"><c:forEach items="${sidebarLinks}" var="l" varStatus="s">
+                                <li class="${s.first ? 'first leaf' : 'leaf'}"><a href="${kec:text(l.url)}" class="sf-depth-2${s.first ? ' active' : ''}"${l.openNewTab ? ' target="_blank"' : ''}>${kec:text(l.label)}</a></li></c:forEach>
+                            </c:when><c:otherwise>
                                 <li class="first leaf  menu-mlid-1154"><a href="/academic/admission"
                                         class="sf-depth-2 active">UG Admission</a></li>
                                 <li class="leaf menu-mlid-1121"><a href="/academic/regulations"
@@ -49,7 +51,7 @@
                                 <li class="leaf menu-mlid-1467"><a href="/academic/mentors" class="sf-depth-2">Mentors
                                         List</a></li>
 
-                            </ul>
+                            </c:otherwise></c:choose></ul>
                         </div>
 
                     </section>

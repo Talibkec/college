@@ -40,6 +40,12 @@
                     <c:if test="${a.edit and settingAreas.contains(a.area.areaCode)}">
                         <p class="mt-3"><a class="text-blue-600" href="/manage/settings?area=<c:out value='${a.area.areaCode}'/>">Texts (phone, e-mail, footer, ...)</a></p>
                     </c:if>
+                    <c:if test="${a.edit and sectionAreas.contains(a.area.areaCode)}">
+                        <p class="mt-3"><a class="text-blue-600" href="/manage/sections?area=<c:out value='${a.area.areaCode}'/>">Page texts</a></p>
+                    </c:if>
+                    <c:if test="${a.edit and linkAreas.contains(a.area.areaCode)}">
+                        <p class="mt-3"><a class="text-blue-600" href="/manage/links">Menus, sidebars, footer and social links</a></p>
+                    </c:if>
                 </div>
             </c:forEach>
         </div>

@@ -4,8 +4,8 @@ _Audit of 2026-10-16, branch `kec_claude` at `f702683`. Updated 2026-10-19: role
 treatments (§1.2), and in every page table the columns **How I'd address it** and **Who can update**.
 **No code, schema or data was changed for this document.**_
 
-> **Status 2026-10-19:** all recommendations of §8 approved (D9 and D4 still need your input). Steps 1–3 of §9
-> (migrations in `docs/sql/dynamic/`, roles and permissions, site settings) are implemented; see `UPGRADE_NOTES.md` §10.
+> **Status 2026-10-19:** all recommendations of §8 approved (D9 and D4 still need your input). Steps 1–6 of §9
+> (migrations in `docs/sql/dynamic/`, roles and permissions, site settings, menus/links, sidebars, About texts) are implemented; see `UPGRADE_NOTES.md` §10.
 _Store management is excluded (CLAUDE.md, `PROJECT_ANALYSIS.md` §5). Personal phone numbers and e-mail addresses
 found in templates are deliberately **not** reproduced here; files are referenced instead._
 
@@ -841,9 +841,9 @@ rows, POST-only, HTML sanitised, each upload appends a row, change-log row writt
 1. ✅ Migration framework: `docs/sql/dynamic/` DDL + seed files, a test that the seed reproduces the baseline; entities/repositories for the approved tables.
 2. ✅ **Roles and permissions**: role seed (D15/D16), `content_area`/`content_area_role` + seed (§1.3.3), `ContentPermissionService`, `<kec:canEdit>`, `/manage/**` rule, `/manage` dashboard, landing page for new-only roles, `/auth/roles` assignment screen, `content_change_log`; role-matrix tests (Admin/HOD/Faculty unchanged).
 3. ✅ `site_setting` + `<kec:setting>` tag (instead of a model advice: works in every JSP, with fallback) + settings screen → header/footer/contact/legal/refund/grievance pages.
-4. `link_item` + links screen → main menu (desktop + mobile), top bar, social, footer.
-5. Page sidebars (about, academic, facilities, T&P, approval, RTI) → `link_item`.
-6. `page_section` + sections screen (sanitised editor, preview, history/restore) → About pages (history, vision, principal, affiliation).
+4. ✅ `link_item` + links screen → main menu (desktop + mobile), top bar, social, footer.
+5. ✅ Page sidebars (about, academic, facilities, T&P, approval, RTI) → `link_item`.
+6. ✅ `page_section` + sections screen (sanitised editor, preview, history/restore) → About pages (history, vision, principal, affiliation).
 7. Allotment & Surrender Report (`D:allotment`, `document_type`, append-only uploads, generic document list component).
 8. Other document pages: regulations, AKU, mandatory disclosure, RTI ×3, T&P brochure/rules/tips, payment tutorial, academic placeholders.
 9. Academic text pages (admission, payment steps, attendance, …).

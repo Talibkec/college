@@ -134,15 +134,19 @@
             <div class="w-full sm:w-auto flex flex-col sm:items-end space-y-4">
 
               <ul class="flex flex-wrap justify-center sm:justify-end space-x-4">
-                <li class="quicknav"><a href="/"> &raquo; Home</a></li>
+                <kec:links list="top_bar" var="topBar"/><c:choose><c:when test="${not empty topBar}"><c:forEach items="${topBar}" var="l" varStatus="s"><li class="quicknav"><a href="${kec:text(l.url)}"${l.openNewTab ? ' target="_blank"' : ''}> &raquo; ${kec:text(l.label)}</a></li><c:if test="${not s.last}">
+                </c:if></c:forEach></c:when><c:otherwise><li class="quicknav"><a href="/"> &raquo; Home</a></li>
                 <li class="quicknav"><a href="/academic/antiragging"> &raquo; Anti Ragging</a></li>
                 <li class="quicknav"><a href="/rti/rtiact"> &raquo; RTI</a></li>
                 <li class="quicknav"><a href="/approval/aicteapproval" target="_blank"> &raquo; AICTE</a></li>
-                <li class="quicknav"><a href="/category/kecwebteam" target="_blank"> &raquo; KEC Web Team</a></li>
+                <li class="quicknav"><a href="/category/kecwebteam" target="_blank"> &raquo; KEC Web Team</a></li></c:otherwise></c:choose>
               </ul>
 
               <div class="flex justify-center sm:justify-end space-x-8 pr-4 sm:pr-8">
-                <a href="https://www.facebook.com/profile.php?id=61564963783682" target="_blank" class="text-gray-800 hover:text-blue-600">
+                <kec:links list="social" var="social"/><c:choose><c:when test="${not empty social}"><c:forEach items="${social}" var="l" varStatus="s"><a href="${kec:text(l.url)}"${l.openNewTab ? ' target="_blank"' : ''} class="${kec:text(l.cssClass)}">
+                  <i class="${kec:text(l.iconClass)}"></i>
+                </a><c:if test="${not s.last}">
+                </c:if></c:forEach></c:when><c:otherwise><a href="https://www.facebook.com/profile.php?id=61564963783682" target="_blank" class="text-gray-800 hover:text-blue-600">
                   <i class="fab fa-facebook"></i>
                 </a>
                 <a href="https://x.com/keckatihar" target="_blank" class="text-gray-800 hover:text-blue-400">
@@ -159,7 +163,7 @@
                 </a>
                 <a href="https://www.linkedin.com/in/katihar-engineering-college-dstte-govt-of-bihar-327aaa326/" target="_blank" class="text-gray-800 hover:text-blue-700">
                   <i class="fab fa-linkedin"></i>
-                </a>
+                </a></c:otherwise></c:choose>
               </div>
 
 
@@ -182,7 +186,13 @@
           aria-label="Sidebar">
           <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
             <ul class="space-y-2 font-medium">
+              <kec:links list="main_menu" var="mainMenu"/><c:choose><c:when test="${not empty mainMenu}"><c:forEach items="${mainMenu}" var="m" varStatus="s">
               <li>
+                <a href="${kec:text(m.url)}"${m.openNewTab ? ' target="_blank"' : ''}
+                  class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                  <span class="${s.first ? 'ms-3' : 'flex-1 ms-3 whitespace-nowrap'}">${kec:text(m.label)}</span>
+                </a>
+              </li></c:forEach></c:when><c:otherwise><li>
                 <a href="/"
                   class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                   <span class="ms-3">Home</span>
@@ -247,7 +257,7 @@
                   class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                   <span class="flex-1 ms-3 whitespace-nowrap">Downloads</span>
                 </a>
-              </li>
+              </li></c:otherwise></c:choose>
               <sec:authorize access="isAuthenticated()">
                 <li class="main-nav">
                   <a href="/mydashboard" title="" class="sf-depth-1 menuparent">Dashboard</a>
@@ -391,7 +401,23 @@
             <div class="bg-blue">
               <section id="block-superfish-1" class="">
                 <ul id="superfish-1" class="p-4 md:flex justify-between text-white" style="background:#285690">
-                  <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
+                  <c:choose><c:when test="${not empty mainMenu}"><c:forEach items="${mainMenu}" var="m">
+                  <c:choose><c:when test="${empty m.children}"><li class="main-nav"><a href="${kec:text(m.url)}" class="sf-depth-1 "${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)}</a></li></c:when><c:when test="${m.grouped}"><li class="main-nav">
+                    <a href="${kec:text(m.url)}" class="sf-depth-1 menuparent"${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)} &#9660;</a>
+                    <div class="submenu">
+                      <div class=" flex"><c:forEach items="${m.groups}" var="g">
+                        <ul class="">
+                          <li class="headli">${kec:text(g.label)}</li><c:forEach items="${g.items}" var="c">
+                          <li><a href="${kec:text(c.url)}" class="sf-depth-2"${c.openNewTab ? ' target="_blank"' : ''}>${kec:text(c.label)}</a></li></c:forEach>
+                        </ul></c:forEach>
+                      </div>
+                    </div>
+                  </li></c:when><c:otherwise><li class="main-nav">
+                    <a href="${kec:text(m.url)}" class="sf-depth-1 menuparent"${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)} &#9660;</a>
+                    <ul class="submenu"><c:forEach items="${m.children}" var="c">
+                      <li><a href="${kec:text(c.url)}" class="sf-depth-2"${c.openNewTab ? ' target="_blank"' : ''}>${kec:text(c.label)}</a></li></c:forEach>
+                    </ul>
+                  </li></c:otherwise></c:choose></c:forEach></c:when><c:otherwise><li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
                   <li id="menu-1131-1" class="main-nav">
                     <a href="/about/history" class="sf-depth-1 menuparent">About KEC &#9660;</a>
                     <ul class="submenu">
@@ -596,7 +622,7 @@
                   <li id="menu-218-1" class="main-nav">
                     <a href="/facilities/downloads" class="sf-depth-1 ">
                       Downloads</a>
-                  </li>
+                  </li></c:otherwise></c:choose>
 
                   <sec:authorize access="isAuthenticated()">
                     <li id="menu-218-1" class="main-nav">
@@ -647,7 +673,22 @@
                 <ul id="superfish-1" class="p-4 md:flex justify-between text-white" style="background:#285690">
                   <li id="menu-218-1" class="w-full flex justify-end"><a onclick="toggleNav()"> X </a></li>
 
-                  <li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
+                  <c:choose><c:when test="${not empty mainMenu}"><c:forEach items="${mainMenu}" var="m">
+                  <c:choose><c:when test="${empty m.children}"><li class="main-nav"><a href="${kec:text(m.url)}" class="sf-depth-1 "${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)}</a></li></c:when><c:when test="${m.grouped}"><li class="main-nav">
+                    <a href="${kec:text(m.url)}" class="sf-depth-1 menuparent"${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)}</a>
+                    <ul class="submenu"><c:forEach items="${m.groups}" var="g">
+                      <li class="submenubar"><a href="${kec:text(g.items[0].url)}" class="sf-depth-2">${kec:text(g.label)}</a>
+                        <ul class="submenu2"><c:forEach items="${g.items}" var="c">
+                          <li><a href="${kec:text(c.url)}" class="sf-depth-2"${c.openNewTab ? ' target="_blank"' : ''}>${kec:text(c.label)}</a></li></c:forEach>
+                        </ul>
+                      </li></c:forEach>
+                    </ul>
+                  </li></c:when><c:otherwise><li class="main-nav">
+                    <a href="${kec:text(m.url)}" class="sf-depth-1 menuparent"${m.openNewTab ? ' target="_blank"' : ''}>${kec:text(m.label)}</a>
+                    <ul class="submenu"><c:forEach items="${m.children}" var="c">
+                      <li><a href="${kec:text(c.url)}" class="sf-depth-2"${c.openNewTab ? ' target="_blank"' : ''}>${kec:text(c.label)}</a></li></c:forEach>
+                    </ul>
+                  </li></c:otherwise></c:choose></c:forEach></c:when><c:otherwise><li id="menu-218-1" class="main-nav"><a href="/" class="sf-depth-1 ">Home</a></li>
                   <li id="menu-1131-1" class="main-nav">
                     <a href="/about/history" class="sf-depth-1 menuparent">About KEC</a>
                     <ul class="submenu">
@@ -845,7 +886,7 @@
                   <li id="menu-218-1" class="main-nav">
                     <a href="/facilities/downloads" class="sf-depth-1 ">
                       Downloads</a>
-                  </li>
+                  </li></c:otherwise></c:choose>
 
                   <c:forEach var="item" items="${Role}">
                     <c:if test="${'Admin' eq item}">

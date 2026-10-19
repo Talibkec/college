@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="/jsp/header.jsp"/>
 
 
@@ -17,12 +17,14 @@
                 <section id="block-menu-block-3" class="block block-menu-block clearfix">
                     <h2 class="block-title">Approval</h2>
                     <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                        <ul class="menu nav">
+                        <ul class="menu nav"><kec:links list="approval_sidebar" var="sidebarLinks"/><c:choose><c:when test="${not empty sidebarLinks}"><c:forEach items="${sidebarLinks}" var="l" varStatus="s">
+                            <li class="${s.first ? 'first leaf' : 'leaf'}"><a href="${kec:text(l.url)}" class="sf-depth-2${s.first ? ' active' : ''}"${l.openNewTab ? ' target="_blank"' : ''}>${kec:text(l.label)}</a></li></c:forEach>
+                        </c:when><c:otherwise>
                             <li class="first leaf  menu-mlid-1154"><a href="/approval/aicteapproval" class="sf-depth-2 active">AICTE Approval</a></li>
                             <li class="leaf menu-mlid-1121"><a href="/approval/akuapproval" class="sf-depth-2">AKU Approval</a></li>
                             <li class="first leaf  menu-mlid-1178"><a href="/approval/grievance" class="sf-depth-2 active">Grievance</a></li>
                             <li class="first leaf  menu-mlid-1179"><a href="/approval/mandatorydisclosure" class="sf-depth-2 active">Mandatory Disclosure</a></li>
-                        </ul>
+                        </c:otherwise></c:choose></ul>
                     </div>
                 </section>
             </div>

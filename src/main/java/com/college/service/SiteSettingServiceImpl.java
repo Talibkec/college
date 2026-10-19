@@ -21,6 +21,7 @@ public class SiteSettingServiceImpl implements SiteSettingService {
     private static final Pattern URL = Pattern.compile("https?://[^\\s<>\"']+");
     private static final Pattern NUMBER = Pattern.compile("-?[0-9]+([.,][0-9]+)?");
     private static final int MAX_LENGTH = 1000;
+    static final String SWITCH = "switch";
 
     private final SiteSettingRepository siteSettingRepository;
     private final ContentPermissionService contentPermissionService;
@@ -68,7 +69,12 @@ public class SiteSettingServiceImpl implements SiteSettingService {
         if (areas.isEmpty()) {
             return Collections.emptyList();
         }
-        List<SiteSetting> settings = new ArrayList<>(siteSettingRepository.findByAreaCodeInOrderBySettingKeyAsc(areas));
+        List<SiteSetting> settings = new ArrayList<>();
+        for (SiteSetting setting : siteSettingRepository.findByAreaCodeInOrderBySettingKeyAsc(areas)) {
+            if (!SWITCH.equals(setting.getValueType())) { // switches have their own buttons (e.g. /manage/links)
+                settings.add(setting);
+            }
+        }
         settings.sort(Comparator.comparing(SiteSetting::getAreaCode).thenComparing(SiteSetting::getSettingKey));
         return settings;
     }
@@ -77,7 +83,9 @@ public class SiteSettingServiceImpl implements SiteSettingService {
     public List<String> areasWithSettings() {
         Set<String> areas = new TreeSet<>();
         for (SiteSetting setting : siteSettingRepository.findAll()) {
-            areas.add(setting.getAreaCode());
+            if (!SWITCH.equals(setting.getValueType())) {
+                areas.add(setting.getAreaCode());
+            }
         }
         return new ArrayList<>(areas);
     }
@@ -120,6 +128,27 @@ public class SiteSettingServiceImpl implements SiteSettingService {
             cache = null;
         }
         return errors;
+    }
+
+    @Override
+    public void setSwitch(String key, String value, String areaCode, String description) {
+        SiteSetting setting = siteSettingRepository.findById(key).orElse(null);
+        String before = setting == null ? null : setting.getSettingValue();
+        if (setting == null) {
+            setting = new SiteSetting();
+            setting.setSettingKey(key);
+            setting.setValueType(SWITCH);
+            setting.setAreaCode(areaCode);
+            setting.setDescription(description);
+        } else if (Objects.equals(before, value)) {
+            return;
+        }
+        setting.setSettingValue(value);
+        setting.setUpdatedBy(ControllerUtility.getPrincipalName());
+        setting.setUpdatedAt(new Date());
+        siteSettingRepository.save(setting);
+        contentChangeLogService.record(areaCode, "site_setting", key, before == null ? "create" : "update", before, value);
+        cache = null;
     }
 
     private Set<String> editableAreaCodes(Authentication authentication) {

@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
@@ -18,7 +18,9 @@
                                            <h2 class="block-title">About KEC</h2>
 
                                      <div class="menu-block-wrapper menu-block-3 menu-name-main-menu parent-mlid-0 menu-level-2">
-                                    <ul class="menu nav">
+                                    <ul class="menu nav"><kec:links list="about_sidebar" var="sidebarLinks"/><c:choose><c:when test="${not empty sidebarLinks}"><c:forEach items="${sidebarLinks}" var="l" varStatus="s">
+                                   <li class="${s.first ? 'first leaf' : 'leaf'}"><a href="${kec:text(l.url)}" class="sf-depth-2${s.first ? ' active' : ''}"${l.openNewTab ? ' target="_blank"' : ''}>${kec:text(l.label)}</a></li></c:forEach>
+                                      </c:when><c:otherwise>
                                    <li class="first leaf  menu-mlid-1154"><a href="/about/principal" class="sf-depth-2 active">Principal's Message</a></li>
                                    <li class="leaf menu-mlid-1121"><a href="/about/vision" class="sf-depth-2">Vision & Mission</a></li>
                                    <li class="leaf menu-mlid-1156"><a href="/about/allotment" class="sf-depth-2">Allotment &Surrender Report</a></li>
@@ -27,7 +29,7 @@
                                    <li class="leaf menu-mlid-1467"><a href="/about/staff" class="sf-depth-2">Support Staff</a></li>
                                    <li class="leaf menu-mlid-1467"><a href="/about/history" class="sf-depth-2">History</a></li>
 
-                                      </ul></div>
+                                      </c:otherwise></c:choose></ul></div>
 
                                    </section>
                                      </div>

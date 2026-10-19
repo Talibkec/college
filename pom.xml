@@ -128,6 +128,12 @@
             <artifactId>gson</artifactId>
         </dependency>
         <dependency>
+            <!-- editor-entered page HTML (page_section) is sanitised before it is stored and rendered unescaped -->
+            <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+            <artifactId>owasp-java-html-sanitizer</artifactId>
+            <version>20240325.1</version>
+        </dependency>
+        <dependency>
             <!-- Boot 4 moved the Gson auto-configuration (Gson bean used by CommonResourceController) to its own module -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-gson</artifactId>

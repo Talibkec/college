@@ -1,0 +1,96 @@
+package com.college.core.tags;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Pattern;
+
+/**
+ * Page keys of page blocks: derived from the page URL ("/about/history" → "about.history", "/" → "home") and mapped to
+ * the content area whose editors may change the page (docs/DYNAMIC_CONTENT_FINDINGS.md §1.3.3).
+ */
+public final class PageKeys {
+    private static final Pattern KEY = Pattern.compile("[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+){0,4}");
+    private static final Set<String> SECTIONS = new HashSet<>(Arrays.asList("home", "about", "academic", "approval",
+            "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal"));
+
+    private PageKeys() {
+    }
+
+    /** The page key of a request path (without context path), or null if the path cannot have blocks. */
+    public static String fromPath(String path) {
+        if (path == null) return null;
+        String p = path.replaceAll("/+$", "");
+        if (p.isEmpty()) return "home";
+        if (!p.startsWith("/")) return null;
+        String key = p.substring(1).replace('/', '.');
+        return valid(key) ? key : null;
+    }
+
+    /** True for well-formed keys of the public sections of the site. */
+    public static boolean valid(String key) {
+        return key != null && KEY.matcher(key).matches() && SECTIONS.contains(key.split("\\.")[0]);
+    }
+
+    /** URL of the page ("about.history" → "/about/history", "home" → "/"). */
+    public static String url(String key) {
+        return "home".equals(key) ? "/" : "/" + key.replace('.', '/');
+    }
+
+    /** The content area whose editors may add blocks to the page, or null. */
+    public static String area(String key) {
+        if (!valid(key)) return null;
+        String[] parts = key.split("\\.");
+        String page = parts.length > 1 ? parts[1].toLowerCase() : "";
+        switch (parts[0]) {
+            case "home":
+                return "home";
+            case "department":
+                return parts.length > 1 ? "department." + parts[1] : null;
+            case "about":
+                return in(page, "staff", "allotment", "administration") ? "office" : "about";
+            case "academic":
+                if (in(page, "calender", "syllabus", "attendance", "universityresults")) return "exam";
+                if (in(page, "holidays")) return "office";
+                if (in(page, "paymenttutorial")) return "fees";
+                if (in(page, "lab", "labs")) return "facilities";
+                return "academic";
+            case "facilities":
+                if (in(page, "bank")) return "fees";
+                if (in(page, "centrallibrary")) return "library";
+                if (in(page, "hostels")) return "hostel";
+                if (in(page, "club", "clubs", "sportsfacilities", "gymnasium")) return "activities";
+                if (in(page, "placementbrochure", "startupcell")) return "tp";
+                if (in(page, "downloads")) return "downloads";
+                if (in(page, "contactus")) return "site";
+                return "facilities";
+            case "trainingplacement":
+                return "tp";
+            case "approval":
+                return "approval";
+            case "rti":
+                return "rti";
+            case "gallery":
+                return "gallery";
+            case "nba":
+                return "nba";
+            case "legal":
+                if (in(page, "refundandcancellation", "feestructure")) return "fees";
+                if (in(page, "contactus")) return "site";
+                return "legal";
+            case "category":
+                if (in(page, "notices", "tenders")) return "notices";
+                if (in(page, "kecwebteam")) return "system";
+                return "site";
+            default:
+                return null;
+        }
+    }
+
+    private static boolean in(String page, String... names) {
+        for (String name : names) {
+            if (name.equals(page)) return true;
+        }
+        return false;
+    }
+}

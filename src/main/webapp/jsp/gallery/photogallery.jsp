@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="/jsp/header.jsp" />
 
@@ -109,4 +109,4 @@
   });
 </script>
 
-<jsp:include page="/jsp/footer.jsp" />
+<kec:blocks/><jsp:include page="/jsp/footer.jsp" />

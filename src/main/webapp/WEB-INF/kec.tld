@@ -49,6 +49,13 @@
         </attribute>
     </tag>
 
+    <tag>
+        <description>Headings, texts, images and documents added to this page (page_block) and the "Edit this page" link for its editors; prints nothing otherwise.</description>
+        <name>blocks</name>
+        <tag-class>com.college.core.tags.BlocksTag</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
     <function>
         <description>Escapes &lt; &gt; " ' (not &amp;, so character references keep working), see HtmlText.escapeMarkup.</description>
         <name>text</name>

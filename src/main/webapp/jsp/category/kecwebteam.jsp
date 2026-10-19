@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <div class=" bg-gray-300 p-2">
         <h3 class="text-center  font-bold text-2xl ">KEC Web Team</h3>
    </div>
@@ -247,4 +247,4 @@
 </div>
 
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

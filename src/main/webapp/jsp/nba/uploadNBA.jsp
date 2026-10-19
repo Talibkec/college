@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="../admin/HeaderDashboard.jsp" />
 
 <div class="container mx-auto my-12">
@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<jsp:include page="/jsp/footer.jsp" />
+<kec:blocks/><jsp:include page="/jsp/footer.jsp" />
 <link rel="stylesheet" href="/js/store/jquery-ui/jquery-ui.css">
 <script src="/js/store/jquery-ui/jquery-ui.js"></script>
 <script src="/js/uploadNBA.js"></script>

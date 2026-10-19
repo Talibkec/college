@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <aside class="col-sm-3 flex justify-center" role="complementary" style="max-width:100%">
           <div class="region region-sidebar-second">
 <section id="block-menu-block-3" class="block block-menu-block clearfix">
@@ -23,4 +23,4 @@
   </div>
       </aside>  <!-- /#sidebar-second -->
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

@@ -860,3 +860,22 @@ rows, POST-only, HTML sanitised, each upload appends a row, change-log row writt
 20. Docs: `UPGRADE_NOTES.md` (new tables, roles, permission matrix, config, screens), `PROJECT_ANALYSIS.md` §6 marked done, CLAUDE.md test notes.
 
 Store management stays untouched throughout (`ProductTransformer`, `jsp/store/**`, `/common/store/**`, roles `SM`/`SK`).
+
+---
+
+## 10. Page blocks: headings, subheadings, text, images and documents on every page (approved 2026-10-19)
+
+Requested after step 6: editors can add their own content to any page. Approved: new tables `page_block` and
+`content_file`, all pages including the department sites. Details and SQL: `UPGRADE_NOTES.md` §10.6,
+`docs/sql/dynamic/README.md`.
+
+| Block | Shown as | Input |
+|---|---|---|
+| Heading / Subheading | `<h2>` / `<h3>` in the site style | text (escaped) |
+| Text | paragraph(s) with lists, links, bold/italic | visual editor or HTML, sanitised (OWASP) |
+| Image | figure with optional caption, small / medium / full width | JPG, PNG, GIF, WebP (checked by content), max 20 MB |
+| Document | PDF inside the page + download link, or link only; Office files as download link | PDF, .doc(x), .xls(x), .ppt(x) (checked by content), max 20 MB |
+
+The blocks appear below the page's existing content (full width, above the footer). Who may add them follows §1.3.3
+via the page's content area (`PageKeys.area`); add-only users change only their own blocks. Pages without blocks are
+byte-identical for visitors.

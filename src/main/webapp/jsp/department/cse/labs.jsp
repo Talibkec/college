@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
@@ -32,4 +32,4 @@
     <iframe src="${pageContext.request.contextPath}/academic/lab?dept_id=1" width="600" height="500"></iframe>
 </div>
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

@@ -1,4 +1,4 @@
-<jsp:include page="header.jsp" />
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="header.jsp" />
 
 
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
@@ -719,6 +719,6 @@
     <div>
       <jsp:include page="category/webteamswiper.jsp" />
     </div>
-    <jsp:include page="footer.jsp" />
+    <kec:blocks/><jsp:include page="footer.jsp" />
   </div>
   </div>

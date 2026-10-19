@@ -77,4 +77,4 @@
 
 
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

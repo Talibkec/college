@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <jsp:include page="/jsp/header.jsp" />
 
 <style>
@@ -85,4 +85,4 @@
 
 
 
-<jsp:include page="/jsp/footer.jsp" />
+<kec:blocks/><jsp:include page="/jsp/footer.jsp" />

@@ -116,4 +116,4 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div><kec:blocks/>

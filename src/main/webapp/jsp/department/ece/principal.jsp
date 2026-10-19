@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <jsp:include page="/jsp/header.jsp"/>
  <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
@@ -140,7 +140,7 @@
                                </div>
                            </div>
                        </div>
-                       <jsp:include page="/jsp/footer.jsp"/>
+                       <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>
                        <script src="/wp-content/themes/kec/assets/vendors/jquery/dist/jquery.min.js"></script>
                        <script src="/js/jquery-ui.js"></script>
                        <script src="/js/facultyprofile.js"></script>

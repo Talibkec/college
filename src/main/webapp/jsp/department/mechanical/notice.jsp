@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <div class="jumbotron flex justify-center">
         <div class="">
@@ -43,4 +43,4 @@
 </div>
 
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

@@ -398,7 +398,23 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
 * Snapshot compare after steps 3-6 (reference `d6db9b1`): 355 of 410 pages byte-identical; the 55 others are the
   sidebar pages, identical after normalising whitespace except the intended differences listed in 10.4.
 
-### 10.6 Manual re-test
+### 10.6 Page blocks (headings, subheadings, text, images, documents on every page)
+* Approved 2026-10-19: new tables `page_block`, `content_file` (`13_…`, `14_…`); `department_site` seeded
+  (`07_department_site_seed.sql`, department ids and the HOD accounts the JSPs check today). HOD scope = own faculty
+  department + `hod_username`; Faculty scope = own faculty department.
+* `<kec:blocks/>` in 191 public JSPs (before the footer include, or at the end of `feestructure.jsp`): renders the
+  page's visible blocks and, for its editors, an "Edit this page" link. Prints nothing otherwise, so anonymous pages
+  stay byte-identical. Page key from the URL (`/about/history` → `about.history`, `/` → `home`); area per page in
+  `PageKeys.area` (e.g. T&P pages → `tp`, `/academic/syllabus` → `exam`, `/department/cse/*` → `department.cse`).
+* `/manage/blocks` (`?page=…`, or `?url=` to open a page by address): add heading / subheading / text (visual editor or
+  HTML, sanitised) / image (JPG, PNG, GIF, WebP; small/medium/full; caption) / document (PDF shown in the page or as a
+  link; .doc/.docx/.xls/.xlsx/.ppt/.pptx as download link), reorder, hide, delete. Add-only users (e.g. Faculty on
+  their department) change/delete only their own blocks. Files are checked by content (no SVG/HTML), max 20 MB.
+* `/content-file/{id}[/{name}]`: serves the files with a whitelisted type, `nosniff`, inline for images/PDF and
+  attachment for Office files; files of hidden blocks only for the page's editors. Deleting/replacing removes unused files.
+* Tests: `PageBlocksTest`. Snapshot compare: anonymous pages unchanged; logged-in editors' pages show the edit link.
+
+### 10.7 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
@@ -409,3 +425,5 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   switch on, check desktop + mobile (narrow window) + side menu, switch off again.
 * Website Content → About KEC → Page texts: change History in HTML and in the visual editor, preview, save, restore
   the original text; hide/show a section.
+* Any page as an editor → "Edit this page": add heading, subheading, text, image, PDF, Word file; reorder, hide, delete;
+  as Faculty on an own department page (add, change own only) and on another department (refused).

@@ -18,6 +18,11 @@
             The edit screens are added area by area; an area without a link has no screen yet.
         </p>
 
+        <div class="mb-6 p-4 rounded bg-blue-50">
+            <a href="/manage/blocks" class="text-blue-700 font-semibold" id="blocks-link"><i class="fa fa-plus-circle"></i> Add headings, text, images or documents to a page</a>
+            <span class="text-sm text-gray-600"> &ndash; or open a page you edit and click "Edit this page" below its content.</span>
+        </div>
+
         <c:if test="${isAdmin}">
             <div class="mb-6 flex flex-wrap gap-4">
                 <a href="/auth/roles" class="px-4 py-2 bg-blue-600 text-white rounded-md">Assign roles to users</a>

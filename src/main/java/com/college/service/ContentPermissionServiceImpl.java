@@ -100,18 +100,20 @@ public class ContentPermissionServiceImpl implements ContentPermissionService {
     }
 
     /**
-     * Department sites a role's "own department" scope covers: HOD → the sites whose {@code hod_username} is the user
-     * (an HOD in charge of several sites gets all of them); Faculty → the sites of the user's faculty department.
+     * Department sites a role's "own department" scope covers: Faculty → the sites of the user's faculty department;
+     * HOD → the same, plus the sites whose {@code hod_username} is the user (department accounts such as "hodcse", or an
+     * HOD in charge of another department).
      */
     private Set<String> ownSites(String username, String roleName) {
-        List<DepartmentSite> sites = Collections.emptyList();
-        if (HOD.equals(roleName)) {
-            sites = departmentSiteRepository.findByHodUsername(username);
-        } else if (FACULTY.equals(roleName)) {
+        List<DepartmentSite> sites = new ArrayList<>();
+        if (HOD.equals(roleName) || FACULTY.equals(roleName)) {
             Faculty faculty = facultyRepository.findFacltyByUserName(username);
             if (faculty != null && faculty.getDepartmentId() != null) {
-                sites = departmentSiteRepository.findByDeptId(faculty.getDepartmentId());
+                sites.addAll(departmentSiteRepository.findByDeptId(faculty.getDepartmentId()));
             }
+        }
+        if (HOD.equals(roleName)) {
+            sites.addAll(departmentSiteRepository.findByHodUsername(username));
         }
         Set<String> codes = new HashSet<>();
         for (DepartmentSite site : sites) {

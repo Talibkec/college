@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="flex justify-center">
             <div class="row">
@@ -57,4 +57,4 @@
     </div>
 
 
-<jsp:include page="/jsp/footer.jsp"/>
+<kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

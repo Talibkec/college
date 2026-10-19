@@ -202,6 +202,8 @@ README.html
 ### Local secrets / config (never commit)
 application-local.properties
 *.sql
+# ...except the reviewed schema migrations of the dynamic-content phase (DDL + text seeds, no data dumps)
+!/docs/sql/dynamic/*.sql
 
 ### HTML snapshots of local pages (contain real DB data, never commit)
 /html-snapshots/

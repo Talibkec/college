@@ -6,7 +6,7 @@
 
 
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
   <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
     <html lang="en" dir="ltr"
@@ -33,7 +33,7 @@
 
       <link rel="stylesheet" href="/css/main.css">
 
-      <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
+      <title><kec:setting key="site.title">KATIHAR ENGINEERING COLLEGE, KATIHAR</kec:setting></title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
       <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />

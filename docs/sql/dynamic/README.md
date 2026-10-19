@@ -18,6 +18,7 @@ no credentials (CLAUDE.md).
 | `12_content_change_log.sql` | DDL | roles and permissions (step 2) |
 | `10_roles_seed.sql` | data: new rows in `test_role` | roles and permissions (step 2) |
 | `10_content_area_seed.sql` | data: areas + permission matrix | roles and permissions (step 2) |
+| `01_site_setting_seed.sql` | data: texts of header, footer, contact pages | site settings (step 3) |
 
 Run all DDL files first, then the seeds:
 

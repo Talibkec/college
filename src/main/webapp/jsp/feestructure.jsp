@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
 <div class="py-6">
     <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
@@ -13,7 +13,7 @@
     </div>
 
     <div class="container mx-auto mt-8 px-6">
-        <h3 class="text-center text-xl font-semibold">Katihar Engineering College, Katihar - 854109</h3>
+        <h3 class="text-center text-xl font-semibold"><kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting> - <kec:setting key="contact.pin">854109</kec:setting></h3>
         <h3 class="text-center text-xl font-semibold mt-2"><u>Fee Structure for Day Scholars</u></h3>
 
         <div class="overflow-x-auto mt-6">

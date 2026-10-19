@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><html lang="en" dir="ltr"
       prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product# content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
 <head>
     <link rel="profile" href="http://www.w3.org/1999/xhtml/vocab"/>
@@ -7,20 +7,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="shortcut icon" href="/sites/default/files/logo1.jpeg"
           type="image/vnd.microsoft.icon"/>
-    <meta name="description" content="Katihar Engineering College, Katihar"/>
+    <meta name="description" content="<kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting>"/>
     <meta name="robots" content="follow, index"/>
     <link rel="canonical" href="http://www.keck.ac.in"/>
     <link rel="shortlink" href="http://www.keck.ac.in"/>
-    <meta property="og:site_name" content="KEC Katihar"/>
+    <meta property="og:site_name" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="http://www.keck.ac.in"/>
-    <meta property="og:title" content="KEC Katihar"/>
+    <meta property="og:title" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>"/>
     <meta itemprop="name" content="About Us"/>
-    <meta name="dcterms.title" content="KEC Katihar"/>
+    <meta name="dcterms.title" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>"/>
     <meta name="dcterms.type" content="Text"/>
     <meta name="dcterms.format" content="text/html"/>
     <meta name="dcterms.identifier" content=""/>
-    <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
+    <title><kec:setting key="site.title">KATIHAR ENGINEERING COLLEGE, KATIHAR</kec:setting></title>
     <style>
 @import url("/modules/system/system.base.css");
 
@@ -512,18 +512,18 @@ Katihar Engineering College</title>
 
                 <h2 class="block-title">KEC Katiihar</h2>
 
-                <p><span style="font-family:arial,helvetica,sans-serif">Katihar Engineering College, Katihar<br/>
+                <p><span style="font-family:arial,helvetica,sans-serif"><kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting><br/>
 Bheriya Rahika, PO - B.M.P - 07<br/>
 Katihar 854106<br/>
 Bihar India<br/>
-Ph.: 06452-239122</span></p>
+Ph.: <kec:setting key="contact.phone">06452-239122</kec:setting></span></p>
 
             </section>
             <section id="block-block-4" class="block block-block clearfix">
 
                 <h2 class="block-title">Visitor Counter</h2>
 
-                <p>Since January, 2019</p>
+                <p><kec:setting key="footer.since">Since January, 2019</kec:setting></p>
                 <p><a href="" target="_blank"><img alt="Web Counter"
                                                    src=""
                                                    title="Web Counter"/></a></p>
@@ -533,9 +533,9 @@ Ph.: 06452-239122</span></p>
         </div>
         <section id="block-block-4" class="block block-block clearfix">
 
-            <h2 class="block-title">&copy 2018 KEC Katihar</h2>
+            <h2 class="block-title"><kec:setting key="footer.copyright">&copy 2018 KEC Katihar</kec:setting></h2>
 
-            <p>Designed & Developed by</p>
+            <p><kec:setting key="footer.credit">Designed & Developed by</kec:setting></p>
             <p><a href="/category/kecwebteam" target="_blank">KEC Web Team</p></a>
         </section>
 

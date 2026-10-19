@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp" />
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp" />
 
 
     <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
@@ -18,7 +18,7 @@
                 <address>Katihar Engineering College<br/>
                     <small>Katihar Bihar, India<br/> Pin &#8211; 854106</small>
                 </address>
-                <address>Call us on: 06452-239122</address>
+                <address>Call us on: <kec:setting key="contact.phone">06452-239122</kec:setting></address>
                 <h4></h4>
                 <p>&nbsp;</p></div>
             <div class="col-md-8 col-sm-7">

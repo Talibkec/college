@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.core.config.KECUrlAuthenticationSuccessHandler;
 import com.college.core.model.AreaAccess;
 import com.college.service.ContentPermissionService;
+import com.college.service.SiteSettingService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +18,14 @@ import java.util.List;
 public class ContentManageController {
     private final ContentPermissionService contentPermissionService;
     private final KECUrlAuthenticationSuccessHandler landingPages;
+    private final SiteSettingService siteSettingService;
 
     public ContentManageController(ContentPermissionService contentPermissionService,
-                                   KECUrlAuthenticationSuccessHandler landingPages) {
+                                   KECUrlAuthenticationSuccessHandler landingPages,
+                                   SiteSettingService siteSettingService) {
         this.contentPermissionService = contentPermissionService;
         this.landingPages = landingPages;
+        this.siteSettingService = siteSettingService;
     }
 
     /** Dashboard: one tile per content area the user may edit. */
@@ -35,6 +39,8 @@ public class ContentManageController {
         }
         ModelAndView mv = new ModelAndView("manage/dashboard.jsp");
         mv.addObject("areas", areas);
+        // edit screens per area (more are added with each step of the plan)
+        mv.addObject("settingAreas", siteSettingService.areasWithSettings());
         mv.addObject("isAdmin", ControllerUtility.getRole().contains("Admin"));
         return mv;
     }

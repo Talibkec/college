@@ -339,8 +339,32 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   matrix edit, department scope). Test users `zzupgtest_tpo`, `zzupgtest_subadmin`; the tests need the
   `docs/sql/dynamic` scripts applied (they fail with a hint otherwise).
 
-### 10.3 Manual re-test
+### 10.3 Site settings (step 3)
+* `site_setting` (seed `01_site_setting_seed.sql`, 13 keys, area `site`): browser title, college name, short name,
+  phone, e-mail, principal's e-mail, footer address lines, fee-page PIN, footer "Since", copyright and credit.
+* JSP tag `<kec:setting key="...">today's text</kec:setting>` (`WEB-INF/kec.tld`, `SettingTag`): prints the value, or
+  the body when the value is NULL or the table is missing, so every page keeps working without the migration.
+  Values are escaped with `HtmlText.escapeMarkup` (`< > " '`); `&` is kept, so `&copy` and similar stay byte-identical.
+  The `taglib` directive is put on an existing line so no extra newline appears in the output.
+* Used in `header.jsp`, `footer.jsp`, both dashboard headers, `forgotPassword.jsp`, `updatePassword.jsp`, legal
+  Contact Us, refund, fee structure, grievance, facilities Contact Us (phone only).
+* Not yet dynamic because the values differ between pages (decision D9, PIN 854106/854109): the address on
+  `/facilities/contactus` ("Katihar Bihar, India, Pin – 854106") and in the password pages ("Bheriya Rahika ...,
+  Katihar 854106"); the footer itself says "Hajipur 854109".
+* `/manage/settings` (Admin, SubAdmin = editors of area `site`): one field per text, "use the page's original text"
+  (NULL), validation per type (phone/e-mail/url/number), nothing saved if a field is invalid, change log.
+  Values are cached; changes made with SQL directly need an application restart.
+* `HtmlSnapshotTest` compare: all 410 pages byte-identical with the seed applied (snapshots re-recorded on
+  `d6db9b1`, i.e. after the approved B22/sidebar changes of step 2).
+* Tests: `SiteSettingsTest` (change shows on all pages, original text, escaping, validation, permissions).
+* Working-tree note: the repository is checked out with `core.autocrlf=true` (JSPs have CRLF in the working tree).
+  Editing a JSP with a tool that writes LF changes the HTML output (line endings) although git shows no change;
+  the snapshots catch it.
+
+### 10.4 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
 * As HOD and Faculty: header "Dashboard" opens the own dashboard; landing pages after login unchanged.
+* Website Content → Site settings → "Texts": change the phone, check footer, Contact Us, refund and grievance
+  pages; tick "use the page's original text" and check again; set it back.

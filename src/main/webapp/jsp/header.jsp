@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
   <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
     <html lang="en" dir="ltr"
@@ -11,15 +11,15 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <link rel="shortcut icon" href="/images/logo1.jpeg" type="image/vnd.microsoft.icon" />
-      <meta name="description" content="Katihar Engineering College, Katihar" />
+      <meta name="description" content="<kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting>" />
       <meta name="robots" content="follow, index" /> <link rel="canonical" href="http://www.keck.ac.in" />
       <link rel="shortlink" href="http://www.keck.ac.in" />
-      <meta property="og:site_name" content="KEC Katihar" />
+      <meta property="og:site_name" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="http://www.keck.ac.in" />
-      <meta property="og:title" content="KEC Katihar" />
+      <meta property="og:title" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>" />
       <meta itemprop="name" content="About Us" />
-      <meta name="dcterms.title" content="KEC Katihar" />
+      <meta name="dcterms.title" content="<kec:setting key="site.short_name">KEC Katihar</kec:setting>" />
       <meta name="dcterms.type" content="Text" />
       <meta name="dcterms.format" content="text/html" />
       <meta name="dcterms.identifier" content="" />
@@ -27,7 +27,7 @@
       <link rel="stylesheet" href="/css/main.css">
       <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-      <title>KATIHAR ENGINEERING COLLEGE, KATIHAR</title>
+      <title><kec:setting key="site.title">KATIHAR ENGINEERING COLLEGE, KATIHAR</kec:setting></title>
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
       <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />

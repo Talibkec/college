@@ -1,4 +1,4 @@
-<link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
 <div class="gt-footersection">
     <footer class="footer">
         <div class="region region-footer md:flex w-full justify-between  " id="footer-flex">
@@ -13,13 +13,13 @@
 
             <section id="block-block-2" class="block block-block clearfix">
 
-                <h2 class="block-title">KEC Katihar</h2>
+                <h2 class="block-title"><kec:setting key="site.short_name">KEC Katihar</kec:setting></h2>
 
-                <p><span style="font-family:arial,helvetica,sans-serif">Katihar Engineering College, Katihar<br />
-                        Hirdayganj<br />
-                        Hajipur 854109<br />
-                        Bihar India<br />
-                        Ph.: 06452-239122</span></p>
+                <p><span style="font-family:arial,helvetica,sans-serif"><kec:setting key="college.name">Katihar Engineering College, Katihar</kec:setting><br />
+                        <kec:setting key="contact.address_line1">Hirdayganj</kec:setting><br />
+                        <kec:setting key="contact.address_line2">Hajipur 854109</kec:setting><br />
+                        <kec:setting key="contact.address_line3">Bihar India</kec:setting><br />
+                        Ph.: <kec:setting key="contact.phone">06452-239122</kec:setting></span></p>
 
             </section>
             <section id="block-block-4" class="block block-block clearfix">
@@ -43,16 +43,16 @@
                 <a href="/legal/feestructure">
                     <p class="p-1 block-title"> &raquo; Fee Structure </p>
                 </a>
-                <p class="p-1 ">Since January, 2019</p>
+                <p class="p-1 "><kec:setting key="footer.since">Since January, 2019</kec:setting></p>
 
             </section>
 
 
             <section id="" class="p-12 text-center  block-block clearfix">
 
-                <h2>&copy 2018 KEC Katihar</h2>
+                <h2><kec:setting key="footer.copyright">&copy 2018 KEC Katihar</kec:setting></h2>
 
-                <p>Designed & Developed by</p> <br>
+                <p><kec:setting key="footer.credit">Designed & Developed by</kec:setting></p> <br>
                 <p><a href="/category/kecwebteam" target="_blank">
 
 

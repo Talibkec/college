@@ -37,6 +37,9 @@
                     </c:choose>
                     <c:if test="${a.scope eq 'own_department'}"><span class="inline-block px-2 py-1 text-sm rounded bg-gray-100">your department</span></c:if>
                     <c:if test="${a.scope eq 'own_record'}"><span class="inline-block px-2 py-1 text-sm rounded bg-gray-100">your own entry</span></c:if>
+                    <c:if test="${a.edit and settingAreas.contains(a.area.areaCode)}">
+                        <p class="mt-3"><a class="text-blue-600" href="/manage/settings?area=<c:out value='${a.area.areaCode}'/>">Texts (phone, e-mail, footer, ...)</a></p>
+                    </c:if>
                 </div>
             </c:forEach>
         </div>

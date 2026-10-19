@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp"/>
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <div class=" py-6">
      <div class="flex items-center justify-between bg-gray-100 py-4">
 
@@ -41,8 +41,8 @@
                             <button type="submit" class="btn btnHover bg-blue-400 text-white px-8 py-2 rounded-lg hover:bg-blue-500 transition duration-150 ease-in-out"><i class="fa fa-check mr-2"></i>Send Message</button>
                         </div>
                         <div class="mt-6 text-center">
-                            <p>Contact mail: <a href="mailto:principalranjanakri84@gmail.com" class="text-blue-600">principalranjanakri84@gmail.com</a></p>
-                            <p>Contact phone: <a href="tel:06452-239122" class="text-blue-600">06452-239122</a></p>
+                            <p>Contact mail: <a href="mailto:<kec:setting key="principal.email">principalranjanakri84@gmail.com</kec:setting>" class="text-blue-600"><kec:setting key="principal.email">principalranjanakri84@gmail.com</kec:setting></a></p>
+                            <p>Contact phone: <a href="tel:<kec:setting key="contact.phone">06452-239122</kec:setting>" class="text-blue-600"><kec:setting key="contact.phone">06452-239122</kec:setting></a></p>
                         </div>
                     </form>
                 </div>

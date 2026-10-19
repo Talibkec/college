@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="https://jakarta.ee/xml/ns/jakartaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-jsptaglibrary_3_0.xsd"
+        version="3.0">
+    <description>Editable website content (docs/DYNAMIC_CONTENT_FINDINGS.md). Usage: &lt;%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %&gt;</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>kec</short-name>
+    <uri>/WEB-INF/kec.tld</uri>
+
+    <tag>
+        <description>Value of a site setting; the body (today's text) is shown when the setting has no value.</description>
+        <name>setting</name>
+        <tag-class>com.college.core.tags.SettingTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>key</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

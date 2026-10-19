@@ -1,4 +1,4 @@
-<jsp:include page="/jsp/header.jsp" />
+<%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp" />
 <style>
   .input-group {
     display: initial;
@@ -87,10 +87,10 @@
                         </div>
                         <div class="row" style="margin:25px 10px 10px 0px;">
                           <div class="col-sm-12">
-                            Contact mail :-<a href=mailto:principal@keck.ac.in">
-                            principal@keck.ac.in </a><br>
-                            Contact phone:-<a href="tel:06452-239122" class="Blondie">
-                            06452-239122 </a>
+                            Contact mail :-<a href=mailto:<kec:setting key="contact.email">principal@keck.ac.in</kec:setting>">
+                            <kec:setting key="contact.email">principal@keck.ac.in</kec:setting> </a><br>
+                            Contact phone:-<a href="tel:<kec:setting key="contact.phone">06452-239122</kec:setting>" class="Blondie">
+                            <kec:setting key="contact.phone">06452-239122</kec:setting> </a>
                           </div>
                         </div>
                       </div>

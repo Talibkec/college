@@ -15,7 +15,7 @@
             <jsp:include page="sidebar.jsp"/>
             <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <table width="100%">
+                    <kec:section key="department.civil.awards/main" title="Civil Awards: text"><table width="100%">
                         <tbody>
                         <tr>
                             <td colspan="2">
@@ -24,7 +24,7 @@
                         </tr>
 
                         </tbody>
-                    </table>
+                    </table></kec:section>
                 </div>
             </div>
         </div>

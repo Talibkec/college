@@ -486,6 +486,10 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   is not wrapped: `/department/ash/attendance` answered 404 before and still does (fixing it would be a behaviour
   change). Vision: raw bullet (shown as mojibake "â€¢") replaced by `&bull;`.
   Test: `PageTextsTest.ashTextsBelongToTheAshArea`. Snapshot compare: byte-identical except the vision bullet.
+* **Civil** (9 texts): about introduction, vision & mission, laboratories with equipment lists, awards (table),
+  attendance, course file, programs, students, weekly test. Kept in code: notices, HOD links, social icons, the
+  share links above the attendance text (wrong target, B19), sidebar. Not wrapped: question bank (no text), notices.
+  Test: `PageTextsTest.civilTextsAreEditableByTheDepartmentArea`. Snapshot compare: Civil pages byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

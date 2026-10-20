@@ -11,7 +11,7 @@
             <jsp:include page="sidebar.jsp"/>
             <div class="col-md-8 p-3"  style="">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
-                    <div data-animation="bounceInUp" data-animation-delay="0s"><strong>The department has the following laboratories which provide practical instruction to undergraduate students </strong></p>
+                    <kec:section key="department.civil.labs/main" title="Civil Labs: laboratories and equipment"><div data-animation="bounceInUp" data-animation-delay="0s"><strong>The department has the following laboratories which provide practical instruction to undergraduate students </strong></p>
                         <ul>
 
                             <li><strong><span style="">Surveying Laboratory.</span></strong></li>
@@ -41,7 +41,7 @@
                             <li><strong><span style="">	Material Testing Laboratory</span></strong>(Updated Soon)</li>
                             <li><strong><span style="">	Hydraulics Laboratory</span></strong>(Updated Soon)</li>
                         </ul>
-                    </div>
+                    </div></kec:section>
                 </div>
             </div>
         </div>

@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 79);
+        assertTrue("page texts found: " + count, count >= 88);
     }
 
     @Test
@@ -254,6 +254,25 @@ public class PageTextsTest extends AbstractAppTest {
         } finally {
             jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", hodOfCse);
         }
+    }
+
+    /** Civil site: SubAdmin changes the lab list; the share links above the attendance text stay in code. */
+    @Test
+    public void civilTextsAreEditableByTheDepartmentArea() throws Exception {
+        long labs = sectionId("department.civil.labs", "main");
+        assertEquals("department.civil", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, labs));
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("Civil texts listed", sub.get("/manage/blocks?page=department.civil.labs"), "Civil Labs: laboratories and equipment");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(labs), "html", "<ul><li>" + TestData.MARK + " civil lab</li></ul>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/civil/labs");
+        assertContains("new lab list", changed, "<li>" + TestData.MARK + " civil lab</li>");
+        assertFalse(changed.body().contains("Total Station"));
+        sub.postForm("/manage/sections/save", "id", String.valueOf(sectionId("department.civil.attendance", "main")), "html",
+                "<p>" + TestData.MARK + " civil attendance</p>", "visible", "on");
+        WebSession.Response attendance = anonymous().get("/department/civil/attendance");
+        assertContains("new text", attendance, TestData.MARK + " civil attendance");
+        assertContains("share links stay", attendance, "https://twitter.com/home?status=About+Civil+Engg.");
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + labs).status);
     }
 
     @Test

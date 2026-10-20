@@ -6,6 +6,6 @@
 
         <div class="md:flex justify-center">
             <jsp:include page="sidebar.jsp"/>
-            <div class="col-md-8 p-3"  style=""><p><strong>Updated Soon &#8230</strong></p></div>
+            <div class="col-md-8 p-3"  style=""><kec:section key="department.civil.students/main" title="Civil Students: text"><p><strong>Updated Soon &#8230</strong></p></kec:section></div>
     </div></div>
 <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

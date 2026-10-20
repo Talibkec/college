@@ -68,7 +68,7 @@
      <div class="md:w-2/3 px-4 mt-6 md:mt-0">
          <div class="bg-white p-6 rounded-lg shadow">
              <div class="text-justify text-lg font-light leading-relaxed">
-                 <div id="ctl00_ContentPlaceHolder1_div_1">
+                 <kec:section key="department.civil.about/intro" title="About Civil: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                      <p><strong class="text-3xl font-bold">INTRODUCTION</strong></p>
                      <p>Katihar Engineering College, Katihar, was established in 2016, and the Civil Engineering Department is part of the institute since its inception. The department has grown tremendously over the years and is now recognized as one of the major engineering departments in the state of Bihar.</p>
                      <p>The Department of Civil Engineering offers a Bachelor in Technology with an annual intake of 60 students. The department, with its multifaceted faculty from different fields like Geotechnical, Environmental, and Structural Engineering, maintains high-quality teaching and instruction at the undergraduate level.</p>
@@ -80,7 +80,7 @@
                          <li>Structural Engineering (ST)</li>
                          <li>Transportation Engineering (TR)</li>
                      </ul>
-                 </div>
+                 </div></kec:section>
              </div>
          </div>
      </div>

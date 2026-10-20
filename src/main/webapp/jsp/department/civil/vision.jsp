@@ -21,7 +21,7 @@
                                      data-style="{&quot;background&quot;:&quot;#a5d689&quot;,&quot;background_image_attachment&quot;:false,&quot;background_display&quot;:&quot;tile&quot;,&quot;font_color&quot;:&quot;#000000&quot;,&quot;link_color&quot;:&quot;#8224e3&quot;}">
                                     <div class="panel-widget-style panel-widget-style-for-482-0-0-0">
                                         <div class="so-widget-sow-editor so-widget-sow-editor-base">
-                                            <div class="siteorigin-widget-tinymce textwidget"><p
+                                            <div class="siteorigin-widget-tinymce textwidget"><kec:section key="department.civil.vision/main" title="Civil Vision & Mission: text"><p
                                                     style="text-align: center;"><span
                                                     style="text-decoration: underline; font-family: georgia, palatino; font-size: large; color: #800000;"><b>Vision of the Department</b></span>
                                             </p>
@@ -43,7 +43,7 @@
                                                             style="font-family: Georgia, Palatino; font-size: 12pt;">	To develop professional, social and ethical skills among the students.<span
                                                             style="font-family: georgia, palatino; font-size: medium;">.</span></span>
                                                     </li>
-                                                </ul>
+                                                </ul></kec:section>
                                             </div>
                                         </div>
                                     </div>

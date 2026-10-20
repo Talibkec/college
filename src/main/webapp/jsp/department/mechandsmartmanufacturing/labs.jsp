@@ -11,7 +11,7 @@
         <div class="md:flex justify-center">
             <jsp:include page="sidebar.jsp"/>
 
-            <div class="col-md-8 p-3" style=""><p><strong>Updated Soon&#8230</strong></p></div>
+            <div class="col-md-8 p-3" style=""><kec:section key="department.mechandsmartmanufacturing.labs/main" title="Mechanical & Smart Manufacturing Labs: text"><p><strong>Updated Soon&#8230</strong></p></kec:section></div>
         </div>
     </div>
 

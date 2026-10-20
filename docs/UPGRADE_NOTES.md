@@ -519,6 +519,10 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   question bank (no text); `/department/manufacturing/staff` has no JSP and answered 404 before and still does.
   HOD: `hodmech` (also mechanical and MSM).
   Test: `PageTextsTest.manufacturingTextsAreEditableButFacultyCardsStayInCode`. Snapshot compare: byte-identical.
+* **Mechanical & Smart Manufacturing** (9 texts): the same pages and texts as Manufacturing (its JSPs are copies
+  except the about text and the sidebar), own rows and area `department.mechandsmartmanufacturing`, so the two sites
+  are edited separately. Same exclusions (faculty cards, question bank, staff 404). HOD: `hodmech`.
+  Test: `PageTextsTest.msmTextsAreSeparateFromManufacturing`. Snapshot compare: byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

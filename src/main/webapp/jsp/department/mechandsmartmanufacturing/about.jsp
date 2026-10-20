@@ -67,12 +67,12 @@
     <div class="md:w-2/3 px-4 mt-6 md:mt-0">
         <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
-                <div id="ctl00_ContentPlaceHolder1_div_1">
+                <kec:section key="department.mechandsmartmanufacturing.about/intro" title="About Mechanical & Smart Manufacturing: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                     <p><strong class="text-3xl font-bold">INTRODUCTION</strong></p>
                     <p>Mechanical and Smart Manufacturing engineering is the discipline that applies engineering physics, engineering mathematics, and materials science principles to design, analyse, manufacture, and maintain mechanical systems. It is one of the oldest and broadest of the engineering disciplines. It is known as the evergreen branch among all the branches of the engineering department.</p>
                     <p>The mechanical engineering field requires an understanding of core areas including mechanics, dynamics, thermodynamics, materials science, structural analysis, and electricity. In addition to these core principles, mechanical engineers use tools such as computer-aided design (CAD), computer-aided manufacturing (CAM), and product life cycle management to design and analyse manufacturing plants, industrial equipment and machinery, heating and cooling systems, transport systems, aircraft, watercraft, robotics, medical devices, weapons, and others. It is the branch of engineering that involves the design, production, and operation of machinery.</p>
                     <p>Nowadays, the scope of mechanical engineering is expanding beyond its traditional boundaries. In order to contribute to the growth of quality mechanical engineers, Katihar Engineering College has set up the Department of Mechanical Engineering in the year 2016. The faculties here are very supportive in nature; they hardly fail to inspire the young minds and enrich them with their knowledge and experience. The management keeps a strong check on each faculty and kindles them to attend workshops, seminars, conferences, and faculty development programs. Students enthusiastically work here under the supervision of trained faculty members.</p>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

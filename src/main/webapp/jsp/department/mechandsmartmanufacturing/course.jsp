@@ -14,7 +14,7 @@
         <div class="row">
             <jsp:include page="sidebar.jsp"/>
 
-            <div><p><strong>Updated Soon&#8230</strong></p></div>
+            <div><kec:section key="department.mechandsmartmanufacturing.course/main" title="Mechanical & Smart Manufacturing Course File: text"><p><strong>Updated Soon&#8230</strong></p></kec:section></div>
                             </div>
                         </div>
                     </div>

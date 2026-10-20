@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 142);
+        assertTrue("page texts found: " + count, count >= 151);
     }
 
     @Test
@@ -348,6 +348,22 @@ public class PageTextsTest extends AbstractAppTest {
         WebSession.Response changed = anonymous().get("/department/manufacturing/vision");
         assertContains("new text", changed, "<p>" + TestData.MARK + " manufacturing</p>");
         assertFalse(changed.body().contains("To groom motivated"));
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
+    }
+
+    /** Mechanical &amp; Smart Manufacturing has its own texts: changing its vision leaves the (same) Manufacturing vision as it is. */
+    @Test
+    public void msmTextsAreSeparateFromManufacturing() throws Exception {
+        long vision = sectionId("department.mechandsmartmanufacturing.vision", "main");
+        assertEquals("department.mechandsmartmanufacturing",
+                jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, vision));
+        String manufacturing = anonymous().get("/department/manufacturing/vision").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("texts listed", sub.get("/manage/blocks?page=department.mechandsmartmanufacturing.vision"),
+                "Mechanical &amp; Smart Manufacturing Vision &amp; Mission: text");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(vision), "html", "<p>" + TestData.MARK + " msm</p>", "visible", "on");
+        assertContains("new text", anonymous().get("/department/mechandsmartmanufacturing/vision"), "<p>" + TestData.MARK + " msm</p>");
+        assertEquals("Manufacturing unchanged", manufacturing, anonymous().get("/department/manufacturing/vision").body());
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
     }
 

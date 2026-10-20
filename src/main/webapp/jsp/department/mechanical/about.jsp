@@ -70,7 +70,7 @@
     <div class="md:w-2/3 px-4 mt-6 md:mt-0">
         <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
-                <div id="ctl00_ContentPlaceHolder1_div_1">
+                <kec:section key="department.mechanical.mech/intro" title="About Mechanical: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                     <p><strong class="text-3xl font-bold">INTRODUCTION</strong></p>
                     <p>Katihar Engineering College, Katihar, established in 2016, is home to the Department of Mechanical Engineering. The department has expanded significantly and is now one of the major engineering departments in Bihar.</p>
                     <p>The Department of Mechanical Engineering offers a Bachelor in Technology with an annual intake of 60 students. With a diverse faculty specializing in areas such as Thermodynamics, Robotics, and Manufacturing, the department ensures high-quality teaching and learning experiences.</p>
@@ -82,7 +82,7 @@
                         <li>Fluid Mechanics and Machinery</li>
                         <li>Materials Science and Engineering</li>
                     </ul>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

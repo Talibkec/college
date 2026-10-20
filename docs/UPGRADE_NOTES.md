@@ -523,6 +523,12 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   except the about text and the sidebar), own rows and area `department.mechandsmartmanufacturing`, so the two sites
   are edited separately. Same exclusions (faculty cards, question bank, staff 404). HOD: `hodmech`.
   Test: `PageTextsTest.msmTextsAreSeparateFromManufacturing`. Snapshot compare: byte-identical.
+* **Mechanical** (9 texts): the same pages and texts as Manufacturing (copies except the about text and sidebar).
+  The about page is served at `/department/mechanical/mech` (view `about.jsp`), so its text has the page key
+  `department.mechanical.mech` (section `intro`). Same exclusions (faculty cards, question bank, staff). HOD: `hodmech`.
+  Test: `PageTextsTest.mechanicalAboutTextUsesTheMechPageKey`. Snapshot compare: byte-identical.
+* Group 6 complete: 98 texts on the 10 department sites (CSE 9, ASH 8, Civil 9, ECE 13, ECE-VLSI 13, EEE 10, FP 9,
+  Manufacturing 9, MSM 9, Mechanical 9). Encoding fixes: ASH vision bullet, EEE about apostrophe.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

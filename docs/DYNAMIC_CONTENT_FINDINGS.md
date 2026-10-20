@@ -896,6 +896,6 @@ pages stay byte-identical. Database lists, forms and scripts stay in code. No sc
 | 3 | T&P, Approval, RTI (10 pages, 11 texts) | ✅ done (NBA, AICTE approval, placed students, coordinators = database lists; grievance = form) |
 | 4 | Legal pages (5 pages, 5 texts) | ✅ done (footer = settings since step 3; contact us = form; fee and course tables as HTML until steps 12–13) |
 | 5 | Home page (static parts, 6 texts) | ✅ done (slider, notices, achievements, web team = database; marquee and Important Links as HTML instead of `link_item`) |
-| 6 | Departments, one site per commit | in progress: CSE (9 texts) ✅, ASH (8 texts) ✅, Civil (9 texts) ✅, ECE (13 texts) ✅, ECE-VLSI (13 texts) ✅, EEE (10 texts) ✅, FP (9 texts) ✅, Manufacturing (9 texts) ✅, MSM (9 texts) ✅ |
+| 6 | Departments, one site per commit (10 sites, 98 texts) | ✅ done: CSE 9, ASH 8, Civil 9, ECE 13, ECE-VLSI 13, EEE 10, FP 9, Manufacturing 9, MSM 9, Mechanical 9 (notices, sidebars, social icons, faculty cards of the mechanical sites, question banks = code/database; unrouted `ash/attendace.jsp`, `staff.jsp` and the principal shortcut not wrapped) |
 
 Tables of people and fees become editable as HTML first; steps 12–13 (people, fee screens) replace them later.

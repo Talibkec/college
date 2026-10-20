@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 151);
+        assertTrue("page texts found: " + count, count >= 160);
     }
 
     @Test
@@ -365,6 +365,27 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("new text", anonymous().get("/department/mechandsmartmanufacturing/vision"), "<p>" + TestData.MARK + " msm</p>");
         assertEquals("Manufacturing unchanged", manufacturing, anonymous().get("/department/manufacturing/vision").body());
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
+    }
+
+    /** Mechanical: the about page lives at /department/mechanical/mech, so its texts use that page key. */
+    @Test
+    public void mechanicalAboutTextUsesTheMechPageKey() throws Exception {
+        long intro = sectionId("department.mechanical.mech", "intro");
+        assertEquals("department.mechanical", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, intro));
+        String before = anonymous().get("/department/mechanical/mech").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertEquals("/manage/blocks?page=department.mechanical.mech",
+                sub.get("/manage/blocks?url=/department/mechanical/mech").redirectPath());
+        assertContains("text listed", sub.get("/manage/blocks?page=department.mechanical.mech"), "About Mechanical: introduction");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(intro), "html", "<p>" + TestData.MARK + " mech</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/mechanical/mech");
+        assertContains("new text", changed, "<p>" + TestData.MARK + " mech</p>");
+        assertContains("notices still there", changed, "View All");
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(intro));
+        sub.postForm("/manage/sections/restore", "id", String.valueOf(intro), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/department/mechanical/mech").body());
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
     }
 
     @Test

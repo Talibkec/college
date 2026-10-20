@@ -66,7 +66,7 @@
            <div class="md:w-2/3 px-4 mt-6 md:mt-0">
                <div class="bg-white p-6 rounded-lg shadow">
                    <div class="text-justify text-lg font-light leading-relaxed">
-                       <h3 class="text-3xl font-bold mb-4">Introduction</h3>
+                       <kec:section key="department.ecevlsi.about/intro" title="About ECE-VLSI: introduction, highlights, careers, recruiters"><h3 class="text-3xl font-bold mb-4">Introduction</h3>
                        <p>
                            M.Tech. - Electronics Engineering (VLSI Design and Technology) is a 2-year program designed
                            to prepare engineering graduates who have comprehensive knowledge about Integrated circuit
@@ -121,7 +121,7 @@
                            <li>Synapse Design</li>
                            <li>AMD-Xilinx India Technology</li>
                            <li>Samsung</li>
-                       </ul>
+                       </ul></kec:section>
                    </div>
                </div>
            </div>

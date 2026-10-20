@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 101);
+        assertTrue("page texts found: " + count, count >= 114);
     }
 
     @Test
@@ -288,6 +288,22 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("accordion stays", changed, "data-bs-target=\"#collapseFour\"");
         assertContains("other labs stay", changed, "8086 microprocessor-based programming");
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + lab).status);
+    }
+
+    /** ECE-VLSI has its own texts: changing its about text leaves the (similar) ECE about page as it is. */
+    @Test
+    public void eceVlsiTextsAreSeparateFromEce() throws Exception {
+        long intro = sectionId("department.ecevlsi.about", "intro");
+        assertEquals("department.ecevlsi", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, intro));
+        String ece = anonymous().get("/department/ece/about").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("ECE-VLSI texts listed", sub.get("/manage/blocks?page=department.ecevlsi.about"), "About ECE-VLSI: introduction");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(intro), "html", "<p>" + TestData.MARK + " mtech</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/ecevlsi/about");
+        assertContains("new text", changed, "<p>" + TestData.MARK + " mtech</p>");
+        assertFalse(changed.body().contains("is a 2-year program"));
+        assertEquals("ECE about unchanged", ece, anonymous().get("/department/ece/about").body());
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
     }
 
     @Test

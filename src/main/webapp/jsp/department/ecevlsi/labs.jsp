@@ -33,14 +33,14 @@
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
-                                <div class="accordion-body">
+                                <div class="accordion-body"><kec:section key="department.ecevlsi.labs/lab1" title="ECE-VLSI Labs: Digital Electronics & Microprocessor Lab">
 
                                     This lab provides the basic exposure to sequential and combinations circuits-based experiments
                                     and 8086 microprocessor-based programming using kit-based experiments.
 
 
 
-                                </div>
+                                </kec:section></div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -50,13 +50,13 @@
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse show" aria-labelledby="headingTwo">
-                                <div class="accordion-body">
+                                <div class="accordion-body"><kec:section key="department.ecevlsi.labs/lab2" title="ECE-VLSI Labs: Electronic Circuit Design Lab">
                                     This laboratory aims to familiarize the student with working of electronic devices and designing of
                                     basic electronic circuits. The students analyse the circuit outputs and learns to record data.
 
 
 
-                                </div>
+                                </kec:section></div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -66,13 +66,13 @@
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse show" aria-labelledby="headingThree">
-                                <div class="accordion-body">
+                                <div class="accordion-body"><kec:section key="department.ecevlsi.labs/lab3" title="ECE-VLSI Labs: VLSI & Embedded System Design Lab">
                                     This Lab provides competency areas in VLSI Design & Embedded Systems including IC designing
                                     concepts & Embedded system designing concepts to analyse and design complex systems
                                     containing hardware and software components.
 
 
-                                </div>
+                                </kec:section></div>
                             </div>
                         </div>
 
@@ -84,12 +84,12 @@
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse show" aria-labelledby="headingFour">
-                                <div class="accordion-body">
+                                <div class="accordion-body"><kec:section key="department.ecevlsi.labs/lab4" title="ECE-VLSI Labs: Simulation Lab">
 
                                     The Simulation lab emphasizes mainly on simulation of electrical systems such as Neural
                                     networks, Control systems, MATLAB software, B2Spice simulation etc.
 
-                                </div>
+                                </kec:section></div>
                             </div>
                         </div>
 

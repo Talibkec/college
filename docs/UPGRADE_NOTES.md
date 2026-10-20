@@ -498,6 +498,10 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   profile data later from the faculty record, findings §4.4). Adding or renaming a lab still needs a code change
   (or a page block below the page). HOD: `hodeee` (also eee and ecevlsi).
   Test: `PageTextsTest.eceLabDescriptionsAreTextsInsideTheAccordion`. Snapshot compare: ECE pages byte-identical.
+* **ECE-VLSI** (13 texts): the same pages and texts as ECE (its JSPs are copies of ECE's except the about text,
+  M.Tech. instead of B.Tech.), own rows and area `department.ecevlsi`, so the two sites are edited separately.
+  Same exclusions as ECE. HOD: `hodeee`.
+  Test: `PageTextsTest.eceVlsiTextsAreSeparateFromEce`. Snapshot compare: ECE-VLSI pages byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

@@ -513,6 +513,12 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   sidebars (`sidebar.jsp`, `fpsidebar.jsp`). Not wrapped: question bank (no text), `staff.jsp` (no route).
   HOD: `hodfood`. `department_site.dept_id` is empty for fp, so no Faculty account has the fp scope (findings §7).
   Test: `PageTextsTest.foodProcessingVisionCanBeFilledIn`. Snapshot compare: FP pages byte-identical.
+* **Manufacturing** (9 texts): about introduction, vision & mission, labs ("Updated Soon"), attendance, awards,
+  course file, programs, students, weekly test. Kept in code: `faculty.jsp` (static faculty cards with phones and
+  e-mails; to come from the faculty table, findings §4.4), notices, HOD links, social icons, sidebar. Not wrapped:
+  question bank (no text); `/department/manufacturing/staff` has no JSP and answered 404 before and still does.
+  HOD: `hodmech` (also mechanical and MSM).
+  Test: `PageTextsTest.manufacturingTextsAreEditableButFacultyCardsStayInCode`. Snapshot compare: byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

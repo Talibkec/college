@@ -94,7 +94,7 @@
         <div class="md:w-2/3 px-4 mt-6 md:mt-0">
           <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
-              <div id="ctl00_ContentPlaceHolder1_div_1">
+              <kec:section key="department.manufacturing.about/intro" title="About Manufacturing: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                 <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
                 <p>
                     Manufacturing engineering is the discipline that applies engineering physics, engineering mathematics,
@@ -120,7 +120,7 @@
                     workshops, seminars, conferences, and faculty development programs. Students enthusiastically work here
                     under the supervision of trained faculty members.
                 </p>
-            </div>
+            </div></kec:section>
            </div>
           </div>
         </div>

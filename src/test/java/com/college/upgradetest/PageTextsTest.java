@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 133);
+        assertTrue("page texts found: " + count, count >= 142);
     }
 
     @Test
@@ -333,6 +333,21 @@ public class PageTextsTest extends AbstractAppTest {
         WebSession.Response changed = anonymous().get("/department/fp/vision");
         assertContains("heading kept", changed, "Vision of the Department");
         assertContains("new text", changed, "<p>" + TestData.MARK + " fp vision</p>");
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
+    }
+
+    /** Manufacturing: SubAdmin changes the vision; the faculty cards stay in code (no text on that page). */
+    @Test
+    public void manufacturingTextsAreEditableButFacultyCardsStayInCode() throws Exception {
+        long vision = sectionId("department.manufacturing.vision", "main");
+        assertEquals("department.manufacturing", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, vision));
+        assertEquals(0L, (long) jdbc.queryForObject("select count(*) from page_section where page_key = 'department.manufacturing.faculty'", Long.class));
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("texts listed", sub.get("/manage/blocks?page=department.manufacturing.vision"), "Manufacturing Vision &amp; Mission: text");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(vision), "html", "<p>" + TestData.MARK + " manufacturing</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/manufacturing/vision");
+        assertContains("new text", changed, "<p>" + TestData.MARK + " manufacturing</p>");
+        assertFalse(changed.body().contains("To groom motivated"));
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
     }
 

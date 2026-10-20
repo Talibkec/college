@@ -13,7 +13,7 @@
             <jsp:include page="sidebar.jsp"/>
 
             <div class="col-md-8 p-3" style="">
-                <p><strong>Updated Soon&#8230</strong></p>
+                <kec:section key="department.manufacturing.attendance/main" title="Manufacturing Attendance: text"><p><strong>Updated Soon&#8230</strong></p></kec:section>
             </div>
         </div>
     </div>

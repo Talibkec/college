@@ -14,7 +14,7 @@
 
             
             <div class="p-3" style="min-width:600px">
-                <p><strong>Updated Soon&#8230</strong></p>
+                <kec:section key="department.manufacturing.weekly/main" title="Manufacturing Weekly Test Result: text"><p><strong>Updated Soon&#8230</strong></p></kec:section>
             </div>
         </div>
     </div>

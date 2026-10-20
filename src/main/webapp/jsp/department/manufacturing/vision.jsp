@@ -13,7 +13,7 @@
             <jsp:include page="sidebar.jsp"/>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><strong>VISION
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.manufacturing.vision/main" title="Manufacturing Vision & Mission: text"><p><strong>VISION
                     OF THE DEPARTMENT</strong></p>
                     <p>To groom motivated, environmental friendly, self-esteemed,creative and oriented Mechanical Engineers through recruitment,retainment and development of all the members of the department</p>
                     <p><strong>MISSION OF DEPARTMENT</strong></p>
@@ -23,7 +23,7 @@
                         <li>To enable the students to enhance their technical skills and communications through research, innovation and consultancy projects.
                         </li>
 
-                    </ul>
+                    </ul></kec:section>
                 </div>
             </div>
         </div>

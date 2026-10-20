@@ -473,6 +473,9 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
 
 ### 10.7e Existing page texts editable (group 6: department sites, one site per commit)
 Area `department.<site>` (SubAdmin, HOD of the site: edit; Faculty of the department: add page blocks only).
+An HOD edits only the own site(s): `department_site.hod_username` or the HOD's faculty department (scope
+`own_department`); `hodeee` covers eee, ece and ecevlsi, `hodmech` the three mechanical sites. Test:
+`PageTextsTest.hodChangesOnlyTheTextsOfOwnDepartment` (CSE HOD: CSE yes, ASH and Civil 403).
 * **CSE** (9 texts): about introduction, vision & mission, lab list, attendance, awards, course file, programs,
   students, weekly test. Kept in code: notices and the HOD upload/delete links, the social icons (one shared list
   later, findings §4.4), the sidebar, the lab-documents iframe. Not wrapped: question bank (empty table remnant, no

@@ -231,6 +231,31 @@ public class PageTextsTest extends AbstractAppTest {
         assertEquals("still 404 (attendace.jsp)", 404, anonymous().get("/department/ash/attendance").status);
     }
 
+    /** The HOD of a site changes only that site's texts: the CSE HOD may edit CSE, not ASH or Civil (scope own_department). */
+    @Test
+    public void hodChangesOnlyTheTextsOfOwnDepartment() throws Exception {
+        String hodOfCse = jdbc.queryForObject("select hod_username from department_site where site_code = 'cse'", String.class);
+        jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", TestData.HOD.username);
+        try {
+            WebSession hod = loginAs(TestData.HOD);
+            long cse = sectionId("department.cse.students", "main");
+            assertContains("own texts listed", hod.get("/manage/sections"), "CSE Students: text");
+            assertFalse("no ASH texts listed", hod.get("/manage/sections").body().contains("ASH Students: text"));
+            assertEquals(302, hod.postForm("/manage/sections/save", "id", String.valueOf(cse), "html",
+                    "<p>" + TestData.MARK + " hod cse</p>", "visible", "on").status);
+            assertContains("own site changed", anonymous().get("/department/cse/students"), TestData.MARK + " hod cse");
+            long ash = sectionId("department.ash.students", "main");
+            String ashBefore = body(ash);
+            assertEquals("other site", 403, hod.get("/manage/sections?id=" + ash).status);
+            assertEquals("other site", 403, hod.postForm("/manage/sections/save", "id", String.valueOf(ash), "html",
+                    "<p>" + TestData.MARK + " hod ash</p>", "visible", "on").status);
+            assertEquals("ASH text unchanged", ashBefore, body(ash));
+            assertEquals("other site's page", 403, hod.get("/manage/blocks?page=department.civil.labs").status);
+        } finally {
+            jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", hodOfCse);
+        }
+    }
+
     @Test
     public void onlyTheAreaEditorsMayChangeAcademicTexts() throws Exception {
         long syllabus = sectionId("academic.syllabus", "main");

@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 88);
+        assertTrue("page texts found: " + count, count >= 101);
     }
 
     @Test
@@ -273,6 +273,21 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("new text", attendance, TestData.MARK + " civil attendance");
         assertContains("share links stay", attendance, "https://twitter.com/home?status=About+Civil+Engg.");
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + labs).status);
+    }
+
+    /** ECE site: a lab description is one text; the accordion (buttons, collapse targets) stays in code. */
+    @Test
+    public void eceLabDescriptionsAreTextsInsideTheAccordion() throws Exception {
+        long lab = sectionId("department.ece.labs", "lab4");
+        assertEquals("department.ece", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, lab));
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("ECE texts listed", sub.get("/manage/blocks?page=department.ece.labs"), "ECE Labs: Simulation Lab");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(lab), "html", TestData.MARK + " simulation", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/ece/labs");
+        assertContains("new description", changed, "<div class=\"accordion-body\">" + TestData.MARK + " simulation</div>");
+        assertContains("accordion stays", changed, "data-bs-target=\"#collapseFour\"");
+        assertContains("other labs stay", changed, "8086 microprocessor-based programming");
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + lab).status);
     }
 
     @Test

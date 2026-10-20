@@ -490,6 +490,14 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   attendance, course file, programs, students, weekly test. Kept in code: notices, HOD links, social icons, the
   share links above the attendance text (wrong target, B19), sidebar. Not wrapped: question bank (no text), notices.
   Test: `PageTextsTest.civilTextsAreEditableByTheDepartmentArea`. Snapshot compare: Civil pages byte-identical.
+* **ECE** (13 texts): about (introduction, key highlights, USPs, careers, recruiters as one text), vision, mission,
+  4 lab descriptions (one per accordion panel; the accordion with its buttons stays code, because the sanitiser
+  removes buttons and `data-bs-*` attributes, as for the hostels in group 2), attendance, awards, course file,
+  programs, students, weekly test. Kept in code: notices, HOD links, social icons, sidebar. Not wrapped: question
+  bank (no text), `staff.jsp` (no route), `principal.jsp` (faculty profile shortcut `/department/ece/principal`,
+  profile data later from the faculty record, findings §4.4). Adding or renaming a lab still needs a code change
+  (or a page block below the page). HOD: `hodeee` (also eee and ecevlsi).
+  Test: `PageTextsTest.eceLabDescriptionsAreTextsInsideTheAccordion`. Snapshot compare: ECE pages byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

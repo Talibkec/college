@@ -12,7 +12,7 @@
         <div class="row">
 
                 <jsp:include page="../sidebars/eeesidebar.jsp"/>          <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>Updated Soon&#8230;</p>
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.eee.programs/main" title="EEE Programs/Activities: text"><p>Updated Soon&#8230;</p></kec:section>
                 </div>
             </div>
         </div>

@@ -13,13 +13,13 @@
         <div class="md:flex justify-center">
             <jsp:include page="sidebar.jsp"/>
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><center><strong>VISION
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.eee.vision/vision" title="EEE Vision & Mission: vision"><p><center><strong>VISION
                     OF THE DEPARTMENT</strong></center></p>
 					<ul>
                     <li>To produce globally competitive and socially sensitized engineering graduates.</li>
-					<li>To excel in engineering education and research,inculcating professional ethics and emerge as a leaders in the country in the field of electrical and electronics engineering.</li></ul>
+					<li>To excel in engineering education and research,inculcating professional ethics and emerge as a leaders in the country in the field of electrical and electronics engineering.</li></ul></kec:section>
                     <p>&nbsp;</p></div>
-                    <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><center><strong>MISSION
+                    <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.eee.vision/mission" title="EEE Vision & Mission: mission"><p><center><strong>MISSION
                     OF THE DEPARTMENT</strong></center></p>
                     <ul>
                         <li>To assimilate the students with research and innovation to be an effective Engineer.
@@ -27,7 +27,7 @@
                         <li>To prepare students senstive to social issues and committed to professional ethics.
                         </li>
 
-                    </ul>
+                    </ul></kec:section>
 
                 </div>
             </div>

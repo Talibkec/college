@@ -65,9 +65,9 @@
     <div class="md:w-2/3 px-4 mt-6 md:mt-0">
         <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
-                <h3 class="text-2xl font-bold mb-4">Introduction</h3>
+                <kec:section key="department.eee.about/intro" title="About EEE: introduction"><h3 class="text-2xl font-bold mb-4">Introduction</h3>
                 <p>Electrical engineering is a professional engineering discipline that generally deals with the study and application of electricity, electronics, and electromagnetism. Electrical engineering has now subdivided into a wide range of subfields including electronics, digital computers, computer engineering, power engineering, telecommunications, control systems, radiofrequency engineering, signal processing, instrumentation, and microelectronics. Many of these subdisciplines overlap with other engineering branches, spanning a huge number of specializations such as hardware engineering, power electronics, electromagnetics & waves, microwave engineering, nanotechnology, electrochemistry, renewable energies, mechatronics, electrical materials science, and much more. Electrical engineering branch is basically pillar of all branch. It gives energy to drive all engineering equipment.</p>
-                <p>The Department of Electronics and Electrical Engineering of Katihar College of Engineering, Katihar is ready to prepare well qualified, motivated, application oriented young and dynamic EEE graduates under the guidance of highly qualified faculties who inspire students, ignite students’ imagination and enrich them with their priceless knowledge and experience.</p>
+                <p>The Department of Electronics and Electrical Engineering of Katihar College of Engineering, Katihar is ready to prepare well qualified, motivated, application oriented young and dynamic EEE graduates under the guidance of highly qualified faculties who inspire students, ignite students&rsquo; imagination and enrich them with their priceless knowledge and experience.</p></kec:section>
             </div>
         </div>
     </div>

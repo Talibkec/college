@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 114);
+        assertTrue("page texts found: " + count, count >= 124);
     }
 
     @Test
@@ -304,6 +304,21 @@ public class PageTextsTest extends AbstractAppTest {
         assertFalse(changed.body().contains("is a 2-year program"));
         assertEquals("ECE about unchanged", ece, anonymous().get("/department/ece/about").body());
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
+    }
+
+    /** EEE site: SubAdmin changes the lab list; the about apostrophe is an entity now (was mojibake). */
+    @Test
+    public void eeeTextsAreEditableByTheDepartmentArea() throws Exception {
+        long labs = sectionId("department.eee.labs", "main");
+        assertEquals("department.eee", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, labs));
+        assertContains("apostrophe as entity", anonymous().get("/department/eee/about"), "ignite students&rsquo; imagination");
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("EEE texts listed", sub.get("/manage/blocks?page=department.eee.labs"), "EEE Labs: laboratory list");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(labs), "html", "<ol><li>" + TestData.MARK + " eee lab</li></ol>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/eee/labs");
+        assertContains("new lab list", changed, "<li>" + TestData.MARK + " eee lab</li>");
+        assertFalse(changed.body().contains("Basic Electrical Engineering Lab"));
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + labs).status);
     }
 
     @Test

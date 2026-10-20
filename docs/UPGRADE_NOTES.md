@@ -502,6 +502,11 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   M.Tech. instead of B.Tech.), own rows and area `department.ecevlsi`, so the two sites are edited separately.
   Same exclusions as ECE. HOD: `hodeee`.
   Test: `PageTextsTest.eceVlsiTextsAreSeparateFromEce`. Snapshot compare: ECE-VLSI pages byte-identical.
+* **EEE** (10 texts): about introduction, vision, mission, lab list, attendance, awards, course file, programs,
+  students, weekly test. Same exclusions as ECE (question bank, `staff.jsp`, principal profile shortcut, notices,
+  social icons, sidebar). About: raw curly apostrophe (shown as mojibake "studentsâ€™") replaced by `&rsquo;`.
+  HOD: `hodeee`. Test: `PageTextsTest.eeeTextsAreEditableByTheDepartmentArea`. Snapshot compare: byte-identical
+  except the apostrophe.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

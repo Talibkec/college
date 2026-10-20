@@ -14,7 +14,7 @@
             <jsp:include page="sidebar.jsp"/>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p>Updated Soon&#8230;</p>
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.ash.awards/main" title="ASH Awards: text"><p>Updated Soon&#8230;</p></kec:section>
                 </div>
             </div>
         </div>

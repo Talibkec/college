@@ -478,6 +478,11 @@ Area `department.<site>` (SubAdmin, HOD of the site: edit; Faculty of the depart
   later, findings §4.4), the sidebar, the lab-documents iframe. Not wrapped: question bank (empty table remnant, no
   text; documents later, D5), `staff.jsp` (no route, unreachable), notice page (database).
   Test: `PageTextsTest.cseTextsAreEditableByTheDepartmentArea`. Snapshot compare: CSE pages byte-identical.
+* **ASH** (8 texts): about introduction, vision & mission, lab list, awards, course file, programs, students, weekly
+  test. Kept in code / not wrapped as for CSE (question bank, unrouted `staff.jsp`, notices). `attendace.jsp` (typo)
+  is not wrapped: `/department/ash/attendance` answered 404 before and still does (fixing it would be a behaviour
+  change). Vision: raw bullet (shown as mojibake "â€¢") replaced by `&bull;`.
+  Test: `PageTextsTest.ashTextsBelongToTheAshArea`. Snapshot compare: byte-identical except the vision bullet.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

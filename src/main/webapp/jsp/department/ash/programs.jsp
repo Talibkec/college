@@ -11,7 +11,7 @@
 
         <div class="row">
             <jsp:include page="sidebar.jsp"/>
-            <div class="col-md-8"><p><strong>Updated Soon &#8230</strong></p></div>
+            <div class="col-md-8"><kec:section key="department.ash.programs/main" title="ASH Programs/Activities: text"><p><strong>Updated Soon &#8230</strong></p></kec:section></div>
         </div>
     </div>
 

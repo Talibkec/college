@@ -63,7 +63,7 @@
        <div class="md:w-2/3 px-4 mt-6 md:mt-0">
            <div class="bg-white p-6 rounded-lg shadow">
                <div class="text-justify text-lg font-light leading-relaxed">
-                   <div id="ctl00_ContentPlaceHolder1_div_1">
+                   <kec:section key="department.ash.about/intro" title="About ASH: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                        <p><strong class="text-3xl font-bold">INTRODUCTION</strong></p>
                        <p>This department deals with all the basic concepts required to excel in the field of engineering. All the concepts of science, mathematics, humanities, and management are revisited, recalled, and interpreted to ease the understanding required to excel in the field.</p>
                        <p>The department teaches subjects such as Chemistry, English, Mathematics, and Physics in the B.Tech programs. There are a number of well-qualified and experienced faculty members available to serve the department.</p>
@@ -76,7 +76,7 @@
                        </ul>
                        <p>This section deals with concepts such as semiconductor physics, optics, electrostatics, modern physics, solutions and their colligative properties, polymers, and practical aspects such as titration of chemicals, testing the pH value of solutions, and many more.</p>
                        <p>Applied Mathematics offers courses to undergraduate and postgraduate students of various engineering disciplines. The syllabi have been designed in the areas of applied mathematics, computational techniques, and statistical testing to impart a sound knowledge of the various mathematical tools used and their applications in the engineering disciplines.</p>
-                   </div>
+                   </div></kec:section>
                </div>
            </div>
        </div>

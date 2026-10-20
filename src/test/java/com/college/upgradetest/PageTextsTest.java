@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 71);
+        assertTrue("page texts found: " + count, count >= 79);
     }
 
     @Test
@@ -214,6 +214,21 @@ public class PageTextsTest extends AbstractAppTest {
         assertEquals("original restored byte for byte", before, anonymous().get("/department/cse/about").body());
         assertEquals("faculty adds blocks only", 403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
         assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + sectionId("department.cse.labs", "main")).status);
+    }
+
+    /** ASH site: its own area (CSE Faculty may not touch it); the vision bullet is an entity now (was mojibake). */
+    @Test
+    public void ashTextsBelongToTheAshArea() throws Exception {
+        long vision = sectionId("department.ash.vision", "main");
+        assertEquals("department.ash", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, vision));
+        assertContains("bullet as entity", anonymous().get("/department/ash/vision"), "1.&bull;\tTo cater students");
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("ASH texts listed", sub.get("/manage/blocks?page=department.ash.labs"), "ASH Labs: laboratory list");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(sectionId("department.ash.labs", "main")), "html",
+                "<ol><li>" + TestData.MARK + " ash lab</li></ol>", "visible", "on");
+        assertContains("new lab list", anonymous().get("/department/ash/labs"), "<li>" + TestData.MARK + " ash lab</li>");
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
+        assertEquals("still 404 (attendace.jsp)", 404, anonymous().get("/department/ash/attendance").status);
     }
 
     @Test

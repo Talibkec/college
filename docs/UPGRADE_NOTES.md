@@ -507,6 +507,12 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   social icons, sidebar). About: raw curly apostrophe (shown as mojibake "studentsâ€™") replaced by `&rsquo;`.
   HOD: `hodeee`. Test: `PageTextsTest.eeeTextsAreEditableByTheDepartmentArea`. Snapshot compare: byte-identical
   except the apostrophe.
+* **Food Processing** (9 texts): about introduction, vision (today only the heading "Vision of the Department"),
+  labs (today only the heading "Departmental Laboratories"), attendance, awards, course file, programs, students,
+  weekly test; the HOD can now fill in the empty pages. Kept in code: notices, HOD links, social icons, both
+  sidebars (`sidebar.jsp`, `fpsidebar.jsp`). Not wrapped: question bank (no text), `staff.jsp` (no route).
+  HOD: `hodfood`. `department_site.dept_id` is empty for fp, so no Faculty account has the fp scope (findings §7).
+  Test: `PageTextsTest.foodProcessingVisionCanBeFilledIn`. Snapshot compare: FP pages byte-identical.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

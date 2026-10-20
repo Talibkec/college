@@ -12,7 +12,7 @@
 
         <jsp:include page="fpsidebar.jsp"/>
 
-            <div><p><strong>Updated Soon &#8230</strong></p></div>
+            <div><kec:section key="department.fp.students/main" title="Food Processing Students: text"><p><strong>Updated Soon &#8230</strong></p></kec:section></div>
         </div>
     </div>
     </div>

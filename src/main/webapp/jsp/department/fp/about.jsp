@@ -68,7 +68,7 @@
         <div class="md:w-2/3 px-4 mt-6 md:mt-0">
             <div class="bg-white p-6 rounded-lg shadow">
                 <div class="text-justify text-lg font-light leading-relaxed">
-                    <div id="ctl00_ContentPlaceHolder1_div_1">
+                    <kec:section key="department.fp.about/intro" title="About Food Processing: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                         <h3 class="text-3xl font-bold mb-4">Introduction</h3>
                         <p>
                             Food Processing Engineering is a specialized field within engineering that focuses on the transformation of raw food ingredients into finished products that are safe, nutritious, and appealing. This discipline integrates principles from various engineering and scientific fields, including chemical engineering, mechanical engineering, and microbiology, to optimize and innovate food processing techniques. Key areas covered in Food Processing Engineering programs include:
@@ -87,7 +87,7 @@
                         <p>
                             The Department of Food Processing Engineering at Katihar Engineering College, Katihar, is dedicated to preparing highly skilled, motivated, and application-oriented graduates. The department is guided by a team of highly qualified faculty members who inspire students, stimulate their creativity, and impart valuable knowledge and experience. Faculty members are actively involved in research in areas such as Food Safety and Quality, Sustainable Food Processing, Food Biotechnology, and Innovative Packaging Solutions. The management ensures rigorous oversight of faculty performance and encourages participation in workshops, seminars, conferences, and professional development programs.
                         </p>
-                    </div>
+                    </div></kec:section>
                 </div>
             </div>
         </div>

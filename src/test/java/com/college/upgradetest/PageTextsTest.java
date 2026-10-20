@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 124);
+        assertTrue("page texts found: " + count, count >= 133);
     }
 
     @Test
@@ -319,6 +319,21 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("new lab list", changed, "<li>" + TestData.MARK + " eee lab</li>");
         assertFalse(changed.body().contains("Basic Electrical Engineering Lab"));
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + labs).status);
+    }
+
+    /** Food Processing: the vision page (today only a heading) can be filled in through the screen. */
+    @Test
+    public void foodProcessingVisionCanBeFilledIn() throws Exception {
+        long vision = sectionId("department.fp.vision", "main");
+        assertEquals("department.fp", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, vision));
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("FP texts listed", sub.get("/manage/blocks?page=department.fp.vision"), "Food Processing Vision &amp; Mission: text");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(vision), "html",
+                body(vision) + "<p>" + TestData.MARK + " fp vision</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/fp/vision");
+        assertContains("heading kept", changed, "Vision of the Department");
+        assertContains("new text", changed, "<p>" + TestData.MARK + " fp vision</p>");
+        assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + vision).status);
     }
 
     @Test

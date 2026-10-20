@@ -12,8 +12,8 @@
         <jsp:include page="fpsidebar.jsp"/>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><span
-                        style="color: #0000ff;"><strong>Departmental Laboratories</strong></span></p>
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.fp.labs/main" title="Food Processing Labs: laboratory list"><p><span
+                        style="color: #0000ff;"><strong>Departmental Laboratories</strong></span></p></kec:section>
 
                 </div>
             </div>

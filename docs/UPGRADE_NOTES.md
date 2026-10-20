@@ -471,6 +471,14 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   `link_item` lists planned in findings §4.1), so all home texts are on one screen.
 * Test: `PageTextsTest.homeTextsAreEditableByTheHomeArea`. Snapshot compare: home page byte-identical.
 
+### 10.7e Existing page texts editable (group 6: department sites, one site per commit)
+Area `department.<site>` (SubAdmin, HOD of the site: edit; Faculty of the department: add page blocks only).
+* **CSE** (9 texts): about introduction, vision & mission, lab list, attendance, awards, course file, programs,
+  students, weekly test. Kept in code: notices and the HOD upload/delete links, the social icons (one shared list
+  later, findings §4.4), the sidebar, the lab-documents iframe. Not wrapped: question bank (empty table remnant, no
+  text; documents later, D5), `staff.jsp` (no route, unreachable), notice page (database).
+  Test: `PageTextsTest.cseTextsAreEditableByTheDepartmentArea`. Snapshot compare: CSE pages byte-identical.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

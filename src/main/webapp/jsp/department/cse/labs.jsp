@@ -12,7 +12,7 @@
         <jsp:include page="sidebar.jsp"/>
 
             <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><p><span
+                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.cse.labs/main" title="CSE Labs: laboratory list"><p><span
                         style="color: #0000ff;"><strong>Departmental Laboratories</strong></span></p>
                     <ol>
 
@@ -23,7 +23,7 @@
 						<li>Introduction to Java Programming Language</li>
 						<li>DataBase Management Systems</li>
 						<li>Operating Systems</li>
-                    </ol>
+                    </ol></kec:section>
                 </div>
             </div>
         </div>

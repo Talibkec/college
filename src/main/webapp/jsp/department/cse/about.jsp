@@ -67,7 +67,7 @@
     <div class="md:w-2/3 px-4 mt-6 md:mt-0">
         <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
-                <div id="ctl00_ContentPlaceHolder1_div_1">
+                <kec:section key="department.cse.about/intro" title="About CSE: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
                     <p><strong class="text-3xl font-bold">INTRODUCTION</strong></p>
                     <p>Computer Science and Engineering is a sub-field of electronics engineering that covers only digital aspects of electronics engineering like computer architecture, processor designing, computer networks, etc. This department integrates the fields of computer engineering and computer science. CSE programs include core subjects of computer science such as:</p>
                     <ul class="list-disc pl-6">
@@ -79,7 +79,7 @@
                     </ul>
                     <p>CSE branch is highly demanding and fastest growing subject. It will make human life better than ever before and that's why a whole world has entered into new race named, "Development of computer technology". As a contribution to this race Katihar college of Engineering has established a department of computer science and engineering from the academic session 2016/17. The department offers Btech programme with the annual intake of 60 students and are working to increase the intake capabilities.</p>
                     <p>The Department of Computer Science and Engineering of Katihar Engineering College, Katihar is ready to prepare well qualified, motivated, application oriented young and dynamic Computer Science graduates under the guidance of highly qualified faculties who inspire students, ignite students' imagination and enrich them with their priceless knowledge and experience. The faculty of the Department are actively engaged in research in the areas of Data & Knowledge Management, Software Engineering, Image Processing, Cryptography, Data Mining, and Artificial Intelligence. Management keeps strong check on faculties and provoke them to attend workshops, seminars, conferences and faculty development program.</p>
-                </div>
+                </div></kec:section>
             </div>
         </div>
     </div>

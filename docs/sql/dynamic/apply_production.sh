@@ -70,7 +70,7 @@ SELECT 'content areas (31)' AS what, COUNT(*) AS found FROM content_area
 UNION ALL SELECT 'permission rows (79, more if changed on the website)', COUNT(*) FROM content_area_role
 UNION ALL SELECT 'department sites (10)', COUNT(*) FROM department_site
 UNION ALL SELECT 'site settings (15 or more)', COUNT(*) FROM site_setting
-UNION ALL SELECT 'page texts (62 or more)', COUNT(*) FROM page_section
+UNION ALL SELECT 'page texts (71 or more)', COUNT(*) FROM page_section
 UNION ALL SELECT 'links (129 or more)', COUNT(*) FROM link_item
 UNION ALL SELECT 'page block tables (2)', COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name IN ('page_block', 'content_file');"
 run -t -e "SELECT setting_value AS 'main menu from database (no)' FROM site_setting WHERE setting_key = 'links.main_menu.enabled';

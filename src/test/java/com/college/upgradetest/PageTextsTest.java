@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Existing texts of the pages made editable (&lt;kec:section&gt; + docs/sql/dynamic/15_page_section_pages_seed.sql,
- * Academic, Facilities, T&amp;P, Approval, RTI, Legal and Home pages), the button bar of the content screens and the header's "Website Content" link.
+ * Academic, Facilities, T&amp;P, Approval, RTI, Legal, Home and department pages), the button bar of the content screens and the header's "Website Content" link.
  * Changed texts are restored through the screen afterwards ("restore the original text").
  */
 public class PageTextsTest extends AbstractAppTest {
@@ -80,7 +80,7 @@ public class PageTextsTest extends AbstractAppTest {
                 count++;
             }
         }
-        assertTrue("page texts found: " + count, count >= 62);
+        assertTrue("page texts found: " + count, count >= 71);
     }
 
     @Test
@@ -193,6 +193,27 @@ public class PageTextsTest extends AbstractAppTest {
         sub.postForm("/manage/sections/restore", "id", String.valueOf(links), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/").body());
         assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + links).status);
+    }
+
+    /** CSE site: SubAdmin changes the introduction; notices (database) stay; CSE Faculty (add only) and TPO may not. */
+    @Test
+    public void cseTextsAreEditableByTheDepartmentArea() throws Exception {
+        long intro = sectionId("department.cse.about", "intro");
+        assertEquals("department.cse", jdbc.queryForObject("select area_code from page_section where section_id = ?", String.class, intro));
+        String before = anonymous().get("/department/cse/about").body();
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("CSE texts listed", sub.get("/manage/blocks?page=department.cse.about"), "About CSE: introduction");
+        sub.postForm("/manage/sections/save", "id", String.valueOf(intro), "html", "<p>" + TestData.MARK + " cse</p>", "visible", "on");
+        WebSession.Response changed = anonymous().get("/department/cse/about");
+        assertContains("new text", changed, "<p>" + TestData.MARK + " cse</p>");
+        assertContains("notices still there", changed, "Latest News / Updates");
+        assertFalse(changed.body().contains("Theory of computation"));
+        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
+                Long.class, String.valueOf(intro));
+        sub.postForm("/manage/sections/restore", "id", String.valueOf(intro), "logId", String.valueOf(firstLog), "before", "1");
+        assertEquals("original restored byte for byte", before, anonymous().get("/department/cse/about").body());
+        assertEquals("faculty adds blocks only", 403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
+        assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + sectionId("department.cse.labs", "main")).status);
     }
 
     @Test

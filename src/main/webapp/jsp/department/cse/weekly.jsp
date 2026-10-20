@@ -12,7 +12,7 @@
 
         <jsp:include page="sidebar.jsp"/>
 
-            <div class="col-md-8"><p><strong>Updated Soon &#8230</strong></p></div>
+            <div class="col-md-8"><kec:section key="department.cse.weekly/main" title="CSE Weekly Test Result: text"><p><strong>Updated Soon &#8230</strong></p></kec:section></div>
         </div>
     </div>
 <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

@@ -70,6 +70,7 @@ SELECT COUNT(*) FROM content_area;                                   -- 31
 SELECT COUNT(*) FROM content_area_role;                              -- 79 (more if changed in /auth/roles/areas)
 SELECT name FROM test_role ORDER BY id;                              -- Admin, Faculty, SM, HOD, SK + 12 new roles
 SELECT COUNT(*) FROM department_site;                                -- 10
+SELECT site_code, hod_username FROM department_site ORDER BY sort_order;  -- HOD account per branch (change it in /auth/roles)
 SELECT COUNT(*) FROM site_setting;                                   -- 15
 SELECT COUNT(*) FROM page_section;                                   -- 160 (5 About + 16 Academic + 19 Facilities + 11 T&P/Approval/RTI + 5 Legal + 6 Home + 9 CSE + 8 ASH + 9 Civil + 13 ECE + 13 ECE-VLSI + 10 EEE + 9 FP + 9 Manufacturing + 9 MSM + 9 Mechanical; grows with each group of pages)
 SELECT list_code, COUNT(*) FROM link_item GROUP BY list_code;        -- 10 lists, 129 entries in total
@@ -103,13 +104,13 @@ with the tables.
 | `02_page_section.sql` | new table `page_section` | page texts (step 6) |
 | `03_link_item.sql` | new table `link_item` | menus, link lists, sidebars (steps 4-5) |
 | `04_contact_person.sql` … `06_fee_item.sql` | new tables `contact_person`, `site_image`, `fee_item` | later steps (people, images, fees) |
-| `07_department_site.sql` | new table `department_site` | department scope of HOD/Faculty; later the departments step |
+| `07_department_site.sql` | new table `department_site` | department scope of HOD/Faculty; `hod_username` is set on `/auth/roles` (HOD part); later the departments step |
 | `08_notice_type.sql`, `09_sms_group.sql` | new tables | later steps |
 | `10_content_area.sql` | new tables `content_area`, `content_area_role` | roles and permissions (step 2) |
 | `11_document_type.sql` | new table | document pages (later) |
 | `12_content_change_log.sql` | new table | history of all changes (step 2) |
 | `13_content_file.sql` | new table `content_file` | uploaded images/documents of page blocks |
-| `14_page_block.sql` | new table `page_block` | headings, text, images, documents added to pages |
+| `14_page_block.sql` | new table `page_block` | headings, text, images, documents (attachments) and links added to pages (`block_type` `link`: text in `heading`, address in `body_html`) |
 | `10_roles_seed.sql` | 12 new rows in the existing table `test_role` | roles |
 | `10_content_area_seed.sql` | 31 areas + permission matrix | roles |
 | `07_department_site_seed.sql` | the 10 department sites (department id, HOD account) | department scope |
@@ -153,7 +154,9 @@ with the tables.
 | 2026-10-20 | existing page texts: Food Processing site (`784b5c9`) | 9 new `page_section` rows (9 FP pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
 | 2026-10-20 | existing page texts: Manufacturing site (`546c4d8`) | 9 new `page_section` rows (9 Manufacturing pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
 | 2026-10-20 | existing page texts: Mechanical & Smart Manufacturing site (`dddf0c8`) | 9 new `page_section` rows (9 MSM pages); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
-| 2026-10-20 | existing page texts: Mechanical site | 9 new `page_section` rows (9 Mechanical pages, about = `department.mechanical.mech`); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
+| 2026-10-20 | existing page texts: Mechanical site (`8eded8f`) | 9 new `page_section` rows (9 Mechanical pages, about = `department.mechanical.mech`); no schema change. Production: run `15_page_section_pages_seed.sql` again or `apply_production.sh` | `15_page_section_pages_seed.sql` |
+| 2026-10-28 | HOD assignment on `/auth/roles` (`1a9f369`) | **no database change.** The screen writes `department_site.hod_username` and `user_role` (rows of existing tables, logged in `content_change_log`). Needs only `07_department_site.sql` + seed, which are already part of the scripts. After deploying: Admin checks the HOD per branch in `/auth/roles` | – (nothing to run) |
+| 2026-10-28 | content editor: add buttons, link blocks, richer editor (`a7f26e2`) | **no database change.** New value `link` in the existing column `page_block.block_type` (VARCHAR); only the comment in `14_page_block.sql` changed (the table is unchanged, re-running it does nothing). Font size/colour/alignment are stored as inline styles in existing HTML columns | – (nothing to run) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

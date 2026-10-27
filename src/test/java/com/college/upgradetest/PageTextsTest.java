@@ -261,6 +261,38 @@ public class PageTextsTest extends AbstractAppTest {
         }
     }
 
+    /** /academic/lab?dept_id=n is one page per department: the HOD of CSE edits the CSE lab page (1), not Civil's (2). */
+    @Test
+    public void hodEditsTheLabPageOfOwnDepartment() throws Exception {
+        String hodOfCse = jdbc.queryForObject("select hod_username from department_site where site_code = 'cse'", String.class);
+        jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", TestData.HOD.username);
+        try {
+            WebSession hod = loginAs(TestData.HOD);
+            WebSession.Response lab = hod.get("/academic/lab?dept_id=1");
+            assertContains("add buttons on the own lab page", lab, "href=\"/manage/blocks?page=academic.lab.1&add=text#form\"");
+            assertContains("lab document upload", lab, "href=\"/auth/uploadLabDoc\"");
+            assertFalse("not on Civil's lab page", hod.get("/academic/lab?dept_id=2").body().contains("page-blocks-add"));
+            assertEquals("page opened by its address", "/manage/blocks?page=academic.lab.1",
+                    hod.get("/manage/blocks?url=" + java.net.URLEncoder.encode("/academic/lab?dept_id=1", "UTF-8")).redirectPath());
+            assertContains("page link", hod.get("/manage/blocks?page=academic.lab.1"), "href=\"/academic/lab?dept_id=1\"");
+            assertEquals("other department", 403, hod.get("/manage/blocks?page=academic.lab.2").status);
+
+            hod.postMultipart("/manage/blocks/save", java.util.Map.of("page", "academic.lab.1", "type", "text",
+                    "html", "<p>" + TestData.MARK + " cse lab</p>", "visible", "on"), java.util.Collections.emptyMap());
+            assertEquals("department.cse", jdbc.queryForObject("select area_code from page_block where page_key = 'academic.lab.1' "
+                    + "and created_by = ?", String.class, TestData.HOD.username));
+            assertContains("shown on the CSE lab page", anonymous().get("/academic/lab?dept_id=1"), TestData.MARK + " cse lab");
+            assertFalse("not on Civil's", anonymous().get("/academic/lab?dept_id=2").body().contains(TestData.MARK + " cse lab"));
+        } finally {
+            jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", hodOfCse);
+            WebSession admin = loginAs(TestData.ADMIN); // through the app, so its block cache is refreshed
+            for (Long id : jdbc.queryForList("select block_id from page_block where page_key = 'academic.lab.1' and created_by = ?",
+                    Long.class, TestData.HOD.username)) {
+                admin.postForm("/manage/blocks/delete", "page", "academic.lab.1", "blockId", String.valueOf(id));
+            }
+        }
+    }
+
     /** Civil site: SubAdmin changes the lab list; the share links above the attendance text stay in code. */
     @Test
     public void civilTextsAreEditableByTheDepartmentArea() throws Exception {

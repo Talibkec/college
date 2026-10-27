@@ -27,7 +27,7 @@ public class BlocksTag extends SimpleTagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         Object forwarded = request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI);
         String uri = forwarded != null ? forwarded.toString() : request.getRequestURI();
-        String pageKey = PageKeys.fromPath(uri.substring(request.getContextPath().length()));
+        String pageKey = PageKeys.fromPath(uri.substring(request.getContextPath().length()), request.getParameter("dept_id"));
         if (pageKey == null || PageKeys.area(pageKey) == null) {
             return;
         }

@@ -10,7 +10,16 @@
         .kec-blocks .kec-text table td, .kec-blocks .kec-text table th { border: 1px solid #d1d5db; padding: .25rem .5rem; }
     </style>
     <c:if test="${pageBlocksEditor}">
-        <div class="text-right mb-2"><a href="/manage/blocks?page=${pageBlocksKey}" class="text-sm text-blue-600 hover:underline" id="edit-page-blocks"><i class="fa fa-edit"></i> Edit this page (its text, or add headings, text, images, attachments, links)</a></div>
+        <div class="flex flex-wrap items-center justify-end gap-2 mb-2 text-sm" id="page-blocks-add">
+            <span class="font-semibold">Add to this page:</span>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=heading#form"><i class="fa fa-header"></i> Heading</a>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=subheading#form"><i class="fa fa-header"></i> Subheading</a>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=text#form"><i class="fa fa-paragraph"></i> Text</a>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=image#form"><i class="fa fa-image"></i> Image</a>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=document#form"><i class="fa fa-paperclip"></i> Attachment</a>
+            <a target="_top" class="px-2 py-1 border rounded bg-white" href="/manage/blocks?page=${pageBlocksKey}&add=link#form"><i class="fa fa-link"></i> Link</a>
+            <a target="_top" href="/manage/blocks?page=${pageBlocksKey}" class="text-blue-600 hover:underline" id="edit-page-blocks"><i class="fa fa-edit"></i> Edit this page (its text and added content)</a>
+        </div>
     </c:if>
     <c:forEach var="b" items="${pageBlocks}">
         <c:choose>

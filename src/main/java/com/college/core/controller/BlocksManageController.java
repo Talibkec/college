@@ -42,7 +42,8 @@ public class BlocksManageController {
                                @RequestParam(value = "edit", required = false) Long edit,
                                @RequestParam(value = "saved", required = false) String saved) throws IOException {
         if (page == null && url != null) {
-            String key = PageKeys.fromPath(path(url));
+            java.util.regex.Matcher deptId = java.util.regex.Pattern.compile("[?&]dept_id=([0-9]+)").matcher(url);
+            String key = PageKeys.fromPath(path(url), deptId.find() ? deptId.group(1) : null);
             if (key == null || pageBlockService.access(authentication, key) == null) {
                 ModelAndView mv = new ModelAndView("manage/blocks.jsp");
                 mv.addObject("pages", pageBlockService.pagesWithBlocks(authentication));

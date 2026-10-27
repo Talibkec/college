@@ -561,6 +561,22 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
 * Tests: `PageBlocksTest.linksAreAddedWithACheckedAddress`, `PageTextsTest.hodChangesOnlyTheTextsOfOwnDepartment`
   (add buttons in the section editor).
 
+### 10.7h Department lab pages editable by the department; add buttons on every page
+* `/academic/lab?dept_id=<n>` is one shared JSP for all departments. Its page key ignored `dept_id`, so every lab page
+  was `academic.lab` in the area `facilities` and the HOD/Faculty of the department could not add anything there.
+  Now the key is `academic.lab.<n>` and the area is the department: 1 → `department.cse`, 2 → civil, 3 → mechanical,
+  4 → eee (ECE/ECE-VLSI sidebars link to 4 as well), 5 → ash (the FP sidebar links to 5 as well), 7 → MSM; unknown
+  numbers stay `facilities`. Mapping in `PageKeys.LAB_SITES` (later `department_site.lab_dept_id`). `/manage/blocks`
+  accepts the address with `?dept_id=` and links back to it.
+* The page has no fixed text of its own except "List of Labs", so there is no page-text (section) to edit; the
+  department adds headings, text, images, attachments and links as blocks.
+* Every page: its editors now see the "Add to this page" buttons (Heading, Subheading, Text, Image, Attachment, Link)
+  directly under the content instead of only the "Edit this page" link (links open in the whole window, also inside
+  the CSE labs iframe). Anonymous visitors see no change.
+* Lab page: Admin/HOD see "Upload a lab document" (existing `/auth/uploadLabDoc`). Unchanged and noted: the existing
+  lab-document upload/delete still allows every HOD for every department (`isAdminOrHod`).
+* Test: `PageTextsTest.hodEditsTheLabPageOfOwnDepartment`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

@@ -1,7 +1,9 @@
 package com.college.core.tags;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -14,7 +16,34 @@ public final class PageKeys {
     private static final Set<String> SECTIONS = new HashSet<>(Arrays.asList("home", "about", "academic", "approval",
             "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal"));
 
+    /**
+     * The shared lab page {@code /academic/lab?dept_id=<n>} is one page per department: key {@code academic.lab.<n>},
+     * edited by that department. {@code n} is the {@code lab_document.dep_id} the department sidebars link to (findings
+     * §7: ECE/ECE-VLSI link to 4 = EEE, FP links to 5 = ASH). Moves to {@code department_site.lab_dept_id} with the
+     * departments step.
+     */
+    private static final Map<String, String> LAB_SITES = new HashMap<>();
+    private static final Pattern LAB_KEY = Pattern.compile("academic\\.lab\\.([0-9]{1,4})");
+
+    static {
+        LAB_SITES.put("1", "cse");
+        LAB_SITES.put("2", "civil");
+        LAB_SITES.put("3", "mechanical");
+        LAB_SITES.put("4", "eee");
+        LAB_SITES.put("5", "ash");
+        LAB_SITES.put("7", "mechandsmartmanufacturing");
+    }
+
     private PageKeys() {
+    }
+
+    /** Like {@link #fromPath(String)}; {@code deptId} is the request parameter {@code dept_id} (lab page only). */
+    public static String fromPath(String path, String deptId) {
+        String key = fromPath(path);
+        if ("academic.lab".equals(key) && deptId != null && deptId.matches("[0-9]{1,4}")) {
+            return key + "." + deptId;
+        }
+        return key;
     }
 
     /** The page key of a request path (without context path), or null if the path cannot have blocks. */
@@ -34,6 +63,8 @@ public final class PageKeys {
 
     /** URL of the page ("about.history" → "/about/history", "home" → "/"). */
     public static String url(String key) {
+        java.util.regex.Matcher lab = key == null ? null : LAB_KEY.matcher(key);
+        if (lab != null && lab.matches()) return "/academic/lab?dept_id=" + lab.group(1);
         return "home".equals(key) ? "/" : "/" + key.replace('.', '/');
     }
 
@@ -53,6 +84,10 @@ public final class PageKeys {
                 if (in(page, "calender", "syllabus", "attendance", "universityresults")) return "exam";
                 if (in(page, "holidays")) return "office";
                 if (in(page, "paymenttutorial")) return "fees";
+                if (in(page, "lab") && parts.length == 3) {
+                    String site = LAB_SITES.get(parts[2]);
+                    return site == null ? "facilities" : "department." + site;
+                }
                 if (in(page, "lab", "labs")) return "facilities";
                 return "academic";
             case "facilities":

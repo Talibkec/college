@@ -96,6 +96,7 @@ public class TestData {
         jdbc.update("delete from content_change_log where changed_by like ? or entity_id like ?", like, contains);
         jdbc.update("delete from content_area_role where area_code like ?", contains);
         jdbc.update("delete from content_area where area_code like ?", contains);
+        jdbc.update("update department_site set hod_username = null where hod_username like ?", like);
         jdbc.update("delete from department_site where site_code like ?", like);
         jdbc.update("delete from link_item where label like ?", like);
         jdbc.update("delete from page_block where created_by like ?", like);

@@ -7,7 +7,8 @@
         <p class="text-gray-600 mb-4">
             Website roles (SubAdmin, Registrar, TPO, ...) decide which parts of the website a user may update; see
             <a class="text-blue-600" href="/auth/roles/areas">who may edit what</a>.
-            Admin, Faculty, HOD and the store roles are not changed here (User Registration, Assign HOD Role).
+            The HOD role and the branch an HOD heads are set here too (open a user, part "HOD").
+            Admin, Faculty and the store roles are not changed here (User Registration).
         </p>
         <c:if test="${not empty saved}">
             <p class="mb-4 p-3 rounded bg-green-100 text-green-800" id="saved">Roles of <c:out value="${saved}"/> saved.</p>

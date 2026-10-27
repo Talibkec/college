@@ -2,6 +2,7 @@ package com.college.service;
 
 import com.college.core.entity.ContentArea;
 import com.college.core.entity.ContentAreaRole;
+import com.college.core.entity.DepartmentSite;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import org.springframework.stereotype.Service;
@@ -12,8 +13,9 @@ import java.util.Map;
 
 /**
  * Admin screens {@code /auth/roles}: giving users the new website roles and editing the permission matrix.
- * The existing roles (Admin, Faculty, HOD and the store roles SM/SK) are never changed here; they keep their own
- * screens (registration, HOD in-charge).
+ * Admin, Faculty and the store roles SM/SK are never changed here; they keep their own screens (registration). HOD is
+ * given together with the department site(s) the user heads ({@code department_site.hod_username}); the old
+ * {@code /auth/hodincharge} screen keeps working.
  */
 @Service
 public interface RoleAssignmentService {
@@ -31,6 +33,18 @@ public interface RoleAssignmentService {
 
     /** Sets the user's assignable roles to exactly {@code roleNames}; other roles of the user are kept. */
     void assignRoles(Long userId, Collection<String> roleNames);
+
+    /** The department sites (sorted like the menu) with their current HOD account. */
+    List<DepartmentSite> departmentSites();
+
+    /** The faculty department of the user, or {@code null} (an HOD always covers the sites of that department). */
+    Long facultyDepartmentId(String username);
+
+    /**
+     * Makes the user HOD of exactly {@code siteCodes} (the previous HOD of those sites is replaced) and gives or takes
+     * the HOD role: the user keeps or gets it when {@code hod} is set or at least one site is given.
+     */
+    void assignHod(Long userId, boolean hod, Collection<String> siteCodes);
 
     List<ContentArea> areas();
 

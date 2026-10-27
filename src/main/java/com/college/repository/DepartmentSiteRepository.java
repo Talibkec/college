@@ -11,4 +11,6 @@ public interface DepartmentSiteRepository extends JpaRepository<DepartmentSite, 
     List<DepartmentSite> findByHodUsername(String hodUsername);
 
     List<DepartmentSite> findByDeptId(Long deptId);
+
+    List<DepartmentSite> findAllByOrderBySortOrderAsc();
 }

@@ -2,10 +2,14 @@ package com.college.service;
 
 import com.college.core.entity.ContentArea;
 import com.college.core.entity.ContentAreaRole;
+import com.college.core.entity.DepartmentSite;
+import com.college.core.entity.Faculty;
 import com.college.core.entity.Role;
 import com.college.core.entity.User;
 import com.college.repository.ContentAreaRepository;
 import com.college.repository.ContentAreaRoleRepository;
+import com.college.repository.DepartmentSiteRepository;
+import com.college.repository.FacultyRepository;
 import com.college.repository.RoleRepository;
 import com.college.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -14,7 +18,8 @@ import java.util.*;
 
 @Service
 public class RoleAssignmentServiceImpl implements RoleAssignmentService {
-    /** Roles with their own screens and rules; never added or removed on /auth/roles. */
+    static final String HOD = "HOD";
+    /** Roles with their own screens and rules; never added or removed by the website-role checkboxes (HOD has its own part). */
     static final Set<String> EXISTING_ROLES = new HashSet<>(Arrays.asList("Admin", "Faculty", "HOD", "SM", "SK"));
 
     private final RoleRepository roleRepository;
@@ -22,16 +27,22 @@ public class RoleAssignmentServiceImpl implements RoleAssignmentService {
     private final ContentAreaRepository contentAreaRepository;
     private final ContentAreaRoleRepository contentAreaRoleRepository;
     private final ContentChangeLogService contentChangeLogService;
+    private final DepartmentSiteRepository departmentSiteRepository;
+    private final FacultyRepository facultyRepository;
 
     public RoleAssignmentServiceImpl(RoleRepository roleRepository, UserRepository userRepository,
                                      ContentAreaRepository contentAreaRepository,
                                      ContentAreaRoleRepository contentAreaRoleRepository,
-                                     ContentChangeLogService contentChangeLogService) {
+                                     ContentChangeLogService contentChangeLogService,
+                                     DepartmentSiteRepository departmentSiteRepository,
+                                     FacultyRepository facultyRepository) {
         this.roleRepository = roleRepository;
         this.userRepository = userRepository;
         this.contentAreaRepository = contentAreaRepository;
         this.contentAreaRoleRepository = contentAreaRoleRepository;
         this.contentChangeLogService = contentChangeLogService;
+        this.departmentSiteRepository = departmentSiteRepository;
+        this.facultyRepository = facultyRepository;
     }
 
     @Override
@@ -102,6 +113,52 @@ public class RoleAssignmentServiceImpl implements RoleAssignmentService {
         userRepository.save(user);
         contentChangeLogService.record("system", "user_role", user.getUsername(), "update",
                 String.join(",", before), String.join(",", after));
+    }
+
+    @Override
+    public List<DepartmentSite> departmentSites() {
+        return departmentSiteRepository.findAllByOrderBySortOrderAsc();
+    }
+
+    @Override
+    public Long facultyDepartmentId(String username) {
+        Faculty faculty = username == null ? null : facultyRepository.findFacltyByUserName(username);
+        return faculty == null ? null : faculty.getDepartmentId();
+    }
+
+    @Override
+    public void assignHod(Long userId, boolean hod, Collection<String> siteCodes) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("No user " + userId));
+        String username = user.getUsername();
+        Set<String> wanted = siteCodes == null ? Collections.emptySet() : new HashSet<>(siteCodes);
+        boolean holdsHod = hod || !wanted.isEmpty();
+        for (DepartmentSite site : departmentSites()) {
+            String before = site.getHodUsername();
+            boolean mine = username.equals(before);
+            boolean pick = holdsHod && wanted.contains(site.getSiteCode());
+            if (pick == mine) {
+                continue;
+            }
+            site.setHodUsername(pick ? username : null);
+            departmentSiteRepository.save(site);
+            contentChangeLogService.record("system", "department_site_hod", site.getSiteCode(), "update",
+                    before, site.getHodUsername());
+        }
+
+        Set<Role> roles = user.getRoles() == null ? new HashSet<>() : user.getRoles();
+        boolean held = roles.stream().anyMatch(role -> HOD.equals(role.getName()));
+        if (held == holdsHod) {
+            return;
+        }
+        if (holdsHod) {
+            roles.add(roleRepository.getHodRoleByName(HOD));
+        } else {
+            roles.removeIf(role -> HOD.equals(role.getName()));
+        }
+        user.setRoles(roles);
+        userRepository.save(user);
+        contentChangeLogService.record("system", "user_role", username, "update",
+                held ? HOD : "", holdsHod ? HOD : "");
     }
 
     @Override

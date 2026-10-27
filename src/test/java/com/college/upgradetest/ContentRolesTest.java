@@ -17,6 +17,7 @@ public class ContentRolesTest extends AbstractAppTest {
     private static final String AREA = TestData.MARK + "_area";
     private static final String SITE = TestData.MARK + "_site";
     private static final String OTHER_SITE = TestData.MARK + "_other";
+    private static final String HOD_SITE = TestData.MARK + "_hodsite";
 
     private static String tile(String areaCode) {
         return "data-area=\"" + areaCode + "\"";
@@ -107,6 +108,37 @@ public class ContentRolesTest extends AbstractAppTest {
 
         assertEquals(302, admin.postForm("/auth/roles/user/" + facultyUserId).status);
         assertEquals(java.util.Collections.singletonList("Faculty"), roleNames(TestData.FACULTY.username));
+    }
+
+    @Test
+    public void adminAssignsAndRemovesTheHodOfABranch() throws Exception {
+        jdbc.update("insert into department_site (site_code, dept_id, full_name, short_name, menu_group, about_path, hod_username, sort_order) "
+                + "values (?, 999999, 'Test branch', 'TB', 'UG', '/x', 'nobody', 9990)", HOD_SITE);
+        long facultyUserId = data.userId(TestData.FACULTY.username);
+        WebSession admin = loginAs(TestData.ADMIN);
+        WebSession.Response form = admin.get("/auth/roles/user/" + facultyUserId);
+        assertCompletePage("user form", form);
+        assertContains("branch list", form, "name=\"hodSite\" value=\"" + HOD_SITE + "\"");
+        assertContains("current HOD", form, "HOD: nobody");
+
+        // ticking a branch gives the HOD role and replaces the previous HOD of that branch
+        WebSession.Response save = admin.postForm("/auth/roles/user/" + facultyUserId, "hodSection", "1", "hodSite", HOD_SITE);
+        assertEquals(302, save.status);
+        assertEquals(java.util.Arrays.asList("Faculty", "HOD"), roleNames(TestData.FACULTY.username));
+        assertEquals(TestData.FACULTY.username, jdbc.queryForObject("select hod_username from department_site where site_code = ?",
+                String.class, HOD_SITE));
+        assertEquals("change logged", 1, (int) jdbc.queryForObject("select count(*) from content_change_log where entity = 'department_site_hod' "
+                + "and entity_id = ? and old_value = 'nobody' and changed_by = ?", Integer.class, HOD_SITE, TestData.ADMIN.username));
+        assertContains("HOD of the branch", loginAs(TestData.FACULTY).get("/hod/hodDashboard"), "href=\"/manage\"");
+
+        // a post without the HOD part (old form) leaves the HOD role alone
+        admin.postForm("/auth/roles/user/" + facultyUserId, "role", "Librarian");
+        assertEquals(java.util.Arrays.asList("Faculty", "HOD", "Librarian"), roleNames(TestData.FACULTY.username));
+
+        // unticking HOD and the branch takes both away
+        admin.postForm("/auth/roles/user/" + facultyUserId, "hodSection", "1");
+        assertEquals(java.util.Collections.singletonList("Faculty"), roleNames(TestData.FACULTY.username));
+        assertEquals(null, jdbc.queryForObject("select hod_username from department_site where site_code = ?", String.class, HOD_SITE));
     }
 
     @Test

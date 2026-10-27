@@ -44,17 +44,26 @@ public class RoleAdminController {
         mv.addObject("user", user);
         mv.addObject("held", held);
         mv.addObject("assignableRoles", roleAssignmentService.assignableRoles());
+        mv.addObject("departmentSites", roleAssignmentService.departmentSites());
+        mv.addObject("ownDeptId", roleAssignmentService.facultyDepartmentId(user.getUsername()));
         return mv;
     }
 
+    /** The HOD part is applied only when the form sends {@code hodSection} (the HOD checkbox and the {@code hodSite}s). */
     @PostMapping("/auth/roles/user/{userId}")
     public String saveUser(@PathVariable("userId") Long userId,
-                           @RequestParam(value = "role", required = false) List<String> roles) {
+                           @RequestParam(value = "role", required = false) List<String> roles,
+                           @RequestParam(value = "hodSection", required = false) String hodSection,
+                           @RequestParam(value = "hod", required = false) String hod,
+                           @RequestParam(value = "hodSite", required = false) List<String> hodSites) {
         User user = roleAssignmentService.user(userId);
         if (user == null) {
             return "redirect:/auth/roles";
         }
         roleAssignmentService.assignRoles(userId, roles == null ? Collections.emptyList() : roles);
+        if (hodSection != null) {
+            roleAssignmentService.assignHod(userId, hod != null, hodSites == null ? Collections.emptyList() : hodSites);
+        }
         return "redirect:/auth/roles?saved=" + URLEncoder.encode(user.getUsername(), StandardCharsets.UTF_8);
     }
 

@@ -14,7 +14,28 @@
                     <c:out value="${role.name}"/>
                 </label>
             </c:forEach>
-            <p class="text-sm text-gray-500">Admin, Faculty, HOD and the store roles stay as they are.</p>
+            <p class="text-sm text-gray-500">Admin, Faculty and the store roles stay as they are.</p>
+
+            <div class="border-t pt-4 mt-4" id="hod">
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">HOD</h3>
+                <input type="hidden" name="hodSection" value="1">
+                <label class="block font-medium">
+                    <input type="checkbox" name="hod" value="HOD" <c:if test="${held.contains('HOD')}">checked</c:if>>
+                    HOD
+                </label>
+                <p class="text-sm text-gray-500 mb-2">HOD of the branch(es) below. Ticking a branch gives the HOD role; it
+                    replaces the current HOD of that branch. An HOD always covers the own faculty department as well.</p>
+                <c:forEach var="site" items="${departmentSites}">
+                    <label class="block">
+                        <input type="checkbox" name="hodSite" value="<c:out value='${site.siteCode}'/>" <c:if test="${site.hodUsername eq user.username}">checked</c:if>>
+                        <c:out value="${site.fullName}"/> (<c:out value="${site.shortName}"/>, <c:out value="${site.menuGroup}"/>)
+                        <span class="text-sm text-gray-500">
+                            &ndash; HOD: <c:out value="${empty site.hodUsername ? 'none' : site.hodUsername}"/>
+                            <c:if test="${not empty ownDeptId and site.deptId eq ownDeptId}">&middot; own department</c:if>
+                        </span>
+                    </label>
+                </c:forEach>
+            </div>
             <div class="flex gap-4 pt-2">
                 <button type="submit" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-md">Save</button>
                 <a href="/auth/roles" class="px-4 py-2 border rounded-md">Cancel</a>

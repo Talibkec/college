@@ -324,7 +324,7 @@ Plan and findings: **`docs/DYNAMIC_CONTENT_FINDINGS.md`**. All recommendations o
   Faculty → `department_site.dept_id` = own `faculty.dept_id`. `department_site` is still empty (seeded in the
   departments step), so HOD/Faculty get no department area yet.
 * New URLs: `/manage` (dashboard for every editor; 403 without any area), `/mydashboard` (redirects to the user's
-  landing page), Admin only: `/auth/roles` (assign the new roles; Admin/Faculty/HOD/SM/SK are never changed there),
+  landing page), Admin only: `/auth/roles` (assign the new roles; Admin/Faculty/SM/SK are never changed there; HOD + branch since §10.7f),
   `/auth/roles/user/{id}` (POST saves), `/auth/roles/areas` (permission matrix, POST saves; the `system` area cannot
   be given away). Every change is written to `content_change_log`.
 * `WebSecurityConfig`: `/manage/**` and `/mydashboard` require login; all existing rules unchanged.
@@ -530,10 +530,25 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
 * Group 6 complete: 98 texts on the 10 department sites (CSE 9, ASH 8, Civil 9, ECE 13, ECE-VLSI 13, EEE 10, FP 9,
   Manufacturing 9, MSM 9, Mechanical 9). Encoding fixes: ASH vision bullet, EEE about apostrophe.
 
+### 10.7f HOD assignment on `/auth/roles`
+* `/auth/roles/user/{id}` got a part "HOD": the HOD checkbox and one checkbox per department site (branch) with its
+  current HOD account (`department_site.hod_username`) and an "own department" hint (the user's `faculty.dept_id`).
+  Ticking a branch gives the HOD role and makes the user the HOD of that branch (the previous HOD account of that
+  branch loses only the branch, not its HOD role). Unticking HOD and all branches removes both. An HOD still covers
+  the own faculty department automatically (scope `own_department`, §10.2).
+* The form sends the marker `hodSection`; a POST without it (the old form) leaves HOD untouched. Changes are logged
+  in `content_change_log` (`department_site_hod`, `user_role`). No schema change; `DepartmentSite` maps four more
+  existing columns read-only for the list (`full_name`, `short_name`, `menu_group`, `sort_order`).
+* `/auth/hodincharge` and `/auth/hod/saveRole` are unchanged (they write `department.dept_hod`, not the branch).
+  The hard-coded `UserName eq 'hodcse'`-style delete links in some department JSPs still follow the account name.
+* Test: `ContentRolesTest.adminAssignsAndRemovesTheHodOfABranch`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
+* Assign Website Roles → a faculty account → part "HOD": tick a branch, save; log in with it → HOD dashboard, and
+  `/manage` shows that branch's department area. Untick again (and give the branch back to its old HOD account).
 * As HOD and Faculty: header "Dashboard" opens the own dashboard; landing pages after login unchanged.
 * Website Content → Site settings → "Texts": change the phone, check footer, Contact Us, refund and grievance
   pages; tick "use the page's original text" and check again; set it back.

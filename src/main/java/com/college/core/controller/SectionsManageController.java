@@ -2,6 +2,7 @@ package com.college.core.controller;
 
 import com.college.core.entity.PageSection;
 import com.college.core.tags.PageHtml;
+import com.college.service.PageBlockService;
 import com.college.service.PageSectionService;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -18,9 +19,11 @@ import java.util.List;
 @Controller
 public class SectionsManageController {
     private final PageSectionService pageSectionService;
+    private final PageBlockService pageBlockService;
 
-    public SectionsManageController(PageSectionService pageSectionService) {
+    public SectionsManageController(PageSectionService pageSectionService, PageBlockService pageBlockService) {
         this.pageSectionService = pageSectionService;
+        this.pageBlockService = pageBlockService;
     }
 
     @GetMapping("/manage/sections")
@@ -46,6 +49,7 @@ public class SectionsManageController {
             mv.addObject("section", section);
             mv.addObject("html", section.getBodyHtml());
             mv.addObject("history", pageSectionService.history(id));
+            mv.addObject("blockAccess", pageBlockService.access(authentication, section.getPageKey()));
         }
         return mv;
     }

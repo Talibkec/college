@@ -135,6 +135,23 @@ public class PageBlocksTest extends AbstractAppTest {
     }
 
     @Test
+    public void linksAreAddedWithACheckedAddress() throws Exception {
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        assertContains("link form", sub.get("/manage/blocks?page=" + PAGE + "&add=link"), "name=\"link\"");
+        assertEquals("/manage/blocks?saved=1&page=" + PAGE, add(sub, PAGE, fields("type", "link", "heading", TestData.MARK + " AICTE",
+                "link", " https://www.aicte-india.org/ ", "visible", "on"), NO_FILE).redirectPath());
+        add(sub, PAGE, fields("type", "link", "heading", TestData.MARK + " History", "link", "/about/history", "visible", "on"), NO_FILE);
+        assertContains("bad address refused", add(sub, PAGE, fields("type", "link", "heading", TestData.MARK + " Bad",
+                "link", "javascript:alert(1)", "visible", "on"), NO_FILE), "Please enter a web address");
+        assertEquals(null, blockId(TestData.MARK + " Bad"));
+
+        String page = anonymous().get("/about/vision").body();
+        assertTrue(page.contains("<a href=\"https://www.aicte-india.org/\" class=\"text-blue-600 hover:underline\" target=\"_blank\" rel=\"noopener\">"
+                + TestData.MARK + " AICTE</a>"));
+        assertTrue(page.contains("<a href=\"/about/history\" class=\"text-blue-600 hover:underline\" >" + TestData.MARK + " History</a>"));
+    }
+
+    @Test
     public void reorderHideAndDelete() throws Exception {
         WebSession sub = loginAs(TestData.SUBADMIN);
         add(sub, PAGE, fields("type", "heading", "heading", TestData.MARK + " First", "visible", "on"), NO_FILE);

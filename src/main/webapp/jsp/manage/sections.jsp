@@ -40,8 +40,21 @@
                     <c:otherwise>
                         <h4 class="text-xl font-semibold mb-1"><c:out value="${section.title}"/></h4>
                         <p class="mb-3 text-sm text-gray-600">Shown on <a class="text-blue-600" href="${section.pageUrl}" target="_blank">${section.pageUrl}</a>
-                            &middot; <a class="text-blue-600" href="/manage/blocks?page=${section.pageKey}" id="page-blocks-link">add headings, text, images or documents to this page</a>
+                            <c:if test="${not empty blockAccess}">&middot; <a class="text-blue-600" href="/manage/blocks?page=${section.pageKey}" id="page-blocks-link">content added to this page</a></c:if>
                             <c:if test="${not empty section.updatedBy}">&middot; last changed by <c:out value="${section.updatedBy}"/></c:if></p>
+
+                        <c:if test="${not empty blockAccess}">
+                            <c:set var="page" value="${section.pageKey}"/>
+            <div class="mb-4 flex flex-wrap gap-2" id="add-buttons">
+                <span class="font-semibold self-center">Add to this page:</span>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=heading#form"><i class="fa fa-header"></i> Heading</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=subheading#form"><i class="fa fa-header"></i> Subheading</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=text#form"><i class="fa fa-paragraph"></i> Text</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=image#form"><i class="fa fa-image"></i> Image</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=document#form"><i class="fa fa-paperclip"></i> Attachment (PDF, Word, Excel, ...)</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=link#form"><i class="fa fa-link"></i> Link</a>
+            </div>
+                        </c:if>
 
                         <form method="post" action="/manage/sections/save" id="section-form">
                             <input type="hidden" name="id" value="${section.sectionId}">
@@ -50,8 +63,8 @@
                                 <button type="button" id="mode-visual" class="px-3 py-1 border rounded">Visual editor</button>
                             </div>
                             <p id="visual-note" class="hidden mb-2 text-sm text-yellow-800 bg-yellow-50 p-2 rounded">
-                                The visual editor keeps text, headings, lists, links and bold/italic, but removes the page's
-                                layout classes and styles. To keep the exact layout, edit in HTML mode.</p>
+                                The visual editor keeps text, headings, lists, links, bold/italic, alignment, font size and
+                                colours, but removes the page's layout classes. To keep the exact layout, edit in HTML mode.</p>
                             <textarea name="html" id="html" rows="18" class="w-full p-2 border rounded font-mono text-sm"><c:out value="${html}"/></textarea>
                             <div id="visual" class="hidden bg-white" style="min-height: 300px"></div>
                             <label class="inline-flex items-center gap-2 mt-2"><input type="checkbox" name="visible" <c:if test="${section.visible}">checked</c:if>> show this text on the page</label>
@@ -102,6 +115,7 @@
     </div>
 </div>
 <script src="/js/vendor/quill-2.0.3/quill.js"></script>
+<script src="/js/manage/editor.js"></script>
 <script>
     (function () {
         var filter = document.getElementById('section-filter');
@@ -120,7 +134,7 @@
         if (!form) return;
         var textarea = document.getElementById('html'), visual = document.getElementById('visual'), quill = null;
         function showHtml() {
-            if (quill) { textarea.value = quill.root.innerHTML; }
+            if (quill) { textarea.value = KecEditor.html(quill); }
             visual.classList.add('hidden');
             var toolbar = document.querySelector('.ql-toolbar'); if (toolbar) toolbar.classList.add('hidden');
             textarea.classList.remove('hidden'); document.getElementById('visual-note').classList.add('hidden');
@@ -128,8 +142,7 @@
         }
         function showVisual() {
             if (!quill) {
-                quill = new Quill(visual, {theme: 'snow', modules: {toolbar: [[{header: [2, 3, 4, false]}], ['bold', 'italic', 'underline'],
-                        [{list: 'ordered'}, {list: 'bullet'}], ['link'], ['clean']]}});
+                quill = KecEditor.create(visual, [2, 3, 4]);
             }
             quill.clipboard.dangerouslyPasteHTML(textarea.value); // only shown in the editor; the server sanitises on save
             textarea.classList.add('hidden'); visual.classList.remove('hidden');
@@ -140,7 +153,7 @@
         document.getElementById('mode-html').addEventListener('click', showHtml);
         document.getElementById('mode-visual').addEventListener('click', showVisual);
         form.addEventListener('submit', function () {
-            if (quill && textarea.classList.contains('hidden')) { textarea.value = quill.root.innerHTML; }
+            if (quill && textarea.classList.contains('hidden')) { textarea.value = KecEditor.html(quill); }
         });
     })();
 </script>

@@ -7,7 +7,7 @@
             <a href="/manage" class="text-blue-600 flex items-center"><i class="fa fa-arrow-left mr-2"></i> Website content</a>
         </div>
         <div class="flex-grow text-center">
-            <h3 class="text-2xl font-semibold">Page content: headings, text, images, documents</h3>
+            <h3 class="text-2xl font-semibold">Page content: headings, text, images, attachments, links</h3>
         </div>
     </div>
 
@@ -67,6 +67,7 @@
                                 <c:when test="${b.blockType eq 'subheading'}"><strong><c:out value="${b.heading}"/></strong></c:when>
                                 <c:when test="${b.blockType eq 'text'}"><div class="text-sm max-h-24 overflow-hidden">${b.bodyHtml}</div></c:when>
                                 <c:when test="${b.blockType eq 'image'}"><img src="${b.fileUrl}" alt="" class="h-16 inline-block"> <c:out value="${b.heading}"/> <span class="text-xs">(${b.display})</span></c:when>
+                                <c:when test="${b.blockType eq 'link'}"><i class="fa fa-link"></i> <c:out value="${b.heading}"/> <span class="text-xs">(<c:out value="${b.bodyHtml}"/>)</span></c:when>
                                 <c:when test="${b.blockType eq 'document'}"><i class="fa fa-file"></i> <c:out value="${empty b.heading ? b.fileName : b.heading}"/> <span class="text-xs">(<c:out value="${b.fileName}"/>, ${b.fileSizeText}, ${b.pdf and b.display ne 'link' ? 'shown in the page' : 'download link'})</span></c:when>
                             </c:choose>
                         </td>
@@ -93,18 +94,19 @@
             </table>
 
             <div class="mb-4 flex flex-wrap gap-2" id="add-buttons">
-                <span class="font-semibold self-center">Add:</span>
-                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=heading#form">Heading</a>
-                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=subheading#form">Subheading</a>
-                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=text#form">Text</a>
-                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=image#form">Image</a>
-                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=document#form">Document (PDF, Word, Excel, ...)</a>
+                <span class="font-semibold self-center">Add to this page:</span>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=heading#form"><i class="fa fa-header"></i> Heading</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=subheading#form"><i class="fa fa-header"></i> Subheading</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=text#form"><i class="fa fa-paragraph"></i> Text</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=image#form"><i class="fa fa-image"></i> Image</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=document#form"><i class="fa fa-paperclip"></i> Attachment (PDF, Word, Excel, ...)</a>
+                <a class="px-3 py-2 border rounded bg-white" href="/manage/blocks?page=${page}&add=link#form"><i class="fa fa-link"></i> Link</a>
             </div>
 
             <c:if test="${not empty formType}">
                 <c:set var="isNew" value="${editBlock == null || editBlock.blockId == null}"/>
                 <h4 class="text-xl font-semibold mb-2" id="form">${isNew ? 'Add' : 'Change'}:
-                    ${formType eq 'heading' ? 'heading' : formType eq 'subheading' ? 'subheading' : formType eq 'text' ? 'text' : formType eq 'image' ? 'image' : 'document'}</h4>
+                    ${formType eq 'heading' ? 'heading' : formType eq 'subheading' ? 'subheading' : formType eq 'text' ? 'text' : formType eq 'image' ? 'image' : formType eq 'link' ? 'link' : 'attachment'}</h4>
                 <form method="post" action="/manage/blocks/save" enctype="multipart/form-data" id="block-form" class="bg-white p-4 border rounded space-y-3 max-w-3xl">
                     <input type="hidden" name="page" value="${page}">
                     <input type="hidden" name="type" value="<c:out value='${formType}'/>">
@@ -122,7 +124,13 @@
                             </div>
                             <div id="visual" class="bg-white" style="min-height: 220px"></div>
                             <textarea name="html" id="html" rows="12" class="hidden w-full p-2 border rounded font-mono text-sm"><c:out value="${editBlock.bodyHtml}"/></textarea>
-                            <p class="text-sm text-gray-500">Bold, italic, lists, links and sub-headings. Scripts and unsafe links are removed when saving.</p>
+                            <p class="text-sm text-gray-500">Bold, italic, alignment, font size, colours, lists, links and sub-headings. Scripts and unsafe links are removed when saving.</p>
+                        </c:when>
+                        <c:when test="${formType eq 'link'}">
+                            <label class="block">Link text
+                                <input type="text" name="heading" maxlength="255" required class="w-full px-2 py-1 border rounded" value="<c:out value='${editBlock.heading}'/>"></label>
+                            <label class="block">Address (https://..., mailto:..., tel:... or a page of this website such as /about/history)
+                                <input type="text" name="link" required class="w-full px-2 py-1 border rounded" placeholder="https://" value="<c:out value='${editBlock.bodyHtml}'/>"></label>
                         </c:when>
                         <c:when test="${formType eq 'image'}">
                             <label class="block">Image file (JPG, PNG, GIF or WebP, at most 20 MB)<c:if test="${not isNew}"> &ndash; leave empty to keep the current image</c:if>
@@ -163,19 +171,19 @@
     </div>
 </div>
 <script src="/js/vendor/quill-2.0.3/quill.js"></script>
+<script src="/js/manage/editor.js"></script>
 <script>
     (function () {
         var visual = document.getElementById('visual');
         if (!visual) return;
         var textarea = document.getElementById('html');
-        var quill = new Quill(visual, {theme: 'snow', modules: {toolbar: [[{header: [3, 4, false]}], ['bold', 'italic', 'underline'],
-                [{list: 'ordered'}, {list: 'bullet'}], ['link'], ['clean']]}});
+        var quill = KecEditor.create(visual, [3, 4]);
         quill.clipboard.dangerouslyPasteHTML(textarea.value); // only shown in the editor; the server sanitises on save
         var htmlMode = false;
         function toolbar() { return document.querySelector('.ql-toolbar'); }
         document.getElementById('mode-html').addEventListener('click', function () {
             if (htmlMode) return;
-            textarea.value = quill.root.innerHTML; htmlMode = true;
+            textarea.value = KecEditor.html(quill); htmlMode = true;
             visual.classList.add('hidden'); if (toolbar()) toolbar().classList.add('hidden'); textarea.classList.remove('hidden');
             this.classList.add('bg-gray-200'); document.getElementById('mode-visual').classList.remove('bg-gray-200');
         });
@@ -186,7 +194,7 @@
             this.classList.add('bg-gray-200'); document.getElementById('mode-html').classList.remove('bg-gray-200');
         });
         document.getElementById('block-form').addEventListener('submit', function () {
-            if (!htmlMode) textarea.value = quill.root.innerHTML;
+            if (!htmlMode) textarea.value = KecEditor.html(quill);
         });
     })();
 </script>

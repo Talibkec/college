@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** {@code /manage/blocks}: headings, subheadings, texts, images and documents added to a page. */
+/** {@code /manage/blocks}: headings, subheadings, texts, images, documents and links added to a page. */
 @Controller
 public class BlocksManageController {
     private final PageBlockService pageBlockService;
@@ -80,6 +80,7 @@ public class BlocksManageController {
                              @RequestParam(value = "type", required = false) String type,
                              @RequestParam(value = "heading", required = false) String heading,
                              @RequestParam(value = "html", required = false) String html,
+                             @RequestParam(value = "link", required = false) String link,
                              @RequestParam(value = "display", required = false) String display,
                              @RequestParam(value = "visible", required = false) String visible,
                              @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
@@ -91,6 +92,9 @@ public class BlocksManageController {
             return null;
         }
         boolean hasFile = file != null && !file.isEmpty();
+        if (PageBlock.LINK.equals(existing != null ? existing.getBlockType() : type)) {
+            html = link; // the address of a link block is stored in body_html
+        }
         String error = pageBlockService.save(authentication, page, blockId, type, heading, html, display, visible != null,
                 hasFile ? file.getOriginalFilename() : null, hasFile ? file.getBytes() : null);
         if (error != null) {

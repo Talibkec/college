@@ -3,7 +3,7 @@ package com.college.core.entity;
 import jakarta.persistence.*;
 import java.util.Date;
 
-/** A heading, subheading, text, image or document that an editor added to a page (table {@code page_block}). */
+/** A heading, subheading, text, image, document or link that an editor added to a page (table {@code page_block}). */
 @Entity
 @Table(name = "page_block")
 public class PageBlock {
@@ -12,6 +12,8 @@ public class PageBlock {
     public static final String TEXT = "text";
     public static final String IMAGE = "image";
     public static final String DOCUMENT = "document";
+    /** {@code heading} = link text, {@code bodyHtml} = the address (checked, not HTML). */
+    public static final String LINK = "link";
 
     private Long blockId;
     private String pageKey;

@@ -17,6 +17,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 @Service
 public class PageBlockServiceImpl implements PageBlockService {
@@ -24,7 +25,10 @@ public class PageBlockServiceImpl implements PageBlockService {
     static final String ENTITY = "page_block";
     static final long MAX_FILE_SIZE = 20L * 1024 * 1024;
     private static final Set<String> TYPES = new HashSet<>(Arrays.asList(PageBlock.HEADING, PageBlock.SUBHEADING,
-            PageBlock.TEXT, PageBlock.IMAGE, PageBlock.DOCUMENT));
+            PageBlock.TEXT, PageBlock.IMAGE, PageBlock.DOCUMENT, PageBlock.LINK));
+    /** Link blocks: http(s), mailto, tel or a path on this website (not "//host"). */
+    private static final Pattern LINK_URL = Pattern.compile("(https?://[^\\s\"'<>]+|mailto:[^\\s\"'<>]+|tel:[0-9+() -]+|/(?![/\\\\])[^\\s\"'<>]*)",
+            Pattern.CASE_INSENSITIVE);
     private static final Set<String> IMAGE_SIZES = new HashSet<>(Arrays.asList("small", "medium", "full"));
 
     private final PageBlockRepository pageBlockRepository;
@@ -165,6 +169,13 @@ public class PageBlockServiceImpl implements PageBlockService {
                     return "Only PDF and Word/Excel/PowerPoint files (.doc, .docx, .xls, .xlsx, .ppt, .pptx) can be uploaded.";
                 }
                 display = "link".equals(display) ? "link" : "embed";
+                break;
+            case PageBlock.LINK:
+                if (text.isEmpty()) return "Please enter the link text.";
+                clean = html == null ? "" : html.trim();
+                if (!LINK_URL.matcher(clean).matches()) {
+                    return "Please enter a web address starting with https://, http://, mailto:, tel: or / (a page of this website).";
+                }
                 break;
             default:
                 return "Please choose what to add.";

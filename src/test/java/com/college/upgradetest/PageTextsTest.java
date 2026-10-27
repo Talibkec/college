@@ -240,6 +240,11 @@ public class PageTextsTest extends AbstractAppTest {
             WebSession hod = loginAs(TestData.HOD);
             long cse = sectionId("department.cse.students", "main");
             assertContains("own texts listed", hod.get("/manage/sections"), "CSE Students: text");
+            WebSession.Response editor = hod.get("/manage/sections?id=" + cse);
+            for (String type : new String[]{"heading", "subheading", "text", "image", "document", "link"}) {
+                assertContains("add " + type + " from the text editor", editor,
+                        "href=\"/manage/blocks?page=department.cse.students&add=" + type + "#form\"");
+            }
             assertFalse("no ASH texts listed", hod.get("/manage/sections").body().contains("ASH Students: text"));
             assertEquals(302, hod.postForm("/manage/sections/save", "id", String.valueOf(cse), "html",
                     "<p>" + TestData.MARK + " hod cse</p>", "visible", "on").status);

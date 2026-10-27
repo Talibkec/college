@@ -543,6 +543,24 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   The hard-coded `UserName eq 'hodcse'`-style delete links in some department JSPs still follow the account name.
 * Test: `ContentRolesTest.adminAssignsAndRemovesTheHodOfABranch`.
 
+### 10.7g Section editor: add buttons, link blocks, richer visual editor
+* `/manage/sections?id=…` shows the "Add to this page" buttons (Heading, Subheading, Text, Image, Attachment, Link)
+  when the user may add content to that page (same check as `/manage/blocks`). Before, an editor with edit access
+  (e.g. an HOD) only saw a small text link there, so the add options seemed to be missing. `/manage/blocks` got the same
+  bar; "Document" is now labelled "Attachment (PDF, Word, Excel, ...)".
+* New block type `link`: link text (`heading`) + address (`body_html`, only `https://`, `http://`, `mailto:`, `tel:` or
+  a path of this website; `javascript:` etc. are refused). Shown on the page as a link (external links open in a new
+  tab). `page_block.block_type` is a VARCHAR, so no schema change (only the comment in `14_page_block.sql`).
+* Visual editor (`/js/manage/editor.js`, used by both screens): font size, text colour, background colour, alignment,
+  strike-through and quote. Size, alignment and colours are written as inline styles, which `PageHtml` already
+  allows, so they also show on the public pages.
+* Fix: the link button did nothing without selected text; it now asks for the address and the link text.
+* Fix: Quill 2 stores bullet lists as `<ol><li data-list="bullet">` with helper spans; saving from the visual editor
+  turned bullet lists into numbered lists (and left empty `ql-ui`/`ql-cursor` spans). The editor now saves plain
+  `<ul>`/`<ol>`.
+* Tests: `PageBlocksTest.linksAreAddedWithACheckedAddress`, `PageTextsTest.hodChangesOnlyTheTextsOfOwnDepartment`
+  (add buttons in the section editor).
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

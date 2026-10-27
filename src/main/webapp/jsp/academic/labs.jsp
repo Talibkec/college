@@ -88,10 +88,9 @@
                                 </td>
                                 <td class="border px-4 py-2 text-center">
                                     <c:if test="${showDeleteBtn}">
-                                        <a href="/approval/deleteLab/${document.id}" class="inline-block">
-                                            <button class="bg-red-500 text-white font-bold px-4 py-2 rounded hover:bg-red-600 transition duration-300">
-                                                Delete Document
-                                            </button>
+                                        <a href="/approval/deleteLab/${document.id}" target="_top" onclick="return confirm('Delete this lab document?');"
+                                           class="inline-block bg-red-500 text-white font-bold px-4 py-2 rounded hover:bg-red-600 transition duration-300">
+                                            Delete Document
                                         </a>
                                     </c:if>
                                 </td>

@@ -576,6 +576,12 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
 * Lab page: Admin/HOD see "Upload a lab document" (existing `/auth/uploadLabDoc`). Unchanged and noted: the existing
   lab-document upload/delete still allows every HOD for every department (`isAdminOrHod`).
 * Test: `PageTextsTest.hodEditsTheLabPageOfOwnDepartment`.
+* Lab documents could not be deleted from the lab page in practice: "Delete Document" was a `<button>` inside a link
+  (some browsers, e.g. Firefox, do not follow such links), and after deleting `/approval/deleteLab/{id}` sent the user
+  to `/academic/holidays`; going back showed the cached lab page with the document still listed. Now it is a plain
+  link styled as a button, asks for confirmation, and the response returns to `/academic/lab?dept_id=<n>` of the
+  document (same alert text; holidays only if the document no longer exists). URL and access check unchanged.
+  Behaviour change, to be approved with the user's verification. Test: `RefactoringSafetyTest` (lab part).
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

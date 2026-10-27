@@ -47,6 +47,11 @@ public class LabDocumentServiceImpl implements LabDocumentService{
     }
 
     @Override
+    public Integer departmentOf(Long id) {
+        return labDocumentRepository.findById(id).map(LabDocument::getDepId).orElse(null);
+    }
+
+    @Override
     public List<LabDocumentDTO> getAllLabDocByDepId(Integer deptId) {
         return labDocumentRepository.getLabByDeptId(deptId).stream().map(LabDocumentServiceImpl::toListItem).toList();
     }

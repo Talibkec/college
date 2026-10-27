@@ -174,7 +174,11 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         assertEquals(Long.valueOf(1), id("select dep_id from lab_document where id = ?", labId));
         assertTrue(anonymous().get("/academic/lab?dept_id=1").body().contains(lab));
         assertArrayEquals(PDF, anonymous().get("/approval/lab/" + labId).bytes);
-        hod.get("/approval/deleteLab/" + labId);
+        String labPage = hod.get("/academic/lab?dept_id=1").body();
+        assertTrue("delete is a plain link (no button inside a link)", labPage.contains("<a href=\"/approval/deleteLab/" + labId
+                + "\" target=\"_top\" onclick=\"return confirm('Delete this lab document?');\""));
+        assertTrue("back to the lab page", hod.get("/approval/deleteLab/" + labId).body()
+                .contains("window.location.href='/academic/lab?dept_id=1'"));
         assertNull(id("select id from lab_document where id = ?", labId));
 
         assertResponse("empty caption", admin.postMultipart("/auth/api/uploadHoliday", fields("caption", ""),

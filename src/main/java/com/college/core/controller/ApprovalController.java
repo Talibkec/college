@@ -163,9 +163,12 @@ public class ApprovalController {
         boolean accessAllow = accessService.isAdminOrHod(authentication);
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
+        Integer deptId = labDocumentService.departmentOf(documentId);
         labDocumentService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='/academic/holidays';</script>" , headers , HttpStatus.OK);
+        // back to the lab page of the department (before: the holidays page)
+        String back = deptId == null ? "/academic/holidays" : "/academic/lab?dept_id=" + deptId;
+        return new ResponseEntity<>("<script>alert('Succesfully deleted the file');window.location.href='" + back + "';</script>" , headers , HttpStatus.OK);
 
     }
     @RequestMapping(value = "responsibilityDoc/{id}")

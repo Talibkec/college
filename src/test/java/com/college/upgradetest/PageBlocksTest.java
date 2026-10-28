@@ -224,7 +224,8 @@ public class PageBlocksTest extends AbstractAppTest {
         assertEquals(403, faculty.get("/manage/blocks?page=department.cse.labs&edit=" + subBlock).status);
         assertEquals("other department", 403, add(faculty, "department.civil.labs", fields("type", "heading", "heading",
                 TestData.MARK + " civil", "visible", "on"), NO_FILE).status);
-        Long own = jdbc.queryForObject("select block_id from page_block where created_by = ?", Long.class, TestData.FACULTY.username);
+        Long own = jdbc.queryForObject("select block_id from page_block where created_by = ? and page_key = 'department.cse.labs'",
+                Long.class, TestData.FACULTY.username);
         assertEquals(302, faculty.postForm("/manage/blocks/delete", "page", "department.cse.labs", "blockId", String.valueOf(own)).status);
         assertNotNull(subBlock);
     }

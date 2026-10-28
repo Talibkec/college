@@ -20,6 +20,7 @@ public class Faculty {
     private String facultyPersonalEmail;
     private Long facultyMobNo;
     private String fileType;
+    private String facultyDesignation;
     private User user;
     private List<FacultyKeyProps> facultyKeyProps = new ArrayList<>(0);
 
@@ -118,6 +119,16 @@ public class Faculty {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    /** Free text, e.g. "Associate Professor"; null = shown as "Assistant Professor" (column added 2026-10-28). */
+    @Column(name = "f_designation")
+    public String getFacultyDesignation() {
+        return facultyDesignation;
+    }
+
+    public void setFacultyDesignation(String facultyDesignation) {
+        this.facultyDesignation = facultyDesignation;
     }
 
     @Column(name = "F_FILETYPE")

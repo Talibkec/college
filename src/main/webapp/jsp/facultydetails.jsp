@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
 <jsp:include page="/jsp/header.jsp"/>
 
 <div class="container mx-auto">
@@ -52,6 +52,11 @@
                     </div>
                 </c:if>
             </c:forEach>
+            <c:if test="${canEditProfile and fUserName ne loggedInUser}">
+                <div class="flex flex-col lg:flex-row gap-4 mb-4" id="admin-profile-edit">
+                    <strong><a href="/uploadfile/editfacultydetails?facultyId=${facultyDetails.facultyId}" class="text-blue-700 hover:underline">Edit Profile Details</a></strong>
+                </div>
+            </c:if>
 
             <ul class="nav nav-tabs flex justify-around mb-3" role="tablist">
                 <li role="presentation" class="active">
@@ -81,7 +86,7 @@
                 <div role="tabpanel" class="tab-pane active" id="profile">
                     <img alt="" id="profileImage" class="h-52 w-64 object-cover mb-4" src="/${facultyDetails.facultyId}/image${fileExtension}"/>
                     <h2 class="text-2xl font-semibold mb-2">${facultyDetails.facultyName}</h2>
-                    <p class="text-lg mb-4">Assistant Professor <br/>
+                    <p class="text-lg mb-4"><c:out value="${facultyDetails.designationText}"/> <br/>
                         <c:choose>
                             <c:when test="${facultyDetails.departmentId eq '1'}">
                                 Department of Computer Sc. & Engineering
@@ -109,7 +114,7 @@
                     <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyprop">
                         <div class="border border-gray-300 rounded p-4 mb-4">
                             <div class="text-white p-2 bg-blue-700 rounded">
-                                <strong>${keyprop.keyPropertyName}</strong>
+                                <strong><c:out value="${keyprop.keyPropertyName}"/></strong>
                             </div>
                             <c:forEach items="${keyprop.keyPropVals}" var="propVal">
                                 <ul class="list-disc pl-4 mt-2">
@@ -118,6 +123,7 @@
                             </c:forEach>
                         </div>
                     </c:forEach>
+                    <kec:blocks/>
                 </div>
 
                 <div role="tabpanel" class="tab-pane" id="downloads">

@@ -2,9 +2,12 @@ package com.college.core.controller;
 
 import com.college.FacultyHelper;
 import com.college.core.model.FacultyDTO;
+import com.college.core.model.FacultyKeyPropValuesDTO;
+import com.college.core.model.FacultyKeyPropsDTO;
 import com.college.core.model.FacultyListView;
 import com.college.service.AccessService;
 import com.college.service.DepartmentService;
+import com.college.service.FacultyProfileAccess;
 import com.college.service.FacultyProfileService;
 import com.college.service.FacultyService;
 import com.college.service.UserService;
@@ -27,7 +30,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -46,6 +52,7 @@ public class FacultyProfileController {
     private final DepartmentService departmentService;
     private final AccessService accessService;
     private final Gson gson;
+    private final FacultyProfileAccess facultyProfileAccess;
 
     public FacultyProfileController(FacultyService facultyService,
             FacultyProfileService facultyProfileService,
@@ -53,7 +60,9 @@ public class FacultyProfileController {
             UserService userService,
             DepartmentService departmentService,
             AccessService accessService,
-            Gson gson) {
+            Gson gson,
+            FacultyProfileAccess facultyProfileAccess) {
+        this.facultyProfileAccess = facultyProfileAccess;
         this.facultyService = facultyService;
         this.facultyProfileService = facultyProfileService;
         this.facultyHelper = facultyHelper;
@@ -101,8 +110,9 @@ public class FacultyProfileController {
     }
 
     @RequestMapping(value = "/facultyDetails", method = RequestMethod.GET)
-    public ModelAndView displayFacultyDetails(@RequestParam("facultyId") Long facultyId) {
+    public ModelAndView displayFacultyDetails(@RequestParam("facultyId") Long facultyId, Authentication authentication) {
         ModelAndView model = facultyHelper.getFacultyDetailsbyId(facultyId);
+        model.addObject("canEditProfile", facultyProfileAccess.canEdit(authentication, facultyId));
         model.setViewName("facultydetails.jsp");
         return model;
     }
@@ -111,9 +121,9 @@ public class FacultyProfileController {
     public ModelAndView editfaculty(@RequestParam("facultyId") Long facultyId, Authentication authentication) {
         ModelAndView mv = new ModelAndView();
         FacultyDTO facultyDTO = facultyService.getFacultyById(facultyId);
-        String userName = facultyDTO.getUser().getUsername();
-        if (userName.equalsIgnoreCase(authentication.getName())) {
+        if (facultyProfileAccess.canEdit(authentication, facultyId)) {
             mv.setViewName("editfacultydetails.jsp");
+            mv.addObject("headingsJson", headingsJson(facultyDTO));
         } else {
             mv.setViewName("/error-403.jsp");
         }
@@ -121,24 +131,62 @@ public class FacultyProfileController {
         return mv;
     }
 
+    /** Headings and values for the edit page's script; HTML-safe JSON (Gson escapes &lt; &gt; &amp; = '). */
+    private static String headingsJson(FacultyDTO faculty) {
+        List<Map<String, Object>> headings = new ArrayList<>();
+        for (FacultyKeyPropsDTO keyProp : faculty.getFacultyKeyProps()) {
+            List<Map<String, Object>> values = new ArrayList<>();
+            for (FacultyKeyPropValuesDTO value : keyProp.getKeyPropVals()) {
+                Map<String, Object> v = new LinkedHashMap<>();
+                v.put("id", value.getKeyPropValuesId());
+                v.put("text", value.getKeyPropVal());
+                values.add(v);
+            }
+            Map<String, Object> h = new LinkedHashMap<>();
+            h.put("id", keyProp.getKeyPropertyId());
+            h.put("title", keyProp.getKeyPropertyName());
+            h.put("values", values);
+            headings.add(h);
+        }
+        return new Gson().toJson(headings);
+    }
+
+    /**
+     * Saves the edit page. Only the faculty member and Admin (403 otherwise). Parameter names as before; the old
+     * page's newProps/oldProps/oldKeyOrder/newKeyOrder are accepted but not needed. 200 = saved, 400 = the error text.
+     */
     @ResponseBody
     @RequestMapping(value = "/uploadfile/editfacultydetails", method = RequestMethod.POST)
     public ResponseEntity<?> editFacultyDetails(
             @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
-            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam(value = "facultyMobNo", required = false) String facultyMobNo,
             @RequestParam("facultyName") String facultyName,
             @RequestParam("facultyId") Long facultyId,
-            @RequestParam("newProps") String newProps,
-            @RequestParam("oldProps") String oldProps,
-            @RequestParam("oldKeyOrder") List<String> oldKeyOrder,
-            @RequestParam("newKeyOrder") List<String> newKeyOrder,
-            @RequestParam("facultyDetails") String facultyDetails) {
-        logger.debug("oldKeyOrder = {}", oldKeyOrder);
-        logger.debug("newKeyOrder = {}", newKeyOrder);
-        FacultyDTO submitted = gson.fromJson(facultyDetails, FacultyDTO.class);
-        facultyProfileService.updateFacultyDetails(facultyId, facultyPersonalEmail, facultyOfficialEmail, facultyMobNo,
-                facultyName, submitted);
+            @RequestParam(value = "facultyDesignation", required = false) String facultyDesignation,
+            @RequestParam(value = "newProps", required = false) String newProps,
+            @RequestParam(value = "oldProps", required = false) String oldProps,
+            @RequestParam(value = "oldKeyOrder", required = false) List<String> oldKeyOrder,
+            @RequestParam(value = "newKeyOrder", required = false) List<String> newKeyOrder,
+            @RequestParam("facultyDetails") String facultyDetails,
+            Authentication authentication) {
+        if (!facultyProfileAccess.canEdit(authentication, facultyId)) {
+            return new ResponseEntity<>("You may only change your own profile.", new HttpHeaders(), HttpStatus.FORBIDDEN);
+        }
+        FacultyDTO submitted;
+        try {
+            submitted = gson.fromJson(facultyDetails, FacultyDTO.class);
+        } catch (RuntimeException e) {
+            submitted = null;
+        }
+        if (submitted == null) {
+            return new ResponseEntity<>("The headings could not be read; please reload the page.", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+        String error = facultyProfileService.saveProfile(facultyId, facultyName, facultyDesignation, facultyOfficialEmail,
+                facultyPersonalEmail, facultyMobNo, submitted.getFacultyKeyProps());
+        if (error != null) {
+            return new ResponseEntity<>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(new HttpHeaders(), HttpStatus.OK);
     }
 

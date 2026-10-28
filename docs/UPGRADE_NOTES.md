@@ -596,10 +596,42 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   exactly afterwards (before, a run reset the user's local switches). Test:
   `LinksTest.aMainMenuEntryCreatesANewPageWithSidebarAndContent`.
 
+### 10.7j Faculty profile editor, designation, profile content (approved 2026-10-28)
+* **Schema change (approved):** `faculty.f_designation` VARCHAR(100) NULL (`docs/sql/dynamic/16_faculty_designation.sql`,
+  part of `apply_production.sh`; run before deploying). NULL shows "Assistant Professor", the text every profile and the
+  faculty list printed before, so pages stay byte-identical until someone sets a designation.
+* **Who may change a profile:** the faculty member and Admin only (`FacultyProfileAccess`). Before, the edit *page*
+  checked the owner but the save (`POST /uploadfile/editfacultydetails`) did not: any logged-in Admin/Faculty/SM/SK/HOD
+  could change any profile by sending another `facultyId`. Now 403 with a message. Admin sees "Edit Profile Details"
+  on every profile (new). HOD, other faculty, SubAdmin and other roles cannot change it.
+* **Save rewritten** (`FacultyProfileService.saveProfile`, one transaction, entities instead of the ModelMapper round
+  trip): headings and entries are saved in the order shown; renamed ones keep their ids; left-out headings/entries are
+  deleted; ids of other profiles are ignored (become new rows); empty entries are dropped; validation (heading title
+  required, max 255/500 characters, max 30 headings and 50 entries, e-mail format, mobile 6-15 digits) with the message
+  shown on the page. Empty name/e-mails/mobile keep the stored value (as before). Entries containing HTML (an ORCID
+  badge is stored that way) are sanitised with the page sanitiser; plain text is stored as typed. Heading titles are
+  now escaped on the profile (no existing title contains markup). Same URL and parameter names; `facultyMobNo` is now
+  optional and checked instead of failing with an empty 400, and the old page's `newProps`/`oldProps`/`oldKeyOrder`/
+  `newKeyOrder` are optional.
+* **Edit page redesigned** (`editfacultydetails.jsp`, `js/manage/facultyprofile.js`; the old `js/editfacultydetails.js`
+  with jQuery is removed): details incl. designation (suggestions, free text), headings as cards with number,
+  up/down, delete (asks when it has entries), entries with up/down/delete and "Add entry", "Add heading" and quick-add
+  chips for common headings, "Unsaved changes" note and leave warning, errors shown above the form, back to the
+  profile after saving.
+* **Profile content:** the profile page `/facultyDetails?facultyId=<n>` has `<kec:blocks/>` under the headings. Page
+  key and area `faculty.<n>`; editors = the faculty member and Admin (special case in `PageBlockServiceImpl`, not a
+  `content_area` row). Same "Add to this page" buttons as every page (heading, subheading, text, image, attachment,
+  link). `/manage/blocks?url=/facultyDetails?facultyId=<n>` opens it.
+* Tests: `FacultyProfileEditTest` (designation, rename/reorder/delete with kept ids, validation, sanitising, owner/Admin
+  only incl. foreign ids, profile blocks); `FacultySelfServiceTest` unchanged and passing (old JSON format still accepted).
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
+* Faculty profile: as Faculty → own profile → Edit Profile Details: set a designation, add a heading with two entries,
+  move it up, rename another, delete an entry, save → profile and `/faculty?deptno=` show it. "Add to this page" on the
+  profile: add a heading. Another faculty's edit page → Access denied. As Admin: edit link on every profile.
 * New page: Website Content → Menus and sidebars → Main menu: add "Test" with `/page/test`, a sub-entry with
   `/page/test-sub`; open both (title, sidebar), add a heading with "Add to this page"; hide the entry → 404; delete it.
 * Assign Website Roles → a faculty account → part "HOD": tick a branch, save; log in with it → HOD dashboard, and

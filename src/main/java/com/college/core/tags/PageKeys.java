@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public final class PageKeys {
     private static final Pattern KEY = Pattern.compile("[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+){0,4}");
     private static final Set<String> SECTIONS = new HashSet<>(Arrays.asList("home", "about", "academic", "approval",
-            "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal", "page"));
+            "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal", "page", "faculty"));
 
     /**
      * The shared lab page {@code /academic/lab?dept_id=<n>} is one page per department: key {@code academic.lab.<n>},
@@ -24,6 +24,8 @@ public final class PageKeys {
      */
     private static final Map<String, String> LAB_SITES = new HashMap<>();
     private static final Pattern LAB_KEY = Pattern.compile("academic\\.lab\\.([0-9]{1,4})");
+    /** Faculty profile {@code /facultyDetails?facultyId=<n>}: key {@code faculty.<n>}, area {@code faculty.<n>}. */
+    private static final Pattern FACULTY_KEY = Pattern.compile("faculty\\.([0-9]{1,10})");
 
     static {
         LAB_SITES.put("1", "cse");
@@ -35,6 +37,17 @@ public final class PageKeys {
     }
 
     private PageKeys() {
+    }
+
+    /**
+     * Like {@link #fromPath(String, String)}; {@code facultyId} is the request parameter {@code facultyId} (faculty
+     * profile {@code /facultyDetails} only).
+     */
+    public static String fromPath(String path, String deptId, String facultyId) {
+        if (path != null && path.replaceAll("/+$", "").equals("/facultyDetails")) {
+            return facultyId != null && facultyId.matches("[0-9]{1,10}") ? "faculty." + facultyId : null;
+        }
+        return fromPath(path, deptId);
     }
 
     /** Like {@link #fromPath(String)}; {@code deptId} is the request parameter {@code dept_id} (lab page only). */
@@ -65,6 +78,8 @@ public final class PageKeys {
     public static String url(String key) {
         java.util.regex.Matcher lab = key == null ? null : LAB_KEY.matcher(key);
         if (lab != null && lab.matches()) return "/academic/lab?dept_id=" + lab.group(1);
+        java.util.regex.Matcher faculty = key == null ? null : FACULTY_KEY.matcher(key);
+        if (faculty != null && faculty.matches()) return "/facultyDetails?facultyId=" + faculty.group(1);
         return "home".equals(key) ? "/" : "/" + key.replace('.', '/');
     }
 
@@ -113,6 +128,8 @@ public final class PageKeys {
                 if (in(page, "refundandcancellation", "feestructure")) return "fees";
                 if (in(page, "contactus")) return "site";
                 return "legal";
+            case "faculty": // own profile page: the faculty member and Admin (FacultyProfileAccess)
+                return FACULTY_KEY.matcher(key).matches() ? key : null;
             case "page": // new pages /page/<name>, created through the main menu
                 return parts.length == 2 ? "menu" : null;
             case "category":

@@ -62,7 +62,7 @@
                                 <c:if test="${status.first}"> ( HOD  ${branchName} )</c:if>
                             </h4>
                             <p class="text-sm text-gray-600"><strong>Department:</strong> ${branchName}</p>
-                            <p class="text-sm text-gray-600"><strong>Designation:</strong> Assistant Professor</p>
+                            <p class="text-sm text-gray-600"><strong>Designation:</strong> <c:out value="${faculty.designationText}"/></p>
                             <p class="text-sm text-gray-600"><strong>Phone Number:</strong> ${faculty.facultyMobNo}</p>
                             <p class="text-sm text-gray-600"><strong>Email Address:</strong> <a href="mailto:${faculty.facultyOfficialEmail}" class="text-blue-500">${faculty.facultyOfficialEmail}</a></p>
                         </div>

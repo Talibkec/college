@@ -20,8 +20,18 @@ public class FacultyDTO {
     private byte[] facultyPhoto;
     private User user;
     private String fileType;
+    private String facultyDesignation;
 
     private List<FacultyKeyPropsDTO> facultyKeyProps = new ArrayList<>(0);
+
+    public String getFacultyDesignation() {return facultyDesignation;}
+
+    public void setFacultyDesignation(String facultyDesignation) {this.facultyDesignation = facultyDesignation;}
+
+    /** The designation to show: the stored one, or "Assistant Professor" (the text all profiles showed before). */
+    public String getDesignationText() {
+        return facultyDesignation == null || facultyDesignation.trim().isEmpty() ? "Assistant Professor" : facultyDesignation;
+    }
 
     public String getFacultyOfficialEmail() {return facultyOfficialEmail;}
 

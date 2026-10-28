@@ -1,6 +1,11 @@
 package com.college.service;
 
+import com.college.core.entity.Faculty;
+import com.college.core.entity.FacultyKeyPropValues;
+import com.college.core.entity.FacultyKeyProps;
 import com.college.core.entity.User;
+import com.college.core.tags.PageHtml;
+import com.college.repository.FacultyRepository;
 import com.college.core.model.FacultyDTO;
 import com.college.core.model.FacultyDocumentsDTO;
 import com.college.core.model.FacultyKeyPropValuesDTO;
@@ -11,13 +16,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,12 +42,19 @@ public class FacultyProfileService {
     private final FacultyService facultyService;
     private final FacultyDocumentsService facultyDocumentsService;
     private final UserService userService;
+    private final FacultyRepository facultyRepository;
+
+    private static final Pattern EMAIL = Pattern.compile("[^@\\s<>\"']+@[^@\\s<>\"']+\\.[^@\\s<>\"']+");
+    private static final Pattern MOBILE = Pattern.compile("[0-9]{6,15}");
+    static final int MAX_HEADINGS = 30;
+    static final int MAX_VALUES = 50;
 
     public FacultyProfileService(FacultyService facultyService, FacultyDocumentsService facultyDocumentsService,
-                                 UserService userService) {
+                                 UserService userService, FacultyRepository facultyRepository) {
         this.facultyService = facultyService;
         this.facultyDocumentsService = facultyDocumentsService;
         this.userService = userService;
+        this.facultyRepository = facultyRepository;
     }
 
     /**
@@ -135,57 +150,110 @@ public class FacultyProfileService {
     }
 
     /**
-     * Saves the edited profile: contact fields that are not empty, and the key properties of {@code submitted}
-     * (id -9999 marks a new key property or value).
+     * Saves the profile edit page (/uploadfile/editfacultydetails). Empty name, e-mails and mobile keep the stored
+     * values (as before); {@code designation} null keeps it, empty resets it to the default. {@code headings} replaces
+     * the key properties in the given order: ids of this faculty member's headings/values are updated, unknown ids
+     * become new rows, headings and values left out are deleted. Values containing HTML are sanitised.
+     *
+     * @return the validation error, or null when saved
      */
-    public void updateFacultyDetails(Long facultyId, String facultyPersonalEmail, String facultyOfficialEmail,
-                                     Long facultyMobNo, String facultyName, FacultyDTO submitted) {
-        FacultyDTO newFacultyDTO = new FacultyDTO();
-        FacultyDTO oldFacultyDTO = facultyService.getFacultyById(facultyId);
-        replaceKeyProperties(submitted, oldFacultyDTO);
-        BeanUtils.copyProperties(oldFacultyDTO, newFacultyDTO);
-        if (!StringUtils.isEmpty(facultyOfficialEmail)) {
-            newFacultyDTO.setFacultyOfficialEmail(facultyOfficialEmail);
+    @Transactional
+    public String saveProfile(Long facultyId, String name, String designation, String officialEmail,
+                              String personalEmail, String mobile, List<FacultyKeyPropsDTO> headings) {
+        Faculty faculty = facultyRepository.findById(facultyId).orElse(null);
+        if (faculty == null) {
+            return "Unknown faculty member.";
         }
-        if (!StringUtils.isEmpty(facultyPersonalEmail)) {
-            newFacultyDTO.setFacultyPersonalEmail(facultyPersonalEmail);
+        name = trim(name);
+        designation = designation == null ? null : designation.trim();
+        officialEmail = trim(officialEmail);
+        personalEmail = trim(personalEmail);
+        mobile = trim(mobile);
+        if (name.length() > 255) return "The name may have at most 255 characters.";
+        if (designation != null && designation.length() > 100) return "The designation may have at most 100 characters.";
+        if (!officialEmail.isEmpty() && (officialEmail.length() > 255 || !EMAIL.matcher(officialEmail).matches())) {
+            return "The official e-mail address is not valid.";
         }
-        if (!StringUtils.isEmpty(facultyMobNo)) {
-            newFacultyDTO.setFacultyMobNo(facultyMobNo);
+        if (!personalEmail.isEmpty() && (personalEmail.length() > 255 || !EMAIL.matcher(personalEmail).matches())) {
+            return "The personal e-mail address is not valid.";
         }
-        if (!StringUtils.isEmpty(facultyName)) {
-            newFacultyDTO.setFacultyName(facultyName);
+        if (!mobile.isEmpty() && !MOBILE.matcher(mobile).matches()) {
+            return "The mobile number may only contain 6 to 15 digits.";
         }
-        facultyService.saveFaculty(newFacultyDTO);
-    }
-
-    private void replaceKeyProperties(FacultyDTO submitted, FacultyDTO oldFacultyDTO) {
-        oldFacultyDTO.getFacultyKeyProps().clear();
-        Iterator<FacultyKeyPropsDTO> keyIterator = submitted.getFacultyKeyProps().iterator();
-        List<FacultyKeyPropsDTO> keyPropsDTOS = new ArrayList<>();
-        while (keyIterator.hasNext()) {
-            FacultyKeyPropsDTO keyDTO = keyIterator.next();
-            if (!StringUtils.isEmpty(keyDTO.getKeyPropertyName())) {
-                if (keyDTO.getKeyPropertyId() == -9999) {
-                    keyDTO.setKeyPropertyId(null);
-                }
-                Iterator<FacultyKeyPropValuesDTO> valueIterator = keyDTO.getKeyPropVals().iterator();
-                List<FacultyKeyPropValuesDTO> valDTOs = new ArrayList<>();
-                while (valueIterator.hasNext()) {
-                    FacultyKeyPropValuesDTO valueDTO = valueIterator.next();
-                    if (valueDTO.getKeyPropValuesId() == -9999) {
-                        valueDTO.setKeyPropValuesId(null);
+        List<FacultyKeyPropsDTO> submitted = headings == null ? new ArrayList<>() : headings;
+        if (submitted.size() > MAX_HEADINGS) return "At most " + MAX_HEADINGS + " headings.";
+        for (FacultyKeyPropsDTO heading : submitted) {
+            String title = trim(heading.getKeyPropertyName());
+            if (title.isEmpty()) return "Every heading needs a title (or delete the heading).";
+            if (title.length() > 255) return "A heading may have at most 255 characters.";
+            if (heading.getKeyPropVals() != null && heading.getKeyPropVals().size() > MAX_VALUES) {
+                return "At most " + MAX_VALUES + " entries per heading.";
+            }
+            if (heading.getKeyPropVals() != null) {
+                for (FacultyKeyPropValuesDTO value : heading.getKeyPropVals()) {
+                    if (trim(value.getKeyPropVal()).length() > 500) {
+                        return "An entry under \"" + title + "\" is longer than 500 characters.";
                     }
-                    valueDTO.setFacultyKeyProps(keyDTO);
-                    valDTOs.add(valueDTO);
-                    logger.debug("Key property value: {}", valueDTO.getKeyPropVal());
                 }
-                keyDTO.getKeyPropVals().addAll(valDTOs);
-                keyDTO.setFaculty(oldFacultyDTO);
-                keyPropsDTOS.add(keyDTO);
             }
         }
-        oldFacultyDTO.getFacultyKeyProps().addAll(keyPropsDTOS);
+
+        if (!name.isEmpty()) faculty.setFacultyName(name);
+        if (designation != null) faculty.setFacultyDesignation(designation.isEmpty() ? null : designation);
+        if (!officialEmail.isEmpty()) faculty.setFacultyOfficialEmail(officialEmail);
+        if (!personalEmail.isEmpty()) faculty.setFacultyPersonalEmail(personalEmail);
+        if (!mobile.isEmpty()) faculty.setFacultyMobNo(Long.valueOf(mobile));
+
+        Map<Long, FacultyKeyProps> oldHeadings = new HashMap<>();
+        for (FacultyKeyProps heading : faculty.getFacultyKeyProps()) {
+            oldHeadings.put(heading.getKeyPropertyId(), heading);
+        }
+        List<FacultyKeyProps> newHeadings = new ArrayList<>();
+        int headingOrder = 0;
+        for (FacultyKeyPropsDTO submittedHeading : submitted) {
+            FacultyKeyProps heading = submittedHeading.getKeyPropertyId() == null ? null
+                    : oldHeadings.remove(submittedHeading.getKeyPropertyId()); // ids of other profiles are ignored
+            if (heading == null) {
+                heading = new FacultyKeyProps();
+                heading.setFaculty(faculty);
+            }
+            heading.setKeyPropertyName(trim(submittedHeading.getKeyPropertyName()));
+            heading.setKeyPropsOrder(++headingOrder);
+            Map<Long, FacultyKeyPropValues> oldValues = new HashMap<>();
+            for (FacultyKeyPropValues value : heading.getKeyPropVals()) {
+                oldValues.put(value.getKeyPropValuesId(), value);
+            }
+            List<FacultyKeyPropValues> newValues = new ArrayList<>();
+            int valueOrder = 0;
+            for (FacultyKeyPropValuesDTO submittedValue : submittedHeading.getKeyPropVals() == null
+                    ? new ArrayList<FacultyKeyPropValuesDTO>() : submittedHeading.getKeyPropVals()) {
+                String text = trim(submittedValue.getKeyPropVal());
+                if (text.isEmpty()) continue;
+                FacultyKeyPropValues value = submittedValue.getKeyPropValuesId() == null ? null
+                        : oldValues.remove(submittedValue.getKeyPropValuesId());
+                if (value == null) {
+                    value = new FacultyKeyPropValues();
+                    value.setFacultyKeyProps(heading);
+                }
+                // values are shown as HTML on the profile (an ORCID badge is stored that way); plain text stays as typed
+                if (!text.equals(value.getKeyPropVal())) {
+                    value.setKeyPropVal(text.indexOf('<') >= 0 ? PageHtml.sanitize(text) : text);
+                }
+                value.setKeyValueOrder(++valueOrder);
+                newValues.add(value);
+            }
+            heading.getKeyPropVals().clear(); // values left out are removed (orphanRemoval)
+            heading.getKeyPropVals().addAll(newValues);
+            newHeadings.add(heading);
+        }
+        faculty.getFacultyKeyProps().clear(); // headings left out are removed with their values
+        faculty.getFacultyKeyProps().addAll(newHeadings);
+        facultyRepository.save(faculty);
+        return null;
+    }
+
+    private static String trim(String s) {
+        return s == null ? "" : s.trim();
     }
 
     /** New profile photo of the logged-in faculty member; empty contact fields keep the stored values. */

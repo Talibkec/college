@@ -1,124 +1,82 @@
 <jsp:include page="header.jsp" />
 <%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<%-- Profile editor of a faculty member (only the faculty member and Admin; FacultyProfileController). The headings are
+     built by /js/manage/facultyprofile.js from the JSON below and saved with the same parameters as before. --%>
 <style>
-@media (max-width:767px) {
-  .add_button {
-    width: 100%;
-  }
-  .remove_button {
-    width: 8%;
-  }
-}
+  #profile-editor .pe-input { width: 100%; padding: .5rem; border: 1px solid #d1d5db; border-radius: .375rem; background: #fff; }
+  #profile-editor .pe-input:focus { outline: 2px solid #3b82f6; border-color: #3b82f6; }
+  #profile-editor .pe-invalid { border-color: #dc2626; background: #fef2f2; }
+  #profile-editor .pe-icon { padding: .35rem .6rem; border: 1px solid #d1d5db; border-radius: .375rem; background: #fff; color: #374151; }
+  #profile-editor .pe-icon:hover:not(:disabled) { background: #f3f4f6; }
+  #profile-editor .pe-icon:disabled { opacity: .35; cursor: default; }
+  #profile-editor .pe-danger { color: #b91c1c; }
+  #profile-editor .pe-chip { padding: .2rem .6rem; border: 1px dashed #2563eb; border-radius: 9999px; color: #1d4ed8; font-size: .875rem; }
+  #profile-editor .pe-chip:hover { background: #eff6ff; }
 </style>
 
 <div class="panel-heading bg-gray-200 p-5 text-3xl flex items-center space-x-2">
-  <i class="fa fa-sign-in"></i>
+  <i class="fa fa-edit"></i>
   <span>Edit Profile Details</span>
 </div>
 
-<div class="container mx-auto my-6 rounded-md">
-  <div class="row">
-    <div class="col-sm-8 my-6">
+<div class="container mx-auto my-6 px-4 max-w-4xl" id="profile-editor">
+  <p class="mb-4 text-gray-700">
+    <c:out value="${facultyDetails.facultyName}"/> &middot; changes appear on the profile after <b>Save changes</b>.
+    <a href="/facultyDetails?facultyId=${facultyDetails.facultyId}" class="text-blue-700 hover:underline ml-2"><i class="fa fa-arrow-left"></i> Back to the profile</a>
+  </p>
 
-         <div class="border border-gray-300 p-6 bg-white shadow-lg rounded-lg min-w-[600px]">
-                <form method="POST" enctype="multipart/form-data" id="editDetailsForm">
-                  <input type="hidden" id="facultyId" value="${facultyDetails.facultyId}" name="facultyId" class="w-full mb-4">
+  <div id="profile-message" class="hidden mb-4 p-3 rounded border" role="alert"></div>
 
-                  <div class="flex flex-col mb-4">
-                    <label for="facultyName" class="mb-2 font-semibold">Name</label>
-                    <input type="text" id="facultyName" value="${facultyDetails.facultyName}" name="facultyName" class="w-full p-2 border border-gray-300 rounded">
-                  </div>
+  <form id="editDetailsForm" novalidate>
+    <input type="hidden" id="facultyId" name="facultyId" value="${facultyDetails.facultyId}">
 
-                  <div class="flex flex-col mb-4">
-                    <label for="facultyOfficialEmail" class="mb-2 font-semibold">Official Email</label>
-                    <input type="email" id="facultyOfficialEmail" value="${facultyDetails.facultyOfficialEmail}" name="facultyOfficialEmail" class="w-full p-2 border border-gray-300 rounded">
-                  </div>
+    <section class="bg-white border border-gray-300 rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Details</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <label class="block"><span class="font-semibold">Name</span>
+          <input type="text" id="facultyName" name="facultyName" maxlength="255" class="pe-input mt-1" value="<c:out value='${facultyDetails.facultyName}'/>"></label>
+        <label class="block"><span class="font-semibold">Designation</span>
+          <input type="text" id="facultyDesignation" name="facultyDesignation" maxlength="100" list="designations" class="pe-input mt-1"
+                 placeholder="Assistant Professor" value="<c:out value='${facultyDetails.facultyDesignation}'/>">
+          <span class="text-sm text-gray-500">Choose from the list or type your own. Empty = "Assistant Professor".</span></label>
+        <datalist id="designations">
+          <option value="Professor"><option value="Associate Professor"><option value="Assistant Professor">
+          <option value="Assistant Professor (Contract)"><option value="Guest Faculty"><option value="Lecturer">
+          <option value="Teaching Assistant"><option value="Professor &amp; Head">
+        </datalist>
+        <label class="block"><span class="font-semibold">Official e-mail</span>
+          <input type="email" id="facultyOfficialEmail" name="facultyOfficialEmail" maxlength="255" class="pe-input mt-1" value="<c:out value='${facultyDetails.facultyOfficialEmail}'/>"></label>
+        <label class="block"><span class="font-semibold">Personal e-mail</span>
+          <input type="email" id="facultyPersonalEmail" name="facultyPersonalEmail" maxlength="255" class="pe-input mt-1" value="<c:out value='${facultyDetails.facultyPersonalEmail}'/>"></label>
+        <label class="block"><span class="font-semibold">Mobile number</span>
+          <input type="text" id="facultyMobNo" name="facultyMobNo" maxlength="15" inputmode="numeric" class="pe-input mt-1" value="<c:out value='${facultyDetails.facultyMobNo}'/>">
+          <span class="text-sm text-gray-500">Digits only.</span></label>
+      </div>
+    </section>
 
-                  <div class="flex flex-col mb-4">
-                    <label for="facultyPersonalEmail" class="mb-2 font-semibold">Personal Email</label>
-                    <input type="email" id="facultyPersonalEmail" value="${facultyDetails.facultyPersonalEmail}" name="facultyPersonalEmail" class="w-full p-2 border border-gray-300 rounded">
-                  </div>
+    <section class="bg-white border border-gray-300 rounded-lg shadow p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-1">Headings on the profile</h2>
+      <p class="text-sm text-gray-600 mb-4">Each heading (e.g. Qualifications) is shown as a blue bar with its entries as
+        bullet points. Use <i class="fa fa-arrow-up"></i> <i class="fa fa-arrow-down"></i> to change the order.
+        Empty entries are left out.</p>
+      <div id="headings" class="space-y-4"></div>
+      <p id="no-headings" class="hidden text-gray-500 italic mb-2">No headings yet.</p>
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <button type="button" id="add-heading" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"><i class="fa fa-plus"></i> Add heading</button>
+        <span class="text-sm text-gray-600 ml-2">Quick add:</span>
+        <span id="quick-headings" class="flex flex-wrap gap-2"></span>
+      </div>
+    </section>
 
-                  <div class="flex flex-col mb-4">
-                    <label for="facultyMobNo" class="mb-2 font-semibold">Mobile No</label>
-                    <input type="text" id="facultyMobNo" value="${facultyDetails.facultyMobNo}" name="facultyMobNo" class="w-full p-2 border border-gray-300 rounded">
-                  </div>
-
-            <div class="oldPropsClass">
-              <c:forEach items="${facultyDetails.facultyKeyProps}" var="keyProp">
-                <div class="oldpropkeybox">
-                  <div class="panel panel-success my-6">
-                    <input type="text" name="keyProp" placeholder="Enter Property Heading" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropertyName}">
-                    <input type="hidden" name="keyPropertyId" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropertyId}">
-                    <input type="hidden" name="keyPropsOrder" class="propKey col-md-6 my-2 ml-3" value="${keyProp.keyPropsOrder}">
-                  <a href="javascript:void(0);" class="remove_Key btn btn-danger  my-2 ml-2 mb-2">
-                    <button type="button" class=" md:w-auto  rounded text-white ">
-                      <i class="fa-solid fa-trash fa"> Heading</i>
-                    </button>
-                  </a>
-
-                    <c:forEach items="${keyProp.keyPropVals}" var="propVal">
-                      <div class="propVals">
-                        <c:set var="keyVals" value="${propVal.keyPropVal}"/>
-                        <input type="text" name="field_name" placeholder="Enter Property Value" class="propVal col-md-6 my-2 ml-3" value="${fn:escapeXml(keyVals)}">
-                        <input type="hidden" name="keyPropValuesId" class="propVal col-md-6 my-2 ml-3" value="${propVal.keyPropValuesId}">
-                        <input type="hidden" name="keyValueOrder" class="propVal col-md-6 my-2 ml-3" value="${propVal.keyValueOrder}">
-                          <a href="javascript:void(0);" class="add_button btn btn-success ml-5 my-2 mb-2">
-                                                 <button type="button" class="w-20 border-2 rounded"><span class="glyphicon glyphicon-plus-sign"></span>Add</button>
-                                               </a>
-                                               <a href="javascript:void(0);" class="remove_button btn btn-danger my-2 ml-2 mb-2">
-                                                 <button type="button" class="w-20"><span class="glyphicon glyphicon-remove-sign"></span>Delete</button>
-                                               </a>
-                      </div>
-                    </c:forEach>
-                  </div>
-                </div>
-              </c:forEach>
-            </div>
-
-            <div class="text-center my-3" id="addNewProp">
-              <button class="w-full btn btn-success focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                <span class="material-symbols-outlined"></span> Add New Property
-              </button>
-            </div>
-
-            <div class="newPropsClass">
-              <div class="newpropkeybox" style="display:none">
-                <div class="panel panel-success">
-                  <input type="text" name="propkey" class="propKey col-md-6 my-2 ml-3" placeholder="Property Heading">
-                  <div class="flex items-center space-x-2 mb-2">
-                     <a href="javascript:void(0);" class="remove_Key btn btn-danger ml-5 my-2 mr-1">
-                                       <button type="button" class="w-20">Delete</button>
-                                     </a>
-                                     <a href="javascript:void(0);" class="add_key btn btn-success">
-                                       <button type="button" class="w-20 border-2">Add More</button>
-                                     </a>
-                  </div>
-
-
-                  <div class="propVals mb-4">
-                    <input type="text" name="field_name" class="propVal col-md-6 my-2 ml-3" placeholder="Property Value">
-                     <a href="javascript:void(0);" class="add_button btn btn-success ml-5 my-2">
-                                         <button type="button" class="w-20 border-2 h-full">Add</button>
-                                       </a>
-                                       <a href="javascript:void(0);" class="remove_button btn btn-danger my-2 ml-0.5">
-                                         <button type="button" class="w-24"></span>Delete</button>
-                     </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <button type="submit" value="Submit" id="btnSubmit" class="w-full btn btn-info focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 mt-2">submit</button>
-          </form>
-        </div>
-
+    <div class="sticky bottom-0 bg-white border-t border-gray-300 py-3 flex items-center gap-3">
+      <button type="submit" id="btnSubmit" class="px-6 py-2 rounded bg-green-700 text-white font-medium hover:bg-green-800"><i class="fa fa-save"></i> Save changes</button>
+      <a href="/facultyDetails?facultyId=${facultyDetails.facultyId}" class="px-4 py-2 rounded border border-gray-300 hover:bg-gray-100">Cancel</a>
+      <span id="dirty-note" class="hidden text-sm text-amber-700">Unsaved changes</span>
     </div>
-  </div>
+  </form>
 </div>
 
+<script type="application/json" id="headings-data">${headingsJson}</script>
 <jsp:include page="footer.jsp" />
-<script src="/js/editfacultydetails.js"></script>
+<script src="/js/manage/facultyprofile.js"></script>

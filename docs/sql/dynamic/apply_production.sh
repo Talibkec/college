@@ -27,7 +27,7 @@ fi
 
 DDL=(01_site_setting.sql 02_page_section.sql 03_link_item.sql 04_contact_person.sql 05_site_image.sql 06_fee_item.sql
      07_department_site.sql 08_notice_type.sql 09_sms_group.sql 10_content_area.sql 11_document_type.sql
-     12_content_change_log.sql 13_content_file.sql 14_page_block.sql)
+     12_content_change_log.sql 13_content_file.sql 14_page_block.sql 16_faculty_designation.sql)
 SEEDS=(10_roles_seed.sql 10_content_area_seed.sql 07_department_site_seed.sql 01_site_setting_seed.sql
        02_page_section_seed.sql 03_link_item_seed.sql 15_page_section_pages_seed.sql)
 for f in "${DDL[@]}" "${SEEDS[@]}"; do
@@ -72,7 +72,8 @@ UNION ALL SELECT 'department sites (10)', COUNT(*) FROM department_site
 UNION ALL SELECT 'site settings (15 or more)', COUNT(*) FROM site_setting
 UNION ALL SELECT 'page texts (160 or more)', COUNT(*) FROM page_section
 UNION ALL SELECT 'links (129 or more)', COUNT(*) FROM link_item
-UNION ALL SELECT 'page block tables (2)', COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name IN ('page_block', 'content_file');"
+UNION ALL SELECT 'page block tables (2)', COUNT(*) FROM information_schema.tables WHERE table_schema = DATABASE() AND table_name IN ('page_block', 'content_file')
+UNION ALL SELECT 'faculty.f_designation column (1)', COUNT(*) FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'faculty' AND column_name = 'f_designation';"
 run -t -e "SELECT setting_value AS 'main menu from database (no)' FROM site_setting WHERE setting_key = 'links.main_menu.enabled';
 SHOW VARIABLES LIKE 'max_allowed_packet';"
 echo "Done. Restart the application so it reads the new rows. max_allowed_packet must be above 20 MB (uploads)."

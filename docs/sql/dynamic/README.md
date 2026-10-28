@@ -49,6 +49,7 @@ mysql -u <user> -p "$DB" < 11_document_type.sql
 mysql -u <user> -p "$DB" < 12_content_change_log.sql
 mysql -u <user> -p "$DB" < 13_content_file.sql
 mysql -u <user> -p "$DB" < 14_page_block.sql
+mysql -u <user> -p "$DB" < 16_faculty_designation.sql   # new column faculty.f_designation; BEFORE deploying the new WAR
 
 # 2. data (seeds) – utf8mb4 so that special characters arrive unchanged
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 10_roles_seed.sql
@@ -76,6 +77,7 @@ SELECT COUNT(*) FROM page_section;                                   -- 160 (5 A
 SELECT list_code, COUNT(*) FROM link_item GROUP BY list_code;        -- 10 lists, 129 entries in total
 SELECT setting_value FROM site_setting WHERE setting_key = 'links.main_menu.enabled';   -- no
 SHOW TABLES LIKE 'page_block'; SHOW TABLES LIKE 'content_file';      -- both exist (empty)
+SHOW COLUMNS FROM faculty LIKE 'f_designation';                      -- 1 row (VARCHAR(100), NULL); without it the new WAR cannot read faculty
 SHOW VARIABLES LIKE 'max_allowed_packet';                            -- must be > 20 MB (uploads); MySQL 8 default 64 MB
 ```
 
@@ -93,6 +95,8 @@ DELETE ur FROM user_role ur JOIN test_role r ON r.id = ur.role_id
 DELETE FROM test_role WHERE name IN ('SubAdmin', 'Principal', 'Registrar', 'ExamController', 'TPO', 'NBA', 'Accounts',
                    'Librarian', 'Warden', 'PIO', 'ClubInCharge', 'Staff');
 ```
+The column `faculty.f_designation` may stay (the previous WAR ignores it); to remove it as well:
+`ALTER TABLE faculty DROP COLUMN f_designation;` (designations entered on the website are lost).
 Or restore the backup of step 0. Content entered in the new screens (texts, links, blocks, uploaded files) is lost
 with the tables.
 
@@ -110,6 +114,7 @@ with the tables.
 | `11_document_type.sql` | new table | document pages (later) |
 | `12_content_change_log.sql` | new table | history of all changes (step 2) |
 | `13_content_file.sql` | new table `content_file` | uploaded images/documents of page blocks |
+| `16_faculty_designation.sql` | new column `faculty.f_designation` VARCHAR(100) NULL (idempotent) | designation on the faculty list and profile; NULL = "Assistant Professor" |
 | `14_page_block.sql` | new table `page_block` | headings, text, images, documents (attachments) and links added to pages (`block_type` `link`: text in `heading`, address in `body_html`) |
 | `10_roles_seed.sql` | 12 new rows in the existing table `test_role` | roles |
 | `10_content_area_seed.sql` | 31 areas + permission matrix | roles |
@@ -160,6 +165,7 @@ with the tables.
 | 2026-10-28 | department lab pages (`/academic/lab?dept_id=n`) editable by the department | **no database change.** Blocks of these pages get the page key `academic.lab.<n>` and the department's area (e.g. `department.cse`) in the existing `page_block` columns. Production has no blocks under the old key `academic.lab` (nothing to move) | – (nothing to run) |
 | 2026-10-28 | lab documents: delete link fixed, returns to the lab page | **no database change** (existing `lab_document` rows are deleted as before) | – (nothing to run) |
 | 2026-10-28 | new pages `/page/<name>` from the main menu | **no database change.** The page is a `link_item` row (list `main_menu`) plus `page_block` rows with key `page.<name>` (existing tables). After deploying: create the menu entries and their content in `/manage/links` and on the pages (local entries are not copied) | – (nothing to run) |
+| 2026-10-28 | faculty profile editor: designation, headings, profile content | **schema change (approved 2026-10-28): new column `faculty.f_designation` VARCHAR(100) NULL.** Run it **before** deploying the new WAR (the new WAR reads the column; the old one ignores it). Existing rows stay NULL = shown as "Assistant Professor" as today. Content added on profile pages: `page_block`/`content_file` rows with area `faculty.<id>` (existing tables) | `16_faculty_designation.sql` (or `apply_production.sh`) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

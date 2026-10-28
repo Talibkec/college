@@ -35,13 +35,16 @@ public class PageBlockServiceImpl implements PageBlockService {
     private final ContentFileRepository contentFileRepository;
     private final ContentPermissionService contentPermissionService;
     private final ContentChangeLogService contentChangeLogService;
+    private final FacultyProfileAccess facultyProfileAccess;
 
     /** Visible blocks per page; replaced after every change (changes made by SQL need a restart). */
     private volatile Map<String, List<PageBlock>> cache;
 
     public PageBlockServiceImpl(PageBlockRepository pageBlockRepository, ContentFileRepository contentFileRepository,
                                 ContentPermissionService contentPermissionService,
-                                ContentChangeLogService contentChangeLogService) {
+                                ContentChangeLogService contentChangeLogService,
+                                FacultyProfileAccess facultyProfileAccess) {
+        this.facultyProfileAccess = facultyProfileAccess;
         this.pageBlockRepository = pageBlockRepository;
         this.contentFileRepository = contentFileRepository;
         this.contentPermissionService = contentPermissionService;
@@ -107,6 +110,9 @@ public class PageBlockServiceImpl implements PageBlockService {
 
     private String areaAccess(Authentication authentication, String areaCode) {
         if (areaCode == null) return null;
+        if (areaCode.startsWith("faculty.")) { // a faculty profile: the faculty member and Admin, not via content_area
+            return facultyProfileAccess.canEdit(authentication, Long.valueOf(areaCode.substring("faculty.".length()))) ? "E" : null;
+        }
         for (AreaAccess access : contentPermissionService.editableAreas(authentication)) {
             if (access.getArea().getAreaCode().equals(areaCode)) {
                 return access.getAccess();

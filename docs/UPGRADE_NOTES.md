@@ -573,8 +573,8 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
 * Every page: its editors now see the "Add to this page" buttons (Heading, Subheading, Text, Image, Attachment, Link)
   directly under the content instead of only the "Edit this page" link (links open in the whole window, also inside
   the CSE labs iframe). Anonymous visitors see no change.
-* Lab page: Admin/HOD see "Upload a lab document" (existing `/auth/uploadLabDoc`). Unchanged and noted: the existing
-  lab-document upload/delete still allows every HOD for every department (`isAdminOrHod`).
+* Lab page: Admin/HOD see "Upload a lab document" (existing `/auth/uploadLabDoc`). Upload/delete restricted to the own
+  department since §10.7m.
 * Test: `PageTextsTest.hodEditsTheLabPageOfOwnDepartment`.
 * Lab documents could not be deleted from the lab page in practice: "Delete Document" was a `<button>` inside a link
   (some browsers, e.g. Firefox, do not follow such links), and after deleting `/approval/deleteLab/{id}` sent the user
@@ -660,6 +660,17 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   only the uploader (`f_uploadedby`) or Admin; others get 403 and the document stays. Unknown ids redirect as before.
 * Tests: `FacultySelfServiceTest.facultyDashboardOffersOnlyScreensFacultyMayOpen`, delete check in
   `documentUploadDownloadDelete`.
+
+### 10.7m Lab documents: HOD only for the own department (decision 2026-10-28)
+* Before, every HOD could upload and delete the lab documents (`lab_document`) of every department. Now
+  `LabDocumentAccess`: Admin for all departments; an HOD only where the HOD may edit that department's lab page
+  `academic.lab.<n>` (`department_site.hod_username` or the HOD's own faculty department, mapping `PageKeys.LAB_SITES`).
+  Dept numbers without a department site (6, 8) are Admin only.
+* `/academic/lab?dept_id=<n>`: "Upload a lab document" and "Delete Document" only for those users; the upload link
+  passes `dept_id`, and `/auth/uploadLabDoc` offers only the user's departments (preselected). `POST
+  /auth/api/uploadLabDoc` for another department → 403 "You may only upload lab documents of your own department.";
+  `/approval/deleteLab/{id}` of another department → "Access Denied" (the existing reply), document kept.
+* Tests: `RefactoringSafetyTest` (lab part: own department, other department refused for upload and delete).
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

@@ -3,7 +3,9 @@ package com.college.core.controller;
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.ContentPermissionService;
 import com.college.service.FacultyProfileService;
+import com.college.service.LabDocumentAccess;
 import com.college.service.NoticeBoardService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -21,9 +23,11 @@ public class AdminController {
     private final FacultyProfileService facultyProfileService;
     private final NoticeBoardService noticeBoardService;
     private final ContentPermissionService contentPermissionService;
+    private final LabDocumentAccess labDocumentAccess;
 
     public AdminController(FacultyProfileService facultyProfileService, NoticeBoardService noticeBoardService,
-                           ContentPermissionService contentPermissionService) {
+                           ContentPermissionService contentPermissionService, LabDocumentAccess labDocumentAccess) {
+        this.labDocumentAccess = labDocumentAccess;
         this.facultyProfileService = facultyProfileService;
         this.noticeBoardService = noticeBoardService;
         this.contentPermissionService = contentPermissionService;
@@ -41,11 +45,14 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/auth/uploadLabDoc")
-    public ModelAndView uploadLabDoc() {
+    public ModelAndView uploadLabDoc(Authentication authentication,
+                                     @RequestParam(value = "dept_id", required = false) String deptId) {
         List<NoticeBoardDTO> list = noticeBoardService.getAllNotice(PageRequest.of(0, 10));
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
+        mv.addObject("labDepts", labDocumentAccess.departments(authentication)); // only the HOD's own department(s)
+        mv.addObject("selectedDept", deptId);
         mv.setViewName("admin/uploadLabDoc.jsp");
         return mv;
 

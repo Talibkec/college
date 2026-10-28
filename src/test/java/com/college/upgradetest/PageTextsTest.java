@@ -270,7 +270,7 @@ public class PageTextsTest extends AbstractAppTest {
             WebSession hod = loginAs(TestData.HOD);
             WebSession.Response lab = hod.get("/academic/lab?dept_id=1");
             assertContains("add buttons on the own lab page", lab, "href=\"/manage/blocks?page=academic.lab.1&add=text#form\"");
-            assertContains("lab document upload", lab, "href=\"/auth/uploadLabDoc\"");
+            assertContains("lab document upload", lab, "href=\"/auth/uploadLabDoc?dept_id=");
             assertFalse("not on Civil's lab page", hod.get("/academic/lab?dept_id=2").body().contains("page-blocks-add"));
             assertEquals("page opened by its address", "/manage/blocks?page=academic.lab.1",
                     hod.get("/manage/blocks?url=" + java.net.URLEncoder.encode("/academic/lab?dept_id=1", "UTF-8")).redirectPath());

@@ -1,4 +1,5 @@
 <jsp:include page="HeaderDashboard.jsp" />
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 <div class="container mx-auto py-12">
     <div class="flex justify-center">
@@ -13,17 +14,18 @@
                         <input type="text" name="caption" id="caption" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required />
                     </div>
 
+                    <c:if test="${empty labDepts}"><p class="text-red-700" id="no-lab-department">You are not the HOD of a department, so you cannot upload lab documents.</p></c:if>
                     <div class="flex flex-col">
                         <label for="department" class="text-gray-700 font-medium mb-2">Choose Department</label>
                         <select id="deptId" name='deptId' class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="1">Computer Sc. & Engineering</option>
-                            <option value="2">Civil Engineering</option>
-                            <option value="3">Mechanical Engineering</option>
-                            <option value="4">Electrical & Electronics Engg.</option>
-                            <option value="5">Applied Sc. & Humanities</option>
-                            <option value="6">Electronics Engineering (VLSI Design and Technology)</option>
-                            <option value="7">Mechanical and Manufacturing Engineering</option>
-                            <option value="8">Manufacturing Engineering</option>
+                            <c:if test="${labDepts.contains('1')}"><option value="1"${selectedDept eq '1' ? ' selected' : ''}>Computer Sc. & Engineering</option></c:if>
+                            <c:if test="${labDepts.contains('2')}"><option value="2"${selectedDept eq '2' ? ' selected' : ''}>Civil Engineering</option></c:if>
+                            <c:if test="${labDepts.contains('3')}"><option value="3"${selectedDept eq '3' ? ' selected' : ''}>Mechanical Engineering</option></c:if>
+                            <c:if test="${labDepts.contains('4')}"><option value="4"${selectedDept eq '4' ? ' selected' : ''}>Electrical & Electronics Engg.</option></c:if>
+                            <c:if test="${labDepts.contains('5')}"><option value="5"${selectedDept eq '5' ? ' selected' : ''}>Applied Sc. & Humanities</option></c:if>
+                            <c:if test="${labDepts.contains('6')}"><option value="6"${selectedDept eq '6' ? ' selected' : ''}>Electronics Engineering (VLSI Design and Technology)</option></c:if>
+                            <c:if test="${labDepts.contains('7')}"><option value="7"${selectedDept eq '7' ? ' selected' : ''}>Mechanical and Manufacturing Engineering</option></c:if>
+                            <c:if test="${labDepts.contains('8')}"><option value="8"${selectedDept eq '8' ? ' selected' : ''}>Manufacturing Engineering</option></c:if>
                         </select>
                     </div>
 

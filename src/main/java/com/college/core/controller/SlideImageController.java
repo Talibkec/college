@@ -1,5 +1,6 @@
 package com.college.core.controller;
 
+import com.college.service.LabDocumentAccess;
 import com.college.service.UploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +23,11 @@ public class SlideImageController {
     private static final Logger logger = LoggerFactory.getLogger(SlideImageController.class);
 
     private final UploadService uploadService;
+    private final LabDocumentAccess labDocumentAccess;
 
-    public SlideImageController(UploadService uploadService) {
+    public SlideImageController(UploadService uploadService, LabDocumentAccess labDocumentAccess) {
         this.uploadService = uploadService;
+        this.labDocumentAccess = labDocumentAccess;
     }
 
     @ResponseBody
@@ -109,6 +112,9 @@ public class SlideImageController {
             @RequestParam("slideImage") MultipartFile uploadfile, @RequestParam("caption") String caption,
             @RequestParam("deptId") Integer depId, Authentication authentication) {
         logger.debug("Single lab file upload!");
+        if (!labDocumentAccess.canManage(authentication, depId)) { // Admin, or the HOD of that department
+            return new ResponseEntity<>("You may only upload lab documents of your own department.", new HttpHeaders(), HttpStatus.FORBIDDEN);
+        }
         String problem = UploadService.documentUploadProblem(uploadfile, caption, "Please provide a year");
         if (problem != null) {
             return badRequest(problem);

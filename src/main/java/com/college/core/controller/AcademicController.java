@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.college.service.HolidayService;
 import com.college.service.LabDocumentService;
 import com.college.service.AccessService;
+import com.college.service.LabDocumentAccess;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +24,13 @@ public class AcademicController {
     private final HolidayService holidayService;
     private final LabDocumentService labDocumentService;
     private final AccessService accessService;
+    private final LabDocumentAccess labDocumentAccess;
 
     public AcademicController(HolidayService holidayService,
             LabDocumentService labDocumentService,
-            AccessService accessService) {
+            AccessService accessService,
+            LabDocumentAccess labDocumentAccess) {
+        this.labDocumentAccess = labDocumentAccess;
         this.holidayService = holidayService;
         this.labDocumentService = labDocumentService;
         this.accessService = accessService;
@@ -86,7 +90,8 @@ public class AcademicController {
     @RequestMapping(value = "lab")
     public ModelAndView getLabDocuments(@RequestParam("dept_id") Integer deptId, Authentication authentication) {
 
-        boolean accessAllow = accessService.isAdminOrHod(authentication);
+        // upload/delete only for Admin and the HOD of this department (LabDocumentAccess)
+        boolean accessAllow = labDocumentAccess.canManage(authentication, deptId);
 
         logger.debug("Listing documents");
         ModelAndView mv = new ModelAndView();

@@ -43,7 +43,7 @@
             </div>
         </aside>
         <div class="w-full max-w-2xl p-3">
-            <c:if test="${showDeleteBtn}"><p class="mb-2 text-right" id="lab-upload"><a href="/auth/uploadLabDoc" class="text-blue-600 hover:underline"><i class="fa fa-upload"></i> Upload a lab document</a></p></c:if>
+            <c:if test="${showDeleteBtn}"><p class="mb-2 text-right" id="lab-upload"><a href="/auth/uploadLabDoc?dept_id=<c:out value='${param.dept_id}'/>" class="text-blue-600 hover:underline"><i class="fa fa-upload"></i> Upload a lab document</a></p></c:if>
             <div class="page-content">
                 <table class="w-full table-auto border-collapse">
                     <thead>

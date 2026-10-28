@@ -12,6 +12,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -166,7 +167,26 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         assertNull(id("select id from responsibility_doc where id = ?", respId));
 
         String lab = TestData.MARK + "-lab-" + t;
+        // lab documents: Admin, or the HOD of that department only (decision 2026-10-28)
+        String hodOfCse = jdbc.queryForObject("select hod_username from department_site where site_code = 'cse'", String.class);
+        jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", TestData.HOD.username);
+        try {
         WebSession hod = loginAs(TestData.HOD);
+        assertResponse("other department", hod.postMultipart("/auth/api/uploadLabDoc", fields("caption", lab + "-civil", "deptId", "2"),
+                file("slideImage", "l.pdf", "application/pdf", PDF)), 403, TEXT_PLAIN, "You may only upload lab documents of your own department.");
+        assertNull(id("select id from lab_document where file_name = ?", lab + "-civil"));
+        String form = hod.get("/auth/uploadLabDoc?dept_id=1").body();
+        assertTrue("own department offered and selected", form.contains("<option value=\"1\" selected>"));
+        assertFalse("other departments not offered", form.contains("<option value=\"2\""));
+        // a Civil document (uploaded by Admin): no delete link, delete refused
+        admin.postMultipart("/auth/api/uploadLabDoc", fields("caption", lab + "-admin", "deptId", "2"), file("slideImage", "l.pdf", "application/pdf", PDF));
+        Long civilId = id("select id from lab_document where file_name = ?", lab + "-admin");
+        assertNotNull(civilId);
+        assertFalse(hod.get("/academic/lab?dept_id=2").body().contains("/approval/deleteLab/" + civilId));
+        assertTrue(hod.get("/approval/deleteLab/" + civilId).body().contains("Access Denied"));
+        assertNotNull(id("select id from lab_document where id = ?", civilId));
+        admin.get("/approval/deleteLab/" + civilId);
+        assertNull(id("select id from lab_document where id = ?", civilId));
         assertResponse("lab upload", hod.postMultipart("/auth/api/uploadLabDoc", fields("caption", lab, "deptId", "1"),
                 file("slideImage", "l.pdf", "application/pdf", PDF)), 200, TEXT_PLAIN, "Lab Doc uploaded successfully");
         Long labId = id("select id from lab_document where file_name = ?", lab);
@@ -180,6 +200,9 @@ public class RefactoringSafetyTest extends AbstractAppTest {
         assertTrue("back to the lab page", hod.get("/approval/deleteLab/" + labId).body()
                 .contains("window.location.href='/academic/lab?dept_id=1'"));
         assertNull(id("select id from lab_document where id = ?", labId));
+        } finally {
+            jdbc.update("update department_site set hod_username = ? where site_code = 'cse'", hodOfCse);
+        }
 
         assertResponse("empty caption", admin.postMultipart("/auth/api/uploadHoliday", fields("caption", ""),
                 file("slideImage", "h.pdf", "application/pdf", PDF)), 400, TEXT_PLAIN, "Please provide a year");

@@ -36,6 +36,7 @@ public class ApprovalController {
     private final ResponsibilityDocService responsibilityDocService;
     private final AccessService accessService;
     private final LabDocumentService labDocumentService;
+    private final LabDocumentAccess labDocumentAccess;
     private final GrievanceService grievanceService;
     private final FacultyService facultyService;
 
@@ -45,7 +46,9 @@ public class ApprovalController {
             HolidayService holidayService,
             ResponsibilityDocService responsibilityDocService,
             AccessService accessService,
-            LabDocumentService labDocumentService) {
+            LabDocumentService labDocumentService,
+            LabDocumentAccess labDocumentAccess) {
+        this.labDocumentAccess = labDocumentAccess;
         this.facultyService = facultyService;
         this.grievanceService = grievanceService;
         this.allDocuments = allDocuments;
@@ -160,10 +163,12 @@ public class ApprovalController {
 
     @RequestMapping(value = "deleteLab/{id}")
     public ResponseEntity<?> deleteLab(@PathVariable("id") Long documentId, Authentication authentication) throws IOException {
-        boolean accessAllow = accessService.isAdminOrHod(authentication);
+        Integer deptId = labDocumentService.departmentOf(documentId);
+        // Admin, or the HOD of the document's department (before: every HOD for every department)
+        boolean accessAllow = accessService.isAdminOrHod(authentication)
+                && (deptId == null || labDocumentAccess.canManage(authentication, deptId));
         if(!accessAllow){ return new ResponseEntity<>("Access Denied" , new HttpHeaders() , HttpStatus.OK);}
         logger.info("Deleting document {}", documentId);
-        Integer deptId = labDocumentService.departmentOf(documentId);
         labDocumentService.deleteItem(documentId);
         HttpHeaders headers = new HttpHeaders();
         // back to the lab page of the department (before: the holidays page)

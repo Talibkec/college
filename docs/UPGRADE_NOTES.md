@@ -625,6 +625,23 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
 * Tests: `FacultyProfileEditTest` (designation, rename/reorder/delete with kept ids, validation, sanitising, owner/Admin
   only incl. foreign ids, profile blocks); `FacultySelfServiceTest` unchanged and passing (old JSON format still accepted).
 
+### 10.7k File links with an extension (upgrade regression) and the faculty upload pages
+* **Regression of the Boot 2/3 upgrade, found 2026-10-28:** the pages link stored files with the file's extension
+  (`/42/slideImage.JPG` home slider, `/7/image.png` faculty photo, `/384/documents.jpg|pdf` faculty documents,
+  `/{id}/galleryImage.<ext>`, `/{id}/achievementImage.<ext>`). Spring Boot 1.3 (production) matched them by suffix;
+  Spring 5.3+/6 does not, so they gave 404 (the page baselines compare HTML and never fetched the files). The five
+  endpoints now also map `.{ext}`; `FileExtensionContentTypeFilter` sets the content type from the extension again
+  (images, PDF and Office types only; any other extension is `application/octet-stream`, never HTML).
+  Not changed: the `/{id}/notice<ext>` links on the dashboards, which had no endpoint before the upgrade either.
+* **Faculty upload pages** `/uploadfile/facultyFileUpload?isProfilePic=No|Yes` (broken before the upgrade too): the
+  Submit button had no `id="btnSubmit"`, so the form was posted directly and the browser showed the plain-text reply
+  ("blank page"); the photo page failed with 400 when the mobile field was empty; a too large file reloaded the page.
+  Rewritten (same URL and field names): documents = heading + file, or heading + link address; photo page = photo only
+  (details are on "Edit Profile Details"); checks with messages on the page, back to the own profile when saved.
+  `facultyMobNo` and the file part are optional on the server (a link has no file). The 10 KB limit of the page
+  (commit 47a27e0) is kept and now shown; the server allows 20 MB.
+* Tests: `FacultySelfServiceTest.uploadPagesPostWithTheirScriptAndFilesOpenWithTheirExtension`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

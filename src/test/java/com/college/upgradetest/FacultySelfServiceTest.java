@@ -119,4 +119,57 @@ public class FacultySelfServiceTest extends AbstractAppTest {
         assertEquals(200, r.status);
         assertTrue(r.toString(), r.body().contains("\"id\":" + data.facultyId(TestData.FACULTY.username)));
     }
+
+    @Test
+    public void uploadPagesPostWithTheirScriptAndFilesOpenWithTheirExtension() throws Exception {
+        WebSession faculty = loginAs(TestData.FACULTY);
+        for (String pic : new String[]{"No", "Yes"}) {
+            WebSession.Response page = faculty.get("/uploadfile/facultyFileUpload?isProfilePic=" + pic);
+            assertCompletePage("upload page " + pic, page);
+            assertContains("submit handled by the script", page, "id=\"btnSubmit\"");
+            assertContains("script", page, "<script src=\"/js/facultyfileUpload.js\"></script>");
+        }
+        // the photo page sends no mobile number any more
+        java.io.ByteArrayOutputStream png = new java.io.ByteArrayOutputStream();
+        javax.imageio.ImageIO.write(new java.awt.image.BufferedImage(8, 8, java.awt.image.BufferedImage.TYPE_INT_RGB), "png", png);
+        Map<String, String> photo = new LinkedHashMap<>(profileFields("Yes", "NotAvailable"));
+        photo.remove("facultyMobNo");
+        assertEquals(200, faculty.postMultipart("/uploadfile/facultyFileUpload", photo,
+                Collections.singletonMap("facultydocumentsFile", new WebSession.FilePart("me.png", "image/png", png.toByteArray()))).status);
+        long facultyId = data.facultyId(TestData.FACULTY.username);
+        WebSession.Response img = anonymous().get("/" + facultyId + "/image.png");
+        assertEquals(200, img.status);
+        assertTrue(img.contentType, img.contentType.startsWith("image/png"));
+        assertArrayEquals(png.toByteArray(), img.bytes);
+
+        // a document opens with its extension as before the upgrade (Spring Boot 1.3 suffix matching)
+        String header = TestData.MARK + " ext doc " + System.currentTimeMillis();
+        faculty.postMultipart("/uploadfile/facultyFileUpload", profileFields("No", header),
+                Collections.singletonMap("facultydocumentsFile", new WebSession.FilePart("paper.pdf", "application/pdf", DOC)));
+        long docId = jdbc.queryForObject("select id from facultydocuments where f_headline = ?", Long.class, header);
+        assertContains("profile links with extension", anonymous().get("/facultyDetails?facultyId=" + facultyId), "/" + docId + "/documents.pdf");
+        WebSession.Response pdf = anonymous().get("/" + docId + "/documents.pdf");
+        assertEquals(200, pdf.status);
+        assertTrue(pdf.contentType, pdf.contentType.startsWith("application/pdf"));
+        assertArrayEquals(DOC, pdf.bytes);
+        WebSession.Response other = anonymous().get("/" + docId + "/documents.html");
+        assertEquals(200, other.status);
+        assertTrue("unknown extensions are downloads, never HTML: " + other.contentType, other.contentType.startsWith("application/octet-stream"));
+
+        // a link needs no file
+        String linkHeader = TestData.MARK + " ext link " + System.currentTimeMillis();
+        Map<String, String> link = new LinkedHashMap<>(profileFields("No", linkHeader));
+        link.put("isLink", "true");
+        link.put("linkAddress", "https://example.com/paper");
+        assertEquals(200, faculty.postMultipart("/uploadfile/facultyFileUpload", link, Collections.<String, WebSession.FilePart>emptyMap()).status);
+        assertContains("link listed", anonymous().get("/facultyDetails?facultyId=" + facultyId), "https://example.com/paper");
+
+        // home page slider images (existing rows) open with their extension again
+        List<Long> slides = jdbc.queryForList("select image_slide_id from image_slide where image is not null and file_type = 'JPG' limit 1", Long.class);
+        if (!slides.isEmpty()) {
+            WebSession.Response slide = anonymous().get("/" + slides.get(0) + "/slideImage.JPG");
+            assertEquals(200, slide.status);
+            assertTrue(slide.contentType, slide.contentType.startsWith("image/jpeg"));
+        }
+    }
 }

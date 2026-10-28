@@ -201,18 +201,19 @@ public class FacultyProfileController {
     @ResponseBody
     @RequestMapping(value = "/uploadfile/facultyFileUpload", method = RequestMethod.POST)
     public ResponseEntity<String> uploadFile(
-            @RequestParam("facultydocumentsFile") MultipartFile uploadfile,
+            @RequestParam(value = "facultydocumentsFile", required = false) MultipartFile uploadfile,
             @RequestParam("facultydocumentsHeader") String facultydocumentsHeader,
             @RequestParam("isProfilePic") String isProfilePic,
             @RequestParam("facultyPersonalEmail") String facultyPersonalEmail,
             @RequestParam("facultyOfficialEmail") String facultyOfficialEmail,
-            @RequestParam("facultyMobNo") Long facultyMobNo,
+            @RequestParam(value = "facultyMobNo", required = false) Long facultyMobNo,
             @RequestParam("facultyName") String facultyName,
             @RequestParam(name = "isLink", required = false, defaultValue = "false") boolean isLink,
             @RequestParam(name = "linkAddress", required = false) String linkAddress) {
-        String fileName = uploadfile.getOriginalFilename();
-        if (!isLink && (uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
-            String msg = uploadfile.isEmpty() ? "Please select a file." : "Please give notice heading";
+        // a link has no file; the page sends an empty part (or none)
+        String fileName = uploadfile == null ? "" : uploadfile.getOriginalFilename();
+        if (!isLink && (uploadfile == null || uploadfile.isEmpty() || StringUtils.isEmpty(facultydocumentsHeader))) {
+            String msg = uploadfile == null || uploadfile.isEmpty() ? "Please select a file." : "Please give notice heading";
             return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
         String userName = ControllerUtility.getUserName();

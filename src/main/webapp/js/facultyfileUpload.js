@@ -1,72 +1,90 @@
-$(document).ready(function () {
+/*
+ * Faculty profile uploads (/uploadfile/facultyFileUpload?isProfilePic=No|Yes): checks the form, posts it with fetch
+ * and goes back to the own profile when saved; errors are shown above the form.
+ */
+(function () {
+    var MAX_KB = 10; // the limit the page had before (commit 47a27e0); the server allows up to 20 MB
+    var form = document.getElementById('fileUploadForm');
+    var file = document.getElementById('facultydocumentsFile');
+    var isLink = document.getElementById('isLink');
+    var msg = document.getElementById('msg');
+    var button = document.getElementById('btnSubmit');
+    var photo = form.elements.isProfilePic.value === 'Yes';
 
-    $("#btnSubmit").click(function (event) {
+    document.getElementById('maxSize').textContent = MAX_KB + ' KB';
 
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
+    function show(text, ok) {
+        msg.textContent = text;
+        msg.className = 'mb-4 p-3 rounded border ' + (ok ? 'bg-green-50 border-green-400 text-green-800' : 'bg-red-50 border-red-400 text-red-800');
+    }
 
-        fire_ajax_submit();
+    function chosen() {
+        return file.files && file.files.length ? file.files[0] : null;
+    }
 
+    file.addEventListener('change', function () {
+        var f = chosen();
+        document.getElementById('size').textContent = f ? 'Selected: ' + Math.ceil(f.size / 1024) + ' KB' : '';
+        if (f && f.size > MAX_KB * 1024) show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most ' + MAX_KB + ' KB are allowed.', false);
+        else msg.className = 'hidden';
     });
 
-    $("#isLink").click( function( event ) {
-        if($("#isLink").is(':checked')){
-            $("#linkBox").css("display","block");
-            $("#chooseFileBox").css("display","none");
+    if (isLink) {
+        isLink.addEventListener('change', function () {
+            document.getElementById('linkBox').classList.toggle('hidden', !isLink.checked);
+            document.getElementById('chooseFileBox').classList.toggle('hidden', isLink.checked);
+        });
+    }
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var link = isLink && isLink.checked;
+        var f = chosen();
+        if (!photo && !form.elements.facultydocumentsHeader.value.trim()) {
+            show('Please enter a heading.', false);
+            form.elements.facultydocumentsHeader.focus();
+            return;
         }
-        else{
-             $("#linkBox").css("display","none");
-             $("#chooseFileBox").css("display","block");
+        if (link && !/^https?:\/\/\S+$/i.test(document.getElementById('linkAddress').value.trim())) {
+            show('Please enter the link address, starting with https:// or http://.', false);
+            document.getElementById('linkAddress').focus();
+            return;
         }
-    })
-
-});
-
-function fire_ajax_submit() {
-
-    // Get form
-    var form = $('#fileUploadForm')[0];
-
-    var data = new FormData(form);
-
-    data.append("CustomField", "This is some extra data, testing");
-    data.append("isScrollable",$("#isScrollable").is(':checked'));
-
-    $("#btnSubmit").prop("disabled", true);
-
-    $.ajax({
-        type: "POST",
-        enctype: 'multipart/form-data',
-        url: "/uploadfile/facultyFileUpload",
-        data: data,
-        //http://api.jquery.com/jQuery.ajax/
-        //https://developer.mozilla.org/en-US/docs/Web/API/FormData/Using_FormData_Objects
-        processData: false, //prevent jQuery from automatically transforming the data into a query string
-        contentType: false,
-        cache: false,
-        timeout: 600000,
-        success: function (data, textStatus, xhr) {
-
-             //window.location.href = "jsp/login.jsp?a=b&c=d";
-
-                var params = data.split(",");
-                $("#hfileLocation").val(params[0]);
-                $("#hnoticeHeader").val(params[1]);
-                $("#hnoticeType").val(params[2]);
-                $("#result").text(data);
-                console.log("SUCCESS : ", data);
-                $("#btnSubmit").prop("disabled", false);
-                history.go(-1);
-        },
-        error: function (e) {
-
-            $("#result").text(e.responseText);
-            $("#msg").css({"display":"block", "color":"red"});
-            $("#msg").html(e.responseText)
-            console.log("ERROR : ", e);
-            $("#btnSubmit").prop("disabled", false);
-
+        if (!link && !f) {
+            show(photo ? 'Please choose a photo.' : 'Please choose a file.', false);
+            return;
         }
+        if (!link && f.size > MAX_KB * 1024) {
+            show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most ' + MAX_KB + ' KB are allowed.', false);
+            return;
+        }
+        if (photo && !/\.(jpe?g|png)$/i.test(f.name)) {
+            show('Please choose a JPG or PNG photo.', false);
+            return;
+        }
+        var data = new FormData(form);
+        if (link) {
+            data.set('isLink', 'true');
+            data.set('facultydocumentsFile', new Blob([]), '');
+        }
+        button.disabled = true;
+        show('Uploading...', true);
+        fetch('/uploadfile/facultyFileUpload', {method: 'POST', body: data, credentials: 'same-origin'})
+            .then(function (r) { return r.text().then(function (t) { return {ok: r.ok, status: r.status, text: t}; }); })
+            .then(function (r) {
+                button.disabled = false;
+                if (r.ok) {
+                    show('Saved. Opening your profile...', true);
+                    window.location.href = '/mydashboard';
+                } else if (r.status === 413) {
+                    show('The file is too big.', false);
+                } else {
+                    show(r.text && r.text.length < 300 && r.text.indexOf('<') < 0 ? r.text : 'Upload failed (' + r.status + ').', false);
+                }
+            })
+            .catch(function () {
+                button.disabled = false;
+                show('Upload failed: no connection to the server.', false);
+            });
     });
-
-}
+})();

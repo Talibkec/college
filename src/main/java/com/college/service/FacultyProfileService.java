@@ -286,12 +286,13 @@ public class FacultyProfileService {
                              String linkAddress) {
         FacultyDocumentsDTO facultyDocumentsDTO = new FacultyDocumentsDTO();
         facultyDocumentsDTO.setHeadLine(facultydocumentsHeader);
-        facultyDocumentsDTO.setUploadedFileName(uploadFile.getOriginalFilename());
+        facultyDocumentsDTO.setUploadedFileName(uploadFile == null ? "" : uploadFile.getOriginalFilename());
         facultyDocumentsDTO.setUploadedBy(userName);
         facultyDocumentsDTO.setDate(new Date());
         facultyDocumentsDTO.setLink(isLink);
         facultyDocumentsDTO.setLinkAddress(linkAddress);
-        facultyDocumentsDTO.setDocument(UploadService.readBytes(uploadFile, "faculty document"));
+        // a link without a file part is stored like a link with an empty part (as before)
+        facultyDocumentsDTO.setDocument(uploadFile == null ? new byte[0] : UploadService.readBytes(uploadFile, "faculty document"));
         facultyDocumentsService.saveFacultydocumentsDetails(facultyDocumentsDTO);
     }
 }

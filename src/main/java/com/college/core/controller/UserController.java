@@ -215,7 +215,7 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "/{id}/galleryImage")
+    @RequestMapping(value = {"/{id}/galleryImage", "/{id}/galleryImage.{ext:[A-Za-z0-9]{1,5}}"}) // the pages add the file extension
     public @ResponseBody
     byte[] getimage(@PathVariable("id") Long galleryImageId) throws IOException {
         GalleryImageDTO galleryImageDTO = galleryImageService.getImages(galleryImageId);
@@ -227,14 +227,14 @@ public class UserController {
     }
 
 
-    @RequestMapping(value = "/{id}/achievementImage")
+    @RequestMapping(value = {"/{id}/achievementImage", "/{id}/achievementImage.{ext:[A-Za-z0-9]{1,5}}"}) // the pages add the file extension
     public @ResponseBody
     byte[] getachievementImage(@PathVariable("id") Long id) throws IOException {
         AchievementDTO achievementDTO = achievementSlideService.getImages(id);
     if(achievementDTO.getAchievementImage()!=null){InputStream in = new ByteArrayInputStream(achievementDTO.getAchievementImage());
   return IOUtils.toByteArray(in);
 }return null;}
-   @RequestMapping(value = "/{id}/slideImage")
+   @RequestMapping(value = {"/{id}/slideImage", "/{id}/slideImage.{ext:[A-Za-z0-9]{1,5}}"}) // the pages add the file extension
     public @ResponseBody
     byte[] getimages(@PathVariable("id") Long imageSlideId) throws IOException {
 

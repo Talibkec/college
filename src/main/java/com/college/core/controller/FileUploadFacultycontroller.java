@@ -39,7 +39,7 @@ public class FileUploadFacultycontroller {
     // private final String UPLOADED_FOLDER = getPath();
 
 
-    @RequestMapping(value = "/{id}/image")
+    @RequestMapping(value = {"/{id}/image", "/{id}/image.{ext:[A-Za-z0-9]{1,5}}"}) // the pages add the file extension
     public @ResponseBody
     byte[] getImage(@PathVariable("id") Long id) throws IOException {
 
@@ -52,7 +52,7 @@ public class FileUploadFacultycontroller {
         return IOUtils.toByteArray(in);
     }
 
-    @RequestMapping(value = "/{id}/documents")
+    @RequestMapping(value = {"/{id}/documents", "/{id}/documents.{ext:[A-Za-z0-9]{1,5}}"}) // the pages add the file extension
     public @ResponseBody
     byte[] getdocuments(@PathVariable("id") Long id) throws IOException {
         FacultyDocumentsDTO facultyDocumentsDTO = facultyDocumentsService.getFacultyDocument(id);

@@ -583,10 +583,25 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   document (same alert text; holidays only if the document no longer exists). URL and access check unchanged.
   Behaviour change, to be approved with the user's verification. Test: `RefactoringSafetyTest` (lab part).
 
+### 10.7i New pages from the main menu (`/page/<name>`)
+* No schema change. A new page exists while a **visible main-menu entry** (`/manage/links` → Main menu) links to
+  `/page/<name>` (small letters, digits, `-`; max 60). `CustomPageController` + `jsp/page/custom.jsp`: title = the
+  entry's label; sidebar = the sub-entries of its top-level entry (heading = top-level label, current page in bold;
+  no sidebar without sub-entries); content = page blocks with key `page.<name>`, area `menu` (Admin, SubAdmin), added
+  with "Add to this page". Unknown, hidden or deleted entries → the normal 404 page. Works also while the main menu
+  itself is switched off (the entry is then not in the header). Other URLs (e.g. `/newtop`) are not pages: they
+  still need a controller and JSP in code.
+* `/manage/links` (Main menu): hint for new pages and an "open page" link next to `/page/...` entries.
+* `LinksTest` now starts every test from the seed's switches (main menu off, top bar on) and restores the switch rows
+  exactly afterwards (before, a run reset the user's local switches). Test:
+  `LinksTest.aMainMenuEntryCreatesANewPageWithSidebarAndContent`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.
 * Who may edit what: change one cell, check the account's `/manage`, change it back.
+* New page: Website Content → Menus and sidebars → Main menu: add "Test" with `/page/test`, a sub-entry with
+  `/page/test-sub`; open both (title, sidebar), add a heading with "Add to this page"; hide the entry → 404; delete it.
 * Assign Website Roles → a faculty account → part "HOD": tick a branch, save; log in with it → HOD dashboard, and
   `/manage` shows that branch's department area. Untick again (and give the branch back to its old HOD account).
 * As HOD and Faculty: header "Dashboard" opens the own dashboard; landing pages after login unchanged.

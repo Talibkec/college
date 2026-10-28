@@ -159,6 +159,7 @@ with the tables.
 | 2026-10-28 | content editor: add buttons, link blocks, richer editor (`a7f26e2`) | **no database change.** New value `link` in the existing column `page_block.block_type` (VARCHAR); only the comment in `14_page_block.sql` changed (the table is unchanged, re-running it does nothing). Font size/colour/alignment are stored as inline styles in existing HTML columns | – (nothing to run) |
 | 2026-10-28 | department lab pages (`/academic/lab?dept_id=n`) editable by the department | **no database change.** Blocks of these pages get the page key `academic.lab.<n>` and the department's area (e.g. `department.cse`) in the existing `page_block` columns. Production has no blocks under the old key `academic.lab` (nothing to move) | – (nothing to run) |
 | 2026-10-28 | lab documents: delete link fixed, returns to the lab page | **no database change** (existing `lab_document` rows are deleted as before) | – (nothing to run) |
+| 2026-10-28 | new pages `/page/<name>` from the main menu | **no database change.** The page is a `link_item` row (list `main_menu`) plus `page_block` rows with key `page.<name>` (existing tables). After deploying: create the menu entries and their content in `/manage/links` and on the pages (local entries are not copied) | – (nothing to run) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

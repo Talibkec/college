@@ -1,6 +1,7 @@
 package com.college.upgradetest;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
@@ -24,6 +25,35 @@ public class LinksTest extends AbstractAppTest {
         return ids.isEmpty() ? null : ids.get(0);
     }
 
+    private static final String[] SWITCHES = {"links.main_menu.enabled", "links.top_bar.enabled"};
+    /** The switch rows as they were before the test (the local DB is the user's working copy); null = no row. */
+    private final java.util.Map<String, java.util.Map<String, Object>> switchesBefore = new java.util.HashMap<>();
+
+    @Before
+    public void rememberTheSwitches() throws Exception {
+        for (String key : SWITCHES) {
+            List<java.util.Map<String, Object>> row = jdbc.queryForList("select * from site_setting where setting_key = ?", key);
+            switchesBefore.put(key, row.isEmpty() ? null : row.get(0));
+        }
+        // the tests start from the seed's defaults
+        WebSession admin = loginAs(TestData.ADMIN);
+        admin.postForm("/manage/links/enabled", "list", "main_menu", "enabled", "no");
+        admin.postForm("/manage/links/enabled", "list", "top_bar", "enabled", "yes");
+    }
+
+    /** Puts the switch rows back exactly (value, updated_by, updated_at), so the test cleanup leaves them alone. */
+    private void restoreTheSwitches() {
+        for (String key : SWITCHES) {
+            java.util.Map<String, Object> row = switchesBefore.get(key);
+            jdbc.update("delete from site_setting where setting_key = ?", key);
+            if (row != null) {
+                jdbc.update("insert into site_setting (setting_key, setting_value, value_type, area_code, description, updated_by, updated_at) "
+                        + "values (?, ?, ?, ?, ?, ?, ?)", key, row.get("setting_value"), row.get("value_type"), row.get("area_code"),
+                        row.get("description"), row.get("updated_by"), row.get("updated_at"));
+            }
+        }
+    }
+
     @After
     public void resetThroughTheScreen() throws Exception {
         WebSession admin = loginAs(TestData.ADMIN);
@@ -31,8 +61,7 @@ public class LinksTest extends AbstractAppTest {
                 TestData.MARK + "%").stream().map(m -> new String[]{(String) m.get("list_code"), String.valueOf(m.get("link_id"))}).toArray(String[][]::new)) {
             admin.postForm("/manage/links/delete", "list", row[0], "linkId", row[1]);
         }
-        admin.postForm("/manage/links/enabled", "list", "main_menu", "enabled", "no");
-        admin.postForm("/manage/links/enabled", "list", "top_bar", "enabled", "yes");
+        restoreTheSwitches();
         assertEquals(0, (int) jdbc.queryForObject("select count(*) from link_item where label like ?", Integer.class, TestData.MARK + "%"));
     }
 
@@ -47,7 +76,8 @@ public class LinksTest extends AbstractAppTest {
         assertEquals("/manage/links?saved=1&list=footer", save.redirectPath());
         assertContains("footer", anonymous().get("/"), "<p class=\"p-1 block-title\"> &raquo; " + LABEL + "</p>");
         assertEquals(1, (int) jdbc.queryForObject("select count(*) from content_change_log where entity = 'link_item' "
-                + "and action = 'create' and changed_by = ?", Integer.class, TestData.SUBADMIN.username));
+                + "and action = 'create' and changed_by = ? and new_value = ?", Integer.class, TestData.SUBADMIN.username,
+                LABEL + " -> /legal/privacypolicy"));
 
         sub.postForm("/manage/links/save", "list", "rti_sidebar", "label", LABEL + " rti", "url", "https://rti.gov.in",
                 "openNewTab", "on", "visible", "on");
@@ -147,5 +177,48 @@ public class LinksTest extends AbstractAppTest {
         assertTrue(anonymous().get("/manage/links").redirectPath().endsWith("/login"));
         assertNull(linkId(LABEL));
         assertEquals("no", jdbc.queryForObject("select setting_value from site_setting where setting_key = 'links.main_menu.enabled'", String.class));
+    }
+
+    @Test
+    public void aMainMenuEntryCreatesANewPageWithSidebarAndContent() throws Exception {
+        WebSession sub = loginAs(TestData.SUBADMIN);
+        String url = "/page/" + TestData.MARK + "-new";
+        assertEquals("no page without a menu entry", 404, anonymous().get(url).status);
+        assertContains("hint", sub.get("/manage/links?list=main_menu"), "id=\"new-page-hint\"");
+
+        sub.postForm("/manage/links/save", "list", "main_menu", "label", LABEL + " top", "url", url, "visible", "on");
+        Long top = linkId(LABEL + " top");
+        WebSession.Response page = anonymous().get(url);
+        assertCompletePage("new page", page);
+        assertContains("title", page, "id=\"page-title\">" + LABEL + " top</h2>");
+        assertFalse("no sidebar without sub-entries", page.body().contains("id=\"page-sidebar\""));
+        assertFalse("nothing to edit for visitors", page.body().contains("page-blocks-add"));
+
+        // a sub-entry: own page, both pages get the sidebar
+        sub.postForm("/manage/links/save", "list", "main_menu", "label", LABEL + " sub", "url", url + "-sub",
+                "parentId", String.valueOf(top), "visible", "on");
+        WebSession.Response subPage = anonymous().get(url + "-sub");
+        assertContains("sub title", subPage, "id=\"page-title\">" + LABEL + " sub</h2>");
+        assertContains("sidebar heading", subPage, ">" + LABEL + " top</h2>");
+        assertContains("active entry", subPage, "href=\"" + url + "-sub\" class=\"sf-depth-2 text-blue-500 hover:underline active font-bold\"");
+        assertContains("sidebar on the top page", anonymous().get(url), "id=\"page-sidebar\"");
+
+        // editors get the add buttons; added content shows on the page
+        WebSession.Response asEditor = sub.get(url);
+        assertContains("add buttons", asEditor, "/manage/blocks?page=page." + TestData.MARK + "-new&add=heading");
+        java.util.Map<String, String> block = new java.util.LinkedHashMap<>();
+        block.put("page", "page." + TestData.MARK + "-new");
+        block.put("type", "heading");
+        block.put("heading", LABEL + " heading");
+        block.put("visible", "on");
+        sub.postMultipart("/manage/blocks/save", block, java.util.Collections.emptyMap());
+        assertContains("block", anonymous().get(url), LABEL + " heading");
+        assertEquals("Faculty may not edit it", 403, loginAs(TestData.FACULTY).get("/manage/blocks?page=page." + TestData.MARK + "-new").status);
+
+        // hidden or deleted entry: page gone
+        sub.postForm("/manage/links/save", "list", "main_menu", "linkId", String.valueOf(top), "label", LABEL + " top", "url", url);
+        assertEquals(404, anonymous().get(url).status);
+        assertEquals("children of a hidden entry are hidden", 404, anonymous().get(url + "-sub").status);
+        jdbc.update("delete from page_block where page_key = ?", "page." + TestData.MARK + "-new");
     }
 }

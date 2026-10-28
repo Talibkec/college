@@ -40,4 +40,11 @@ public interface LinkService {
     void move(Long linkId, int direction);
 
     void setEnabled(String listCode, boolean enabled);
+
+    /**
+     * The visible main-menu entry with this URL as [top-level entry] or [top-level entry, sub-entry], or null. Used by
+     * the new pages {@code /page/<name>}: the page exists while a menu entry links to it. Independent of the main
+     * menu's switch.
+     */
+    List<LinkItem> menuPath(String url);
 }

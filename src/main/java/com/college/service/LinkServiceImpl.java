@@ -222,6 +222,26 @@ public class LinkServiceImpl implements LinkService {
                 "Show '" + LISTS.get(listCode) + "' from the database");
     }
 
+    @Override
+    public List<LinkItem> menuPath(String url) {
+        Map<String, List<LinkItem>> lists = cache;
+        if (lists == null) {
+            lists = load();
+            cache = lists;
+        }
+        for (LinkItem top : lists.getOrDefault("main_menu", Collections.emptyList())) {
+            if (url.equals(top.getUrl())) {
+                return Collections.singletonList(top);
+            }
+            for (LinkItem child : top.getChildren()) {
+                if (url.equals(child.getUrl())) {
+                    return Arrays.asList(top, child);
+                }
+            }
+        }
+        return null;
+    }
+
     private int nextSortOrder(String listCode, Long parentId) {
         int max = 0;
         for (LinkItem other : linkItemRepository.findByListCodeOrderBySortOrderAscLinkIdAsc(listCode)) {

@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="fn" uri="jakarta.tags.functions" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %>
 <jsp:include page="/jsp/header.jsp"/><kec:manageNav/>
 <div class="py-6">
     <div class="flex items-center justify-between bg-gray-100 py-4 px-6">
@@ -56,7 +56,7 @@
             <c:forEach var="i" items="${items}">
                 <tr id="link-${i.linkId}" class="${i.visible ? '' : 'text-gray-400'}">
                     <td class="p-2 border"><c:if test="${i.parentId != null}">&nbsp;&nbsp;&nbsp;&#8627; </c:if><c:out value="${i.label}"/></td>
-                    <td class="p-2 border text-sm"><c:out value="${i.url}"/></td>
+                    <td class="p-2 border text-sm"><c:out value="${i.url}"/><c:if test="${list eq 'main_menu' and fn:startsWith(i.url, '/page/')}"> <a class="text-blue-600 ml-1" href="<c:out value='${i.url}'/>" target="_blank">open page</a></c:if></td>
                     <c:if test="${list eq 'main_menu'}"><td class="p-2 border text-sm"><c:out value="${i.groupLabel}"/></td></c:if>
                     <td class="p-2 border text-center">${i.openNewTab ? 'yes' : ''}</td>
                     <td class="p-2 border text-center">${i.visible ? 'yes' : 'no'}</td>
@@ -83,6 +83,8 @@
             <label class="block">Label <input type="text" name="label" maxlength="255" required class="w-full px-2 py-1 border rounded" value="<c:out value='${editItem.label}'/>"></label>
             <label class="block">Link (a page of this site starting with /, or http(s)://...)
                 <input type="text" name="url" maxlength="1000" required class="w-full px-2 py-1 border rounded" value="<c:out value='${editItem.url}'/>"></label>
+            <c:if test="${list eq 'main_menu'}"><p class="text-sm text-gray-600" id="new-page-hint">New page: use a link <b>/page/&lt;name&gt;</b> (small letters, digits and -, e.g. /page/newtop).
+                The page is created with this entry: title = label, sidebar = the sub-entries of its top-level entry. Open it and use "Add to this page" for its content.</p></c:if>
             <c:if test="${list eq 'main_menu'}">
                 <label class="block">Show under (empty = top level)
                     <select name="parentId" class="w-full px-2 py-1 border rounded">

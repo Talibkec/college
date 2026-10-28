@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public final class PageKeys {
     private static final Pattern KEY = Pattern.compile("[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+){0,4}");
     private static final Set<String> SECTIONS = new HashSet<>(Arrays.asList("home", "about", "academic", "approval",
-            "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal"));
+            "category", "department", "facilities", "gallery", "nba", "rti", "trainingplacement", "legal", "page"));
 
     /**
      * The shared lab page {@code /academic/lab?dept_id=<n>} is one page per department: key {@code academic.lab.<n>},
@@ -113,6 +113,8 @@ public final class PageKeys {
                 if (in(page, "refundandcancellation", "feestructure")) return "fees";
                 if (in(page, "contactus")) return "site";
                 return "legal";
+            case "page": // new pages /page/<name>, created through the main menu
+                return parts.length == 2 ? "menu" : null;
             case "category":
                 if (in(page, "notices", "tenders")) return "notices";
                 if (in(page, "kecwebteam")) return "system";

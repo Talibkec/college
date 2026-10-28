@@ -196,7 +196,10 @@ public class UserController {
         return achievementImage;
     }
 
-    @RequestMapping(value = "notice/{id}")
+    // The pages link a notice in three ways: /notice/{id}; /{id}/notice.<ext> (most department pages, scrolling notices,
+    // dashboards); notice/{id} relative to /department/<dept>/notice (CSE, FP). Only the first was ever mapped.
+    @RequestMapping(value = {"notice/{id:[0-9]+}", "/{id:[0-9]+}/notice", "/{id:[0-9]+}/notice.{ext:[A-Za-z0-9]{1,5}}",
+            "/department/{dept:[a-z]+}/notice/{id:[0-9]+}"})
     public @ResponseBody
     ResponseEntity<?> getdocuments(@PathVariable("id") Long id) throws IOException {
         NoticeBoardDTO noticeBoardDTO = noticeBoardService.getNoticeDocument(id);

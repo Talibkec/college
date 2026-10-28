@@ -632,7 +632,10 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   Spring 5.3+/6 does not, so they gave 404 (the page baselines compare HTML and never fetched the files). The five
   endpoints now also map `.{ext}`; `FileExtensionContentTypeFilter` sets the content type from the extension again
   (images, PDF and Office types only; any other extension is `application/octet-stream`, never HTML).
-  Not changed: the `/{id}/notice<ext>` links on the dashboards, which had no endpoint before the upgrade either.
+* **Notice links** (broken before the upgrade too): only `/notice/{id}` served a notice file. The pages also link
+  `/{id}/notice.<ext>` (department notice pages except CSE/FP, scrolling notices, dashboards) and `notice/{id}` relative
+  to `/department/<dept>/notice` (CSE, FP → `/department/cse/notice/{id}`). The notice handler now answers all of
+  them (same file, same headers); the pages' HTML is unchanged.
 * **Faculty upload pages** `/uploadfile/facultyFileUpload?isProfilePic=No|Yes` (broken before the upgrade too): the
   Submit button had no `id="btnSubmit"`, so the form was posted directly and the browser showed the plain-text reply
   ("blank page"); the photo page failed with 400 when the mobile field was empty; a too large file reloaded the page.

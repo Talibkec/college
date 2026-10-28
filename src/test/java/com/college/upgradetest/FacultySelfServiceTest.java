@@ -190,6 +190,16 @@ public class FacultySelfServiceTest extends AbstractAppTest {
         assertEquals(ok.toString(), 200, ok.status);
         assertEquals("CSENotice", jdbc.queryForObject("select nb_noticetype from noticeboard where nb_headline = ?", String.class, header));
         assertContains("department notice page", anonymous().get("/department/cse/notice"), header);
+        long noticeId = jdbc.queryForObject("select id from noticeboard where nb_headline = ?", Long.class, header);
+        assertContains("CSE page links relative", anonymous().get("/department/cse/notice"), "href=\"notice/" + noticeId + "\"");
+        // every form in which the pages link a notice opens the PDF
+        for (String url : new String[]{"/notice/" + noticeId, "/department/cse/notice/" + noticeId,
+                "/" + noticeId + "/notice.pdf", "/" + noticeId + "/notice"}) {
+            WebSession.Response pdf = anonymous().get(url);
+            assertEquals(url, 200, pdf.status);
+            assertTrue(url + " " + pdf.contentType, pdf.contentType.startsWith("application/pdf"));
+            assertArrayEquals(url, DOC, pdf.bytes);
+        }
 
         WebSession.Response notPdf = faculty.postMultipart("/user/api/uploadDepartmentNotice", f,
                 Collections.singletonMap("noticeFile", new WebSession.FilePart("n.pdf", "application/pdf", "<html>".getBytes(StandardCharsets.US_ASCII))));

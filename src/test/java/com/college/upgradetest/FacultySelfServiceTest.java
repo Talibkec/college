@@ -10,6 +10,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /** Faculty profile: document upload/download/delete, profile photo, profile edit with key properties. */
@@ -47,6 +48,9 @@ public class FacultySelfServiceTest extends AbstractAppTest {
         assertEquals(200, download.status);
         assertArrayEquals(DOC, download.bytes);
 
+        // only the uploader may delete it (the store manager also reaches /common/**)
+        assertEquals(403, loginAs(TestData.SM).get("/common/deleteFacultyDoc/" + docId).status);
+        assertEquals(1, jdbc.queryForList("select id from facultydocuments where id = ?", Long.class, docId).size());
         faculty.get("/common/deleteFacultyDoc/" + docId);
         assertEquals(0, jdbc.queryForList("select id from facultydocuments where id = ?", Long.class, docId).size());
     }
@@ -216,5 +220,26 @@ public class FacultySelfServiceTest extends AbstractAppTest {
         byte[] mb = java.util.Arrays.copyOf(big, 1024 * 1024);
         assertEquals(200, faculty.postMultipart("/uploadfile/facultyFileUpload", profileFields("No", TestData.MARK + " 1mb"),
                 Collections.singletonMap("facultydocumentsFile", new WebSession.FilePart("mb.pdf", "application/pdf", mb))).status);
+    }
+
+    @Test
+    public void facultyDashboardOffersOnlyScreensFacultyMayOpen() throws Exception {
+        WebSession faculty = loginAs(TestData.FACULTY);
+        WebSession.Response page = faculty.get("/user/dashboard");
+        assertCompletePage("dashboard", page);
+        long facultyId = data.facultyId(TestData.FACULTY.username);
+        assertContains("profile", page, "href=\"/facultyDetails?facultyId=" + facultyId + "\"");
+        assertContains("notice upload", page, "href=\"/uploadNoticeFaculty\"");
+        java.util.regex.Matcher links = java.util.regex.Pattern.compile("href=\"(/[^\"#]*)\"").matcher(
+                page.body().substring(page.body().indexOf("id=\"faculty-actions\"")));
+        int checked = 0;
+        while (links.find() && checked < 6) {
+            String url = links.group(1).replace("&amp;", "&");
+            int status = faculty.get(url).status;
+            assertTrue(url + " -> " + status, status == 200 || status == 302);
+            assertFalse(url, url.startsWith("/auth/"));
+            checked++;
+        }
+        assertEquals(6, checked);
     }
 }

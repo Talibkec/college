@@ -65,9 +65,18 @@ public class FileUploadFacultycontroller {
 
 
     @RequestMapping(value = "/common/deleteFacultyDoc/{id}")
-    public void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id) throws IOException {
-
-        facultyDocumentsService.deleteFacultyDoc(id);
+    public void deleteFacultyDoc(HttpServletRequest request, HttpServletResponse response, @PathVariable("id") Long id,
+                                 org.springframework.security.core.Authentication authentication) throws IOException {
+        // only the faculty member who uploaded it (or Admin); before, any Faculty/SM user could delete any document
+        FacultyDocumentsDTO document = facultyDocumentsService.getFacultyDocument(id);
+        if (document != null) {
+            boolean admin = authentication.getAuthorities().stream().anyMatch(a -> "Admin".equals(a.getAuthority()));
+            if (!admin && !authentication.getName().equalsIgnoreCase(document.getUploadedBy())) {
+                response.sendError(HttpServletResponse.SC_FORBIDDEN);
+                return;
+            }
+            facultyDocumentsService.deleteFacultyDoc(id);
+        }
         String url = request.getHeader("Referer");
         if (StringUtils.isEmpty(url)) {
             url = "/";

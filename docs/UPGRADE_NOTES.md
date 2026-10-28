@@ -651,6 +651,16 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   5 MB, date, "scrolling" option. `FacultyNoticeService`.
 * Tests: `FacultySelfServiceTest.uploadPagesPostWithTheirScriptAndFilesOpenWithTheirExtension`, `FacultySelfServiceTest.facultyUploadsANoticeForTheOwnDepartmentAndFilesUpTo5MB`.
 
+### 10.7l Faculty dashboard and document delete (broken/unsafe before the upgrade)
+* `/user/dashboard` (Faculty only, "Go to Dashboard" on the own profile) used the Admin dashboard frame: every card and
+  sidebar entry led to an Admin-only screen (access denied). Now a faculty dashboard with the normal site header:
+  my profile, edit profile details, upload documents, profile photo, notice for the own department, website content
+  (`/manage`), and the latest college notices (`/notice/{id}` links). Same URL; still 200 for Faculty, 403 for others.
+* `/common/deleteFacultyDoc/{id}` deleted any faculty document for any Faculty or store user who knew the number. Now
+  only the uploader (`f_uploadedby`) or Admin; others get 403 and the document stays. Unknown ids redirect as before.
+* Tests: `FacultySelfServiceTest.facultyDashboardOffersOnlyScreensFacultyMayOpen`, delete check in
+  `documentUploadDownloadDelete`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

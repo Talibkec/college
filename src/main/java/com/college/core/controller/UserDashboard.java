@@ -1,6 +1,9 @@
 package com.college.core.controller;
 
 import com.college.core.model.NoticeBoardDTO;
+import com.college.core.entity.Faculty;
+import com.college.repository.FacultyRepository;
+import com.college.service.FacultyNoticeService;
 import com.college.service.NoticeBoardService;
 import com.college.service.UploadService;
 import org.slf4j.Logger;
@@ -24,8 +27,13 @@ import java.util.List;
 public class UserDashboard {
     private final NoticeBoardService noticeBoardService;
     private final UploadService uploadService;
+    private final FacultyRepository facultyRepository;
+    private final FacultyNoticeService facultyNoticeService;
 
-    public UserDashboard(NoticeBoardService noticeBoardService, UploadService uploadService) {
+    public UserDashboard(NoticeBoardService noticeBoardService, UploadService uploadService,
+                         FacultyRepository facultyRepository, FacultyNoticeService facultyNoticeService) {
+        this.facultyRepository = facultyRepository;
+        this.facultyNoticeService = facultyNoticeService;
         this.noticeBoardService = noticeBoardService;
         this.uploadService = uploadService;
     }
@@ -36,6 +44,14 @@ public class UserDashboard {
         ModelAndView mv = new ModelAndView();
         mv.addObject("Role", ControllerUtility.getRole());
         mv.addObject("noticeList", ControllerUtility.filterNotices(list, false));
+        // Faculty dashboard (/user/** = Faculty): before, its cards and sidebar led to Admin-only screens (403)
+        String userName = ControllerUtility.getPrincipalName();
+        Faculty faculty = facultyRepository.findFacltyByUserName(userName);
+        mv.addObject("facultyId", faculty == null ? null : faculty.getFacultyId());
+        String[] department = facultyNoticeService.department(userName);
+        if (department != null) {
+            mv.addObject("departmentName", department[2]);
+        }
         mv.setViewName("user/dashboard.jsp");
         return mv;
 

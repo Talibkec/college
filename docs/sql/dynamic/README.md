@@ -169,6 +169,7 @@ with the tables.
 | 2026-10-28 | file links with extension (`/42/slideImage.JPG`, `/7/image.png`, `/384/documents.pdf`) work again; faculty upload pages fixed | **no database change** | – (nothing to run) |
 | 2026-10-28 | faculty uploads up to 5 MB; faculty notices to the own department's notice page | **no database change** (rows in the existing `noticeboard`/`facultydocuments` tables). Check on the server: MySQL `max_allowed_packet` above 5 MB (see the check queries) | – (nothing to run) |
 | 2026-10-28 | notice links `/department/<dept>/notice/{id}` and `/{id}/notice.pdf` open the notice | **no database change** | – (nothing to run) |
+| 2026-10-28 | faculty dashboard without Admin-only links; faculty documents deleted only by their uploader or Admin | **no database change** | – (nothing to run) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

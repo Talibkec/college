@@ -32,6 +32,12 @@ public class PageTextsTest extends AbstractAppTest {
         return jdbc.queryForObject("select section_id from page_section where page_key = ? and section_key = ?", Long.class, pageKey, sectionKey);
     }
 
+    /** The first change this test run made (a section may also have real changes made on the website). */
+    private Long firstTestLog(long id) {
+        return jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ? "
+                + "and changed_by like ?", Long.class, String.valueOf(id), TestData.MARK + "%");
+    }
+
     private String body(long id) {
         return jdbc.queryForObject("select body_html from page_section where section_id = ?", String.class, id);
     }
@@ -48,9 +54,15 @@ public class PageTextsTest extends AbstractAppTest {
             if (!page.startsWith("about.")) {
                 admin.postForm("/manage/sections/restore", "id", id, "logId", String.valueOf(row.get("first_log")), "before", "1");
                 admin.postForm("/manage/sections/save", "id", id, "html", body(Long.parseLong(id)), "visible", "on");
+                // "changed on the website" again as before the test: the last real change, or none
+                List<Map<String, Object>> real = jdbc.queryForList("select changed_by, changed_at from content_change_log "
+                        + "where entity = 'page_section' and entity_id = ? and changed_by not like ? order by log_id desc limit 1",
+                        id, TestData.MARK + "%");
+                jdbc.update("update page_section set updated_by = ?, updated_at = ? where section_id = ?",
+                        real.isEmpty() ? null : real.get(0).get("changed_by"), real.isEmpty() ? null : real.get(0).get("changed_at"),
+                        Long.valueOf(id));
             }
         }
-        jdbc.update("update page_section set updated_by = null, updated_at = null where page_key not like 'about.%'");
     }
 
     /** Every wrapped text has its seed row with exactly the JSP's HTML and the area of PageKeys (who may edit it). */
@@ -100,8 +112,7 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("course table from the database still there", changed, "Lateral student</th>");
         assertFalse(changed.body().contains("(A) Passed Diploma"));
 
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(lateral));
+        Long firstLog = firstTestLog(lateral);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(lateral), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/academic/admission").body());
 
@@ -122,8 +133,7 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("accordion kept", changed, "Hostel Fee Structure");
         assertContains("other table kept", changed, "Hostel In Charges");
         assertFalse(changed.body().contains("Hostel Admission Charge"));
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(fees));
+        Long firstLog = firstTestLog(fees);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(fees), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/facilities/hostels").body());
 
@@ -143,8 +153,7 @@ public class PageTextsTest extends AbstractAppTest {
         WebSession tpo = loginAs(TestData.TPO);
         tpo.postForm("/manage/sections/save", "id", String.valueOf(tips), "html", "<p>" + TestData.MARK + " tips</p>", "visible", "on");
         assertContains("new tips", anonymous().get("/trainingplacement/tipsforresume"), "<p>" + TestData.MARK + " tips</p>");
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(tips));
+        Long firstLog = firstTestLog(tips);
         tpo.postForm("/manage/sections/restore", "id", String.valueOf(tips), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/trainingplacement/tipsforresume").body());
 
@@ -164,8 +173,7 @@ public class PageTextsTest extends AbstractAppTest {
         WebSession.Response changed = anonymous().get("/legal/refundandcancellation");
         assertContains("new refund text", changed, "<p>" + TestData.MARK + " refund</p>");
         assertContains("phone setting kept", changed, "<li>Phone: ");
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(refund));
+        Long firstLog = firstTestLog(refund);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(refund), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/legal/refundandcancellation").body());
 
@@ -188,8 +196,7 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("new link", changed, TestData.MARK + "</a></div>");
         assertContains("notices still there", changed, "Latest Notices");
         assertFalse(changed.body().contains("Social Welfare Dept. Bhar"));
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(links));
+        Long firstLog = firstTestLog(links);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(links), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/").body());
         assertEquals(403, loginAs(TestData.TPO).get("/manage/sections?id=" + links).status);
@@ -208,8 +215,7 @@ public class PageTextsTest extends AbstractAppTest {
         assertContains("new text", changed, "<p>" + TestData.MARK + " cse</p>");
         assertContains("notices still there", changed, "Latest News / Updates");
         assertFalse(changed.body().contains("Theory of computation"));
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(intro));
+        Long firstLog = firstTestLog(intro);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(intro), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/department/cse/about").body());
         assertEquals("faculty adds blocks only", 403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);
@@ -418,8 +424,7 @@ public class PageTextsTest extends AbstractAppTest {
         WebSession.Response changed = anonymous().get("/department/mechanical/mech");
         assertContains("new text", changed, "<p>" + TestData.MARK + " mech</p>");
         assertContains("notices still there", changed, "View All");
-        Long firstLog = jdbc.queryForObject("select min(log_id) from content_change_log where entity = 'page_section' and entity_id = ?",
-                Long.class, String.valueOf(intro));
+        Long firstLog = firstTestLog(intro);
         sub.postForm("/manage/sections/restore", "id", String.valueOf(intro), "logId", String.valueOf(firstLog), "before", "1");
         assertEquals("original restored byte for byte", before, anonymous().get("/department/mechanical/mech").body());
         assertEquals(403, loginAs(TestData.FACULTY).get("/manage/sections?id=" + intro).status);

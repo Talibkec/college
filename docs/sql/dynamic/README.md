@@ -171,6 +171,7 @@ with the tables.
 | 2026-10-28 | notice links `/department/<dept>/notice/{id}` and `/{id}/notice.pdf` open the notice | **no database change** | – (nothing to run) |
 | 2026-10-28 | faculty dashboard without Admin-only links; faculty documents deleted only by their uploader or Admin | **no database change** | – (nothing to run) |
 | 2026-10-28 | lab documents: upload/delete only by Admin and the HOD of that department | **no database change.** Uses `department_site.hod_username` (check it per branch in `/auth/roles` after deploying, see the check query) | – (nothing to run) |
+| 2026-10-29 | tests: PageTextsTest keeps texts changed on the website (restores only its own changes, keeps `updated_by`) | **no database change** | – (nothing to run) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

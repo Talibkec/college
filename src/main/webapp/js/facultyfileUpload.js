@@ -3,7 +3,7 @@
  * and goes back to the own profile when saved; errors are shown above the form.
  */
 (function () {
-    var MAX_KB = 10; // the limit the page had before (commit 47a27e0); the server allows up to 20 MB
+    var MAX_KB = 5 * 1024; // 5 MB (decision 2026-10-28; before: 10 KB), checked by the server as well
     var form = document.getElementById('fileUploadForm');
     var file = document.getElementById('facultydocumentsFile');
     var isLink = document.getElementById('isLink');
@@ -11,7 +11,7 @@
     var button = document.getElementById('btnSubmit');
     var photo = form.elements.isProfilePic.value === 'Yes';
 
-    document.getElementById('maxSize').textContent = MAX_KB + ' KB';
+    document.getElementById('maxSize').textContent = '5 MB';
 
     function show(text, ok) {
         msg.textContent = text;
@@ -25,7 +25,7 @@
     file.addEventListener('change', function () {
         var f = chosen();
         document.getElementById('size').textContent = f ? 'Selected: ' + Math.ceil(f.size / 1024) + ' KB' : '';
-        if (f && f.size > MAX_KB * 1024) show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most ' + MAX_KB + ' KB are allowed.', false);
+        if (f && f.size > MAX_KB * 1024) show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most 5 MB are allowed.', false);
         else msg.className = 'hidden';
     });
 
@@ -55,7 +55,7 @@
             return;
         }
         if (!link && f.size > MAX_KB * 1024) {
-            show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most ' + MAX_KB + ' KB are allowed.', false);
+            show('The file is ' + Math.ceil(f.size / 1024) + ' KB; at most 5 MB are allowed.', false);
             return;
         }
         if (photo && !/\.(jpe?g|png)$/i.test(f.name)) {

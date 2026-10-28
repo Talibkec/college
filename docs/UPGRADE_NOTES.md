@@ -638,9 +638,15 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   ("blank page"); the photo page failed with 400 when the mobile field was empty; a too large file reloaded the page.
   Rewritten (same URL and field names): documents = heading + file, or heading + link address; photo page = photo only
   (details are on "Edit Profile Details"); checks with messages on the page, back to the own profile when saved.
-  `facultyMobNo` and the file part are optional on the server (a link has no file). The 10 KB limit of the page
-  (commit 47a27e0) is kept and now shown; the server allows 20 MB.
-* Tests: `FacultySelfServiceTest.uploadPagesPostWithTheirScriptAndFilesOpenWithTheirExtension`.
+  `facultyMobNo` and the file part are optional on the server (a link has no file). Size limit 5 MB (decision
+  2026-10-28; the page allowed only 10 KB before, commit 47a27e0), checked on the page and by the server.
+* **Faculty notices** (`/uploadNoticeFaculty`, linked as "Upload Notice" on the own profile): the page posted to the
+  Admin-only `/auth/api/upload` (and, without a working script, to itself: HTTP 405), so it never worked for Faculty.
+  Now it saves through `POST /user/api/uploadDepartmentNotice` (Faculty only) to the notice page of the faculty
+  member's **own department** (`<DEPT>Notice` / `<DEPT>News`, the types the department notice pages and the HOD upload
+  use; department from `faculty.dept_id`), never the college-wide notice board. PDF only (checked by content), max.
+  5 MB, date, "scrolling" option. `FacultyNoticeService`.
+* Tests: `FacultySelfServiceTest.uploadPagesPostWithTheirScriptAndFilesOpenWithTheirExtension`, `FacultySelfServiceTest.facultyUploadsANoticeForTheOwnDepartmentAndFilesUpTo5MB`.
 
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`

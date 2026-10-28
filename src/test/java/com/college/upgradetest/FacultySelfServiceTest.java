@@ -172,4 +172,39 @@ public class FacultySelfServiceTest extends AbstractAppTest {
             assertTrue(slide.contentType, slide.contentType.startsWith("image/jpeg"));
         }
     }
+
+    @Test
+    public void facultyUploadsANoticeForTheOwnDepartmentAndFilesUpTo5MB() throws Exception {
+        WebSession faculty = loginAs(TestData.FACULTY); // department 1 = CSE
+        WebSession.Response page = faculty.get("/uploadNoticeFaculty");
+        assertCompletePage("notice page", page);
+        assertContains("own department", page, "href=\"/department/cse/notice\"");
+
+        String header = TestData.MARK + " dept notice " + System.currentTimeMillis();
+        Map<String, String> f = new LinkedHashMap<>();
+        f.put("noticeHeader", header);
+        f.put("news", "false");
+        f.put("date", "28/10/2026");
+        WebSession.Response ok = faculty.postMultipart("/user/api/uploadDepartmentNotice", f,
+                Collections.singletonMap("noticeFile", new WebSession.FilePart("n.pdf", "application/pdf", DOC)));
+        assertEquals(ok.toString(), 200, ok.status);
+        assertEquals("CSENotice", jdbc.queryForObject("select nb_noticetype from noticeboard where nb_headline = ?", String.class, header));
+        assertContains("department notice page", anonymous().get("/department/cse/notice"), header);
+
+        WebSession.Response notPdf = faculty.postMultipart("/user/api/uploadDepartmentNotice", f,
+                Collections.singletonMap("noticeFile", new WebSession.FilePart("n.pdf", "application/pdf", "<html>".getBytes(StandardCharsets.US_ASCII))));
+        assertEquals(400, notPdf.status);
+        assertEquals("HOD without the Faculty role", 403, loginAs(TestData.HOD).postMultipart("/user/api/uploadDepartmentNotice", f,
+                Collections.singletonMap("noticeFile", new WebSession.FilePart("n.pdf", "application/pdf", DOC))).status);
+
+        // profile uploads: up to 5 MB
+        byte[] big = new byte[5 * 1024 * 1024 + 1];
+        System.arraycopy(DOC, 0, big, 0, DOC.length);
+        WebSession.Response tooBig = faculty.postMultipart("/uploadfile/facultyFileUpload", profileFields("No", TestData.MARK + " big"),
+                Collections.singletonMap("facultydocumentsFile", new WebSession.FilePart("big.pdf", "application/pdf", big)));
+        assertEquals(400, tooBig.status);
+        byte[] mb = java.util.Arrays.copyOf(big, 1024 * 1024);
+        assertEquals(200, faculty.postMultipart("/uploadfile/facultyFileUpload", profileFields("No", TestData.MARK + " 1mb"),
+                Collections.singletonMap("facultydocumentsFile", new WebSession.FilePart("mb.pdf", "application/pdf", mb))).status);
+    }
 }

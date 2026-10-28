@@ -7,6 +7,7 @@ import com.college.core.model.FacultyKeyPropsDTO;
 import com.college.core.model.FacultyListView;
 import com.college.service.AccessService;
 import com.college.service.DepartmentService;
+import com.college.service.FacultyNoticeService;
 import com.college.service.FacultyProfileAccess;
 import com.college.service.FacultyProfileService;
 import com.college.service.FacultyService;
@@ -53,6 +54,7 @@ public class FacultyProfileController {
     private final AccessService accessService;
     private final Gson gson;
     private final FacultyProfileAccess facultyProfileAccess;
+    private final FacultyNoticeService facultyNoticeService;
 
     public FacultyProfileController(FacultyService facultyService,
             FacultyProfileService facultyProfileService,
@@ -61,8 +63,10 @@ public class FacultyProfileController {
             DepartmentService departmentService,
             AccessService accessService,
             Gson gson,
-            FacultyProfileAccess facultyProfileAccess) {
+            FacultyProfileAccess facultyProfileAccess,
+            FacultyNoticeService facultyNoticeService) {
         this.facultyProfileAccess = facultyProfileAccess;
+        this.facultyNoticeService = facultyNoticeService;
         this.facultyService = facultyService;
         this.facultyProfileService = facultyProfileService;
         this.facultyHelper = facultyHelper;
@@ -216,6 +220,9 @@ public class FacultyProfileController {
             String msg = uploadfile == null || uploadfile.isEmpty() ? "Please select a file." : "Please give notice heading";
             return new ResponseEntity<>(msg, new HttpHeaders(), HttpStatus.BAD_REQUEST);
         }
+        if (uploadfile != null && uploadfile.getSize() > FacultyNoticeService.MAX_BYTES) {
+            return new ResponseEntity<>("The file is larger than 5 MB.", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
         String userName = ControllerUtility.getUserName();
         if ("Yes".equalsIgnoreCase(isProfilePic)) {
             facultyProfileService.saveProfilePhoto(userName, uploadfile, facultyPersonalEmail, facultyOfficialEmail,
@@ -229,10 +236,34 @@ public class FacultyProfileController {
     }
 
     @RequestMapping(value = "/uploadNoticeFaculty", method = RequestMethod.GET)
-    public ModelAndView uploadNoticeFaculty() {
+    public ModelAndView uploadNoticeFaculty(Authentication authentication) {
         ModelAndView model = new ModelAndView();
         model.setViewName("uploadNoticeFaculty.jsp");
+        String[] department = authentication == null ? null : facultyNoticeService.department(authentication.getName());
+        if (department != null) {
+            model.addObject("departmentName", department[2]);
+            model.addObject("departmentNoticeUrl", "/department/" + department[1] + "/notice");
+        }
         return model;
+    }
+
+    /**
+     * Saves a notice of a faculty member for the own department's notice page (/user/** = Faculty). 200 = saved,
+     * 400 = the error text. Before, the page posted to the Admin-only /auth/api/upload and never worked for Faculty.
+     */
+    @ResponseBody
+    @RequestMapping(value = "/user/api/uploadDepartmentNotice", method = RequestMethod.POST)
+    public ResponseEntity<String> uploadDepartmentNotice(Authentication authentication,
+            @RequestParam(value = "noticeFile", required = false) MultipartFile noticeFile,
+            @RequestParam(value = "noticeHeader", required = false) String noticeHeader,
+            @RequestParam(value = "news", defaultValue = "false") boolean news,
+            @RequestParam(value = "isScrollable", defaultValue = "false") boolean isScrollable,
+            @RequestParam(value = "date", required = false) String date) {
+        String error = facultyNoticeService.save(authentication.getName(), noticeHeader, news, isScrollable, date, noticeFile);
+        if (error != null) {
+            return new ResponseEntity<>(error, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>("saved", new HttpHeaders(), HttpStatus.OK);
     }
 
     @ResponseBody

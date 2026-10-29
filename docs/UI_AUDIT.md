@@ -154,7 +154,8 @@ list of pages to check per width, push only after "verified".
 | 2 | done 2026-10-29 (de1753e), verified and pushed |
 | 3 | done 2026-10-29 (ba7a8f7), verified and pushed |
 | 4 | done 2026-10-29 (6d050dc), verified and pushed |
-| 5 | done 2026-10-29, waiting for your check (see "Phase 5 result") |
+| 5 | done 2026-10-29 (2cb9638), verified and pushed |
+| 6 | UI-035 done 2026-10-29, waiting for your check; UI-032 and the Fee Structure footer wait for your decision |
 
 ## Phase 1 result (2026-10-29)
 
@@ -256,3 +257,24 @@ CSS only (`css/site-fixes.css`); `index.jsp` is unchanged (the video is editable
 
 **Also:** phones show embedded PDFs at most 75% of the screen high (UI-025 follow-up; the 1000px box pushed the
 download link far down).
+
+## Phase 6 result (2026-10-29)
+
+**UI-035 (unbalanced `<div>`), checked in the browser.** A surplus `</div>` is ignored by the browser; only missing
+closing tags show, by wrapping the page blocks and the footer. All 175 reachable pages were checked for that:
+
+| Page | Effect before | Fix |
+|---|---|---|
+| `academic/paymenttutorial` | footer inside the page container: 1248px wide, indented 96px | missing `</div>` added |
+| `department/civil/attendance` | footer in italics: three share-link icons were written `<i` + line break + `</i>` (three unclosed `<i>`) | written as `<i></i>` |
+| `/legal/contactus`, `/legal/termandcondition` | footer inside the unclosed title wrapper | missing `</div>` added |
+| `academic/syllabus` | footer in a monospace font (inside the unclosed `<code>` of the live Syllabus text) | content fix in Website Content (see Phase 2) |
+| `/legal/feestructure` | **no footer at all**: the include was removed in commit 41bc10c (2024-08-20, "fixed the all latest file") | needs your decision: adding it back changes the recorded baseline of `/legal/feestructure` from BODY to PAGE |
+
+The other pages in the UI-035 list only have surplus closing tags; no visible effect.
+
+**UI-032 (HOD dashboards), checked logged in as a temporary HOD test user (removed afterwards).** `/hod/hodDashboard`
+(landing page after login for users who are HOD but not Faculty) and `/hod/addfaculty`: the AdminLTE sidebar is fixed
+over the site header and hides the logo and the first menu items (Home, About KEC, Academic); AdminLTE/Bootstrap 4 turns
+the site menu and footer links blue; broken user picture; AdminLTE icon fonts 404 (`jsp/admin/plugins/` is empty).
+Needs your decision.

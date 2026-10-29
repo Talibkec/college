@@ -4,14 +4,11 @@
             <div class="row">
                 
                 <div class="col-md-2 col-sm-4" style="font-size: 24px; line-height: 40px;"><span
-                        style="display: inline-block; line-height: 40px; vertical-align: middle;"><i
-                        </i> </span> <a
+                        style="display: inline-block; line-height: 40px; vertical-align: middle;"><i></i> </span> <a
                         href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i></a> <a
+                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i></i></a> <a
                         href="https://twitter.com/home?status=About+Civil+Engg.+-+https%3A%2F%2F#%2Fdepartment-of-civil-engineering%2Fabout-civil-engineering%2F"
-                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i
-                        </i> </a></div>
+                        target="_blank" style="font-size: 30px; color: #333; vertical-align: middle;"><i></i> </a></div>
             </div>
         </div>
     </div>

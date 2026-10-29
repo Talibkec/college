@@ -112,12 +112,14 @@
       .page-content {
         padding: 1rem;
         width: 100%;
-        overflow-x: scroll;
+        overflow-x: auto;
       }
 
       .jumbotron {
         background: #eee;
-        padding-left: 200px;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
         font-size: x-large;
       }
     </style>
@@ -297,7 +299,7 @@
               display: inline;
             }
 
-            @media only screen and (max-width: 600px) {
+            @media only screen and (max-width: 599.98px) {
               .mobile {
                 display: none;
               }
@@ -320,9 +322,9 @@
               }
 
               aside {
-                width: 80%;
-                padding: 20px;
-                margin: 30px 20px;
+                width: 100%;
+                padding: 20px 16px;
+                margin: 30px 0 0;
               }
             }
 
@@ -336,8 +338,9 @@
               }
 
               .col-md-8 {
-                max-width: 600px;
-                min-width: 600px;
+                width: 600px;
+                max-width: 100%;
+                min-width: 0;
                 padding: 10px;
               }
 
@@ -356,10 +359,8 @@
 
             }
 
-            li:hover {
-              cursor: pointer;
+            li > a:hover {
               text-decoration: underline;
-
             }
 
             .heroCol {
@@ -925,6 +926,9 @@
 
         </header>
       </main>
+      <%-- style.css is loaded here so pages render styled at once; footer.jsp loads it again to keep its precedence --%>
+      <link type="text/css" rel="stylesheet" href="/css/style.css" media="all"/>
+      <link type="text/css" rel="stylesheet" href="/css/site-fixes.css" media="all"/>
 
       <script>
         const mobile_icon = document.getElementById('mobile-icon');

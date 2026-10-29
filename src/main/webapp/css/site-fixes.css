@@ -1,0 +1,120 @@
+/* Layout fixes from docs/UI_AUDIT.md (UI-xxx = finding id). Loaded by header.jsp after style.css. */
+
+/* UI-014: main menu wraps neatly on tablets and small laptops instead of squeezing every item */
+@media (min-width: 600px) {
+  .mobile #superfish-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 8px;
+  }
+  .mobile #superfish-1 > .main-nav {
+    white-space: nowrap;
+    padding: 4px 6px;
+  }
+  .mobile #superfish-1 .submenu {
+    white-space: normal;
+  }
+}
+/* the menu header has a fixed 80px height (h-20); let it grow when the menu wraps */
+header.h-20 {
+  height: auto;
+  min-height: 5rem;
+}
+@media (min-width: 1280px) {
+  .mobile #superfish-1 {
+    justify-content: space-between;
+  }
+}
+
+/* UI-013: inline min-width:600px no longer pushes the page wider than tablets and phones */
+[style*="min-width:600px"] {
+  min-width: 0 !important;
+  width: 600px;
+  max-width: 100%;
+}
+
+/* UI-025, UI-026: embedded PDFs, iframes and videos never exceed their column */
+object, embed, iframe, video {
+  max-width: 100%;
+}
+
+/* UI-029, UI-030: Bootstrap 3 components (Bootstrap itself is not loaded). Base rules are wrapped in :where()
+   (no specificity), so Tailwind utilities and the header.jsp .btn-default/.btn-danger styles still win. */
+
+/* badges */
+:where(.label) {
+  display: inline-block;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+.label-default { background-color: #777; }
+.label-primary { background-color: #337ab7; }
+.label-success { background-color: #5cb85c; }
+.label-info { background-color: #5bc0de; }
+.label-warning { background-color: #f0ad4e; }
+.label-danger { background-color: #d9534f; }
+.label a, .label a:hover { color: #fff; }
+
+/* buttons, panels, form controls */
+:where(.btn) {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+:where(.btn-lg) { padding: 10px 16px; font-size: 18px; border-radius: 6px; }
+:where(.btn-sm) { padding: 5px 10px; font-size: 12px; border-radius: 3px; }
+:where(.btn-xs) { padding: 1px 5px; font-size: 12px; border-radius: 3px; }
+.btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4; }
+.btn-primary:hover { background-color: #286090; }
+.btn-success { color: #fff; background-color: #5cb85c; border-color: #4cae4c; }
+.btn-success:hover { background-color: #449d44; }
+.btn-info { color: #fff; background-color: #5bc0de; border-color: #46b8da; }
+.btn-info:hover { background-color: #31b0d5; }
+.btn-warning { color: #fff; background-color: #f0ad4e; border-color: #eea236; }
+.btn-warning:hover { background-color: #ec971f; }
+
+:where(.panel) {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+:where(.panel-heading) {
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.panel-primary { border-color: #337ab7; }
+.panel-primary > .panel-heading { color: #fff; background-color: #337ab7; border-color: #337ab7; }
+:where(.panel-body) { padding: 15px; }
+:where(.panel-footer) { padding: 10px 15px; background-color: #f5f5f5; border-top: 1px solid #ddd; }
+
+:where(.form-control) {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+:where(.form-group) { margin-bottom: 15px; }

@@ -8,6 +8,7 @@
 
         </div>
     </div>
+    </div>
     <div class="container">
         <ul class="breadcrumb" style="background: none">
             <li><i class="fa fa-home"></i> Home</a></li>

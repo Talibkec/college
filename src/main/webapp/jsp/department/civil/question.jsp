@@ -1,7 +1,7 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron flex justify-center">
+<div class="jumbotron flex justify-center"></div>
 
     <div class="container">
 
@@ -31,5 +31,4 @@
             </div>
         </div>
         </div>
-    </div>
 <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

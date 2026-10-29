@@ -10,6 +10,8 @@
       <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Grievance</h3></div>
 
     </div>
+  </div>
+</div>
 
     <div class="container">
       <div class="md:flex justify-center">
@@ -123,7 +125,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
     <kec:blocks/><jsp:include page="/jsp/footer.jsp" />

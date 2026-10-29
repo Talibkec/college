@@ -1,6 +1,6 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
 
     <div class="">
 
@@ -35,5 +35,4 @@
                                             
             </div>
         </div>
-    </div>
 <kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

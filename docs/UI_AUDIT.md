@@ -50,7 +50,7 @@ Paths are relative to `src/main/webapp/jsp/`.
 
 | ID | Page / JSP File | UI Issue Description | Severity |
 |---|---|---|---|
-| UI-021 | `index.jsp` | "About KEC" is pushed into the right half; the left half is an empty column (only `&nbsp;`), leaving a large blank area. | High |
+| UI-021 | ~~`index.jsp`~~ | **Withdrawn after rendering:** the column next to "About KEC" shows the college building as a CSS background (`.gtmaincontenthome` in `style.css`); it is not empty. | – |
 | UI-022 | `index.jsp` | Desktop and mobile sliders are both always rendered; the unused one shows as an empty slider with arrows/pagination. Caption bar shows even when the caption is empty. | Medium |
 | UI-023 | `index.jsp` | "View All Notices/Tenders" buttons are pinned to the box bottom with no reserved space and can overlap the scrolling list. Important Links box uses `h-[50vh]` (unsupported in Tailwind 2.2), so the three boxes have unequal heights. | Medium |
 | UI-024 | `index.jsp` | Video aspect-ratio wrapper class (`pb-9/16`) doesn't exist; video has a fixed 200px height and doesn't scale. | Low |
@@ -133,7 +133,7 @@ Centre `.container`; sidebar column fixed at ¼, content takes the rest (sibling
 008 dept About pages ¼ / ½ / ¼; 009 `cse/notice` section menu on mobile; 031 staff photos cropped, not stretched.
 
 ## Phase 4 – Homepage (`index.jsp`)
-021 full-width "About KEC"; 022 one slider per screen size, no empty captions; 023 space for "View All" buttons,
+~~021~~ (withdrawn); 022 one slider per screen size, no empty captions; 023 space for "View All" buttons,
 equal box heights; 024 responsive 16:9 video.
 
 ## Phase 5 – Titles and consistency
@@ -151,7 +151,8 @@ list of pages to check per width, push only after "verified".
 | Phase | Status |
 |---|---|
 | 0 | done 2026-10-29: Playwright screenshots (45 pages × 1440/768/375 px) before and after, outside the repository |
-| 1 | done 2026-10-29, waiting for your check (see "Phase 1 result") |
+| 1 | done 2026-10-29 (20f8b75), waiting for your check (see "Phase 1 result") |
+| 2 | done 2026-10-29, waiting for your check (see "Phase 2 result") |
 
 ## Phase 1 result (2026-10-29)
 
@@ -175,3 +176,25 @@ Still open (found while measuring, moved to later phases): `approval/grievance` 
 410px), `trainingplacement/studentplacementcoordinator` at 768px (840px), content column flush to the screen edge
 on phones on legacy pages (Phase 2). `department/ece/question` never finishes loading in the browser (before and
 after the change; the server answers in 7 ms; to be checked separately).
+
+## Phase 2 result (2026-10-29)
+
+Changed: `css/site-fixes.css` (Phase 2 block) and 8 JSPs whose grey title band was never closed (UI-035 cases that
+broke the layout): `approval/grievance`, `department/ash/labs`, `department/civil/{course,labs,notice,question}`,
+`facilities/club`, `facilities/contactus`. In those pages the whole body (on `facilities/contactus` even the footer) sat
+inside the title band; now the band is closed after the title and the surplus `</div>` at the end is removed.
+
+| ID | Change | Measured |
+|---|---|---|
+| 002–004 | legacy sidebar (`aside.col-sm-3` or `aside.m-5.p-5` with `role="complementary"`) on the left at ¼ width (max 280px), content fills the rest, from 768px; below 768px both stack at full width | 159 legacy pages × 1440/768/375px: sidebar left edge at the container edge (96px at 1440px), content ≥ 700px wide at 1440px, no horizontal overflow |
+| 007 | `.container` centred with a 16px gutter (`:where()`, Tailwind classes still win); the same width for legacy wrappers without a container | `termandcondition`, `tenders`, `downloads`, `nba` centred |
+| 010 | Bootstrap 3 grid widths for `col-sm-*` (≥768px) and `col-md-*` (≥992px) inside `.row`; `.row` wraps; title-band columns keep their natural width | `facilities/contactus` location + form side by side; profile rows no longer squashed |
+| 013 | tablets: sidebar and content stack below 768px | `department/*` sub-pages at 600–767px no longer squeezed |
+
+Still open:
+- `academic/syllabus`: the live text (`page_section` academic.syllabus / main, never edited) contains an unclosed
+  `<code>` that the browser turns into a second column. Fix: remove `<code>` from the text in Website Content. The
+  JSP fallback stays equal to the seed (checked by `PageTextsTest`).
+- `trainingplacement/studentplacementcoordinator` at 768px (829px wide) – Phase 3.
+- Not reachable, so not checked: `department/{ash,cse,ece,ecevlsi,eee,fp}/staff.jsp`, `department/ash/attendace.jsp`
+  (no route maps to them).

@@ -118,3 +118,89 @@ object, embed, iframe, video {
   border-radius: 4px;
 }
 :where(.form-group) { margin-bottom: 15px; }
+
+/* ---- Phase 2: legacy sidebar layout (UI-002, UI-003, UI-004, UI-007, UI-010, UI-013) ---- */
+
+/* UI-007: page containers are centred with a side gutter (:where keeps the Tailwind margin/padding classes in charge) */
+:where(.container) {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* UI-010: Bootstrap 3 grid widths inside .row (header.jsp makes .row a centred flex row from 600px) */
+@media (min-width: 768px) {
+  .row { flex-wrap: wrap; }
+  .row > .col-sm-1 { width: 8.3333%; }   .row > .col-sm-2 { width: 16.6667%; }
+  .row > .col-sm-3 { width: 25%; }       .row > .col-sm-4 { width: 33.3333%; }
+  .row > .col-sm-5 { width: 41.6667%; }  .row > .col-sm-6 { width: 50%; }
+  .row > .col-sm-7 { width: 58.3333%; }  .row > .col-sm-8 { width: 66.6667%; }
+  .row > .col-sm-9 { width: 75%; }       .row > .col-sm-10 { width: 83.3333%; }
+  .row > .col-sm-11 { width: 91.6667%; } .row > .col-sm-12 { width: 100%; }
+  .row > .col-sm-offset-2 { margin-left: 16.6667%; } .row > .col-sm-offset-3 { margin-left: 25%; }
+  .row > .col-sm-offset-4 { margin-left: 33.3333%; }
+}
+@media (min-width: 992px) {
+  .row > .col-md-1 { width: 8.3333%; }   .row > .col-md-2 { width: 16.6667%; }
+  .row > .col-md-3 { width: 25%; }       .row > .col-md-4 { width: 33.3333%; }
+  .row > .col-md-5 { width: 41.6667%; }  .row > .col-md-6 { width: 50%; }
+  .row > .col-md-7 { width: 58.3333%; }  .row > .col-md-8 { width: 66.6667%; }
+  .row > .col-md-9 { width: 75%; }       .row > .col-md-10 { width: 83.3333%; }
+  .row > .col-md-11 { width: 91.6667%; } .row > .col-md-12 { width: 100%; }
+  .row > .col-md-offset-2 { margin-left: 16.6667%; } .row > .col-md-offset-3 { margin-left: 25%; }
+}
+.row > [class*="col-"] { min-width: 0; }
+/* title bands: the title column keeps its natural width (the band itself is a shrink-to-fit centred flex box) */
+.jumbotron .row > [class*="col-"] { width: auto; }
+
+/* UI-002 to UI-004: legacy pages - a complementary sidebar without a Tailwind width class (aside.col-sm-3 or
+   aside.m-5.p-5) next to the content. Sidebar on the left, content fills the rest. */
+@media (min-width: 768px) {
+  :is(.flex, .md\:flex, .row, .container):has(> :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"]))) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    column-gap: 24px;
+  }
+  :is(.flex, .md\:flex, .row, .container):has(> :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"]))) > :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"])) {
+    flex: 0 0 25%;
+    width: 25%;
+    max-width: 280px;
+    margin: 0;
+    padding: 0;
+  }
+  :is(.flex, .md\:flex, .row, .container):has(> :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"]))) > :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"])) ~ * {
+    flex: 1 1 0%;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    margin-left: 0;
+  }
+  /* the same layout without a page container: give it the container width and gutter */
+  :not(.container) > :is(.flex, .md\:flex, .row, .container):has(> :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"]))) {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+/* below 768px sidebar and content stack, both full width */
+@media (max-width: 767.98px) {
+  :is(.flex, .md\:flex, .row, .container):has(> :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"]))) {
+    display: block;
+  }
+  :is(aside.col-sm-3, aside[role="complementary"]:not([class*="w-"])) {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    /* room for the slanted cap above the sidebar title (15.5% of the width, title margin 39px) */
+    padding-top: max(20px, calc(15.5% - 39px));
+  }
+}

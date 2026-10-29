@@ -1,4 +1,16 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </div>
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">Departments</h3>
+            </div>
+        </div>
+    </div>
+</div>
 <aside class="col-sm-3 flex justify-center" role="complementary" style="max-width:100%">
           <div class="region region-sidebar-second">
 <section id="block-menu-block-3" class="block block-menu-block clearfix">

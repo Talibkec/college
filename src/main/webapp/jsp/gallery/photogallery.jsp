@@ -43,7 +43,7 @@
 </div>
 <div class="flex justify-center items-center px-4 mt-5">
     <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-lg border border-gray-300">
-      <h2 class="text-xl font-semibold text-gray-800 text-center mb-4">Photo Gallery</h2>
+      <h2 class="text-xl font-semibold text-gray-800 text-center mb-4">Gallery</h2>
       
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="/gallery/photogallery"

@@ -2,7 +2,7 @@
 
 
 
-    <div class="flex justify-center w-full">
+    <div class="jumbotron flex justify-center w-full">
         <div class="row">
             <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Computer Centre</h3></div>
 

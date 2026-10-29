@@ -1,5 +1,5 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
- <div class="jumbotron flex justify-center">
+ <div class="jumbotron flex justify-center"><h3 class="text-2xl">Labs &amp; Infrastructure</h3>
         <div class="">
             <div class="row">
               

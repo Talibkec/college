@@ -39,7 +39,6 @@
         </aside>
        <div class="w-full md:w-3/4">
            <div class="leading-7 text-lg font-light">
-               <p class="font-serif text-2xl text-gray-800"><strong>History</strong></p>
                <div class="font-sans text-base font-semibold text-justify text-gray-700 mt-4"><kec:section key="about.history/main">
                    <p><strong>Katihar Engineering College</strong> is one of the seventeen engineering colleges established under the Department of Science and Technology, Govt. of Bihar. It was established in the year 2016 with the goal to foster technical skills in both applied and basic approaches. The establishment was laid as per the demand for technical education in our society today. The college started with three branches including Civil Engineering, Mechanical Engineering, and Computer Science Engineering with an intake of 60 students in each branch.</p>
                    <p>After its establishment, the institution aims at setting high standards of education and excelling as per the demand of the current society. The institution not only aims at the pedantic way of learning but also to meet contemporary industrial requirements and to build human potential to become exemplary professionals.</p>

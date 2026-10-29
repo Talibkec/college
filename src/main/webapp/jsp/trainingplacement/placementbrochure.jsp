@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp" />
 
-<div class="bg-gray-200 py-6">
+<div class="bg-gray-200 py-4 mt-4">
     <div class="container mx-auto">
         <div class="text-center">
-            <h3 class="text-3xl font-semibold">Placement Brochure</h3>
+            <h3 class="text-2xl font-semibold">Placement Brochure</h3>
         </div>
     </div>
 </div>

@@ -224,3 +224,31 @@ object, embed, iframe, video {
     min-height: 300px;
   }
 }
+
+/* ---- Phase 5: one title-bar style (UI-016, UI-017) ---- */
+
+/* the grey title band of the legacy pages looks like the About pages' bar (bg-gray-200 py-4 mt-4, text-2xl semibold) */
+.jumbotron {
+  background: #e5e7eb;
+  margin-top: 1rem;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+  font-size: 1.5rem;
+}
+.jumbotron h1, .jumbotron h2, .jumbotron h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+/* a band without a title is only an empty grey stripe */
+.jumbotron:not(:has(h1, h2, h3, h4)) {
+  display: none;
+}
+
+/* UI-025: phones usually cannot show embedded PDFs; keep the 1000px box from pushing the download link far down */
+@media (max-width: 767px) {
+  object[type="application/pdf"] {
+    height: 75vh;
+  }
+}

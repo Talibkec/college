@@ -3,7 +3,18 @@
 
 
 
-<div class="jumbotron py-6"></div>
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </div>
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">Support Staff</h3>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container mx-auto px-4">
     <div class="md:flex justify-between space-y-4 md:space-y-0">
@@ -33,8 +44,6 @@
         <!-- Main Content -->
        <div class="md:w-3/4 w-full p-4">
            <div class="page-content bg-white p-6 rounded-lg shadow-lg">
-               <h2 class="text-2xl font-bold mb-4">Support Staff</h2>
-               <hr class="mb-4">
                <c:if test="${userType == 2}">
                    <a href="auth/uploadfile/addStaff">
                        <button class="btn btn-primary mt-2 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Add Staff</button>

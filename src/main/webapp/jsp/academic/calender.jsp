@@ -1,26 +1,19 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
-<div class="bg-gradient-to-r from-blue-500 to-blue-700 py-10">
+<div class="bg-gray-200 py-4 mt-4">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-6">
-            <h3 class="text-4xl font-bold text-white">Academic Calendar</h3>
-            <p class="text-lg text-blue-100 mt-2">Stay updated with the latest academic schedules</p>
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </div>
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">Academic Calendar</h3>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="container mx-auto px-4 py-8">
-    <nav class="mb-6">
-        <ul class="flex space-x-2 text-gray-700">
-            <li>
-                <a href="/" class="flex items-center text-blue-600 hover:underline">
-                    <i class="fa fa-home mr-1"></i> Home
-                </a>
-            </li>
-            <li class="text-gray-500">/</li>
-            <li class="text-gray-600">Academic Calendar</li>
-        </ul>
-    </nav>
 
     <div class="flex flex-col lg:flex-row -mx-4">
         <!-- Sidebar -->

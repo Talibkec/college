@@ -2,6 +2,7 @@
 
 
 
+<div class="jumbotron flex justify-center w-full"><h3 class="text-2xl">Students of Civil Engg.</h3></div>
     <div class="container">
 
         <div class="md:flex justify-center">

@@ -1,6 +1,6 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"><h3 class="text-2xl">Notice</h3></div>
 
     <div class="">
 

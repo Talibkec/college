@@ -176,6 +176,7 @@ with the tables.
 | 2026-10-29 | UI fixes phase 2 (legacy sidebar left, content full width, centred containers, Bootstrap grid; 8 pages with an unclosed title band fixed) | **no database change.** Optional content fix: remove the stray `<code>` from the Syllabus text in Website Content | – (nothing to run) |
 | 2026-10-29 | UI fixes phase 3 (Flowbite CSS before Tailwind so responsive widths work; History layout; dept About columns; CSE notice menu on phones) | **no database change** | – (nothing to run) |
 | 2026-10-29 | UI fixes phase 4 (homepage: notice/tender buttons no longer cover the list, 16:9 video, taller map on phones) | **no database change** | – (nothing to run) |
+| 2026-10-29 | UI fixes phase 5 (one title-bar style, missing/wrong page headings, duplicate titles) | **no database change.** Optional content fixes in Website Content → Menus: "Academic Calender", "Placement Brouchure", "AICTE Aproval", "photo Gallery"; check the "topbar" menu entry | – (nothing to run) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %><%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron flex justify-center w-full">
+<div class="jumbotron flex justify-center w-full"><h3 class="text-2xl">Hostels</h3>
     <div class="">
         <div class="row">
 

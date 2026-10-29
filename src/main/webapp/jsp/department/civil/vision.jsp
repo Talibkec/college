@@ -1,5 +1,5 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"><h3 class="text-2xl">Vision &amp; Mission</h3>
         <div class="flex justify-center">
             <div class="row">
 

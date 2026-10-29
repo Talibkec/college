@@ -1,7 +1,7 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
 
-<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"></div>
+<div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;"><h3 class="text-2xl">Course File</h3></div>
 
     <div class="container">
 

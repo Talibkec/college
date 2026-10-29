@@ -3,7 +3,7 @@
 <div class="jumbotron flex justify-center">
         <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3 class="text-3xl">Students of Mechanical Engineering</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-3xl">Students of Mechanical &amp; Smart Manufacturing</h3></div>
 
             </div>
         </div>

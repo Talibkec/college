@@ -4,11 +4,11 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <jsp:include page="header.jsp"/>
 
-<div class="bg-gray-200 py-8">
+<div class="bg-gray-200 py-4 mt-4">
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-center">
             <div class="text-center">
-                <h3 class="text-3xl font-semibold">Login</h3>
+                <h3 class="text-2xl font-semibold">Login</h3>
             </div>
         </div>
     </div>

@@ -153,7 +153,8 @@ list of pages to check per width, push only after "verified".
 | 1 | done 2026-10-29 (20f8b75), verified and pushed |
 | 2 | done 2026-10-29 (de1753e), verified and pushed |
 | 3 | done 2026-10-29 (ba7a8f7), verified and pushed |
-| 4 | done 2026-10-29, waiting for your check (see "Phase 4 result") |
+| 4 | done 2026-10-29 (6d050dc), verified and pushed |
+| 5 | done 2026-10-29, waiting for your check (see "Phase 5 result") |
 
 ## Phase 1 result (2026-10-29)
 
@@ -227,3 +228,31 @@ CSS only (`css/site-fixes.css`); `index.jsp` is unchanged (the video is editable
 | 024 | home video `aspect-ratio: 16/9` | 1440px: 616×200 → 616×347; 375px: 271×152 |
 | – | phones: map at least 300px high (`style.css` forced all iframes to `height:auto` = 150px) | 375px: 150px → 300px |
 | 022 | withdrawn (see the table above) | – |
+
+## Phase 5 result (2026-10-29)
+
+**One title bar everywhere (016, 017).** Measured on 175 reachable pages: 173 show the same bar (grey `#e5e7eb`,
+24px semibold title; 171 of them exactly 64px high). Exceptions: `category/notices` keeps its own masthead (recent design),
+`department/civil/attendance` is taller because its band also holds share links.
+- `.jumbotron` (≈140 legacy pages) restyled in `site-fixes.css` to look like the About-page bar; bands without a title
+  are hidden (`approval/aicteapproval` second band, `sms`, `/page/*`). The legacy bands have no "Home" link (CSS cannot add one).
+- About-page bar markup now also on `about/staff` (was an empty band), `academic/calender` (blue hero + separate
+  breadcrumb), `category/kecwebteam`, `trainingplacement/aboutplacement`, `category/department` (had no title).
+- Same bar size on `login`, `trainingplacement/placementbrochure`; grey-200 bar on the legal pages and `/legal/contactus`;
+  `facilities/csecenter` title got its band; `category/tenders` lost the second grey box inside its band.
+- Titles added: `department/civil/{attendance,course,labs,notice,question,vision,programs,students,weekly}`,
+  `department/{mechanical,manufacturing,mechandsmartmanufacturing}/labs`, `facilities/{club,hostels}`.
+
+**Wrong headings (018), duplicates (019), typos (020).**
+- AKU Approval, Mandatory Disclosure, Health Centre, Awards &amp; Recognition (`ash`, `cse`, `fp`), Notice (`ece`, `ecevlsi`,
+  `eee`), Students of FP, Manufacturing / Mechanical &amp; Smart Manufacturing headings (faculty, notice, students),
+  Media Gallery, "Notice from Government".
+- Removed the repeated title on History and Support Staff; the gallery switcher card is titled "Gallery".
+- Not changed (no route, never shown): `department/{ece,ecevlsi,fp}/staff.jsp`, `facilities/holiday.jsp`.
+- Menu labels are database rows (`link_item`), fix them in Website Content → Menus: "Academic Calender" (ids 27, 71),
+  "Placement Brouchure" (109), "AICTE Aproval" (116), "photo Gallery" (126). The main menu also has an entry
+  "topbar" → `/page/newtop` (id 346, added by Talib) that looks like a test entry.
+- "awards & Recognition" in `department/cse/sidebar.jsp` is shown capitalised by `style.css`; no change needed.
+
+**Also:** phones show embedded PDFs at most 75% of the screen high (UI-025 follow-up; the 1000px box pushed the
+download link far down).

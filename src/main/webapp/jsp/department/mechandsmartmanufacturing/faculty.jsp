@@ -3,7 +3,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Faculty of Mechanical Engg.</h3></div>
+                <div class="col-md-10 col-sm-8"><h3>Faculty of Mechanical &amp; Smart Manufacturing</h3></div>
 
             </div>
         </div>

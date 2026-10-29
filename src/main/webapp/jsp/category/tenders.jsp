@@ -2,7 +2,7 @@
 <jsp:include page="/jsp/header.jsp"/>
 
     <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
-        <div class="container bg-gray-200 p-5 align-start text-3xl">
+        <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-8"><h3>Tenders</h3></div>
 

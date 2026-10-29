@@ -2,7 +2,7 @@
 <div class="jumbotron flex justify-center w-full" style="">
         <div class="">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Notice from Governement</h3></div>
+                <div class="col-md-10 col-sm-8"><h3 class="text-2xl">Notice from Government</h3></div>
             </div>
         </div>
     </div>

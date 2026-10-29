@@ -1,7 +1,16 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
-<div class=" bg-gray-300 p-2">
-        <h3 class="text-center  font-bold text-2xl ">KEC Web Team</h3>
-   </div>
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </div>
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">KEC Web Team</h3>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container mx-auto p-4 flex justify-center">
   <div class=" lg:w-1/2 ">
     <h2 class="text-2xl font-bold mb-4 text-center">List of Website Developers</h2>

@@ -2,9 +2,16 @@
 
 
 
-<div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-        <h3 class="text-3xl font-bold text-center md:text-left">About Placement</h3>
+<div class="bg-gray-200 py-4 mt-4">
+    <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+            <div class="flex space-x-4">
+                <a href="/"><i class="fa fa-home"></i> Home</a>
+            </div>
+            <div class="flex-grow text-center">
+                <h3 class="text-2xl font-semibold">About Placement</h3>
+            </div>
+        </div>
     </div>
 </div>
 

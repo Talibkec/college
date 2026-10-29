@@ -155,7 +155,7 @@ list of pages to check per width, push only after "verified".
 | 3 | done 2026-10-29 (ba7a8f7), verified and pushed |
 | 4 | done 2026-10-29 (6d050dc), verified and pushed |
 | 5 | done 2026-10-29 (2cb9638), verified and pushed |
-| 6 | UI-035 done 2026-10-29, waiting for your check; UI-032 and the Fee Structure footer wait for your decision |
+| 6 | done 2026-10-29, waiting for your check (see "Phase 6 result" and "Phase 6, part 2") |
 
 ## Phase 1 result (2026-10-29)
 
@@ -278,3 +278,23 @@ The other pages in the UI-035 list only have surplus closing tags; no visible ef
 over the site header and hides the logo and the first menu items (Home, About KEC, Academic); AdminLTE/Bootstrap 4 turns
 the site menu and footer links blue; broken user picture; AdminLTE icon fonts 404 (`jsp/admin/plugins/` is empty).
 Needs your decision.
+
+## Phase 6, part 2 (decisions of 2026-10-29)
+
+**UI-032, HOD pages: keep AdminLTE, fix the overlap.** `css/site-fixes.css`: the AdminLTE sidebar is anchored to its
+own wrapper (it starts below the site header and ends at the footer; AdminLTE's `100vh` heights overridden), the site
+header and footer keep their own link colours. The hard-coded user picture (`/jsp/gallery/facultypic/mta.jp`, a typo
+and one specific person for every HOD) is replaced by a neutral user icon. Checked logged in as a temporary HOD test
+user (removed afterwards) at 1440px and 375px on `/hod/hodDashboard` and `/hod/addfaculty`.
+Not changed: the AdminLTE hamburger does not open its sidebar on phones because the pages never load AdminLTE's
+JavaScript (as before); the dashboard tiles and the site menu offer the same links. The AdminLTE icon-font and
+plugin CSS links still return 404 (`jsp/admin/plugins/` is empty); icons show through the site's Font Awesome.
+
+**`/legal/feestructure` gets its footer back** (removed in 41bc10c). Approved behaviour change: its baseline in
+`src/test/resources/upgradetest/anonymous-pages.txt` changes from `200 BODY` to `200 PAGE`, like the other legal pages.
+
+## Open items for you (content, no code)
+
+- Website Content → page texts: remove the stray `<code>` from the Syllabus text (`academic.syllabus` / main).
+- Website Content → Menus: "Academic Calender", "Placement Brouchure", "AICTE Aproval", "photo Gallery"; check the
+  "topbar" main-menu entry (`/page/newtop`).

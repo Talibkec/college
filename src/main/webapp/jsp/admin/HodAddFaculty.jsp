@@ -41,7 +41,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/jsp/gallery/facultypic/mta.jp" class="img-circle elevation-2" alt="User Image">
+          <i class="fa fa-user-circle fa-2x text-white"></i>
         </div>
         <div class="info">
           <a href="#" class="d-block">Head of Department </a>

@@ -253,7 +253,7 @@
 /gallery/mediagallery                                   200 PAGE
 /gallery/photogallery                                   200 PAGE
 /legal/contactus                                        200 PAGE
-/legal/feestructure                                     200 BODY
+/legal/feestructure                                     200 PAGE
 /legal/privacypolicy                                    200 PAGE
 /legal/productandservices                               200 PAGE
 /legal/refundandcancellation                            200 PAGE

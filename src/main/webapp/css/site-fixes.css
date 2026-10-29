@@ -252,3 +252,23 @@ object, embed, iframe, video {
     height: 75vh;
   }
 }
+
+/* ---- Phase 6: HOD pages with AdminLTE inside the site layout (UI-032) ---- */
+
+/* AdminLTE's <body class="layout-fixed"> comes after header.jsp, so the browser drops it and the sidebar stays fixed
+   at the top of the window over the site header. Anchor it to its own wrapper instead. */
+.wrapper:has(> .main-sidebar) {
+  position: relative;
+}
+.wrapper > .main-sidebar {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+}
+/* AdminLTE/Bootstrap colour every link blue; the site header and footer keep their own colours */
+header a, header a:hover, .gt-footersection a, .gt-footersection a:hover {
+  color: inherit;
+}

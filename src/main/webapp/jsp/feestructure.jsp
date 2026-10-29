@@ -116,4 +116,4 @@
                 </tbody>
             </table>
         </div></kec:section>
-    </div><kec:blocks/>
+    </div><kec:blocks/><jsp:include page="/jsp/footer.jsp"/>

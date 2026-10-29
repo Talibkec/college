@@ -17,7 +17,7 @@
 <div class="container mx-auto px-4 my-8">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <!-- Sidebar -->
-        <div class="hidden lg:block lg:col-span-1">
+        <div class="lg:col-span-1">
             <jsp:include page="sidebar.jsp"/>
         </div>
 

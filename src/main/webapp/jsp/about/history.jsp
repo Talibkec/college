@@ -37,7 +37,7 @@
                 </section>
             </div>
         </aside>
-       <div class="w-full md:w-1/2">
+       <div class="w-full md:w-3/4">
            <div class="leading-7 text-lg font-light">
                <p class="font-serif text-2xl text-gray-800"><strong>History</strong></p>
                <div class="font-sans text-base font-semibold text-justify text-gray-700 mt-4"><kec:section key="about.history/main">
@@ -45,12 +45,10 @@
                    <p>After its establishment, the institution aims at setting high standards of education and excelling as per the demand of the current society. The institution not only aims at the pedantic way of learning but also to meet contemporary industrial requirements and to build human potential to become exemplary professionals.</p>
                </kec:section></div>
            </div>
-       </div>
 
-        <div class="w-full md:w-1/4 mt-4 md:mt-0">
-            <div class="card shadow-md border p-4 leading-8 bg-gray-100 rounded-lg">
-                <img src="/sites/default/files/logo.png" alt="Home" class="w-full mb-4"/>
-                <div class="scrollable h-64 overflow-auto">
+           <div class="card shadow-md border p-4 mt-6 leading-8 bg-gray-100 rounded-lg md:flex md:items-start md:gap-6">
+               <img src="/sites/default/files/logo.png" alt="Home" class="w-full md:w-1/3 mb-4 md:mb-0"/>
+               <div class="md:flex-1">
                     <h5 class="text-center font-semibold text-gray-700">LIST OF PRINCIPALS</h5>
                     <div class="border-b w-2/5 mx-auto mb-4"></div>
                     <table class="w-full text-gray-600 mb-4">
@@ -67,9 +65,9 @@
                         <tr><td class="w-1/3 font-semibold">Website</td><td><a href="/" class="text-blue-500 hover:underline">keck.ac.in</a></td></tr>
                         <tr><td class="w-1/3 font-semibold">Location</td><td>Hajipur Katihar</td></tr>
                     </table>
-                </div>
-            </div>
-        </div>
+               </div>
+           </div>
+       </div>
     </div>
 </div>
 

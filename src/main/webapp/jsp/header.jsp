@@ -28,9 +28,10 @@
       <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       <title><kec:setting key="site.title">KATIHAR ENGINEERING COLLEGE, KATIHAR</kec:setting></title>
+      <%-- Flowbite before Tailwind: its Tailwind 3 base utilities (.w-full, .hidden, ...) must not override the Tailwind 2 responsive classes (md:w-1/4, lg:block, ...) --%>
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
       <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
       <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
@@ -344,9 +345,6 @@
                 padding: 10px;
               }
 
-              aside {
-                max-width: 280px;
-              }
 
               .row {
                 display: flex;

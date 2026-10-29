@@ -33,7 +33,7 @@
         </aside>
 
         <!-- Coordinator Table -->
-        <div class="w-full md:w-3/4 p-4">
+        <div class="w-full md:w-3/4 min-w-0 p-4">
             <div class="overflow-auto">
                 <table class="min-w-full border border-gray-300 table-auto">
                     <thead class="bg-gray-100">

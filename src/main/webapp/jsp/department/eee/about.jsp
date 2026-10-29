@@ -62,7 +62,7 @@
     </div>
 
     <!-- Introduction Section -->
-    <div class="md:w-2/3 px-4 mt-6 md:mt-0">
+    <div class="md:w-5/12 px-4 mt-6 md:mt-0">
         <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
                 <kec:section key="department.eee.about/intro" title="About EEE: introduction"><h3 class="text-2xl font-bold mb-4">Introduction</h3>

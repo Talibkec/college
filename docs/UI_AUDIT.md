@@ -65,7 +65,7 @@ Paths are relative to `src/main/webapp/jsp/`.
 | UI-028 | All 105 pages with a `.page-content` block (most academic, facilities, rti, approval, trainingplacement pages, dept sub-pages, `about/staff`, `page/custom`, `nba`, `invalidDeptId`) | Horizontal scrollbar always shown, even when content fits. | Low |
 | UI-029 | `index.jsp`, `department/*/about.jsp` (scrolling notice bar), dept notice pages, `about/administration.jsp`, `category/tenders.jsp` | Notice/News/date badges render as unstyled plain text (Bootstrap `label label-*` classes, Bootstrap not loaded). | Medium |
 | UI-030 | `facilities/{downloads,holiday,contactus}.jsp`, `academic/holidays.jsp`, `approval/{akuapproval,grievance}.jsp`, `trainingplacement/tipsforresume.jsp`, `category/tenders.jsp`, `about/administration.jsp`, `academic/administration.jsp`, `sms.jsp`, `hodincharge.jsp`, dept notice/faculty/principal pages | Bootstrap buttons, panels and form controls render unstyled (plain links, no panel borders, raw inputs). | Medium |
-| UI-031 | `about/staff.jsp` | Staff photos forced to 125×125px without cropping; non-square photos look stretched. | Low |
+| UI-031 | ~~`about/staff.jsp`~~ | **Withdrawn after rendering:** Tailwind's base styles set `img { height:auto }`, so the photos keep their proportions. | – |
 | UI-032 | `admin/HodDashboard.jsp`, `admin/HodAddFaculty.jsp`, `user/HodAddFaculty.jsp` | AdminLTE/Bootstrap 4 loaded on top of the site header's Tailwind and global sidebar/row rules, so styles conflict; `jsp/admin/plugins/` is empty, so plugin widgets are unstyled. | Medium |
 
 ## Global and markup
@@ -130,7 +130,7 @@ Centre `.container`; sidebar column fixed at ¼, content takes the rest (sibling
 
 ## Phase 3 – Per-page layout fixes (small JSP edits)
 001 History ¼ + ¾ with the principals card below the text; 005 Tailwind sidebars fill their column;
-008 dept About pages ¼ / ½ / ¼; 009 `cse/notice` section menu on mobile; 031 staff photos cropped, not stretched.
+008 dept About pages ¼ / 5⁄12 / ⅓; 009 `cse/notice` section menu on mobile; ~~031~~ (withdrawn).
 
 ## Phase 4 – Homepage (`index.jsp`)
 ~~021~~ (withdrawn); 022 one slider per screen size, no empty captions; 023 space for "View All" buttons,
@@ -151,8 +151,9 @@ list of pages to check per width, push only after "verified".
 | Phase | Status |
 |---|---|
 | 0 | done 2026-10-29: Playwright screenshots (45 pages × 1440/768/375 px) before and after, outside the repository |
-| 1 | done 2026-10-29 (20f8b75), waiting for your check (see "Phase 1 result") |
-| 2 | done 2026-10-29, waiting for your check (see "Phase 2 result") |
+| 1 | done 2026-10-29 (20f8b75), verified and pushed |
+| 2 | done 2026-10-29 (de1753e), verified and pushed |
+| 3 | done 2026-10-29, waiting for your check (see "Phase 3 result") |
 
 ## Phase 1 result (2026-10-29)
 
@@ -198,3 +199,20 @@ Still open:
 - `trainingplacement/studentplacementcoordinator` at 768px (829px wide) – Phase 3.
 - Not reachable, so not checked: `department/{ash,cse,ece,ecevlsi,eee,fp}/staff.jsp`, `department/ash/attendace.jsp`
   (no route maps to them).
+
+## Phase 3 result (2026-10-29)
+
+**Root cause found:** `header.jsp` loaded `flowbite.min.css` *after* Tailwind 2. Flowbite ships Tailwind 3 base
+utilities (`.w-full`, `.hidden`, `.flex`, `.p-4`, …) but not the Tailwind 2 responsive variants the pages use, so every
+`w-full md:w-1/4` stayed 100% wide and every `hidden lg:block` stayed hidden. The header's general 280px cap on `aside`
+hid part of it. Flowbite's CSS is now loaded before Tailwind; Flowbite components and its own classes keep working
+(the phone menu drawer opens and closes as before). Measured: only the pages below changed; all other pages and widths
+measure exactly as before.
+
+| ID | Change | Result |
+|---|---|---|
+| 001 | `about/history.jsp`: text ¾ wide; principals/motto card below the text, logo beside the facts, no 256px scroll box | sidebar and text aligned; all facts visible (Established, Affiliations, Website, Location were hidden before) |
+| 005 | general `aside { max-width:280px }` removed from `header.jsp` (legacy sidebars keep their own cap in `site-fixes.css`); Flowbite before Tailwind | About pages, payment tutorial, placement coordinator, `/page/*`: sidebar ¼ and content ¾ as written in the markup |
+| 008 | `department/*/about.jsp` (10 pages): columns ¼ / 5⁄12 / ⅓ (were ¼ / ⅔ / ⅓ = 125%); stray `""` removed in `manufacturing/about.jsp` | news titles readable, no clipping |
+| 009 | `department/cse/notice.jsp`: section menu no longer `hidden lg:block` | menu visible on tablets and phones |
+| – | `trainingplacement/studentplacementcoordinator.jsp`: content column `min-w-0` | 768px: 829px → 768px, table scrolls inside its column |

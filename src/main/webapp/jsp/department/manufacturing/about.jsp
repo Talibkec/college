@@ -91,7 +91,7 @@
             </div>
 
         <!-- Introduction Section -->
-        <div class="md:w-2/3 px-4 mt-6 md:mt-0">
+        <div class="md:w-5/12 px-4 mt-6 md:mt-0">
           <div class="bg-white p-6 rounded-lg shadow">
             <div class="text-justify text-lg font-light leading-relaxed">
               <kec:section key="department.manufacturing.about/intro" title="About Manufacturing: introduction"><div id="ctl00_ContentPlaceHolder1_div_1">
@@ -126,7 +126,7 @@
         </div>
 
         <!-- News/Updates Section -->
-        <div class="md:w-1/3 px-4 mt-6 md:mt-0"">
+        <div class="md:w-1/3 px-4 mt-6 md:mt-0">
             <div class="bg-white p-6 rounded-lg shadow-md mb-6">
                 <!-- Latest News/Updates Section -->
                 <div class="mb-6">

@@ -204,3 +204,23 @@ object, embed, iframe, video {
     padding-top: max(20px, calc(15.5% - 39px));
   }
 }
+
+/* ---- Phase 4: homepage (index.jsp) ---- */
+
+/* UI-023: the "View All Notices/Tenders" button sits at the bottom of its box; keep the scrolling list clear of it */
+.relative.notice, .relative.tenders {
+  padding-bottom: 72px;
+}
+
+/* UI-024: the home video keeps 16:9 instead of a fixed 200px height (the iframe is editable content in home/video) */
+#block-block-20 iframe {
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+}
+
+/* style.css sets every iframe to height:auto on phones, which shrinks the map to 150px */
+@media (max-width: 767px) {
+  iframe[title="Map"] {
+    min-height: 300px;
+  }
+}

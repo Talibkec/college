@@ -51,8 +51,8 @@ Paths are relative to `src/main/webapp/jsp/`.
 | ID | Page / JSP File | UI Issue Description | Severity |
 |---|---|---|---|
 | UI-021 | ~~`index.jsp`~~ | **Withdrawn after rendering:** the column next to "About KEC" shows the college building as a CSS background (`.gtmaincontenthome` in `style.css`); it is not empty. | – |
-| UI-022 | `index.jsp` | Desktop and mobile sliders are both always rendered; the unused one shows as an empty slider with arrows/pagination. Caption bar shows even when the caption is empty. | Medium |
-| UI-023 | `index.jsp` | "View All Notices/Tenders" buttons are pinned to the box bottom with no reserved space and can overlap the scrolling list. Important Links box uses `h-[50vh]` (unsupported in Tailwind 2.2), so the three boxes have unequal heights. | Medium |
+| UI-022 | ~~`index.jsp`~~ | **Withdrawn after rendering:** the hidden slider has height 0 and its arrows render no icon; no empty captions exist. | – |
+| UI-023 | `index.jsp` | The "View All Notices/Tenders" buttons are pinned to the box bottom with no space reserved and cover the last ~20px of the scrolling list. (The three boxes do have equal heights; that part is withdrawn.) | Medium |
 | UI-024 | `index.jsp` | Video aspect-ratio wrapper class (`pb-9/16`) doesn't exist; video has a fixed 200px height and doesn't scale. | Low |
 
 ## Images, tables, embeds and components
@@ -133,8 +133,7 @@ Centre `.container`; sidebar column fixed at ¼, content takes the rest (sibling
 008 dept About pages ¼ / 5⁄12 / ⅓; 009 `cse/notice` section menu on mobile; ~~031~~ (withdrawn).
 
 ## Phase 4 – Homepage (`index.jsp`)
-~~021~~ (withdrawn); 022 one slider per screen size, no empty captions; 023 space for "View All" buttons,
-equal box heights; 024 responsive 16:9 video.
+~~021~~, ~~022~~ (withdrawn); 023 space for "View All" buttons; 024 responsive 16:9 video.
 
 ## Phase 5 – Titles and consistency
 016/017 one title-bar style, no empty bands; 018/019/020 correct headings and typos, no duplicate titles.
@@ -153,7 +152,8 @@ list of pages to check per width, push only after "verified".
 | 0 | done 2026-10-29: Playwright screenshots (45 pages × 1440/768/375 px) before and after, outside the repository |
 | 1 | done 2026-10-29 (20f8b75), verified and pushed |
 | 2 | done 2026-10-29 (de1753e), verified and pushed |
-| 3 | done 2026-10-29, waiting for your check (see "Phase 3 result") |
+| 3 | done 2026-10-29 (ba7a8f7), verified and pushed |
+| 4 | done 2026-10-29, waiting for your check (see "Phase 4 result") |
 
 ## Phase 1 result (2026-10-29)
 
@@ -216,3 +216,14 @@ measure exactly as before.
 | 008 | `department/*/about.jsp` (10 pages): columns ¼ / 5⁄12 / ⅓ (were ¼ / ⅔ / ⅓ = 125%); stray `""` removed in `manufacturing/about.jsp` | news titles readable, no clipping |
 | 009 | `department/cse/notice.jsp`: section menu no longer `hidden lg:block` | menu visible on tablets and phones |
 | – | `trainingplacement/studentplacementcoordinator.jsp`: content column `min-w-0` | 768px: 829px → 768px, table scrolls inside its column |
+
+## Phase 4 result (2026-10-29)
+
+CSS only (`css/site-fixes.css`); `index.jsp` is unchanged (the video is editable content in `home/video`).
+
+| ID | Change | Measured |
+|---|---|---|
+| 023 | Notices/Tenders boxes reserve 72px at the bottom for the "View All" button | list ends ≥ 31px above the button at 1440/768/375px (overlapped by ~20px before) |
+| 024 | home video `aspect-ratio: 16/9` | 1440px: 616×200 → 616×347; 375px: 271×152 |
+| – | phones: map at least 300px high (`style.css` forced all iframes to `height:auto` = 150px) | 375px: 150px → 300px |
+| 022 | withdrawn (see the table above) | – |

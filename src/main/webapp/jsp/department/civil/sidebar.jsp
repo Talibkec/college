@@ -16,7 +16,7 @@
           <li class="leaf menu-mlid-1467"><a href="/department/civil/students" class="sf-depth-2">Student of Civil Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/notice" class="sf-depth-2">Notice</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-          <li class="leaf menu-mlid-1467"><a href="/department/civil/programs" class="sf-depth-2">Course File</a></li>
+          <li class="leaf menu-mlid-1467"><a href="/department/civil/course" class="sf-depth-2">Course File</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/staff" class="sf-depth-2">Staff of Civil Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/civil/attendance" class="sf-depth-2">Attendance Summary</a></li>
         </ul></div>

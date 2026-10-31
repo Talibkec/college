@@ -1,0 +1,269 @@
+/* Course File page of the department sites (/department/<site>/course) and the HOD screen (/manage/course-files). */
+.cf-page {
+  --cf-primary: #1e4f91;
+  --cf-primary-dark: #163b6d;
+  --cf-ink: #1f2937;
+  --cf-muted: #6b7280;
+  --cf-line: #e5e7eb;
+  --cf-soft: #f3f6fb;
+  color: var(--cf-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+/* the editable paragraph on top */
+.cf-intro {
+  position: relative;
+  background: linear-gradient(135deg, #f3f7fd 0%, #e8f0fb 100%);
+  border: 1px solid #d8e3f3;
+  border-left: 5px solid var(--cf-primary);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem 1.25rem 4.25rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+.cf-intro::before {
+  content: "\f518"; /* fa-book-open */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 1.25rem;
+  top: 1.2rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--cf-primary);
+  color: #fff;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cf-intro p { margin: 0 0 .6rem; }
+.cf-intro p:last-child { margin-bottom: 0; }
+
+.cf { margin-top: .5rem; }
+
+/* buttons */
+.cf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .9rem;
+  border-radius: 6px;
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: background-color .15s, border-color .15s, color .15s;
+}
+.cf-btn-primary { background: var(--cf-primary); color: #fff !important; }
+.cf-btn-primary:hover { background: var(--cf-primary-dark); }
+.cf-btn-light { background: #fff; color: var(--cf-primary) !important; border-color: #c9d7ec; }
+.cf-btn-light:hover { background: var(--cf-soft); border-color: var(--cf-primary); }
+.cf-btn-danger { background: #fff; color: #b91c1c !important; border-color: #f3c4c4; }
+.cf-btn-danger:hover { background: #fef2f2; border-color: #b91c1c; }
+
+/* bar for the HOD / editors */
+.cf-admin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .75rem 1rem;
+  margin-bottom: 1.25rem;
+  border: 1px dashed #9db6dc;
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+.cf-admin-label { color: var(--cf-muted); font-size: .9rem; }
+.cf-admin-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+/* search and semester chips */
+.cf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+.cf-search {
+  position: relative;
+  flex: 1 1 240px;
+  max-width: 360px;
+  margin: 0;
+}
+.cf-search i {
+  position: absolute;
+  left: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cf-muted);
+  font-size: .85rem;
+}
+.cf-search input {
+  width: 100%;
+  padding: .55rem .9rem .55rem 2.2rem;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  font-size: .9rem;
+  background: #fff;
+  outline: none;
+}
+.cf-search input:focus { border-color: var(--cf-primary); box-shadow: 0 0 0 3px rgba(30, 79, 145, .15); }
+.cf-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.cf-chip {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: var(--cf-ink);
+  border-radius: 999px;
+  padding: .3rem .8rem;
+  font-size: .85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cf-chip span {
+  display: inline-block;
+  min-width: 1.4em;
+  margin-left: .2rem;
+  padding: 0 .35em;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: var(--cf-muted);
+  font-size: .75rem;
+  text-align: center;
+}
+.cf-chip:hover { border-color: var(--cf-primary); }
+.cf-chip.is-active { background: var(--cf-primary); border-color: var(--cf-primary); color: #fff; }
+.cf-chip.is-active span { background: rgba(255, 255, 255, .25); color: #fff; }
+
+/* one semester */
+.cf-semester { margin-bottom: 1.75rem; }
+.cf-semester[hidden], .cf-card[hidden], .cf-nomatch[hidden] { display: none !important; }
+.cf-semester-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 .75rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid var(--cf-line);
+  color: var(--cf-primary-dark);
+}
+.cf-semester-title small { margin-left: auto; font-size: .8rem; font-weight: 500; color: var(--cf-muted); }
+.cf-sem-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 8px;
+  background: var(--cf-primary);
+  color: #fff;
+  font-size: .95rem;
+}
+
+/* one course file */
+.cf-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .75rem; }
+.cf-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: .9rem 1rem;
+  background: #fff;
+  border: 1px solid var(--cf-line);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, .04);
+  transition: box-shadow .15s, border-color .15s, transform .15s;
+}
+.cf-card:hover { border-color: #c9d7ec; box-shadow: 0 6px 16px rgba(16, 24, 40, .08); transform: translateY(-1px); }
+.cf-icon {
+  flex: 0 0 auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+}
+.cf-pdf { background: #fdecec; color: #c62828; }
+.cf-word { background: #e8f0fe; color: #1a56b8; }
+.cf-excel { background: #e6f4ea; color: #1e7b3a; }
+.cf-powerpoint { background: #fdf0e6; color: #c2410c; }
+.cf-body { flex: 1 1 auto; min-width: 0; }
+.cf-code {
+  display: inline-block;
+  margin-bottom: .15rem;
+  padding: .05rem .5rem;
+  border-radius: 4px;
+  background: #eef2f7;
+  color: var(--cf-primary-dark);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.cf-subject { margin: 0; font-size: 1rem; font-weight: 600; line-height: 1.35; color: var(--cf-ink); overflow-wrap: anywhere; }
+.cf-meta { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin: .3rem 0 0; font-size: .82rem; color: var(--cf-muted); }
+.cf-meta i { margin-right: .2rem; opacity: .8; }
+.cf-actions { flex: 0 0 auto; display: flex; gap: .5rem; }
+
+/* nothing uploaded yet / nothing found */
+.cf-empty {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 2px dashed #d5deeb;
+  border-radius: 12px;
+  background: #fafcff;
+  color: var(--cf-muted);
+}
+.cf-empty i { font-size: 2.5rem; color: #9db6dc; margin-bottom: .75rem; }
+.cf-empty h4 { margin: 0 0 .35rem; font-size: 1.15rem; font-weight: 600; color: var(--cf-ink); }
+.cf-empty p { margin: 0; }
+.cf-nomatch { padding: 1.25rem; text-align: center; color: var(--cf-muted); background: var(--cf-soft); border-radius: 8px; }
+
+@media (max-width: 575.98px) {
+  .cf-intro { padding: 1rem 1rem 1rem 1.25rem; }
+  .cf-intro::before { display: none; }
+  .cf-card { flex-wrap: wrap; }
+  .cf-actions { width: 100%; }
+  .cf-actions .cf-btn { flex: 1 1 0; justify-content: center; }
+  .cf-search { max-width: none; }
+}
+
+/* ---- HOD screen /manage/course-files ---- */
+.cfm-form {
+  background: #fff;
+  border: 1px solid var(--cf-line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.cfm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.cfm-field label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .3rem; }
+.cfm-field input[type="text"], .cfm-field select {
+  width: 100%;
+  padding: .5rem .7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+}
+.cfm-field .cfm-hint { font-size: .78rem; color: var(--cf-muted); margin-top: .2rem; }
+.cfm-table { width: 100%; border-collapse: collapse; background: #fff; font-size: .9rem; }
+.cfm-table th, .cfm-table td { border: 1px solid var(--cf-line); padding: .55rem .65rem; text-align: left; vertical-align: middle; }
+.cfm-table th { background: #f3f4f6; font-weight: 600; }
+.cfm-table tr.is-hidden td { color: #9ca3af; }
+.cfm-table .cfm-actions { white-space: nowrap; }
+.cfm-table .cfm-actions form { display: inline; }
+@media (min-width: 640px) {
+  .cfm-wide { grid-column: span 2; }
+}

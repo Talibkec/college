@@ -13,7 +13,7 @@
             <li class="active">Question Bank</li>
         </ul>
         <div class="row">
-            <jsp:include page="../sidebars/ecesidebar.jsp"/><div class="col-md-8">
+            <jsp:include page="sidebar.jsp"/><div class="col-md-8">
                 <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;">
                     <div id="pl-330" class="panel-layout">
                         <div id="pg-330-0" class="panel-grid panel-no-style">

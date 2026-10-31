@@ -17,7 +17,7 @@
           <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/students" class="sf-depth-2">Student of manufacturing Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/notice" class="sf-depth-2">Notice</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-          <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/programs" class="sf-depth-2">Course File</a></li>
+          <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/course" class="sf-depth-2">Course File</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/staff" class="sf-depth-2">Staff of manufacturing Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/manufacturing/attendance" class="sf-depth-2">Attendance Summary</a></li>
         </ul>

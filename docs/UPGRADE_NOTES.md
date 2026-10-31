@@ -672,6 +672,23 @@ An HOD edits only the own site(s): `department_site.hod_username` or the HOD's f
   `/approval/deleteLab/{id}` of another department → "Access Denied" (the existing reply), document kept.
 * Tests: `RefactoringSafetyTest` (lab part: own department, other department refused for upload and delete).
 
+### 10.7n Course File pages with uploads by the HOD (decision 2026-10-31)
+* Sidebar of every department site: "Course File" opened `/department/<site>/programs` (Program Activities); it now
+  opens `/department/<site>/course` (ECE-VLSI: `/department/ece/course`, like the rest of its sidebar). EEE Programs,
+  EEE/ECE/ECE-VLSI Question Bank included a missing `../sidebars/*.jsp`, so the page stopped after the title (no
+  sidebar, no footer); they include `sidebar.jsp` now. Baselines BODY -> PAGE (approved fix).
+* New table `course_file` (approved, `docs/sql/dynamic/17_course_file.sql`); files in `content_file` (area
+  `department.<site>`), served by `/course-file/{id}/{name}` only while the entry is shown (or to its managers).
+* `/department/<site>/course` (now `CourseFileController`, any method as before): the 10 JSPs share one layout:
+  sidebar, the editable paragraph `department.<site>.course/main` (new text instead of "Updated Soon…", seed +
+  `17_course_file_texts.sql`), then `jsp/department/courseFiles.jsp`: files by semester, search, semester filter,
+  View (PDF) / Download; `css/course-files.css`.
+* `/manage/course-files?dept=<site>` (CourseFileService): add, change (also replace the file), hide, delete. Admin for
+  every department, an HOD only for the own one (edit access to `department.<site>`, like the lab documents).
+  SubAdmin and Faculty: 403. Links: button on the page, HOD dashboard tile, Website Content bar and area tile.
+  Changes are logged in `content_change_log` (entity `course_file`).
+* Tests: `CourseFilesTest`.
+
 ### 10.8 Manual re-test
 * Log in as an Admin: sidebar → Assign Website Roles; give a test account `TPO`, log in with it → lands on `/manage`
   and sees "Training & Placement", "Gallery", "College notices" only. Remove the role again.

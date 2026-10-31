@@ -156,6 +156,19 @@
             </div>
           </div>
           </c:if>
+          <c:if test="${canManageCourseFiles}">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h4>Course Files</h4>
+              </div>
+              <div class="icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <a href="/manage/course-files" class="small-box-footer" id="hod-course-files">Click Here <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          </c:if>
           
         <!-- /.row -->
        

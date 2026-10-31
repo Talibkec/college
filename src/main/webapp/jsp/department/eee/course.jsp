@@ -3,8 +3,7 @@
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-10 col-sm-8"><h3>Course</h3></div>
-
+                <div class="col-md-10 col-sm-8"><h3>Course File</h3></div>
             </div>
         </div>
     </div>
@@ -13,9 +12,9 @@
         <div class="row">
             <jsp:include page="sidebar.jsp"/>
 
-            <div class="col-md-8">
-                <div class="page-content" style="line-height: 175%; font-size: 125%; font-weight: 300;"><kec:section key="department.eee.course/main" title="EEE Course File: text"><p>Updated Soon&#8230;</p></kec:section>
-                </div>
+            <div class="col-md-9 cf-page">
+                <div class="cf-intro"><kec:section key="department.eee.course/main" title="EEE Course File: text"><p>The course file is the complete teaching record of a subject: syllabus, course outcomes, lesson plan, lecture notes, assignments, question papers and results. The course files of the Department of Electrical &amp; Electronics Engineering are listed below, semester by semester. Search for a subject by its name, code or faculty member.</p></kec:section></div>
+                <jsp:include page="/jsp/department/courseFiles.jsp"/>
             </div>
         </div>
     </div>

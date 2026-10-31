@@ -18,7 +18,7 @@ import java.util.Map;
  *
  * <p>The URL patterns list exactly the departments and pages that existed before, so unknown pages still answer
  * 404 and about/notice stay GET-only (405 otherwise), while the static pages and faculty shortcuts accept any
- * method, as before. Views are {@code department/<dept>/<page>.jsp}.
+ * method, as before. Views are {@code department/<dept>/<page>.jsp}. The course page is in CourseFileController.
  */
 @Controller
 public class DepartmentController {
@@ -27,7 +27,7 @@ public class DepartmentController {
             "cse|civil|mechanical|ece|eee|ecevlsi|ash|fp|manufacturing|mechandsmartmanufacturing";
     private static final String MECH_DEPTS = "mechanical|manufacturing|mechandsmartmanufacturing";
     private static final String OTHER_DEPTS = "cse|civil|ece|eee|ecevlsi|ash|fp";
-    private static final String PAGES = "vision|students|labs|question|awards|programs|weekly|course|attendance";
+    private static final String PAGES = "vision|students|labs|question|awards|programs|weekly|attendance";
     private static final String MECH_PAGES = PAGES + "|faculty|staff";
 
     private static final String CSE_FP_FACULTY = "subodh|dky|shweta|snehakumari|sjk|mta|pks|cmm|snjk|shk";

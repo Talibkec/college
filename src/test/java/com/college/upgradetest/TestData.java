@@ -100,6 +100,7 @@ public class TestData {
         jdbc.update("delete from department_site where site_code like ?", like);
         jdbc.update("delete from link_item where label like ?", like);
         jdbc.update("delete from page_block where created_by like ?", like);
+        jdbc.update("delete from course_file where created_by like ?", like);
         jdbc.update("delete from content_file where uploaded_by like ?", like);
         // switches created only by LinksTest (main_menu's switch comes from the seed and is kept)
         jdbc.update("delete from site_setting where value_type = 'switch' and setting_key <> 'links.main_menu.enabled' and updated_by like ?", like);

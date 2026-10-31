@@ -1,11 +1,9 @@
 <%@ taglib prefix="kec" uri="/WEB-INF/kec.tld" %><jsp:include page="/jsp/header.jsp"/>
 
-
 <div class="jumbotron" style="padding-top: 24px; padding-bottom: 24px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-8"><h3>Course File</h3></div>
-
             </div>
         </div>
     </div>
@@ -14,11 +12,9 @@
         <div class="row">
             <jsp:include page="sidebar.jsp"/>
 
-            <div><kec:section key="department.mechanical.course/main" title="Mechanical Course File: text"><p><strong>Updated Soon&#8230</strong></p></kec:section></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-md-9 cf-page">
+                <div class="cf-intro"><kec:section key="department.mechanical.course/main" title="Mechanical Course File: text"><p>The course file is the complete teaching record of a subject: syllabus, course outcomes, lesson plan, lecture notes, assignments, question papers and results. The course files of the Department of Mechanical Engineering are listed below, semester by semester. Search for a subject by its name, code or faculty member.</p></kec:section></div>
+                <jsp:include page="/jsp/department/courseFiles.jsp"/>
             </div>
         </div>
     </div>

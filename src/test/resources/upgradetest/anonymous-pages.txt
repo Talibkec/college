@@ -101,7 +101,7 @@
 /department/ece/notice                                  200 PAGE
 /department/ece/principal                               200 PAGE
 /department/ece/programs                                200 PAGE
-/department/ece/question                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/ece/question                                200 PAGE       # FIXED 2026-10-31 (approved): was BODY, missing include ../sidebars/*.jsp -> page truncated
 /department/ece/rdr                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
 /department/ece/rk                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
 /department/ece/sa                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
@@ -122,7 +122,7 @@
 /department/ecevlsi/notice                              200 PAGE
 /department/ecevlsi/principal                           200 PAGE
 /department/ecevlsi/programs                            200 PAGE
-/department/ecevlsi/question                            200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/ecevlsi/question                            200 PAGE       # FIXED 2026-10-31 (approved): was BODY, missing include ../sidebars/*.jsp -> page truncated
 /department/ecevlsi/rdr                                 200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
 /department/ecevlsi/rk                                  404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
 /department/ecevlsi/sa                                  200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
@@ -142,8 +142,8 @@
 /department/eee/nk                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
 /department/eee/notice                                  200 PAGE
 /department/eee/principal                               200 PAGE
-/department/eee/programs                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
-/department/eee/question                                200 BODY       # BROKEN-BEFORE-UPGRADE: missing include ../sidebars/*.jsp -> page truncated
+/department/eee/programs                                200 PAGE       # FIXED 2026-10-31 (approved): was BODY, missing include ../sidebars/*.jsp -> page truncated
+/department/eee/question                                200 PAGE       # FIXED 2026-10-31 (approved): was BODY, missing include ../sidebars/*.jsp -> page truncated
 /department/eee/rdr                                     200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200
 /department/eee/rk                                      404 -          # BROKEN-BEFORE-UPGRADE: view JSP missing
 /department/eee/sa                                      200 EMPTY      # BROKEN-BEFORE-UPGRADE: view JSP missing, exception swallowed -> empty 200

@@ -2,6 +2,7 @@ package com.college.core.controller;
 
 import com.college.core.model.NoticeBoardDTO;
 import com.college.service.ContentPermissionService;
+import com.college.service.CourseFileService;
 import com.college.service.FacultyProfileService;
 import com.college.service.LabDocumentAccess;
 import com.college.service.NoticeBoardService;
@@ -24,10 +25,13 @@ public class AdminController {
     private final NoticeBoardService noticeBoardService;
     private final ContentPermissionService contentPermissionService;
     private final LabDocumentAccess labDocumentAccess;
+    private final CourseFileService courseFileService;
 
     public AdminController(FacultyProfileService facultyProfileService, NoticeBoardService noticeBoardService,
-                           ContentPermissionService contentPermissionService, LabDocumentAccess labDocumentAccess) {
+                           ContentPermissionService contentPermissionService, LabDocumentAccess labDocumentAccess,
+                           CourseFileService courseFileService) {
         this.labDocumentAccess = labDocumentAccess;
+        this.courseFileService = courseFileService;
         this.facultyProfileService = facultyProfileService;
         this.noticeBoardService = noticeBoardService;
         this.contentPermissionService = contentPermissionService;
@@ -75,6 +79,8 @@ public class AdminController {
         ModelAndView mv = new ModelAndView();
         mv.addObject("canManageContent",
                 !contentPermissionService.editableAreas(SecurityContextHolder.getContext().getAuthentication()).isEmpty());
+        mv.addObject("canManageCourseFiles",
+                !courseFileService.manageableSites(SecurityContextHolder.getContext().getAuthentication()).isEmpty());
         mv.setViewName("admin/HodDashboard.jsp");
         return mv;
 

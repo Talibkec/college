@@ -3,6 +3,7 @@ package com.college.core.controller;
 import com.college.core.config.KECUrlAuthenticationSuccessHandler;
 import com.college.core.model.AreaAccess;
 import com.college.service.ContentPermissionService;
+import com.college.service.CourseFileService;
 import com.college.service.PageSectionService;
 import com.college.service.SiteSettingService;
 import org.springframework.security.core.Authentication;
@@ -21,11 +22,14 @@ public class ContentManageController {
     private final KECUrlAuthenticationSuccessHandler landingPages;
     private final SiteSettingService siteSettingService;
     private final PageSectionService pageSectionService;
+    private final CourseFileService courseFileService;
 
     public ContentManageController(ContentPermissionService contentPermissionService,
                                    KECUrlAuthenticationSuccessHandler landingPages,
                                    SiteSettingService siteSettingService,
-                                   PageSectionService pageSectionService) {
+                                   PageSectionService pageSectionService,
+                                   CourseFileService courseFileService) {
+        this.courseFileService = courseFileService;
         this.contentPermissionService = contentPermissionService;
         this.landingPages = landingPages;
         this.siteSettingService = siteSettingService;
@@ -47,6 +51,11 @@ public class ContentManageController {
         mv.addObject("settingAreas", siteSettingService.areasWithSettings());
         mv.addObject("linkAreas", java.util.Collections.singletonList("menu"));
         mv.addObject("sectionAreas", pageSectionService.areasWithSections());
+        java.util.Map<String, String> courseAreas = new java.util.HashMap<>(); // area -> department site
+        for (String site : courseFileService.manageableSites(authentication)) {
+            courseAreas.put("department." + site, site);
+        }
+        mv.addObject("courseAreas", courseAreas);
         mv.addObject("isAdmin", ControllerUtility.getRole().contains("Admin"));
         return mv;
     }

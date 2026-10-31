@@ -1,6 +1,7 @@
 package com.college.core.tags;
 
 import com.college.service.ContentPermissionService;
+import com.college.service.CourseFileService;
 import com.college.service.LinkService;
 import com.college.service.PageSectionService;
 import com.college.service.SiteSettingService;
@@ -71,6 +72,9 @@ public class ManageNavTag extends SimpleTagSupport {
                 items.add(new Item("Page texts", "/manage/sections", "fa-file-alt", path.startsWith("/manage/sections")));
             }
             items.add(new Item("Add to a page", "/manage/blocks", "fa-plus-circle", path.startsWith("/manage/blocks")));
+            if (!context.getBean(CourseFileService.class).manageableSites(authentication).isEmpty()) {
+                items.add(new Item("Course files", "/manage/course-files", "fa-book-open", path.startsWith("/manage/course-files")));
+            }
             if (!context.getBean(SiteSettingService.class).editableSettings(authentication).isEmpty()) {
                 items.add(new Item("Contact & footer texts", "/manage/settings", "fa-cog", path.startsWith("/manage/settings")));
             }

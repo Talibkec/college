@@ -16,7 +16,7 @@
           <li class="leaf menu-mlid-1467"><a href="/department/fp/students" class="sf-depth-2">Student of Food Processing</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/fp/notice" class="sf-depth-2">Notice</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/fp/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-          <li class="leaf menu-mlid-1467"><a href="/department/fp/programs" class="sf-depth-2">Course File</a></li>
+          <li class="leaf menu-mlid-1467"><a href="/department/fp/course" class="sf-depth-2">Course File</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/fp/staff" class="sf-depth-2">Staff of Food Processing</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/fp/attendance" class="sf-depth-2">Attendance Summary</a></li>
         </ul></div>

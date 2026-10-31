@@ -50,6 +50,7 @@ mysql -u <user> -p "$DB" < 12_content_change_log.sql
 mysql -u <user> -p "$DB" < 13_content_file.sql
 mysql -u <user> -p "$DB" < 14_page_block.sql
 mysql -u <user> -p "$DB" < 16_faculty_designation.sql   # new column faculty.f_designation; BEFORE deploying the new WAR
+mysql -u <user> -p "$DB" < 17_course_file.sql           # new table course_file (course files of the department sites)
 
 # 2. data (seeds) – utf8mb4 so that special characters arrive unchanged
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 10_roles_seed.sql
@@ -59,6 +60,7 @@ mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 01_site_setting_seed.
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 02_page_section_seed.sql
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 03_link_item_seed.sql
 mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 15_page_section_pages_seed.sql
+mysql -u <user> -p --default-character-set=utf8mb4 "$DB" < 17_course_file_texts.sql   # after 15: paragraph of the 10 Course File pages
 ```
 
 To avoid typing the password 20 times: run `mysql -u <user> -p --default-character-set=utf8mb4 "$DB"` once and enter
@@ -77,6 +79,8 @@ SELECT COUNT(*) FROM page_section;                                   -- 160 (5 A
 SELECT list_code, COUNT(*) FROM link_item GROUP BY list_code;        -- 10 lists, 129 entries in total
 SELECT setting_value FROM site_setting WHERE setting_key = 'links.main_menu.enabled';   -- no
 SHOW TABLES LIKE 'page_block'; SHOW TABLES LIKE 'content_file';      -- both exist (empty)
+SHOW TABLES LIKE 'course_file';                                      -- exists (empty until the HODs upload)
+SELECT COUNT(*) FROM page_section WHERE page_key LIKE 'department.%.course' AND body_html LIKE '<p>The course file is%';  -- 10 (fewer if an HOD already changed the text)
 SHOW COLUMNS FROM faculty LIKE 'f_designation';                      -- 1 row (VARCHAR(100), NULL); without it the new WAR cannot read faculty
 SHOW VARIABLES LIKE 'max_allowed_packet';                            -- must be > 20 MB (uploads); MySQL 8 default 64 MB
 ```
@@ -86,7 +90,8 @@ SHOW VARIABLES LIKE 'max_allowed_packet';                            -- must be 
 Deploy the previous WAR first, then (the new tables are not referenced by any existing table):
 
 ```sql
-DROP TABLE IF EXISTS page_block, content_file, content_change_log, document_type, content_area_role, content_area,
+DELETE FROM content_file WHERE file_id IN (SELECT file_id FROM course_file);  -- only if content_file stays
+DROP TABLE IF EXISTS course_file, page_block, content_file, content_change_log, document_type, content_area_role, content_area,
   sms_group_member, sms_group, notice_type, department_site, fee_item, site_image, contact_person, link_item,
   page_section, site_setting;
 DELETE ur FROM user_role ur JOIN test_role r ON r.id = ur.role_id
@@ -114,6 +119,8 @@ with the tables.
 | `11_document_type.sql` | new table | document pages (later) |
 | `12_content_change_log.sql` | new table | history of all changes (step 2) |
 | `13_content_file.sql` | new table `content_file` | uploaded images/documents of page blocks |
+| `17_course_file.sql` | new table `course_file` (department site, semester, subject code/name, faculty, session, `file_id` → `content_file`, visible) | Course File pages `/department/<site>/course`, HOD screen `/manage/course-files` |
+| `17_course_file_texts.sql` | `UPDATE` of the 10 `page_section` rows `department.<site>.course/main`: the new paragraph instead of "Updated Soon…", only where never changed on the website | Course File pages |
 | `16_faculty_designation.sql` | new column `faculty.f_designation` VARCHAR(100) NULL (idempotent) | designation on the faculty list and profile; NULL = "Assistant Professor" |
 | `14_page_block.sql` | new table `page_block` | headings, text, images, documents (attachments) and links added to pages (`block_type` `link`: text in `heading`, address in `body_html`) |
 | `10_roles_seed.sql` | 12 new rows in the existing table `test_role` | roles |
@@ -179,6 +186,7 @@ with the tables.
 | 2026-10-29 | UI fixes phase 5 (one title-bar style, missing/wrong page headings, duplicate titles) | **no database change.** Optional content fixes in Website Content → Menus: "Academic Calender", "Placement Brouchure", "AICTE Aproval", "photo Gallery"; check the "topbar" menu entry | – (nothing to run) |
 | 2026-10-29 | UI fixes phase 6 (missing closing tags put the footer in the wrong place on 4 pages) | **no database change** | – (nothing to run) |
 | 2026-10-29 | UI fixes phase 6, part 2 (HOD dashboard sidebar no longer covers the site header; Fee Structure page has its footer again) | **no database change** | – (nothing to run) |
+| 2026-10-31 | Course File pages: HOD uploads course files per subject (`/manage/course-files`), page shows an editable paragraph and the files by semester; sidebar "Course File" opens `/course` (was `/programs`); EEE/ECE/ECE-VLSI pages with a missing sidebar include fixed | **schema change (approved 2026-10-31): new table `course_file`** (no existing table changed; files in the existing `content_file`). Data: the 10 `department.<site>.course/main` texts get the new paragraph where still "Updated Soon…" and never edited. Restart afterwards (text cache) | `17_course_file.sql`, `17_course_file_texts.sql` (or `apply_production.sh`) |
 
 Only on the local development copy (already done there, **not needed in production**, where `03_link_item.sql` creates
 the table with the column): `ALTER TABLE link_item ADD COLUMN css_class VARCHAR(100) NULL AFTER icon_class;`

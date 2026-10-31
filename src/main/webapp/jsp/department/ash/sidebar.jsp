@@ -16,7 +16,7 @@
           <li class="leaf menu-mlid-1467"><a href="/department/ash/students" class="sf-depth-2">Student of Applied Sc. &amp; Humanities</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/ash/notice" class="sf-depth-2">Notice</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/ash/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-          <li class="leaf menu-mlid-1467"><a href="/department/ash/programs" class="sf-depth-2">Course File</a></li>
+          <li class="leaf menu-mlid-1467"><a href="/department/ash/course" class="sf-depth-2">Course File</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/ash/staff" class="sf-depth-2">Staff of Applied Sc. &amp; Humanities</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/ash/attendance" class="sf-depth-2">Attendance Summary</a></li>
         </ul></div>

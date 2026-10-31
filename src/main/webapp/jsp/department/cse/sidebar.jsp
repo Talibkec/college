@@ -16,7 +16,7 @@
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/students" class="sf-depth-2">Student of CSE</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/notice" class="sf-depth-2">Notice</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-                    <li class="leaf menu-mlid-1467"><a href="/department/cse/programs" class="sf-depth-2">Course File</a></li>
+                    <li class="leaf menu-mlid-1467"><a href="/department/cse/course" class="sf-depth-2">Course File</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/staff" class="sf-depth-2">Staff of CSE</a></li>
                     <li class="leaf menu-mlid-1467"><a href="/department/cse/attendance" class="sf-depth-2">Attendance Summary</a></li>
                 </ul></div>

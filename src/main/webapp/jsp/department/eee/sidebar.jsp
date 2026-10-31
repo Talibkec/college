@@ -16,7 +16,7 @@
           <li class="leaf menu-mlid-1467"><a href="/department/eee/students" class="sf-depth-2">Student of  Electrical & Electronics Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/notice" class="sf-depth-2">Notice</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/weekly" class="sf-depth-2">Weekly Test Result</a></li>
-          <li class="leaf menu-mlid-1467"><a href="/department/eee/programs" class="sf-depth-2">Course File</a></li>
+          <li class="leaf menu-mlid-1467"><a href="/department/eee/course" class="sf-depth-2">Course File</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/staff" class="sf-depth-2">Staff of  Electrical & Electronics Engg.</a></li>
           <li class="leaf menu-mlid-1467"><a href="/department/eee/attendance" class="sf-depth-2">Attendance Summary</a></li>
         </ul></div>
